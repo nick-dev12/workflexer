@@ -1,6 +1,5 @@
 
-
-
+ 
 
 <link rel="stylesheet" href="../style/footer.css">
 
