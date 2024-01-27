@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap');
+
+
+
+*{
+    margin:0 ;
+    text-decoration: none;
+  }
+  
+  body{
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+}
+
+.section2 .box3 table .me{
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+.section2 .box3 table .me td a {
+    color: black;
+
+}
+.section2 .box3 table .tr1{
+  background-color: #797979;
+}
+.section2 .box3 table .tr1 td a{
+  color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section3{
+  margin-left: 280px;
+  margin-top: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background: url(../image/bg_bggenerator_com.jpg); */
+  background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%);
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 50px 0;
+}
+
+.section3 .box1{
+  width: 80%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 7px 7px 2px rgb(136, 136, 136);
+}
+.section3 .box1 h1{
+  width: 35%;
+  height: 100%;
+  font-weight: bolder;
+  background-color: #002233;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px 10px #d1d1d1;
+  font-size: 25px;
+  padding: 0 20px;
+}
+.section3 .box1 .container_slider{
+  width: 65%;
+  height: 300px !important;
+  border: none;
+  overflow: hidden;
+  margin-top: 10px;
+
+}
+.section3 .box1 .container_slider img{
+  width: 100%;
+  height:300px;
+  object-fit: cover;
+}
+
+.section3 .box2{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: #ffffff;
+}
+.section3 .box2 p{
+  font-size: 16px;
+  color: #002233cb;
+  border-left: 4px solid orange;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+}
+.section3 .box2 p span{
+  height: 40px;
+  width: 40px;
+  max-width: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:2px dotted #002233 ;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.section3 .div-section3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+  width: 100%;
+}
+.section3 .div-section3 .box6{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.section3 .div-section3 .box6 h2{
+  background-color: #002233;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 10px 20px;
+  text-align: center;
+  width: 600px;
+  border-radius: 7px;
+
+}
+.section3 .div-section3 .box6 .container_accept{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.section3 .div-section3 .box6 .accept{
+  width: 230px;
+  height: 360px;
+  border: 2px solid #cbcbcb;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: relative;
+  padding-bottom: 10px;
+  margin: 20px 0;
+  margin: 20px;
+  box-shadow: 7px 7px 7px 2px #0022336c;
+}
+.section3 .div-section3 .box6 .accept img{
+  width: 100%;
+  height:160px;
+  object-fit: cover;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border: 1px solid #00223352;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.section3 .div-section3 .box6 .accept .cursor{
+  pointer-events: none;
+  cursor: not-allowed;
+  color: red;
+}
+
+.section3 .div-section3 .box6 .accept h3 span{
+  color: black;
+}
+
+.section3 .div-section3 .box6 .accept h3{
+  width: 100%;
+  font-size: 15px;
+  font-weight: bolder;
+  margin-left: 10px;
+  color: #0066FF;
+  padding: 5px 0;
+  margin-top: 10px;
+}
+
+.section3 .div-section3 .box6 .accept p{
+  width: 700px;
+  margin-left: 14px;
+  overflow: hidden;
+  height: 20px;
+  position: relative;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.section3 .div-section3 .box6 .accept p span{
+  position: absolute;
+  height: 100%;
+  width: 20px;
+  background-color: #ffffff;
+  color: #000102;
+  left: 265px;
+  font-size: 20px;
+  top: -5px;padding-left: 2px;
+}
+
+.section3 .div-section3 .box6 .accept a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 2px;
+  border-radius: 7px;
+  background-color: #002233;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0 auto;
+  width: 180px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.section3 .div-section3 .box6 .accept a:hover{
+  background-color: #0066FF;
+}
+.section3 .div-section3 .box6 .accept a img{
+  height: 25px;
+  width: 25px;
+  border: none;
+  margin-right: 5px;
+  transition: all 0.4s ease;
+}
+
+.section3 .div-section3 .box6 .accept a:hover img{
+  transform: scale(1.2);
+}
+
+
+.section3 .div-section3 .box6 .accept .h51{
+  position: absolute;
+  width: 300px;
+  padding: 5px 20px;
+  font-size:15px;
+  background-color: rgb(0, 210, 0);
+  color: #ffffff;
+  font-weight: 600;
+ top: 20px;
+ text-transform: uppercase;
+  transform:rotate(45deg);
+  text-align: center;
+}
+.section3 .div-section3 .box6 .accept .h52{
+  position: absolute;
+  width: 300px;
+  padding: 5px 20px;
+  font-size: 15px;
+  background-color: rgb(210, 21, 0);
+  color: #ffffff;
+  font-weight: 600;
+ top: 20px;
+ text-transform: uppercase;
+  transform:rotate(45deg);
+  text-align: center;
+ 
+}
+.section3 .div-section3 .box6 .accept .h53{
+  position: absolute;
+  width: 300px;
+  padding: 5px 20px;
+  font-size: 16px;
+  background-color: #002233;
+  color: #ffffff;
+  font-weight: 600;
+ top: 40px;
+ text-transform: uppercase;
+  transform:rotate(45deg);
+  text-align: center;
+ 
+}

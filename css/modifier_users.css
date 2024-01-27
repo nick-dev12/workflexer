@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap');
+
+*{
+    margin:0 ;
+    box-sizing: border-box;
+    letter-spacing: 0.5px;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+
+
+/* section 2 et toute ces modification  */
+
+
+.section2 .box3 table .me1{
+  background-color: #797979;
+  border-radius: 15px;
+}
+.section2 .box3 table .me1 td a {
+    color: rgb(255, 255, 255);
+
+}
+  .section2 .box3 table .tr3{
+    background-color: #797979;
+  }
+  .section2 .box3 table .tr3 td a{
+    color: #ffffff;
+  }
+
+
+
+
+
+
+
+
+/* section 3 et toute ces modification  */
+
+.section3{
+    margin-left: 280px;
+    margin-top: 120px;
+    display: flex;
+   background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%);
+   background-position: center;
+   background-attachment: fixed;
+   position: relative;
+   height: 100vh;
+   padding-bottom: 150px;
+   display: flex;
+   justify-content: center;
+
+}
+
+
+.section3 .success{
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgb(0, 196, 0);
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 7px;
+  transition: all opacity 0.8s ease;
+  z-index: 20;
+  opacity: 0;
+  padding: 10px 20px;
+}
+.section3 .success.visible{
+  opacity: 1;
+}
+.section3 .erreur{
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgb(210, 4, 4);
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 7px;
+  transition: all opacity 0.8s ease;
+  z-index: 20;
+  opacity: 0;
+}
+
+.section3 .erreur.visible{
+  opacity: 1;
+}
+
+.section3 .delete{
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgb(42, 4, 210);
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 7px;
+  transition: all opacity 0.8s ease;
+  z-index: 20;
+  opacity: 0;
+  padding: 10px 20px;
+}
+
+.section3 .delete.visiblee{
+  opacity: 1;
+}
+
+
+
+
+
+
+
+.container_profil{
+    width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_profil .box3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container_profil .box3 h2{
+    width: 100%;
+    padding: 3px 20px;
+    background-color: #67dd00;
+    color: #FFFFFF;
+    margin:7px 0;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.container_profil .box3 a{
+    text-decoration: none;
+}
+.container_profil .box3 .info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: -200px;
+    padding:5px 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.container_profil .box3 .info img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border:2px solid  #67dd00;
+    margin-right: 10px;
+}
+.container_profil .box3 .info .div h4{
+    font-weight: bolder;
+    font-size: 15px;
+    color: #002233c3;
+}
+.container_profil .box3 .info .div p{
+    color: #0066FF;
+    font-weight: 500;
+    font-size: 14px;
+}
+.container_profil .box3 .info .div p .span1{
+    color: #000000;
+    font-weight: 500;
+    font-size: 14.5px; 
+    margin-right: 10px;
+}
+.container_profil .box3 .info .div p .span2{
+    color: #000000;
+    font-weight: bold;
+    font-size: 14.5px; 
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+.container_profil .box2 a{
+    text-decoration: none;
+}
+.container_profil .box2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.container_profil .box2 h2{
+    width: 100%;
+    padding: 7px 20px;
+    background-color: #002233;
+    color: #FFFFFF;
+    margin:10px 0;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.container_profil .box2 .info{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    margin-left: -200px;
+    padding:5px 10px;
+    background-color: #ffffff;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.container_profil .box2 .info img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border:2px solid  #002233;
+    margin-right: 20px;
+}
+
+.container_profil .box2 .info .div h4{
+    font-weight: bolder;
+    font-size: 15px;
+}
+.container_profil .box2 .info .div p{
+    color: #0066FF;
+    font-weight: 500;
+    font-size: 14px;
+}
+.container_profil .box2 .info .div p .span1{
+  color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section3 .mdf_info{
+  width: 90%;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.section3 .mdf_info .box-info{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffffffd2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
+-moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
+-webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000); /*IE 5.5-7*/
+   -ms-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(133, 133, 133, 0.243);
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+.section3 .mdf_info .box-info h2{
+  font-size: 25px;
+  margin-bottom: 120px;
+
+}
+.section3 .mdf_info .box-info .img{
+  height: 140px;
+  width: 140px;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px;
+  object-fit: cover;
+}
+
+.section3 .mdf_info .box-info .btn{
+  padding: 5px 15px;
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translate(-50%);
+  border: none;
+  background-color: #002233;
+  font-size: 17px;
+  border-radius: 7px;
+  color: #ffffff;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.section3 .mdf_info .box-info .btn:hover{
+  background-color: #dfdfdf;
+  color: #020202;
+}
+.section3 .mdf_info .box-info .box-ul{
+  display: flex;
+  margin-top: 70px;
+}
+.section3 .mdf_info .box-info .box-ul ul{
+  margin: 0 20px;
+}
+.section3 .mdf_info .box-info .box-ul .ul li{
+  list-style: none;
+  font-weight: bold;
+}
+.section3 .mdf_info .box-info .box-ul ul li{
+  list-style: none;
+  padding: 7px 10px;
+  /* background-color: #c1c1c1; */
+  margin: 10px 0;
+  height: 35px;
+  max-height: 40px;
+}
+.section3 .mdf_info .box-info .box-ul .modif li{
+  color: #0066FF;
+  cursor: pointer;
+}
+
+.section3 .mdf_info .box-info .box-form{
+  position: absolute;
+  width: 100%;
+  padding: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #0022339c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  z-index: 2;
+}
+.section3 .mdf_info .box-info .box-form img{
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+.section3 .mdf_info .box-info .box-form form{
+width: 400px;
+padding: 20px;
+display: none;
+}
+.section3 .mdf_info .box-info .box-form form div{
+  display: flex;
+  flex-direction: column;
+}
+.section3 .mdf_info .box-info .box-form form div label{
+  color: #ffffff;
+  font-weight:700 ;
+  font-style: italic;
+  font-size: 18px;
+  display: block;
+  margin: 7px 0;
+}
+.section3 .mdf_info .box-info .box-form form div input{
+  height: 40px;
+  width: 100%;
+  border: 2px solid #00000067;
+  outline: none;
+  transition: all 0.4s;
+  border-radius: 7px;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.section3 .mdf_info .box-info .box-form form div select{
+  height: 40px;
+  width: 100%;
+  border: 2px solid #00000067;
+  outline: none;
+  transition: all 0.4s;
+  border-radius: 7px;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.section3 .mdf_info .box-info .box-form form div input:hover{
+  box-shadow: 0 0 10px 5px #0066ff80;
+  background-color: #dfdfdf;
+}
+.section3 .mdf_info .box-info .box-form form #modif{
+  border-radius: 7px;
+  font-size:16px ;
+  background-color: #002233;
+  color: #ffffff;
+  padding: 7px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.section3 .mdf_info .box-info .box-form form #modif:hover{
+  background-color: #ffffff;
+  color: #000000;
+}
