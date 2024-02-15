@@ -110,6 +110,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                     <strong>Nous recherchons un(une)</strong>
                                     <?php echo ($ingenieurs['poste']); ?>
                                 </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($ingenieurs['contrat']); ?>
+                                </p>
 
                             </div>
 
@@ -185,6 +189,11 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Nous recherchons un(une)</strong>
                                     <?php echo ($Designs['poste']); ?>
+                                </p>
+
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Designs['contrat']); ?>
                                 </p>
                             </div>
 
@@ -270,6 +279,11 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                     <strong>Nous recherchons un(une)</strong>
                                     <?php echo ($Redaction['poste']); ?>
                                 </p>
+
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Redaction['contrat']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -348,6 +362,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Nous recherchons un(une)</strong>
                                     <?php echo ($marketing['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($marketing['contrat']); ?>
                                 </p>
                             </div>
 
@@ -430,7 +448,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                     <strong>Nous recherchons un(une)</strong>
                                     <?php echo ($business['poste']); ?>
                                 </p>
-
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($business['contrat']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -509,6 +530,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Nous recherchons un(une)</strong>
                                     <?php echo ($Juridique['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Juridique['contrat']); ?>
                                 </p>
                             </div>
                         </div>
@@ -590,6 +615,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                     <strong>Nous recherchons un(une)</strong>
                                     <?php echo ($Informatique['poste']); ?>
                                 </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Informatique['contrat']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -604,10 +633,6 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             </div>
 
                         </div>
-
-                        <p class="contrat">
-                            <?php echo $Informatique['contrat']; ?>
-                        </p>
 
                         <p id="nom">
                             <?php echo $Informatique['date']; ?>

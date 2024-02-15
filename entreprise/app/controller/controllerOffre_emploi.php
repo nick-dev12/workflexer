@@ -107,10 +107,11 @@ if (isset($_GET['id'])) {
 
     $afficheOffres = getOffresEmploit($db, $_GET['id']);
 
+    $offre_id = $afficheOffres['offre_id'];
+
     if (isset($_SESSION['users_id'])) {
 
         $getVueOffre= getVueOffre($db,$_SESSION['users_id'],$_GET['id']);
-
         if($getVueOffre){
   
         }else{
@@ -126,8 +127,11 @@ if (isset($_GET['id'])) {
         if (postVue ($db,$offre_id,$users_id, $entreprise_id,$nom,$mail)) {
            
         }
-        }
        
+        if(PostHistoriqueUsers($db,$entreprise_id,$users_id,$offre_id)){
+
+        }
+        }
 
     }
 
@@ -139,9 +143,12 @@ if (isset($_SESSION['compte_entreprise'])) {
 
     $offre_id= $_GET['offre_id'];
     if(deleteOffresEmploit($db,$offre_id)){
-        $_SESSION['delete_message']='offre suprimer avec succet';
+        if (deletePostulation($db,$offre_id)) {
+             $_SESSION['delete_message']='offre suprimer avec succet';
         header('Location: ../entreprise/entreprise_profil.php');
         exit();
+        }
+       
     }
 
 }
@@ -150,5 +157,9 @@ if (isset($_SESSION['compte_entreprise'])) {
 
 $afficheAllOffre = getAllOffres($db);
 shuffle($afficheAllOffre);
+
+if(isset($_SESSION['users_id'])) {
+    $historique_users = getHistoriqueUsers($db,$_SESSION['users_id']);
+}
 
 ?>

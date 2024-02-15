@@ -43,7 +43,6 @@ body{
 
 .section3{
     margin-left: 280px;
-    margin-top: 120px;
     display: flex;
    background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%);
    background-position: center;
@@ -53,9 +52,43 @@ body{
    padding-bottom: 150px;
    display: flex;
    justify-content: center;
-
 }
-
+.section3 .img222{
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  height: 50px;
+  width: 50px;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 5;
+  display: none;
+}
+@media screen and (max-width : 1400px) {
+  .section3 .img222{
+    display: none;
+  }
+}
+@media screen and (max-width : 1050px) {
+  .section3 .img222{
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+    display: block;
+  }
+}
+@media screen and (max-width : 1050px) {
+  .section3{
+    margin-left: 0;
+  }
+}
 
 .section3 .success{
   position: absolute;
@@ -274,7 +307,70 @@ body{
   color: #000000;
 }
 
+@media screen and (max-width : 1050px) {
+  .section3{
+    margin-left: 0;
+  }
 
+  .container_profil .box3 .info .div h4{
+    font-weight: bolder;
+    font-size: 15px;
+    color: #000000;
+    padding: 5px;
+}
+.container_profil .box3 .info .div p{
+    color: #0066FF;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.container_profil .box3 .info .div p .span1{
+    color: #000000;
+    font-weight: 500;
+    font-size: 13.5px; 
+    margin-right: 10px;
+}
+.container_profil .box3 .info .div p .span2{
+    color: #000000;
+    font-weight: bold;
+    font-size: 13.5px; 
+    margin-right: 10px;
+}
+}
+@media screen and (max-width : 550px) {
+  .section3{
+    margin-left: 0;
+    padding: 5px;
+  }
+
+  .container_profil .box3 .info .div h4{
+    font-weight: bolder;
+    font-size: 12px;
+    color: #000000;
+    padding: 5px;
+}
+.container_profil .box3 .info .div p{
+    color: #0066FF;
+    font-weight: 500;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+.container_profil .box3 .info .div p strong{
+  font-size: 11px
+}
+.container_profil .box3 .info .div p .span1{
+    color: #000000;
+    font-weight: 500;
+    font-size: 12.5px; 
+    margin-right: 10px;
+}
+.container_profil .box3 .info .div p .span2{
+    color: #000000;
+    font-weight: bold;
+    font-size: 12.5px; 
+    margin-right: 10px;
+}
+}
 
 
 

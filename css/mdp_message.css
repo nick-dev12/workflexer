@@ -13,10 +13,10 @@ body{
 }
 
 .section2{
-    margin-top: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 50px 20px;
 }
 
 .section2 .container{

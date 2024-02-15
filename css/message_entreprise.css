@@ -45,16 +45,48 @@ body{
 
 .section3{
     margin-left: 280px;
-    margin-top: 120px;
     display: flex;
    background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%);
    background-position: center;
    background-attachment: fixed;
    position: relative;
    height: 100vh;
+   align-items: center;
+   justify-content: center;
    padding-bottom: 150px;
 
 }
+.section3 .img222{
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+    display: none;
+  }
+  @media screen and (max-width : 1400px) {
+    .section3 .img222{
+      display: none;
+    }
+  }
+  @media screen and (max-width : 1050px) {
+    .section3 .img222{
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      height: 50px;
+      width: 50px;
+      background-color: #ffffff;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 5;
+      display: block;
+    }
+  }
 .section3 .message{
    margin-top: 20px;
    height: 100%;
@@ -68,7 +100,6 @@ body{
    box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
    position: relative;
    padding: 20px 30px;
-   margin-left: 100px;
    
 }
 .section3 .message  .container_aff{
@@ -228,17 +259,17 @@ body{
    display: flex;
    align-items: center;
    justify-content: center;
+   width: 100%;
 }
 
 .section3 .container_box3  .box3 textarea{
     height: 50px;
-    width: 350px;
+    width: 80%;
     border-radius: 10px;
     border: 1px solid #00223355;
     padding:5px 10px;
     outline: none;
-    font-size: 17px;
-    margin-right: 10px;
+    font-size: 16px;
 }
 .section3 .message .box3 button img{
     height: 40px;
@@ -253,6 +284,26 @@ body{
     outline: none;
 }
 
+@media screen and (max-width : 1050px) {
+   .section3{
+    margin-left: 0;
+   }
+}
+@media screen and (max-width : 600px) {
+    .section3{
+     margin-left: 0;
+    }
+    .section3 .message{
+        padding: 20px 5px;
+        width: 400px;
+     }
+     .section3 .message .affi p {
+        font-size: 14px;
+     }
+     .section3 .container_box3  .box3 textarea{
+        font-size: 14px;
+    }
+ }
 
 
 
@@ -330,7 +381,6 @@ body{
 
 
 
-
 .container_profil .box2 a{
     text-decoration: none;
 }
@@ -379,4 +429,10 @@ body{
 }
 .container_profil .box2 .info .div p span{
     color: #000000;
+}
+
+@media screen and (max-width : 1500px) {
+    .container_profil{
+        display: none;
+    }
 }

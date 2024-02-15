@@ -52,7 +52,7 @@ if (isset($_GET['id'])) {
             
         }else{
             if (PostVueProfil($db,$_SESSION['users_id'],$_GET['id'])) {
-        
+              
             }
         }
     }
@@ -69,7 +69,11 @@ if (isset($_GET['id'])) {
         
     }else{
         if (PostVueProfil($db,$_SESSION['compte_entreprise'],$_GET['id'])) {
-        
+           
+        }
+
+        if( PostHistorique($db,$_SESSION['compte_entreprise'],$_GET['id'])){
+
         }
     }
     }

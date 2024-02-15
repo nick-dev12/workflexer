@@ -53,22 +53,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="box">
             <div>
                 <a href="/compte_entreprise.php">
-                    <button>compte d'entreprise</button>
+                    <button>Compte d'Entreprise</button>
                     <img src="/image/entreprise.jpg" alt="">
                 </a>
             </div>
 
             <div>
                 <a href="/compte_travailleur.php">
-                    <button> compte de travailleur</button>
+                    <button> Compte Professionnel</button>
                     <img src="/image/travail.png" alt="">
                 </a>
             </div>
         </div>
-    </section>
-
-    <section class="section4">
-        <img src="/image/p.png" alt="">
     </section>
 
 

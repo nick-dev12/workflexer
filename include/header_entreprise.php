@@ -3,6 +3,7 @@
 
 
 <section class="section2">
+<img src="../image/croix.png" alt="" class="img111">
         <div class="container">
         <div class="box1">
                 <img src="../upload/<?= $getEntreprise['images']; ?>" alt="">
@@ -36,6 +37,10 @@
                     <tr class="me4">
                         <td id="td"><a href="message.php"><img src="../image/modifier.png" alt=""></a></td>
                         <td class="td"> <a href="../entreprise/message.php">Message</a></td>
+                    </tr>
+                    <tr class="me4">
+                        <td id="td"><a href="message.php"><img src="../image/historique.png" alt=""></a></td>
+                        <td class="td"> <a href="../entreprise/historique.php">Historique</a></td>
                     </tr>
                 </table>
             </div>

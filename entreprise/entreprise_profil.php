@@ -38,6 +38,22 @@ include_once('app/controller/controllerOffre_emploi.php');
 
     <section class="section3">
 
+    
+    <img src="../image/fleche.png" alt="" class="img222">
+        <script>
+            let img222 = document.querySelector('.img222');
+            let section2 = document.querySelector('.section2');
+            let img111 = document.querySelector('.img111')
+            img222.addEventListener('click', () => {
+                section2.style.marginLeft = '0px';
+                img222.style.display = 'none';
+            });
+
+            img111.addEventListener('click', () => {
+                section2.style.marginLeft = '-150%';
+                img222.style.display = 'block';
+            });
+        </script>
 
         <div class="section2-div ">
             <div class="slider1 owl-carousel">
@@ -122,9 +138,11 @@ include_once('app/controller/controllerOffre_emploi.php');
             <div class="box1">
                 <h2>Description !</h2>
                 <?php if (isset($afficheDescriptionentreprise['descriptions'])): ?>
+                    <p>
                     <?= $afficheDescriptionentreprise['descriptions'] ?>
+                    </p>
                 <?php else: ?>
-                    <p> Ajouter une description pour que votre entreprise soit connue </p>
+                    <p class="p" > Ajouter une description pour que votre entreprise soit connue </p>
                 <?php endif; ?>
             </div>
             <?php if (isset($afficheDescriptionentreprise['descriptions'])): ?>
@@ -190,6 +208,7 @@ include_once('app/controller/controllerOffre_emploi.php');
             </div>
             <div class="form_off">
                 <form method="post" action="">
+                    <img src="../image/croix.png" alt="" class="img1" >
 
                     <div class="box">
                         <label for="poste">Poste disponible :</label>
@@ -232,19 +251,18 @@ include_once('app/controller/controllerOffre_emploi.php');
                     </div>
 
                     <div class="box">
-                        <label for="categorie">Secteur d'activité :</label>
-                        <select id="categorie" name="categorie">
-                            <option value="">Sélectionnez une catégorie</option>
-                            <option value="Informatique">Informatique et tech</option>
-                            <option value="design">Design et création</option>
-                            <option value="Rédaction">Rédaction et traduction</option>
-                            <option value="marketing">Marketing et communication</option>
-                            <option value="business">Conseil et gestion d'entreprise</option>
-                            <option value="Juridique">Juridique</option>
-                            <option value="Ingénierie">Ingénierie et architecture</option>
-                            <option value="autre">Autre</option>
-                        </select>
-                    </div>
+                            <label for="categorie">Secteur d'activité</label>
+                            <select id="categorie" name="categorie">
+                                <option value="">Sélectionnez une catégorie</option>
+                                <option value="Informatique et tech">Informatique et tech</option>
+                                <option value="Design et création">Design et création</option>
+                                <option value="Rédaction et traduction">Rédaction et traduction</option>
+                                <option value="Marketing et communication">Marketing et communication</option>
+                                <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
+                                <option value="Juridique">Juridique</option>
+                                <option value="Ingénierie et architecture">Ingénierie et architecture</option>
+                            </select>
+                        </div>
 
                     <input type="submit" name="publier" value="publier" id="valider">
                 </form>
@@ -253,13 +271,13 @@ include_once('app/controller/controllerOffre_emploi.php');
             <script>
                 let btn2 = document.querySelector('.btn2')
                 let form_off = document.querySelector('.form_off')
+                let img1 =document.querySelector('.img1')
 
                 btn2.addEventListener('click', () => {
-                    if (form_off.style.height === '0px') {
                         form_off.style.height = '1300px'
-                    } else {
-                        form_off.style.height = '0px'
-                    }
+                })
+                img1.addEventListener('click', () => {
+                        form_off.style.height = '0'
                 })
             </script>
         </div>
@@ -302,6 +320,12 @@ include_once('app/controller/controllerOffre_emploi.php');
                         <div class="vendu">
                             <p><strong>Nous recherchons un(une)</strong>
                                 <?= $offres['poste'] ?>
+                            </p>
+                            <p><strong>Niveau :</strong>
+                                <?= $offres['etudes'] ?>
+                            </p>
+                            <p><strong>Contrat :</strong>
+                                <?= $offres['contrat'] ?>
                             </p>
                         </div>
                         <p id="nom">

@@ -127,21 +127,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
 <?php include ('../navbare.php') ?>
 
-  <section class="section1">
-    <div>
-      <span>1</span>
-      <p>Trouver rapidement les meilleurs talents qui correspondent à vos besoins</p>
-    </div>
-    <div>
-      <span>2</span>
-      <p>Un processus de recrutement freelance facile et sans prise de tête</p>
-    </div>
-    <div>
-      <span>3</span>
-      <p>Des profils hautement qualifiés et adaptables à vos projets</p>
-    </div>
-  </section>
-
   <section class="section2">
 
     <div class="formulaire1  ">

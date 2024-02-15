@@ -234,6 +234,15 @@ function PostVueProfil($db,$id,$profil_id){
     $stmt -> bindParam(':profil_id',$profil_id);
     return $stmt->execute();
 }
+
+function PostHistorique($db,$entreprise_id,$users_id){
+    $sql = "INSERT INTO historique(entreprise_id,users_id) VALUES(:entreprise_id,:users_id)";
+    $stmt = $db->prepare($sql);
+    $stmt -> bindParam(':entreprise_id',$entreprise_id);
+    $stmt -> bindParam(':users_id',$users_id);
+    return $stmt->execute();
+}
+
 function GetVueProfil($db,$profil_id){
     $sql = "SELECT * FROM vue_profil WHERE profil_id=:profil_id";
     $stmt = $db->prepare($sql);

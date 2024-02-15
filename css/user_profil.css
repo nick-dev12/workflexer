@@ -52,7 +52,6 @@ body{
   /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
   background-color: #e6e6e6;
   padding: 50px 0;
-  margin-top: 90px;
 }
 
 @media screen and (max-width : 1050px) {
@@ -400,21 +399,26 @@ text-align: left;
   position: fixed;
   top: 50%;
   left: 20px;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   background-color: #ffffff;
   cursor: pointer;
   border-radius: 50%;
   z-index: 5;
   display: none;
 }
+@media screen and (max-width : 1400px) {
+  .section3 .img222{
+    display: none;
+  }
+}
 @media screen and (max-width : 1050px) {
   .section3 .img222{
     position: fixed;
     top: 50%;
     left: 20px;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     background-color: #ffffff;
     cursor: pointer;
     border-radius: 50%;
@@ -439,7 +443,7 @@ text-align: left;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #ffffffd2;
+  background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
 -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
 -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -806,7 +810,7 @@ z-index: 3;
   padding: 20px 40px;
   border-radius: 10px;
   margin-bottom: 50px;
-  background-color: #ffffffd2;
+  background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
 -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
 -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -1353,7 +1357,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
 
 .section3 .container_box3 {
     padding: 20px;
-    background-color: #ffffffd2;
+    background-color: #ffffff;
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
     -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
     -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -1778,7 +1782,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   margin-top: 50px;
   margin-left: -250px;
   padding: 20px;
-  background-color: #ffffffd2;
+  background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
 -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
 -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -1971,7 +1975,7 @@ backdrop-filter: blur(3px);
   width: 80%;
   padding: 30px;
   margin-top: 50px;
-  background-color: #ffffffd2;
+  background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
 -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
 -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -2228,7 +2232,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   margin-top: 50px;
   padding: 30px;
   position: relative;
-  background-color: #ffffffd2;
+  background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
 -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
 -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -2671,7 +2675,7 @@ width: 20px;
   width: 80%;
   padding: 30px;
   margin-top: 50px;
-  background-color: #ffffffd2;
+  background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
 -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
 -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -2864,7 +2868,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   width: 90%;
   padding: 30px 10px;
   margin-top: 50px;
-  background-color: #ffffffd2;
+  background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
 -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
 -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
@@ -3022,9 +3026,9 @@ font-size: 15px;
 }
 
 .section3 .container_box10 .box2 span{
-  height: 40px;
-  width: 50px;
-  background-color: #2C3E50;
+  height: 30px;
+  width: 40px;
+  background-color: #0a062d;
   display: flex;
   align-items: center;
   justify-content: center;
