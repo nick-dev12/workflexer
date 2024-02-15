@@ -131,7 +131,7 @@ body{
 .section2 .slider .box form label{
     width: 70px;
     height: 60px;
-    background-color: #002233;
+    background-color: #0a062d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -524,7 +524,6 @@ body{
      position: relative;
      margin: 0 10px;
      background-color: #ffffff;
-     
  }
  
  
@@ -575,11 +574,11 @@ body{
     font-size: 16px;
     font-weight: 600;
     padding: 5px 7px;
-    border-radius: 10px;
+    border-radius: 5px;
     text-transform: capitalize;
  }
  .produit_vedete .articles .carousel .ville strong{
-    color: #3451c6;
+    color: #0a062d;
 }
  
 
@@ -598,13 +597,14 @@ body{
  .produit_vedete .articles .carousel .vendu span{
     padding: 3px 5px;
     margin-right: 6px;
-    background-color: #297fb928;
-    border-radius: 10px;
+    background-color: #0a062d14;
+    border-radius: 6px;
     margin-bottom: 4px;
+    color: #000000;
  }
  
  .produit_vedete .articles .carousel a{
-    background-color: #3451c6;
+    background-color: #0a062d;
      width: 70%;
      padding: 3px 10px;
      color: white;
@@ -640,14 +640,14 @@ body{
  }
  
  .produit_vedete .box2 span{
-     height: 40px;
-     width: 50px;
-     background-color: #2C3E50;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 7px;
-     transition: all 0.5s ease-in-out;
+    height: 30px;
+    width: 40px;
+    background-color: #0a062d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    transition: all 0.3s ease-in-out;
  }
  .produit_vedete .box2 span:hover{
      transform: scale(1.1);

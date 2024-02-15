@@ -38,6 +38,15 @@ $users_id = $_GET['id'];
   $stmt->execute();
   $users = $stmt->fetch(PDO::FETCH_ASSOC);
 
+  $users_id = $users['id'];
+  $code_verification = rand(100000, 999999);
+
+  $sql = "INSERT INTO verification_users (users_id , code) VALUES (:users_id,:code)";
+  $stmt = $db->prepare($sql);
+  $stmt->bindParam(":users_id", $users_id);
+  $stmt->bindParam(":code", $code_verification);
+  $stmt->execute();
+
       // Créez l'instance PHPMailer
       $mail = new PHPMailer(true);
 
@@ -60,111 +69,87 @@ $users_id = $_GET['id'];
           <!DOCTYPE html>
           <html>
           <head><meta charset='utf-8'>
-           <style>
-           *{
-             padding: 0;
-             margin: 0%;
-           font-family: Verdana, Geneva, Tahoma, sans-serif;
-           }
-          
-           .container{
-             width: 100%;
-             flex-direction: column;
-           }
-           .container .box1{
-             width: 240px;
-             margin: 20px auto;
-             position: relative;
-             height: 240px;
-             background-image: url(/image/WF__2_.png);
-             background-color: blue;
-             background-position: center;
-             background-size: cover;
-             border-radius: 7px;
-          
-           }
-          
-           
-           .container .box2 h1{
-             margin: 0 auto;
-             width: 70%;
-             background-color: black;
-             color: #ffffff;
-             text-align: center;
-             padding: 5px 30px;
-             border-radius: 20px;
-             font-size: 20px;
-           }
-           .container .box2{
-             margin: 0 auto;
-             background-color: #ebeaea;
-             padding: 40px 0;
-             border: 2px solid #c2c2c2;
-             min-width: 400px;
-             width: 700px;
-             max-width: 600px;
-             border-radius: 10px;
-           }
-           .container .box2 h2{
-           text-align: center;
-           padding:5px 40px;
-             color: blue;
-             text-transform: uppercase;
-             width: 50%;
-             margin: 20px auto;
-             font-size: 17px;
-             border-radius: 10px;
-             background-color: #c2c2c2;
-           }
-           .container .box2 P{
-           text-align: start;
-             
-             width: 90%;
-             margin: 0 auto;
-             font-size: 16px;
-             color: black;
-             line-height: 25px;
-           }
-           .container .box2 h3{
-           text-align: start;
-             width: 40%;
-             margin: 0 auto;
-             font-size: 20px;
-           }
-           .container .box2 a{
-           padding: 0px 15px;
-           border-radius: 7px;
-           background-color: rgb(23, 0, 201);
-           color: #ffffff;
-           text-decoration: none;
-           font-size: 15px;
-           }
-           .container .box2 P strong {
-             background-color: yellow;
-           }
-          
-           @media only screen and (max-width: 400px) {
-          
-            .container .box2 h1{
-             margin: 0 auto;
-             width: 80%;
-             
-           }
-           .container .box2{
-             margin: 0 auto;
-             background-color: #ebeaea;
-             padding: 40px 0;
-             border: 2px solid #c2c2c2;
-             min-width: 300px;
-             width: 400px;
-             max-width: 600px;
-            
-           }
-           
-           
+          <style>
+          *{
+            padding: 0;
+            margin: 0%;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          }
+        
+          .container{
+            width: 600px;
+            margin:0 auto;
+            border: 1px solid #6b6a6a;
+            border-radius: 10px;
+            padding: 40px;
+          }
+          .container .box1{
+            width: 200px;
+            margin: 20px auto;
+            position: relative;
+            height: 180px;
+            background-image: url(/image/WF__2_.png);
+            background-color: blue;
+            background-position: center;
+            background-size: cover;
+            border-radius: 7px;
+        
+          }
+        
+          .container .box2{
+              width: 500px;
+          }
+          .container .box2 h1{
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            color: #000000;
+            text-align: center;
+            padding: 5px 20px;
+            border-radius: 10px;
+            font-size: 25px;
+            border: 1px solid #6b6a6a;
+          }
+          .container .box2{
+            margin: 0 auto;
            
           }
-           </style>
+          .container .box2 h2{
+          text-align: center;
+          padding:5px 20px;
+            text-transform: uppercase;
+            width: 50%;
+            margin: 20px auto;
+            font-size: 20px;
+            border-radius: 10px;
+            background-color: rgb(149, 149, 149);
+            color: #ffffff;
+            font-weight: 400;
+          }
+          .container .box2 P{
+          text-align: start;
+            padding: 5px 19px;
+            width: 100%;
+            margin: 0 auto;
+            font-size: 16px;
+            color: black;
+            line-height: 23px;
+          }
+          .container .box2 h3{
+          text-align: start;
+            padding: 20px;
+            width: 40%;
+            margin: 0 auto;
+            font-size: 20px;
+          }
+          .container .box2 a{
+          padding: 5px 15px;
+          border-radius: 7px;
+          color: #0044ff;
+          text-decoration: none;
+          font-size: 15px;
+          }
+          
+          </style>
           </head>
           <body>
           
@@ -176,7 +161,7 @@ $users_id = $_GET['id'];
               <h1>helo! $nom </h1>
               <h2>demande de réinitialisation de mot d passe</h2>
               <p>Vous avez demandé une réinitialisation de mot de passe au nom de $nom</p>
-              <br><p> Connectez vous a l'address : <br><a href='http://localhost:3000/page/mdp_mdf.php'>http://localhost:3000/page/mdp_mdf.php</a><br> pour réinitialiser votre mot de passe</p>
+              <br><p> Entrer le code suivant : <strong>$code_verification</strong> </p>
             </div>
           </div>
           
@@ -193,11 +178,11 @@ $users_id = $_GET['id'];
               $mail->send();
          
    
-          header('Location: ../connection_compte.php');
+          header('Location: ../page/verification.php');
    exit();
           
       } catch (Exception $e) {
-       header('Location: mdp_mdf.php');
+       header('Location: mdp_message.php');
           exit();
       }
 }

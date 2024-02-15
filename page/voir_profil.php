@@ -177,7 +177,7 @@ include_once('../controller/controller_competence_users.php');
                                     // Utilisez la fonction explode pour diviser le nom en mots
                                     $words = explode(' ', $fullName);
                                     // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[1] . ' ' . $words[2];
+                                    $nameUsers = $words[0] . ' ' . $words[1];
                                     ?>
                                 <?php echo $nameUsers?>
                             </p>
@@ -289,7 +289,7 @@ include_once('../controller/controller_competence_users.php');
                                     // Utilisez la fonction explode pour diviser le nom en mots
                                     $words = explode(' ', $fullName);
                                     // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[1] . ' ' . $words[2];
+                                    $nameUsers = $words[0] . ' ' . $words[1];
                                     ?>
                                 <?php echo $nameUsers?>
                             </p>
@@ -345,7 +345,7 @@ include_once('../controller/controller_competence_users.php');
                     <?php
                     $nombreCompetences = countCompetences($db, $Designs['id']);
                     ?>
-                    <?php if ($nombreCompetences < 5): ?>
+                    <?php if ($nombreCompetences < 4): ?>
                     <?php else: ?>
                     <?php if ($Designs['statut'] == 'Occuper'): ?>
 
@@ -401,7 +401,7 @@ include_once('../controller/controller_competence_users.php');
                                     // Utilisez la fonction explode pour diviser le nom en mots
                                     $words = explode(' ', $fullName);
                                     // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[1] . ' ' . $words[2];
+                                    $nameUsers = $words[0] . ' ' . $words[1];
                                     ?>
                                 <?php echo $nameUsers?>
                             </p>
@@ -477,36 +477,14 @@ include_once('../controller/controller_competence_users.php');
                             <h4>
                                 <?php echo $marketing['competences']; ?>
                             </h4>
-
-
-                            <div class="vendu">
-                                <?php $afficheCompetences = getCompetences($db, $marketing['id']) ?>
-                                <?php if (empty($afficheCompetences)): ?>
-                                    <span>Competences indisponibles</span>
-                                <?php else: ?>
-                                    <?php
-                                    $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
-                    
-                                    foreach ($afficheCompetences as $compe):
-                                        if ($competencesAffichees < 5):
-                                            ?>
-                                            <span>
-                                                <?= $compe['competence'] ?>
-                                            </span>
-                                            <?php
-                                            $competencesAffichees++;
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                <?php endif; ?>
-                            </div>
+                           
                             <p class="nom">
                             <?php
                                     $fullName = $marketing['nom'];
                                     // Utilisez la fonction explode pour diviser le nom en mots
                                     $words = explode(' ', $fullName);
                                     // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[1] . ' ' . $words[2];
+                                    $nameUsers = $words[0] . ' ' . $words[1];
                                     ?>
                                 <?php echo $nameUsers?>
                             </p>
@@ -596,7 +574,7 @@ include_once('../controller/controller_competence_users.php');
                                     $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
                     
                                     foreach ($afficheCompetences as $compe):
-                                        if ($competencesAffichees < 5):
+                                        if ($competencesAffichees < 4):
                                             ?>
                                             <span>
                                                 <?= $compe['competence'] ?>
@@ -614,7 +592,7 @@ include_once('../controller/controller_competence_users.php');
                                     // Utilisez la fonction explode pour diviser le nom en mots
                                     $words = explode(' ', $fullName);
                                     // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[1] . ' ' . $words[2];
+                                    $nameUsers = $words[0] . ' '. $words[1] ;
                                     ?>
                                 <?php echo $nameUsers?>
                             </p>
@@ -722,7 +700,7 @@ include_once('../controller/controller_competence_users.php');
                                     // Utilisez la fonction explode pour diviser le nom en mots
                                     $words = explode(' ', $fullName);
                                     // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[1] . ' ' . $words[2];
+                                    $nameUsers = $words[0] . ' ' . $words[1];
                                     ?>
                                     <?php echo $nameUsers; ?>
                                 </p>
@@ -841,7 +819,7 @@ include_once('../controller/controller_competence_users.php');
                                     // Utilisez la fonction explode pour diviser le nom en mots
                                     $words = explode(' ', $fullName);
                                     // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[1] . ' ' . $words[2];
+                                    $nameUsers = $words[0] . ' '. $words[1] ;
                                     ?>
                                     <?php echo $nameUsers; ?>
                             </p>

@@ -32,13 +32,14 @@ if (isset($_SESSION['users_id'])) {
 
 ?>
 
+<link rel="stylesheet" href="/css/navbare.css">
 
 <nav>
     <a class="logo" href="../index.php"> <img src="/image/WF__2_.png " alt=""></a>
    <div class="container" >
     <img class="menu" src="/image/menu.png" alt="">
    <div class="box1">
-   <img class="cacheMenu" src="/image/croix.png" alt="">
+        <img class="cacheMenu" src="/image/croix.png" alt="">
         <a href="../index.php">Accueil</a>
         <a href="../page/voir_profil.php">Orientation</a>
         <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
@@ -56,7 +57,7 @@ if (isset($_SESSION['users_id'])) {
         box1.style.left = "-200%";
     })
 </script>
-    <div id="box2">
+    <!-- <div id="box2">
         <form action="post">
             <input type="search" name="search" id="search">
             <div class="bo-">
@@ -64,7 +65,7 @@ if (isset($_SESSION['users_id'])) {
                 <input type="submit" name="submit" id="submit" value="submit">
             </div>
         </form>
-    </div>
+    </div> -->
    </div>
 
     <?php if (isset($_SESSION['users_id'])): ?>
@@ -196,7 +197,7 @@ if (isset($_SESSION['users_id'])) {
         });
 
         del.addEventListener('click', () => {
-                boxInfo.style.right = '-100%';
+                boxInfo.style.right = '-200%';
         });
 
 

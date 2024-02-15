@@ -52,7 +52,7 @@ include_once('controller/controller_users.php');
     <!-- menu carousel slider -->
     <div class="slider-area owl-carousel" data-aos="zoom-in">
         <div class="slider-item">
-            <img src="/image/HR-technology-fotolia.jpg" alt="">
+            <img src="/image/etudiant.png" alt="">
             <div class="box">
                 <h1 data-aos="fade-up"> <span>Work</span><span>-Flexer</span> une platform de mise en relation </h1>
                 <p data-aos="fade-up">La plateforme de professionnalisation qui relie entreprise , entrepreneur ,
@@ -65,43 +65,47 @@ include_once('controller/controller_users.php');
             </div>
         </div>
         <div class="slider-item">
-            <img src="/image/project-manager-vs-resource-manager-1-1200x385.jpg" alt="">
+            <img src="/image/mission.png" alt="">
             <div class="box">
-                <h1>Types de missions/projets </h1>
-                <p>
-                    création site internet, audit marketing, traduction, conseil
-                    juridique...
-                </p>
+                <h1>Nos Services</h1>
+                <p>Découvrez notre gamme complète de services spécialisés conçus
+                    pour répondre à vos besoins uniques et stimuler votre succès
+                    commercial. De la création de sites internet sur mesure à l'audit
+                    marketing en passant par la traduction multilingue, nous sommes là pour
+                    vous aider à atteindre vos objectifs.</p>
+
                 <a href="/inscription.html">Commencer</a>
             </div>
         </div>
         <div class="slider-item">
             <img src="/image/Backgroudn-domaines-epita.jpg" alt="">
             <div class="box">
-                <h1>Domaines d'expertise </h1>
-                <p>
-                    Informatique, Marketing, Finance, Ressources humaines, Droit, Ingénierie,...
-                </p>
+                <h1>Domaines d'Expertise</h1>
+                <p>Découvrez nos compétences spécialisées dans l'informatique,
+                    le marketing, la finance, les ressources humaines, le droit,
+                    l'ingénierie et bien d'autres domaines. Nous sommes là pour répondre
+                    à vos besoins professionnels avec expertise et professionnalisme.</p>
+
                 <a href="/inscription.php">Commencer</a>
             </div>
         </div>
         <div class="slider-item">
             <img src="/image/duré.jpg" alt="">
             <div class="box">
-                <h1>Durée des missions </h1>
-                <p>
-                    freelance court terme, long terme, temps plein...
-                </p>
+            <h1>Flexibilité des Missions</h1>
+<p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos 
+    besoins. Que vous recherchiez des opportunités en freelance à court terme, des 
+    engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
+
                 <a href="/inscription.php">Commencer</a>
             </div>
         </div>
         <div class="slider-item">
             <img src="/image/Quand-la-participation.jpg" alt="">
             <div class="box">
-                <h1>Gagnez plus en flexibilité</h1>
-                <p>
-                    devenez une source de productivité et augmenter vos benefices grace a notre référencement
-                </p>
+            <h1>Boostez Votre Flexibilité</h1>
+<p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
+
                 <a href="/inscription.php">Commencer</a>
             </div>
         </div>
@@ -116,34 +120,34 @@ include_once('controller/controller_users.php');
                 Work-Flexer est une plateforme qui permet aux recruteurs de
                 trouver et de se connecter facilement avec des candidats qualifiés pour leurs offres d'emploi.
             </p>
-            <a href="/inscription.php">Commencer dés  maintenant!</a>
+            <a href="/inscription.php">Commencer dés maintenant!</a>
             <div class="div4"></div>
         </div>
         <div class="box2">
             <img src="/image/rain_background.png" alt="" class="img1">
-            <img src="/image/teste.png" alt="" class="img2">
+            <img src="/image/etudiant1.png" alt="" class="img2">
         </div>
     </section>
 
     <section class="reference">
         <div class="container">
             <div class="box1">
-                <img src="/image/project-manager-vs-resource-manager-1-1200x385.jpg" alt="">
+                <img src="/image/défi.png" alt="">
             </div>
             <div class="box2">
-                <h1>notre défi </h1>
-                <p>Forgez votre avenir professionnel, soyez le maître de votre propre réussite</p>
+                <h1>Notre Défi </h1>
+                <p>Forgez votre avenir professionnel et devenez le maître de votre propre réussite</p>
                 <a href="/connection_compte.php">Commencer!</a>
             </div>
         </div>
 
         <div class="container">
             <div class="box1">
-                <img src="/image/project-manager-vs-resource-manager-1-1200x385.jpg" alt="">
+                <img src="/image/ambition.png" alt="">
             </div>
             <div class="box2">
-                <h1>Notre ambition </h1>
-                <p>Élevez votre stature professionnelle, faites de votre entreprise la référence du secteur</p>
+                <h1>"Notre Ambition </h1>
+                <p> Élevez votre stature professionnelle et faites de votre entreprise la référence incontournable du secteur</p>
                 <a href="/connection_compte.php">Commencer!</a>
             </div>
         </div>
@@ -154,27 +158,22 @@ include_once('controller/controller_users.php');
 
         <section class="partie-box1">
             <div class="box2">
-                <img src="/image/profile1.jpg" alt="">
+                <img src="/image/etudiant2.png" alt="">
             </div>
             <div class="box1">
                 <h2>je construis mon histoire </h2>
             </div>
 
         </section>
-       
+
     </section>
 
 
 
     <div class="div-section">
-        <section class="section3">
+        <section class="section3 nth1">
             <h1>Adoptez un ton affirmatif et confiant</h1>
             <div class="box1">
-                <div class="p-style">
-                    <span class="p1"></span>
-                    <span class="p2">1</span>
-                    <span class="p3"></span>
-                </div>
 
                 <div class="container">
                     <div class="texte">
@@ -196,13 +195,8 @@ include_once('controller/controller_users.php');
         </section>
 
 
-        <section class="section3">
+        <section class="section3 nth2">
             <div class="box1">
-                <div class="p-style">
-                    <span class="p1"></span>
-                    <span class="p2">2</span>
-                    <span class="p3"></span>
-                </div>
 
                 <div class="container">
                     <div class="texte">
@@ -224,13 +218,8 @@ include_once('controller/controller_users.php');
         </section>
 
 
-        <section class="section3">
+        <section class="section3 nth3">
             <div class="box1">
-                <div class="p-style">
-                    <span class="p1"></span>
-                    <span class="p2">3</span>
-                    <span class="p3"></span>
-                </div>
 
                 <div class="container">
                     <div class="texte">
@@ -257,9 +246,9 @@ include_once('controller/controller_users.php');
     <section class="box-section3">
         <div class="box1">
             <h2>Pour les Professionnels</h2>
-            <p>Explorez Work-Flexer, la plateforme qui révolutionne la flexibilité 
-                au travail! Redéfinissez votre carrière avec des opportunités uniques. 
-                Créez des profils et CV virtuels percutants pour raconter votre histoire 
+            <p>Explorez Work-Flexer, la plateforme qui révolutionne la flexibilité
+                au travail! Redéfinissez votre carrière avec des opportunités uniques.
+                Créez des profils et CV virtuels percutants pour raconter votre histoire
                 professionnelle. Transformez votre avenir dès maintenant!
             </p>
         </div>
@@ -268,10 +257,10 @@ include_once('controller/controller_users.php');
         </span>
         <div class="box1">
             <h2>Pour les Recruteurs</h2>
-            <p>Découvrez Work-Flexer, le futur du recrutement pour les leaders visionnaires! 
-                Simplifiez la gestion de vos offres d'emploi avec notre interface intuitive. 
-                Atteignez les talents les plus prometteurs, gérez les candidatures en toute fluidité, 
-                et interagissez sans effort avec les candidats. Transformez votre 
+            <p>Découvrez Work-Flexer, le futur du recrutement pour les leaders visionnaires!
+                Simplifiez la gestion de vos offres d'emploi avec notre interface intuitive.
+                Atteignez les talents les plus prometteurs, gérez les candidatures en toute fluidité,
+                et interagissez sans effort avec les candidats. Transformez votre
                 processus de recrutement dès maintenant!
             </p>
         </div>
@@ -281,7 +270,7 @@ include_once('controller/controller_users.php');
         <div class="box">
             <span>"</span>
             <p>En tant qu'employeur, j'ai trouvé cette plateforme très efficace pour recruter
-                 des talents exceptionnels. Le processus de 
+                des talents exceptionnels. Le processus de
                 publication d'offres est simple et les résultats sont rapides.</p>
             <img class="img" src="/image/temoin.jpg" alt="">
         </div>
@@ -295,25 +284,25 @@ include_once('controller/controller_users.php');
 
         <div class="box">
             <span>"</span>
-            <p>La fonction de jumelage avec les offres d'emploi en fonction 
-                de mes compétences a été un énorme avantage. J'ai rapidement trouvé 
-                des opportunités qui correspondaient 
+            <p>La fonction de jumelage avec les offres d'emploi en fonction
+                de mes compétences a été un énorme avantage. J'ai rapidement trouvé
+                des opportunités qui correspondaient
                 parfaitement à mes aspirations professionnelles.</p>
             <img class="img" src="/image/temoin.jpg" alt="">
         </div>
 
         <div class="box">
             <span>"</span>
-            <p>Une expérience utilisateur exceptionnelle ! La navigation est intuitive, 
-                et j'ai trouvé le processus de candidature très simple. 
+            <p>Une expérience utilisateur exceptionnelle ! La navigation est intuitive,
+                et j'ai trouvé le processus de candidature très simple.
                 Merci de rendre la recherche d'emploi aussi efficace et agréable.</p>
             <img class="img" src="/image/temoin.jpg" alt="">
         </div>
 
         <div class="box">
             <span>"</span>
-            <p>Notre expérience en tant qu'entreprise partenaire a été extrêmement 
-                positive. La plateforme offre une excellente 
+            <p>Notre expérience en tant qu'entreprise partenaire a été extrêmement
+                positive. La plateforme offre une excellente
                 visibilité et nous a connectés avec des professionnels qualifiés.</p>
             <img class="img" src="/image/temoin.jpg" alt="">
         </div>
@@ -400,7 +389,7 @@ ScrollSmoother.min.js, InertiaPlugin.min.js, ScrambleTextPlugin.min.js, and Spli
 
 Sign up at https://greensock.com/club or try them for free on CodePen or CodeSandbox
 -->
-   
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/owl.carousel.js"></script>
@@ -494,27 +483,27 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
                         margin: 100,
                         nav: true,
                         responsive: {
-                        0: {
-                            items: 1,
-                            margin: 20,
-                        },
-                        550: {
-                            items: 2,
-                        },
-                        690: {
-                            items: 3,
-                           
-                        },
-                        890: {
-                            items: 3
-                        },
-                        1200: {
-                            items: 4
-                        },
-                        1400: {
-                            items: 5
+                            0: {
+                                items: 1,
+                                margin: 20,
+                            },
+                            550: {
+                                items: 2,
+                            },
+                            690: {
+                                items: 3,
+
+                            },
+                            890: {
+                                items: 3
+                            },
+                            1200: {
+                                items: 4
+                            },
+                            1400: {
+                                items: 5
+                            }
                         }
-                    }
                     });
 
                     // Code pour gérer la navigation du carousel
@@ -535,70 +524,70 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
 
 
 
-             // Sélectionnez la section avec la classe "temoin"
+            // Sélectionnez la section avec la classe "temoin"
 
-             var owlSlider = document.querySelector('.owl-slider');
+            var owlSlider = document.querySelector('.owl-slider');
 
-// Vérifiez si la section existe
-if (owlSlider) {
-    // Obtenez la liste des éléments enfants de la section
-    var enfantSection = owlSlider.children;
+            // Vérifiez si la section existe
+            if (owlSlider) {
+                // Obtenez la liste des éléments enfants de la section
+                var enfantSection = owlSlider.children;
 
-    // Vérifiez la condition du nombre d'éléments enfants
-    if (enfantSection.length > 2) {
-        // Code à exécuter si le nombre d'éléments enfants est supérieur à 3
-        $('.owl-slider').addClass('owl-carousel').owlCarousel({
-            items: 3,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            animateOut: 'slideOutDown',
-            animateIn: 'flipInX',
-            stagePadding: 10,
-            smartSpeed: 450,
-            margin: 100,
-            nav: true,
-            responsive: {
-                        0: {
-                            items: 1,
-                            margin: 0,
-                        },
-                        460: {
-                            items: 2,
-                           
-                        },
-                        550: {
-                            items: 2,
-                            
-                        },
-                        890: {
-                            items: 2,
-                            
-                        },
-                        1200: {
-                            items: 3
-                        },
-                        1400: {
-                            items: 3
+                // Vérifiez la condition du nombre d'éléments enfants
+                if (enfantSection.length > 2) {
+                    // Code à exécuter si le nombre d'éléments enfants est supérieur à 3
+                    $('.owl-slider').addClass('owl-carousel').owlCarousel({
+                        items: 3,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        animateOut: 'slideOutDown',
+                        animateIn: 'flipInX',
+                        stagePadding: 10,
+                        smartSpeed: 450,
+                        margin: 100,
+                        nav: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 0,
+                            },
+                            460: {
+                                items: 2,
+
+                            },
+                            550: {
+                                items: 2,
+
+                            },
+                            890: {
+                                items: 2,
+
+                            },
+                            1200: {
+                                items: 3
+                            },
+                            1400: {
+                                items: 3
+                            }
                         }
-                    }
-        });
+                    });
 
-        // Code pour gérer la navigation du carousel
-        var carousel1 = $('.owl-carousel').owlCarousel();
-        $('.owl-next').click(function () {
-            carousel1.trigger('next.owl.carousel');
-        })
-        $('.owl-prev').click(function () {
-            carousel1.trigger('prev.owl.carousel');
-        });
-    } else {
-        // Code à exécuter si le nombre d'éléments enfants est inférieur ou égal à 3
-        console.log("Le nombre d'éléments enfants est inférieur ou égal à 3. Ne faites rien.");
-    }
-} else {
-    console.error("La section avec la classe 'temoin' n'a pas été trouvée.");
-}
+                    // Code pour gérer la navigation du carousel
+                    var carousel1 = $('.owl-carousel').owlCarousel();
+                    $('.owl-next').click(function () {
+                        carousel1.trigger('next.owl.carousel');
+                    })
+                    $('.owl-prev').click(function () {
+                        carousel1.trigger('prev.owl.carousel');
+                    });
+                } else {
+                    // Code à exécuter si le nombre d'éléments enfants est inférieur ou égal à 3
+                    console.log("Le nombre d'éléments enfants est inférieur ou égal à 3. Ne faites rien.");
+                }
+            } else {
+                console.error("La section avec la classe 'temoin' n'a pas été trouvée.");
+            }
 
 
 
@@ -617,7 +606,7 @@ if (owlSlider) {
                 navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
             });
 
-           
+
         });
 
 

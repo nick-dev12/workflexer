@@ -77,98 +77,122 @@ if (isset($_SESSION['users_id'])) {
                <!DOCTYPE html>
                <html>
                <head><meta charset='utf-8'>
-                <style>
-                *{
-                  padding: 0;
-                  margin: 0%;
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                }
-              
-                .container{
-                  width: 100%;
-                  flex-direction: column;
-                }
-                .container .box1{
-                  width: 240px;
-                  margin: 20px auto;
-                  position: relative;
-                  height: 240px;
-                  background-image: url(/image/WF__2_.png);
-                  background-color: blue;
-                  background-position: center;
-                  background-size: cover;
-                  border-radius: 7px;
-              
-                }
-              
-                
-                .container .box2 h1{
-                  margin: 0 auto;
-                  width: 70%;
-                  background-color: black;
-                  color: #ffffff;
-                  text-align: center;
-                  padding: 5px 30px;
-                  border-radius: 20px;
-                }
-                .container .box2{
-                  margin: 0 auto;
-                 
-                }
-                .container .box2 h2{
+               <style>
+               body{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .box1 {
+                width: 300px;
                 text-align: center;
-                padding:5px 40px;
-                  color: blue;
-                  text-transform: uppercase;
-                  width: 50%;
-                  margin: 20px auto;
-                  font-size: 20px;
-                  border-radius: 20px;
-                  background-color: red;
-                }
-                .container .box2 P{
-                text-align: start;
-                  padding: 5px 19px;
-                  width: 60%;
-                  margin: 0 auto;
-                  font-size: 17px;
-                  color: black;
-                }
-                .container .box2 h3{
-                text-align: start;
-                  padding: 20px;
-                  width: 40%;
-                  margin: 0 auto;
-                  font-size: 20px;
-                }
-                .container .box2 a{
-                padding: 5px 15px;
-                border-radius: 7px;
-                background-color: rgb(23, 0, 201);
+                margin: 0 auto;
+                border-radius: 10px;
+            }
+            
+            .box1 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            
+            .box2 {
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #ccc;
+                width: 60%;
+                margin: 0 auto;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            
+            h2 {
+                font-size: 20px;
+                color: #007bff;
+                margin-bottom: 15px;
+            }
+            
+            h3 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            
+            p {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            
+            a {
+                background-color: #007bff;
                 color: #ffffff;
+                padding: 10px 20px;
                 text-decoration: none;
-                font-size: 15px;
+                border-radius: 5px;
+                display: inline-block;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+    
+            @media only screen and (max-width: 1000px) {
+                .box2 {
+                    padding: 15px;
+                    width: 80%;
                 }
-                .container .box2 P strong {
-                  background-color: yellow;
+               
+            }
+            
+            @media only screen and (max-width: 600px) {
+                .box2 {
+                    padding: 15px;
                 }
-                </style>
+            
+                h1 {
+                    font-size: 20px;
+                    margin-bottom: 8px;
+                }
+            
+                h2 {
+                    font-size: 18px;
+                    margin-bottom: 12px;
+                }
+            
+                h3 {
+                    font-size: 16px;
+                    margin-bottom: 12px;
+                }
+            
+                p {
+                    font-size: 13px;
+                    margin-bottom: 12px;
+                }
+            
+                a {
+                    padding: 8px 16px;
+                    font-size: 13px;
+                    margin-bottom: 12px;
+                }
+            }
+            
+               </style>
                </head>
                <body>
-               
-               <div class='container'>
-                 <div class='box1'>
-                 </div>
-               
-                 <div class='box2'>
-                   <h1>helo! $entreprise  </h1>
-                   <h2>Nouvelle postulation</h2>
-                   <h3><strong>Poste :</strong> $poste </h3>
-                   <p>Un candidat potentiel vient de postuler a votre offre d'emploi au poste de </strong> $poste </h3>  connecter vous vite  et traiter cette demande en un click </p>
-                   <p> Connectez vous a l'address <a href='https://work-flexer.com/entreprise/entreprise_profil.php'>https://work-flexer.com/entreprise/entreprise_profil</a></p>
-                 </div>
-               </div>
-               
+              
+               <div class='box1'>
+    <img src='https://example.com/logo.png' alt='Logo de l'entreprise'>
+</div>
+<div class='box2'>
+<h1>Bonjour $entreprise,</h1>
+<h2>Nouvelle candidature reçue !</h2>
+<h3><strong>Poste :</strong> $poste</h3>
+<p>Nous avons le plaisir de vous informer qu'un candidat potentiel vient de postuler à votre offre d'emploi pour le poste de <strong>$poste</strong>.</p>
+<p>Nous vous encourageons à vous connecter dès maintenant pour examiner cette candidature et prendre les mesures appropriées.</p>
+<p>Connectez-vous à votre espace entreprise sur Work-Flexer pour traiter cette candidature :</p>
+<p><a href='https://work-flexer.com/entreprise/entreprise_profil.php'>Accéder à votre espace entreprise</a></p>
+<p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre processus de recrutement.</p>
+<p>Cordialement,<br>L'équipe Work-Flexer</p>
+</div>
                </body>
                </html> " ;
 

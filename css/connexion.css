@@ -20,7 +20,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 180px;
+    padding: 40px;
 }
 
 .section2 .formulaire1{
@@ -37,9 +37,10 @@ body{
     display: flex;
     flex-direction: column;
     padding: 50px 70px ;
-    background-color: #2C3E50;
+    background-color: #ffffff;
     border-radius: 15px;
     font-family: 'Nunito', sans-serif;
+    border:1px solid #2c2c2c7c ;
 }
 
 .section2 .formulaire1 form :nth-child(2) {
@@ -52,16 +53,16 @@ body{
     align-items: start;
 }
 .section2 .formulaire1 form .box1 label{
-    color: #ffff;
+    color: #393939;
 }
 .section2 .formulaire1 form .box1 input {
     margin-top: 6px;
     margin-bottom: 20px;
     width: 100%;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 5px 10px;
-    border: none;
+    border: 1px solid #2a2a2a83;
     outline: none;
     transition: all 0.5s ease ;
 }
@@ -72,19 +73,19 @@ body{
 .section2 .formulaire1 form h3 {
     margin-bottom: 30px;
     font-size: 30px;
-    color: #ffff;
+    color: #2a2a2a;
 }
 
 .section2 .formulaire1 form #valider {
-   width: 110px;
-    height: 40px;
-    background-color: #0066FF;
+   width: 100px;
+    height: 30px;
+    background-color: #F39C12;
     border: none;
-    font-size: 18px;
-    border-radius: 10px;
+    font-size: 16px;
+    border-radius: 5px;
     color: white;
     text-transform: capitalize;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 
 .section2 .formulaire1 form .erreur{
@@ -94,11 +95,10 @@ body{
     font-size: 18px;
 }
 .section2 .formulaire1 form a{
-    color: #ffffff;
+    color: #ff2a2a;
     font-size: 16px;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: #0066FF;
     padding: 0 20px;
     transition: all 0.4s;
 }
@@ -106,5 +106,80 @@ body{
     color: #fa0000;
     border-radius: 5px;
     background-color: #ffffff;
+   
+}
+
+@media screen and (max-width : 1000px) {
+    .section2 .formulaire1 img {
+       display: none;
+    }
+    .section2 .formulaire1 form{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px ;
+    }
+    
+    
+    .section2 .formulaire1 form .box1 {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+    }
+    .section2 .formulaire1 form .box1 label{
+        color: #393939;
+    }
+    .section2 .formulaire1 form .box1 input {
+        width: 100%;
+        height: 40px;
+       font-size: 15px;
+    }
+    .section2 .formulaire1 form .box1 input:focus{
+        box-shadow: 0 0 4px 1px #001738;
+    }
+    
+    .section2 .formulaire1 form h3 {
+        font-size: 25px;
+    }
+    
+    .section2 .formulaire1 form #valider {
+       width: 80px;
+        height: 30px;
+        background-color: #F39C12;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+    
+    .section2 .formulaire1 form .erreur{
+        font-size: 15px;
+    }
+   
+}
+
+@media screen and (max-width : 400px) {
+    .section2{
+        padding: 20px 5px;
+    }
+    .section2 .formulaire1 img {
+       display: none;
+    }
+    .section2 .formulaire1 form{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 10px ;
+    }
+    
+    .section2 .formulaire1 form .box1 input {
+        width: 100%;
+        height: 30px;
+       font-size: 13px;
+    }
+    
+    .section2 .formulaire1 form h3 {
+        font-size: 25px;
+    }
+    
    
 }

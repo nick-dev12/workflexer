@@ -85,6 +85,10 @@
                         <td id="td"><a href="message.php"><img src="../image/modifier.png" alt=""></a></td>
                         <td class="td"> <a href="../page/message_users.php">Message</a></td>
                     </tr>
+                    <tr class="me4">
+                        <td id="td"><a href="../page/historique_users.php"><img src="../image/historique.png" alt=""></a></td>
+                        <td class="td"> <a href="../page/historique_users.php">Historique</a></td>
+                    </tr>
                 </table>
             </div>
         </div>

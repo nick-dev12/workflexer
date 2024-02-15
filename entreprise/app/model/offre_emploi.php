@@ -53,7 +53,7 @@ function updatOffre($db,$poste,$mission,$profil,$contrat,$etudes,$experience,$lo
 function getOffreIngenieur($db){
     $sql = "SELECT * FROM offre_emploi t1
     JOIN compte_entreprise t2 ON t2.id = t1.entreprise_id
-    WHERE t1.categorie = 'Ingénierie' 
+    WHERE t1.categorie = 'Ingénierie et architecture' 
     ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -64,7 +64,7 @@ function getOffreIngenieur($db){
 function getOffreDesign($db){
     $sql = "SELECT * FROM offre_emploi t1
     JOIN compte_entreprise t2 ON t2.id = t1.entreprise_id
-    WHERE t1.categorie = 'design' 
+    WHERE t1.categorie = 'Design et création' 
     ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -75,7 +75,7 @@ function getOffreDesign($db){
 function getOffreRédaction($db){
     $sql = "SELECT * FROM offre_emploi t1
     JOIN compte_entreprise t2 ON t2.id = t1.entreprise_id
-    WHERE t1.categorie = 'Rédaction' 
+    WHERE t1.categorie = 'Rédaction et traduction' 
     ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -86,7 +86,7 @@ function getOffreRédaction($db){
 function getOffremarketing($db){
     $sql = "SELECT * FROM offre_emploi t1
     JOIN compte_entreprise t2 ON t2.id = t1.entreprise_id
-    WHERE t1.categorie = 'marketing' 
+    WHERE t1.categorie = 'Marketing et communication' 
     ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -96,7 +96,7 @@ function getOffremarketing($db){
 function getOffrebusiness($db){
     $sql = "SELECT * FROM offre_emploi t1
     JOIN compte_entreprise t2 ON t2.id = t1.entreprise_id
-    WHERE t1.categorie = 'business' 
+    WHERE t1.categorie = 'Conseil et gestion d\'entreprise' 
     ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -117,7 +117,7 @@ function getOffreJuridique($db){
 function getOffreInformatique($db){
     $sql = "SELECT * FROM offre_emploi t1
     JOIN compte_entreprise t2 ON t2.id = t1.entreprise_id
-    WHERE t1.categorie = 'Informatique' 
+    WHERE t1.categorie = 'Informatique et tech' 
     ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -163,5 +163,27 @@ function deleteOffresEmploit($db,$offre_id){
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':offre_id',$offre_id, PDO::PARAM_INT);
     return  $stmt->execute();
+}
+function deletePostulation($db,$offre_id){
+    $sql= "DELETE FROM postulation WHERE offre_id=:offre_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id',$offre_id, PDO::PARAM_INT);
+    return  $stmt->execute();
+}
+
+function PostHistoriqueUsers($db,$entreprise_id,$users_id,$offre_id){
+    $sql = "INSERT INTO historique_users(entreprise_id,users_id,offre_id) VALUES(:entreprise_id,:users_id,:offre_id)";
+    $stmt = $db->prepare($sql);
+    $stmt -> bindParam(':entreprise_id',$entreprise_id);
+    $stmt -> bindParam(':users_id',$users_id);
+    $stmt -> bindParam(':offre_id',$offre_id);
+    return $stmt->execute();
+}
+function getHistoriqueUsers($db,$users_id){
+    $sql = "SELECT * FROM historique_users WHERE users_id = :users_id";
+    $stmt = $db->prepare($sql);
+    $stmt -> bindParam(':users_id',$users_id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>

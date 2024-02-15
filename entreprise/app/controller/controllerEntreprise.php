@@ -1,6 +1,7 @@
 <?php
 // require_once('..//entreprise/app/model/entreprise.php');
 require_once(__DIR__ . '/../model/entreprise.php');
+include('../controller/controller_competence_users.php');
 
 // include('../model/vue_offre.php');
 use PHPMailer\PHPMailer\PHPMailer;
@@ -41,6 +42,13 @@ if (isset($_SESSION['compte_entreprise'])) {
 
 
 if (isset($_POST['publier'])) {
+    function TotalUsers($db)
+{
+    $sql = "SELECT * FROM users";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
     $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
 
@@ -118,10 +126,8 @@ if (isset($_POST['publier'])) {
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
 
-
-
                 // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
-                $candidates = AllUsers($db);
+                $candidates = TotalUsers($db);
 
                 foreach ($candidates as $candidate) {
                     if ($candidate['categorie'] == $categorie) {
@@ -136,96 +142,121 @@ if (isset($_POST['publier'])) {
                 <html>
                 <head><meta charset='utf-8'>
                  <style>
-                 *{
-                    padding: 0;
-                    margin: 0%;
-                  font-family: Verdana, Geneva, Tahoma, sans-serif;
-                  }
-                
-                  .container{
-                    width: 100%;
-                    flex-direction: column;
-                  }
-                  .container .box1{
-                    width: 240px;
-                    margin: 20px auto;
-                    position: relative;
-                    height: 240px;
-                    background-image: url(/image/WF__2_.png);
-                    background-color: blue;
-                    background-position: center;
-                    background-size: cover;
-                    border-radius: 7px;
-                
-                  }
-                
-                  
-                  .container .box2 h1{
-                    margin: 0 auto;
-                    width: 70%;
-                    background-color: black;
-                    color: #ffffff;
+                 body{
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                }
+                .box1 {
+                    width: 300px;
                     text-align: center;
-                    padding: 5px 30px;
-                    border-radius: 20px;
-                  }
-                  .container .box2{
                     margin: 0 auto;
-                   
-                  }
-                  .container .box2 h2{
-                  text-align: center;
-                  padding:5px 40px;
-                    color: blue;
-                    text-transform: uppercase;
-                    width: 50%;
-                    margin: 20px auto;
-                    font-size: 20px;
-                    border-radius: 20px;
-                    background-color: red;
-                  }
-                  .container .box2 P{
-                  text-align: start;
-                    padding: 5px 19px;
+                    border-radius: 10px;
+                }
+                
+                .box1 img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+                
+                .box2 {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border-radius: 10px;
+                    border: 1px solid #ccc;
                     width: 60%;
                     margin: 0 auto;
-                    font-size: 17px;
-                    color: black;
-                  }
-                  .container .box2 h3{
-                  text-align: start;
-                    padding: 20px;
-                    width: 40%;
-                    margin: 0 auto;
+                }
+                
+                h1 {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+                
+                h2 {
                     font-size: 20px;
-                  }
-                  .container .box2 a{
-                  padding: 5px 15px;
-                  border-radius: 7px;
-                  background-color: rgb(23, 0, 201);
-                  color: #ffffff;
-                  text-decoration: none;
-                  font-size: 15px;
-                  }
-                  .container .box2 P strong {
-                    background-color: yellow;
-                  }
+                    color: #007bff;
+                    margin-bottom: 15px;
+                }
+                
+                h3 {
+                    font-size: 18px;
+                    margin-bottom: 15px;
+                }
+                
+                p {
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                }
+                
+                a {
+                    background-color: #007bff;
+                    color: #ffffff;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                }
+        
+                @media only screen and (max-width: 1000px) {
+                    .box2 {
+                        padding: 15px;
+                        width: 80%;
+                    }
+                   
+                }
+                
+                @media only screen and (max-width: 600px) {
+                    .box2 {
+                        padding: 15px;
+                    }
+                
+                    h1 {
+                        font-size: 20px;
+                        margin-bottom: 8px;
+                    }
+                
+                    h2 {
+                        font-size: 18px;
+                        margin-bottom: 12px;
+                    }
+                
+                    h3 {
+                        font-size: 16px;
+                        margin-bottom: 12px;
+                    }
+                
+                    p {
+                        font-size: 13px;
+                        margin-bottom: 12px;
+                    }
+                
+                    a {
+                        padding: 8px 16px;
+                        font-size: 13px;
+                        margin-bottom: 12px;
+                    }
+                }
+                
                  </style>
                 </head>
                 <body>
-                
-                <div class='container'>
-                  <div class='box1'>
-                  </div>
-                
-                  <div class='box2'>
-                    <h1>helo ! $nom </h1>
-                    <h2>nouvel offre d’emploi</h2>
-                    <h3><strong>Poste :</strong> $poste </h3>
-                    <p>Une nouvelle offre d’emploi est disponible pour toi connecte toi vite discute avec les recruteurs postule a l'offre et tante ta chance de pouvoir obtenir le job.</p>
-                    <p> Connecte toi vite affin de ne rien rater <a href='https://work-flexer.com'>https://work-flexer.com</a></p>
-                  </div>
-                </div>
+
+                <div class='box1'>
+                <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
+            </div>
+            <div class='box2'>
+                <h1>Bonjour $nom,</h1>
+                <h2>Nouvelle offre d'emploi disponible !</h2>
+                <h3><strong>Poste :</strong> $poste</h3>
+                <p>Nous sommes ravis de vous informer qu'une nouvelle offre d'emploi correspondant à vos critères est disponible sur Work-Flexer.</p>
+                <p>Cette offre présente une opportunité passionnante pour vous. Nous vous encourageons à vous connecter dès que possible, à discuter avec les recruteurs et à postuler à l'offre pour saisir cette chance.</p>
+                <p>Connectez-vous dès maintenant pour ne rien rater :</p>
+                <a href='https://work-flexer.com'>Accéder à l'offre</a>
+                <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
+                <p>Cordialement,<br>L'équipe Work-Flexer</p>
+            </div>
                 
                 </body>
                 </html> ";
@@ -445,4 +476,7 @@ if(isset($_POST['valide0'])){
 }
 }
  
+if(isset($_SESSION['compte_entreprise'])){
+    $historiques = getHistorique ($db,$_SESSION['compte_entreprise']);
+}
 ?>

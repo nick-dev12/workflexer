@@ -20,7 +20,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 180px;
+    padding: 40px;
 }
 
 .section2 .formulaire1{
@@ -37,9 +37,10 @@ body{
     display: flex;
     flex-direction: column;
     padding: 50px 70px ;
-    background-color: #2C3E50;
+    background-color: #ffffff;
     border-radius: 15px;
     font-family: 'Nunito', sans-serif;
+    border:1px solid #2c2c2c7c ;
 }
 
 .section2 .formulaire1 form :nth-child(2) {
@@ -52,16 +53,16 @@ body{
     align-items: start;
 }
 .section2 .formulaire1 form .box1 label{
-    color: #ffff;
+    color: #292929;
 }
 .section2 .formulaire1 form .box1 input {
     margin-top: 6px;
     margin-bottom: 20px;
     width: 100%;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 5px 10px;
-    border: none;
+    border: 1px solid #29292966;
     outline: none;
     transition: all 0.5s ease ;
 }
@@ -72,7 +73,7 @@ body{
 .section2 .formulaire1 form h3 {
     margin-bottom: 30px;
     font-size: 30px;
-    color: #ffff;
+    color: #292929;
 }
 
 .section2 .formulaire1 form #valider {

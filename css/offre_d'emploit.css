@@ -149,7 +149,143 @@ body{
 }
 
 
-
+@media screen and (max-width : 1300px){
+    .section2 .slider .box .text h1{
+        font-size: 40px;
+     }
+     .section2 .slider .box .text p{
+         font-size: 16px;
+         width: 70%;
+      }
+      .section2 .slider .box form #search {
+        width: 70%;
+        height: 50px;
+        font-size: 25px;
+    }
+    .section2 .slider .box form label{
+        width: 60px;
+        height: 50px;
+    }
+    .section2 .slider .box form label i{
+        font-size: 30px;
+        transition: all 0.5s;
+    }
+}
+@media screen and (max-width : 1000px){
+    .section2 .slider .box .text h1{
+        font-size: 30px;
+        width: 70%;
+     }
+     .section2 .slider .box .text p{
+         font-size: 16px;
+         width: 70%;
+      }
+      .section2 .slider .box .img img{
+        height: 450px;
+    }
+    .section2{
+        height: 450px;
+    }
+    .section2 .slider{
+        height: 450px;
+    }
+    .section2 .slider .box{
+        height: 450px;
+    }
+    .section2 .slider .box .text{
+        height: 450px;
+    }
+    .section2 .slider .box form #search {
+        width: 500px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .section2 .slider .box form label{
+        width: 50px;
+        height: 40px;
+    }
+    .section2 .slider .box form label i{
+        font-size: 20px;
+        transition: all 0.5s;
+    }
+}
+@media screen and (max-width : 700px){
+    .section2 .slider .box .text h1{
+        font-size: 30px;
+        width: 90%;
+     }
+     .section2 .slider .box .text p{
+         font-size: 16px;
+         width: 90%;
+      }
+      .section2 .slider .box .img img{
+        height: 400px;
+    }
+    .section2{
+        height: 400px;
+    }
+    .section2 .slider{
+        height: 400px;
+    }
+    .section2 .slider .box{
+        height: 400px;
+    }
+    .section2 .slider .box .text{
+        height: 400px;
+    }
+    .section2 .slider .box form #search {
+        width: 400px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .section2 .slider .box form label{
+        width: 50px;
+        height: 40px;
+    }
+    .section2 .slider .box form label i{
+        font-size: 20px;
+        transition: all 0.5s;
+    }
+}
+@media screen and (max-width : 500px){
+    .section2 .slider .box .text h1{
+        font-size: 30px;
+        width: 95%;
+     }
+     .section2 .slider .box .text p{
+         font-size: 16px;
+         width: 95%;
+      }
+      .section2 .slider .box .img img{
+        height: 400px;
+    }
+    .section2{
+        height: 400px;
+    }
+    .section2 .slider{
+        height: 400px;
+    }
+    .section2 .slider .box{
+        height: 400px;
+    }
+    .section2 .slider .box .text{
+        height: 400px;
+    }
+    .section2 .slider .box form #search {
+        width: 300px;
+        height: 40px;
+        font-size: 15px;
+        padding: 0 20px;
+    }
+    .section2 .slider .box form label{
+        width: 40px;
+        height: 40px;
+    }
+    .section2 .slider .box form label i{
+        font-size: 20px;
+        transition: all 0.5s;
+    }
+}
 
 
 
@@ -206,7 +342,7 @@ body{
     margin-bottom: 100px;
     margin-top: 100px;
     background: linear-gradient(180deg, #b5b5b5 0, #f7f7f7 53%);
-    padding: 100px 20px;
+    padding: 70px ;
     margin-left:auto ;
     margin-right:auto ;
     border-radius: 10px;
@@ -215,7 +351,7 @@ body{
  }
  
  .produit_vedete h1{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     z-index: 2;
     font-size: 35px;
@@ -231,7 +367,7 @@ body{
      align-items: center;
      justify-content: center;
      position: relative;
-     width: 80%;
+     width: 90%;
      margin-bottom: 50px;
  }
  .produit_vedete .box1 h1{
@@ -240,7 +376,7 @@ body{
  }
  .produit_vedete .box1 .affiche{
     height: 100px;
-    border-radius: 20px;
+    border-radius: 10px;
  }
  .produit_vedete .box1 .affich img{
     height: 100px;
@@ -295,7 +431,7 @@ body{
     box-shadow: 8px 6px 7px 0px #2c3e5080;
  }
  .produit_vedete .articles .carousel img{
-     height: 150px;
+     height: 160px;
      width: 100%;
      object-fit: cover;
      border-bottom: 1px solid rgba(148, 146, 146, 0.499);
@@ -303,18 +439,22 @@ body{
      border-bottom-right-radius: 15px;
  }
  .produit_vedete .articles .carousel .p{
-     padding-left: 10px;
-     margin-bottom: 15px;
+     padding:3px 10px;
      letter-spacing: 0.5px;
      display: flex; 
      align-items: center;
      justify-content: space-between;
-     margin-top: 7px;
+     position: absolute;
+     top: 110px;
+     background-color: #0a062da4;
+     color: #f7f7f7;
+     left: 5px;
+     /* border-bottom-left-radius: 15px;
+     border-bottom-right-radius: 15px; */
  }
  .produit_vedete .articles .carousel .p strong{
     text-transform: uppercase;
-    font-size: 14px;
-    font-style: italic;
+    font-size: 12px;
 }
  
  .produit_vedete .articles .carousel #nom{
@@ -326,6 +466,8 @@ body{
      max-height: 20px;
      width: 100%;
      color: #3451c6;
+     position: absolute;
+     bottom: 40px;
  }
  .produit_vedete .articles .carousel p span{
      color: #F39C12;
@@ -344,47 +486,40 @@ body{
      margin-left: 12px;
      font-size: 15px;
      width: 100%;
-     max-height: 57px !important;
+     flex-direction: column;
  }
 
  .produit_vedete .articles .carousel .vendu p{
     font-size: 15px;
-    
+    margin-bottom: 3px;
 }
 .produit_vedete .articles .carousel .vendu .ville{
     font-size: 15px;
-    margin: 6px 0;
+    margin: 5px 0;
 }
-
- .produit_vedete .articles .carousel .contrat{
-   margin-left: 20px;
-   font-style: italic;
-   font-size: 13px;
-   margin-top: 4px;
-}
+ 
  .produit_vedete .articles .carousel .vendu span{
     padding: 5px 8px;
     margin-right: 6px;
-    background-color: #297fb928;
+    background-color: #0a062d;
     border-radius: 10px;
     margin-bottom: 4px;
  }
  
  .produit_vedete .articles .carousel a{
-    background-color: #3451c6;
+    background-color: #0a062d;
      width: 100%;
-     padding: 5px 10px;
+     padding: 4px 10px;
      color: white;
      text-decoration: none;
      font-size: 15px;
-
      display: block;
      transition: all 0.5s ease-in-out;
      display: flex;
      align-items: center;
      justify-content: center;
      position: absolute;
-     bottom: 5px;
+     bottom: 3px;
      
  }
 
@@ -406,21 +541,68 @@ body{
  }
  
  .produit_vedete .box2 span{
-     height: 40px;
-     width: 50px;
-     background-color: #2C3E50;
+     height: 30px;
+     width: 40px;
+     background-color: #0a062d;
      display: flex;
      align-items: center;
      justify-content: center;
      border-radius: 7px;
-     transition: all 0.5s ease-in-out;
+     transition: all 0.3s ease-in-out;
  }
  .produit_vedete .box2 span:hover{
      transform: scale(1.1);
-     background-color: #e4144d;
+     background-color: #F39C12;
  }
  .produit_vedete .box2 span{
      color: white;
      font-size: 25px;
  }
  
+ @media screen and (max-width : 1000px) {
+    .produit_vedete {
+        width: 97%;
+        padding: 70px 20px;
+    }
+    .produit_vedete .box1{
+        width: 99%;
+    }
+    .produit_vedete .box1 h1{
+       font-size: 18px;
+       text-align: center;
+    }
+    .produit_vedete .box1 .affiche{
+       height: 100px;
+       border-radius: 10px;
+       width: 100%;
+    }
+    .produit_vedete .box1 .affich img{
+       height: 100px;
+       width: 100%;
+    }
+    .produit_vedete .box1 span{
+       display: none;
+    }
+    .produit_vedete .articles .message{
+        font-size: 15px;
+        width: 300px;
+        text-align: center;
+        padding: 10px 10px;
+     }
+ }
+ @media screen and (max-width : 500px) {
+    .produit_vedete {
+        padding: 70px 10px;
+    }
+    .produit_vedete .box1{
+        width: 100%;
+    }
+    .produit_vedete .box1 h1{
+       font-size: 16px;
+    }
+   
+    .produit_vedete .articles .message{
+        font-size: 15px;
+       
+     }
+ }

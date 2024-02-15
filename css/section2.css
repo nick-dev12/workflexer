@@ -2,11 +2,11 @@
 
 .section2 {
     position: fixed;
-    top: 90px;
+    top: 80px;
     height: 100vh;
     width: 280px;
     z-index: 10;
-    background-color: #f8f7f7;
+    background-color: #f7f7f7;
     transition: all 0.5s ease;
   }
   .section2 .img111{
@@ -128,13 +128,13 @@
     width: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(139, 139, 139, 0.379);
-    box-shadow: 0px 0px 8px 1px #888888;
+    border: 2px solid rgba(80, 80, 80, 0.375);
+    box-shadow: 0px 0px 5px 1px #888888;
   }
   .section2 .box1 span {
-    height: 2px;
+    height: 1px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.379);
+    background-color: rgba(46, 46, 46, 0.354);
     display: block;
     margin: 10px 0;
   }
@@ -190,7 +190,7 @@
     margin-bottom: 10px;
     z-index: 2;
     font-size: 15px;
-    background-color: #004cff;
+    background-color: #3a3a3a;
     display: block;
     padding: 10px 20px;
     font-weight: 600;
