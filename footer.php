@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../style/footer.css">
 
 <div class="footer" >
-    <img class="img" src="/image/WF__1_-removebg-preview.png" alt="">
+    <img class="img" src="/image/logo.png" alt="">
     <div class="footer-container">
             <div class="footer-section">
                 <h3>Naviguer</h3>

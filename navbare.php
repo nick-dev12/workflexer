@@ -35,7 +35,7 @@ if (isset($_SESSION['users_id'])) {
 <link rel="stylesheet" href="/css/navbare.css">
 
 <nav>
-    <a class="logo" href="../index.php"> <img src="/image/WF__2_.png " alt=""></a>
+    <a class="logo" href="../index.php"> <img src="/image/logo.png " alt="logo"></a>
    <div class="container" >
     <img class="menu" src="/image/menu.png" alt="">
    <div class="box1">

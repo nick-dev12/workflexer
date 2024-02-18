@@ -96,6 +96,7 @@ if (isset($_GET['id'])) {
     <!-- End Google Tag Manager -->
 
     <title>Profil</title>
+    <link rel="icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
     <script src="../script/jquery-3.6.0.min.js"></script>

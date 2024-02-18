@@ -54,97 +54,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-<section class="section2">
-        <div class="box1">
-            <h1>Info de l'Entreprise</h1>
-
-            <table>
-                <tr>
-                    <th>NOM</th>
-                    <td><?= $getEntreprise['entreprise'] ?></td>
-                </tr>
-                <tr>
-                    <th>site internet</th>
-                    <?php if($afficheDescriptionentreprise):?>
-                        <td><a href="<?= $afficheDescriptionentreprise['liens'] ?>"><?= $afficheDescriptionentreprise['liens'] ?></a></td>
-                    <?php else: ?>
-                        <td>Aucun lien pour cette entreprise</td>
-                    <?php endif; ?>
-                </tr>
-                <tr>
-                    <th>secteur d'activiter</th>
-                    <td><?= $getEntreprise['categorie'] ?></td>
-                </tr>
-
-                <tr>
-                    <th>description de l'Entreprise</th>
-                    <?php if($afficheDescriptionentreprise):?>
-                    <td><?= $afficheDescriptionentreprise['descriptions'] ?></td>
-                    <?php else: ?>
-                        <td>Aucune description pour cette entreprise</td>
-                    <?php endif; ?>
-
-                </tr>
-            </table>
-        </div>
-    </section>
-
-
-
     <section class="section3">
-        <?php if($Offres): ?>
-        <div class="box1">
-            <h1>détaille de l'offre</h1>
-            <h2>poste disponible : <span><?= $Offres['poste'] ?></span></h2>
 
-            <h3>Mission et responsabilités</h3>
+    <div class="job-offer">
 
-            <?= $Offres['mission'] ?>
+<div class="box11">
+    <img src="../upload/<?= $getEntreprise['images'] ?>" alt="">
+    <h2>Offre d'emploi</h2>
+    <p class="company">
+        <?= $getEntreprise['entreprise'] ?>
+    </p>
 
-            <h3>profil rechercher (qualités et competence) </h3>
+    <?php if ($afficheDescriptionentreprise): ?>
+        <p class="lien"><a href="<?= $afficheDescriptionentreprise['liens'] ?>">
+                <?= $afficheDescriptionentreprise['liens'] ?>
+            </a></p>
+    <?php else: ?>
+        <p class="lien">Aucun lien pour cette entreprise</p>
+    <?php endif; ?>
 
-            <?= $Offres['profil'] ?>
+    <h4>Type d'entreprise</h4>
+    <p>
+        <?= $getEntreprise['types'] ?>
+    </p>
 
-            <h1 class="suplement">Info supplémentaire</h1>
+    <h4>Description de l'Entreprise</h4>
+    <p class="description">
+        <?= $afficheDescriptionentreprise['descriptions'] ?>
+    </p>
+</div>
 
+<?php if ($Offres): ?>
+    <div class="box3" >
+         <h1>Detaille de l'offre</h1>
+    <h2>Poste disponible : <span>
+            <?= $Offres['poste'] ?>
+        </span></h2>
+    </div>
+   
 
-            <table>
-                <tr>
-                    <th>Métier :</th>
-                    <td> <?= $Offres['metier'] ?></td>
-                </tr>
-                <tr>
-                    <th>Type de contrat :</th>
-                    <td> <?= $Offres['contrat'] ?></td>
-                </tr>
-                <tr>
-                    <th>Région :</th>
-                    <td> <?= $Offres['localite'] ?></td>
-                </tr>
+    <div class="box2">
+        <h3>Missions et responsabilités</h3>
+        <?= $Offres['mission'] ?>
+    </div>
 
-                <tr>
-                    <th>Ville :</th>
-                    <td><?=$getEntreprise['ville']?></td>
-                </tr>
+    <div class="box2">
+        <h3>Profil recherché</h3>
+        <p>Qualités et compétences requises:</p>
+        <?= $Offres['profil'] ?>
+    </div>
 
-                <tr>
-                    <th>Niveau d'expérience :</th>
-                    <td> <?= $Offres['experience'] ?></td>
-                </tr>
-                <tr>
-                    <th>Niveau d'études :</th>
-                    <td> <?= $Offres['etudes'] ?></td>
-                </tr>
-                <tr>
-                    <th>Langues exigées :</th>
-                    <td> <?= $Offres['langues'] ?></td>
-                </tr>
-            </table>
+    <div class="box2">
+        <h3>Informations supplémentaires</h3>
+        <p class="info"> <strong>Métier : </strong>
+            <?= $Offres['metier'] ?>
+        </p>
+        <p class="info"> <strong> Type de contrat :</strong>
+            <?= $Offres['contrat'] ?>
+        </p>
+        <p class="info"> <strong>Région : </strong>
+            <?= $Offres['localite'] ?>
+        </p>
+        <p class="info"> <strong>Ville : </strong>
+            <?= $getEntreprise['ville'] ?>
+        </p>
+        <p class="info"> <strong>Niveau d'expérience : </strong>
+            <?= $Offres['etudes'] ?>
+        </p>
+        <p class="info"> <strong>Langues exigées : </strong>
+            <?= $Offres['langues'] ?>
+        </p>
+       
+    </div>
 
-            <button class="btn2" > modifier l'offre </button>
-            
-        </div>
+<button class="btn2" > Modifier l'offre </button>
 
+    </div>
+    <?php endif; ?>
+       
+ 
         <div class="container-b" >
             <img class="img1" src="../image/croix.png" alt="">
             <div class="form_off">
@@ -188,8 +176,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </form>
             </div>
             </div>
-
-        <?php endif; ?>
+       
 
 
 

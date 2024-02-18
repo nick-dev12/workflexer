@@ -245,17 +245,24 @@ include_once('controller/controller_users.php');
 
     <section class="box-section3">
         <div class="box1">
+            <div>
             <h2>Pour les Professionnels</h2>
             <p>Explorez Work-Flexer, la plateforme qui révolutionne la flexibilité
                 au travail! Redéfinissez votre carrière avec des opportunités uniques.
                 Créez des profils et CV virtuels percutants pour raconter votre histoire
                 professionnelle. Transformez votre avenir dès maintenant!
             </p>
+            </div>
+            <div  class="div" >
+                <img src="/image/image1.png" alt="">
+            </div>
         </div>
-        <span>
 
-        </span>
         <div class="box1">
+            <div class="div" >
+                <img src="/image/image2.png" alt="">
+            </div>
+            <div>
             <h2>Pour les Recruteurs</h2>
             <p>Découvrez Work-Flexer, le futur du recrutement pour les leaders visionnaires!
                 Simplifiez la gestion de vos offres d'emploi avec notre interface intuitive.
@@ -263,7 +270,10 @@ include_once('controller/controller_users.php');
                 et interagissez sans effort avec les candidats. Transformez votre
                 processus de recrutement dès maintenant!
             </p>
+            </div>
+            
         </div>
+       
     </section>
 
     <section class="temoin">
@@ -501,7 +511,7 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
                                 items: 4
                             },
                             1400: {
-                                items: 5
+                                items: 4
                             }
                         }
                     });

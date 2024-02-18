@@ -1189,44 +1189,47 @@ body {
 
 
 .box-section3{
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 80px auto;
+  flex-direction: column;
 }
 
 .box-section3 .box1{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 400px;
-  padding: 30px;
-  border: 2px solid #002233;
-  border-radius: 7px;
-  padding-bottom: 80px;
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ margin-bottom: 150px;
 }
-.box-section3 span{
-  height: 20px;
-  border-top: 3px solid #002233;
-  border-bottom: 3px solid #002233;
-  width: 150px;
-}
+
 .box-section3 .box1 h2{
   width: 300px;
   font-weight: bolder;
   font-style: italic;
   text-align: center;
   padding: 5px 10px;
-  border: 2px dotted #002233;
+  border-bottom: 2px dotted #202020;
   margin-bottom: 30px;
+  color: #0066ff;
 }
 .box-section3 .box1 p{
-  width: 100%;
+  width: 300px;
   text-align: justify;
-  height: 250px;
+  padding: 10px;
   line-height: 26px;
+}
+
+.box-section3 .box1 .div {
+  width: 60%;
+}
+.box-section3 .box1 .div img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 8px 8px 4px 1px #2d2d2d56;
+  border: 1px solid #2c2c2c31;
 }
 
 @media screen and (max-width : 900px) {
@@ -1235,88 +1238,54 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 80px auto;
+    margin: 50px auto;
     flex-direction: column;
   }
   
   .box-section3 .box1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 400px;
-    padding: 30px;
-    border: 2px solid #002233;
-    border-radius: 7px;
-    padding-bottom: 40px;
+   flex-direction: column;
+   margin-bottom: 70px;
   }
-  .box-section3 span{
-    height: 60px;
-    border-left: 3px solid #002233;
-    border-right: 3px solid #002233;
-    width: 150px;
+  .box-section3 :nth-child(2){
+    flex-direction: column-reverse;
   }
   .box-section3 .box1 h2{
-    width: 300px;
-    font-weight: bolder;
-    font-style: italic;
-    text-align: center;
-    padding: 5px 10px;
-    border: 2px dotted #002233;
-    margin-bottom: 30px;
+   font-size: 20px;
+   width: 400px;
+   margin-bottom: 10px
   }
   .box-section3 .box1 p{
-    width: 100%;
-    text-align: justify;
-    height: 250px;
-    line-height: 26px;
+   font-size: 14px;
+   width: 400px;
+  }
+  .box-section3 .box1 .div{
+    width: 90%;
   }
 }
 
 @media screen and (max-width : 500px) {
   .box-section3{
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 80px auto;
-    flex-direction: column;
+    width: 98%;
   }
   
   .box-section3 .box1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width:96%;
-    padding: 30px 10px;
-    border: 2px solid #002233;
-    border-radius: 7px;
-    
-    height: 500px;
+   flex-direction: column;
+   margin-bottom: 70px;
   }
-  .box-section3 span{
-    height: 60px;
-    border-left: 3px solid #002233;
-    border-right: 3px solid #002233;
-    width: 150px;
+  .box-section3 :nth-child(2){
+    flex-direction: column-reverse;
   }
   .box-section3 .box1 h2{
-    width: 90%;
-    font-weight: bolder;
-    font-style: italic;
-    text-align: center;
-    padding: 5px 10px;
-    border: 2px dotted #002233;
-    margin-bottom: 30px;
-    font-size: 20px;
+   font-size: 20px;
+   width: 300px;
+   margin-bottom: 10px
   }
   .box-section3 .box1 p{
+   font-size: 13px;
+   width: 300px;
+  }
+  .box-section3 .box1 .div{
     width: 100%;
-    text-align: justify;
-    height: 250px;
-    line-height: 26px;
-    font-size: 15px;
   }
 }
 
@@ -1332,7 +1301,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  padding: 50px;
   width: 100%;
 }
 .div-section .nth1{
@@ -1344,7 +1313,6 @@ body {
 }
 .div-section .nth2{
   background-color: #a4a4a4;
-  height: 400px;
 }
 .div-section .nth3{
   background-image: url(../image/img2.png);
@@ -1355,7 +1323,7 @@ body {
 }
 
 .section3 h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 50px;
   width: 500px;
@@ -1437,43 +1405,13 @@ body {
     justify-content: center;
     flex-direction: column;
   }
-  
-  .section3 .box1 .texte {
-    width: 400px;
-    margin: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .section3 .box1 img {
-    height: 300px;
-    width: auto;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  .section3 .box1 .texte h2 {
-    margin-bottom: 20px;
-    width: 70%;
-  }
-  .section3 .box1 .texte p {
-    width: 380px;
-    font-size: 15px;
-    line-height: 30px;
-    padding: 10px 0;
-  }
-  
-}
-@media screen and (max-width : 500px) {
-  .section3 .box1 .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+
+  .section3 h1{
+    font-size: 30px;
   }
   
   .section3 .box1 .texte {
-    width: 100%;
+    width: 500px;
     margin: 0 10px;
     display: flex;
     align-items: center;
@@ -1492,10 +1430,53 @@ body {
     font-size: 20px;
   }
   .section3 .box1 .texte p {
-    width: 90%;
+    width: 380px;
     font-size: 15px;
     line-height: 30px;
-    padding: 10px 10px;
+    padding: 10px 0;
+  }
+  
+}
+@media screen and (max-width : 600px) {
+  .section3 .box1{
+    padding: 0px;
+    width: 99%;
+  }
+  .section3 .box1 .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .section3  h1{
+    font-size: 22px;
+    margin-bottom: 5px;
+    width: 300px;
+  }
+  .section3 .box1 .texte {
+    width: 100%;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .section3 .box1 img {
+    height: 300px;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .section3 .box1 .texte h2 {
+    margin-bottom: 20px;
+    width: 90%;
+    font-size: 20px;
+  }
+  .section3 .box1 .texte p {
+    width: 100%;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 0;
   }
   .section3 .box1 a {
     padding: 7px 10px;
@@ -1519,7 +1500,7 @@ body {
 
 .temoin {
   width: 100%;
-  padding: 120px 30px;
+  padding: 80px 30px;
   background-color: #a4a4a4;
   display: flex;
   align-items: center;
@@ -1531,62 +1512,50 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 290px;
-  height: 400px;
+  width: 250px;
+  height: 350px;
   padding: 0 20px;
   background-color: #ffffff;
   border-radius: 7px;
   margin: 0 30px;
   box-shadow: 0 0 8px 2px #000000;
+  position: relative;
 }
 .temoin .box p {
-  font-size: 16px;
-  text-align: left;
-  padding: 20px 0;
+  font-size: 14px;
+  text-align: center;
   color: #000000;
 }
 .temoin .box .img {
-  height: 90px;
-  width: 90px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   border: 1px solid #000000;
   box-shadow: 0 0 2px 2px;
   object-fit: cover;
+  position: absolute;
+  bottom: 20px;
+
 }
 .temoin .box span{
   font-size: 80px;
-  margin-bottom: -80px;
   font-weight: bold;
   color: #f39c12;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
-@media screen and (max-width : 1400px ) {
-  .temoin .box {
+@media screen and (max-width : 600px ) {
+  .temoin {
+    width: 100%;
+    padding: 80px 5px;
+    background-color: #a4a4a4;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 250px;
-    height: 350px;
-    padding: 0 20px;
-    background-color: #ffffff;
-    border-radius: 7px;
-    margin: 0 30px;
-    box-shadow: 0 0 8px 2px #000000;
-  }
-  .temoin .box p {
-    font-size: 14px;
-    text-align: left;
-    padding: 20px 0;
-    color: #000000;
-  }
-  .temoin .box .img {
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-    border: 1px solid #000000;
-    box-shadow: 0 0 2px 2px;
-    object-fit: cover;
+    margin:50px 0;
   }
 }
 

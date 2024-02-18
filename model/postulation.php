@@ -67,6 +67,23 @@ function getALLPostulation($db,$entreprise_id){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function countALLPostulationAccept($db, $entreprise_id){
+    $sql = "SELECT * FROM postulation WHERE entreprise_id = :entreprise_id AND statut = 'accepter'";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->rowCount();
+}
+
+function countALLPostulationRecaler($db, $entreprise_id){
+    $sql = "SELECT * FROM postulation WHERE entreprise_id = :entreprise_id AND statut = 'recaler'";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->rowCount();
+}
+
+
 /**
  * Summary of affichePostulant
  * @param mixed $db
