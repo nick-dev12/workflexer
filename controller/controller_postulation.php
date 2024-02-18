@@ -11,7 +11,9 @@ require '../vendor/autoload.php';
 
 if (isset($_SESSION['compte_entreprise'])) {
     $getALLpostulation= getALLPostulation($db,$_SESSION['compte_entreprise']);
-    
+    $countAllPostulation = count($getALLpostulation);
+    $countPostulationAccepte = countALLPostulationAccept($db, $_SESSION['compte_entreprise']);
+    $countPostulationRecqler = countALLPostulationRecaler($db, $_SESSION['compte_entreprise']);
     // $offre_id = $getALLpostulation['offre_id'];
 
     // $affichePostulant=affichePostulant($db,$offre_id);
