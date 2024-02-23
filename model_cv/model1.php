@@ -11,19 +11,19 @@ if (isset($_GET['id'])) {
 
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
-include_once('../controller/controller_users.php');
-include_once('../controller/controller_description_users.php');
-include_once('../controller/controller_metier_users.php');
-include_once('../controller/controller_competence_users.php');
-include_once('../controller/controller_formation_users.php');
-include_once('../controller/controller_diplome_users.php');
-include_once('../controller/controller_certificat_users.php');
-include_once('../controller/controller_outil_users.php');
-include_once('../controller/controller_langue_users.php');
-include_once('../controller/controller_projet_users.php');
-include_once('../controller/controller_message1.php');
-include_once('../controller/controller_appel_offre.php');
-include_once('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_users.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_message1.php');
+    include_once('../controller/controller_appel_offre.php');
+    include_once('../controller/controller_centre_interet.php');
 }
 
 if (isset($_SESSION['users_id'])) {
@@ -32,7 +32,7 @@ if (isset($_SESSION['users_id'])) {
 // Récupérez l'ID de l'utilisateur depuis la variable de session
     $users_id = $_SESSION['users_id'];
 
-  
+
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
     include_once('../controller/controller_description_users.php');
@@ -45,6 +45,7 @@ if (isset($_SESSION['users_id'])) {
     include_once('../controller/controller_langue_users.php');
     include_once('../controller/controller_projet_users.php');
     include_once('../controller/controller_users.php');
+    include_once('../controller/controller_centre_interet.php');
 }
 
 ?>
@@ -134,7 +135,7 @@ if (isset($_SESSION['users_id'])) {
                             <table>
                                 <?php if (empty($afficheLangue)): ?>
                                     <p>Aucune donnée trouver</p>
-                                    <?php else: ?>
+                                <?php else: ?>
                                     <?php foreach ($afficheLangue as $langues): ?>
                                         <tr>
                                             <td class="lan">
@@ -173,7 +174,7 @@ if (isset($_SESSION['users_id'])) {
                             <?php else: ?>
                                 <?php foreach ($afficheCertificat as $certificat): ?>
                                     <p>
-                                        <?= $certificat['certificqt'] ?>
+                                        <?= $certificat['certificat'] ?>
                                     </p>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -226,33 +227,37 @@ if (isset($_SESSION['users_id'])) {
 
 
                     <div class="exp">
-    <div class="til1">
-        <h1>Expérience professionnelle</h1>
-    </div>
-    <div class="mes_exp">
-        <?php if (empty($afficheMetier)): ?>
-            <h4>Aucune donnée trouvée</h4>
-        <?php else: ?>
-            <?php foreach ($afficheMetier as $Metiers): ?>
-                <div class="exp1"></div>
-                <div class="exp2">
-                    <em>
-                        <?= $Metiers['moisDebut'] ?> /
-                        <?= $Metiers['anneeDebut'] ?>
-                    </em>
-                    <em>
-                        <?= $Metiers['moisFin'] ?> /
-                        <?= $Metiers['anneeFin'] ?>
-                    </em>
-                </div>
-                <div class="exp3">
-                    <h2><?= $Metiers['metier'] ?></h2>
-                    <p><?= $Metiers['description'] ?></p>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-</div>
+                        <div class="til1">
+                            <h1>Expérience professionnelle</h1>
+                        </div>
+                        <div class="mes_exp">
+                            <?php if (empty($afficheMetier)): ?>
+                                <h4>Aucune donnée trouvée</h4>
+                            <?php else: ?>
+                                <?php foreach ($afficheMetier as $Metiers): ?>
+                                    <div class="exp1"></div>
+                                    <div class="exp2">
+                                        <em>
+                                            <?= $Metiers['moisDebut'] ?> /
+                                            <?= $Metiers['anneeDebut'] ?>
+                                        </em>
+                                        <em>
+                                            <?= $Metiers['moisFin'] ?> /
+                                            <?= $Metiers['anneeFin'] ?>
+                                        </em>
+                                    </div>
+                                    <div class="exp3">
+                                        <h2>
+                                            <?= $Metiers['metier'] ?>
+                                        </h2>
+                                        <p>
+                                            <?= $Metiers['description'] ?>
+                                        </p>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
 
 
 
@@ -264,7 +269,7 @@ if (isset($_SESSION['users_id'])) {
                         <div class="mes_exp">
                             <?php if (empty($formationUsers)): ?>
                                 <h4>Aucune donnée trouver</h4>
-                                <?php else: ?>
+                            <?php else: ?>
                                 <?php foreach ($formationUsers as $formations): ?>
                                     <div class="exp1"></div>
                                     <div class="exp2">
@@ -285,39 +290,55 @@ if (isset($_SESSION['users_id'])) {
                                             <?= $formations['niveau'] ?>
                                         </h4>
                                     </div>
-                                        <?php endforeach; ?>
-                        <?php endif; ?>
-                                </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
 
-  <div class="outils">
-                    <div class="out1">
-                        <h1>Maîtrise des outils informatique</h1>
-                    </div>
-                    <div class="out2">
-                        <?php if (empty($afficheOutil)): ?>
-                            <p>Aucune donnee trouver</p>
-                        <?php else: ?>
-                           
+                    <div class="outils">
+                        <div class="out1">
+                            <h1>Maîtrise des outils informatique</h1>
+                        </div>
+                        <div class="out2">
+                            <?php if (empty($afficheOutil)): ?>
+                                <p>Aucune donnee trouver</p>
+                            <?php else: ?>
+
                                 <table>
-                                     <?php foreach ($afficheOutil as $outils): ?>
-                                    <tr>
-                                        <td>
-                                            <?= $outils['outil'] ?>
-                                        </td>
-                                        <td><em>
-                                                <?= $outils['niveau'] ?>
-                                            </em></td>
-                                    </tr>
+                                    <?php foreach ($afficheOutil as $outils): ?>
+                                        <tr>
+                                            <td>
+                                                <?= $outils['outil'] ?>
+                                            </td>
+                                            <td><em>
+                                                    <?= $outils['niveau'] ?>
+                                                </em></td>
+                                        </tr>
                                     <?php endforeach; ?>
-                      
+
                                 </table>
-                              <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+
+
+                    <div class="outils">
+                        <div class="out1">
+                            <h1>Competences</h1>
+                        </div>
+                        <div class="out22">
+                        <?php foreach ($competencesUtilisateur as $competence): ?>
+                            <p class="comp">
+                                <?php echo $competence['competence']; ?>
+                            </p>
+                           
+                        <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
-                </div>
 
-              
+
             </div>
         </div>
         </div>

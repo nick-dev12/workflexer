@@ -5,6 +5,7 @@ include('../conn/conn.php');
 include_once('app/controller/controllerEntreprise.php');
 include_once('app/controller/controllerDescription.php');
 include_once('app/controller/controllerOffre_emploi.php');
+include_once('../controller/controller_niveau_etude_experience.php');
 ?>
 
 
@@ -15,6 +16,17 @@ include_once('app/controller/controllerOffre_emploi.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Google Tag Manager -->
+     <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <!-- End Google Tag Manager -->
+    
     <title> <?= $getEntreprise['entreprise']; ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -30,6 +42,10 @@ include_once('app/controller/controllerOffre_emploi.php');
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <?php include('../navbare.php') ?>
 
 
@@ -58,12 +74,13 @@ include_once('app/controller/controllerOffre_emploi.php');
 
         <div class="container_box2">
             <div class="box1">
-                <h1>Mes offres</h1>
+                <h1>Historique</h1>
             </div>
 
             <div class="box2">
             <?php foreach ($historiques as $historique): ?>
                 <?php $infoUsers = getInfoUsers($db,$historique['users_id'] ) ?>
+                <?php $infoNiveau = gettNiveau($db,$historique['users_id']) ;?>
 
                             <div class="carousel">
                                 <?php if ($infoUsers['statut'] == 'Disponible'): ?>
@@ -78,11 +95,11 @@ include_once('app/controller/controllerOffre_emploi.php');
                                     <?php endif; ?>
                                 <?php endif; ?>
                                 <img src="../upload/<?php echo $infoUsers ['images'] ?>" alt="">
+                               
+                                <div class="info-box">
                                 <h4>
                                     <?php echo $infoUsers ['competences']; ?>
                                 </h4>
-
-
 
                                 <div class="vendu">
                                     <?php $afficheCompetences = getCompetences($db, $infoUsers ['id']);
@@ -113,10 +130,17 @@ include_once('app/controller/controllerOffre_emploi.php');
                                     ?>
                                     <?php echo $nameUsers; ?>
                                 </p>
-                                <p class="ville" id="nom"><strong>Ville :</strong>
 
+                                <p class="p" ><strong>Niveau:</strong>
+                                    <?php echo $infoNiveau['etude'];   ?>
+                                </p>
+                                <p  class="p"><strong>Experience:</strong>
+                                    <?php echo $infoNiveau['experience'];   ?>
+                                </p>
+                                <p class="ville" id="nom">
                                     <?php echo $infoUsers ['ville']; ?>
                                 </p>
+                                </div>
 
                                 <a href="/page/candidats.php?id=<?php echo $infoUsers ['id']; ?>">
                                     <i class="fa-solid fa-eye"></i>Profil

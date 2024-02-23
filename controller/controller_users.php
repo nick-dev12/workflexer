@@ -107,6 +107,8 @@ shuffle($UsersJuridique);
 $UsersInformatique = getUsersInformatique($db);
 shuffle($UsersInformatique);
 
+$getUssersCategorie = getUsers($db);
+
 
 
 if(isset($_GET['disponible'])){

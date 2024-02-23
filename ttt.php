@@ -1,86 +1,52 @@
-<section class="produit_vedete">
-        <div class="box1">
-            <span></span>
-            <h1> Design et création</h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/info.jpg" alt=""> -->
-                <img src="/image/webdesign.jpg" alt="">
-            </div>
-        </div>
+<?php
 
-        <div class="box2">
-            <span><i class="fa-solid fa-chevron-left"></i></span>
-            <span><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
+require 'vendor/autoload.php';
 
-        <article class="articles owl-carousel carousel2">
-            <?php if (empty($UsersDesign)): ?>
+use \NlpTools\Similarity\CosineSimilarity;
+use \NlpTools\Tokenizers\WhitespaceTokenizer;
 
-                <h1 class="message">Aucun profil disponible pour cette catégorie</h1>
+// Initialiser un tokenizer
+$tokenizer = new WhitespaceTokenizer();
+$cosineSimilarity = new CosineSimilarity();
 
-            <?php else: ?>
 
-                <?php foreach ($UsersDesign as $Designs): ?>
-                    <?php if ($Designs['statut'] == 'Occuper'): ?>
+$competences_candidat = array(
+    "Développement web",
+    "Conception de base de données",
+    "Analyse de données",
+    "Résolution de problèmes",
+    "Communication interpersonnelle",
+    "Gestion de projet",
+    "Langages de programmation : PHP, JavaScript, Python",
+    "Framework : Laravel, React, Django",
+    "Base de données : MySQL, PostgreSQL, MongoDB",
+    "Analyse statistique",
+    "Machine Learning",
+    "Développement mobile",
+    "Conception UX/UI",
+    "Cloud computing",
+    "Systèmes embarqués"
+);
 
-                    <?php else: ?>
+$chaine_de_competences = implode("", $competences_candidat);
 
-                        <div class="carousel">
-                            <?php if ($Designs['statut'] == 'Disponible'): ?>
-                                <p class="statut"><span></span>
-                                    <?= $Designs['statut'] ?>
-                                </p>
-                            <?php else: ?>
-                                <?php if ($Designs['statut'] == 'Occuper'): ?>
-                                    <p class="statut2"><span></span>
-                                        <?= $Designs['statut'] ?>
-                                    </p>
-                                <?php else: ?>
-                                    <p class="statut"><span></span> Disponible</p>
-                                <?php endif; ?>
-                            <?php endif; ?>
+$chaine_de_competences_token = $tokenizer->tokenize($chaine_de_competences);
 
-                            <img src="../upload/<?php echo $Designs['images'] ?>" alt="">
-                            <h4>
-                                <?php echo $Designs['competences']; ?>
-                            </h4>
+$teste = 'projet de computing et Développement Analyse je ne  PostgreSQL il nous faut de la communication';
+$teste_token = $tokenizer->tokenize($teste);
 
-                            <div class="vendu">
-                                <?php $afficheCompetences = getCompetences($db, $Designs['id']) ?>
-                                <?php if (empty($afficheCompetences)): ?>
-                                    <span>Competences indisponibles</span>
-                                <?php else: ?>
-                                    <?php
-                                    $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
-                    
-                                    foreach ($afficheCompetences as $compe):
-                                        if ($competencesAffichees < 4):
-                                            ?>
-                                            <span>
-                                                <?= $compe['competence'] ?>
-                                            </span>
-                                            <?php
-                                            $competencesAffichees++;
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                <?php endif; ?>
-                            </div>
-                            <p id="nom"><strong>Nom :</strong>
-                                <?php echo $Designs['nom']; ?>
-                            </p>
-                            <p id="nom"><strong>Ville :</strong>
-                                <?php echo $Designs['ville']; ?>
-                            </p>
+$comparation = $cosineSimilarity->similarity($teste_token, $chaine_de_competences_token);
+echo $comparation;
 
-                            <a href="/page/candidats.php?id=<?php echo $Designs['id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Profil
-                            </a>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach ?>
 
-            <?php endif; ?>
-        </article>
-    </section>
+// Prétraitement des textes en les divisant en tokens
+$texte1 = $tokenizer->tokenize("Ceci est un exemple de texte.");
+$texte2 = $tokenizer->tokenize("Ceci est un autre exemple de texte.");
+
+// Calcul de la similarité cosinus entre les textes
+$similarity = $cosineSimilarity->similarity($texte1, $texte2);
+
+// Affichage du résultat
+echo "Similarité cosinus entre les textes : " . $similarity;
+
+?>

@@ -37,6 +37,7 @@ if (isset($_GET['id'])) {
     include_once('../controller/controller_langue_users.php');
     include_once('../controller/controller_projet_users.php');
     include_once('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_niveau_etude_experience.php');
 } else {
 
 
@@ -68,6 +69,7 @@ if (isset($_GET['id'])) {
     include_once('../controller/controller_centre_interet.php');
     include_once('../entreprise/app/controller/controllerOffre_emploi.php');
     include_once('../entreprise/app/controller/controllerEntreprise.php');
+    include_once('../controller/controller_niveau_etude_experience.php');
 }
 
 ?>
@@ -224,7 +226,8 @@ if (isset($_GET['id'])) {
         <script>
             let img222 = document.querySelector('.img222');
             let section2 = document.querySelector('.section2');
-            let img111 = document.querySelector('.img111')
+            let img111 = document.querySelector('.img111');
+            
             img222.addEventListener('click', () => {
                 section2.style.marginLeft = '0px';
                 img222.style.display = 'none';
@@ -638,6 +641,99 @@ if (isset($_GET['id'])) {
                 </script>
 
             </div>
+
+            <div class="box3">
+                <h2>Niveau d'expérience et d'étude </h2>
+                <div class="container_comp b2">
+
+                    <?php if (empty($getNiveauEtude)): ?>
+                        <p class="p">
+                            Aucun niveau d'etude ajouter a votre profil
+                        </p>
+                    <?php else: ?>
+                            
+                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                                data-aos-anchor-placement="top-bottom">
+                                <strong>Niveau D'etude:</strong> <?php echo $getNiveauEtude['etude'] ?>
+                            </p>
+                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                                data-aos-anchor-placement="top-bottom">
+                                <strong>Niveau d'expérience :</strong> <?php echo $getNiveauEtude['experience'] ?>
+                            </p>
+                           
+                    <?php endif; ?>
+
+                </div>
+
+                <?php if (isset($_SESSION['users_id'])): ?>
+                        <?php if (isset($getNiveauEtude['etude'])): ?>
+                            <button class="affiche_formss">Modifier</button>
+                <?php else: ?>
+                    <button class="affiche_formss">Ajouter un niveau d'etude et experience</button>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <form class="formss" action="" method="post">
+                    <img class="imgs22" src="../image/croix.png" alt="">
+                    <?php if (isset($erreurs)) :?>
+                        <p><?php echo $erreurs ;?></p>
+                        <?php endif; ?>
+                    
+                   <div>
+                   <label for="etude">Niveau D'etude</label>
+                    <select name="etude" id="etude">
+                        <option value="">Choisissez un niveau d'études </option>
+                        <option value="Bac+1an">Bac+1an</option>
+                        <option value="Bac+2ans">Bac+2ans</option>
+                        <option value="Bac+3ans">Bac+3ans</option>
+                        <option value="Bac+4ans">Bac+4ans</option>
+                        <option value="Bac+5ans">Bac+5ans</option>
+                        <option value="Bac+6ans">Bac+6ans</option>
+                        <option value="Bac+7ans">Bac+7ans</option>
+                        <option value="Bac+8ans">Bac+8ans</option>
+                            <option value="Bac+9ans">Bac+9ans</option>
+                            <option value="Bac+10ans">Bac+10ans</option>
+                    </select>
+                   </div>
+                    <div>
+                    <label for="experience">Niveau d'expérience</label>
+                    <select name="experience" id="experience">
+                        <option value="">Choisissez un niveau d'expérience </option>
+                        <option value="1an">1an</option>
+                        <option value="2ans">2ans</option>
+                        <option value="3ans">3ans</option>
+                        <option value="4ans">4ans</option>
+                        <option value="5ans">5ans</option>
+                        <option value="6ans">6ans</option>
+                        <option value="7ans">7ans</option>
+                        <option value="8ans">8ans</option>
+                        <option value="9ans">9ans</option>
+                        <option value="10ans">10ans</option>
+                    </select>
+                    </div>
+                    <?php if (isset($getNiveauEtude['etude'])): ?>
+                        <input type="submit" value="Modifier" name="Ajouters1" id="Ajouter">
+                        <?php else : ?>
+                    <input type="submit" value="Ajouter" name="Ajouters" id="Ajouter">
+                    <?php endif; ?>
+                </form>
+
+                <script>
+                    let affiche_formss = document.querySelector('.affiche_formss')
+                    let formss = document.querySelector('.formss')
+                    let imgs22 = document.querySelector('.imgs22')
+
+                    affiche_formss.addEventListener('click', function () {
+                        formss.style.display = 'block';
+                    });
+                    imgs22.addEventListener('click', function () {
+                        formss.style.display = 'none';
+                    });
+                </script>
+
+            </div>
         </div>
 
 
@@ -978,7 +1074,7 @@ if (isset($_GET['id'])) {
 
                     <div class="box">
                         <label for="liens">Ajoute un lien </label>
-                        <input type="text" name="liens" id="liens" value="http://www.">
+                        <input type="text" name="liens" id="liens" value="https://">
                     </div>
 
                     <div class="box">
@@ -1276,7 +1372,7 @@ if (isset($_GET['id'])) {
         <?php if (isset($_SESSION['users_id'])): ?>
             <div class="container_box6">
                 <div class="box1">
-                    <h1>Laisser moi un message</h1>
+                    <h1>assistance</h1>
                 </div>
 
                 <div class="box2">
@@ -1307,17 +1403,19 @@ if (isset($_GET['id'])) {
                     <?php if ($affiches['categorie'] == $users['categorie']): ?>
 
                         <?php $info_entreprise = getEntreprise($db, $affiches['entreprise_id']) ?>
+
+                        <?php if($affiches['etudes'] == $getNiveauEtude['etude']) :?>
+
+                            <?php else: ?>
+
+                            <?php if($affiches['experience'] == $getNiveauEtude['experience']) :?>
                         <div class="carousel">
                             <img src="../upload/<?php echo $info_entreprise['images'] ?>" alt="">
                             <p class="p">
                                 <strong>
                                     <?php echo $info_entreprise['entreprise']; ?>
                                 </strong>
-
-                                <img src="../image/coeurs.png" alt="">
                             </p>
-
-                            <div class="box_vendu">
                                 <div class="vendu">
 
                                     <p>
@@ -1325,9 +1423,21 @@ if (isset($_GET['id'])) {
                                         <?php echo ($affiches['poste']); ?>
                                     </p>
 
-                                </div>
+                                    <p>
+                                        <strong>Niveau :</strong>
+                                        <?php echo ($affiches['etudes']); ?>
+                                    </p>
+                                    <p>
+                                        <strong>Experience :</strong>
+                                        <?php echo ($affiches['experience']); ?>
+                                    </p>
 
-                            </div>
+                                    <p>
+                                        <strong>Ville :</strong>
+                                        <?php echo ($affiches['localite']); ?>
+                                    </p>
+
+                                </div>
 
                             <p id="nom">
                                 <?php echo $affiches['date']; ?>
@@ -1337,7 +1447,8 @@ if (isset($_GET['id'])) {
                                 <i class="fa-solid fa-eye"></i>Voir l'offre
                             </a>
                         </div>
-
+                        <?php endif; ?>
+                        <?php endif; ?>
                     <?php endif; ?>
                 <?php endforeach ?>
             </div>

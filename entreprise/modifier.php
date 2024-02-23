@@ -192,6 +192,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <option value="business">Conseil et gestion d'entreprise</option>
                                 <option value="Juridique">Juridique</option>
                                 <option value="Ingénierie">Ingénierie et architecture</option>
+                                <option value="Finance et comptabilité">Finance et comptabilité</option>
+                                <option value="Santé et bien-être">Santé et bien-être</option>
+                                <option value="Éducation et formation">Éducation et formation</option>
+                                <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
+                                <option value="Commerce et vente">Commerce et vente</option>
+                                <option value="Transport et logistique">Transport et logistique</option>
+                                <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                                <option value="Autre">Autre</option>
                             </select>
                         </div>
                         <input id="modif" type="submit" name="valide8" value="Modifier">

@@ -20,11 +20,10 @@ function getTotalUsers($db)
  * @param mixed $categorie
  * @return mixed
  */
-function getUsers($db, $categorie)
+function getUsers($db)
 {
-    $sql = "SELECT * FROM users WHERE categorie = :categorie ";
+    $sql = "SELECT * FROM users ";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':categorie', $categorie, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

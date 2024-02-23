@@ -3,6 +3,7 @@ session_start();
 
 
 include_once('../controller/controller_postulation.php');
+include_once('../entreprise/app/controller/controllerEntreprise.php');
 
 
 if (isset($_COOKIE['users_id'])) {
@@ -123,22 +124,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </p>
         </div>
 
-
-
-
-
-
         <div class="div-section3">
         <div class="box6">
             <h2>Suivi de candidatures</h2>
+            <h3>Candidatures non traiter</h3>
             <div class="container_accept">
             <?php if( empty($getPostulationUsers)): ?>
-                    <p><strong>Info :</strong> aucune Candidatures trouver !!</p> 
+                    <p><strong>Info :</strong> Aucune Candidatures trouvée!!</p> 
                     <?php else: ?>
                 <?php foreach ($getPostulationUsers as $postulationUsers): ?>
                     <?php $getOffreEmploie = getOffresEmploit($db,$postulationUsers['offre_id']);
-                    $infoEntreprise = getEntreprise($db,$postulationUsers['entreprise_id'])
+                    $infoEntreprises = getEntreprise($db,$postulationUsers['entreprise_id'])
                     ?>
+                     <?php if ($postulationUsers['statut'] == ''): ?>
 
                     <div class="accept">
                         <?php if ($postulationUsers['statut'] == 'accepter'): ?>
@@ -150,8 +148,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <h5 class="h53">traitement en cours </h5>
                             <?php endif; ?>
                         <?php endif; ?>
-                        <img src="../upload/<?= $infoEntreprise['images'] ?>" alt="">
-                        <h3><span>Poste :</span> <?= $postulationUsers['poste'] ?></h3>
+                        <img src="../upload/<?= $infoEntreprises['images'] ?>" alt="">
+                        <h4><?php echo $infoEntreprises['entreprise'] ?></h4>
+                        <h5><span>Poste :</span> <?= $postulationUsers['poste'] ?></h5>
                         <p><strong>Contrat :</strong>  <?= $getOffreEmploie['contrat'] ?> <span>...</span></p>
                         <p><strong>Niveau :</strong> <?= $getOffreEmploie['etudes'] ?> <span>...</span></p>
                         <p><strong>Localité : </strong> <?= $getOffreEmploie['localite'] ?> <span>...</span></p>
@@ -165,6 +164,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </a>
                             <?php endif; ?>
                     </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+
+
+
+            <div class="box6">
+            <h3 class="h31" >Candidatures acceptées</h3>
+            <p>Ici apparaîtront les candidatures acceptées</p>
+            <div class="container_accept">
+            <?php if( empty($getPostulationUsers)): ?>
+                    <p><strong>Info :</strong> aucune Candidatures trouver !!</p> 
+                    <?php else: ?>
+                <?php foreach ($getPostulationUsers as $postulationUsers): ?>
+                    <?php $getOffreEmploie = getOffresEmploit($db,$postulationUsers['offre_id']);
+                    $infoEntreprises = getEntreprise($db,$postulationUsers['entreprise_id'])
+                    ?>
+                     <?php if ($postulationUsers['statut'] == 'accepter'): ?>
+                    <div class="accept">
+                        <?php if ($postulationUsers['statut'] == 'accepter'): ?>
+                            <h5 class="h51">accepter</h5>
+                        <?php endif; ?>
+                        <img src="../upload/<?= $infoEntreprises['images'] ?>" alt="">
+                        <h4><?php echo $infoEntreprises['entreprise'] ?></h4>
+                        <h5><span>Poste :</span> <?= $postulationUsers['poste'] ?></h5>
+                        <p><strong>Contrat :</strong>  <?= $getOffreEmploie['contrat'] ?> <span>...</span></p>
+                        <p><strong>Niveau :</strong> <?= $getOffreEmploie['etudes'] ?> <span>...</span></p>
+                        <p><strong>Localité : </strong> <?= $getOffreEmploie['localite'] ?> <span>...</span></p>
+                        <?php if ($postulationUsers['statut'] == 'recaler'): ?>
+                        <a class="cursor" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                                src="../image/vue3.png" alt=""> Désactiver
+                            </a>
+                            <?php else: ?>
+                                <a class="b" href="../page/message_users.php"><img
+                                src="../image/send.png" alt=""> Message
+                            </a>
+                                <a class="a" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                                src="../image/vue2.png" alt=""> Voir l'offre
+                            </a>
+                            <?php endif; ?>
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+
+
+
+            <div class="box6">
+            <h3 class="h32" >Candidatures recalées</h3>
+            <p>Ici apparaîtront les candidatures recalées</p>
+            <div class="container_accept">
+            <?php if( empty($getPostulationUsers)): ?>
+                    <p><strong>Info :</strong> Aucune candidature trouvée !!</p> 
+                    <?php else: ?>
+                <?php foreach ($getPostulationUsers as $postulationUsers): ?>
+                    <?php $getOffreEmploie = getOffresEmploit($db,$postulationUsers['offre_id']);
+                    $infoEntreprises = getEntreprise($db,$postulationUsers['entreprise_id'])
+                    ?>
+                     <?php if ($postulationUsers['statut'] == 'recaler'): ?>
+                    <div class="accept">
+                        <?php if ($postulationUsers['statut'] == 'accepter'): ?>
+                            <h5 class="h51">accepter</h5>
+                        <?php endif; ?>
+                        <img src="../upload/<?= $infoEntreprises['images'] ?>" alt="">
+                        <h4><?php echo $infoEntreprises['entreprise'] ?></h4>
+                        <h5><span>Poste :</span> <?= $postulationUsers['poste'] ?></h5>
+                        <p><strong>Contrat :</strong>  <?= $getOffreEmploie['contrat'] ?> <span>...</span></p>
+                        <p><strong>Niveau :</strong> <?= $getOffreEmploie['etudes'] ?> <span>...</span></p>
+                        <p><strong>Localité : </strong> <?= $getOffreEmploie['localite'] ?> <span>...</span></p>
+                        <?php if ($postulationUsers['statut'] == 'recaler'): ?>
+                        <a class="cursor" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                                src="../image/vue3.png" alt=""> Désactiver
+                            </a>
+                            <?php else: ?>
+                                <a class="a" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                                src="../image/vue2.png" alt=""> Voir l'offre
+                            </a>
+                            <?php endif; ?>
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
                 <?php endforeach; ?>
                 <?php endif; ?>
             </div>

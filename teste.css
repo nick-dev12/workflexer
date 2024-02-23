@@ -1,3 +1,160 @@
-div {
-    background-color: red;
+/*--------------------------------------------------------------
+  Variables
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+  Styles globaux
+--------------------------------------------------------------*/
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color: #3e3e3e;
+}
+
+/*--------------------------------------------------------------
+  En-tête
+--------------------------------------------------------------*/
+
+header {
+  background-color: blue;
+  color: #303030;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+header h2 {
+  font-size: 18px;
+  margin: 5px 0 0;
+}
+
+/*--------------------------------------------------------------
+  Contenu principal
+--------------------------------------------------------------*/
+
+main {
+  padding: 20px;
+}
+
+/*--------------------------------------------------------------
+  Section profil
+--------------------------------------------------------------*/
+
+.profil {
+  margin-bottom: 20px;
+}
+
+.profil h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.profil p {
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+  Section expériences
+--------------------------------------------------------------*/
+
+.experiences {
+  margin-bottom: 20px;
+}
+
+.experiences h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.experiences h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.experiences ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experiences ul li {
+  margin-bottom: 5px;
+}
+
+/*--------------------------------------------------------------
+  Section compétences
+--------------------------------------------------------------*/
+
+.competences {
+  margin-bottom: 20px;
+}
+
+.competences h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.competences ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+}
+
+.competences ul li {
+  margin-bottom: 5px;
+}
+
+/*--------------------------------------------------------------
+  Section loisirs
+--------------------------------------------------------------*/
+
+.loisirs {
+  margin-bottom: 20px;
+}
+
+.loisirs h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.loisirs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.loisirs ul li {
+  margin-bottom: 5px;
+}
+
+/*--------------------------------------------------------------
+  Section formations
+--------------------------------------------------------------*/
+
+.formations {
+  margin-bottom: 20px;
+}
+
+.formations h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.formations h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.formations p {
+  margin: 0;
 }

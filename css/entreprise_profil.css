@@ -332,7 +332,7 @@ body{
     border:2px solid #0000004d;
     outline: none;
     transition: all 0.3s;
-    width: 100%;
+    width: 400px;
 }
 .section3 .container_box1 .form_off form .box input::placeholder{
     font-size: 14px;
@@ -344,7 +344,7 @@ body{
     border:2px solid #0000004d;
     outline: none;
     transition: all 0.3s;
-    width: 100%;
+    width: 400px;
 }
 .section3 .container_box1 .form_off form .box select{
     padding: 5px 10px;
@@ -352,7 +352,7 @@ body{
     font-size: 17px;
     border:2px solid #0000004d;
     outline: none;
-    width: 100%;
+    width: 400px;
 }
 
 .section3 .container_box1 .form_off form .box select:hover{
@@ -396,7 +396,15 @@ body{
 
 }
 @media screen and (max-width : 700px) {
-   
+    .section3 .container_box1{
+        width: 98%;
+        margin-left: 0px;
+        padding: 20px 5px;
+    }
+    .section3 .container_box1 .form_off form{
+        width: 100%;
+        padding: 5px;
+    }
     .section3 .container_box1 .form_off form .box{
         display: flex;
        flex-direction: column;
@@ -405,8 +413,8 @@ body{
     }
     .section3 .container_box1 .form_off form .box input{
         border-radius: 7px;
-        font-size: 15px;
-        padding: 10px;
+        font-size: 14px;
+        padding: 6px;
         border:2px solid #0000004d;
         outline: none;
         transition: all 0.3s;
@@ -417,7 +425,7 @@ body{
     }
     .section3 .container_box1 .form_off form .box textarea{
         border-radius: 7px;
-        font-size: 17px;
+        font-size: 15px;
         padding: 10px;
         border:2px solid #0000004d;
         outline: none;
@@ -425,10 +433,10 @@ body{
         width: 100%;
     }
     .section3 .container_box1 .form_off form .box select{
-        padding: 5px 10px;
+        padding: 3px 10px;
         border-radius: 10px;
-        font-size: 17px;
-        border:2px solid #0000004d;
+        font-size: 15px;
+        border:1.5px solid #0000004d;
         outline: none;
         width: 100%;
     }
@@ -453,11 +461,22 @@ body{
     -moz-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
+.section3 .container_box2 .box1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 .section3 .container_box2 .box1 h1{
     padding: 10px;
     border-bottom: 1px solid rgba(165, 165, 165, 0.337);
-    width: 100%;
+    width: 90%;
     margin-bottom: 30px;
+}
+.section3 .container_box2 .box1  span{
+    font-size: 18px;
+    padding:5px 10px;
+    border: 1.5px solid #002233;
 }
 .section3 .container_box2 .box2 {
     display: flex;
@@ -467,7 +486,7 @@ body{
 }
 .section3 .container_box2 .box2  .carousel{
     height: 350px;
-    width: 220px;
+    width: 230px;
     background-color: rgba(247, 247, 247, 0.499);
     border-radius: 8px;
     overflow: hidden;
@@ -570,7 +589,7 @@ body{
     flex-direction: column;
 }
 .section3 .container_box2 .box2  .carousel .vendu p{
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 300;
   max-height: 50px;
   width: 100%;

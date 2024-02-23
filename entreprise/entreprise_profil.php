@@ -15,11 +15,29 @@ include_once('app/controller/controllerOffre_emploi.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <?= $getEntreprise['entreprise']; ?></title>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <!-- End Google Tag Manager -->
+
+    <title>
+        <?= $getEntreprise['entreprise']; ?>
+    </title>
+    <link rel="icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+    <title>
+        <?= $getEntreprise['entreprise']; ?>
+    </title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
@@ -31,15 +49,21 @@ include_once('app/controller/controllerOffre_emploi.php');
 </head>
 
 <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <?php include('../navbare.php') ?>
 
 
-   <?php include ('../include/header_entreprise.php') ?>
+    <?php include('../include/header_entreprise.php') ?>
 
     <section class="section3">
 
-    
-    <img src="../image/fleche.png" alt="" class="img222">
+
+        <img src="../image/fleche.png" alt="" class="img222">
         <script>
             let img222 = document.querySelector('.img222');
             let section2 = document.querySelector('.section2');
@@ -73,10 +97,11 @@ include_once('app/controller/controllerOffre_emploi.php');
 
                 <p>
                     <span>
-                    Nous sommes heureux de vous accueillir dans notre plateforme exclusive de gestion des offres et
-                    appels d'offre. Work-Flexer, votre partenaire privilégié, met à votre disposition un outil de
-                    gestion avancé pour simplifier le processus de recrutement et trouver les talents les plus qualifiés
-                    pour votre organisation.
+                        Nous sommes heureux de vous accueillir dans notre plateforme exclusive de gestion des offres et
+                        appels d'offre. Work-Flexer, votre partenaire privilégié, met à votre disposition un outil de
+                        gestion avancé pour simplifier le processus de recrutement et trouver les talents les plus
+                        qualifiés
+                        pour votre organisation.
                     </span>
                 </p>
 
@@ -139,10 +164,10 @@ include_once('app/controller/controllerOffre_emploi.php');
                 <h2>Description !</h2>
                 <?php if (isset($afficheDescriptionentreprise['descriptions'])): ?>
                     <p>
-                    <?= $afficheDescriptionentreprise['descriptions'] ?>
+                        <?= $afficheDescriptionentreprise['descriptions'] ?>
                     </p>
                 <?php else: ?>
-                    <p class="p" > Ajouter une description pour que votre entreprise soit connue </p>
+                    <p class="p"> Ajouter une description pour que votre entreprise soit connue </p>
                 <?php endif; ?>
             </div>
             <?php if (isset($afficheDescriptionentreprise['descriptions'])): ?>
@@ -152,8 +177,8 @@ include_once('app/controller/controllerOffre_emploi.php');
                     <form method="post" action="">
                         <div>
                             <textarea name="descriptions" id="summernote" cols="30" rows="10">
-                                    <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
-                                </textarea>
+                                        <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
+                                    </textarea>
                         </div>
                         <div class="div">
                             <label for="site">Avez vous un site web ?(facultatif*)</label>
@@ -208,7 +233,7 @@ include_once('app/controller/controllerOffre_emploi.php');
             </div>
             <div class="form_off">
                 <form method="post" action="">
-                    <img src="../image/croix.png" alt="" class="img1" >
+                    <img src="../image/croix.png" alt="" class="img1">
 
                     <div class="box">
                         <label for="poste">Poste disponible :</label>
@@ -225,20 +250,52 @@ include_once('app/controller/controllerOffre_emploi.php');
                     </div>
 
                     <div class="box">
-                        <label for="contrat">Type de contrat :</label>
-                        <input type="text" name="contrat" id="contrat" required placeholder="Exemple : CDI, CDD, Stage">
-                    </div>
-                    <div class="box">
-                        <label for="etude">Niveau d'études requis :</label>
-                        <input type="text" name="etude" id="etude" required
-                            placeholder="Exemple : Bac+5, Licence, etc.">
+                        <select name="contrat" id="contrat">
+                            <option value="">-- Type de contrat --</option>
+                            <option value="cdi">CDI</option>
+                            <option value="cdd">CDD</option>
+                            <option value="interim">Intérim</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="apprentissage">Apprentissage</option>
+                            <option value="stage">Stage</option>
+                        </select>
                     </div>
 
                     <div class="box">
-                        <label for="experience">Niveau d'expérience requis :</label>
-                        <input type="text" name="experience" id="experience" required
-                            placeholder="Exemple : 2 ans, 5 ans, etc.">
+                        <select name="etude" id="etude">
+                            <option value="">-- Niveau d'étude requis --</option>
+                            <option value="Bac+1an">Bac+1an</option>
+                            <option value="Bac+2ans">Bac+2ans</option>
+                            <option value="Bac+3ans">Bac+3ans</option>
+                            <option value="Bac+4ans">Bac+4ans</option>
+                            <option value="Bac+5ans">Bac+5ans</option>
+                            <option value="Bac+6ans">Bac+6ans</option>
+                            <option value="Bac+7ans">Bac+7ans</option>
+                            <option value="Bac+8ans">Bac+8ans</option>
+                            <option value="Bac+9ans">Bac+9ans</option>
+                            <option value="Bac+10ans">Bac+10ans</option>
+
+                        </select>
+
                     </div>
+
+                    <div class="box">
+                        <select name="experience" id="experience">
+                            <option value="">-- Niveau d'expérience requis --</option>
+                            <option value="1an">1an</option>
+                        <option value="2ans">2ans</option>
+                        <option value="3ans">3ans</option>
+                        <option value="4ans">4ans</option>
+                        <option value="5ans">5ans</option>
+                        <option value="6ans">6ans</option>
+                        <option value="7ans">7ans</option>
+                        <option value="8ans">8ans</option>
+                        <option value="9ans">9ans</option>
+                        <option value="10ans">10ans</option>
+                        
+                        </select>
+                    </div>
+
                     <div class="box">
                         <label for="localite">Localité :</label>
                         <input type="text" name="localite" id="localite" required
@@ -251,18 +308,26 @@ include_once('app/controller/controllerOffre_emploi.php');
                     </div>
 
                     <div class="box">
-                            <label for="categorie">Secteur d'activité</label>
-                            <select id="categorie" name="categorie">
-                                <option value="">Sélectionnez une catégorie</option>
-                                <option value="Informatique et tech">Informatique et tech</option>
-                                <option value="Design et création">Design et création</option>
-                                <option value="Rédaction et traduction">Rédaction et traduction</option>
-                                <option value="Marketing et communication">Marketing et communication</option>
-                                <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
-                                <option value="Juridique">Juridique</option>
-                                <option value="Ingénierie et architecture">Ingénierie et architecture</option>
-                            </select>
-                        </div>
+                        <label for="categorie">Secteur d'activité</label>
+                        <select id="categorie" name="categorie">
+                            <option value="">Sélectionnez une catégorie</option>
+                            <option value="Informatique et tech">Informatique et tech</option>
+                            <option value="Design et création">Design et création</option>
+                            <option value="Rédaction et traduction">Rédaction et traduction</option>
+                            <option value="Marketing et communication">Marketing et communication</option>
+                            <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
+                            <option value="Juridique">Juridique</option>
+                            <option value="Ingénierie et architecture">Ingénierie et architecture</option>
+                            <option value="Finance et comptabilité">Finance et comptabilité</option>
+                            <option value="Santé et bien-être">Santé et bien-être</option>
+                            <option value="Éducation et formation">Éducation et formation</option>
+                            <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
+                            <option value="Commerce et vente">Commerce et vente</option>
+                            <option value="Transport et logistique">Transport et logistique</option>
+                            <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
 
                     <input type="submit" name="publier" value="publier" id="valider">
                 </form>
@@ -271,13 +336,13 @@ include_once('app/controller/controllerOffre_emploi.php');
             <script>
                 let btn2 = document.querySelector('.btn2')
                 let form_off = document.querySelector('.form_off')
-                let img1 =document.querySelector('.img1')
+                let img1 = document.querySelector('.img1')
 
                 btn2.addEventListener('click', () => {
-                        form_off.style.height = '1300px'
+                    form_off.style.height = '1300px'
                 })
                 img1.addEventListener('click', () => {
-                        form_off.style.height = '0'
+                    form_off.style.height = '0'
                 })
             </script>
         </div>
@@ -286,56 +351,59 @@ include_once('app/controller/controllerOffre_emploi.php');
         <div class="container_box2">
             <div class="box1">
                 <h1>Mes offres</h1>
+                <span>
+                    <?php $countOffre = count($afficheOffreEmplois);
+                    echo $countOffre
+                        ?>
+                </span>
             </div>
 
             <div class="box2">
-            <?php
-                if(empty($afficheOffreEmplois)):
-                 ?>
-                 <p class="info" ><strong>Info!</strong> Aucune offre d’emplois publier ! veuillez ajouter une offre</p>
-                 <?php else: ?> 
-                    
                 <?php
-                 foreach ($afficheOffreEmplois as $offres): 
-                 ?>
+                if (empty($afficheOffreEmplois)):
+                    ?>
+                    <p class="info"><strong>Info!</strong> Aucune offre d’emplois publier ! veuillez ajouter une offre</p>
+                <?php else: ?>
 
-                    <?php $countOffre = countOffre($db, $offres['entreprise_id'], $offres['offre_id']); ?>
-                    <div class="carousel">
-                        <div class="vue">
-                            <img src="../image/vue.png" alt="">
-                            <span>
-                                <?= $countOffre ?>
-                            </span>
+                    <?php
+                    foreach ($afficheOffreEmplois as $offres):
+                        ?>
+
+                        <?php $countOffre = countOffre($db, $offres['entreprise_id'], $offres['offre_id']); ?>
+                        <div class="carousel">
+                            <div class="vue">
+                                <img src="../image/vue.png" alt="">
+                                <span>
+                                    <?= $countOffre ?>
+                                </span>
+                            </div>
+
+                            <a class="suprimer" href="?offre_id=<?= $offres['offre_id']; ?>"> Supprimer</a>
+
+                            <img src="../upload/<?= $offres['images'] ?> " alt="">
+
+                            <div class="vendu">
+                                <p><strong>Nous recherchons un(une)</strong>
+                                    <?= $offres['poste'] ?>
+                                </p>
+                                <p><strong>Niveau :</strong>
+                                    <?= $offres['etudes'] ?>
+                                </p>
+                                <p><strong>Experience :</strong>
+                                    <?= $offres['experience'] ?>
+                                </p>
+                                <p><strong>Contrat :</strong>
+                                    <?= $offres['contrat'] ?>
+                                </p>
+                            </div>
+                            <p id="nom">
+                                <?= $offres['date'] ?>
+                            </p>
+                            <a class="liens" href="../entreprise/updat_offre.php?id=<?= $offres['offre_id'] ?>"><i
+                                    class="fa-solid fa-eye"></i></span>Voir l'offre</a>
                         </div>
 
-                        <a class="suprimer" href="?offre_id=<?= $offres['offre_id']; ?>"> Supprimer</a>
-
-                        <img src="../upload/<?= $offres['images'] ?> " alt="">
-                        <div class="p">
-                            <p>
-                                <?= $offres['entreprise'] ?>
-                            </p>
-                        </div>
-
-                        <div class="vendu">
-                            <p><strong>Nous recherchons un(une)</strong>
-                                <?= $offres['poste'] ?>
-                            </p>
-                            <p><strong>Niveau :</strong>
-                                <?= $offres['etudes'] ?>
-                            </p>
-                            <p><strong>Contrat :</strong>
-                                <?= $offres['contrat'] ?>
-                            </p>
-                        </div>
-                        <p id="nom">
-                            <?= $offres['date'] ?>
-                        </p>
-                        <a class="liens" href="../entreprise/updat_offre.php?id=<?= $offres['offre_id'] ?>"><i
-                                class="fa-solid fa-eye"></i></span>Voir l'offre</a>
-                    </div>
-
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                 <?php endif ?>
 
             </div>
@@ -344,7 +412,7 @@ include_once('app/controller/controllerOffre_emploi.php');
 
         <div class="container_box6">
             <div class="box1">
-                <h1>Laisser moi un message</h1>
+                <h1>Assistance</h1>
             </div>
 
             <div class="box2">
