@@ -28,6 +28,8 @@ if (isset($_GET['id'])) {
     include_once('../controller/controller_message1.php');
     include_once('../controller/controller_appel_offre.php');
     include_once('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_niveau_etude_experience.php');
+
 }
 
 ?>
@@ -83,6 +85,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section class="section2">
         <div class="container">
+        <img src="../image/croix.png" alt="" class="img111">
             <div class="box1">
                 <?php if ($userss['statut'] == 'Disponible'): ?>
                     <button class="statut occ">
@@ -118,23 +121,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="box3">
                 <table>
-
-                    <tr>
-                        <td id="td"><img src="../image/MCV.png" alt=""></td>
-                        <td class="td" > <a href="/model_cv/cv_users.php?id=<?php echo $userss['id']; ?>">mon cv</a></td>
-                    </tr>
-
-                    <!-- <tr class="tr">
-                        <td id="td"><img src="../image/exp.png" alt=""></td>
-                        <td>Mon experience</td>
-                    </tr> -->
+                 
                     <tr class="tr">
                         <td id="td"><img src="../image/mpc.png" alt=""></td>
                         <td class="td"><a href="../page/candidats.php?id=<?php echo $userss['id'];  ?>">Mon parcours</a></td>
-                    </tr>
-                    <tr>
-                        <td id="td"><img src="../image/mct.png" alt=""></td>
-                        <td class="td"><a href="">Contacte</a></td>
                     </tr>
                    
                 </table>
@@ -144,6 +134,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <section class="section3">
+
+    <img src="../image/fleche.png" alt="" class="img222">
+        <script>
+            let img222 = document.querySelector('.img222');
+            let section2 = document.querySelector('.section2');
+            let img111 = document.querySelector('.img111');
+            
+            img222.addEventListener('click', () => {
+                section2.style.marginLeft = '0px';
+                img222.style.display = 'none';
+            });
+
+            img111.addEventListener('click', () => {
+                section2.style.marginLeft = '-150%';
+                img222.style.display = 'block';
+            });
+        </script>
+
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
             <?php if ($getappelOffre): ?>
                 <button class="contactes"> <strong> Alerte!</strong> Ce candidat a deja ete contacter par votre
@@ -313,7 +321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <?php
                     foreach ($competencesUtilisateur as $competence):
                         ?>
-                        <p>
+                        <p class="comp">
                             <?php echo $competence['competence']; ?>
                         </p>
                         <?php
@@ -322,6 +330,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
             </div>
+
+
+            <div class="box3">
+                <h2>Niveau d'expérience et d'étude </h2>
+                <div class="container_comp b2">
+
+                    <?php if (empty($getNiveauEtude)): ?>
+                        <p class="p">
+                            Aucun niveau d'etude ajouter a votre profil
+                        </p>
+                    <?php else: ?>
+                            
+                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                                data-aos-anchor-placement="top-bottom">
+                                <strong>Niveau D'etude:</strong> <?php echo $getNiveauEtude['etude'] ?>
+                            </p>
+                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                                data-aos-anchor-placement="top-bottom">
+                                <strong>Niveau d'expérience :</strong> <?php echo $getNiveauEtude['experience'] ?>
+                            </p>
+                           
+                    <?php endif; ?>
+
+                </div>
+
+                
+               
+
+            </div>
+        </div>
+
+
+
+        </div>
 
 
         </div>

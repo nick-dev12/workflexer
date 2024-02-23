@@ -1,126 +1,68 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="fr">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Document</title>
-    <style>
-        body{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        .box1 {
-            width: 300px;
-            text-align: center;
-            margin: 0 auto;
-            border-radius: 10px;
-        }
-        
-        .box1 img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        
-        .box2 {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            width: 60%;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 20px;
-            color: #007bff;
-            margin-bottom: 15px;
-        }
-        
-        h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-        
-        p {
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-        
-        a {
-            background-color: #007bff;
-            color: #ffffff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        @media only screen and (max-width: 1000px) {
-            .box2 {
-                padding: 15px;
-                width: 80%;
-            }
-           
-        }
-        
-        @media only screen and (max-width: 600px) {
-            .box2 {
-                padding: 15px;
-            }
-        
-            h1 {
-                font-size: 20px;
-                margin-bottom: 8px;
-            }
-        
-            h2 {
-                font-size: 18px;
-                margin-bottom: 12px;
-            }
-        
-            h3 {
-                font-size: 16px;
-                margin-bottom: 12px;
-            }
-        
-            p {
-                font-size: 13px;
-                margin-bottom: 12px;
-            }
-        
-            a {
-                padding: 8px 16px;
-                font-size: 13px;
-                margin-bottom: 12px;
-            }
-        }
-        
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Laura Dubois</title>
+  <link rel="stylesheet" href="/controller/teste.css">
 </head>
 <body>
-    <div class='box1'>
-        <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
-    </div>
-    <div class='box2'>
-       <h1>Bonjour $entreprise,</h1>
-    <h2>Nouvelle candidature reçue !</h2>
-    <h3><strong>Poste :</strong> $poste</h3>
-    <p>Nous avons le plaisir de vous informer qu'un candidat potentiel vient de postuler à votre offre d'emploi pour le poste de <strong>$poste</strong>.</p>
-    <p>Nous vous encourageons à vous connecter dès maintenant pour examiner cette candidature et prendre les mesures appropriées.</p>
-    <p>Connectez-vous à votre espace entreprise sur Work-Flexer pour traiter cette candidature :</p>
-    <p><a href='https://work-flexer.com/entreprise/entreprise_profil.php'>Accéder à votre espace entreprise</a></p>
-    <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre processus de recrutement.</p>
-    <p>Cordialement,<br>L'équipe Work-Flexer</p>
-    </div>
-    
-
-    
+  <header>
+    <h1>Laura Dubois</h1>
+    <h2>Étudiante</h2>
+  </header>
+  <main>
+    <section class="profil">
+      <h3>Profil</h3>
+      <p>Autodidacte soucieuse du détail, je travaille actuellement à l'obtention d'un master en lettres. Je suis désireuse de rejoindre votre société en tant que spécialiste SEO junior. Je contribuerai à l'exécution de vos campagnes basées sur les données, au développement du contenu et à l'optimisation du taux de conversion. J'ai une solide expérience en statistiques et en langues. J'ai également effectué un stage en SEO et en marketing basé sur les données.</p>
+    </section>
+    <section class="experiences">
+      <h3>Expériences professionnelles</h3>
+      <h4>Stagiaire site web - monsitedevente.fr</h4>
+      <ul>
+        <li>Soutien au responsable du commerce électronique pour l'optimisation des catégories (produit et section) et la refonte du contenu du site.</li>
+        <li>Collaboration avec le responsable du commerce électronique et l'agence de référencement locale pour optimiser le contenu du site.</li>
+      </ul>
+      <h4>Président du conseil des étudiants - Université XXXX de Lille</h4>
+      <ul>
+        <li>Faciliter, soutenir et coordonner toutes les activités du conseil des étudiants.</li>
+        <li>Développer, promouvoir et mener une variété de programmes extrascolaires.</li>
+        <li>Planifier, organiser et présider toutes les réunions avec les membres du conseil.</li>
+      </ul>
+      <h4>Président du conseil des élèves - Lycée XXXX à Lens</h4>
+      <ul>
+        <li>Préparer, mettre en œuvre et contrôler le budget du conseil des étudiants.</li>
+        <li>Planifier et mener diverses activités communautaires et collectes de fonds.</li>
+        <li>Faciliter et maintenir des interactions positives entre les étudiants et le personnel.</li>
+      </ul>
+    </section>
+    <section class="competences">
+      <h3>Compétences</h3>
+      <ul>
+        <li>Communication écrite</li>
+        <li>SEO</li>
+        <li>Commerce électronique</li>
+        <li>Google Analytics</li>
+        <li>Adobe Photoshop</li>
+        <li>Adobe InDesign</li>
+      </ul>
+    </section>
+    <section class="loisirs">
+      <h3>Loisirs</h3>
+      <ul>
+        <li>Football</li>
+        <li>Dessin, croquis et peinture</li>
+        <li>Cuisine et pâtisserie</li>
+        <li>Voyager</li>
+      </ul>
+    </section>
+    <section class="formations">
+      <h3>Formations</h3>
+      <h4>Master en linguistique (prévue pour octobre 2020)</h4>
+      <p>Université XXXX de Lille</p>
+      <h4>Licence en linguistique</h4>
+      <p>Université XXXX de Lille</p>
+    </section>
+  </main>
 </body>
 </html>

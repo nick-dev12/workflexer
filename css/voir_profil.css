@@ -26,7 +26,7 @@ body{
 
 
 .section2{
-    height: 650px;
+    height: 550px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -37,7 +37,7 @@ body{
 }
 .section2 .slider{
     display: flex;
-    height: 650px;
+    height: 550px;
     width: 100%;
     position: relative;
 }
@@ -51,7 +51,7 @@ body{
 .section2 .slider .box .text{
     position: absolute;
     width: 100%;
-    height: 650px;
+    height: 550px;
     background-color: #00000050;
     top: 0;
     display: flex;
@@ -60,7 +60,7 @@ body{
     flex-direction: column;
 }
 .section2 .slider .box .text h1{
-   font-size: 50px;
+   font-size: 40px;
    color: white;
    font-family: 'Almarai', sans-serif;
    width: 900px;
@@ -69,7 +69,7 @@ body{
    margin-top: -100px;
 }
 .section2 .slider .box .text p{
-    font-size: 17px;
+    font-size: 16px;
     color: white;
     font-family: 'Almarai', sans-serif;
     width: 600px;
@@ -89,7 +89,7 @@ body{
 
 
 .section2 .slider .box form {
-    width: 800px;
+    width: 700px;
     height: 100px;
     display: flex;
     align-items: center;
@@ -98,13 +98,13 @@ body{
 }
 
 .section2 .slider .box form #search {
-    width: 700px;
-    height: 60px;
+    width: 600px;
+    height: 40px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border: none;
     outline: none;
-    font-size: 25px;
+    font-size: 20px;
     padding: 0px 30px;
     transition: all 0.5s;
     border: inset none;
@@ -123,15 +123,15 @@ body{
     display: none;
 }
 .section2 .slider .box form label i{
-    font-size: 40px;
+    font-size: 30px;
     transition: all 0.5s;
 }
 .section2 .slider .box form label i:hover{
     color: aliceblue;
 }
 .section2 .slider .box form label{
-    width: 70px;
-    height: 60px;
+    width: 60px;
+    height: 40px;
     background-color: #0a062d;
     display: flex;
     align-items: center;
@@ -202,7 +202,7 @@ body{
     
     .section2 .slider .box form #search {
         width: 600px;
-        height: 50px;
+        height: 40px;
        
     }
    
@@ -391,14 +391,14 @@ body{
     align-items: center;
     justify-content: center;
     position: absolute;
-    height: 200px;
+    height: 300px;
     overflow: hidden;
 }
 .produit_vedete .affiche img{
     height: 100px;
     width: 100%;
     object-fit: cover;
-    animation: affiche 20s linear alternate infinite;
+    animation: affiche 15s linear alternate infinite ease-in-out;
 }
 @keyframes affiche{
     0%{
@@ -427,8 +427,8 @@ body{
     justify-content: center;
     flex-direction: column;
     position: relative;
-    margin-bottom: 100px;
-    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     background: linear-gradient(180deg, #b5b5b5 0, #f7f7f7 53%);
     padding: 100px 20px;
     margin-left:auto ;
@@ -484,16 +484,17 @@ body{
  }
  .produit_vedete .box1 h1{
     margin: auto 0;
-    font-size: 22px;
+    font-size: 20px;
     width: 80%;
  }
  .produit_vedete .box1 .affiche{
-    height: 100px;
+    height: 300px;
     border-radius: 10px;
  }
- .produit_vedete .box1 .affich img{
-    height: 100px;
+ .produit_vedete .box1 .affiche img{
+    height: 120px;
     object-fit: cover;
+    border-radius: 10px;
  }
  
  .produit_vedete .articles{
@@ -502,6 +503,7 @@ body{
      justify-content: center;
      align-items: center;
      position: relative;
+     flex-wrap: wrap;
  }
  /* .produit_vedete .articles h1{
     font-size: 25px;
@@ -514,8 +516,8 @@ body{
      position: relative;
  }
  .produit_vedete .articles .carousel{
-     height: 350px;
-     width: 230px;
+     height: 370px;
+     width: 250px;
      background-color: rgba(247, 247, 247, 0.499);
      border-radius: 8px;
      overflow: hidden;
@@ -526,14 +528,21 @@ body{
      margin: 0 10px;
      background-color: #ffffff;
  }
- 
+ .produit_vedete .articles .carousel .divpp{
+   margin: 0;
+ }
+ .produit_vedete .articles .carousel .pp{
+    font-size: 14px ;
+    width: 100%;
+    padding:0 10px;
+ }
  
  .produit_vedete .articles .carousel:hover{
      transform: scale(1.02);
  }
  
  .produit_vedete .articles .message{
-    font-size: 20px;
+    font-size: 15px;
     width: 40%;
     text-align: center;
     padding: 20px 30px;
@@ -549,22 +558,36 @@ body{
      border-bottom-left-radius: 15px;
      border-bottom-right-radius: 15px;
  }
+ .produit_vedete .articles .carousel .info-box{
+    height: 200px;
+    margin-top: -7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px 0;
+ }
  .produit_vedete .articles .carousel h4 {
     padding: 0 10px;
-    font-size: 18px;
+    font-size: 17px;
     text-transform: capitalize;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    width: 100%;
  }
  
  
  .produit_vedete .articles .carousel .ville{
     position: absolute;
-    bottom: 30px;
-    left: 10px;
-    font-size: 15px;
+    top: 16px;
+    font-size: 14px;
     width: 100%;
     text-transform: capitalize;
     color: #000000;
+    font-weight: bold;
+    background-color: #e2e2e250;
+    padding: 1px;
+    padding-left:10px ;
+
  }
  .produit_vedete .articles .carousel .nom{
     position: absolute;
@@ -590,13 +613,13 @@ body{
      width: 100%;
      align-items: center;
      flex-wrap: wrap;
-     margin-bottom: 5px;
+     margin-bottom: 2px;
      padding:0 5px;
  }
  
  
  .produit_vedete .articles .carousel .vendu span{
-    padding: 3px 5px;
+    padding: 1px 3px;
     margin-right: 6px;
     background-color: #0a062d14;
     border-radius: 6px;

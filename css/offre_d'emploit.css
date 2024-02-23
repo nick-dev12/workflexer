@@ -339,8 +339,8 @@ body{
     justify-content: center;
     flex-direction: column;
     position: relative;
-    margin-bottom: 100px;
-    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     background: linear-gradient(180deg, #b5b5b5 0, #f7f7f7 53%);
     padding: 70px ;
     margin-left:auto ;
@@ -388,7 +388,7 @@ body{
      width: 200px;
  }
  .produit_vedete .articles{
-     width: 85%;
+     width: 90%;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -403,20 +403,25 @@ body{
  }
  .produit_vedete .articles .carousel{
      height: 360px;
-     width: 230px;
+     width: 240px;
      background-color: rgba(247, 247, 247, 0.499);
      border-radius: 8px;
      overflow: hidden;
-     border: 1px solid rgba(105, 103, 103, 0.257);
+     border: 1px solid rgba(105, 104, 104, 0.411);
      box-shadow: 7px 6px 10px -5px #00000093;
      transition: all 0.5s ease-in-out;
      position: relative;
-     margin: 0 10px;
+     margin: 20px 10px;
      background-color: #ffffff;
-     
  }
  
- 
+ .produit_vedete .articles .carousel .info-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 170px;
+ }
  .produit_vedete .articles .carousel:hover{
      transform: scale(1.05);
  }
@@ -431,10 +436,10 @@ body{
     box-shadow: 8px 6px 7px 0px #2c3e5080;
  }
  .produit_vedete .articles .carousel img{
-     height: 160px;
+     height: 135px;
      width: 100%;
      object-fit: cover;
-     border-bottom: 1px solid rgba(148, 146, 146, 0.499);
+     border-bottom: 1.5px solid rgba(83, 82, 82, 0.312);
      border-bottom-left-radius: 15px;
      border-bottom-right-radius: 15px;
  }
@@ -490,8 +495,9 @@ body{
  }
 
  .produit_vedete .articles .carousel .vendu p{
-    font-size: 15px;
-    margin-bottom: 3px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    width: 100%;
 }
 .produit_vedete .articles .carousel .vendu .ville{
     font-size: 15px;
@@ -558,12 +564,29 @@ body{
      color: white;
      font-size: 25px;
  }
- 
- @media screen and (max-width : 1000px) {
+ @media screen and (max-width : 1320px){
     .produit_vedete {
-        width: 97%;
-        padding: 70px 20px;
+        width: 95%;
+        padding: 30px 20px;
     }
+    .produit_vedete .articles {
+        width: 100%;
+        padding: 10px 10px;
+    }
+ }
+
+ @media screen and (max-width : 1220px){
+    .produit_vedete {
+        width: 95%;
+        padding: 30px 20px;
+    }
+    .produit_vedete .articles {
+        padding: 10px 10px;
+        flex-wrap: wrap;
+    }
+ }
+ @media screen and (max-width : 1000px) {
+   
     .produit_vedete .box1{
         width: 99%;
     }
@@ -592,7 +615,7 @@ body{
  }
  @media screen and (max-width : 500px) {
     .produit_vedete {
-        padding: 70px 10px;
+        padding: 20px 10px;
     }
     .produit_vedete .box1{
         width: 100%;

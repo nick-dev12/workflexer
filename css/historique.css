@@ -54,6 +54,8 @@ body{
       display: block;
     }
   }
+
+  
 .section3 .container_box2 {
     width: 80%;
     margin-top: 50px;
@@ -84,8 +86,8 @@ body{
     width: 100%;
 }
 .section3 .container_box2 .box2  .carousel{
-    height: 350px;
-    width: 230px;
+    height: 370px;
+    width: 240px;
     background-color: rgba(247, 247, 247, 0.499);
     border-radius: 8px;
     overflow: hidden;
@@ -97,6 +99,13 @@ body{
     background-color: #ffffff;
 }
 
+.section3 .container_box2 .box2  .carousel .info-box{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
 .section3 .container_box2 .box2  .carousel .statut,statut2{
     position: absolute;
     top: 15px;
@@ -110,6 +119,7 @@ body{
     align-items: center;
     border-radius: 7px;
     color: #ffffff;
+    z-index: 6;
  }
  .section3 .container_box2 .box2  .carousel .statut span{
    display: inline-block;
@@ -135,7 +145,7 @@ body{
    box-shadow: 8px 6px 7px 0px #2c3e5080;
 }
 .section3 .container_box2 .box2  .carousel img{
-    height: 140px;
+    height: 120px;
     width: 100%;
     object-fit: cover;
     border-bottom: 1px solid rgba(148, 146, 146, 0.499);
@@ -144,28 +154,34 @@ body{
 }
 .section3 .container_box2 .box2  .carousel h4 {
    padding: 0 10px;
-   font-size: 18px;
+   font-size: 16px;
    text-transform: capitalize;
    margin-bottom: 10px;
 }
 
-
+.section3 .container_box2 .box2  .carousel .p{
+    font-size: 14px;
+    padding: 0 10px;
+    width: 100%;
+}
 .section3 .container_box2 .box2  .carousel .ville{
    position: absolute;
-   bottom: 30px;
-   left: 10px;
-   font-size: 15px;
+   top: 16px;
+   font-size: 14px;
    width: 100%;
    text-transform: capitalize;
-   color: #000000;
+   color: #fcfcfc;
+   width: 100%;
+   background-color: #00223378;
+   padding: 3px 5px;
 }
 .section3 .container_box2 .box2  .carousel .nom{
    position: absolute;
-   top: 105px;
+   top: 90px;
    left: 10px;
    color: #ffffff;
    background-color: #00223351;
-   font-size: 16px;
+   font-size: 15px;
    font-weight: 600;
    padding: 5px 7px;
    border-radius: 5px;
@@ -179,7 +195,7 @@ body{
 .section3 .container_box2 .box2  .carousel .vendu{
     display: flex !important; 
     margin-left: 5px;
-    font-size: 13px;
+    font-size: 12px;
     width: 100%;
     align-items: center;
     flex-wrap: wrap;
@@ -189,7 +205,7 @@ body{
 
 
 .section3 .container_box2 .box2  .carousel .vendu span{
-   padding: 3px 5px;
+   padding: 2px 5px;
    margin-right: 6px;
    background-color: #0a062d14;
    border-radius: 6px;
@@ -225,18 +241,13 @@ body{
 
 @media screen and (max-width : 1050px){
     .section3 .container_box2 {
-        width: 95%;
+        width: 98%;
         padding: 30px 10px;
         margin-left: 0;
     }
 }
 
 @media screen and (max-width : 650px){
-    .section3 .container_box2 .box2  .carousel{
-        height: 350px;
-        width: 230px;
-        transition: all 0.3s ease-in-out;
-    }
     
     .section3 .container_box2 .box2  .carousel .statut,statut2{
         font-size: 12px;
@@ -250,34 +261,5 @@ body{
        border: 1px solid #00223363;
     
      }
-    
-    .section3 .container_box2 .box2  .message{
-       font-size: 18px;
-       padding: 15px 25px;
-    }
-    .section3 .container_box2 .box2  .carousel img{
-        height: 140px;
-    }
-    .section3 .container_box2 .box2  .carousel h4 {
-       font-size: 16px;
-    }
-    
-    
-    .section3 .container_box2 .box2  .carousel .ville{
-       font-size: 14px;
-       width: 100%;
-    }
-    .section3 .container_box2 .box2  .carousel .nom{
-       font-size: 14px;
-    }
-    .section3 .container_box2 .box2  .carousel .ville strong{
-       color: #0a062d;
-    }
-    .section3 .container_box2 .box2  .carousel .vendu{
-        font-size: 12px;
-    }
-    .section3 .container_box2 .box2  .carousel a{
-        font-size: 13px;
-    }
     
 }

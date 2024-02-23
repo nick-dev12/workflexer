@@ -134,9 +134,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        
  
         <div class="container-b" >
-            <img class="img1" src="../image/croix.png" alt="">
             <div class="form_off">
                 <form method="post" action="">
+                <img class="img1" src="../image/croix.png" alt="">
                     <div class="box">
                         <label for="poste">Poste disponible</label>
                         <input type="text" name="poste" id="poste" value="<?= $Offres['poste'] ?>" >
@@ -149,19 +149,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <label for="profil">décrivez le profil rechercher (qualités et competence)</label>
                         <textarea name="profil" id="profil" cols="30" rows="10"><?= $Offres['profil'] ?></textarea>
                     </div>
-                   
+                    
                     <div class="box">
-                        <label for="contrat">Type de contrat</label>
-                        <input type="text" name="contrat" id="contrat" value="<?= $Offres['contrat'] ?>" >
+                        <select name="contrat" id="contrat">
+                            <option value="">-- Type de contrat --</option>
+                            <option value="cdi">CDI</option>
+                            <option value="cdd">CDD</option>
+                            <option value="interim">Intérim</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="apprentissage">Apprentissage</option>
+                            <option value="stage">Stage</option>
+                        </select>
                     </div>
+
                     <div class="box">
-                        <label for="etude">Niveau d'études </label>
-                        <input type="text" name="etude" id="etude" value="<?= $Offres['etudes'] ?>" >
+                        <select name="etude" id="etude">
+                            <option value="">-- Niveau d'étude requis --</option>
+                            <option value="Bac+1an">Bac+1an</option>
+                            <option value="Bac+2ans">Bac+2ans</option>
+                            <option value="Bac+3ans">Bac+3ans</option>
+                            <option value="Bac+4ans">Bac+4ans</option>
+                            <option value="Bac+5ans">Bac+5ans</option>
+                            <option value="Bac+6ans">Bac+6ans</option>
+                            <option value="Bac+7ans">Bac+7ans</option>
+                            <option value="Bac+8ans">Bac+8ans</option>
+                            <option value="Bac+9ans">Bac+9ans</option>
+                            <option value="Bac+10ans">Bac+10ans</option>
+
+                        </select>
+
                     </div>
-                   
+
                     <div class="box">
-                        <label for="experience">Niveau d'expérience </label>
-                        <input type="text" name="experience" id="experience" value="<?= $Offres['experience'] ?>" >
+                        <select name="experience" id="experience">
+                            <option value="">-- Niveau d'expérience requis --</option>
+                            <option value="1an">1an</option>
+                        <option value="2ans">2ans</option>
+                        <option value="3ans">3ans</option>
+                        <option value="4ans">4ans</option>
+                        <option value="5ans">5ans</option>
+                        <option value="6ans">6ans</option>
+                        <option value="7ans">7ans</option>
+                        <option value="8ans">8ans</option>
+                        <option value="9ans">9ans</option>
+                        <option value="10ans">10ans</option>
+                        
+                        </select>
                     </div>
                     <div class="box">
                         <label for="localite">region </label>
@@ -170,6 +203,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="box">
                         <label for="Langues">Langues exigées</label>
                         <input type="text" name="langues" id="Langues" value="<?= $Offres['langues'] ?>" >
+                    </div>
+
+                    <div class="box">
+                    <label for="categorie">Secteur d'activité</label>
+                            <select id="categorie" name="categorie">
+                                <option value="">Sélectionnez une catégorie</option>
+                                <option value="Informatique et tech">Informatique et tech</option>
+                                <option value="Design et création">Design et création</option>
+                                <option value="Rédaction et traduction">Rédaction et traduction</option>
+                                <option value="Marketing et communication">Marketing et communication</option>
+                                <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
+                                <option value="Juridique">Juridique</option>
+                                <option value="Ingénierie et architecture">Ingénierie et architecture</option>
+                                <option value="Finance et comptabilité">Finance et comptabilité</option>
+                                <option value="Santé et bien-être">Santé et bien-être</option>
+                                <option value="Éducation et formation">Éducation et formation</option>
+                                <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
+                                <option value="Commerce et vente">Commerce et vente</option>
+                                <option value="Transport et logistique">Transport et logistique</option>
+                                <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                                <option value="Autre">Autre</option>
+                            </select>
                     </div>
 
                     <input type="submit" name="modifier" value="modifier" id="valider">

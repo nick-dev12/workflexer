@@ -20,17 +20,16 @@ function getOffres($db, $offre_id) {
     
 }
 function getAllOffres($db){
-    $sql = "SELECT * FROM offre_emploi LIMIT 10";
+    $sql = "SELECT * FROM offre_emploi ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
     
 }
 
 
-function updatOffre($db,$poste,$mission,$profil,$contrat,$etudes,$experience,$localite,$langues, $offre_id ){
-    $sql = "UPDATE offre_emploi SET poste = :poste, mission = :mission, profil = :profil,  contrat = :contrat, etudes = :etudes, experience = :experience, localite = :localite, langues = :langues WHERE offre_id = :offre_id";
+function updatOffre($db,$poste,$mission,$profil,$contrat,$etudes,$experience,$localite,$langues, $categorie, $offre_id ){
+    $sql = "UPDATE offre_emploi SET poste = :poste, mission = :mission, profil = :profil,  contrat = :contrat, etudes = :etudes, experience = :experience, localite = :localite, langues = :langues, categorie = :categorie WHERE offre_id = :offre_id";
     $stmt = $db->prepare($sql);
     // Liez les valeurs aux paramètres de la requête
     $stmt->bindValue(':poste', $poste, PDO::PARAM_STR);
@@ -41,6 +40,7 @@ function updatOffre($db,$poste,$mission,$profil,$contrat,$etudes,$experience,$lo
     $stmt->bindValue(':experience', $experience, PDO::PARAM_STR);
     $stmt->bindValue(':localite', $localite, PDO::PARAM_STR);
     $stmt->bindValue(':langues', $langues, PDO::PARAM_STR);
+    $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
      return  $stmt->execute();
 }

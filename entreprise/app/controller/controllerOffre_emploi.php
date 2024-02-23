@@ -2,20 +2,20 @@
 
 require_once(__DIR__ . '/../model/offre_emploi.php');
 if (isset($_SESSION['compte_entreprise'])) {
-    include('../model/users.php');
+   include('../controller/controller_users.php');
 }
 
 
 if (isset($_SESSION['users_id'])) {
     if (isset($_GET['entreprise_id']) && isset($_GET['id'])) {
-    include('../model/users.php');
+   include('../controller/controller_users.php');
 }
 }
 
 if (isset($_SESSION['users_id'])) {
 
     if (isset($_GET['entreprise_id']) && isset($_GET['users_id'])) {
-    include('../model/users.php');
+   include('../controller/controller_users.php');
 }
 
 }
@@ -32,14 +32,10 @@ if (isset($_POST['modifier'])) {
 
       
     $poste = $_POST['poste'];
-
-
-    $mission = $_POST['mission'];
-
+    
 
 
     $profil = $_POST['profil'];
-
 
 
     $contrat = $_POST['contrat'];
@@ -48,19 +44,17 @@ if (isset($_POST['modifier'])) {
     $etudes = $_POST['etude'];
 
 
-
     $experience = $_POST['experience'];
-
 
 
     $localite = $_POST['localite'];
 
 
-
     $langues = $_POST['langues'];
 
+    $categorie = $_POST['categorie'];
 
-    if (updatOffre($db, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $offre_id)) {
+    if (updatOffre($db, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $offre_id)) {
         $_SESSION['success_message'] = 'modification réussit !!!';
         header('Location: updat_offre.php');
         exit();

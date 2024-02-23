@@ -26,6 +26,8 @@ include_once('controller/controller_users.php');
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
+    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+
     <title>Bienvenu</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"

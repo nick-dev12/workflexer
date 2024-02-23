@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-include_once('../entreprise/app/controller/controllerOffre_emploi.php')
+include_once('../entreprise/app/controller/controllerOffre_emploi.php');
+include_once('../entreprise/app/controller/controllerEntreprise.php');
     ?>
 
 
@@ -85,8 +86,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
             <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
         </div>
 
-        <article data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom"
+        <article
             class="articles owl-carousel carousel1">
             <?php if (empty($offreIngenierie)): ?>
 
@@ -94,9 +94,12 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
             <?php else: ?>
                 <?php foreach ($offreIngenierie as $ingenieurs): ?>
-                    <div class="carousel">
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
                         <img src="../upload/<?php echo $ingenieurs['images'] ?>" alt="">
-                        <p class="p">
+                       <div class="info-box">
+                       <p class="p">
                             <strong>
                                 <?php echo $ingenieurs['entreprise']; ?>
                             </strong>
@@ -113,6 +116,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Contrat :</strong>
                                     <?php echo ($ingenieurs['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($ingenieurs['etudes']); ?>
                                 </p>
 
                             </div>
@@ -137,6 +144,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             href="../entreprise/voir_offre.php?id=<?= $ingenieurs['offre_id']; ?>&entreprise_id=<?= $ingenieurs['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
+                       </div>
                     </div>
 
 
@@ -175,9 +183,12 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
                 <?php foreach ($offreDesing as $Designs): ?>
 
-                    <div class="carousel">
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
                         <img src="../upload/<?php echo $Designs['images'] ?>" alt="">
-                        <p class="p">
+                  <div class="info-box">
+                  <p class="p">
                             <strong>
                                 <?php echo $Designs['entreprise']; ?>
                             </strong>
@@ -194,6 +205,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Contrat :</strong>
                                     <?php echo ($Designs['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Designs['etudes']); ?>
                                 </p>
                             </div>
 
@@ -218,6 +233,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             href="../entreprise/voir_offre.php?id=<?= $Designs['offre_id']; ?>&entreprise_id=<?= $Designs['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
+                  </div>
                     </div>
 
                 <?php endforeach ?>
@@ -253,9 +269,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
             <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
         </div>
 
-        <article class="articles owl-carousel carousel3" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
-            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
-            data-aos-once="false">
+        <article class="articles owl-carousel carousel3" >
             <?php if (empty($offreRedaction)): ?>
 
                 <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
@@ -264,9 +278,12 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
                 <?php foreach ($offreRedaction as $Redaction): ?>
 
-                    <div class="carousel">
+                    <div class="carousel"  data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
                         <img src="../upload/<?php echo $Redaction['images'] ?>" alt="">
-                        <p class="p">
+                    <div class="info-box">
+                    <p class="p">
                             <strong>
                                 <?php echo $Redaction['entreprise']; ?>
                             </strong>
@@ -283,6 +300,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Contrat :</strong>
                                     <?php echo ($Redaction['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Redaction['etudes']); ?>
                                 </p>
                             </div>
 
@@ -306,6 +327,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             href="../entreprise/voir_offre.php?id=<?= $Redaction['offre_id']; ?>&entreprise_id=<?= $Redaction['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
+                    </div>
                     </div>
                 <?php endforeach ?>
 
@@ -338,9 +360,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
             <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
         </div>
 
-        <article class="articles owl-carousel carousel4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
-            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
-            data-aos-once="false">
+        <article class="articles owl-carousel carousel4">
             <?php if (empty($offreMarcketing)): ?>
 
                 <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
@@ -349,9 +369,12 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
                 <?php foreach ($offreMarcketing as $marketing): ?>
 
-                    <div class="carousel">
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
                         <img src="../upload/<?php echo $marketing['images'] ?>" alt="">
-                        <p class="p">
+                    <div class="info-box">
+                    <p class="p">
                             <strong>
                                 <?php echo $marketing['entreprise']; ?>
                             </strong>
@@ -366,6 +389,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Contrat :</strong>
                                     <?php echo ($marketing['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($marketing['etudes']); ?>
                                 </p>
                             </div>
 
@@ -390,6 +417,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             href="../entreprise/voir_offre.php?id=<?= $marketing['offre_id']; ?>&entreprise_id=<?= $marketing['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
+                    </div>
                     </div>
 
                 <?php endforeach ?>
@@ -421,9 +449,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
             <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
         </div>
 
-        <article class="articles owl-carousel carousel5" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
-            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
-            data-aos-once="false">
+        <article class="articles owl-carousel carousel5">
             <?php if (empty($offreBusiness)): ?>
 
                 <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
@@ -433,9 +459,12 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
                 <?php foreach ($offreBusiness as $business): ?>
 
-                    <div class="carousel">
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
                         <img src="../upload/<?php echo $business['images'] ?>" alt="">
-                        <p class="p">
+                       <div class="info-box">
+                       <p class="p">
                             <strong>
                                 <?php echo $business['entreprise']; ?>
                             </strong>
@@ -451,6 +480,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Contrat :</strong>
                                     <?php echo ($business['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($business['etudes']); ?>
                                 </p>
                             </div>
 
@@ -473,6 +506,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             href="../entreprise/voir_offre.php?id=<?= $business['offre_id']; ?>&entreprise_id=<?= $business['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
+                       </div>
                     </div>
 
                 <?php endforeach ?>
@@ -506,9 +540,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
             <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
         </div>
 
-        <article class="articles owl-carousel carousel6" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
-            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
-            data-aos-once="false">
+        <article class="articles owl-carousel carousel6">
             <?php if (empty($offreJuridique)): ?>
 
                 <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
@@ -517,9 +549,12 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
                 <?php foreach ($offreJuridique as $Juridique): ?>
 
-                    <div class="carousel">
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
                         <img src="../upload/<?php echo $Juridique['images'] ?>" alt="">
-                        <p class="p">
+                       <div class="info-box">
+                       <p class="p">
                             <strong>
                                 <?php echo $Juridique['entreprise']; ?>
                             </strong>
@@ -534,6 +569,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Contrat :</strong>
                                     <?php echo ($Juridique['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Juridique['etudes']); ?>
                                 </p>
                             </div>
                         </div>
@@ -557,6 +596,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             href="../entreprise/voir_offre.php?id=<?= $Juridique['offre_id']; ?>&entreprise_id=<?= $Juridique['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
+                       </div>
                     </div>
 
                 <?php endforeach ?>
@@ -590,9 +630,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
             <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
         </div>
 
-        <article class="articles owl-carousel carousel7" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
-            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
-            data-aos-once="false">
+        <article class="articles owl-carousel carousel7">
             <?php if (empty($offreInformatique)): ?>
 
                 <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
@@ -601,9 +639,12 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
                 <?php foreach ($offreInformatique as $Informatique): ?>
 
-                    <div class="carousel">
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
                         <img src="../upload/<?php echo $Informatique['images'] ?>" alt="">
-                        <p class="p">
+                      <div class="info-box">
+                      <p class="p">
                             <strong>
                                 <?php echo $Informatique['entreprise']; ?>
                             </strong>
@@ -618,6 +659,10 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                                 <p>
                                     <strong>Contrat :</strong>
                                     <?php echo ($Informatique['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Informatique['etudes']); ?>
                                 </p>
                             </div>
 
@@ -642,6 +687,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
                             href="../entreprise/voir_offre.php?id=<?= $Informatique['offre_id']; ?>&entreprise_id=<?= $Informatique['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
+                      </div>
                     </div>
 
                 <?php endforeach ?>
@@ -654,7 +700,719 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
 
 
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Finance et comptabilité </h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/finance.png" alt="">
+            </div>
+        </div>
 
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel8">
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Finance et comptabilité'): ?>
+
+                       
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                  <div class="info-box">
+                  <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                  </div>
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Santé et bien-être </h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/santé.png" alt="">
+            </div>
+        </div>
+
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel7">
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Santé et bien-être'): ?>
+
+                       
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                      <div class="info-box">
+                      <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                      </div>
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
+
+
+
+
+
+
+
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Éducation et formation </h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/education.png" alt="">
+            </div>
+        </div>
+
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel7" >
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Éducation et formation'): ?>
+
+                       
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                      <div class="info-box">
+                      <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                      </div>
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Tourisme et hôtellerie</h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/tourisme.png" alt="">
+            </div>
+        </div>
+
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel7" >
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Tourisme et hôtellerie'): ?>
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                       <div class="info-box">
+                       <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                       </div>
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Commerce et vente </h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/vente.png" alt="">
+            </div>
+        </div>
+
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel7">
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Commerce et vente'): ?>
+
+                       
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                       <div class="info-box">
+                       <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                       </div>
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Transport et logistique </h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/transport.png" alt="">
+            </div>
+        </div>
+
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel7" >
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Transport et logistique'): ?>
+
+                       
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                        <div class="info-box">
+                        <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                        </div>
+                        
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Agriculture et agroalimentaire </h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/agriculture.png" alt="">
+            </div>
+        </div>
+
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel7" >
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Agriculture et agroalimentaire'): ?>
+
+                       
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                        <div class="info-box">
+                            <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                        </div>
+                        
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="produit_vedete">
+        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+            data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+            <span></span>
+            <h1>Autre </h1>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/autre.png" alt="">
+            </div>
+        </div>
+
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next" ><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <article class="articles owl-carousel carousel7" >
+
+                <?php foreach ($afficheAllOffre as $Information): ?>
+                     <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id'])  ?>
+
+                    <?php if($Information['categorie'] === 'Autre'): ?>
+
+                       
+
+                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
+            data-aos-once="false">
+                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                        <div class="info-box">
+                        <p class="p">
+                            <strong>
+                                <?php echo $infoEntreprise['entreprise']; ?>
+                            </strong>
+
+                        </p>
+                        <div class="box_vendu">
+                            <div class="vendu">
+                                <p>
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($Information['poste']); ?>
+                                </p>
+                                <p>
+                                    <strong>Contrat :</strong>
+                                    <?php echo ($Information['contrat']); ?>
+                                </p>
+                                <p>
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($Information['etudes']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="box_vendu">
+                            <div class="vendu">
+
+                                <p class="ville">
+                                    <strong>Ville :</strong>
+                                    <?php echo ($Information['localite']); ?>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p id="nom">
+                            <?php echo $Information['date']; ?>
+                        </p>
+
+                        <a
+                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <i class="fa-solid fa-eye"></i>Voir l'offre
+                        </a>
+                        </div>
+                        
+                    </div>
+                    <?php else: ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
+        </article>
+    </section>
 
 
 
@@ -664,6 +1422,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
     <script src="/js/owl.carousel.js"></script>
     <script src="/js/owl.animate.js"></script>
     <script src="/js/owl.autoplay.js"></script>
+    <script src="/js/silder_offres.js"></script>
 
     <script>
         // ..
@@ -694,370 +1453,7 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php')
 
         });
     </script>
-
-    <script>
-        $(document).ready(function () {
-
-            var carousel = $('.carousel1');
-
-            var numItems = carousel.find('.carousel').length;
-
-            if (numItems > 4) {
-
-                // Initialiser Owl Carousel si il y a plus de 4 éléments
-                carousel.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 450,
-                    margin: 20,
-                    nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                });
-
-                var carousel = $('.carousel1').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                // Empêcher l'initialisation de Owl Carousel
-                carousel.trigger('destroy.owl.carousel');
-
-                // Remettre styles par défaut
-                carousel.removeClass('owl-carousel owl-loaded');
-                carousel.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-            $(document).ready(function () {
-
-
-                $('.boot').owlCarousel({
-                    items: 1,
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 1,
-                    smartSpeed: 450,
-                    margin: 0,
-                    nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                });
-
-
-            });
-
-
-        }),
-
-            $(document).ready(function () {
-                // Carrousel 3  
-                var carousel2 = $('.carousel2');
-                var numItems2 = carousel2.find('.carousel').length;
-
-                if (numItems2 > 4) {
-
-                    // Initialiser Owl carousel2 si il y a plus de 4 éléments
-                    carousel2.owlCarousel({
-                        items: 5, // Limitez le nombre d'éléments à afficher à 5
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 4000,
-                        animateOut: 'slideOutDown',
-                        animateIn: 'flipInX',
-                        stagePadding: 30,
-                        smartSpeed: 450,
-                        margin: 200,
-                        nav: true,
-                        navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                    });
-
-                    var carousel2 = $('.carousel2').owlCarousel();
-                    $('.owl-next').click(function () {
-                        carousel2.trigger('next.owl.carousel');
-                    })
-                    $('.owl-prev').click(function () {
-                        carousel2.trigger('prev.owl.carousel');
-                    })
-
-
-
-                } else {
-
-                    carousel2.trigger('destroy.owl.carousel');
-                    carousel2.removeClass('owl-carousel owl-loaded');
-                    carousel2.find('.owl-stage-outer').children().unwrap();
-
-                }
-
-
-            });
-
-
-
-
-
-
-
-
-
-
-
-
-        $(document).ready(function () {
-            // Carrousel 3  
-            var carousel3 = $('.carousel3');
-            var numItems2 = carousel3.find('.carousel').length;
-
-            if (numItems2 > 4) {
-
-                // Initialiser Owl carousel3 si il y a plus de 4 éléments
-                carousel3.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 450,
-                    margin: 20,
-                    nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                });
-
-                var carousel3 = $('.carousel3').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel3.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel3.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                carousel3.trigger('destroy.owl.carousel');
-                carousel3.removeClass('owl-carousel owl-loaded');
-                carousel3.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-
-        });
-
-
-
-
-        $(document).ready(function () {
-            // Carrousel 3  
-            var carousel4 = $('.carousel4');
-            var numItems2 = carousel4.find('.carousel').length;
-
-            if (numItems2 > 4) {
-
-                // Initialiser Owl carousel4 si il y a plus de 4 éléments
-                carousel4.owlCarousel({
-                    items: 4, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 450,
-                    margin: 20,
-                    nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                });
-
-                var carousel4 = $('.carousel4').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel4.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel4.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                carousel4.trigger('destroy.owl.carousel');
-                carousel4.removeClass('owl-carousel owl-loaded');
-                carousel4.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-
-        });
-
-
-        $(document).ready(function () {
-            // Carrousel 3  
-            var carousel5 = $('.carousel5');
-            var numItems2 = carousel5.find('.carousel').length;
-
-            if (numItems2 > 4) {
-
-                // Initialiser Owl carousel5 si il y a plus de 4 éléments
-                carousel5.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 450,
-                    margin: 200,
-                    nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                });
-
-                var carousel5 = $('.carousel5').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel5.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel5.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                carousel5.trigger('destroy.owl.carousel');
-                carousel5.removeClass('owl-carousel owl-loaded');
-                carousel5.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-
-        });
-
-
-
-        $(document).ready(function () {
-            // Carrousel 3  
-            var carousel6 = $('.carousel6');
-            var numItems2 = carousel6.find('.carousel').length;
-
-            if (numItems2 > 4) {
-
-                // Initialiser Owl carousel6 si il y a plus de 4 éléments
-                carousel6.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 450,
-                    margin: 20,
-                    nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                });
-
-                var carousel6 = $('.carousel6').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel6.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel6.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                carousel6.trigger('destroy.owl.carousel');
-                carousel6.removeClass('owl-carousel owl-loaded');
-                carousel6.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-
-        });
-
-
-
-        $(document).ready(function () {
-            // Carrousel 3  
-            var carousel7 = $('.carousel7');
-            var numItems2 = carousel7.find('.carousel').length;
-
-            if (numItems2 > 4) {
-
-                // Initialiser Owl carousel7 si il y a plus de 4 éléments
-                carousel7.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 450,
-                    margin: 20,
-                    nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-                });
-
-                var carousel7 = $('.carousel7').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel7.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel7.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                carousel7.trigger('destroy.owl.carousel');
-                carousel7.removeClass('owl-carousel owl-loaded');
-                carousel7.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-
-
-
-            $('.container_slider').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 1000,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-
-
-        });
-    </script>
+    
 
 </body>
 

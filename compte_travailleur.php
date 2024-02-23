@@ -26,7 +26,7 @@ $erreurs = ''; // Initialisez un tableau pour stocker les erreurs
 if (isset($_POST['valider'])) {
     // Récupération des données du formulaire
     // Déclaration des variables 
-    $nom = $mail = $phone = $competences=$profession = $images = $ville = $categorie = $passe = $cpasse = '';
+    $nom = $mail = $phone = $competences = $profession = $images = $ville = $categorie = $passe = $cpasse = '';
 
     $id = uniqid();
 
@@ -92,38 +92,38 @@ if (isset($_POST['valider'])) {
     }
 
     // Vérification de la ville
-if (empty($_FILES['images'])) {
-    $erreurs = "Choisissez une photo de profil";
-} else {
-    // Récupérer les données du formulaire
-    $images = $_FILES['images'];
-    // Vérifier qu'un fichier est uploadé
-    if ($images['error'] == 0) {
+    if (empty($_FILES['images'])) {
+        $erreurs = "Choisissez une photo de profil";
+    } else {
+        // Récupérer les données du formulaire
+        $images = $_FILES['images'];
+        // Vérifier qu'un fichier est uploadé
+        if ($images['error'] == 0) {
 
-        // Récupérer le nom et le chemin temporaire
-        $fileName = $images['name'];
-        $tmpName = $images['tmp_name'];
+            // Récupérer le nom et le chemin temporaire
+            $fileName = $images['name'];
+            $tmpName = $images['tmp_name'];
 
-        // Obtenir le type MIME de l'image
-        $imageFileType = exif_imagetype($tmpName);
+            // Obtenir le type MIME de l'image
+            $imageFileType = exif_imagetype($tmpName);
 
-        // Définir les types MIME autorisés
-        $allowedTypes = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
+            // Définir les types MIME autorisés
+            $allowedTypes = array(IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF);
 
-        // Vérifier si le type MIME est autorisé
-        if (in_array($imageFileType, $allowedTypes)) {
+            // Vérifier si le type MIME est autorisé
+            if (in_array($imageFileType, $allowedTypes)) {
 
-            // Ajouter l'identifiant unique au nom du fichier
-            $uniqueFileName = $id . '_' . $fileName;
+                // Ajouter l'identifiant unique au nom du fichier
+                $uniqueFileName = $id . '_' . $fileName;
 
-            // Déplacer le fichier dans le répertoire des images
-            $targetFile = 'upload/' . $uniqueFileName;
-            move_uploaded_file($tmpName, $targetFile);
-        } else {
-            $erreurs = "Seules les images JPEG, PNG et GIF sont autorisées";
+                // Déplacer le fichier dans le répertoire des images
+                $targetFile = 'upload/' . $uniqueFileName;
+                move_uploaded_file($tmpName, $targetFile);
+            } else {
+                $erreurs = "Seules les images JPEG, PNG et GIF sont autorisées";
+            }
         }
     }
-}
 
 
     // Vérification du mot de passe
@@ -194,13 +194,16 @@ if (empty($_FILES['images'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JBWCPV7');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <!-- End Google Tag Manager -->
 
     <title>Inscription</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
@@ -215,10 +218,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <?php include('navbare.php') ?>
 
@@ -260,7 +263,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="ab">
                                 <div>
                                     <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
-                                    <input type="file" name="images" id="images" accept="image/jpeg, image/png, image/gif">
+                                    <input type="file" name="images" id="images"
+                                        accept="image/jpeg, image/png, image/gif">
                                 </div>
                                 <div>
                                     <img id="imagePreview" src="" alt="view">
@@ -313,6 +317,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
                                 <option value="Juridique">Juridique</option>
                                 <option value="Ingénierie et architecture">Ingénierie et architecture</option>
+                                <option value="Finance et comptabilité">Finance et comptabilité</option>
+                                <option value="Santé et bien-être">Santé et bien-être</option>
+                                <option value="Éducation et formation">Éducation et formation</option>
+                                <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
+                                <option value="Commerce et vente">Commerce et vente</option>
+                                <option value="Transport et logistique">Transport et logistique</option>
+                                <option value="Industrie et fabrication">Industrie et fabrication</option>
+                                <option value="Art et spectacle">Art et spectacle</option>
+                                <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                                <option value="Environnement et écologie">Environnement et écologie</option>
+                                <option value="Mode et stylisme">Mode et stylisme</option>
+                                <option value="Sport et loisirs">Sport et loisirs</option>
+                                <option value="Autre">Autre</option>
                             </select>
                         </div>
 

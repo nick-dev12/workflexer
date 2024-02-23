@@ -19,7 +19,7 @@ $erreurs = ''; // Initialisez un tableau pour stocker les erreurs
 if (isset($_POST['valider'])) {
     // Récupération des données du formulaire
     // Déclaration des variables 
-    $nom = $mail = $phone =$types = $taille = $entreprise = $images = $ville = $categorie = $passe = $cpasse = '';
+    $nom = $mail = $phone = $types = $taille = $entreprise = $images = $ville = $categorie = $passe = $cpasse = '';
 
     $id = uniqid();
 
@@ -67,7 +67,7 @@ if (isset($_POST['valider'])) {
     } else {
         $types = $_POST['types'];
     }
-    
+
     // Vérification du nom de boutique
     if (empty($_POST['taille'])) {
         $erreurs = "La taille de l'entreprise est obligatoire";
@@ -145,7 +145,7 @@ if (isset($_POST['valider'])) {
         // Hachage du mot de passe
         $passe = password_hash($passe, PASSWORD_DEFAULT);
 
-       
+
         // Requête SQL pour l'insertion des données
         $sql = "INSERT INTO compte_entreprise (nom, mail, phone,types, taille, entreprise, ville, categorie, images, passe) 
                 VALUES (:nom, :mail, :phone,:types, :taille, :entreprise, :ville, :categorie, :images, :passe)";
@@ -185,14 +185,17 @@ if (isset($_POST['valider'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JBWCPV7');</script>
-<!-- End Google Tag Manager -->
-
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <!-- End Google Tag Manager -->
+    <link rel="icon" href="../image/logo.png" type="image/x-icon">
     <title>Inscription</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -206,10 +209,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <?php include('navbare.php') ?>
 
@@ -293,7 +296,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
                                 <option value="Juridique">Juridique</option>
                                 <option value="Ingénierie et architecture">Ingénierie et architecture</option>
-                                <option value="autre">Autre</option>
+                                <option value="Finance et comptabilité">Finance et comptabilité</option>
+                                <option value="Santé et bien-être">Santé et bien-être</option>
+                                <option value="Éducation et formation">Éducation et formation</option>
+                                <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
+                                <option value="Commerce et vente">Commerce et vente</option>
+                                <option value="Transport et logistique">Transport et logistique</option>
+                                <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                                <option value="Autre">Autre</option>
                             </select>
                         </div>
 

@@ -50,6 +50,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <?php  include('navbare.php')?>
 
     <section class="section3">
+        <h2>Inscription</h2>
         <div class="box">
             <div>
                 <a href="/compte_entreprise.php">

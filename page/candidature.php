@@ -153,7 +153,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </ul>
 
                     <div class="container-box_btn">
-                        <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/user_profil.php?id=<?= $postulant['users_id'] ?>">Voir le
+                        <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
                                 profil</a></button>
                         <div class="box-btn">
                            
@@ -228,15 +228,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </ul>
 
                     <div class="container-box_btn">
-                        <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/user_profil.php?id=<?= $postulant['users_id'] ?>">Voir le
+                        <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
                                 profil</a></button>
                         <div class="box-btn">
                            
                         <?php if($postulant['statut']=='accepter'):?>
                            
                             <?php endif; ?>
-                            
-                                <a class="btn3" href="?recaler=<?=$postulant['poste_id']?>&offrees_id=<?=$postulant['offre_id']?>">Recaler</a>
 
                         </div>
                     </div>
@@ -296,13 +294,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </ul>
 
                     <div class="container-box_btn">
-                        <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/user_profil.php?id=<?= $postulant['users_id'] ?>">Voir le
+                        <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
                                 profil</a></button>
                         <div class="box-btn">
-                           
-                               
-                                <a class="btn2" href="?accepter=<?= $postulant['poste_id']?>&offrees_id=<?=$postulant['offre_id']?>">Accepter</a>
-                           
                             
                                 <?php if($postulant['statut']=='recaler'):?>
 
