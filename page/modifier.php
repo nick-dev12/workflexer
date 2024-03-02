@@ -68,6 +68,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    
     <section class="section3">
 
+    <img src="../image/fleche.png" alt="" class="img222">
+        <script>
+            let img222 = document.querySelector('.img222');
+            let section2 = document.querySelector('.section2');
+            let img111 = document.querySelector('.img111')
+            img222.addEventListener('click', () => {
+                section2.style.marginLeft = '0px';
+                img222.style.display = 'none';
+            });
+
+            img111.addEventListener('click', () => {
+                section2.style.marginLeft = '-150%';
+                img222.style.display = 'block';
+            });
+        </script>
+
     <?php if (isset($_SESSION['success_message'])): ?>
             <div class="success">
                 <?php echo $_SESSION['success_message']; ?>

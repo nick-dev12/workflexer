@@ -1,5 +1,5 @@
 <?php
-require_once('../model/outil_users.php');
+require_once(__DIR__.'/../model/outil_users.php');
 
 
 if (isset($_POST['ajouts'])){
@@ -36,7 +36,10 @@ if (empty( $_SESSION['error_message'])) {
 if (isset($_GET['id'])) {
     $afficheOutil = getOutil($db,$_GET['id']);
      }else{
-        $afficheOutil = getOutil($db,$_SESSION['users_id']);
+        if (isset($_SESSION['users_id'])) {
+             $afficheOutil = getOutil($db,$_SESSION['users_id']);
+        }
+       
      }
 
 

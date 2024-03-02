@@ -1,7 +1,6 @@
 <?php
 
-require_once('../model/description_users.php');
-
+require_once(__DIR__.'/../model/description_users.php');
 
 
 // Vérification si le bouton valider est cliqué

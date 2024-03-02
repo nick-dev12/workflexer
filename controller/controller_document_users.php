@@ -27,7 +27,7 @@ if (isset($_POST['téléverser'])) {
     
             // Ajouter le document à la base de données (vous devez implémenter votre propre fonction PostDocumentUsers)
             if (PostDocumentUsers($db, $users_id, $fileName)) {
-                $_SESSION['success_message'] = 'Votre document a bien été téléchargé';
+                $_SESSION['success_message'] = 'Document Ajouter';
                 header('Location: user_profil.php');
                 exit;
                 

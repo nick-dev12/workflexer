@@ -9,6 +9,59 @@ session_start();
 include_once('../controller/controller_users.php');
 include_once('../controller/controller_competence_users.php');
 include_once('../controller/controller_niveau_etude_experience.php');
+
+
+if(isset($_POST['recherche'])){
+
+    // Récupération des données du formulaire
+    $recherche = $_POST['search'] ;
+    $categorie =$_POST['categorie'];
+    $experience = $_POST['experience'];
+    $etude = $_POST['etude'];
+
+    // Requête SQL pour rechercher dans la base de données en fonction des critères
+    $sql = "SELECT u.* FROM users u LEFT JOIN niveau_etude e ON u.id = e.users_id WHERE 1=1";
+    if (!empty($recherche)) {
+        $sql .= " AND (u.competences LIKE :recherche OR u.nom LIKE :recherche)";
+    }else{
+        $erreurs= ' Ce champ ne doit pas etre vide !';
+    }
+    if (!empty($categorie)) {
+        $sql .= " AND u.categorie = :categorie";
+    }
+    if (!empty($experience)) {
+        $sql .= " AND e.experience = :experience";
+    }
+    if (!empty($etude)) {
+        $sql .= " AND e.etude = :etude";
+    }
+
+    $stmt = $db->prepare($sql);
+    if (!empty($recherche)) {
+        $stmt->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
+    }
+    if (!empty($categorie)) {
+        $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
+    }
+    if (!empty($experience)) {
+        $stmt->bindValue(':experience', $experience, PDO::PARAM_STR);
+    }
+    if (!empty($etude)) {
+        $stmt->bindValue(':etude', $etude, PDO::PARAM_STR);
+    }
+    $stmt->execute();
+
+    $resulte = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Stocker les résultats de la recherche dans une session
+$_SESSION['resultats_recherche'] = $resulte;
+
+    header('Location: search.php');
+
+    exit();
+    
+}
+
 ?>
 
 
@@ -84,10 +137,65 @@ include_once('../controller/controller_niveau_etude_experience.php');
                     <form data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000"
                         data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                         data-aos-anchor-placement="top-right" action="" method="post">
-                        <input type="search" name="" id="search">
+                        <div class="search">
+                        <input type="search" name="search" id="search">
                         <label for="recherche"><i class="fa-solid fa-magnifying-glass fa-xs"></i></label>
-                        <input type="submit" value="recherche" id="recherche">
+                        <input type="submit" name="recherche" value="recherche" id="recherche">
+                        </div>
+
+                        <div class="filtre">
+                        <select id="categorie" name="categorie">
+                                <option value="">Sélectionnez une catégorie</option>
+                                <option value="Informatique et tech">Informatique et tech</option>
+                                <option value="Design et création">Design et création</option>
+                                <option value="Rédaction et traduction">Rédaction et traduction</option>
+                                <option value="Marketing et communication">Marketing et communication</option>
+                                <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
+                                <option value="Juridique">Juridique</option>
+                                <option value="Ingénierie et architecture">Ingénierie et architecture</option>
+                                <option value="Finance et comptabilité">Finance et comptabilité</option>
+                                <option value="Santé et bien-être">Santé et bien-être</option>
+                                <option value="Éducation et formation">Éducation et formation</option>
+                                <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
+                                <option value="Commerce et vente">Commerce et vente</option>
+                                <option value="Transport et logistique">Transport et logistique</option>
+                                <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+
+                            <select name="experience" id="experience">
+                            <option value="">-- Niveau d'expérience --</option>
+                            <option value="1an">1an</option>
+                        <option value="2ans">2ans</option>
+                        <option value="3ans">3ans</option>
+                        <option value="4ans">4ans</option>
+                        <option value="5ans">5ans</option>
+                        <option value="6ans">6ans</option>
+                        <option value="7ans">7ans</option>
+                        <option value="8ans">8ans</option>
+                        <option value="9ans">9ans</option>
+                        <option value="10ans">10ans</option>
+                        
+                        </select>
+
+
+                        <select name="etude" id="etude">
+                            <option value="">-- Niveau d'étude --</option>
+                            <option value="Bac+1an">Bac+1an</option>
+                            <option value="Bac+2ans">Bac+2ans</option>
+                            <option value="Bac+3ans">Bac+3ans</option>
+                            <option value="Bac+4ans">Bac+4ans</option>
+                            <option value="Bac+5ans">Bac+5ans</option>
+                            <option value="Bac+6ans">Bac+6ans</option>
+                            <option value="Bac+7ans">Bac+7ans</option>
+                            <option value="Bac+8ans">Bac+8ans</option>
+                            <option value="Bac+9ans">Bac+9ans</option>
+                            <option value="Bac+10ans">Bac+10ans</option>
+
+                        </select>
+                        </div>
                     </form>
+                   
                 </div>
             </div>
 

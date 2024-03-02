@@ -9,6 +9,12 @@ if (isset($_SESSION['compte_entreprise'])) {
     exit();
 }
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
 // Inclusion du fichier de connexion à la BDD
 
 
@@ -19,7 +25,7 @@ $erreurs = ''; // Initialisez un tableau pour stocker les erreurs
 if (isset($_POST['valider'])) {
     // Récupération des données du formulaire
     // Déclaration des variables 
-    $nom = $mail = $phone = $types = $taille = $entreprise = $images = $ville = $categorie = $passe = $cpasse = '';
+    $nom = $email = $phone = $types = $taille = $entreprise = $images = $ville = $categorie = $passe = $cpasse = '';
 
     $id = uniqid();
 
@@ -41,11 +47,11 @@ if (isset($_POST['valider'])) {
     } elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
         $erreurs = "L'email n'est pas valide";
     } else {
-        $mail = $_POST['mail'];
+        $email = $_POST['mail'];
 
         // Préparer la requête SQL pour vérifier si l'e-mail est déjà utilisé
         $query = $db->prepare("SELECT * FROM compte_entreprise WHERE mail = :mail");
-        $query->bindParam(':mail', $mail);
+        $query->bindParam(':mail', $email);
         $query->execute();
 
         // Vérifier si des résultats ont été trouvés
@@ -146,13 +152,26 @@ if (isset($_POST['valider'])) {
         $passe = password_hash($passe, PASSWORD_DEFAULT);
 
 
+        function generateSecurityCode($length = 9) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $code = '';
+            $max = strlen($characters) - 1;
+            for ($i = 0; $i < $length; $i++) {
+                $code .= $characters[mt_rand(0, $max)];
+            }
+            return $code;
+        }
+        
+        // Génération du code de sécurité
+        $verification = generateSecurityCode();
+
         // Requête SQL pour l'insertion des données
-        $sql = "INSERT INTO compte_entreprise (nom, mail, phone,types, taille, entreprise, ville, categorie, images, passe) 
-                VALUES (:nom, :mail, :phone,:types, :taille, :entreprise, :ville, :categorie, :images, :passe)";
+        $sql = "INSERT INTO compte_entreprise (nom, mail, phone,types, taille, entreprise, ville, categorie, images,verification , passe) 
+                VALUES (:nom, :mail, :phone,:types, :taille, :entreprise, :ville, :categorie, :images,:verification , :passe)";
 
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':mail', $mail);
+        $stmt->bindParam(':mail', $email);
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':types', $types);
         $stmt->bindParam(':taille', $taille);
@@ -160,13 +179,174 @@ if (isset($_POST['valider'])) {
         $stmt->bindParam(':ville', $ville);
         $stmt->bindParam(':categorie', $categorie);
         $stmt->bindParam(':images', $uniqueFileName);
+        $stmt->bindParam(':verification', $verification);
         $stmt->bindParam(':passe', $passe);
         // Exécution de la requête
         $stmt->execute();
 
-        // Redirection vers une page de confirmation
-        header('Location: ../entreprise/connexion.php');
-        exit;
+
+          // Créez l'instance PHPMailer
+          $mail = new PHPMailer(true);
+
+          try {
+            // Paramètres SMTP
+            $mail->isSMTP();
+            $mail->Host = 'work-flexer.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+
+            // Fonction pour générer un code de sécurité aléatoire
+
+            // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
+
+          $destinataire = $email ;
+
+                // Contenu de l'e-mail
+                $sujet = 'Confirmation de compte';
+                $message = "
+            <!DOCTYPE html>
+            <html>
+            <head><meta charset='utf-8'>
+             <style>
+             body{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .box1 {
+                width: 300px;
+                text-align: center;
+                margin: 0 auto;
+                border-radius: 10px;
+            }
+            
+            .box1 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            
+            .box2 {
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #ccc;
+                width: 60%;
+                margin: 0 auto;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            
+            h2 {
+                font-size: 20px;
+                color: #007bff;
+                margin-bottom: 15px;
+            }
+            
+            h3 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            
+            p {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            
+            a {
+                background-color: #007bff;
+                color: #ffffff;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 5px;
+                display: inline-block;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+    
+            @media only screen and (max-width: 1000px) {
+                .box2 {
+                    padding: 15px;
+                    width: 80%;
+                }
+               
+            }
+            
+            @media only screen and (max-width: 600px) {
+                .box2 {
+                    padding: 15px;
+                }
+            
+                h1 {
+                    font-size: 20px;
+                    margin-bottom: 8px;
+                }
+            
+                h2 {
+                    font-size: 18px;
+                    margin-bottom: 12px;
+                }
+            
+                h3 {
+                    font-size: 16px;
+                    margin-bottom: 12px;
+                }
+            
+                p {
+                    font-size: 13px;
+                    margin-bottom: 12px;
+                }
+            
+                a {
+                    padding: 8px 16px;
+                    font-size: 13px;
+                    margin-bottom: 12px;
+                }
+            }
+            
+             </style>
+            </head>
+            <body>
+
+            <div class='box1'>
+            <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
+        </div>
+        <div class='box2'>
+            <h1>Bonjour $nom,</h1>
+            <h2>Nouveau compte cree !</h2>
+            <p>Votre compte a été créé avec succès pour des raisons de sécurité, nous vous avons envoyé un code de sécurité, veuillez saisir ce code de sécurité dans le champ correspondant.</p>
+            <p> Code de confirmation : <strong> $verification </strong></p>
+            <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
+            <p>Cordialement,<br>L'équipe Work-Flexer</p>
+        </div>
+            
+            </body>
+            </html> ";
+
+                $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+                $mail->isHTML(true);
+                $mail->Subject = $sujet;
+                $mail->Body = $message;
+
+
+                $mail->clearAddresses();
+                $mail->addAddress($destinataire);
+                $mail->send();
+            
+
+            $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
+            header('Location: ../entreprise/verification_entreprise.php');
+            exit();
+
+        } catch (Exception $e) {
+            header('Location: compte_entreprise.php.php');
+            exit();
+        }
+       
     }
 }
 

@@ -88,7 +88,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
                                         <?= $infoUsers['statut'] ?>
                                     </p>
                                 <?php else: ?>
-                                    <?php if ($$infoUsers['statut'] == 'Occuper'): ?>
+                                    <?php if ($infoUsers['statut'] == 'Occuper'): ?>
                                         <p class="statut2"><span></span>
                                             <?= $infoUsers['statut'] ?>
                                         </p>
@@ -131,12 +131,22 @@ include_once('../controller/controller_niveau_etude_experience.php');
                                     <?php echo $nameUsers; ?>
                                 </p>
 
-                                <p class="p" ><strong>Niveau:</strong>
+                                <?php if ($infoNiveau !== false): ?>
+                                    <p class="p" ><strong>Niveau:</strong>
                                     <?php echo $infoNiveau['etude'];   ?>
                                 </p>
                                 <p  class="p"><strong>Experience:</strong>
                                     <?php echo $infoNiveau['experience'];   ?>
                                 </p>
+                                <?php else : ?>
+                                    <p class="p" ><strong>Niveau:</strong>
+                                    indisponibles
+                                </p>
+                                <p  class="p"><strong>Experience:</strong>
+                                    indisponibles
+                                </p>
+                                <?php endif; ?>
+
                                 <p class="ville" id="nom">
                                     <?php echo $infoUsers ['ville']; ?>
                                 </p>

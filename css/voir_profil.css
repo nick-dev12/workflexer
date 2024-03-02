@@ -60,19 +60,19 @@ body{
     flex-direction: column;
 }
 .section2 .slider .box .text h1{
-   font-size: 40px;
+   font-size: 25px;
    color: white;
    font-family: 'Almarai', sans-serif;
-   width: 900px;
+   width: 600px;
    text-align: center;
    text-align: center;
    margin-top: -100px;
 }
 .section2 .slider .box .text p{
-    font-size: 16px;
+    font-size: 14px;
     color: white;
     font-family: 'Almarai', sans-serif;
-    width: 600px;
+    width: 400px;
     text-align: center;
     text-align: center;
     margin-top: 30px;
@@ -95,7 +95,35 @@ body{
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    flex-direction: column;
 }
+
+.section2 .slider .box form .search {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.section2 .slider .box form .filtre{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.section2 .slider .box form .filtre select{
+    padding: 7px 15px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+
+
 
 .section2 .slider .box form #search {
     width: 600px;
@@ -263,6 +291,13 @@ body{
     .section2 .slider .box form label i{
         font-size: 20px;
     }
+    
+    
+    .section2 .slider .box form .filtre select{
+        padding: 7px 10px;
+        font-size: 15px;
+        background-color: #ffffff;
+    }
 }
 
 
@@ -292,6 +327,9 @@ body{
         width: 400px;
         margin-top: 30px;
      }
+     .section2 .slider .box form {
+        width: 90%;
+     }
      .section2 .slider .box form #search {
         width: 400px;
         height: 30px;
@@ -305,6 +343,7 @@ body{
     .section2 .slider .box form label i{
         font-size: 20px;
     }
+    
 }
 @media screen and (max-width : 600px){
     .section2 .slider .box .text h1{
@@ -329,6 +368,11 @@ body{
     }
     .section2 .slider .box form label i{
         font-size: 20px;
+    }
+
+    .section2 .slider .box form .filtre select{
+        font-size: 13px;
+        background-color: #ffffff;
     }
 }
 
@@ -369,7 +413,7 @@ body{
         margin-top: 30px;
      }
      .section2 .slider .box form #search {
-        width: 210px;
+        width: 250px;
         height: 30px;
         font-size: 13px;
     }
@@ -687,12 +731,11 @@ body{
 @media screen and (max-width : 1400px){
     .produit_vedete{
         width: 97%;
-        margin-bottom: 100px;
-        margin-top: 100px;
+        margin-bottom: 50px;
      }
      .produit_vedete h1{
          margin-bottom: 30px;
-         font-size: 35px;
+         font-size: 25px;
          padding: 10px 20px;
      }
      
@@ -702,7 +745,7 @@ body{
          margin-bottom: 50px;
      }
      .produit_vedete .box1 h1{
-        font-size: 22px;
+        font-size: 20px;
      }
      .produit_vedete .box1 .affiche{
         height: 100px;
@@ -750,7 +793,7 @@ body{
      }
      .produit_vedete h1{
          margin-bottom: 30px;
-         font-size: 30px;
+         font-size: 20px;
          padding: 7px 17px;
      }
      
@@ -759,7 +802,7 @@ body{
          margin-bottom: 50px;
      }
      .produit_vedete .box1 h1{
-        font-size: 20px;
+        font-size: 18px;
      }
      .produit_vedete .box1 .affiche{
         height: 100px;
@@ -770,7 +813,7 @@ body{
      }
      
      .produit_vedete .articles{
-         width: 95%;
+         width: 97%;
      }
      /* .produit_vedete .articles h1{
         font-size: 25px;
@@ -802,14 +845,12 @@ body{
 
 @media screen and (max-width : 600px){
     .produit_vedete{
-        width: 97%;
-        margin-bottom: 100px;
-        margin-top: -200px;
-        margin-bottom: 300px;
+        width: 98%;
+        margin-bottom: 50px;
      }
      .produit_vedete h1{
          margin-bottom: 30px;
-         font-size: 25px;
+         font-size: 18px;
          padding: 7px 17px;
      }
      
@@ -840,7 +881,7 @@ body{
      }
      
      .produit_vedete .articles .message{
-        font-size: 14px;
+        font-size: 13px;
         width: 70%;
         padding: 10px 20px;
      }

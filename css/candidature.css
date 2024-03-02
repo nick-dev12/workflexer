@@ -180,6 +180,7 @@ height: 100%;
     display: block;
     background-color: #002233;
     border-radius: 5px;
+    text-align: center;
     border: none;
     padding: 2px 15px;
     transition: all 0.4s ease;
@@ -198,6 +199,32 @@ height: 100%;
 }
 .div-section2 .container .items .btn1 a{
     color: #ffffff;
+
+}
+
+.div-section2 .container .items .btn11{
+  margin: 0 auto;
+  display: block;
+  background-color: #0481e0;
+  border-radius: 5px;
+  border: none;
+  padding: 2px 20px;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.div-section2 .container .items .btn11 img{
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+.div-section2 .container .items .btn11:hover{
+  background-color: #002233;
+}
+.div-section2 .container .items .btn11 a{
+  color: #ffffff;
 
 }
 

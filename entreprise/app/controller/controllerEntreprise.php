@@ -53,6 +53,8 @@ if (isset($_POST['publier'])) {
     $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
 
     $entreprise_id = $getEntreprise['id'];
+  
+
 
     if (empty($_POST['poste'])) {
         $_SESSION['error_message'] = 'veuiller ajouter le poste disponible !!!';
@@ -108,7 +110,19 @@ if (isset($_POST['publier'])) {
     if (empty($categorie)) {
         $_SESSION['error_message'] = 'veuiller sélectionner une catégorie !!!';
     }
-    $date = date("j , F, Y, g:i a");
+
+    $date_publication = new DateTime();
+    $date_formatter = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::LONG,
+        IntlDateFormatter::NONE,
+        'Europe/Paris',
+        IntlDateFormatter::GREGORIAN,
+        'EEEE d MMMM y à HH:mm'
+    );
+    $date = $date_formatter->format($date_publication);
+
+     
 
     if (empty($_SESSION['error_message'])) {
         if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $date)) {
@@ -122,7 +136,7 @@ if (isset($_POST['publier'])) {
                 $mail->Host = 'work-flexer.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'noreply-service@work-flexer.com';
-                $mail->Password = 'Ludvanne12'; // Remplacez par le mot de passe de votre compte e-mail
+                $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
 
@@ -477,6 +491,6 @@ if(isset($_POST['valide0'])){
 }
  
 if(isset($_SESSION['compte_entreprise'])){
-    $historiques = getHistorique ($db,$_SESSION['compte_entreprise']);
+    $historiques = getHistorique ($db,$_SESSION['compte_entreprise']); 
 }
 ?>

@@ -2,6 +2,15 @@
 session_start();
 include '../conn/conn.php';
 
+require '../vendor/autoload.php';
+
+use \NlpTools\Similarity\CosineSimilarity;
+use \NlpTools\Tokenizers\WhitespaceTokenizer;
+
+$tokenizer = new WhitespaceTokenizer();
+$cosineSimilarity = new CosineSimilarity();
+
+
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['users_id']) || empty($_SESSION['users_id'])) {
     // Rediriger vers la page de connexion ou une autre page appropriée
@@ -70,6 +79,50 @@ if (isset($_GET['id'])) {
     include_once('../entreprise/app/controller/controllerOffre_emploi.php');
     include_once('../entreprise/app/controller/controllerEntreprise.php');
     include_once('../controller/controller_niveau_etude_experience.php');
+
+
+    if ($afficheAllOffre) {
+        $array_affiche_offre = [];
+
+        foreach ($afficheAllOffre as $affiches) {
+            $array_affiche_offre[] = array($affiches['categorie'], $affiches['poste'], $affiches['etudes'], $affiches['experience'], $affiches['localite'], $affiches['date'], $affiches['offre_id'], $affiches['entreprise_id'], $affiches['contrat']);
+        }
+
+        $info_entreprise = getEntreprise($db, $array_affiche_offre[0][7]);
+
+        // Code PHP pour définir les valeurs des variables
+        $info_entreprise_images = $info_entreprise['images'];
+        $info_entreprise_entreprise = $info_entreprise['entreprise'];
+        $affiches_poste = $array_affiche_offre[0][1];
+        $affiches_etudes = $array_affiche_offre[0][2];
+        $affiches_experience = $array_affiche_offre[0][3];
+        $affiches_localite = $array_affiche_offre[0][4];
+        $affiches_date = $array_affiche_offre[0][5];
+        $affiches_offre_id = $array_affiche_offre[0][6];
+        $affiches_entreprise_id = $array_affiche_offre[0][7];
+        $affiches_contrat = $array_affiche_offre[0][8];
+
+        $desc = afficheDescription($db, $_SESSION['users_id']);
+
+        $html_code = '
+   <div class="carousel">
+   <img src="../upload/' . $info_entreprise_images . '" alt="">
+   <p class="p">
+   <strong>' . $info_entreprise_entreprise . '</strong>
+   </p>
+   <div class="vendu">
+   <p><strong>Nous recherchons un(une) </strong>' . $affiches_poste . '</p>
+   <p><strong>Niveau : </strong>' . $affiches_etudes . '</p>
+   <p><strong>Experience : </strong>' . $affiches_experience . '</p>
+   <p><strong>Ville : </strong>' . $affiches_localite . '</p>
+   <p><strong>Contrat : </strong>' . $affiches_contrat . '</p>
+   </div>
+   <p id="nom">' . $affiches_date . '</p>
+   <a href="../entreprise/voir_offre.php?id=' . $affiches_offre_id . '&entreprise_id=' . $affiches_entreprise_id . '"><i class="fa-solid fa-eye"></i>Voir l\'offre</a>
+   </div>';
+    }
+
+
 }
 
 ?>
@@ -87,14 +140,22 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+    </script>
     <!-- End Google Tag Manager -->
 
     <title>Profil</title>
@@ -127,11 +188,10 @@ if (isset($_GET['id'])) {
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+
     <?php include('../navbare.php') ?>
 
     <?php include('../include/header_users.php') ?>
-
-
 
     <section class="section3">
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
@@ -227,7 +287,7 @@ if (isset($_GET['id'])) {
             let img222 = document.querySelector('.img222');
             let section2 = document.querySelector('.section2');
             let img111 = document.querySelector('.img111');
-            
+
             img222.addEventListener('click', () => {
                 section2.style.marginLeft = '0px';
                 img222.style.display = 'none';
@@ -245,7 +305,7 @@ if (isset($_GET['id'])) {
                 <div class="box">
                     <label for="file"><img src="../image/fichier.png" alt=""></label>
                     <input type="file" name="document" id="file"
-                        accept=".pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                        accept="application/pdf,.pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
                     <input type="submit" name="téléverser" value="Téléverser" id="tele">
                 </div>
                 <div id="documentName"></div>
@@ -258,10 +318,15 @@ if (isset($_GET['id'])) {
                     <img class="img" src="../image/croix.png" alt="">
                     <?php foreach ($GetDocumentUsers as $documents): ?>
                         <li>
-                            <a class="a" href="../document/<?= $documents['document'] ?>"><a
-                                    href="?document_id=<?= $documents['document_id'] ?>"><img class="img2"
-                                        src="../image/croix.png" alt=""></a><img src="../image/document.png" alt="">
+                            <a href="?document_id=<?= $documents['document_id'] ?>"><img class="img2"
+                                    src="../image/croix.png" alt="">
+                            </a>
+                            <img class="img3" src="../image/document.png" alt="">
+                            <span>
                                 <?= $documents['document'] ?>
+                            </span>
+                            <a class="a" href="../document/<?= $documents['document'] ?>">
+                                <img class="img4" src="../image/telechargement.png" alt="">
                             </a>
                         </li>
                     <?php endforeach; ?>
@@ -284,7 +349,6 @@ if (isset($_GET['id'])) {
                     var fileName = this.value.split('\\').pop(); // Obtenir le nom du fichier
                     document.getElementById('documentName').innerText = fileName;
                 });
-
             </script>
         </div>
 
@@ -348,8 +412,8 @@ if (isset($_GET['id'])) {
 
                             <textarea name="nouvelleDescription" id="summernote" cols="30" rows="10"
                                 placeholder="Ajoute une description ici">
-                                                 <?php echo htmlspecialchars($descriptions['description'], ENT_QUOTES, 'UTF-8'); ?>  
-                                                </textarea>
+                                                                             <?php echo htmlspecialchars($descriptions['description'], ENT_QUOTES, 'UTF-8'); ?>  
+                                                                            </textarea>
                             <input type="submit" value="Modifier" name="Modifier" id="ajoute">
                         </form>
                     </div>
@@ -651,72 +715,74 @@ if (isset($_GET['id'])) {
                             Aucun niveau d'etude ajouter a votre profil
                         </p>
                     <?php else: ?>
-                            
-                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                                data-aos-anchor-placement="top-bottom">
-                                <strong>Niveau D'etude:</strong> <?php echo $getNiveauEtude['etude'] ?>
-                            </p>
-                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                                data-aos-anchor-placement="top-bottom">
-                                <strong>Niveau d'expérience :</strong> <?php echo $getNiveauEtude['experience'] ?>
-                            </p>
-                           
+
+                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                            <strong>Niveau D'etude:</strong>
+                            <?php echo $getNiveauEtude['etude'] ?>
+                        </p>
+                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                            <strong>Niveau d'expérience :</strong>
+                            <?php echo $getNiveauEtude['experience'] ?>
+                        </p>
+
                     <?php endif; ?>
 
                 </div>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
-                        <?php if (isset($getNiveauEtude['etude'])): ?>
-                            <button class="affiche_formss">Modifier</button>
-                <?php else: ?>
-                    <button class="affiche_formss">Ajouter un niveau d'etude et experience</button>
+                    <?php if (isset($getNiveauEtude['etude'])): ?>
+                        <button class="affiche_formss">Modifier</button>
+                    <?php else: ?>
+                        <button class="affiche_formss">Ajouter un niveau d'etude et experience</button>
                     <?php endif; ?>
                 <?php endif; ?>
 
                 <form class="formss" action="" method="post">
                     <img class="imgs22" src="../image/croix.png" alt="">
-                    <?php if (isset($erreurs)) :?>
-                        <p><?php echo $erreurs ;?></p>
-                        <?php endif; ?>
-                    
-                   <div>
-                   <label for="etude">Niveau D'etude</label>
-                    <select name="etude" id="etude">
-                        <option value="">Choisissez un niveau d'études </option>
-                        <option value="Bac+1an">Bac+1an</option>
-                        <option value="Bac+2ans">Bac+2ans</option>
-                        <option value="Bac+3ans">Bac+3ans</option>
-                        <option value="Bac+4ans">Bac+4ans</option>
-                        <option value="Bac+5ans">Bac+5ans</option>
-                        <option value="Bac+6ans">Bac+6ans</option>
-                        <option value="Bac+7ans">Bac+7ans</option>
-                        <option value="Bac+8ans">Bac+8ans</option>
+                    <?php if (isset($erreurs)): ?>
+                        <p>
+                            <?php echo $erreurs; ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <div>
+                        <label for="etude">Niveau D'etude</label>
+                        <select name="etude" id="etude">
+                            <option value="">Choisissez un niveau d'études </option>
+                            <option value="Bac+1an">Bac+1an</option>
+                            <option value="Bac+2ans">Bac+2ans</option>
+                            <option value="Bac+3ans">Bac+3ans</option>
+                            <option value="Bac+4ans">Bac+4ans</option>
+                            <option value="Bac+5ans">Bac+5ans</option>
+                            <option value="Bac+6ans">Bac+6ans</option>
+                            <option value="Bac+7ans">Bac+7ans</option>
+                            <option value="Bac+8ans">Bac+8ans</option>
                             <option value="Bac+9ans">Bac+9ans</option>
                             <option value="Bac+10ans">Bac+10ans</option>
-                    </select>
-                   </div>
+                        </select>
+                    </div>
                     <div>
-                    <label for="experience">Niveau d'expérience</label>
-                    <select name="experience" id="experience">
-                        <option value="">Choisissez un niveau d'expérience </option>
-                        <option value="1an">1an</option>
-                        <option value="2ans">2ans</option>
-                        <option value="3ans">3ans</option>
-                        <option value="4ans">4ans</option>
-                        <option value="5ans">5ans</option>
-                        <option value="6ans">6ans</option>
-                        <option value="7ans">7ans</option>
-                        <option value="8ans">8ans</option>
-                        <option value="9ans">9ans</option>
-                        <option value="10ans">10ans</option>
-                    </select>
+                        <label for="experience">Niveau d'expérience</label>
+                        <select name="experience" id="experience">
+                            <option value="">Choisissez un niveau d'expérience </option>
+                            <option value="1an">1an</option>
+                            <option value="2ans">2ans</option>
+                            <option value="3ans">3ans</option>
+                            <option value="4ans">4ans</option>
+                            <option value="5ans">5ans</option>
+                            <option value="6ans">6ans</option>
+                            <option value="7ans">7ans</option>
+                            <option value="8ans">8ans</option>
+                            <option value="9ans">9ans</option>
+                            <option value="10ans">10ans</option>
+                        </select>
                     </div>
                     <?php if (isset($getNiveauEtude['etude'])): ?>
                         <input type="submit" value="Modifier" name="Ajouters1" id="Ajouter">
-                        <?php else : ?>
-                    <input type="submit" value="Ajouter" name="Ajouters" id="Ajouter">
+                    <?php else: ?>
+                        <input type="submit" value="Ajouter" name="Ajouters" id="Ajouter">
                     <?php endif; ?>
                 </form>
 
@@ -1398,59 +1464,18 @@ if (isset($_GET['id'])) {
                 <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
             </div>
             <div class="slider owl-carousel carousel3">
-                <?php foreach ($afficheAllOffre as $affiches): ?>
 
-                    <?php if ($affiches['categorie'] == $users['categorie']): ?>
+                <?php if ($afficheAllOffre): ?>
 
-                        <?php $info_entreprise = getEntreprise($db, $affiches['entreprise_id']) ?>
+                    <?php if ($array_affiche_offre[0][0] == $users['categorie']): ?>
 
-                        <?php if($affiches['etudes'] == $getNiveauEtude['etude']) :?>
+                        <?php echo $html_code ?>
 
-                            <?php else: ?>
-
-                            <?php if($affiches['experience'] == $getNiveauEtude['experience']) :?>
-                        <div class="carousel">
-                            <img src="../upload/<?php echo $info_entreprise['images'] ?>" alt="">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $info_entreprise['entreprise']; ?>
-                                </strong>
-                            </p>
-                                <div class="vendu">
-
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($affiches['poste']); ?>
-                                    </p>
-
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($affiches['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($affiches['experience']); ?>
-                                    </p>
-
-                                    <p>
-                                        <strong>Ville :</strong>
-                                        <?php echo ($affiches['localite']); ?>
-                                    </p>
-
-                                </div>
-
-                            <p id="nom">
-                                <?php echo $affiches['date']; ?>
-                            </p>
-                            <a
-                                href="../entreprise/voir_offre.php?id=<?= $affiches['offre_id']; ?>&entreprise_id=<?= $affiches['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                        <?php endif; ?>
-                        <?php endif; ?>
+                    <?php else: ?>
                     <?php endif; ?>
-                <?php endforeach ?>
+                <?php endif; ?>
+
+
             </div>
         </div>
 

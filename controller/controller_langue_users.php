@@ -1,5 +1,5 @@
 <?php
-require_once('../model/langue_users.php');
+require_once(__DIR__.'/../model/langue_users.php');
 
 
 if (isset($_POST['ajoutss'])) {

@@ -16,7 +16,7 @@ $erreurs = '' ;
 
     if (empty($_SESSION['error_message'])) {
         if (posteCentreInteret($db,$users_id,$interet)) {
-            $_SESSION['sucsses_message'] = 'Ajouter avec succès';
+            $_SESSION['success_message'] = " success!";
             header('Location: user_profil.php');
             exit();
         }

@@ -5,6 +5,11 @@ session_start();
 include 'conn/conn.php';
 
 // $_SESSION['users_id'] = true;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
 
 
 // Vérifier si l'utilisateur est déjà connecté
@@ -26,7 +31,7 @@ $erreurs = ''; // Initialisez un tableau pour stocker les erreurs
 if (isset($_POST['valider'])) {
     // Récupération des données du formulaire
     // Déclaration des variables 
-    $nom = $mail = $phone = $competences = $profession = $images = $ville = $categorie = $passe = $cpasse = '';
+    $nom = $email = $phone = $competences = $profession = $images = $ville = $categorie = $passe = $cpasse = '';
 
     $id = uniqid();
 
@@ -43,11 +48,11 @@ if (isset($_POST['valider'])) {
     } elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
         $erreurs = "L'email n'est pas valide";
     } else {
-        $mail = $_POST['mail'];
+        $email = $_POST['mail'];
 
         // Préparer la requête SQL pour vérifier si l'e-mail est déjà utilisé
         $query = $db->prepare("SELECT * FROM users WHERE mail = :mail");
-        $query->bindParam(':mail', $mail);
+        $query->bindParam(':mail', $email);
         $query->execute();
 
         // Vérifier si des résultats ont été trouvés
@@ -150,32 +155,207 @@ if (isset($_POST['valider'])) {
         // Hachage du mot de passe
         $passe = password_hash($passe, PASSWORD_DEFAULT);
 
+        function generateSecurityCode($length = 9) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $code = '';
+            $max = strlen($characters) - 1;
+            for ($i = 0; $i < $length; $i++) {
+                $code .= $characters[mt_rand(0, $max)];
+            }
+            return $code;
+        }
+
+        $verification = generateSecurityCode();
         // Préparation de la requête SQL
-        $sql = "INSERT INTO users (nom, mail, phone, competences,profession, ville, categorie ,images, passe) 
-              VALUES (:nom, :mail, :phone, :competences,:profession, :ville, :categorie, :images, :passe)";
+        $sql = "INSERT INTO users (nom, mail, phone, competences,profession, ville, categorie ,images,verification, passe) 
+              VALUES (:nom, :mail, :phone, :competences,:profession, :ville, :categorie, :images,:verification, :passe)";
 
         // Préparation de la requête 
         $stmt = $db->prepare($sql);
 
         // Association des paramètres
         $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':mail', $mail);
+        $stmt->bindParam(':mail', $email);
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':competences', $competences);
         $stmt->bindParam(':profession', $profession);
         $stmt->bindParam(':ville', $ville);
         $stmt->bindParam(':categorie', $categorie);
         $stmt->bindParam(':images', $uniqueFileName);
+        $stmt->bindParam(':verification', $verification);
         $stmt->bindParam(':passe', $passe);
 
         // Exécution de la requête
         $stmt->execute();
 
+
+          // Créez l'instance PHPMailer
+          $mail = new PHPMailer(true);
+
+          try {
+            // Paramètres SMTP
+            $mail->isSMTP();
+            $mail->Host = 'work-flexer.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+
+            // Fonction pour générer un code de sécurité aléatoire
+
+            // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
+
+          $destinataire = $email ;
+
+                // Contenu de l'e-mail
+                $sujet = 'Confirmation de compte';
+                $message = "
+            <!DOCTYPE html>
+            <html>
+            <head><meta charset='utf-8'>
+             <style>
+             body{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            .box1 {
+                width: 300px;
+                text-align: center;
+                margin: 0 auto;
+                border-radius: 10px;
+            }
+            
+            .box1 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            
+            .box2 {
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #ccc;
+                width: 60%;
+                margin: 0 auto;
+            }
+            
+            h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            
+            h2 {
+                font-size: 20px;
+                color: #007bff;
+                margin-bottom: 15px;
+            }
+            
+            h3 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            
+            p {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            
+            a {
+                background-color: #007bff;
+                color: #ffffff;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 5px;
+                display: inline-block;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+    
+            @media only screen and (max-width: 1000px) {
+                .box2 {
+                    padding: 15px;
+                    width: 80%;
+                }
+               
+            }
+            
+            @media only screen and (max-width: 600px) {
+                .box2 {
+                    padding: 15px;
+                }
+            
+                h1 {
+                    font-size: 20px;
+                    margin-bottom: 8px;
+                }
+            
+                h2 {
+                    font-size: 18px;
+                    margin-bottom: 12px;
+                }
+            
+                h3 {
+                    font-size: 16px;
+                    margin-bottom: 12px;
+                }
+            
+                p {
+                    font-size: 13px;
+                    margin-bottom: 12px;
+                }
+            
+                a {
+                    padding: 8px 16px;
+                    font-size: 13px;
+                    margin-bottom: 12px;
+                }
+            }
+            
+             </style>
+            </head>
+            <body>
+
+            <div class='box1'>
+            <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
+        </div>
+        <div class='box2'>
+            <h1>Bonjour $nom,</h1>
+            <h2>Nouveau compte cree !</h2>
+            <p>Votre compte a été créé avec succès pour des raisons de sécurité, nous vous avons envoyé un code de sécurité, veuillez saisir ce code de sécurité dans le champ correspondant.</p>
+            <p> Code de confirmation : <strong> $verification </strong></p>
+            <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
+            <p>Cordialement,<br>L'équipe Work-Flexer</p>
+        </div>
+            
+            </body>
+            </html> ";
+
+                $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+                $mail->isHTML(true);
+                $mail->Subject = $sujet;
+                $mail->Body = $message;
+
+
+                $mail->clearAddresses();
+                $mail->addAddress($destinataire);
+                $mail->send();
+          
+            header('Location: verification_users.php');
+            exit();
+
+        } catch (Exception $e) {
+            header('Location: compte_travailleur.php.php');
+            exit();
+        }
+       
+    }
+
         // Redirection vers une page de confirmation
         header('Location: connexion.php');
         exit;
     }
-}
+
 
 ?>
 
@@ -309,7 +489,7 @@ if (isset($_POST['valider'])) {
                         <div class="box1">
                             <label for="categorie">Secteur d'activité</label>
                             <select id="categorie" name="categorie">
-                                <option value="">Sélectionnez une catégorie</option>
+                            <option value="">Sélectionnez une catégorie</option>
                                 <option value="Informatique et tech">Informatique et tech</option>
                                 <option value="Design et création">Design et création</option>
                                 <option value="Rédaction et traduction">Rédaction et traduction</option>
@@ -323,12 +503,7 @@ if (isset($_POST['valider'])) {
                                 <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
                                 <option value="Commerce et vente">Commerce et vente</option>
                                 <option value="Transport et logistique">Transport et logistique</option>
-                                <option value="Industrie et fabrication">Industrie et fabrication</option>
-                                <option value="Art et spectacle">Art et spectacle</option>
                                 <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
-                                <option value="Environnement et écologie">Environnement et écologie</option>
-                                <option value="Mode et stylisme">Mode et stylisme</option>
-                                <option value="Sport et loisirs">Sport et loisirs</option>
                                 <option value="Autre">Autre</option>
                             </select>
                         </div>

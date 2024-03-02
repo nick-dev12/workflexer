@@ -87,7 +87,7 @@ body{
 }
 .section3 .container_box2 .box2  .carousel{
     height: 370px;
-    width: 240px;
+    width: 250px;
     background-color: rgba(247, 247, 247, 0.499);
     border-radius: 8px;
     overflow: hidden;
@@ -157,6 +157,7 @@ body{
    font-size: 16px;
    text-transform: capitalize;
    margin-bottom: 10px;
+   width: 100%;
 }
 
 .section3 .container_box2 .box2  .carousel .p{

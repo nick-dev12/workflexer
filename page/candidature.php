@@ -228,15 +228,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </ul>
 
                     <div class="container-box_btn">
-                        <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
+                         <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
                                 profil</a></button>
+                                <button class="btn11"><img src="../image/send.png" alt=""> <a href="../entreprise/message.php">Message</a></button>
                         <div class="box-btn">
+                        <div class="box-btn">
+                       
                            
                         <?php if($postulant['statut']=='accepter'):?>
                            
                             <?php endif; ?>
-
-                        </div>
+  </div>
+                      
                     </div>
                 </div>
                

@@ -1,5 +1,5 @@
 <?php
-include('../conn/conn.php');
+include(__DIR__.'/../conn/conn.php');
 
 function postOutil($db,$users_id,$outil,$niveau ){
     $sql = "INSERT INTO outil_users (users_id, outil, niveau) VALUES (:users_id, :outil, :niveau )";

@@ -225,3 +225,35 @@
       display:block ;
     }
   }
+
+  .section3 .img222{
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+    display: none;
+  }
+  @media screen and (max-width : 1400px) {
+    .section3 .img222{
+      display: none;
+    }
+  }
+  @media screen and (max-width : 1050px) {
+    .section3 .img222{
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      height: 50px;
+      width: 50px;
+      background-color: #ffffff;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 5;
+      display: block;
+    }
+  }

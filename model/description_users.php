@@ -1,5 +1,5 @@
 <?php
-include('../conn/conn.php');
+include(__DIR__.'/../conn/conn.php');
 
 
 
@@ -59,7 +59,7 @@ function modifierDescription ($db, $users_id, $nouvelleDescription){
 function afficheDescription($db, $users_id ){
     $conn = "SELECT  * FROM description_users WHERE users_id = :users_id";
 $stm = $db->prepare($conn);
-$stm->bindParam(':users_id', $users_id);
+$stm->bindvalue(':users_id', $users_id);
 $stm->execute();
 return $stm->fetch(PDO::FETCH_ASSOC);
 }

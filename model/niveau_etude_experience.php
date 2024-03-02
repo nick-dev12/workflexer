@@ -1,5 +1,5 @@
 <?php 
-include('../conn/conn.php');
+include(__DIR__.'/../conn/conn.php');
 
 function postNiveau($db, $users_id, $etude, $experience){
     $sql = "INSERT INTO niveau_etude (users_id,etude, experience) VALUES (:users_id, :etude, :experience)";

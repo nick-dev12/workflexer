@@ -383,7 +383,7 @@ include_once('app/controller/controllerOffre_emploi.php');
                             <img src="../upload/<?= $offres['images'] ?> " alt="">
 
                             <div class="vendu">
-                                <p><strong>Nous recherchons un(une)</strong>
+                                <p class="p"><strong>Nous recherchons un(une)</strong>
                                     <?= $offres['poste'] ?>
                                 </p>
                                 <p><strong>Niveau :</strong>

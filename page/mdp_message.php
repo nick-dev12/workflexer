@@ -56,7 +56,7 @@ $users_id = $_GET['id'];
           $mail->Host = 'work-flexer.com';
           $mail->SMTPAuth = true;
           $mail->Username = 'noreply-service@work-flexer.com';
-          $mail->Password = 'Ludvanne12'; // Remplacez par le mot de passe de votre compte e-mail
+          $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
           $mail->SMTPSecure = 'ssl';
           $mail->Port = 465;
        

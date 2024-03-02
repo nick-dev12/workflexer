@@ -159,7 +159,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 src="../image/vue3.png" alt=""> Désactiver
                             </a>
                             <?php else: ?>
-                                <a class="a" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                                <a class="a" href="../entreprise/voir_offre.php?offres_id=<?= $postulationUsers['offre_id']; ?>"><img
                                 src="../image/vue2.png" alt=""> Voir l'offre
                             </a>
                             <?php endif; ?>
@@ -202,7 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <a class="b" href="../page/message_users.php"><img
                                 src="../image/send.png" alt=""> Message
                             </a>
-                                <a class="a" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                                <a class="a" href="../entreprise/voir_offre.php?offres_id=<?= $postulationUsers['offre_id']; ?>"><img
                                 src="../image/vue2.png" alt=""> Voir l'offre
                             </a>
                             <?php endif; ?>
@@ -242,7 +242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 src="../image/vue3.png" alt=""> Désactiver
                             </a>
                             <?php else: ?>
-                                <a class="a" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                                <a class="a" href="../entreprise/voir_offre.php?offres_id=<?= $postulationUsers['offre_id']; ?>"><img
                                 src="../image/vue2.png" alt=""> Voir l'offre
                             </a>
                             <?php endif; ?>
