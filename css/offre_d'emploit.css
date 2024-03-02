@@ -49,19 +49,19 @@ body{
     flex-direction: column;
 }
 .section2 .slider .box .text h1{
-   font-size: 70px;
+   font-size: 30px;
    color: white;
    font-family: 'Almarai', sans-serif;
-   width: 100%;
+   width: 60%;
    text-align: center;
    margin-top: 5px;
    text-align: center;
 }
 .section2 .slider .box .text p{
-    font-size: 20px;
+    font-size: 14px;
     color: white;
     font-family: 'Almarai', sans-serif;
-    width: 100%;
+    width: 50%;
     text-align: center;
     text-align: center;
     margin-top: 30px;
@@ -77,14 +77,40 @@ body{
  }
 
 
-.section2 .slider .box form {
-    width: 800px;
+ .section2 .slider .box form {
+    width: 700px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.section2 .slider .box form .search {
+    width: 100%;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
 }
+
+.section2 .slider .box form .filtre{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.section2 .slider .box form .filtre select{
+    padding: 7px 15px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
 
 .section2 .slider .box form #search {
     width: 700px;
@@ -151,12 +177,8 @@ body{
 
 @media screen and (max-width : 1300px){
     .section2 .slider .box .text h1{
-        font-size: 40px;
+        font-size: 30px;
      }
-     .section2 .slider .box .text p{
-         font-size: 16px;
-         width: 70%;
-      }
       .section2 .slider .box form #search {
         width: 70%;
         height: 50px;
@@ -173,11 +195,10 @@ body{
 }
 @media screen and (max-width : 1000px){
     .section2 .slider .box .text h1{
-        font-size: 30px;
+        font-size: 25px;
         width: 70%;
      }
      .section2 .slider .box .text p{
-         font-size: 16px;
          width: 70%;
       }
       .section2 .slider .box .img img{
@@ -211,11 +232,9 @@ body{
 }
 @media screen and (max-width : 700px){
     .section2 .slider .box .text h1{
-        font-size: 30px;
         width: 90%;
      }
      .section2 .slider .box .text p{
-         font-size: 16px;
          width: 90%;
       }
       .section2 .slider .box .img img{
@@ -233,6 +252,9 @@ body{
     .section2 .slider .box .text{
         height: 400px;
     }
+    .section2 .slider .box form {
+        width: 90%;
+    }
     .section2 .slider .box form #search {
         width: 400px;
         height: 40px;
@@ -249,11 +271,11 @@ body{
 }
 @media screen and (max-width : 500px){
     .section2 .slider .box .text h1{
-        font-size: 30px;
+        font-size: 20px;
         width: 95%;
      }
      .section2 .slider .box .text p{
-         font-size: 16px;
+         font-size: 13px;
          width: 95%;
       }
       .section2 .slider .box .img img{
@@ -270,6 +292,9 @@ body{
     }
     .section2 .slider .box .text{
         height: 400px;
+    }
+    .section2 .slider .box form {
+        width: 95%;
     }
     .section2 .slider .box form #search {
         width: 300px;
@@ -340,9 +365,8 @@ body{
     flex-direction: column;
     position: relative;
     margin-bottom: 50px;
-    margin-top: 50px;
     background: linear-gradient(180deg, #b5b5b5 0, #f7f7f7 53%);
-    padding: 70px ;
+    padding: 100px 20px;
     margin-left:auto ;
     margin-right:auto ;
     border-radius: 10px;
@@ -351,48 +375,71 @@ body{
  }
  
  .produit_vedete h1{
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    z-index: 2;
-    font-size: 35px;
-    padding: 10px 20px;
-    background-color: #ffffffae;
-    backdrop-filter: blur(3px);
-    border-radius: 10px;
-}
+     margin-bottom: 30px;
+     text-transform: uppercase;
+     z-index: 2;
+     font-size: 35px;
+     padding: 10px 20px;
+     background-color: #ffffffae;
+     backdrop-filter: blur(3px);
+     border-radius: 10px;
+     text-align: center;
+ }
 
+ .produit_vedete .statut,statut2{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 2px 8px;
+    border: 1px solid #002233;
+    box-shadow: 0 0 7px 1px #002233;
+    background-color: #92929297;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    color: #ffffff;
+ }
+ .produit_vedete .statut span{
+   display: inline-block;
+   background-color: #1eff00;
+   height: 15px;
+   width: 15px;
+   border-radius: 50%;
+   border: 1px solid #00223363;
+
+ }
  
  .produit_vedete .box1{
      display: flex;
      align-items: center;
      justify-content: center;
      position: relative;
-     width: 90%;
+     width: 80%;
      margin-bottom: 50px;
  }
  .produit_vedete .box1 h1{
     margin: auto 0;
-    font-size: 22px;
+    font-size: 20px;
+    width: 80%;
  }
  .produit_vedete .box1 .affiche{
-    height: 100px;
+    height: 300px;
     border-radius: 10px;
  }
- .produit_vedete .box1 .affich img{
-    height: 100px;
-    
+ .produit_vedete .box1 .affiche img{
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
  }
- .produit_vedete .box1 span{
-     height: 1px;
-     background-color: black;
-     width: 200px;
- }
+ 
  .produit_vedete .articles{
-     width: 90%;
+     width: 95%;
      display: flex;
      justify-content: center;
      align-items: center;
      position: relative;
+     flex-wrap: wrap;
  }
  .produit_vedete .carousel2{
     width: 85%;
@@ -402,7 +449,7 @@ body{
      position: relative;
  }
  .produit_vedete .articles .carousel{
-     height: 360px;
+     height: 370px;
      width: 240px;
      background-color: rgba(247, 247, 247, 0.499);
      border-radius: 8px;
@@ -420,14 +467,15 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 170px;
+    height: 175px;
+    padding-bottom: 5px;
  }
  .produit_vedete .articles .carousel:hover{
      transform: scale(1.05);
  }
  
  .produit_vedete .articles .message{
-    font-size: 16px;
+    font-size: 14px;
     width: 350px;
     text-align: center;
     padding: 20px 30px;
@@ -450,7 +498,7 @@ body{
      align-items: center;
      justify-content: space-between;
      position: absolute;
-     top: 110px;
+     top: 100px;
      background-color: #0a062da4;
      color: #f7f7f7;
      left: 5px;
@@ -565,14 +613,34 @@ body{
      font-size: 25px;
  }
  @media screen and (max-width : 1320px){
-    .produit_vedete {
-        width: 95%;
-        padding: 30px 20px;
-    }
-    .produit_vedete .articles {
-        width: 100%;
-        padding: 10px 10px;
-    }
+    .produit_vedete{
+        width: 97%;
+        margin-bottom: 50px;
+     }
+     .produit_vedete h1{
+         margin-bottom: 30px;
+         font-size: 35px;
+         padding: 10px 20px;
+     }
+     
+     
+     .produit_vedete .box1{
+         width: 80%;
+         margin-bottom: 50px;
+     }
+     .produit_vedete .box1 h1{
+        font-size: 22px;
+     }
+     .produit_vedete .box1 .affiche{
+        height: 100px;
+     }
+     .produit_vedete .box1 .affich img{
+        height: 100px;
+     }
+     
+     .produit_vedete .articles{
+         width: 85%;
+     }
  }
 
  @media screen and (max-width : 1220px){
@@ -586,46 +654,74 @@ body{
     }
  }
  @media screen and (max-width : 1000px) {
-   
-    .produit_vedete .box1{
-        width: 99%;
-    }
-    .produit_vedete .box1 h1{
-       font-size: 18px;
-       text-align: center;
-    }
-    .produit_vedete .box1 .affiche{
-       height: 100px;
-       border-radius: 10px;
-       width: 100%;
-    }
-    .produit_vedete .box1 .affich img{
-       height: 100px;
-       width: 100%;
-    }
-    .produit_vedete .box1 span{
-       display: none;
-    }
+    .produit_vedete{
+        width: 97%;
+        margin-bottom: 50px;
+     }
+     .produit_vedete h1{
+         margin-bottom: 30px;
+         font-size: 30px;
+         padding: 7px 17px;
+     }
+     
+     .produit_vedete .box1{
+         width: 90%;
+         margin-bottom: 50px;
+     }
+     .produit_vedete .box1 h1{
+        font-size: 20px;
+     }
+     .produit_vedete .box1 .affiche{
+        height: 100px;
+     }
+     .produit_vedete .box1 .affich img{
+        height: 100px;
+        width: 100%;
+     }
+     
+     .produit_vedete .articles{
+         width: 95%;
+     }
     .produit_vedete .articles .message{
-        font-size: 15px;
+        font-size: 13px;
         width: 300px;
         text-align: center;
         padding: 10px 10px;
      }
  }
  @media screen and (max-width : 500px) {
-    .produit_vedete {
-        padding: 20px 10px;
-    }
-    .produit_vedete .box1{
+    .produit_vedete{
+        width: 97%;
+        margin-bottom: 50px;
+     }
+     .produit_vedete h1{
+         margin-bottom: 30px;
+         font-size: 25px;
+         padding: 7px 17px;
+     }
+     
+     .produit_vedete .box1{
+         width: 99%;
+         margin-bottom: 50px;
+     }
+     .produit_vedete .box1 h1{
+        font-size: 15px;
+        text-align: center;
+     }
+     .produit_vedete .box1 .affiche{
+        height: 100px;
         width: 100%;
-    }
-    .produit_vedete .box1 h1{
-       font-size: 16px;
-    }
+     }
+     .produit_vedete .box1 .affich img{
+        height: 100px;
+     }
+     
+     .produit_vedete .articles{
+         width: 100%;
+     }
    
     .produit_vedete .articles .message{
-        font-size: 15px;
+        font-size: 12px;
        
      }
  }

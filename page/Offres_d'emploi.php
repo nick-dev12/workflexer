@@ -3,6 +3,59 @@ session_start();
 
 include_once('../entreprise/app/controller/controllerOffre_emploi.php');
 include_once('../entreprise/app/controller/controllerEntreprise.php');
+
+if(isset($_POST['recherche'])){
+
+    // Récupération des données du formulaire
+    $recherche = $_POST['search'] ;
+    $categorie =$_POST['categorie'];
+    $experience = $_POST['experience'];
+    $etude = $_POST['etude'];
+
+    // Requête SQL pour rechercher dans la base de données en fonction des critères
+    $sql = "SELECT u.* FROM offre_emploi u LEFT JOIN compte_entreprise e ON u.entreprise_id = e.id WHERE 1=1";
+    if (!empty($recherche)) {
+        $sql .= " AND (u.poste LIKE :recherche OR e.entreprise LIKE :recherche)";
+    }else{
+        $erreurs= ' Ce champ ne doit pas etre vide !';
+    }
+    if (!empty($categorie)) {
+        $sql .= " AND u.categorie = :categorie";
+    }
+    if (!empty($experience)) {
+        $sql .= " AND u.experience = :experience";
+    }
+    if (!empty($etude)) {
+        $sql .= " AND u.etude = :etude";
+    }
+
+    $stmt = $db->prepare($sql);
+    if (!empty($recherche)) {
+        $stmt->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
+    }
+    if (!empty($categorie)) {
+        $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
+    }
+    if (!empty($experience)) {
+        $stmt->bindValue(':experience', $experience, PDO::PARAM_STR);
+    }
+    if (!empty($etude)) {
+        $stmt->bindValue(':etude', $etude, PDO::PARAM_STR);
+    }
+    $stmt->execute();
+
+    $resulte = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Stocker les résultats de la recherche dans une session
+$_SESSION['resultats'] = $resulte;
+
+    header('Location: search_offre.php');
+
+    exit();
+    
+}
+
+
     ?>
 
 
@@ -58,10 +111,67 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                     <h1>Exploré les profils qui conviennent à vos besoins</h1>
                     <p>Un large éventail de profiles professionnels toute catégorie confondu pour satisfaire le moindres
                         de vos besoins en main d'œuvre et bien plus encore </p>
-                    <form action="" method="post">
-                        <input type="search" name="" id="search">
+                   
+                        <form data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right" action="" method="post">
+                        <div class="search">
+                        <input type="search" name="search" id="search">
                         <label for="recherche"><i class="fa-solid fa-magnifying-glass fa-xs"></i></label>
-                        <input type="submit" value="recherche" id="recherche">
+                        <input type="submit" name="recherche" value="recherche" id="recherche">
+                        </div>
+
+                        <div class="filtre">
+                        <select id="categorie" name="categorie">
+                                <option value="">Sélectionnez une catégorie</option>
+                                <option value="Informatique et tech">Informatique et tech</option>
+                                <option value="Design et création">Design et création</option>
+                                <option value="Rédaction et traduction">Rédaction et traduction</option>
+                                <option value="Marketing et communication">Marketing et communication</option>
+                                <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
+                                <option value="Juridique">Juridique</option>
+                                <option value="Ingénierie et architecture">Ingénierie et architecture</option>
+                                <option value="Finance et comptabilité">Finance et comptabilité</option>
+                                <option value="Santé et bien-être">Santé et bien-être</option>
+                                <option value="Éducation et formation">Éducation et formation</option>
+                                <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
+                                <option value="Commerce et vente">Commerce et vente</option>
+                                <option value="Transport et logistique">Transport et logistique</option>
+                                <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+
+                            <select name="experience" id="experience">
+                            <option value="">-- Niveau d'expérience --</option>
+                            <option value="1an">1an</option>
+                        <option value="2ans">2ans</option>
+                        <option value="3ans">3ans</option>
+                        <option value="4ans">4ans</option>
+                        <option value="5ans">5ans</option>
+                        <option value="6ans">6ans</option>
+                        <option value="7ans">7ans</option>
+                        <option value="8ans">8ans</option>
+                        <option value="9ans">9ans</option>
+                        <option value="10ans">10ans</option>
+                        
+                        </select>
+
+
+                        <select name="etude" id="etude">
+                            <option value="">-- Niveau d'étude --</option>
+                            <option value="Bac+1an">Bac+1an</option>
+                            <option value="Bac+2ans">Bac+2ans</option>
+                            <option value="Bac+3ans">Bac+3ans</option>
+                            <option value="Bac+4ans">Bac+4ans</option>
+                            <option value="Bac+5ans">Bac+5ans</option>
+                            <option value="Bac+6ans">Bac+6ans</option>
+                            <option value="Bac+7ans">Bac+7ans</option>
+                            <option value="Bac+8ans">Bac+8ans</option>
+                            <option value="Bac+9ans">Bac+9ans</option>
+                            <option value="Bac+10ans">Bac+10ans</option>
+
+                        </select>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -121,6 +231,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($ingenieurs['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($ingenieurs['experience']); ?>
+                                </p>
 
                             </div>
 
@@ -141,7 +255,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                             <?php echo $ingenieurs['date']; ?>
                         </p>
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $ingenieurs['offre_id']; ?>&entreprise_id=<?= $ingenieurs['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $ingenieurs['offre_id']; ?>&entreprise_id=<?= $ingenieurs['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                        </div>
@@ -210,6 +324,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Designs['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Designs['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -230,7 +348,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Designs['offre_id']; ?>&entreprise_id=<?= $Designs['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Designs['offre_id']; ?>&entreprise_id=<?= $Designs['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                   </div>
@@ -305,6 +423,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Redaction['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Redaction['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -324,7 +446,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Redaction['offre_id']; ?>&entreprise_id=<?= $Redaction['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Redaction['offre_id']; ?>&entreprise_id=<?= $Redaction['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                     </div>
@@ -394,6 +516,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($marketing['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($marketing['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -414,7 +540,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $marketing['offre_id']; ?>&entreprise_id=<?= $marketing['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $marketing['offre_id']; ?>&entreprise_id=<?= $marketing['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                     </div>
@@ -485,6 +611,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($business['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($business['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -503,7 +633,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $business['offre_id']; ?>&entreprise_id=<?= $business['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $business['offre_id']; ?>&entreprise_id=<?= $business['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                        </div>
@@ -574,6 +704,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Juridique['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Juridique['experience']); ?>
+                                </p>
                             </div>
                         </div>
 
@@ -593,7 +727,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Juridique['offre_id']; ?>&entreprise_id=<?= $Juridique['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Juridique['offre_id']; ?>&entreprise_id=<?= $Juridique['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                        </div>
@@ -664,6 +798,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Informatique['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Informatique['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -684,7 +822,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Informatique['offre_id']; ?>&entreprise_id=<?= $Informatique['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Informatique['offre_id']; ?>&entreprise_id=<?= $Informatique['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                       </div>
@@ -751,6 +889,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -771,7 +913,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                   </div>
@@ -840,6 +982,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -860,7 +1006,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                       </div>
@@ -928,6 +1074,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -948,7 +1098,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                       </div>
@@ -1016,6 +1166,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -1036,7 +1190,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                        </div>
@@ -1107,6 +1261,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -1127,7 +1285,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                        </div>
@@ -1198,6 +1356,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -1218,7 +1380,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                         </div>
@@ -1290,6 +1452,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -1310,7 +1476,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                         </div>
@@ -1355,8 +1521,6 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
 
                     <?php if($Information['categorie'] === 'Autre'): ?>
 
-                       
-
                     <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
             data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true"
             data-aos-once="false">
@@ -1382,6 +1546,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                     <strong>Niveau :</strong>
                                     <?php echo ($Information['etudes']); ?>
                                 </p>
+                                <p>
+                                    <strong>Experience :</strong>
+                                    <?php echo ($Information['experience']); ?>
+                                </p>
                             </div>
 
                         </div>
@@ -1402,7 +1570,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                         </div>

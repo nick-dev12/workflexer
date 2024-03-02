@@ -113,8 +113,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>Recuperation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="../css/navbare.css">
-  <link rel="stylesheet" href="/css/mdp.css">
+  <link rel="stylesheet" href="../css/navbare.css"> 
+  <link rel="stylesheet" href="/css/connexion.css">
+
 </head>
 
 <body>

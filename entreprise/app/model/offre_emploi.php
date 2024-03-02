@@ -139,6 +139,13 @@ function getOffresEmploit($db,$offre_id){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function getOffresEmploitId($db){
+    $sql= "SELECT * FROM offre_emploi WHERE offre_id=24";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 
 function postVue ($db,$offre_id,$users_id, $entreprise_id,$nom,$mail){
     $sql = "INSERT INTO vue_offre (offre_id,users_id,entreprise_id,nom,mail) 

@@ -73,7 +73,7 @@ body{
   .requirements,
   .salary {
     color: #272727;
-    text-align: left;
+    text-align: center;
   }
   
 
@@ -124,6 +124,7 @@ body{
   }
   .section3 .job-offer .box3 h2{
     font-size: 18px;
+    margin-top: 10px;
   }
 
   /* Responsive Design */
@@ -135,6 +136,7 @@ body{
     }
     .job-offer .box11 .description p  {
       font-size: 13px;
+      text-align: center;
     }
     .job-offer {
       width: 99%;
@@ -358,56 +360,66 @@ body{
    
   .container_box10 .slider .carousel{
     height: 360px;
-     width: 230px;
-     background-color: rgba(247, 247, 247, 0.499);
-     border-radius: 8px;
-     overflow: hidden;
-     border: 1px solid rgba(105, 103, 103, 0.257);
-     box-shadow: 7px 6px 10px -5px #00000093;
-     transition: all 0.5s ease-in-out;
-     position: relative;
-     margin: 0 10px;
-     background-color: #ffffff;
-  }
-  
-   
-  .container_box10 .slider .carousel:hover{
+    width: 240px;
+    background-color: rgba(247, 247, 247, 0.499);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(105, 104, 104, 0.411);
+    box-shadow: 7px 6px 10px -5px #00000093;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    margin: 20px 10px;
+    background-color: #ffffff;
+}
+
+.container_box10 .slider .carousel .info-box{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   height: 170px;
+}
+.container_box10 .slider .carousel:hover{
     transform: scale(1.05);
-  }
-   
-  .container_box10 .slider .message{
-    font-size: 20px;
-    width: 40%;
-    text-align: center;
-    padding: 20px 30px;
-    border: 1px solid #ffffff;
-    border: 1px solid #2c3e502d;
-    box-shadow: 8px 6px 7px 0px #2c3e5080;
-  }
-  .container_box10 .slider .carousel img{
-    height: 150px;
-     width: 100%;
-     object-fit: cover;
-     border-bottom: 1px solid rgba(148, 146, 146, 0.499);
-     border-bottom-left-radius: 15px;
-     border-bottom-right-radius: 15px;
-  }
-  .container_box10 .slider .carousel .p{
-    padding-left: 10px;
-     margin-bottom: 15px;
-     letter-spacing: 0.5px;
-     display: flex; 
-     align-items: center;
-     justify-content: space-between;
-     margin-top: 7px;
-  }
-  .container_box10 .slider .carousel .p strong{
-    text-transform: uppercase;
-    font-size: 14.5px;
-    font-style: italic;
-  }
- 
-  .container_box10 .slider .carousel #nom{
+}
+
+.container_box10 .slider .message{
+   font-size: 16px;
+   width: 350px;
+   text-align: center;
+   padding: 20px 30px;
+   border: 1px solid #ffffff;
+   border: 1px solid #2c3e502d;
+   box-shadow: 8px 6px 7px 0px #2c3e5080;
+}
+.container_box10 .slider .carousel img{
+    height: 135px;
+    width: 100%;
+    object-fit: cover;
+    border-bottom: 1.5px solid rgba(83, 82, 82, 0.312);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.container_box10 .slider .carousel .p{
+    padding:3px 10px;
+    letter-spacing: 0.5px;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 110px;
+    background-color: #0a062da4;
+    color: #f7f7f7;
+    left: 5px;
+    /* border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px; */
+}
+.container_box10 .slider .carousel .p strong{
+   text-transform: uppercase;
+   font-size: 12px;
+}
+
+.container_box10 .slider .carousel #nom{
     font-weight: 400;
     margin-left: 8px !important;
     overflow: hidden;
@@ -416,72 +428,70 @@ body{
     max-height: 20px;
     width: 100%;
     color: #3451c6;
-  }
-  .container_box10 .slider .carousel p span{
+    position: absolute;
+    bottom: 40px;
+}
+.container_box10 .slider .carousel p span{
     color: #F39C12;
     font-size: 13px;
     margin-right: 5px;
-  }
-   
-  .container_box10 .slider .carousel .box_vendu{
+}
+
+.container_box10 .slider .carousel .box_vendu{
    display: flex;
    width: 100%;
    align-items: center;
-  }
-   
-  .container_box10 .slider .carousel .vendu{
+}
+
+.container_box10 .slider .carousel .vendu{
     display: flex !important; 
     margin-left: 12px;
     font-size: 15px;
     width: 100%;
-    max-height: 57px !important;
-  }
-   
-  .container_box10 .slider .carousel .vendu p{
-   font-size: 15px;
-  }
+    flex-direction: column;
+}
 
-  .container_box10 .slider .carousel .vendu .ville{
-    margin-top: 10px;
-   }
-   
-  .container_box10 .slider .carousel .contrat{
-  margin-left: 20px;
-  font-style: italic;
-  font-size: 13px;
-  }
-  .container_box10 .slider .carousel .vendu span{
-    padding: 5px 8px;
-    margin-right: 6px;
-    background-color: #297fb928;
-    border-radius: 10px;
-    margin-bottom: 4px;
-  }
-   
-  .container_box10 .slider .carousel a{
-    background-color: #3451c6;
+.container_box10 .slider .carousel .vendu p{
+   font-size: 14px;
+   margin-bottom: 5px;
+   width: 100%;
+}
+.container_box10 .slider .carousel .vendu .ville{
+   font-size: 15px;
+   margin: 5px 0;
+}
+
+.container_box10 .slider .carousel .vendu span{
+   padding: 5px 8px;
+   margin-right: 6px;
+   background-color: #0a062d;
+   border-radius: 10px;
+   margin-bottom: 4px;
+}
+
+.container_box10 .slider .carousel a{
+   background-color: #0a062d;
     width: 100%;
-    padding: 5px 10px;
+    padding: 4px 10px;
     color: white;
     text-decoration: none;
     font-size: 15px;
-
     display: block;
     transition: all 0.5s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 5px;
+    bottom: 3px;
     
-  }
-   
-  .container_box10 .slider .carousel a :nth-child(1){
+}
+
+.container_box10 .slider .carousel a :nth-child(1){
    margin-right: 7px;
-  }
-  .container_box10 .slider .carousel a:hover{
+}
+.container_box10 .slider .carousel a:hover{
     background-color: #2C3E50;
-  }
+}
    
   .container_box10 .box2{
     width: 70%;

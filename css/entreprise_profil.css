@@ -545,29 +545,17 @@ body{
 }
 
 .section3 .container_box2 .box2  .carousel img{
-    height: 140px;
+    height: 130px;
     width: 100%;
     object-fit: cover;
     border-bottom: 1px solid rgba(148, 146, 146, 0.499);
 }
 .section3 .container_box2 .box2  .carousel .p{
-    width: 100%;
-    max-height: 55px;
-    overflow: hidden;
-    font-weight: 600;
-    padding-left: 10px;
-    font-size: 16px;
+    width: 100%;;
     letter-spacing: 0.5px;
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-    margin: 7px 0;
+    margin-bottom: 10px;
 }
-.section3 .container_box2 .box2  .carousel .p .img{
-    height: 30px;
-    width: 30px;
-    border:none ;
-}
+
 .section3 .container_box2 .box2  .carousel #nom{
     font-weight: 400;
     margin-left: 8px !important;

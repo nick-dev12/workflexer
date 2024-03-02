@@ -16,7 +16,7 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
 $erreurs = '';
 
 if (isset($_POST['valider'])) {
-    $code = $_POST['code'];
+    $code = htmlspecialchars( $_POST['code']);
     $mdp = $_POST['mdp'];
 
     // Vérification du champ mot de passe
@@ -45,6 +45,11 @@ if (isset($_POST['valider'])) {
         $stmt_update->bindValue(":mdp", $mdp_hash);
         $stmt_update->bindValue(":users_id", $users_id);
         $stmt_update->execute();
+
+        $sql = " DELETE FROM verification_users WHERE code = :code ";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(":code", $code);
+        $stmt->execute();
 
         // Redirection vers la page de profil utilisateur après la mise à jour du mot de passe
         header('location: ../page/user_profil.php');

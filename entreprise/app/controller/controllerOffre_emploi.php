@@ -1,58 +1,57 @@
 <?php
-
+include( __DIR__. '../../../../model/vue_offre.php');
 require_once(__DIR__ . '/../model/offre_emploi.php');
+include('controllerEntreprise.php');
 if (isset($_SESSION['compte_entreprise'])) {
    include('../controller/controller_users.php');
 }
 
 
 if (isset($_SESSION['users_id'])) {
-    if (isset($_GET['entreprise_id']) && isset($_GET['id'])) {
+    include( __DIR__. '../../../../controller/controller_niveau_etude_experience.php');
+    include( __DIR__. '../../../../controller/controller_description_users.php');
+    if (isset($_GET['entreprise_id']) && isset($_GET['offres_id'])) {
    include('../controller/controller_users.php');
 }
 }
 
 if (isset($_SESSION['users_id'])) {
-
     if (isset($_GET['entreprise_id']) && isset($_GET['users_id'])) {
    include('../controller/controller_users.php');
 }
-
 }
 
-require('../model/vue_offre.php');
 
 
-if (isset($_get['id'])) {
-    $offre_id = $_GET['id'];
+if (isset($_get['offres_id'])) {
+    $offre_id = $_GET['offres_id'];
 }
 
 
 if (isset($_POST['modifier'])) {
-
       
     $poste = $_POST['poste'];
     
+    $mission = $_POST['mission'] ;
+
+    $profil = $_POST['profil'] ;
 
 
-    $profil = $_POST['profil'];
+    $contrat = htmlspecialchars($_POST['contrat']) ;
 
 
-    $contrat = $_POST['contrat'];
+    $etudes = htmlspecialchars($_POST['etude']) ;
 
 
-    $etudes = $_POST['etude'];
+    $experience = htmlspecialchars($_POST['experience']) ;
 
 
-    $experience = $_POST['experience'];
+    $localite = htmlspecialchars($_POST['localite']) ;
 
 
-    $localite = $_POST['localite'];
+    $langues = htmlspecialchars($_POST['langues']) ;
 
-
-    $langues = $_POST['langues'];
-
-    $categorie = $_POST['categorie'];
+    $categorie = htmlspecialchars($_POST['categorie']) ;
 
     if (updatOffre($db, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $offre_id)) {
         $_SESSION['success_message'] = 'modification réussit !!!';
@@ -97,15 +96,15 @@ if (isset($_GET['entreprise_id'])) {
 
 
 
-if (isset($_GET['id'])) {
+if (isset($_GET['offres_id']) AND isset($_GET['entreprise_id'])) {
 
-    $afficheOffres = getOffresEmploit($db, $_GET['id']);
+    $afficheOffres = getOffresEmploit($db, $_GET['offres_id']);
 
     $offre_id = $afficheOffres['offre_id'];
 
     if (isset($_SESSION['users_id'])) {
 
-        $getVueOffre= getVueOffre($db,$_SESSION['users_id'],$_GET['id']);
+        $getVueOffre= getVueOffre($db,$_SESSION['users_id'],$_GET['offres_id']);
         if($getVueOffre){
   
         }else{
@@ -116,7 +115,7 @@ if (isset($_GET['id'])) {
         $entreprise_id = $_GET['entreprise_id'];
         $nom = $getInfo['nom'];
         $mail = $getInfo['mail'];
-        $offre_id = $_GET['id'];
+        $offre_id = $_GET['offres_id'];
 
         if (postVue ($db,$offre_id,$users_id, $entreprise_id,$nom,$mail)) {
            
@@ -154,6 +153,7 @@ shuffle($afficheAllOffre);
 
 if(isset($_SESSION['users_id'])) {
     $historique_users = getHistoriqueUsers($db,$_SESSION['users_id']);
-}
 
+}
+ 
 ?>

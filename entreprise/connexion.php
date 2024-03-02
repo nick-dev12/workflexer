@@ -5,7 +5,7 @@ include '../conn/conn.php';
 
 
 // Vérifier si l'utilisateur est déjà connecté
-if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
+if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
 
   // Rediriger l'utilisateur vers la page d'accueil
   header('Location: ../index.php');
@@ -36,15 +36,16 @@ if (isset($_POST['valider'])) {
     $stmt->bindParam(':mail', $mail);
     $stmt->bindParam(':phone', $phone);
     $stmt->execute();
-
     $entreprise = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($mail && !$entreprise) {
       $erreurs = "Email incorrect";
     } else if ($phone && !$entreprise) {
       $erreurs = "Numéro incorrect";
+    } else if ($entreprise['verification_statut'] !== 'verified') {
+      $erreurs = "Votre compte n'est pas active";
     } else {
-
+      
       // Vérifier mot de passe
       $passe = $_POST['passe'];
       if (empty($passe)) {
@@ -118,9 +119,9 @@ if (isset($_POST['valider'])) {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
-<?php include ('../navbare.php') ?>
  
+<?php include ('../navbare.php') ?>
+
 
   <section class="section2">
 
@@ -144,8 +145,9 @@ if (isset($_POST['valider'])) {
           <label for="passe">Mot de passe</label>
           <input type="password" name="passe" id="passe">
         </div>
-
         <input type="submit" name="valider" value="valider" id="valider">
+
+        <a href="mdp_oublier.php">Mot de passe oublier ?</a>
       </form>
     </div>
   </section>

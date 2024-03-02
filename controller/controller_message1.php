@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . ' /../model/message1.php');
+include(__DIR__ . '../../model/message1.php');
 require_once(__DIR__ . '/../model/appelle_offre.php');
 include('../entreprise/app/controller/controllerEntreprise.php');
 

@@ -115,13 +115,16 @@ body{
 }
 .fille .boxe ul li{
  list-style: none;
- width: 100%;
+ width: 90%;
+ display: flex;
+ align-items: center;
+ margin-bottom: 10px;
 }
 .fille .boxe ul li .a{
-  font-size: 13px;
   text-decoration: none;
   display: flex;
   align-items: center;
+  margin: 0 7px;
 }
 .fille .boxe ul .img{
   position: absolute;
@@ -131,17 +134,22 @@ body{
   height: 20px;
   width: 20px;
 }
-.fille .boxe ul li img{
+.fille .boxe ul li .img3{
   height: 25px;
   width: 25px;
   object-fit: cover;
-  border-radius: 50%;
+  margin-left: 10px;
+}
+.fille .boxe ul li .img4{
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+  margin-left: 10px;
 }
 .fille .boxe ul li .img2{
   height: 15px;
   width: 15px;
   object-fit: cover;
-  border-radius: 50%;
 }
 .fille p img{
   height: 45px;
@@ -2950,6 +2958,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .section3 .container_box10 .slider .carousel{
@@ -2972,7 +2981,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
 }
 
 .section3 .container_box10 .slider .message{
- font-size: 25px;
+ font-size: 20px;
  width: 40%;
  text-align: center;
  padding: 20px 30px;
@@ -3001,6 +3010,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   position: absolute;
   bottom: 40px;
   font-size: 12px;
+  padding:0 20px;
 }
 .section3 .container_box10 .slider .carousel p span{
   color: #F39C12;
@@ -3011,16 +3021,16 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
 
 .section3 .container_box10 .slider .carousel .vendu{
   display: flex !important; 
-  font-size: 15px;
+  font-size: 14px;
   width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 185px;
+  height: 180px;
 }
 
 .section3 .container_box10 .slider .carousel .vendu p{
- font-size: 15px;
+ font-size: 14.5px;
  margin: 3px 0;
  padding: 0 10px;
  width: 100%;
@@ -3029,7 +3039,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
 .section3 .container_box10 .slider .carousel .contrat{
 margin-left: 20px;
 font-style: italic;
-font-size: 15px;
+font-size: 14px;
 }
 .section3 .container_box10 .slider .carousel .vendu span{
  padding: 5px 8px;
@@ -3045,7 +3055,7 @@ font-size: 15px;
   padding: 5px 10px;
   color: white;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
 
   display: block;
   transition: all 0.5s ease-in-out;

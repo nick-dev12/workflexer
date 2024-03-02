@@ -77,11 +77,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>
         <?= $getEntreprise['types'] ?>
     </p>
-
+    
     <h4>Description de l'Entreprise</h4>
-    <p class="description">
+    <?php if ($afficheDescriptionentreprise): ?>
+       <p class="description">
         <?= $afficheDescriptionentreprise['descriptions'] ?>
     </p>
+    <?php else: ?>
+        <p class="lien">Description indisponible !</p>
+    <?php endif; ?>
+    
 </div>
 
 <?php if ($Offres): ?>
@@ -143,16 +148,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div class="box">
                         <label for="mission">décrivez les missions et responsabilités</label>
-                        <textarea name="mission" id="mission" cols="30" rows="10"><?= htmlentities($Offres['mission']) ?></textarea>
+                        <textarea name="mission" id="mission" cols="30" rows="10"><?= htmlspecialchars_decode($Offres['mission'])  ?></textarea>
                     </div>
                     <div class="box">
                         <label for="profil">décrivez le profil rechercher (qualités et competence)</label>
-                        <textarea name="profil" id="profil" cols="30" rows="10"><?= $Offres['profil'] ?></textarea>
+                        <textarea name="profil" id="profil" cols="30" rows="10"><?= htmlspecialchars_decode($Offres['profil'])  ?></textarea>
                     </div>
                     
                     <div class="box">
                         <select name="contrat" id="contrat">
-                            <option value="">-- Type de contrat --</option>
+                            <option value="<?= $Offres['contrat'] ?>">-- Type de contrat --</option>
                             <option value="cdi">CDI</option>
                             <option value="cdd">CDD</option>
                             <option value="interim">Intérim</option>
@@ -164,7 +169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <div class="box">
                         <select name="etude" id="etude">
-                            <option value="">-- Niveau d'étude requis --</option>
+                            <option value="<?= $Offres['etudes'] ?>">-- Niveau d'étude requis --</option>
                             <option value="Bac+1an">Bac+1an</option>
                             <option value="Bac+2ans">Bac+2ans</option>
                             <option value="Bac+3ans">Bac+3ans</option>
@@ -182,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <div class="box">
                         <select name="experience" id="experience">
-                            <option value="">-- Niveau d'expérience requis --</option>
+                            <option value="<?= $Offres['experience'] ?>">-- Niveau d'expérience requis --</option>
                             <option value="1an">1an</option>
                         <option value="2ans">2ans</option>
                         <option value="3ans">3ans</option>
@@ -208,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="box">
                     <label for="categorie">Secteur d'activité</label>
                             <select id="categorie" name="categorie">
-                                <option value="">Sélectionnez une catégorie</option>
+                                <option value="<?= $Offres['categorie'] ?>">Sélectionnez une catégorie</option>
                                 <option value="Informatique et tech">Informatique et tech</option>
                                 <option value="Design et création">Design et création</option>
                                 <option value="Rédaction et traduction">Rédaction et traduction</option>

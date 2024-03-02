@@ -1,5 +1,5 @@
 <?php 
-include ('../conn/conn.php');
+include (__DIR__.'/../conn/conn.php');
 
 function getVueOffre($db,$users_id,$offre_id){
     $sql = " SELECT * FROM vue_offre WHERE users_id=:users_id AND offre_id=:offre_id";

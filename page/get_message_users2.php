@@ -157,60 +157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 img222.style.display = 'block';
             });
         </script>
-        <div class="container_profil">
-
-            <div class="box3">
-                <h2>Candidats retenu</h2>
-                <?php foreach ($getPostulationUsers as $postulationUsers): ?>
-                    <?php if ($postulationUsers['statut'] == 'accepter'): ?>
-                        <?php $infoEntreprise = getEntreprise($db, $postulationUsers['entreprise_id']) ?>
-                        <?php $afficheOffre = getOffresEmploit($db, $postulationUsers['offre_id']); ?>
-                        <a
-                            href="get_message_users.php?users_id=<?= $postulationUsers['users_id'] ?>&offres_id=<?= $postulationUsers['offre_id'] ?>&entreprise_id=<?= $postulationUsers['entreprise_id'] ?>&statut=<?= $postulationUsers['statut'] ?>">
-                            <div class="info">
-                                <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                                <div class="div">
-                                    <h4>
-                                        <?= $infoEntreprise['entreprise'] ?>
-                                    </h4>
-                                    <p> <strong>Competences:</strong>
-                                        <?= $postulationUsers['competences'] ?>
-                                    </p>
-                                    <p><span class="span1"><strong>Offre postuler:</strong>
-                                            <?= $afficheOffre['poste'] ?>
-                                        </span> <span class="span2">
-                                            <?= $afficheOffre['contrat'] ?>
-                                        </span></p>
-                                </div>
-                            </div>
-                        </a>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
-
-            <div class="box2">
-                <h2>Appel d'offres</h2>
-                <?php foreach ($getAllAppel_offre as $appel_offre): ?>
-                    <?php $infoEntreprise = getEntreprise($db, $appel_offre['entreprise_id']) ?>
-                    <a
-                        href="get_message_users2.php?users_id=<?= $appel_offre['users_id'] ?>&entreprise_id=<?= $appel_offre['entreprise_id'] ?>">
-                        <div class="info">
-                            <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                            <div class="div">
-                                <h4>
-                                    <?= $infoEntreprise['nom'] ?>
-                                </h4>
-                                <p> <strong>Competences:</strong>
-                                    <?= $infoEntreprise['entreprise'] ?>
-                                </p>
-                                <p><span class="span1"><strong>Sujet:</strong> Appelle d'offre </span> </p>
-                            </div>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-
+        
 
         <?php include('../include/affiche_message1.php') ?>
     </section>
