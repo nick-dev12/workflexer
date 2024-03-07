@@ -54,7 +54,7 @@ include_once('controller/controller_users.php');
     <!-- menu carousel slider -->
     <div class="slider-area owl-carousel" data-aos="zoom-in">
         <div class="slider-item">
-            <img src="/image/etudiant.png" alt="">
+            <img src="/image/image1.png" alt="">
             <div class="box">
                 <h1 data-aos="fade-up"> <span>Work</span><span>-Flexer</span> une platform de mise en relation </h1>
                 <p data-aos="fade-up">La plateforme de professionnalisation qui relie entreprise , entrepreneur ,
@@ -130,6 +130,23 @@ include_once('controller/controller_users.php');
             <img src="/image/etudiant1.png" alt="" class="img2">
         </div>
     </section>
+    
+
+    <section class="box-section">
+
+        <section class="partie-box1">
+            <div class="box2">
+                <img src="/image/etudiant2.png" alt="">
+            </div>
+            <div class="box1">
+                <h2>je construis mon histoire </h2>
+            </div>
+
+        </section>
+
+    </section>
+    
+
 
     <section class="reference">
         <div class="container">
@@ -153,21 +170,6 @@ include_once('controller/controller_users.php');
                 <a href="/connection_compte.php">Commencer!</a>
             </div>
         </div>
-    </section>
-
-
-    <section class="box-section">
-
-        <section class="partie-box1">
-            <div class="box2">
-                <img src="/image/etudiant2.png" alt="">
-            </div>
-            <div class="box1">
-                <h2>je construis mon histoire </h2>
-            </div>
-
-        </section>
-
     </section>
 
 
@@ -236,7 +238,7 @@ include_once('controller/controller_users.php');
 
                         <a href="/inscription.php">Commencer</a>
                     </div>
-                    <img src="/image/Performance-600x511.png" alt="">
+                    <img src="/image/image-2.png" alt="">
                 </div>
 
             </div>
@@ -245,7 +247,7 @@ include_once('controller/controller_users.php');
     </div>
 
 
-    <section class="box-section3">
+    <!-- <section class="box-section3">
         <div class="box1">
             <div>
             <h2>Pour les Professionnels</h2>
@@ -276,7 +278,28 @@ include_once('controller/controller_users.php');
             
         </div>
        
+    </section> -->
+    
+    <section class="n_section2">
+       <div class="div">
+       <h1>Application Android disponible</h1>
+       <a href="/document/0803-python-basics.pdf">Telecharger</a>
+       </div>
+        <div class="box">
+            <img class="img1" src="/image/android.png" alt="">
+            <img class="img2" src="/image/resp1.png" alt="">
+        </div>
     </section>
+
+
+    <section class="n_section">
+        <h1>Adapté à tous vos écrans</h1>
+
+        <div class="box">
+            <img class="img1" src="/image/resp2.png" alt=""><img class="img2" src="/image/resp4.png" alt=""><img class="img3" src="/image/resp3.png" alt="">
+        </div>
+    </section>
+
 
     <section class="temoin">
         <div class="box">
@@ -291,7 +314,7 @@ include_once('controller/controller_users.php');
             <span>"</span>
             <p>Cette plateforme nous a aidé à trouver les candidats parfaits
                 pour nos offres d'emploi. Fortement recommandé aux recruteurs.</p>
-            <img class="img" src="/image/temoin.jpg" alt="">
+            <img class="img" src="/image/profil1.png" alt="">
         </div>
 
         <div class="box">
@@ -300,7 +323,7 @@ include_once('controller/controller_users.php');
                 de mes compétences a été un énorme avantage. J'ai rapidement trouvé
                 des opportunités qui correspondaient
                 parfaitement à mes aspirations professionnelles.</p>
-            <img class="img" src="/image/temoin.jpg" alt="">
+            <img class="img" src="/image/profil2.png" alt="">
         </div>
 
         <div class="box">
@@ -308,7 +331,7 @@ include_once('controller/controller_users.php');
             <p>Une expérience utilisateur exceptionnelle ! La navigation est intuitive,
                 et j'ai trouvé le processus de candidature très simple.
                 Merci de rendre la recherche d'emploi aussi efficace et agréable.</p>
-            <img class="img" src="/image/temoin.jpg" alt="">
+            <img class="img" src="/image/profil3.png" alt="">
         </div>
 
         <div class="box">
@@ -316,7 +339,7 @@ include_once('controller/controller_users.php');
             <p>Notre expérience en tant qu'entreprise partenaire a été extrêmement
                 positive. La plateforme offre une excellente
                 visibilité et nous a connectés avec des professionnels qualifiés.</p>
-            <img class="img" src="/image/temoin.jpg" alt="">
+            <img class="img" src="/image/profil4.png" alt="">
         </div>
     </section>
 
@@ -368,11 +391,16 @@ include_once('controller/controller_users.php');
         <div class="profil">
             <div class="owl-slider owl-carousel ">
                 <?php foreach ($totalUsers as $user): ?>
+
+                    <?php $name_users = $user['nom'];
+                    $explode_name_users = explode(' ', $name_users);
+                    $name = $explode_name_users[0]." ".$explode_name_users[1] ;
+                    ?>
                     <div class="item">
                         <a href="/page/candidats.php?id=<?= $user['id'] ?>">
                             <img src="/upload/<?= $user['images']; ?>" alt="">
                             <h3>
-                                <?= $user['nom']; ?>
+                                <?= $name;?>
                             </h3>
                             <p>
                                 <?= $user['competences']; ?>

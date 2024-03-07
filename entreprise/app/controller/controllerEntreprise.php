@@ -43,17 +43,17 @@ if (isset($_SESSION['compte_entreprise'])) {
 
 if (isset($_POST['publier'])) {
     function TotalUsers($db)
-{
-    $sql = "SELECT * FROM users";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+    {
+        $sql = "SELECT * FROM users";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
 
     $entreprise_id = $getEntreprise['id'];
-  
+
 
 
     if (empty($_POST['poste'])) {
@@ -118,11 +118,11 @@ if (isset($_POST['publier'])) {
         IntlDateFormatter::NONE,
         'Europe/Paris',
         IntlDateFormatter::GREGORIAN,
-        'EEEE d MMMM y à HH:mm'
+        'EEEE d MMMM y '
     );
     $date = $date_formatter->format($date_publication);
 
-     
+
 
     if (empty($_SESSION['error_message'])) {
         if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $date)) {
@@ -141,14 +141,16 @@ if (isset($_POST['publier'])) {
                 $mail->Port = 465;
 
                 // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
-                $candidates = TotalUsers($db);
 
-                foreach ($candidates as $candidate) {
-                    if ($candidate['categorie'] == $categorie) {
-                        $destinataire = $candidate['mail'];
-                        $nom = $candidate['nom'];
-                    }
+                $sql = "SELECT * FROM users WHERE categorie = :categorie";
+                $stmt = $db->prepare($sql);
+                $stmt->bindValue(":categorie", $categorie);
+                $stmt->execute();
+                $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+                foreach ($users as $candidate) {
+                    $destinataire = $candidate['mail'];
+                    $nom = $candidate['nom'];
                     // Contenu de l'e-mail
                     $sujet = 'Nouvelle offre d\'emploi correspondant à vos critères';
                     $message = "
@@ -267,7 +269,7 @@ if (isset($_POST['publier'])) {
                 <p>Nous sommes ravis de vous informer qu'une nouvelle offre d'emploi correspondant à vos critères est disponible sur Work-Flexer.</p>
                 <p>Cette offre présente une opportunité passionnante pour vous. Nous vous encourageons à vous connecter dès que possible, à discuter avec les recruteurs et à postuler à l'offre pour saisir cette chance.</p>
                 <p>Connectez-vous dès maintenant pour ne rien rater :</p>
-                <a href='https://work-flexer.com'>Accéder à l'offre</a>
+                <a href='https://work-flexer.com/page/user_profil.php'>Accéder à l'offre</a>
                 <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
                 <p>Cordialement,<br>L'équipe Work-Flexer</p>
             </div>
@@ -291,7 +293,8 @@ if (isset($_POST['publier'])) {
                 exit();
 
             } catch (Exception $e) {
-                header('Location: updat_offre.php');
+                $_SESSION['success_message'] = 'Offre d\'emploi publiée';
+                header('Location: entreprise_profil.php');
                 exit();
             }
         }
@@ -334,7 +337,7 @@ if (isset($_POST['valide2'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update2($db, $entreprise, $entreprise_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -352,7 +355,7 @@ if (isset($_POST['valide3'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update3($db, $mail, $entreprise_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -370,7 +373,7 @@ if (isset($_POST['valide4'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update4($db, $phone, $entreprise_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -388,7 +391,7 @@ if (isset($_POST['valide5'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update5($db, $types, $entreprise_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -406,7 +409,7 @@ if (isset($_POST['valide6'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update6($db, $ville, $entreprise_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -424,7 +427,7 @@ if (isset($_POST['valide7'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update7($db, $taille, $entreprise_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -442,7 +445,7 @@ if (isset($_POST['valide8'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update8($db, $categorie, $entreprise_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -450,47 +453,47 @@ if (isset($_POST['valide8'])) {
     }
 }
 
-if(isset($_POST['valide0'])){
+if (isset($_POST['valide0'])) {
 
     $entreprise_id = $_SESSION['compte_entreprise'];
 
     $images = '';
 
     // Vérification de la ville
- if (empty($_FILES['images'])) {
-    $_SESSION['error_message'] = 'erreur choisissez une autre image .';
-} else {
-    // Récupérer les données du formulaire
-    $images = $_FILES['images'];
-    // Vérifier qu'un fichier est uploadé
-    if (empty( $_SESSION['error_message'])) {
+    if (empty($_FILES['images'])) {
+        $_SESSION['error_message'] = 'erreur choisissez une autre image .';
+    } else {
+        // Récupérer les données du formulaire
+        $images = $_FILES['images'];
+        // Vérifier qu'un fichier est uploadé
+        if (empty($_SESSION['error_message'])) {
 
-        // Récupérer le nom et le chemin temporaire
-        $fileName = $images['name'];
-        $tmpName = $images['tmp_name'];
+            // Récupérer le nom et le chemin temporaire
+            $fileName = $images['name'];
+            $tmpName = $images['tmp_name'];
 
-        // Ajouter l'identifiant unique au nom du fichier
-        $uniqueFileName = $id . '_' . $fileName;
+            // Ajouter l'identifiant unique au nom du fichier
+            $uniqueFileName = $id . '_' . $fileName;
 
-        // Déplacer le fichier dans le répertoire audio
-        $targetFile = '../upload/' . $uniqueFileName;
-        move_uploaded_file($tmpName, $targetFile);
+            // Déplacer le fichier dans le répertoire audio
+            $targetFile = '../upload/' . $uniqueFileName;
+            move_uploaded_file($tmpName, $targetFile);
 
 
-        if (update0 ($db,$uniqueFileName, $entreprise_id)) {
+            if (update0($db, $uniqueFileName, $entreprise_id)) {
+            }
+
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
         }
-    
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
+
+
+
     }
-
-
-   
 }
-}
- 
-if(isset($_SESSION['compte_entreprise'])){
-    $historiques = getHistorique ($db,$_SESSION['compte_entreprise']); 
+
+if (isset($_SESSION['compte_entreprise'])) {
+    $historiques = getHistorique($db, $_SESSION['compte_entreprise']);
 }
 ?>

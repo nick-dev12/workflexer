@@ -315,12 +315,24 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_GET['suprime'])) {
-  $message_id = $_GET['suprime'];
+  if(isset($_SESSION['users_id'])){
+    $message_id = $_GET['suprime'];
   if (deletMessage($db, $message_id)) {
 
     header("Location: ../page/message_users.php");
     exit();
   }
+  }
+
+  if(isset($_SESSION['compte_entreprise'])){
+    $message_id = $_GET['suprime'];
+  if (deletMessage($db, $message_id)) {
+
+    header("Location: ../entreprise/message.php");
+    exit();
+  }
+  }
+  
 }
 
 

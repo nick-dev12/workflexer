@@ -100,6 +100,7 @@ if (isset($_SESSION['users_id'])) {
                 img222.style.display = 'block';
             });
         </script>
+
         
         <div class="container_box2">
             <div class="box1">
@@ -184,7 +185,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                     </div>
                     <div class="pte3">
-                        <h2><img src="../image/diplome.png" alt=""> Certificates </h2>
+                        <h2><img src="../image/diplome.png" alt=""> Certificates</h2>
                         <div>
                             <?php if (empty($afficheCertificat)): ?>
                                 <p>Aucune donnée trouvée!</p>
@@ -277,8 +278,6 @@ if (isset($_SESSION['users_id'])) {
                     </div>
 
 
-
-
                     <div class="exp">
                         <div class="til1">
                             <h1>Formation et parcour</h1>
@@ -339,7 +338,6 @@ if (isset($_SESSION['users_id'])) {
                     </div>
 
 
-
                     <div class="outils">
                         <div class="out1">
                             <h1>Competences</h1>
@@ -358,9 +356,10 @@ if (isset($_SESSION['users_id'])) {
 
             </div>
         </div>
-        </div>
+       
 
     </section>
+    
 
 </body>
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_GET['offres_id'])) {
+if (isset($_GET['offres_id']) || isset($_GET['entreprise_id'])) {
     $offre_id = $_GET['offres_id'];
 } else {
     header('Location: ../page/Offres_d\'emploi.php');
