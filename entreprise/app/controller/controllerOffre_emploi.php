@@ -137,7 +137,12 @@ if (isset($_SESSION['compte_entreprise'])) {
     $offre_id= $_GET['offre_id'];
     if(deleteOffresEmploit($db,$offre_id)){
         if (deletePostulation($db,$offre_id)) {
-             $_SESSION['delete_message']='offre suprimer avec succet';
+            $sql = "DELETE FROM historique_users WHERE offre_id= :offre_id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(":offre_id", $offre_id, PDO::PARAM_STR);
+            $stmt->execute();
+            
+             $_SESSION['success_message']='Offre suprimer';
         header('Location: ../entreprise/entreprise_profil.php');
         exit();
         }

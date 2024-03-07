@@ -56,7 +56,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
 
         <div class="container_box2">
             <div class="box1">
-                <h1>Mes offres</h1>
+                <h1>Mon historique</h1>
             </div>
 
             <div class="box2">
@@ -105,7 +105,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         </p>
 
                         <a
-                            href="../entreprise/voir_offre.php?id=<?= $infoOffre['offre_id']; ?>&entreprise_id=<?= $infoOffre['entreprise_id']; ?>">
+                            href="../entreprise/voir_offre.php?offres_id=<?= $infoOffre['offre_id']; ?>&entreprise_id=<?= $infoOffre['entreprise_id']; ?>">
                             <i class="fa-solid fa-eye"></i>Voir l'offre
                         </a>
                     </div>

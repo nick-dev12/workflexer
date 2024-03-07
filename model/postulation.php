@@ -1,5 +1,5 @@
-<?php 
-include ('../conn/conn.php');
+<?php
+include('../conn/conn.php');
 
 
 /**
@@ -16,20 +16,21 @@ include ('../conn/conn.php');
  * @param mixed $profession
  * @return mixed
  */
-function postCandidature($db,$entreprise_id,$poste,$offre_id,$users_id,$nom,$mail,$phone,$competences,$profession, $images){
-    $sql="INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,images) 
+function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $mail, $phone, $competences, $profession, $images)
+{
+    $sql = "INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,images) 
     VALUES (:entreprise_id,:poste,:offre_id,:users_id,:nom,:mail,:phone,:competences,:profession,:images)";
-    $stmt= $db->prepare($sql);
-    $stmt->bindParam(':entreprise_id',$entreprise_id);
-    $stmt->bindParam(':poste',$poste);
-    $stmt->bindParam(':offre_id',$offre_id);
-    $stmt->bindParam(':users_id',$users_id);
-    $stmt->bindParam(':nom',$nom);
-    $stmt->bindParam(':mail',$mail);
-    $stmt->bindParam(':phone',$phone);
-    $stmt->bindParam(':competences',$competences);
-    $stmt->bindParam(':profession',$profession);
-    $stmt->bindParam(':images',$images);
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':entreprise_id', $entreprise_id);
+    $stmt->bindParam(':poste', $poste);
+    $stmt->bindParam(':offre_id', $offre_id);
+    $stmt->bindParam(':users_id', $users_id);
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':mail', $mail);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':competences', $competences);
+    $stmt->bindParam(':profession', $profession);
+    $stmt->bindParam(':images', $images);
     return $stmt->execute();
 }
 
@@ -42,11 +43,12 @@ function postCandidature($db,$entreprise_id,$poste,$offre_id,$users_id,$nom,$mai
  * @param mixed $offre_id
  * @return mixed
  */
-function getPostulation($db,$users_id,$offre_id){
-    $sql= "SELECT * FROM postulation WHERE users_id=:users_id AND offre_id=:offre_id";
+function getPostulation($db, $users_id, $offre_id)
+{
+    $sql = "SELECT * FROM postulation WHERE users_id=:users_id AND offre_id=:offre_id";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':users_id',$users_id,PDO::PARAM_INT);
-    $stmt->bindValue(':offre_id',$offre_id,PDO::PARAM_INT);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
+    $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
@@ -59,26 +61,29 @@ function getPostulation($db,$users_id,$offre_id){
  * @param mixed $entreprise_id
  * @return mixed
  */
-function getALLPostulation($db,$entreprise_id){
-    $sql= "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id ORDER BY (statut = 'accepter') DESC" ;
+function getALLPostulation($db, $entreprise_id)
+{
+    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id ORDER BY (statut = 'accepter') DESC";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':entreprise_id',$entreprise_id,PDO::PARAM_INT);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function countALLPostulationAccept($db, $entreprise_id){
+function countALLPostulationAccept($db, $entreprise_id)
+{
     $sql = "SELECT * FROM postulation WHERE entreprise_id = :entreprise_id AND statut = 'accepter'";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->rowCount();
 }
 
-function countALLPostulationRecaler($db, $entreprise_id){
+function countALLPostulationRecaler($db, $entreprise_id)
+{
     $sql = "SELECT * FROM postulation WHERE entreprise_id = :entreprise_id AND statut = 'recaler'";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->rowCount();
 }
@@ -90,20 +95,22 @@ function countALLPostulationRecaler($db, $entreprise_id){
  * @param mixed $poste_id
  * @return mixed
  */
-function affichePostulant($db,$poste_id){
-    $sql= "SELECT * FROM postulation WHERE poste_id=:poste_id";
+function affichePostulant($db, $poste_id)
+{
+    $sql = "SELECT * FROM postulation WHERE poste_id=:poste_id";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':poste_id',$poste_id,PDO::PARAM_INT);
+    $stmt->bindValue(':poste_id', $poste_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 
-function getPostulationUsers($db,$users_id){
-$sql = "SELECT * FROM postulation WHERE users_id=:users_id";
-$stmt = $db->prepare($sql);
-$stmt->bindValue(':users_id',$users_id,PDO::PARAM_INT);
-$stmt->execute();
-return $stmt->fetchAll(PDO::FETCH_ASSOC);
+function getPostulationUsers($db, $users_id)
+{
+    $sql = "SELECT * FROM postulation WHERE users_id=:users_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>

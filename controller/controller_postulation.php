@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-require_once(__DIR__. '/../model/postulation.php');
+require_once(__DIR__ . '/../model/postulation.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -10,7 +10,7 @@ require '../vendor/autoload.php';
 
 
 if (isset($_SESSION['compte_entreprise'])) {
-    $getALLpostulation= getALLPostulation($db,$_SESSION['compte_entreprise']);
+    $getALLpostulation = getALLPostulation($db, $_SESSION['compte_entreprise']);
     $countAllPostulation = count($getALLpostulation);
     $countPostulationAccepte = countALLPostulationAccept($db, $_SESSION['compte_entreprise']);
     $countPostulationRecqler = countALLPostulationRecaler($db, $_SESSION['compte_entreprise']);
@@ -21,61 +21,61 @@ if (isset($_SESSION['compte_entreprise'])) {
 
 if (isset($_GET['offres_id'])) {
     if (isset($_SESSION['users_id'])) {
-        $getPostulation=getPostulation($db,$_SESSION['users_id'],$_GET['offres_id']);
+        $getPostulation = getPostulation($db, $_SESSION['users_id'], $_GET['offres_id']);
     }
 }
 
 
 if (isset($_SESSION['users_id'])) {
 
-  if(isset($_POST['postuler'])){
-    $entreprise_id=$offre_id=$users_id=$nom=$mail=$phone=$competances=$profession='';
+    if (isset($_POST['postuler'])) {
+        $entreprise_id = $offre_id = $users_id = $nom = $mail = $phone = $competances = $profession = '';
 
-    $offre_id = $_GET['offres_id'] ;
+        $offre_id = $_GET['offres_id'];
 
-    $Offres =getOffres($db, $offre_id );
+        $Offres = getOffres($db, $offre_id);
 
-    $poste = $Offres['poste'];
+        $poste = $Offres['poste'];
 
-    $entreprise_id= $Offres['entreprise_id'];
+        $entreprise_id = $Offres['entreprise_id'];
 
-    $users_id = $_POST['id_users'];
+        $users_id = $_POST['id_users'];
 
-    $nom = $_POST['nom_users'];
+        $nom = $_POST['nom_users'];
 
-    $mail = $_POST['mail_users'];
+        $mail = $_POST['mail_users'];
 
-    $phone = $_POST['phone_users'];
+        $phone = $_POST['phone_users'];
 
-    $competences= $_POST['competence_users'];
+        $competences = $_POST['competence_users'];
 
-    $profession = $_POST['profession_users'];
+        $profession = $_POST['profession_users'];
 
-    $images = $_POST['images_users'];
+        $images = $_POST['images_users'];
 
-    if (postCandidature($db,$entreprise_id,$poste,$offre_id,$users_id,$nom,$mail,$phone,$competences,$profession, $images)) {
-        
+        if (postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $mail, $phone, $competences, $profession, $images)) {
 
-           // Créez l'instance PHPMailer
-           $mail = new PHPMailer(true);
 
-           try {
-               // Paramètres SMTP
-               $mail->isSMTP();
-               $mail->Host = 'work-flexer.com';
-               $mail->SMTPAuth = true;
-               $mail->Username = 'noreply-service@work-flexer.com';
-               $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-               $mail->SMTPSecure = 'ssl';
-               $mail->Port = 465;
+            // Créez l'instance PHPMailer
+            $mail = new PHPMailer(true);
 
-              $infoEntreprises = getEntreprise($db,$entreprise_id);
-              $destinataire = $infoEntreprises['mail'];
-              $entreprise = $infoEntreprises['entreprise'];
-                   
-                     // Contenu de l'e-mail
-               $sujet = 'Postulation : Nouveau candidat pour votre offre';
-               $message = "
+            try {
+                // Paramètres SMTP
+                $mail->isSMTP();
+                $mail->Host = 'work-flexer.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'noreply-service@work-flexer.com';
+                $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = 465;
+
+                $infoEntreprises = getEntreprise($db, $entreprise_id);
+                $destinataire = $infoEntreprises['mail'];
+                $entreprise = $infoEntreprises['entreprise'];
+
+                // Contenu de l'e-mail
+                $sujet = 'Postulation : Nouveau candidat pour votre offre';
+                $message = "
                <!DOCTYPE html>
                <html>
                <head><meta charset='utf-8'>
@@ -191,40 +191,40 @@ if (isset($_SESSION['users_id'])) {
 <p>Nous avons le plaisir de vous informer qu'un candidat potentiel vient de postuler à votre offre d'emploi pour le poste de <strong>$poste</strong>.</p>
 <p>Nous vous encourageons à vous connecter dès maintenant pour examiner cette candidature et prendre les mesures appropriées.</p>
 <p>Connectez-vous à votre espace entreprise sur Work-Flexer pour traiter cette candidature :</p>
-<p><a href='https://work-flexer.com/entreprise/entreprise_profil.php'>Accéder à votre espace entreprise</a></p>
+<p><a href='https://work-flexer.com/page/candidature.php'>Accéder à votre espace entreprise</a></p>
 <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre processus de recrutement.</p>
 <p>Cordialement,<br>L'équipe Work-Flexer</p>
 </div>
                </body>
-               </html> " ;
+               </html> ";
 
-               $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
-               $mail->isHTML(true);
-               $mail->Subject = $sujet;
-               $mail->Body = $message;
+                $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+                $mail->isHTML(true);
+                $mail->Subject = $sujet;
+                $mail->Body = $message;
 
-                  
-                   $mail->clearAddresses();
-                   $mail->addAddress($destinataire);
-                   $mail->send();
-               
 
-               $_SESSION['success_message']='Postulation réussi !!';
-        
-        header('Location: ../page/user_profil.php');
-        exit();
-               
-           } catch (Exception $e) {
-            header('Location: voir_offre.php');
-               exit();
-           }
-       
-       
-       
+                $mail->clearAddresses();
+                $mail->addAddress($destinataire);
+                $mail->send();
+
+
+                $_SESSION['success_message'] = 'Postulation réussi !!';
+
+                header('Location: ../page/user_profil.php');
+                exit();
+
+            } catch (Exception $e) {
+                header('Location: voir_offre.php');
+                exit();
+            }
+
+
+
+        }
+
     }
-    
-}
-    
-    $getPostulationUsers=getPostulationUsers($db,$_SESSION['users_id']);
+
+    $getPostulationUsers = getPostulationUsers($db, $_SESSION['users_id']);
 }
 ?>

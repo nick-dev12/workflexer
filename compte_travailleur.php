@@ -3,13 +3,13 @@
 session_start();
 
 include 'conn/conn.php';
+require 'vendor/autoload.php';
 
 // $_SESSION['users_id'] = true;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php';
 
 
 // Vérifier si l'utilisateur est déjà connecté
@@ -35,11 +35,13 @@ if (isset($_POST['valider'])) {
 
     $id = uniqid();
 
+    $id2 = uniqid();
+
     // Vérification du nom
     if (empty($_POST['nom'])) {
         $erreurs = "Le nom est obligatoire";
     } else {
-        $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8'); // Échapper les caractères spéciaux
+        $nom = htmlspecialchars($_POST['nom']); // Échapper les caractères spéciaux
     }
 
     // Vérification du mail
@@ -155,7 +157,8 @@ if (isset($_POST['valider'])) {
         // Hachage du mot de passe
         $passe = password_hash($passe, PASSWORD_DEFAULT);
 
-        function generateSecurityCode($length = 9) {
+        function generateSecurityCode($length = 9)
+        {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $code = '';
             $max = strlen($characters) - 1;
@@ -167,13 +170,14 @@ if (isset($_POST['valider'])) {
 
         $verification = generateSecurityCode();
         // Préparation de la requête SQL
-        $sql = "INSERT INTO users (nom, mail, phone, competences,profession, ville, categorie ,images,verification, passe) 
-              VALUES (:nom, :mail, :phone, :competences,:profession, :ville, :categorie, :images,:verification, :passe)";
+        $sql = "INSERT INTO users (id, nom, mail, phone, competences,profession, ville, categorie ,images,verification, passe) 
+              VALUES (:id, :nom, :mail, :phone, :competences,:profession, :ville, :categorie, :images,:verification, :passe)";
 
         // Préparation de la requête 
         $stmt = $db->prepare($sql);
 
         // Association des paramètres
+        $stmt->bindParam(':id', $id2);
         $stmt->bindParam(':nom', $nom);
         $stmt->bindParam(':mail', $email);
         $stmt->bindParam(':phone', $phone);
@@ -189,10 +193,10 @@ if (isset($_POST['valider'])) {
         $stmt->execute();
 
 
-          // Créez l'instance PHPMailer
-          $mail = new PHPMailer(true);
+        // Créez l'instance PHPMailer
+        $mail = new PHPMailer(true);
 
-          try {
+        try {
             // Paramètres SMTP
             $mail->isSMTP();
             $mail->Host = 'work-flexer.com';
@@ -206,11 +210,11 @@ if (isset($_POST['valider'])) {
 
             // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
 
-          $destinataire = $email ;
+            $destinataire = $email;
 
-                // Contenu de l'e-mail
-                $sujet = 'Confirmation de compte';
-                $message = "
+            // Contenu de l'e-mail
+            $sujet = 'Confirmation de compte';
+            $message = "
             <!DOCTYPE html>
             <html>
             <head><meta charset='utf-8'>
@@ -331,30 +335,28 @@ if (isset($_POST['valider'])) {
             </body>
             </html> ";
 
-                $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
-                $mail->isHTML(true);
-                $mail->Subject = $sujet;
-                $mail->Body = $message;
+            $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+            $mail->isHTML(true);
+            $mail->Subject = $sujet;
+            $mail->Body = $message;
 
 
-                $mail->clearAddresses();
-                $mail->addAddress($destinataire);
-                $mail->send();
-          
-            header('Location: verification_users.php');
+            $mail->clearAddresses();
+            $mail->addAddress($destinataire);
+            $mail->send();
+
+            header('Location:verification_users.php');
             exit();
 
         } catch (Exception $e) {
-            header('Location: compte_travailleur.php.php');
+            header('Location:compte_travailleur.php');
             exit();
         }
-       
+
     }
 
-        // Redirection vers une page de confirmation
-        header('Location: connexion.php');
-        exit;
-    }
+
+}
 
 
 ?>
@@ -420,22 +422,22 @@ if (isset($_POST['valider'])) {
                     <div class="container">
                         <div class="box1">
                             <label for="nom">Nom et Prénom</label>
-                            <input type="text" name="nom" id="nom">
+                            <input type="text" name="nom" id="nom" placeholder="Ex: John Doe">
                         </div>
 
                         <div class="box1">
-                            <label for="mail">Address-mail</label>
-                            <input type="email" name="mail" id="mail">
+                            <label for="mail">Adresse e-mail</label>
+                            <input type="email" name="mail" id="mail" placeholder="Ex: john.doe@example.com">
                         </div>
 
                         <div class="box1">
                             <label for="phone">Téléphone</label>
-                            <input type="number" name="phone" id="phone">
+                            <input type="tel" name="phone" id="phone" placeholder="Ex: 0123456789">
                         </div>
 
                         <div class="box1">
                             <label for="ville">Ville</label>
-                            <input type="text" name="ville" id="ville">
+                            <input type="text" name="ville" id="ville" placeholder="Ex: Paris">
                         </div>
 
                         <div class="box1">
@@ -470,13 +472,14 @@ if (isset($_POST['valider'])) {
                         </div>
                     </div>
 
-
                     <div class="container">
 
                         <div class="box1">
                             <label for="competences">Domaine de compétences</label>
-                            <input type="text" name="competences" id="competences">
+                            <input type="text" name="competences" id="competences"
+                                placeholder="Ex: Développement web, Marketing digital, Design graphique">
                         </div>
+
 
                         <div class="box1">
                             <label for="profession">Profession</label>
@@ -489,7 +492,7 @@ if (isset($_POST['valider'])) {
                         <div class="box1">
                             <label for="categorie">Secteur d'activité</label>
                             <select id="categorie" name="categorie">
-                            <option value="">Sélectionnez une catégorie</option>
+                                <option value="">Sélectionnez une catégorie</option>
                                 <option value="Informatique et tech">Informatique et tech</option>
                                 <option value="Design et création">Design et création</option>
                                 <option value="Rédaction et traduction">Rédaction et traduction</option>
@@ -512,39 +515,41 @@ if (isset($_POST['valider'])) {
 
                         <div class="box1">
                             <label for="passe">Mot de passe</label>
-                            <input type="password" name="passe" id="passe">
+                            <input type="password" name="passe" id="passe" placeholder="Ex: ********">
                             <div class="view">
                             </div>
                         </div>
                         <div class="box1">
                             <label for="cpasse">Confirmer le mot de passe</label>
-                            <input type="password" name="cpasse" id="cpasse">
+                            <input type="password" name="cpasse" id="cpasse" placeholder="Ex: ********">
                             <div class="view">
                                 <p>Afficher le mot de passe</p>
                                 <input type="checkbox" id="voirCPasse" onclick="showPassword()">
                             </div>
-
-                            <script>
-                                function showPassword() {
-                                    var x = document.getElementById("passe");
-                                    var y = document.getElementById("cpasse");
-                                    if (x.type === "password") {
-                                        x.type = "text";
-                                    } else {
-                                        x.type = "password";
-                                    }
-
-                                    if (y.type === "password") {
-                                        y.type = "text";
-                                    } else {
-                                        y.type = "password";
-                                    }
-                                }
-                            </script>
-
-                            <input type="submit" name="valider" value="valider" id="valider">
                         </div>
+
+
+                        <script>
+                            function showPassword() {
+                                var x = document.getElementById("passe");
+                                var y = document.getElementById("cpasse");
+                                if (x.type === "password") {
+                                    x.type = "text";
+                                } else {
+                                    x.type = "password";
+                                }
+
+                                if (y.type === "password") {
+                                    y.type = "text";
+                                } else {
+                                    y.type = "password";
+                                }
+                            }
+                        </script>
+
+                        <input type="submit" name="valider" value="valider" id="valider">
                     </div>
+                </div>
 
             </form>
         </div>

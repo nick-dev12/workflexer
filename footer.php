@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="legal-info">
-            <p>Copyright &copy; 2023 work-flexer. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+            <p>Copyright &copy; 2023 work-flexer. Tous droits réservés. | <a href="/page/politique.php">Mentions légales</a> | <a href="/page/politique.php">Politique de confidentialité</a></p>
         </div>
 </div>
 

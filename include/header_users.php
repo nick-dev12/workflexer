@@ -68,7 +68,7 @@
 
                     <tr class="tr4" >
                         <td id="td"><img src="../image/MCV.png" alt=""></td>
-                        <td class="td"> <a href="/model_cv/model1.php">Mon cv</a></td>
+                        <td class="td"> <a href="/model_cv/model2.php">Mon cv</a></td>
                     </tr>
 
                    

@@ -28,7 +28,7 @@ return $stmt->execute();
 function getDescriptionEntreprise ($db,$entreprise_id){
     $sql = " SELECT * FROM description_entreprise WHERE entreprise_id=:entreprise_id";
     $stmt = $db->prepare($sql);
-    $stmt-> bindValue(':entreprise_id',$entreprise_id, PDO::PARAM_INT);
+    $stmt-> bindValue(':entreprise_id',$entreprise_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }

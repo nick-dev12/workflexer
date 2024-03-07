@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../conn/conn.php');
 
 // model.php
@@ -15,7 +15,8 @@ include('../conn/conn.php');
  * @param mixed $niveau
  * @return mixed
  */
-function insertFormation($db, $users_id, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $Filiere, $etablissement, $niveau) {
+function insertFormation($db, $users_id, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $Filiere, $etablissement, $niveau)
+{
     // Préparation de la requête SQL
     $sql = "INSERT INTO formation_users (users_id,moisDebut,anneeDebut,moisFin,anneeFin, Filiere, etablissement, niveau ) 
             VALUES (:users_id, :moisDebut, :anneeDebut, :moisFin, :anneeFin, :Filiere, :etablissement, :niveau)";
@@ -43,10 +44,11 @@ function insertFormation($db, $users_id, $moisDebut, $anneeDebut, $moisFin, $ann
  * @param mixed $users_id
  * @return mixed
  */
-function getFormation($db, $users_id) {
+function getFormation($db, $users_id)
+{
     $sql = "SELECT * FROM formation_users WHERE users_id = :users_id";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_INT);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -58,7 +60,8 @@ function getFormation($db, $users_id) {
  * @param mixed $id
  * @return mixed
  */
-function deleteFormation($db, $id) {
+function deleteFormation($db, $id)
+{
     $sql = "DELETE FROM formation_users WHERE id = :id";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);

@@ -6,7 +6,7 @@ include('../conn/conn.php');
  * Summary of insertMetier
  * @param mixed $users_id
  * @param mixed $metier
-  * @param mixed $description
+ * @param mixed $description
  * @return void
  */
 function insertMetier($db, $users_id, $metier, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $description)
@@ -35,23 +35,26 @@ function insertMetier($db, $users_id, $metier, $moisDebut, $anneeDebut, $moisFin
  * @param mixed $users_id
  * @return mixed
  */
-function getMetier($db , $users_id){
+function getMetier($db, $users_id)
+{
     // Requête pour récupérer les métiers
-$sql = "SELECT * FROM metier_users WHERE users_id = :users_id";
-$stmt = $db->prepare($sql);
-$stmt->bindValue(':users_id', $users_id, PDO::PARAM_INT);
-$stmt->execute();
-return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $sql = "SELECT * FROM metier_users WHERE users_id = :users_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
-function suprimeMetier($db, $id){
-     // Requête DELETE
-     $sql = "DELETE FROM metier_users WHERE id = :id";
+function suprimeMetier($db, $id)
+{
+    // Requête DELETE
+    $sql = "DELETE FROM metier_users WHERE id = :id";
 
-     $stmt = $db->prepare($sql);
-     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-     $stmt->execute();
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
 
-};
+}
+;
 ?>

@@ -252,12 +252,12 @@ include_once('app/controller/controllerOffre_emploi.php');
                     <div class="box">
                         <select name="contrat" id="contrat">
                             <option value="">-- Type de contrat --</option>
-                            <option value="cdi">CDI</option>
-                            <option value="cdd">CDD</option>
-                            <option value="interim">Intérim</option>
-                            <option value="freelance">Freelance</option>
-                            <option value="apprentissage">Apprentissage</option>
-                            <option value="stage">Stage</option>
+                            <option value="CDI">CDI</option>
+                            <option value="CDD">CDD</option>
+                            <option value="INTERIM">Intérim</option>
+                            <option value="FREELANCE">Freelance</option>
+                            <option value="APPRENTISSAGE">Apprentissage</option>
+                            <option value="STAGE">Stage</option>
                         </select>
                     </div>
 
@@ -274,6 +274,7 @@ include_once('app/controller/controllerOffre_emploi.php');
                             <option value="Bac+8ans">Bac+8ans</option>
                             <option value="Bac+9ans">Bac+9ans</option>
                             <option value="Bac+10ans">Bac+10ans</option>
+                            <option value="Aucun">Aucun</option>
 
                         </select>
 
@@ -292,6 +293,7 @@ include_once('app/controller/controllerOffre_emploi.php');
                         <option value="8ans">8ans</option>
                         <option value="9ans">9ans</option>
                         <option value="10ans">10ans</option>
+                        <option value="Aucun">Aucun</option>
                         
                         </select>
                     </div>

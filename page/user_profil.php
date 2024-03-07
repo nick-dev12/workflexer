@@ -81,47 +81,6 @@ if (isset($_GET['id'])) {
     include_once('../controller/controller_niveau_etude_experience.php');
 
 
-    if ($afficheAllOffre) {
-        $array_affiche_offre = [];
-
-        foreach ($afficheAllOffre as $affiches) {
-            $array_affiche_offre[] = array($affiches['categorie'], $affiches['poste'], $affiches['etudes'], $affiches['experience'], $affiches['localite'], $affiches['date'], $affiches['offre_id'], $affiches['entreprise_id'], $affiches['contrat']);
-        }
-
-        $info_entreprise = getEntreprise($db, $array_affiche_offre[0][7]);
-
-        // Code PHP pour définir les valeurs des variables
-        $info_entreprise_images = $info_entreprise['images'];
-        $info_entreprise_entreprise = $info_entreprise['entreprise'];
-        $affiches_poste = $array_affiche_offre[0][1];
-        $affiches_etudes = $array_affiche_offre[0][2];
-        $affiches_experience = $array_affiche_offre[0][3];
-        $affiches_localite = $array_affiche_offre[0][4];
-        $affiches_date = $array_affiche_offre[0][5];
-        $affiches_offre_id = $array_affiche_offre[0][6];
-        $affiches_entreprise_id = $array_affiche_offre[0][7];
-        $affiches_contrat = $array_affiche_offre[0][8];
-
-        $desc = afficheDescription($db, $_SESSION['users_id']);
-
-        $html_code = '
-   <div class="carousel">
-   <img src="../upload/' . $info_entreprise_images . '" alt="">
-   <p class="p">
-   <strong>' . $info_entreprise_entreprise . '</strong>
-   </p>
-   <div class="vendu">
-   <p><strong>Nous recherchons un(une) </strong>' . $affiches_poste . '</p>
-   <p><strong>Niveau : </strong>' . $affiches_etudes . '</p>
-   <p><strong>Experience : </strong>' . $affiches_experience . '</p>
-   <p><strong>Ville : </strong>' . $affiches_localite . '</p>
-   <p><strong>Contrat : </strong>' . $affiches_contrat . '</p>
-   </div>
-   <p id="nom">' . $affiches_date . '</p>
-   <a href="../entreprise/voir_offre.php?id=' . $affiches_offre_id . '&entreprise_id=' . $affiches_entreprise_id . '"><i class="fa-solid fa-eye"></i>Voir l\'offre</a>
-   </div>';
-    }
-
 
 }
 
@@ -412,8 +371,8 @@ if (isset($_GET['id'])) {
 
                             <textarea name="nouvelleDescription" id="summernote" cols="30" rows="10"
                                 placeholder="Ajoute une description ici">
-                                                                             <?php echo htmlspecialchars($descriptions['description'], ENT_QUOTES, 'UTF-8'); ?>  
-                                                                            </textarea>
+                                                                                 <?php echo htmlspecialchars($descriptions['description'], ENT_QUOTES, 'UTF-8'); ?>  
+                                                                                </textarea>
                             <input type="submit" value="Modifier" name="Modifier" id="ajoute">
                         </form>
                     </div>
@@ -971,8 +930,16 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="container_box">
                         <div class="box1">
-                            <label for="etablissement">Niveau</label>
-                            <input type="text" name="niveau" id="niveau">
+                            <label for="niveau">Niveau</label>
+                            <select name="niveau" id="niveau_etude">
+    <option value="Secondaire">Secondaire</option>
+    <option value="Licence1">Licence 1</option>
+    <option value="Licence2">Licence 2</option>
+    <option value="Licence3">Licence 3</option>
+    <option value="Master1">Master 1</option>
+    <option value="Master2">Master 2</option>
+    <option value="Doctorat">Doctorat</option>
+</select>
                         </div>
                         <div class="box1">
                             <input type="submit" value="ajouter" name="ajouter2" id="ajouter">
@@ -1464,16 +1431,52 @@ if (isset($_GET['id'])) {
                 <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
             </div>
             <div class="slider owl-carousel carousel3">
-
                 <?php if ($afficheAllOffre): ?>
 
-                    <?php if ($array_affiche_offre[0][0] == $users['categorie']): ?>
+                    <?php foreach ($afficheAllOffre as $affiches): ?>
 
-                        <?php echo $html_code ?>
+                        <?php $info_entreprise = getEntreprise($db, $affiches['entreprise_id']); ?>
 
-                    <?php else: ?>
-                    <?php endif; ?>
+                        <?php if ($affiches['categorie'] === $users['categorie']): ?>
+
+                            <div class="carousel">
+                                <img src="../upload/<?= $info_entreprise['images'] ?>" alt="">
+                                <p class="p">
+                                    <strong>
+                                        <?= $info_entreprise['entreprise'] ?>
+                                    </strong>
+                                </p>
+                                <div class="vendu">
+                                    <p><strong>Nous recherchons un(une) </strong>
+                                        <?= $affiches['poste'] ?>
+                                    </p>
+                                    <p><strong>Niveau : </strong>
+                                        <?= $affiches['etudes'] ?>
+                                    </p>
+                                    <p><strong>Experience : </strong>
+                                        <?= $affiches['experience'] ?>
+                                    </p>
+
+                                    <p><strong>Contrat : </strong>
+                                        <?= $affiches['contrat'] ?>
+                                    </p>
+                                    <p><strong>Ville : </strong>
+                                        <?= $affiches['localite'] ?>
+                                    </p>
+                                </div>
+                                <p id="nom">
+                                    <?= $affiches['date'] ?>
+                                </p>
+                                <a
+                                    href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id']?> & entreprise_id=<?= $affiches['entreprise_id'] ?>"><i
+                                        class="fa-solid fa-eye"></i>Voir l\'offre</a>
+                            </div>
+
+                        <?php else: ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 <?php endif; ?>
+
 
 
             </div>

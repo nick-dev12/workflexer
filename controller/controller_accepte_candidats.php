@@ -7,37 +7,37 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
 if (isset($_GET['accepter'])) {
-  $poste_id = $_GET['accepter'];
-  $statut = 'accepter';
+    $poste_id = $_GET['accepter'];
+    $statut = 'accepter';
 
-  $postulation = affichePostulant($db, $poste_id);
+    $postulation = affichePostulant($db, $poste_id);
 
-  $nom = $postulation['nom'];
-  $poste = $postulation['poste'];
+    $nom = $postulation['nom'];
+    $poste = $postulation['poste'];
 
-  if (AccepteCandidats($db, $statut, $poste_id)) {
+    if (AccepteCandidats($db, $statut, $poste_id)) {
 
 
-    // Créez l'instance PHPMailer
-    $mail = new PHPMailer(true);
+        // Créez l'instance PHPMailer
+        $mail = new PHPMailer(true);
 
-    try {
-      // Paramètres SMTP
-      $mail->isSMTP();
-      $mail->Host = 'work-flexer.com';
-      $mail->SMTPAuth = true;
-      $mail->Username = 'noreply-service@work-flexer.com';
-      $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-      $mail->SMTPSecure = 'ssl';
-      $mail->Port = 465;
+        try {
+            // Paramètres SMTP
+            $mail->isSMTP();
+            $mail->Host = 'work-flexer.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
 
-      //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
-      $destinataire = $postulation['mail'];
-      //     //   $entreprise = $infoEntreprises['entreprise'];
+            //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
+            $destinataire = $postulation['mail'];
+            //     //   $entreprise = $infoEntreprises['entreprise'];
 
-      // Contenu de l'e-mail
-      $sujet = 'Suivi de candidature';
-      $message = "
+            // Contenu de l'e-mail
+            $sujet = 'Suivi de candidature';
+            $message = "
               <!DOCTYPE html>
               <html>
               <head><meta charset='utf-8'>
@@ -159,59 +159,59 @@ if (isset($_GET['accepter'])) {
               </body>
               </html> ";
 
-      $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
-      $mail->isHTML(true);
-      $mail->Subject = $sujet;
-      $mail->Body = $message;
+            $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+            $mail->isHTML(true);
+            $mail->Subject = $sujet;
+            $mail->Body = $message;
 
 
-      $mail->clearAddresses();
-      $mail->addAddress($destinataire);
-      $mail->send();
+            $mail->clearAddresses();
+            $mail->addAddress($destinataire);
+            $mail->send();
 
-      $_SESSION['success_message'] = 'Candidat accepter avec succès!!';
-      header('Location: ../page/candidature.php');
-      exit();
+            $_SESSION['success_message'] = 'Candidat accepter avec succès!!';
+            header('Location: ../page/candidature.php');
+            exit();
 
-    } catch (Exception $e) {
-      header('Location: ../page/candidature.php');
-      exit();
+        } catch (Exception $e) {
+            header('Location: ../page/candidature.php');
+            exit();
+        }
+
     }
-
-  }
 
 }
 
 if (isset($_GET['recaler'])) {
-  $poste_id = $_GET['recaler'];
-  $statut = 'recaler';
+    $poste_id = $_GET['recaler'];
+    $statut = 'recaler';
 
-  $postulation = affichePostulant($db, $poste_id);
+    $postulation = affichePostulant($db, $poste_id);
 
-  $nom = $postulation['nom'];
-  $poste = $postulation['poste'];
-  if (recalerCandidats($db, $statut, $poste_id)) {
+    $nom = $postulation['nom'];
+    $poste = $postulation['poste'];
+    if (recalerCandidats($db, $statut, $poste_id)) {
 
-    // Créez l'instance PHPMailer
-    $mail = new PHPMailer(true);
+        // Créez l'instance PHPMailer
+        $mail = new PHPMailer(true);
 
-    try {
-      // Paramètres SMTP
-      $mail->isSMTP();
-      $mail->Host = 'work-flexer.com';
-      $mail->SMTPAuth = true;
-      $mail->Username = 'noreply-service@work-flexer.com';
-      $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-      $mail->SMTPSecure = 'ssl';
-      $mail->Port = 465;
+        try {
+            // Paramètres SMTP
+            $mail->isSMTP();
+            $mail->Host = 'work-flexer.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
 
-      //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
-      $destinataire = $postulation['mail'];
-      //     //   $entreprise = $infoEntreprises['entreprise'];
+            //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
+            $destinataire = $postulation['mail'];
+            //     //   $entreprise = $infoEntreprises['entreprise'];
 
-      // Contenu de l'e-mail
-      $sujet = 'Suivi de candidature';
-      $message = "
+            // Contenu de l'e-mail
+            $sujet = 'Suivi de candidature';
+            $message = "
                <!DOCTYPE html>
                <html>
                <head><meta charset='utf-8'>
@@ -329,26 +329,26 @@ if (isset($_GET['recaler'])) {
                </body>
                </html> ";
 
-      $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
-      $mail->isHTML(true);
-      $mail->Subject = $sujet;
-      $mail->Body = $message;
+            $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+            $mail->isHTML(true);
+            $mail->Subject = $sujet;
+            $mail->Body = $message;
 
 
-      $mail->clearAddresses();
-      $mail->addAddress($destinataire);
-      $mail->send();
+            $mail->clearAddresses();
+            $mail->addAddress($destinataire);
+            $mail->send();
 
-      $_SESSION['success_message'] = 'Candidat recaler avec succès!!';
-      header('Location: ../page/candidature.php');
-      exit();
+            $_SESSION['success_message'] = 'Candidat recaler avec succès!!';
+            header('Location: ../page/candidature.php');
+            exit();
 
-    } catch (Exception $e) {
-      header('Location: ../page/candidature.php');
-      exit();
+        } catch (Exception $e) {
+            header('Location: ../page/candidature.php');
+            exit();
+        }
+
     }
-
-  }
 
 }
 
