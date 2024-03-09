@@ -9,7 +9,7 @@ include_once('controller/controller_users.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -27,18 +27,12 @@ include_once('controller/controller_users.php');
     <!-- End Google Tag Manager -->
 
     <link rel="icon" href="../image/logo.png" type="image/x-icon">
-
     <title>Bienvenu</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/aos.css" />
+    <script src="../js/aos.js"></script>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/animate.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -94,10 +88,10 @@ include_once('controller/controller_users.php');
         <div class="slider-item">
             <img src="/image/duré.jpg" alt="">
             <div class="box">
-            <h1>Flexibilité des Missions</h1>
-<p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos 
-    besoins. Que vous recherchiez des opportunités en freelance à court terme, des 
-    engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
+                <h1>Flexibilité des Missions</h1>
+                <p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos
+                    besoins. Que vous recherchiez des opportunités en freelance à court terme, des
+                    engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
 
                 <a href="/inscription.php">Commencer</a>
             </div>
@@ -105,8 +99,10 @@ include_once('controller/controller_users.php');
         <div class="slider-item">
             <img src="/image/Quand-la-participation.jpg" alt="">
             <div class="box">
-            <h1>Boostez Votre Flexibilité</h1>
-<p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
+                <h1>Boostez Votre Flexibilité</h1>
+                <p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à
+                    notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne
+                    renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
 
                 <a href="/inscription.php">Commencer</a>
             </div>
@@ -130,7 +126,7 @@ include_once('controller/controller_users.php');
             <img src="/image/etudiant1.png" alt="" class="img2">
         </div>
     </section>
-    
+
 
     <section class="box-section">
 
@@ -145,7 +141,7 @@ include_once('controller/controller_users.php');
         </section>
 
     </section>
-    
+
 
 
     <section class="reference">
@@ -166,7 +162,8 @@ include_once('controller/controller_users.php');
             </div>
             <div class="box2">
                 <h1>"Notre Ambition </h1>
-                <p> Élevez votre stature professionnelle et faites de votre entreprise la référence incontournable du secteur</p>
+                <p> Élevez votre stature professionnelle et faites de votre entreprise la référence incontournable du
+                    secteur</p>
                 <a href="/connection_compte.php">Commencer!</a>
             </div>
         </div>
@@ -279,12 +276,12 @@ include_once('controller/controller_users.php');
         </div>
        
     </section> -->
-    
+
     <section class="n_section2">
-       <div class="div">
-       <h1>Application Android disponible</h1>
-       <a href="/document/0803-python-basics.pdf">Telecharger</a>
-       </div>
+        <div class="div">
+            <h1>Application Android disponible</h1>
+            <a href="/apk/work-flexer_2_2.0.apk">Telecharger</a>
+        </div>
         <div class="box">
             <img class="img1" src="/image/android.png" alt="">
             <img class="img2" src="/image/resp1.png" alt="">
@@ -296,7 +293,8 @@ include_once('controller/controller_users.php');
         <h1>Adapté à tous vos écrans</h1>
 
         <div class="box">
-            <img class="img1" src="/image/resp2.png" alt=""><img class="img2" src="/image/resp4.png" alt=""><img class="img3" src="/image/resp3.png" alt="">
+            <img class="img1" src="/image/resp2.png" alt=""><img class="img2" src="/image/resp4.png" alt=""><img
+                class="img3" src="/image/resp3.png" alt="">
         </div>
     </section>
 
@@ -394,13 +392,13 @@ include_once('controller/controller_users.php');
 
                     <?php $name_users = $user['nom'];
                     $explode_name_users = explode(' ', $name_users);
-                    $name = $explode_name_users[0]." ".$explode_name_users[1] ;
+                    $name = $explode_name_users[0] . " " . $explode_name_users[1];
                     ?>
                     <div class="item">
                         <a href="/page/candidats.php?id=<?= $user['id'] ?>">
                             <img src="/upload/<?= $user['images']; ?>" alt="">
                             <h3>
-                                <?= $name;?>
+                                <?= $name; ?>
                             </h3>
                             <p>
                                 <?= $user['competences']; ?>
@@ -429,8 +427,6 @@ ScrollSmoother.min.js, InertiaPlugin.min.js, ScrambleTextPlugin.min.js, and Spli
 
 Sign up at https://greensock.com/club or try them for free on CodePen or CodeSandbox
 -->
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/owl.carousel.js"></script>
     <script src="/js/owl.animate.js"></script>
