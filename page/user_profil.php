@@ -132,8 +132,8 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="/css/user_profil.css">
     <link rel="stylesheet" href="../css/navbare.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="../css/aos.css" />
+    <script src="../js/aos.js"></script>
 
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
@@ -312,7 +312,7 @@ if (isset($_GET['id'])) {
         </div>
 
 
-        <div class="container_box1" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+        <div class="container_box1" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
             data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
             data-aos-anchor-placement="top-bottom">
             <div class="box1">
@@ -371,8 +371,8 @@ if (isset($_GET['id'])) {
 
                             <textarea name="nouvelleDescription" id="summernote" cols="30" rows="10"
                                 placeholder="Ajoute une description ici">
-                                                                                 <?php echo htmlspecialchars($descriptions['description'], ENT_QUOTES, 'UTF-8'); ?>  
-                                                                                </textarea>
+                                                                                                     <?php echo htmlspecialchars($descriptions['description'], ENT_QUOTES, 'UTF-8'); ?>  
+                                                                                                    </textarea>
                             <input type="submit" value="Modifier" name="Modifier" id="ajoute">
                         </form>
                     </div>
@@ -423,7 +423,7 @@ if (isset($_GET['id'])) {
                     foreach ($afficheMetier as $metiers):
 
                         ?>
-                        <div class="metier" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                        <div class="metier" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
                             data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                             data-aos-anchor-placement="top-bottom">
                             <table>
@@ -622,7 +622,7 @@ if (isset($_GET['id'])) {
                         <?php
                         foreach ($competencesUtilisateur as $competence):
                             ?>
-                            <p class="comp" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                            <p class="comp" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
                                 data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                                 data-aos-anchor-placement="top-bottom">
                                 <?php echo $competence['competence']; ?>
@@ -675,12 +675,12 @@ if (isset($_GET['id'])) {
                         </p>
                     <?php else: ?>
 
-                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
                             data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
                             <strong>Niveau D'etude:</strong>
                             <?php echo $getNiveauEtude['etude'] ?>
                         </p>
-                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
                             data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
                             <strong>Niveau d'expérience :</strong>
                             <?php echo $getNiveauEtude['experience'] ?>
@@ -798,7 +798,7 @@ if (isset($_GET['id'])) {
                     <?php foreach ($formationUsers as $formations): ?>
 
 
-                        <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                        <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
                             data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
                             <td class="pt">
                                 <?php echo $formations['moisDebut']; ?>/
@@ -932,14 +932,14 @@ if (isset($_GET['id'])) {
                         <div class="box1">
                             <label for="niveau">Niveau</label>
                             <select name="niveau" id="niveau_etude">
-    <option value="Secondaire">Secondaire</option>
-    <option value="Licence1">Licence 1</option>
-    <option value="Licence2">Licence 2</option>
-    <option value="Licence3">Licence 3</option>
-    <option value="Master1">Master 1</option>
-    <option value="Master2">Master 2</option>
-    <option value="Doctorat">Doctorat</option>
-</select>
+                                <option value="Secondaire">Secondaire</option>
+                                <option value="Licence1">Licence 1</option>
+                                <option value="Licence2">Licence 2</option>
+                                <option value="Licence3">Licence 3</option>
+                                <option value="Master1">Master 1</option>
+                                <option value="Master2">Master 2</option>
+                                <option value="Doctorat">Doctorat</option>
+                            </select>
                         </div>
                         <div class="box1">
                             <input type="submit" value="ajouter" name="ajouter2" id="ajouter">
@@ -998,7 +998,7 @@ if (isset($_GET['id'])) {
                         <?php foreach ($afficheDiplome as $diplomes): ?>
 
                             <table>
-                                <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                                <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
                                     data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                                     data-aos-anchor-placement="top-bottom">
                                     <td>
@@ -1022,7 +1022,7 @@ if (isset($_GET['id'])) {
                     <div>
                         <?php foreach ($afficheCertificat as $certificats): ?>
                             <table>
-                                <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                                <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
                                     data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                                     data-aos-anchor-placement="top-bottom">
                                     <td>
@@ -1167,7 +1167,7 @@ if (isset($_GET['id'])) {
 
                 <?php foreach ($affichePojetUsers as $projets): ?>
 
-                    <div class="info_projet" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
+                    <div class="info_projet" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
                         data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                         data-aos-anchor-placement="top-bottom">
 
@@ -1208,7 +1208,7 @@ if (isset($_GET['id'])) {
                 <?php else: ?>
                     <table>
                         <?php foreach ($afficheOutil as $outils): ?>
-                            <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                            <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
                                 data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
                                 <td>
                                     <?php echo $outils['outil'] ?>
@@ -1288,7 +1288,7 @@ if (isset($_GET['id'])) {
                 <?php else: ?>
                     <table>
                         <?php foreach ($afficheLangue as $langues): ?>
-                            <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                            <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
                                 data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
                                 <td>
                                     <?php echo $langues['langue']; ?>
@@ -1468,7 +1468,7 @@ if (isset($_GET['id'])) {
                                     <?= $affiches['date'] ?>
                                 </p>
                                 <a
-                                    href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id']?> & entreprise_id=<?= $affiches['entreprise_id'] ?>"><i
+                                    href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id'] ?> & entreprise_id=<?= $affiches['entreprise_id'] ?>"><i
                                         class="fa-solid fa-eye"></i>Voir l\'offre</a>
                             </div>
 
@@ -1493,9 +1493,6 @@ if (isset($_GET['id'])) {
     <script src="/js/owl.autoplay.js"></script>
 
     <script>
-        // ..
-        AOS.init();
-
         // You can also pass an optional settings object
         // below listed default settings
         AOS.init({

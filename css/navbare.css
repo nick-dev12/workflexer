@@ -3,12 +3,14 @@ nav {
   align-items: center;
   justify-content: space-around;
   height: 80px;
+  max-height: 80px;
+  min-height: 80px;
   border-bottom: 1px solid rgb(215, 215, 215);
   background-color: #f7f7f7;
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   list-style: none;
   text-decoration: none;
 }
@@ -243,6 +245,7 @@ nav .box3 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: auto;
 }
 nav .box3 a {
   font-size: 16px;
