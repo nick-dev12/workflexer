@@ -28,8 +28,18 @@ if (isset($_GET['entreprise_id'])) {
       }
       $messages = htmlspecialchars(nl2br($_POST['messages']));
       $indicatif = 'recruteur';
+      $date_publication = new DateTime();
+      $date_formatter = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::LONG,
+        IntlDateFormatter::NONE,
+        'Europe/Paris',
+        IntlDateFormatter::GREGORIAN,
+        'EEEE d MMMM y HH:mm'
+      );
+      $date = $date_formatter->format($date_publication);
 
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif)) {
+      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
         // Assurez-vous de terminer le script après la redirection
       }
       header("Location: message_entreprise2.php?entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id']);
@@ -56,8 +66,18 @@ if (isset($_GET['users_id'])) {
       }
       $messages = htmlspecialchars(nl2br($_POST['messages']));
       $indicatif = 'candidat';
+      $date_publication = new DateTime();
+      $date_formatter = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::LONG,
+        IntlDateFormatter::NONE,
+        'Europe/Paris',
+        IntlDateFormatter::GREGORIAN,
+        'EEEE d MMMM y HH:mm'
+      );
+      $date = $date_formatter->format($date_publication);
 
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif)) {
+      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
         // Assurez-vous de terminer le script après la redirection
       }
       header("Location: get_message_users2.php?entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id']);
@@ -89,8 +109,18 @@ if (isset($_GET['offres_id'])) {
       }
       $messages = htmlspecialchars(nl2br($_POST['messages']));
       $indicatif = 'recruteur';
+      $date_publication = new DateTime();
+      $date_formatter = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::LONG,
+        IntlDateFormatter::NONE,
+        'Europe/Paris',
+        IntlDateFormatter::GREGORIAN,
+        'EEEE d MMMM y HH:mm'
+      );
+      $date = $date_formatter->format($date_publication);
 
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif)) {
+      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
         // Assurez-vous de terminer le script après la redirection
       }
       header("Location: message_entreprise.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
@@ -115,7 +145,17 @@ if (isset($_GET['offres_id'])) {
       $messages = htmlspecialchars(nl2br($_POST['messages']));
       $indicatif = 'candidat';
 
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif)) {
+      $date_publication = new DateTime();
+      $date_formatter = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::LONG,
+        IntlDateFormatter::NONE,
+        'Europe/Paris',
+        IntlDateFormatter::GREGORIAN,
+        'EEEE d MMMM y HH:mm'
+      );
+      $date = $date_formatter->format($date_publication);
+      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
 
       }
       header("Location: get_message_users.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
@@ -134,7 +174,7 @@ if (isset($_GET['id'])) {
     $messages = nl2br($_POST['message']);
     $indicatif = 'recruteur';
 
-    if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif)) {
+    if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
 
     }
 
@@ -315,24 +355,24 @@ if (isset($_GET['id'])) {
 }
 
 if (isset($_GET['suprime'])) {
-  if(isset($_SESSION['users_id'])){
+  if (isset($_SESSION['users_id'])) {
     $message_id = $_GET['suprime'];
-  if (deletMessage($db, $message_id)) {
+    if (deletMessage($db, $message_id)) {
 
-    header("Location: ../page/message_users.php");
-    exit();
-  }
+      header("Location: ../page/message_users.php");
+      exit();
+    }
   }
 
-  if(isset($_SESSION['compte_entreprise'])){
+  if (isset($_SESSION['compte_entreprise'])) {
     $message_id = $_GET['suprime'];
-  if (deletMessage($db, $message_id)) {
+    if (deletMessage($db, $message_id)) {
 
-    header("Location: ../entreprise/message.php");
-    exit();
+      header("Location: ../entreprise/message.php");
+      exit();
+    }
   }
-  }
-  
+
 }
 
 

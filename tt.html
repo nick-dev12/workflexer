@@ -1,139 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
-      body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-          sans-serif;
-      }
-      .box1 {
-        width: 300px;
-        text-align: center;
-        margin: 0 auto;
-        border-radius: 10px;
+      #caracteres-restants {
+        font-style: italic;
       }
 
-      .box1 img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-      }
-
-      .box2 {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        width: 60%;
-        margin: 0 auto;
-      }
-
-      h1 {
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-
-      h2 {
-        font-size: 20px;
-        color: #007bff;
-        margin-bottom: 15px;
-      }
-
-      h3 {
-        font-size: 18px;
-        margin-bottom: 15px;
-      }
-
-      p {
-        font-size: 16px;
-        margin-bottom: 15px;
-      }
-
-      a {
-        background-color: #007bff;
-        color: #ffffff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        font-size: 16px;
-        margin-bottom: 15px;
-      }
-
-      @media only screen and (max-width: 1000px) {
-        .box2 {
-          padding: 15px;
-          width: 80%;
-        }
-      }
-
-      @media only screen and (max-width: 600px) {
-        .box2 {
-          padding: 15px;
-        }
-
-        h1 {
-          font-size: 20px;
-          margin-bottom: 8px;
-        }
-
-        h2 {
-          font-size: 18px;
-          margin-bottom: 12px;
-        }
-
-        h3 {
-          font-size: 16px;
-          margin-bottom: 12px;
-        }
-
-        p {
-          font-size: 13px;
-          margin-bottom: 12px;
-        }
-
-        a {
-          padding: 8px 16px;
-          font-size: 13px;
-          margin-bottom: 12px;
-        }
+      #caracteres-restants.erreur {
+        color: red;
       }
     </style>
   </head>
   <body>
-    <div class="box1">
-      <img src='https://example.com/logo.png' alt='Logo de l'entreprise'>
-    </div>
-    <div class="box2">
-      <h1>Bonjour $entreprise,</h1>
-      <h2>Nouvelle candidature reçue !</h2>
-      <h3><strong>Poste :</strong> $poste</h3>
-      <p>
-        Nous avons le plaisir de vous informer qu'un candidat potentiel vient de
-        postuler à votre offre d'emploi pour le poste de
-        <strong>$poste</strong>.
-      </p>
-      <p>
-        Nous vous encourageons à vous connecter dès maintenant pour examiner
-        cette candidature et prendre les mesures appropriées.
-      </p>
-      <p>
-        Connectez-vous à votre espace entreprise sur Work-Flexer pour traiter
-        cette candidature :
-      </p>
-      <p>
-        <a href="https://work-flexer.com/page/candidature.php"
-          >Accéder à votre espace entreprise</a
-        >
-      </p>
-      <p>
-        Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous
-        contacter. Nous sommes là pour vous aider dans votre processus de
-        recrutement.
-      </p>
-      <p>Cordialement,<br />L'équipe Work-Flexer</p>
-    </div>
+    <label for="description">Description de soi:</label>
+    <textarea
+      id="description"
+      name="description"
+      maxlength="800"
+      rows="5"
+      cols="40"
+      required
+    ></textarea>
+    <p id="caracteres-restants">800 caractères restants</p>
+
+    <script>
+      const textarea = document.getElementById("description");
+      const caracteresRestants = document.getElementById("caracteres-restants");
+
+      // Mise à jour du compteur de caractères en temps réel
+      textarea.addEventListener("keyup", () => {
+        const nombreCaracteres = textarea.value.length;
+        caracteresRestants.textContent = `${
+          800 - nombreCaracteres
+        } caractères restants`;
+      });
+
+      // Limiter le nombre de caractères saisis en temps réel
+      textarea.addEventListener("input", () => {
+        if (textarea.value.length > 800) {
+          textarea.value = textarea.value.substring(0, 800);
+        }
+      });
+    </script>
   </body>
 </html>

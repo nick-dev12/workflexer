@@ -2016,7 +2016,7 @@ body {
 @media screen and (max-width: 600px) {
   .n_section .box .img2 {
     object-fit: cover;
-    width: 300px;
+    width: 200px;
     height: auto;
     margin: 30px;
   }
@@ -2066,12 +2066,12 @@ body {
   flex-wrap: wrap;
 }
 .n_section2 .box :nth-child(1) {
-  height: 250px;
+  height: 150px;
   width: auto;
   margin-right: 10px;
 }
 .n_section2 .box :nth-child(2) {
-  height: 550px;
+  height: 350px;
   width: auto;
   border-radius: 20px;
 }
@@ -2092,12 +2092,12 @@ body {
   }
 
   .n_section2 .box :nth-child(1) {
-    height: 150px;
+    height: 100px;
     width: auto;
     margin-right: 10px;
   }
   .n_section2 .box :nth-child(2) {
-    height: 450px;
+    height: 250px;
     width: auto;
     border-radius: 20px;
   }

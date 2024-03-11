@@ -1,5 +1,3 @@
-
-
 <?php if (isset($_SESSION['compte_entreprise'])): ?>
     <div class="message">
         <div class="container_aff" id="message-container">
@@ -10,13 +8,13 @@
                     <div class="box4" id="messages">
 
                         <div class="affi">
-                        <?php if (isset($_SESSION['compte_entreprise'])) :?>
-                            <a href="?suprime=<?= $Messages['message_id'] ?>"><img src="../image/croix.png" alt=""></a>
+                            <?php if (isset($_SESSION['compte_entreprise'])): ?>
+                                <a href="?suprime=<?= $Messages['message_id'] ?>"><img src="../image/croix.png" alt=""></a>
                             <?php endif; ?>
                             <p>
                                 <?= $Messages['messages'] ?>
                             </p>
-                            <span class="span" >
+                            <span class="span">
                                 <?= $Messages['date'] ?>
                             </span>
                         </div>
@@ -30,7 +28,7 @@
                             <p>
                                 <?= $Messages['messages'] ?>
                             </p>
-                            <span  class="span">
+                            <span class="span">
                                 <?= $Messages['date'] ?>
                             </span>
 
@@ -66,13 +64,15 @@
                     <div class="box4">
 
                         <div class="affi">
-                        <?php if (isset($_SESSION['users_id'])) :?>
-                            <a href="?suprime=<?= $Messages['message_id'] ?>"><img src="../image/croix.png" alt=""></a>
+                            <?php if (isset($_SESSION['users_id'])): ?>
+                                <a href="?suprime=<?= $Messages['message_id'] ?>"><img src="../image/croix.png" alt=""></a>
                             <?php endif; ?>
                             <p>
                                 <?= $Messages['messages'] ?>
                             </p>
-                            <span class="span" >12h:30</span>
+                            <span class="span">
+                                <?= $Messages['date'] ?>
+                            </span>
                         </div>
                         <img src="../upload/<?= $afficheInfoUsers['images'] ?>" alt="">
                     </div>
@@ -83,7 +83,9 @@
                             <p>
                                 <?= $Messages['messages'] ?>
                             </p>
-                            <span  class="span">12h:30</span>
+                            <span class="span">
+                                <?= $Messages['date'] ?>
+                            </span>
 
                         </div>
 
@@ -103,4 +105,3 @@
     </div>
 
 <?php endif; ?>
-

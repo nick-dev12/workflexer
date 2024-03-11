@@ -61,12 +61,12 @@ if (isset($_SESSION['users_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
-    <script src="../script/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    <script src="../script/summernote@0.8.18.js"></script>
-    <link rel="stylesheet" href="../style/summernote@0.8.18.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/model2.css">
@@ -97,6 +97,15 @@ if (isset($_SESSION['users_id'])) {
             });
         </script>
 
+        <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
+
+        <script>
+            // Importez la bibliothèque jsPDF
+            function generatePDF() {
+                const element = document.getElementById("container");
+                html2pdf().from(element).save("cv.pdf");
+            }
+        </script>
 
 
         <div id="container" class="container">
@@ -254,7 +263,7 @@ if (isset($_SESSION['users_id'])) {
                         <?php if (empty($descriptions)): ?>
                             <p>Aucune donnée trouver</p>
                         <?php else: ?>
-                            <p>
+                            <p class="p">
                                 <?= $descriptions['description'] ?>
                             </p>
                         <?php endif; ?>
@@ -265,25 +274,26 @@ if (isset($_SESSION['users_id'])) {
 
                         <div class="div">
                             <?php if (empty($afficheMetier)): ?>
-                                <strong></strong>
                                 <h4>Aucune donnée trouvée</h4>
                             <?php else: ?>
                                 <?php foreach ($afficheMetier as $Metiers): ?>
-                                    <strong></strong>
-                                    <div>
-                                        <h4>
-                                            <?= $Metiers['metier'] ?>
-                                        </h4>
-                                        <span><em>
-                                                <?= $Metiers['moisDebut'] ?> /
-                                                <?= $Metiers['anneeDebut'] ?>
-                                            </em> à <em>
-                                                <?= $Metiers['moisFin'] ?> /
-                                                <?= $Metiers['anneeFin'] ?>
-                                            </em></span>
-                                        <p>
-                                            <?= $Metiers['description'] ?>
-                                        </p>
+                                    <div class="div1">
+                                        <strong class="strong"></strong>
+                                        <div class="info">
+                                            <h4>
+                                                <?= $Metiers['metier'] ?>
+                                            </h4>
+                                            <span><em>
+                                                    <?= $Metiers['moisDebut'] ?> /
+                                                    <?= $Metiers['anneeDebut'] ?>
+                                                </em> à <em>
+                                                    <?= $Metiers['moisFin'] ?> /
+                                                    <?= $Metiers['anneeFin'] ?>
+                                                </em></span>
+                                            <p>
+                                                <?= $Metiers['description'] ?>
+                                            </p>
+                                        </div>
                                     </div>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -295,67 +305,71 @@ if (isset($_SESSION['users_id'])) {
                     <div class="experiences">
                         <h1>FORMATIONS</h1>
 
-                        <div class="div"> 
+                        <div class="div">
                             <?php if (empty($formationUsers)): ?>
                                 <strong></strong>
-                                    <h4>Aucune donnée trouver</h4>
-                                <?php else: ?>
-                            <strong></strong>
+                                <h4>Aucune donnée trouver</h4>
+                            <?php else: ?>
+                                <?php foreach ($formationUsers as $formations): ?>
+                                    <div class="div1">
+                                        <strong class="strong"></strong>
 
-                            <div>
-                               
-                                    <?php foreach ($formationUsers as $formations): ?>
-                                        
-                                        <h4>
-                                            <?= $formations['etablissement'] ?>
-                                        </h4>
-                                        <span><em>
-                                                <?= $formations['moisDebut'] ?> /
-                                                <?= $formations['anneeDebut'] ?>
-                                            </em> à <em>
-                                                <?= $formations['moisFin'] ?> /
-                                                <?= $formations['anneeFin'] ?>
-                                            </em>
-                                        </span>
-                                        <p>
-                                            <?= $formations['niveau'] ?>
-                                        </p>
-                                    
-                            </div>
-                            <?php endforeach; ?>
-                                <?php endif; ?>
+                                        <div class="info">
+                                            <h4>
+                                                <?= $formations['etablissement'] ?>
+                                            </h4>
+                                            <span><em>
+                                                    <?= $formations['moisDebut'] ?> /
+                                                    <?= $formations['anneeDebut'] ?>
+                                                </em> à <em>
+                                                    <?= $formations['moisFin'] ?> /
+                                                    <?= $formations['anneeFin'] ?>
+                                                </em>
+                                            </span>
+                                            <p> <strong>
+                                                    <?= $formations['Filiere'] ?>
+                                                </strong> </p>
+                                            <p>
+                                                <?= $formations['niveau'] ?>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
-                       
+
                     </div>
 
                     <div class="experiences">
                         <h1>Competences</h1>
                         <div class="div-comp">
-                            <?php if($competencesUtilisateur): ?>
+                            <?php if ($competencesUtilisateur): ?>
+                                <?php foreach ($competencesUtilisateur as $competence): ?>
+                                    <span class="comp">
+                                        <?php echo $competence['competence']; ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+
                                 <h4>Aucune donnée trouver</h4>
-                                <?php else :?>
-                        <?php foreach ( $competencesUtilisateur as $competence): ?>
-                            <span class="comp"> <?php echo $competence['competence']; ?></span>
-                        <?php endforeach; ?> 
-                        <?php endif ?>
+                            <?php endif ?>
                         </div>
 
                     </div>
 
                     <div class="experiences">
                         <h1>outils informatique</h1>
-                        <?php if($afficheOutil): ?>
-                                <div class="div-comp">
-                                <h4>Aucune donnée trouver</h4>
-                                </div>
-                                <?php else :?>
-                                    <?php foreach ($afficheOutil as $outils): ?>
-                           <ul>
-                            <li><?= $outils['outil'] ?></li>
-                           </ul>
-                        <?php endforeach; ?> 
+                        <?php if ($afficheOutil): ?>
+                            <div class="outils">
+                                <?php foreach ($afficheOutil as $outils): ?>
+                                    <p><span></span>
+                                        <?= $outils['outil'] ?>
+                                    </p>
+                                <?php endforeach; ?>
+                            </div>
                         <?php endif ?>
-                       
+
                     </div>
                 </div>
             </div>

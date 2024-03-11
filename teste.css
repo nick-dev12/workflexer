@@ -1,130 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
+
 /*--------------------------------------------------------------
   Variables
 --------------------------------------------------------------*/
 
-
 /*--------------------------------------------------------------
   Styles globaux
 --------------------------------------------------------------*/
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  ;
-  margin: 0;
-  padding: 0;
+  font-family: "Nunito", sans-serif;
 }
 
+.section2 .box3 table .tr4 {
+  background-color: #636262;
+}
+.section2 .box3 table .tr4 td a {
+  color: #ffffff;
+}
 header {
   background-color: #d7d7d7;
   padding: 40px;
   text-align: center;
-  
 }
-header h1{
-  width: 500px;
+header h1 {
+  width: 70%;
   margin-left: 200px;
-  font-size: 30px;
+  font-size: 25px;
   padding: 0 20px;
 }
-header h2{
-  width: 400px;
-  margin-left: 300px;
+header h2 {
+  width: 70%;
+  margin-left: 200px;
+  font-size: 20px;
+  color: #346dc8;
 }
 
 .container {
   width: 793px;
   height: 1122px;
-  border: 1.5px solid #ddd;
-  margin:0 auto;
+  border: 1.5px solid #a3a3a3;
+  margin: 0 auto;
   position: relative;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: #ffffff;
 }
-.container .img{
+.container .img {
   position: absolute;
   width: 160px;
-  height: 170px;
+  height: 160px;
   object-fit: cover;
-  top: 30px;
+  top: 40px;
   left: 40px;
   border: 1.5px solid #ddd;
+  border-radius: 7px;
 }
 
-.container .container-box{
+.container .container-box {
   display: flex;
 }
 
-.container .box1{
-  width: 250px;
+.container .box1 {
+  width: 270px;
   height: 880px;
   position: relative;
   border-right: 3px solid #000000;
-  margin-top: 30px;
+  margin-top: 20px;
   padding-top: 40px;
 }
-.container .box1 h1{
+.container .box1 h1 {
   width: 80%;
   text-align: center;
   padding: 3px 20px;
   background-color: #000000;
   color: #ddd;
-  margin: 15px auto;
-  font-size: 16px;
+  margin: 10px auto;
+  font-size: 12px;
   display: flex;
   align-items: center;
   border-radius: 4px;
+  text-transform: uppercase;
 }
-.container .box1 h1 img{
+.container .box1 h1 img {
   height: 20px;
   width: 20px;
-  margin-right: 25px;
+  margin-right: 15px;
 }
-.container .box1 .bb{
+.container .box1 .bb {
   display: flex;
   align-items: center;
-  width: 170px;
+  width: 80%;
   margin: 15px auto;
-  
 }
-.container .box1 .bb img{
+.container .box1 .bb img {
   height: 25px;
   width: 25px;
-  margin-right: 25px;
+  margin-right: 20px;
+  object-fit: cover;
 }
-.container .box1 .bb p{
+.container .box1 .bb p {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  font-size: 13px;
+  font-size: 12px;
+  position: relative;
+  width: 100%;
+  align-items: start;
 }
-.container .box1 ul{
+
+.container .box1 ul {
   width: 80%;
   margin: 0 auto;
 }
-.container .box1 ul li{
-  font-size: 14.5px;
+.container .box1 ul li {
+  font-size: 12px;
   list-style-type: square;
   width: 100%;
   margin: 2px auto;
-  margin-left:10px ;
+  margin-left: 10px;
 }
-.container .box1 .reseaux{
+.container .box1 .reseaux {
   display: flex;
   align-items: center;
   width: 80%;
   justify-content: space-around;
   margin: 5px auto;
 }
-.container .box1 .resaux img{
+.container .box1 .resaux img {
   height: 30px;
   width: 30px;
-  
 }
 
-.container .box2{
+.container .box2 {
   width: 600px;
   height: 950px;
   position: relative;
@@ -132,72 +146,84 @@ header h2{
   padding-bottom: 10px;
 }
 
-.container .box2 h1{
-  font-size: 18px;
-  width: 70%;
-  margin: 15px auto;
+.container .box2 h1 {
+  font-size: 14px;
+  width: 80%;
+  margin: 7px auto;
   background-color: #000000;
   color: #ddd;
-  padding: 2px 20px;
+  padding: 4px 20px;
   border-radius: 4px;
+  text-transform: uppercase;
 }
-.container .box2 p{
+.container .box2 p {
   font-size: 13px;
-  width: 80%;
+  width: 85%;
   margin: 10px auto;
 }
 
-.container .box2 .div{
+.container .box2 .experiences .div {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 88%;
-  margin: 10px auto;
+  width: 100%;
+  margin: 5px auto;
+  flex-direction: column;
 }
-.container .box2 .div div{
+.container .box2 .experiences .div1 {
   display: flex;
   align-items: center;
+  margin: 3px;
+  width: 80%;
+}
+.container .box2 .div .info {
+  display: flex;
+  align-items: start;
   flex-direction: column;
-
+  width: 100%;
 }
-.container .box2 .div h4{
-  width: 380px;
-  font-size: 15px;
-  margin-bottom: -10px;
-}
-.container .box2 .div p{
+.container .box2 .div h4 {
+  width: 100%;
   font-size: 13px;
-  width: 380px;
+  margin-top: 2px;
 }
-.container .box2 .div span{
-  font-size: 11px;
-  width: 100px;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.container .box2 .div p {
+  font-size: 12px;
+  width: 100%;
+  margin: 0;
 }
-.container .box2 .div strong{
+.container .box2 .div span {
+  font-size: 10px;
+  color: #346dc8;
+}
+.container .box2 .div strong {
   padding: 5px;
   background-color: #303030;
   border-radius: 50%;
-  margin-right:20px ;
+  margin-right: 20px;
 }
 
-.container .box2 ul{
+.container .box2 .experiences .outils {
   width: 80%;
   display: flex;
   align-items: center;
   margin: 0 auto;
-  position: relative;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: -3px;
 }
-.container .box2 ul li{
-  list-style-type: circle;
-  font-size: 14px;
+.container .box2 .outils p {
+  display: flex;
+  align-items: center;
+  width: auto;
+  font-size: 15px;
   font-weight: 600;
-  text-transform: capitalize;
-  margin:5px 30px;
+  margin-top: 2px;
+}
+.container .box2 .outils span {
+  padding: 3px;
+  background-color: #000000;
+  margin-right: 10px;
 }
 .container .box2 .div-comp {
   width: 80%;
@@ -207,7 +233,7 @@ header h2{
   position: relative;
   flex-wrap: wrap;
 }
-.container .box2 .comp{
+.container .box2 .comp {
   padding: 3px 10px;
   font-size: 13px;
   border-radius: 5px;

@@ -446,7 +446,7 @@ if (isset($_POST['valider'])) {
                                 <div>
                                     <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
                                     <input type="file" name="images" id="images"
-                                        accept="image/jpeg, image/png, image/gif">
+                                        accept="image/jpeg, image/jpg, image/png, image/gif">
                                 </div>
                                 <div>
                                     <img id="imagePreview" src="" alt="view">

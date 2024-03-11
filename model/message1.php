@@ -2,10 +2,10 @@
 
 include('../conn/conn.php');
 
-function postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif)
+function postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)
 {
-    $sql = "INSERT INTO message1 (entreprise_id,users_id,offre_id,statut,messages,indicatif)
-VALUES (:entreprise_id,:users_id,:offre_id,:statut,:messages,:indicatif)";
+    $sql = "INSERT INTO message1 (entreprise_id,users_id,offre_id,statut,messages,indicatif ,date)
+VALUES (:entreprise_id,:users_id,:offre_id,:statut,:messages,:indicatif,:date)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(":entreprise_id", $entreprise_id, );
     $stmt->bindParam(":users_id", $users_id, );
@@ -13,6 +13,7 @@ VALUES (:entreprise_id,:users_id,:offre_id,:statut,:messages,:indicatif)";
     $stmt->bindParam(":statut", $statut, );
     $stmt->bindParam(":messages", $messages, );
     $stmt->bindParam(":indicatif", $indicatif, );
+    $stmt->bindParam(":date", $date, );
     $stmt->execute();
 }
 
