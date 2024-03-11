@@ -291,7 +291,6 @@ include_once('controller/controller_users.php');
 
     <section class="n_section">
         <h1>Adapté à tous vos écrans</h1>
-
         <div class="box">
             <img class="img1" src="/image/resp2.png" alt=""><img class="img2" src="/image/resp4.png" alt=""><img
                 class="img3" src="/image/resp3.png" alt="">

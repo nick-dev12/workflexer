@@ -77,17 +77,16 @@ if (isset($_POST['recherche'])) {
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>bienvenu</title>
+    <title>Offres D'emploi</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/aos.css" />
-    <script src="../js/aos.js"></script>
     <link rel="stylesheet" href="../css/offre_d'emploit.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../css/navbare.css">
+    <link rel="stylesheet" href="../css/emploi.css">
 </head>
 
 <body>
@@ -99,7 +98,7 @@ if (isset($_POST['recherche'])) {
 
     <?php include('../navbare.php') ?>
 
-    <section class="section2" data-aos="zoom-in">
+    <section class="section2">
         <div class="slider">
             <div class="box">
                 <div class="img owl-carousel boot">
@@ -109,13 +108,11 @@ if (isset($_POST['recherche'])) {
                     <img src="/image/offre4.jpeg" alt="">
                 </div>
                 <div class="text">
-                    <h1>Exploré les profils qui conviennent à vos besoins</h1>
-                    <p>Un large éventail de profiles professionnels toute catégorie confondu pour satisfaire le moindres
-                        de vos besoins en main d'œuvre et bien plus encore </p>
+                    <h1>Explorer les offres d'emploi répondant à vos critère</h1>
+                    <p>Un large éventail d'offres d'emplois toute catégorie confondu pour satisfaire le moindres
+                        de vos besoins </p>
 
-                    <form data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
-                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                        data-aos-anchor-placement="top-right" action="" method="post">
+                    <form action="" method="post">
                         <div class="search">
                             <input type="search" name="search" id="search">
                             <label for="recherche"><i class="fa-solid fa-magnifying-glass fa-xs"></i></label>
@@ -182,1402 +179,297 @@ if (isset($_POST['recherche'])) {
     </section>
 
 
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
 
+    <section class="emploi">
+        <div class="box">
+            <img src="/image/ingenieur.jpeg" alt="">
             <h1>Ingénierie et architecture</h1>
-            <div class="affiche">
-                <img src="/image/ingenieur.jpeg" alt="">
-            </div>
+            <p>Vous êtes passionné par la technique et l'innovation ? </p>
+            <p>Rejoignez l'Ingénierie et l'Architecture, secteur en plein essor, pour construire l'avenir. Trouvez parmi
+                nos offres le métier qui vous correspond :
+                <strong>ingénieur,
+                    architecte, technicien, commercial, etc.</strong> Participez à des projets concrets et durables,
+                allant des
+                infrastructures aux bâtiments intelligents. Changez le monde avec nous !
+            </p>
+
+            <a href="../offres/Ingénierie et architecture.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
+
+
+        <div class="box">
+            <img src="/image/webdesign.jpg" alt="">
+            <h1>Design et création</h1>
+            <p>Intégrez le monde du Design et de la Création pour donner vie à vos idées. Passionné par l'esthétique et
+                l'innovation ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond <strong>: designer produit,
+                    graphiste, directeur artistique, etc.</strong> Participez à des projets créatifs et stimulants,
+                allant de la
+                conception de produits à la réalisation de campagnes publicitaires. Exprimez votre créativité avec nous
+                !
+            </p>
+
+
+            <a href="../offres/Design et création.php">Explorer les offres</a>
         </div>
 
-        <article class="articles owl-carousel carousel1">
-            <?php if (empty($offreIngenierie)): ?>
-
-                <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
-
-            <?php else: ?>
-                <?php foreach ($offreIngenierie as $ingenieurs): ?>
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $ingenieurs['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $ingenieurs['entreprise']; ?>
-                                </strong>
-
-                            </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($ingenieurs['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($ingenieurs['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($ingenieurs['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($ingenieurs['experience']); ?>
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($ingenieurs['ville']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $ingenieurs['date']; ?>
-                            </p>
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $ingenieurs['offre_id']; ?>&entreprise_id=<?= $ingenieurs['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
 
 
-                <?php endforeach ?>
-            <?php endif; ?>
-        </article>
-
-    </section>
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1> Design et création</h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/info.jpg" alt=""> -->
-                <img src="/image/webdesign.jpg" alt="">
-            </div>
-        </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel2">
-            <?php if (empty($offreDesing)): ?>
-
-                <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
-
-            <?php else: ?>
-
-                <?php foreach ($offreDesing as $Designs): ?>
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $Designs['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $Designs['entreprise']; ?>
-                                </strong>
-                            </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Designs['poste']); ?>
-                                    </p>
-
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Designs['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Designs['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Designs['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Designs['ville']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Designs['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Designs['offre_id']; ?>&entreprise_id=<?= $Designs['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-
-                <?php endforeach ?>
-
-            <?php endif; ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
+        <div class="box">
+            <img src="/image/Redaction.jpg" alt="">
             <h1>Rédaction et traduction</h1>
-            <span></span>
-            <div class="affiche">
-                <img src="/image/Redaction.jpg" alt="">
-            </div>
+            <p>
+                Rejoignez la rubrique Rédaction et Traduction pour donner vie aux mots. Passionné par l'écriture et les
+                langues ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond <strong>: rédacteur, traducteur, correcteur,
+                    etc.</strong> Participez à des projets variés allant de la rédaction d'articles à la traduction de
+                documents. Faites de votre passion pour l'écriture et les langues votre métier avec nous !
+            </p>
+
+
+            <a href="../offres/Rédaction et traduction.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
 
-        <article class="articles owl-carousel carousel3">
-            <?php if (empty($offreRedaction)): ?>
-
-                <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
-
-            <?php else: ?>
-
-                <?php foreach ($offreRedaction as $Redaction): ?>
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $Redaction['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $Redaction['entreprise']; ?>
-                                </strong>
-                            </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Redaction['poste']); ?>
-                                    </p>
-
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Redaction['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Redaction['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Redaction['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Redaction['ville']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-                            <p id="nom">
-                                <?php echo $Redaction['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Redaction['offre_id']; ?>&entreprise_id=<?= $Redaction['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-                <?php endforeach ?>
-
-            <?php endif; ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
+        <div class="box">
+            <img src="/image/marketing.jpg" alt="">
             <h1>Marketing et communication</h1>
-            <span></span>
-            <div class="affiche">
-                <img src="/image/marketing.jpg" alt="">
-            </div>
+            <p>
+                Intégrez la rubrique Marketing et Communication pour transformer les marques en succès. Vous êtes
+                passionné par la stratégie et la créativité ?
+            </p>
+            <p>
+                Trouvez votre voie parmi nos offres de métiers tels que <strong>chef de produit, chargé de
+                    communication, community manager, etc</strong> . Participez à des projets variés allant de la
+                création de campagnes publicitaires à la gestion de l'image de marque. Faites de votre passion pour la
+                stratégie et la créativité votre métier avec nous !
+            </p>
+
+            <a href="../offres/Marketing et communication.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
 
-        <article class="articles owl-carousel carousel4">
-            <?php if (empty($offreMarcketing)): ?>
-
-                <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
-
-            <?php else: ?>
-
-                <?php foreach ($offreMarcketing as $marketing): ?>
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $marketing['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $marketing['entreprise']; ?>
-                                </strong>
-                            </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($marketing['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($marketing['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($marketing['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($marketing['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($marketing['ville']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $marketing['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $marketing['offre_id']; ?>&entreprise_id=<?= $marketing['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-
-                <?php endforeach ?>
-
-            <?php endif; ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
+        <div class="box">
+            <img src="/image/gestion.jpg" alt="">
             <h1>Conseil et gestion d'entreprise</h1>
-            <span></span>
-            <div class="affiche">
-                <img src="/image/gestion.jpg" alt="">
-            </div>
+            <p>
+                Intégrez la rubrique Conseil et Gestion d'Entreprise pour aider les entreprises à se développer. Vous
+                êtes passionné par la stratégie et la performance ?
+            </p>
+            <p>
+                Trouvez votre voie parmi nos offres de métiers tels que <strong>consultant, gestionnaire de projet,
+                    analyste
+                    financier, etc.</strong> Participez à des projets variés allant de l'optimisation de processus à la
+                gestion de crise. Faites de votre passion pour la stratégie et la performance votre métier avec nous !
+            </p>
+
+            <a href="../offres/Conseil et gestion d'entreprise.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel5">
-            <?php if (empty($offreBusiness)): ?>
-
-                <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
-                </h1>
-
-            <?php else: ?>
-
-                <?php foreach ($offreBusiness as $business): ?>
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $business['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $business['entreprise']; ?>
-                                </strong>
-
-                            </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($business['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($business['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($business['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($business['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($business['ville']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-                            <p id="nom">
-                                <?php echo $business['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $business['offre_id']; ?>&entreprise_id=<?= $business['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-
-                <?php endforeach ?>
-
-            <?php endif; ?>
-        </article>
-    </section>
 
 
 
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
+        <div class="box">
+            <img src="/image/juridique.jpg" alt="">
             <h1>Juridique</h1>
-            <span></span>
-            <div class="affiche">
-                <img src="/image/juridique.jpg" alt="">
-            </div>
+            <p>
+                Intégrez la rubrique Juridique pour défendre les droits et intérêts de nos clients. Vous êtes passionné
+                par la loi et la justice ?
+            </p>
+            <p>
+                Trouvez votre voie parmi nos offres de métiers tels <strong>qu'avocat, juriste, notaire, etc.</strong>
+                Participez à des projets variés allant de la rédaction de contrats à la représentation en justice.
+                Faites de votre passion pour la loi et la justice votre métier avec nous !
+            </p>
+
+            <a href="../offres/Juridique.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
+
+        <div class="box">
+            <img src="/image/info.jpg" alt="">
+            <h1>Informatique et tech</h1>
+            <p>
+                Rejoignez la rubrique Informatique et Tech pour créer les solutions de demain. Passionné par la
+                technologie et l'innovation ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond : <strong>développeur, ingénieur réseau, data
+                    scientist, etc.</strong> Participez à des projets variés allant de la création de logiciels à la
+                gestion de bases de données. Faites de votre passion pour la technologie et l'innovation votre métier
+                avec nous !
+            </p>
+
+            <a href="../offres/Informatique et tech.php">Explorer les offres</a>
         </div>
 
-        <article class="articles owl-carousel carousel6">
-            <?php if (empty($offreJuridique)): ?>
-
-                <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
-
-            <?php else: ?>
-
-                <?php foreach ($offreJuridique as $Juridique): ?>
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $Juridique['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $Juridique['entreprise']; ?>
-                                </strong>
-                            </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Juridique['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Juridique['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Juridique['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Juridique['experience']); ?>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Juridique['ville']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Juridique['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Juridique['offre_id']; ?>&entreprise_id=<?= $Juridique['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-
-                <?php endforeach ?>
-
-            <?php endif; ?>
-        </article>
-    </section>
 
 
+        <div class="box">
+            <img src="/image/finance.png" alt="">
+            <h1>Finance et comptabilité</h1>
+            <p>
+                Rejoignez la rubrique Finance et Comptabilité pour gérer les chiffres et les finances de nos clients.
+                Passionné par les chiffres et la gestion financière ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond : <strong> expert-comptable, contrôleur de
+                    gestion,
+                    analyste financier, etc.</strong> Participez à des projets variés allant de la gestion de budget à
+                l'analyse
+                financière. Faites de votre passion pour les chiffres et la gestion financière votre métier avec nous !
+            </p>
 
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Informatique et tech </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/info.jpg" alt="">
-            </div>
+            <a href="../offres/Finance et comptabilité.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
+
+
+
+        <div class="box">
+            <img src="/image/santé.png" alt="">
+            <h1>Santé et bien-être</h1>
+            <p>
+                Rejoignez la rubrique Santé et Bien-être pour aider les gens à se sentir mieux. Passionné par la santé
+                et le bien-être ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond : <strong>médecin, infirmier, kinésithérapeute,
+                    nutritionniste, etc.</strong> Participez à des projets variés allant de la prévention à la guérison.
+                Faites de votre passion pour la santé et le bien-être votre métier avec nous !
+            </p>
+
+            <a href="../offres/Santé et bien-être.php">Explorer les offres</a>
         </div>
 
-        <article class="articles owl-carousel carousel7">
-            <?php if (empty($offreInformatique)): ?>
-
-                <h1 class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</h1>
-
-            <?php else: ?>
-
-                <?php foreach ($offreInformatique as $Informatique): ?>
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $Informatique['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $Informatique['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Informatique['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Informatique['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Informatique['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Informatique['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Informatique['ville']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Informatique['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Informatique['offre_id']; ?>&entreprise_id=<?= $Informatique['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-
-                <?php endforeach ?>
-
-            <?php endif; ?>
-        </article>
-    </section>
 
 
+        <div class="box">
+            <img src="/image/education.png" alt="">
+            <h1>Éducation et formation</h1>
+            <p>
+                Rejoignez la rubrique Éducation et Formation pour transmettre vos connaissances et aider les autres à se
+                développer. Passionné par l'enseignement et l'apprentissage ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond :<strong> enseignant, formateur, conseiller en
+                    orientation, etc.</strong> Participez à des projets variés allant de la formation professionnelle à
+                l'enseignement supérieur. Faites de votre passion pour l'enseignement et l'apprentissage votre métier
+                avec nous !
+            </p>
 
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Finance et comptabilité </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/finance.png" alt="">
-            </div>
+            <a href="../offres/Éducation et formation.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
 
-        <article class="articles owl-carousel carousel8">
 
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
 
-                <?php if ($Information['categorie'] === 'Finance et comptabilité'): ?>
-
-
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Santé et bien-être </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/santé.png" alt="">
-            </div>
-        </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel7">
-
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
-
-                <?php if ($Information['categorie'] === 'Santé et bien-être'): ?>
-
-
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Éducation et formation </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/education.png" alt="">
-            </div>
-        </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel7">
-
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
-
-                <?php if ($Information['categorie'] === 'Éducation et formation'): ?>
-
-
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
+        <div class="box">
+            <img src="/image/tourisme.png" alt="">
             <h1>Tourisme et hôtellerie</h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/tourisme.png" alt="">
-            </div>
+            <p>
+                Rejoignez la rubrique Tourisme et Hôtellerie pour offrir des expériences inoubliables à nos clients.
+                Passionné par les voyages et l'hospitalité ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond : <strong>réceptionniste, guide touristique, chef
+                    cuisinier, etc.</strong> Participez à des projets variés allant de l'organisation de séjours à la
+                gestion d'hôtels. Faites de votre passion pour les voyages et l'hospitalité votre métier avec nous !
+            </p>
+
+            <a href="../offres/Tourisme et hôtellerie.php">Explorer les offres</a>
         </div>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
+
+
+
+        <div class="box">
+            <img src="/image/vente.png" alt="">
+            <h1>Commerce et vente</h1>
+            <p>
+                Rejoignez la rubrique Commerce et Vente pour booster les ventes et satisfaire nos clients. Passionné par
+                la vente et la négociation ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond : <strong>commercial, responsable de magasin,
+                    vendeur, etc.</strong> Participez à des projets variés allant de la prospection à la fidélisation
+                client. Faites de votre passion pour la vente et la négociation votre métier avec nous !
+            </p>
+
+            <a href="../offres/Commerce et vente.php">Explorer les offres</a>
         </div>
 
-        <article class="articles owl-carousel carousel7">
 
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
 
-                <?php if ($Information['categorie'] === 'Tourisme et hôtellerie'): ?>
+        <div class="box">
+            <img src="/image/transport.png" alt="">
+            <h1>Transport et logistique</h1>
+            <p>
+                Rejoignez la rubrique Transport et Logistique pour assurer la livraison de marchandises en temps et en
+                heure. Passionné par la logistique et la gestion de chaîne d'approvisionnement ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond :<strong> logisticien, chauffeur-livreur,
+                    responsable d'entrepôt, etc.</strong> Participez à des projets variés allant de la gestion de stock
+                à la planification de transport. Faites de votre passion pour la logistique et la gestion de chaîne
+                d'approvisionnement votre métier avec nous !
+            </p>
 
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
+            <a href="../offres/Transport et logistique.php">Explorer les offres</a>
+        </div>
 
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
 
-                            </div>
 
-                            <div class="box_vendu">
-                                <div class="vendu">
+        <div class="box">
+            <img src="/image/agriculture.png" alt="">
+            <h1>Agriculture et agroalimentaire</h1>
+            <p>
+                Rejoignez la rubrique Agriculture et Agroalimentaire pour nourrir le monde de manière durable. Passionné
+                par l'agriculture et l'alimentation ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond :<strong> agriculteur, ingénieur agronome,
+                    technicien de laboratoire, etc.</strong> Participez à des projets variés allant de la production
+                agricole à la transformation alimentaire. Faites de votre passion pour l'agriculture et l'alimentation
+                votre métier avec nous !
+            </p>
 
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
+            <a href="../offres/Agriculture et agroalimentaire.php">Explorer les offres</a>
+        </div>
 
-                            </div>
 
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
 
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
+
+        <div class="box">
+            <img src="/image/autre.png" alt="">
+            <h1>Autre</h1>
+            <p>
+                Rejoignez notre rubrique Autres pour explorer de nouvelles opportunités professionnelles. Vous êtes
+                passionné par un domaine en particulier ?
+            </p>
+            <p>
+                Trouvez parmi nos offres le métier qui vous correspond, qu'il s'agisse de métiers émergents ou de
+                professions plus traditionnelles. Participez à des projets variés et découvrez de nouveaux horizons
+                professionnels. Faites de votre passion votre métier avec nous !
+            </p>
+
+            <a href="../offres/Autre.php">Explorer les offres</a>
+        </div>
     </section>
 
 
 
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/owl.carousel.js"></script>
+    <script src="../js/owl.animate.js"></script>
+    <script src="../js/owl.autoplay.js"></script>
+    <script src="../js/silder_offres.js"></script>
 
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Commerce et vente </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/vente.png" alt="">
-            </div>
-        </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel7">
-
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
-
-                <?php if ($Information['categorie'] === 'Commerce et vente'): ?>
-
-
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Transport et logistique </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/transport.png" alt="">
-            </div>
-        </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel7">
-
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
-
-                <?php if ($Information['categorie'] === 'Transport et logistique'): ?>
-
-
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Agriculture et agroalimentaire </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/agriculture.png" alt="">
-            </div>
-        </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel7">
-
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
-
-                <?php if ($Information['categorie'] === 'Agriculture et agroalimentaire'): ?>
-
-
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
-    </section>
-
-
-
-
-
-
-
-
-
-
-    <section class="produit_vedete">
-        <div class="box1" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-            data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-            <span></span>
-            <h1>Autre </h1>
-            <span></span>
-            <div class="affiche">
-                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
-                <img src="/image/autre.png" alt="">
-            </div>
-        </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel7">
-
-            <?php foreach ($afficheAllOffre as $Information): ?>
-                <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
-
-                <?php if ($Information['categorie'] === 'Autre'): ?>
-
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="400" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-
-                            </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($Information['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($Information['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($Information['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($Information['localite']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <p id="nom">
-                                <?php echo $Information['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-
-                    </div>
-                <?php else: ?>
-                <?php endif; ?>
-            <?php endforeach ?>
-        </article>
-    </section>
-
-
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
-    <script src="/js/silder_offres.js"></script>
-
-    <script>
-        // ..
-        AOS.init();
-    </script>
 
 
 </body>

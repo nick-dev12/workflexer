@@ -1,54 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
 
-
-
-*{
-    margin:0 ;
-    text-decoration: none;
-  }
-  
-  body{
-    font-family: 'Nunito', sans-serif;
-    overflow-x: hidden;
+* {
+  margin: 0;
+  text-decoration: none;
 }
 
-.section2 .box3 table .me{
+body {
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+}
+
+.section2 .box3 table .me {
   background-color: #ffffff;
   border-radius: 15px;
 }
 .section2 .box3 table .me td a {
-    color: black;
-
+  color: black;
 }
-.section2 .box3 table .tr1{
+.section2 .box3 table .tr1 {
   background-color: #797979;
 }
-.section2 .box3 table .tr1 td a{
+.section2 .box3 table .tr1 td a {
   color: #ffffff;
 }
 
-
-
-
-
-
-.section3{
+.section3 {
   margin-left: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   /* background: url(../image/bg_bggenerator_com.jpg); */
-  background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(226, 226, 230, 1) 0%,
+    rgba(220, 220, 233, 1) 35%,
+    rgba(255, 255, 255, 1) 100%
+  );
   background-size: contain;
   background-position: center;
   background-attachment: fixed;
   padding: 50px 0;
 }
 
-.section3 .img222{
+.section3 .img222 {
   position: fixed;
   top: 50%;
   left: 20px;
@@ -60,13 +57,13 @@
   z-index: 5;
   display: none;
 }
-@media screen and (max-width : 1400px) {
-  .section3 .img222{
+@media screen and (max-width: 1400px) {
+  .section3 .img222 {
     display: none;
   }
 }
-@media screen and (max-width : 1050px) {
-  .section3 .img222{
+@media screen and (max-width: 1050px) {
+  .section3 .img222 {
     position: fixed;
     top: 50%;
     left: 20px;
@@ -80,8 +77,7 @@
   }
 }
 
-
-.section3 .box1{
+.section3 .box1 {
   width: 80%;
   height: 300px;
   display: flex;
@@ -89,7 +85,7 @@
   justify-content: center;
   box-shadow: 2px 7px 7px 2px rgb(136, 136, 136);
 }
-.section3 .box1 h1{
+.section3 .box1 h1 {
   width: 35%;
   height: 100%;
   font-weight: bolder;
@@ -103,21 +99,20 @@
   font-size: 25px;
   padding: 0 20px;
 }
-.section3 .box1 .container_slider{
+.section3 .box1 .container_slider {
   width: 65%;
   height: 300px !important;
   border: none;
   overflow: hidden;
   margin-top: 10px;
-
 }
-.section3 .box1 .container_slider img{
+.section3 .box1 .container_slider img {
   width: 100%;
-  height:300px;
+  height: 300px;
   object-fit: cover;
 }
 
-.section3 .box2{
+.section3 .box2 {
   width: 70%;
   display: flex;
   align-items: center;
@@ -126,7 +121,7 @@
   margin-top: 20px;
   background-color: #ffffff;
 }
-.section3 .box2 p{
+.section3 .box2 p {
   font-size: 16px;
   color: #002233cb;
   border-left: 4px solid orange;
@@ -134,7 +129,7 @@
   display: flex;
   align-items: center;
 }
-.section3 .box2 p span{
+.section3 .box2 p span {
   height: 40px;
   width: 40px;
   max-width: 40px;
@@ -142,116 +137,107 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border:2px dotted #002233 ;
+  border: 2px dotted #002233;
   border-radius: 50%;
   margin-right: 30px;
 }
 
-@media screen and (max-width : 1050px) {
-  .section3{
+@media screen and (max-width: 1050px) {
+  .section3 {
     margin-left: 0px;
-    padding:0 0 0 0;
+    padding: 0 0 0 0;
   }
 
-  .section3 .box1{
+  .section3 .box1 {
     width: 99%;
     height: 300px;
     margin-top: 0;
   }
-  .section3 .box1 h1{
+  .section3 .box1 h1 {
     width: 25%;
     height: 100%;
-   font-size: 18px;
+    font-size: 18px;
     padding: 0 10px;
   }
-  .section3 .box1 .container_slider{
+  .section3 .box1 .container_slider {
     width: 75%;
     height: 300px !important;
     border: none;
     overflow: hidden;
   }
-  .section3 .box1 .container_slider img{
+  .section3 .box1 .container_slider img {
     width: 100%;
-    height:300px;
+    height: 300px;
     object-fit: cover;
   }
 
-  .section3 .box2{
+  .section3 .box2 {
     width: 90%;
     margin-top: 20px;
   }
-  .section3 .box2 p{
+  .section3 .box2 p {
     font-size: 14px;
   }
-  .section3 .box2 p span{
+  .section3 .box2 p span {
     height: 30px;
     width: 30px;
     max-width: 30px;
     min-width: 30px;
   }
-  .section3 .box2 p strong{
+  .section3 .box2 p strong {
     margin-left: 10px;
   }
 }
-@media screen and (max-width : 600px) {
-  .section3{
+@media screen and (max-width: 600px) {
+  .section3 {
     margin-left: 0px;
   }
 
-  .section3 .box1{
+  .section3 .box1 {
     width: 99%;
     height: 250px;
     margin-top: 0;
   }
-  .section3 .box1 h1{
+  .section3 .box1 h1 {
     width: 23%;
     height: 100%;
-   font-size: 15px;
+    font-size: 15px;
     padding: 0 10px;
   }
-  .section3 .box1 .container_slider{
+  .section3 .box1 .container_slider {
     width: 75%;
     height: 250px !important;
     border: none;
     overflow: hidden;
   }
-  .section3 .box1 .container_slider img{
+  .section3 .box1 .container_slider img {
     width: 100%;
-    height:250px;
+    height: 250px;
     object-fit: cover;
   }
 
-  .section3 .box2{
+  .section3 .box2 {
     width: 90%;
     margin-top: 20px;
   }
-  .section3 .box2 p{
+  .section3 .box2 p {
     font-size: 14px;
     display: flex;
     flex-direction: column;
     text-align: center;
   }
-  .section3 .box2 p span{
+  .section3 .box2 p span {
     height: 30px;
     width: 30px;
     max-width: 30px;
     min-width: 30px;
   }
-  .section3 .box2 p strong{
+  .section3 .box2 p strong {
     margin-left: 10px;
   }
 }
 
-
-
-
-
-
-
-
-
-
-.section3 .div-section3{
+.section3 .div-section3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -259,7 +245,7 @@
   padding: 50px;
   width: 100%;
 }
-.section3 .div-section3 .box6{
+.section3 .div-section3 .box6 {
   width: 90%;
   display: flex;
   align-items: center;
@@ -267,7 +253,7 @@
   flex-direction: column;
 }
 
-.section3 .div-section3 .box6 h2{
+.section3 .div-section3 .box6 h2 {
   background-color: #002233;
   color: #ffffff;
   font-weight: 500;
@@ -275,10 +261,9 @@
   text-align: center;
   width: 500px;
   border-radius: 7px;
-
 }
 
-.section3 .div-section3 .box6 h3{
+.section3 .div-section3 .box6 h3 {
   background-color: #002233;
   color: #ffffff;
   font-weight: 500;
@@ -288,21 +273,21 @@
   border-radius: 7px;
   margin-top: 10px;
 }
-.section3 .div-section3 .box6 .h31{
+.section3 .div-section3 .box6 .h31 {
   background-color: rgb(0, 210, 0);
 }
-.section3 .div-section3 .box6 .h32{
+.section3 .div-section3 .box6 .h32 {
   background-color: rgb(210, 21, 0);
 }
-.section3 .div-section3 .box6 .container_accept{
+.section3 .div-section3 .box6 .container_accept {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
-  padding:10px 20px;
+  padding: 10px 20px;
 }
-.section3 .div-section3 .box6 .accept{
+.section3 .div-section3 .box6 .accept {
   width: 230px;
   height: 360px;
   border: 2px solid #cbcbcb;
@@ -315,9 +300,9 @@
   margin: 20px;
   box-shadow: 7px 7px 7px 2px #0022336c;
 }
-.section3 .div-section3 .box6 .accept img{
+.section3 .div-section3 .box6 .accept img {
   width: 100%;
-  height:130px;
+  height: 110px;
   object-fit: cover;
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
@@ -326,17 +311,17 @@
   border-bottom-left-radius: 15px;
 }
 
-.section3 .div-section3 .box6 .accept .cursor{
+.section3 .div-section3 .box6 .accept .cursor {
   pointer-events: none;
   cursor: not-allowed;
   color: red;
 }
 
-.section3 .div-section3 .box6 .accept h5 span{
+.section3 .div-section3 .box6 .accept h5 span {
   color: rgb(0, 89, 255);
 }
 
-.section3 .div-section3 .box6 .accept h5{
+.section3 .div-section3 .box6 .accept h5 {
   width: 98%;
   font-size: 15px;
   font-weight: bolder;
@@ -345,20 +330,21 @@
   padding-right: 20px;
   text-align: left;
 }
-.section3 .div-section3 .box6 .accept h4{
+.section3 .div-section3 .box6 .accept h4 {
   width: 100%;
   padding: 3px 10px;
   background-color: #28282861;
   color: #ffffff;
+  z-index: 4;
 }
-.section3 .div-section3 .box6 .accept p{
+.section3 .div-section3 .box6 .accept p {
   width: 100%;
   overflow: hidden;
   position: relative;
   padding: 5px 10px;
   font-size: 14px;
 }
-.section3 .div-section3 .box6 .accept p span{
+.section3 .div-section3 .box6 .accept p span {
   position: absolute;
   height: 100%;
   width: 20px;
@@ -366,7 +352,8 @@
   color: #000102;
   left: 265px;
   font-size: 20px;
-  top: -5px;padding-left: 2px;
+  top: -5px;
+  padding-left: 2px;
 }
 
 .section3 .div-section3 .box6 .accept .a {
@@ -407,10 +394,10 @@
   left: 50%;
   transform: translate(-50%);
 }
-.section3 .div-section3 .box6 .accept a:hover{
-  background-color: #0066FF;
+.section3 .div-section3 .box6 .accept a:hover {
+  background-color: #0066ff;
 }
-.section3 .div-section3 .box6 .accept a img{
+.section3 .div-section3 .box6 .accept a img {
   height: 25px;
   width: 25px;
   border: none;
@@ -418,25 +405,24 @@
   transition: all 0.4s ease;
 }
 
-.section3 .div-section3 .box6 .accept a:hover img{
+.section3 .div-section3 .box6 .accept a:hover img {
   transform: scale(1.2);
 }
 
-
-.section3 .div-section3 .box6 .accept .h51{
+.section3 .div-section3 .box6 .accept .h51 {
   position: absolute;
   width: 300px;
   padding: 2px 20px;
-  font-size:13px;
+  font-size: 13px;
   background-color: rgb(0, 210, 0);
   color: #ffffff;
   font-weight: 600;
- top: 20px;
- text-transform: uppercase;
-  transform:rotate(40deg);
+  top: 20px;
+  text-transform: uppercase;
+  transform: rotate(40deg);
   text-align: center;
 }
-.section3 .div-section3 .box6 .accept .h52{
+.section3 .div-section3 .box6 .accept .h52 {
   position: absolute;
   width: 300px;
   padding: 2px 20px;
@@ -444,13 +430,12 @@
   background-color: rgb(210, 21, 0);
   color: #ffffff;
   font-weight: 600;
- top: 20px;
- text-transform: uppercase;
-  transform:rotate(45deg);
+  top: 20px;
+  text-transform: uppercase;
+  transform: rotate(45deg);
   text-align: center;
- 
 }
-.section3 .div-section3 .box6 .accept .h53{
+.section3 .div-section3 .box6 .accept .h53 {
   position: absolute;
   width: 300px;
   padding: 2px 20px;
@@ -458,48 +443,49 @@
   background-color: #002233;
   color: #ffffff;
   font-weight: 600;
- top: 40px;
- text-transform: uppercase;
-  transform:rotate(45deg);
+  top: 40px;
+  text-transform: uppercase;
+  transform: rotate(45deg);
   text-align: center;
- 
 }
 
-@media screen and (max-width : 1050px){
-  .section3 .div-section3 .box6 h2{
+@media screen and (max-width: 1050px) {
+  .section3 .div-section3 .box6 h2 {
     padding: 10px 20px;
     width: 80%;
     border-radius: 7px;
     font-size: 20px;
   }
-  .section3 .div-section3 .box6 .container_accept{
+  .section3 .div-section3 .box6 .container_accept {
     padding: 20px;
   }
-  .section3 .div-section3 .box6 .accept{
+  .section3 .div-section3 .box6 .accept {
     width: 230px;
     height: 360px;
   }
-  .section3 .div-section3 .box6 .accept img{
+  .section3 .div-section3 .box6 .accept img {
     width: 100%;
-    height:160px;
+    height: 100px;
   }
-  
-  .section3 .div-section3 .box6 .accept h3{
-    font-size: 15px;
+  .section3 .div-section3 .box6 .accept h4 {
+    font-size: 14px;
+  }
+  .section3 .div-section3 .box6 .accept h3 {
+    font-size: 13px;
     padding: 5px 0;
   }
-  
-  .section3 .div-section3 .box6 .accept p{
+
+  .section3 .div-section3 .box6 .accept p {
     width: 700px;
-    font-size: 14px;
+    font-size: 12px;
   }
-  .section3 .div-section3 .box6 .accept p span{
+  .section3 .div-section3 .box6 .accept p span {
     font-size: 20px;
   }
-  
+
   .section3 .div-section3 .box6 .accept a {
     padding: 1px 2px;
-    font-size: 14px;
+    font-size: 13px;
     margin: 0 auto;
     letter-spacing: 1px;
     bottom: 10px;

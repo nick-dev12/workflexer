@@ -86,14 +86,14 @@ if (isset($_POST['recherche'])) {
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
-    <title>Explorer les profils</title>
     <link rel="icon" href="../image/logo.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/aos.css" />
+    <script src="../js/aos.js"></script>
     <link rel="stylesheet" href="../css/voir_profil.css">
-    <link rel="stylesheet" href="../css/profil.css">
     <link rel="stylesheet" href="/css/owl.theme.default.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
@@ -200,249 +200,133 @@ if (isset($_POST['recherche'])) {
 
     </section>
 
-
-    <section class="emploi">
-        <div class="box">
-            <img src="/image/ingenieur.jpeg" alt="">
-            <h1>Ingénierie et architecture</h1>
-            <p>
-                Vous cherchez des professionnels qualifiés en ingénierie et architecture pour mener à bien vos projets
-                de construction ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins.
-            </p>
-            <a href="../profils/Ingénierie et architecture.php">Explorer les profils</a>
-        </div>
-
-
-
-        <div class="box">
-            <img src="/image/webdesign.jpg" alt="">
-            <h1>Design et création</h1>
-            <p>
-                Vous avez besoin de professionnels créatifs pour donner vie à vos projets de design ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils talentueux et innovants pour répondre à vos attentes.
-            </p>
-            <a href="../profils/Design et création.php">Explorer les profils</a>
-        </div>
-
-
-
-        <div class="box">
-            <img src="/image/Redaction.jpg" alt="">
-            <h1>Rédaction et traduction</h1>
-            <p>
-                Vous cherchez des rédacteurs et traducteurs qualifiés pour vos projets de communication ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et polyvalents pour répondre à vos besoins
-                linguistiques.
-            </p>
-            <a href="../profils/Rédaction et traduction.php">Explorer les profils</a>
-        </div>
-
-
-        <div class="box">
-            <img src="/image/marketing.jpg" alt="">
-            <h1>Marketing et communication</h1>
-            <p>
-                Vous cherchez des professionnels du marketing et de la communication pour promouvoir votre entreprise et
-                votre marque ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils créatifs et stratégiques pour répondre à vos besoins de
-                communication.
-            </p>
-
-            <a href="../profils/Marketing et communication.php">Explorer les profils</a>
-        </div>
-
-
-        <div class="box">
-            <img src="/image/gestion.jpg" alt="">
-            <h1>Conseil et gestion d'entreprise</h1>
-            <p>
-                Vous cherchez des professionnels du conseil et de la gestion d'entreprise pour optimiser vos
-                performances et votre rentabilité ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins de gestion.
-            </p>
-
-            <a href="../profils/Conseil et gestion d'entreprise.php">Explorer les profils</a>
-        </div>
-
-
-
-
-        <div class="box">
-            <img src="/image/juridique.jpg" alt="">
-            <h1>Juridique</h1>
-            <p>
-                Vous cherchez des professionnels du droit pour vous conseiller et vous accompagner dans vos démarches
-                juridiques ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins juridiques.
-            </p>
-
-            <a href="../profils/Juridique.php">Explorer les profils</a>
-        </div>
-
-
-        <div class="box">
-            <img src="/image/info.jpg" alt="">
-            <h1>Informatique et tech</h1>
-            <p>
-                Vous cherchez des professionnels de l'informatique et de la tech pour développer vos projets numériques
-                ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins
-                technologiques.
-            </p>
-
-            <a href="../profils/Informatique et tech.php">Explorer les profils</a>
-        </div>
-
-
-
-        <div class="box">
-            <img src="/image/finance.png" alt="">
-            <h1>Finance et comptabilité</h1>
-            <p>
-                Vous cherchez des professionnels de la finance et de la comptabilité pour gérer vos finances et votre
-                comptabilité ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins financiers.
-            </p>
-
-            <a href="../profils/Finance et comptabilité.php">Explorer les profils</a>
-        </div>
-
-
-
-
-        <div class="box">
-            <img src="/image/santé.png" alt="">
-            <h1>Santé et bien-être</h1>
-            <p>
-                Vous cherchez des professionnels de la santé et du bien-être pour prendre soin de vos employés et de vos
-                clients ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins de santé et
-                de bien-être.
-            </p>
-
-            <a href="../profils/Santé et bien-être.php">Explorer les profils</a>
-        </div>
-
-
-
-        <div class="box">
-            <img src="/image/education.png" alt="">
-            <h1>Éducation et formation</h1>
-            <p>
-                Vous cherchez des professionnels de l'éducation et de la formation pour former et développer les
-                compétences de vos employés ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins de
-                formation.
-            </p>
-
-            <a href="../profils/Éducation et formation.php">Explorer les profils</a>
-        </div>
-
-
-
-
-        <div class="box">
-            <img src="/image/tourisme.png" alt="">
+    <section class="produit_vedete">
+        <div class="box1">
+            <span></span>
             <h1>Tourisme et hôtellerie</h1>
-            <p>
-                Vous cherchez des professionnels du tourisme et de l'hôtellerie pour offrir des expériences inoubliables
-                à vos clients ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins en matière
-                d'hospitalité.
-            </p>
-
-            <a href="../profils/Tourisme et hôtellerie.php">Explorer les profils</a>
+            <span></span>
+            <div class="affiche">
+                <!-- <img src="/image/ingenieur.jpeg" alt=""> -->
+                <img src="/image/tourisme.png" alt="">
+            </div>
         </div>
 
-
-
-
-        <div class="box">
-            <img src="/image/vente.png" alt="">
-            <h1>Commerce et vente</h1>
-            <p>
-                Vous cherchez des professionnels du commerce et de la vente pour développer vos ventes et votre chiffre
-                d'affaires ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins commerciaux.
-            </p>
-
-            <a href="../profils/Commerce et vente.php">Explorer les profils</a>
+        <div class="box2">
+            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
         </div>
 
+        <article data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom"
+            class="articles owl-carousel carousel7">
 
+            <?php foreach ($getUssersCategorie as $teste): ?>
+                <?php if ($teste['categorie'] === 'Tourisme et hôtellerie'): ?>
+                    <?php if (empty($teste['categorie'] === 'Tourisme et hôtellerie')): ?>
+                        <h1 class="message">Aucun profil disponible pour cette catégorie</h1>
+                    <?php else: ?>
+                        <?php
+                        $nombreCompetences = countCompetences($db, $teste['id']);
+                        $niveauEtude = gettNiveau($db, $teste['id']);
+                        ?>
+                        <?php if ($nombreCompetences < 4): ?>
+                        <?php else: ?>
+                            <?php if ($teste['statut'] == 'Occuper'): ?>
 
-        <div class="box">
-            <img src="/image/transport.png" alt="">
-            <h1>Transport et logistique</h1>
-            <p>
-                ous cherchez des professionnels du transport et de la logistique pour optimiser vos chaînes
-                d'approvisionnement et vos livraisons ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins logistiques.
-            </p>
+                            <?php else: ?>
 
-            <a href="../profils/Transport et logistique.php">Explorer les profils</a>
-        </div>
+                                <div class="carousel">
+                                    <?php if ($teste['statut'] == 'Disponible'): ?>
+                                        <p class="statut"><span></span>
+                                            <?= $teste['statut'] ?>
+                                        </p>
+                                    <?php else: ?>
+                                        <?php if ($teste['statut'] == 'Occuper'): ?>
+                                            <p class="statut2"><span></span>
+                                                <?= $teste['statut'] ?>
+                                            </p>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
 
+                                    <img src="../upload/<?php echo $teste['images'] ?>" alt="">
 
+                                    <div class="info-box">
+                                        <h4>
+                                            <?php echo $teste['competences']; ?>
+                                        </h4>
 
-        <div class="box">
-            <img src="/image/agriculture.png" alt="">
-            <h1>Agriculture et agroalimentaire</h1>
-            <p>
-                ous cherchez des professionnels de l'agriculture et de l'agroalimentaire pour améliorer votre production
-                et votre qualité ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins agricoles et
-                agroalimentaires.
-            </p>
+                                        <div class="vendu">
+                                            <?php
+                                            $afficheCompetences = getCompetences($db, $teste['id']);
+                                            // Garder seulement les 4 premières 
+                                            $afficheCompetences = array_slice($afficheCompetences, 0, 4);
 
-            <a href="../profils/Agriculture et agroalimentaire.php">Explorer les profils</a>
-        </div>
+                                            ?>
 
+                                            <?php if (empty($afficheCompetences)): ?>
+                                                <span>Competences indisponibles</span>
+                                            <?php else: ?>
+                                                <?php
+                                                $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
+                        
+                                                foreach ($afficheCompetences as $compe):
+                                                    if ($competencesAffichees < 4):
+                                                        ?>
+                                                        <span>
+                                                            <?= $compe['competence'] ?>
+                                                        </span>
+                                                        <?php
+                                                        $competencesAffichees++;
+                                                    endif;
+                                                endforeach;
+                                                ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <p class="nom">
+                                            <?php
+                                            $fullName = $teste['nom'];
+                                            // Utilisez la fonction explode pour diviser le nom en mots
+                                            $words = explode(' ', $fullName);
+                                            // $words[0] contient le premier mot, $words[1] contient le deuxième mot
+                                            $nameUsers = $words[0] . ' ' . $words[1];
+                                            ?>
+                                            <?php echo $nameUsers; ?>
+                                        </p>
 
+                                        <p class="ville">
+                                            <?php echo $teste['ville']; ?>
+                                        </p>
 
+                                        <div class="divpp"></div>
+                                        <p class="pp"><strong>Niveau :</strong>
+                                            <?php if (empty($niveauEtude['etude'])): ?>
+                                                indisponibles
+                                            <?php else: ?>
+                                                <?php echo $niveauEtude['etude'] ?>
+                                            <?php endif; ?>
+                                        </p>
+                                        <p class="pp"><strong>Experience :</strong>
+                                            <?php if (empty($niveauEtude['etude'])): ?>
+                                                indisponibles
+                                            <?php else: ?>
+                                                <?php echo $niveauEtude['experience'] ?>
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
 
-        <div class="box">
-            <img src="/image/autre.png" alt="">
-            <h1>Autre</h1>
-            <p>
-                Vous cherchez des profils professionnels pour répondre à des besoins spécifiques ?
-            </p>
-            <p>
-                Découvrez notre sélection de profils variés et polyvalents pour répondre à vos besoins particuliers.
-            </p>
+                                    <a href="/page/candidats.php?id=<?php echo $teste['id']; ?>">
+                                        <i class="fa-solid fa-eye"></i>Profil
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endforeach ?>
 
-            <a href="../profils/Autre.php">Explorer les profils</a>
-        </div>
+        </article>
     </section>
+
 
 
 

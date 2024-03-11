@@ -1,15 +1,8 @@
 <?php
-// Démarre la session
 session_start();
-// Récupérez l'ID du commerçant à partir de la session
-// Récupérez l'ID de l'utilisateur depuis la variable de session
 
-
-
-include_once('../controller/controller_users.php');
-include_once('../controller/controller_competence_users.php');
-include_once('../controller/controller_niveau_etude_experience.php');
-
+include_once('../entreprise/app/controller/controllerOffre_emploi.php');
+include_once('../entreprise/app/controller/controllerEntreprise.php');
 
 if (isset($_POST['recherche'])) {
 
@@ -20,9 +13,9 @@ if (isset($_POST['recherche'])) {
     $etude = $_POST['etude'];
 
     // Requête SQL pour rechercher dans la base de données en fonction des critères
-    $sql = "SELECT u.* FROM users u LEFT JOIN niveau_etude e ON u.id = e.users_id WHERE 1=1";
+    $sql = "SELECT u.* FROM offre_emploi u LEFT JOIN compte_entreprise e ON u.entreprise_id = e.id WHERE 1=1";
     if (!empty($recherche)) {
-        $sql .= " AND (u.competences LIKE :recherche OR u.nom LIKE :recherche)";
+        $sql .= " AND (u.poste LIKE :recherche OR e.entreprise LIKE :recherche)";
     } else {
         $erreurs = ' Ce champ ne doit pas etre vide !';
     }
@@ -30,10 +23,10 @@ if (isset($_POST['recherche'])) {
         $sql .= " AND u.categorie = :categorie";
     }
     if (!empty($experience)) {
-        $sql .= " AND e.experience = :experience";
+        $sql .= " AND u.experience = :experience";
     }
     if (!empty($etude)) {
-        $sql .= " AND e.etude = :etude";
+        $sql .= " AND u.etude = :etude";
     }
 
     $stmt = $db->prepare($sql);
@@ -54,19 +47,16 @@ if (isset($_POST['recherche'])) {
     $resulte = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Stocker les résultats de la recherche dans une session
-    $_SESSION['resultats_recherche'] = $resulte;
+    $_SESSION['resultats'] = $resulte;
 
-    header('Location: search.php');
+    header('Location: search_offre.php');
 
     exit();
 
 }
 
+
 ?>
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -86,20 +76,17 @@ if (isset($_POST['recherche'])) {
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
-    <title>Explorer les profils</title>
-    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+
+    <title>Offres D'emploi</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/voir_profil.css">
-    <link rel="stylesheet" href="../css/profil.css">
-    <link rel="stylesheet" href="/css/owl.theme.default.css">
-    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/offre_d'emploit.css">
+    <link rel="stylesheet" href="../css/emploi.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="../css/navbare.css">
 </head>
 
 <body>
@@ -111,29 +98,21 @@ if (isset($_POST['recherche'])) {
 
     <?php include('../navbare.php') ?>
 
-
-
-
     <section class="section2">
         <div class="slider">
             <div class="box">
                 <div class="img owl-carousel boot">
-                    <img src="/image/recherche.png" alt="">
-                    <img src="/image/profile1.jpg" alt="">
-                    <img src="/image/profile2.jpg" alt="">
+                    <img src="/image/offre1.jpg" alt="">
+                    <img src="/image/offre-emploi-quebec.jpg" alt="">
+                    <img src="/image/offre3.jpg" alt="">
+                    <img src="/image/offre4.jpeg" alt="">
                 </div>
                 <div class="text">
-                    <h1 data-aos="fade-right" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-                        data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">Exploré les
-                        profils qui conviennent à vos besoins</h1>
-                    <p data-aos="fade-left" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-                        data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">
-                        Un large éventail de profiles professionnels toute catégorie confondu pour satisfaire le
-                        moindres de vos besoins en main d'œuvre et bien plus encore
-                    </p>
-                    <form data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
-                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                        data-aos-anchor-placement="top-right" action="" method="post">
+                    <h1>Explorer les offres d'emploi répondant à vos critère</h1>
+                    <p>Un large éventail d'offres d'emplois toute catégorie confondu pour satisfaire le moindres
+                        de vos besoins </p>
+
+                    <form action="" method="post">
                         <div class="search">
                             <input type="search" name="search" id="search">
                             <label for="recherche"><i class="fa-solid fa-magnifying-glass fa-xs"></i></label>
@@ -192,7 +171,6 @@ if (isset($_POST['recherche'])) {
                             </select>
                         </div>
                     </form>
-
                 </div>
             </div>
 
@@ -212,7 +190,7 @@ if (isset($_POST['recherche'])) {
             <p>
                 Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins.
             </p>
-            <a href="../profils/Ingénierie et architecture.php">Explorer les profils</a>
+            <a href="../offres/Ingénierie et architecture.php">Explorer les offres</a>
         </div>
 
 
@@ -226,7 +204,7 @@ if (isset($_POST['recherche'])) {
             <p>
                 Découvrez notre sélection de profils talentueux et innovants pour répondre à vos attentes.
             </p>
-            <a href="../profils/Design et création.php">Explorer les profils</a>
+            <a href="../offres/Design et création.php">Explorer les offres</a>
         </div>
 
 
@@ -241,7 +219,7 @@ if (isset($_POST['recherche'])) {
                 Découvrez notre sélection de profils expérimentés et polyvalents pour répondre à vos besoins
                 linguistiques.
             </p>
-            <a href="../profils/Rédaction et traduction.php">Explorer les profils</a>
+            <a href="../offres/Rédaction et traduction.php">Explorer les offres</a>
         </div>
 
 
@@ -257,7 +235,7 @@ if (isset($_POST['recherche'])) {
                 communication.
             </p>
 
-            <a href="../profils/Marketing et communication.php">Explorer les profils</a>
+            <a href="../offres/Marketing et communication.php">Explorer les offres</a>
         </div>
 
 
@@ -272,7 +250,7 @@ if (isset($_POST['recherche'])) {
                 Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins de gestion.
             </p>
 
-            <a href="../profils/Conseil et gestion d'entreprise.php">Explorer les profils</a>
+            <a href="../offres/Conseil et gestion d'entreprise.php">Explorer les offres</a>
         </div>
 
 
@@ -289,7 +267,7 @@ if (isset($_POST['recherche'])) {
                 Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins juridiques.
             </p>
 
-            <a href="../profils/Juridique.php">Explorer les profils</a>
+            <a href="../offres/Juridique.php">Explorer les offres</a>
         </div>
 
 
@@ -305,7 +283,7 @@ if (isset($_POST['recherche'])) {
                 technologiques.
             </p>
 
-            <a href="../profils/Informatique et tech.php">Explorer les profils</a>
+            <a href="../offres/Informatique et tech.php">Explorer les offres</a>
         </div>
 
 
@@ -321,7 +299,7 @@ if (isset($_POST['recherche'])) {
                 Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins financiers.
             </p>
 
-            <a href="../profils/Finance et comptabilité.php">Explorer les profils</a>
+            <a href="../offres/Finance et comptabilité.php">Explorer les offres</a>
         </div>
 
 
@@ -339,7 +317,7 @@ if (isset($_POST['recherche'])) {
                 de bien-être.
             </p>
 
-            <a href="../profils/Santé et bien-être.php">Explorer les profils</a>
+            <a href="../offres/Santé et bien-être.php">Explorer les offres</a>
         </div>
 
 
@@ -356,7 +334,7 @@ if (isset($_POST['recherche'])) {
                 formation.
             </p>
 
-            <a href="../profils/Éducation et formation.php">Explorer les profils</a>
+            <a href="../offres/Éducation et formation.php">Explorer les offres</a>
         </div>
 
 
@@ -374,7 +352,7 @@ if (isset($_POST['recherche'])) {
                 d'hospitalité.
             </p>
 
-            <a href="../profils/Tourisme et hôtellerie.php">Explorer les profils</a>
+            <a href="../offres/Tourisme et hôtellerie.php">Explorer les offres</a>
         </div>
 
 
@@ -391,7 +369,7 @@ if (isset($_POST['recherche'])) {
                 Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins commerciaux.
             </p>
 
-            <a href="../profils/Commerce et vente.php">Explorer les profils</a>
+            <a href="../offres/Commerce et vente.php">Explorer les offres</a>
         </div>
 
 
@@ -407,7 +385,7 @@ if (isset($_POST['recherche'])) {
                 Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins logistiques.
             </p>
 
-            <a href="../profils/Transport et logistique.php">Explorer les profils</a>
+            <a href="../offres/Transport et logistique.php">Explorer les offres</a>
         </div>
 
 
@@ -424,7 +402,7 @@ if (isset($_POST['recherche'])) {
                 agroalimentaires.
             </p>
 
-            <a href="../profils/Agriculture et agroalimentaire.php">Explorer les profils</a>
+            <a href="../offres/Agriculture et agroalimentaire.php">Explorer les offres</a>
         </div>
 
 
@@ -440,76 +418,20 @@ if (isset($_POST['recherche'])) {
                 Découvrez notre sélection de profils variés et polyvalents pour répondre à vos besoins particuliers.
             </p>
 
-            <a href="../profils/Autre.php">Explorer les profils</a>
+            <a href="../offres/Autre.php">Explorer les offres</a>
         </div>
     </section>
 
 
 
 
-    <?php include('../footer.php') ?>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/owl.carousel.js"></script>
+    <script src="../js/owl.animate.js"></script>
+    <script src="../js/owl.autoplay.js"></script>
+    <script src="../js/silder_offres.js"></script>
 
 
-
-
-
-
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
-    <script src="/js/silder_offres.js"></script>
-
-    <script>
-        // ..
-        AOS.init();
-    </script>
-
-
-
-    <script>
-
-        $(document).ready(function () {
-
-
-            $('.boot').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 6000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 450,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-            var carousel2 = $('.carousel2').owlCarousel();
-            $('.owl-next2').click(function () {
-                carousel2.trigger('next.owl.carousel');
-            })
-            $('.owl-prev2').click(function () {
-                carousel2.trigger('prev.owl.carousel');
-            })
-
-        });
-
-
-        $('.container_slider').owlCarousel({
-            items: 1,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            animateOut: 'slideOutDown',
-            animateIn: 'flipInX',
-            stagePadding: 1,
-            smartSpeed: 1000,
-            margin: 0,
-            nav: true,
-            navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-        });
-    </script>
 
 </body>
 

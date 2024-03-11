@@ -79,9 +79,6 @@ if (isset($_GET['id'])) {
     include_once('../entreprise/app/controller/controllerOffre_emploi.php');
     include_once('../entreprise/app/controller/controllerEntreprise.php');
     include_once('../controller/controller_niveau_etude_experience.php');
-
-
-
 }
 
 ?>
@@ -119,15 +116,11 @@ if (isset($_GET['id'])) {
 
     <title>Profil</title>
     <link rel="icon" href="../image/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
     <script src="../script/jquery-3.6.0.min.js"></script>
 
     <!-- <script src="../script/summernote@0.8.18.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css"> -->
-
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
     <link rel="stylesheet" href="/css/user_profil.css">
     <link rel="stylesheet" href="../css/navbare.css">
@@ -159,7 +152,7 @@ if (isset($_GET['id'])) {
             <form action="" class="form_appel">
                 <img class="fermer" src="../image/croix.png" alt="">
                 <label for="message">Écrivez votre message ici</label>
-                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                <textarea name="message" id="message"></textarea>
                 <input type="submit" name="envoie" value="Envoyer">
             </form>
 
@@ -312,9 +305,7 @@ if (isset($_GET['id'])) {
         </div>
 
 
-        <div class="container_box1" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box1">
             <div class="box1">
                 <h2>A propos de moi ! <strong>
                         <?php echo $getVueProfil; ?><img src="../image/vue.png" alt="">
@@ -350,12 +341,31 @@ if (isset($_GET['id'])) {
                                     <?php echo $erreurs; ?>
                                 </div>
                             <?php endif; ?>
-                            <textarea name="description" id="summernote" cols="30" rows="10"
-                                placeholder="Ajoute une description ici"></textarea>
-
+                            <textarea name="description" id="counte" placeholder="Ajoute une description ici"
+                                maxlength="500"></textarea>
+                            <p id="caracteres-restantes">500 caractères restants</p>
                             <input type="submit" value="ajouter" name="ajouter" id="ajoute">
 
                         </form>
+
+                        <script>
+                            const textareas = document.getElementById("counte");
+                            const caracteresRestantes = document.getElementById("caracteres-restantes");
+
+                            // Mise à jour du compteur de caractères en temps réel
+                            textareas.addEventListener("keyup", () => {
+                                const nombreCaracteress = textareas.value.length;
+                                caracteresRestantes.textContent = `${500 - nombreCaracteress
+                                    } caractères restants`;
+
+                            });
+                            // Limiter le nombre de caractères saisis en temps réel
+                            textareas.addEventListener("input", () => {
+                                if (textareas.value.length > 500) {
+                                    textareas.value = textareas.value.substring(0, 500);
+                                }
+                            });
+                        </script>
                     </div>
 
                 <?php else: ?>
@@ -369,11 +379,11 @@ if (isset($_GET['id'])) {
                         <form method="post" action="" enctype="multipart/form-data">
                             <img class="imgs" src="../image/croix.png" alt="">
 
-                            <textarea name="nouvelleDescription" id="summernote" cols="30" rows="10"
-                                placeholder="Ajoute une description ici">
-                                                                                                     <?php echo htmlspecialchars($descriptions['description'], ENT_QUOTES, 'UTF-8'); ?>  
-                                                                                                    </textarea>
+                            <textarea name="nouvelleDescription" id="count" placeholder="Ajoute une description ici"
+                                maxlength="500"> <?php echo $descriptions['description'] ?></textarea>
+                            <p id="caracteres-restants">500 caractères restants</p>
                             <input type="submit" value="Modifier" name="Modifier" id="ajoute">
+
                         </form>
                     </div>
 
@@ -400,6 +410,24 @@ if (isset($_GET['id'])) {
                     imgs.addEventListener('click', function () {
                         texte.style.display = 'none';
                     });
+
+                    const textarea = document.getElementById("count");
+                    const caracteresRestants = document.getElementById("caracteres-restants");
+
+                    // Mise à jour du compteur de caractères en temps réel
+                    textarea.addEventListener("keyup", () => {
+                        const nombreCaracteres = textarea.value.length;
+                        caracteresRestants.textContent = `${500 - nombreCaracteres
+                            } caractères restants`;
+
+                    });
+                    // Limiter le nombre de caractères saisis en temps réel
+                    textarea.addEventListener("input", () => {
+                        if (textarea.value.length > 500) {
+                            textarea.value = textarea.value.substring(0, 500);
+                        }
+                    });
+
                 </script>
             </div>
         </div>
@@ -423,9 +451,7 @@ if (isset($_GET['id'])) {
                     foreach ($afficheMetier as $metiers):
 
                         ?>
-                        <div class="metier" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
-                            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                            data-aos-anchor-placement="top-bottom">
+                        <div class="metier">
                             <table>
                                 <tr>
                                     <th>
@@ -491,7 +517,7 @@ if (isset($_GET['id'])) {
                     <img class="imgs1" src="../image/croix.png" alt="">
 
                     <div class="boxmetier">
-                        <label for="metier">Nom de l'experience professionnel</label>
+                        <label for="metier">Titre de l'experience professionnel</label>
                         <input type="text" name="metier" id="metier">
                     </div>
 
@@ -589,9 +615,9 @@ if (isset($_GET['id'])) {
                     </div>
 
                     <div class="boxmetier">
-                        <label for="metier">ajouter une description : se n'est pas obligatoire</label>
-                        <textarea name="Metierdescription" id="description" cols="30" rows="10">
-                    </textarea>
+                        <label for="metier">ajouter une courte description : Facultatif</label>
+                        <textarea name="Metierdescription" id="description" maxlength="300"></textarea>
+                        <p id="caractere">300 caracteres restants</p>
                     </div>
                     <input type="submit" value="Ajouter" name="Ajouter" id="Ajouter">
                 </form>
@@ -606,6 +632,23 @@ if (isset($_GET['id'])) {
                     });
                     imgs1.addEventListener('click', function () {
                         form.style.display = 'none';
+                    });
+
+                    const textee = document.getElementById("description");
+                    const caractere = document.getElementById("caractere");
+
+                    // Mise à jour du compteur de caractères en temps réel
+                    textee.addEventListener("keyup", () => {
+                        const nombre = textee.value.length;
+                        caractere.textContent = `${300 - nombre
+                            } caractères restants`;
+
+                    });
+                    // Limiter le nombre de caractères saisis en temps réel
+                    textee.addEventListener("input", () => {
+                        if (textee.value.length > 300) {
+                            textee.value = textee.value.substring(0, 300);
+                        }
                     });
                 </script>
             </div>
@@ -622,9 +665,7 @@ if (isset($_GET['id'])) {
                         <?php
                         foreach ($competencesUtilisateur as $competence):
                             ?>
-                            <p class="comp" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
-                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                                data-aos-anchor-placement="top-bottom">
+                            <p class="comp">
                                 <?php echo $competence['competence']; ?>
                                 <a href="?supprime=<?php echo $competence['id']; ?>"><img src="../image/croix.png" alt=""></a>
                             </p>
@@ -675,13 +716,11 @@ if (isset($_GET['id'])) {
                         </p>
                     <?php else: ?>
 
-                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
-                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                        <p>
                             <strong>Niveau D'etude:</strong>
                             <?php echo $getNiveauEtude['etude'] ?>
                         </p>
-                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
-                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                        <p>
                             <strong>Niveau d'expérience :</strong>
                             <?php echo $getNiveauEtude['experience'] ?>
                         </p>
@@ -798,8 +837,7 @@ if (isset($_GET['id'])) {
                     <?php foreach ($formationUsers as $formations): ?>
 
 
-                        <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
-                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                        <tr>
                             <td class="pt">
                                 <?php echo $formations['moisDebut']; ?>/
                                 <?php echo $formations['anneeDebut']; ?><br>
@@ -991,16 +1029,14 @@ if (isset($_GET['id'])) {
                 <div class="div">
                     <table>
                         <tr>
-                            <th>Diplome</th>
+                            <th>Diplomes</th>
                         </tr>
                     </table>
                     <div>
                         <?php foreach ($afficheDiplome as $diplomes): ?>
 
                             <table>
-                                <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
-                                    data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                                    data-aos-anchor-placement="top-bottom">
+                                <tr>
                                     <td>
                                         <?php echo $diplomes['diplome']; ?>
                                         <a href="?diplomes=<?= $diplomes['id']; ?>"><img src="../image/croix.png"
@@ -1022,9 +1058,7 @@ if (isset($_GET['id'])) {
                     <div>
                         <?php foreach ($afficheCertificat as $certificats): ?>
                             <table>
-                                <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
-                                    data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                                    data-aos-anchor-placement="top-bottom">
+                                <tr>
                                     <td>
                                         <?php echo $certificats['certificat'] ?>
                                         <a href="?certificats=<?= $certificats['id']; ?>"><img src="../image/croix.png"
@@ -1088,111 +1122,6 @@ if (isset($_GET['id'])) {
         </div>
 
 
-        <div class="container_box7">
-
-            <div class="box1">
-                <h1>Projets et réalisations</h1>
-            </div>
-            <?php if (isset($_SESSION['users_id'])): ?>
-                <button class="ajout">Ajouter un projet/réalisation</button>
-            <?php else: ?>
-            <?php endif; ?>
-            <div class="form_projet">
-
-                <form action="" method="post" enctype="multipart/form-data">
-                    <div class="box">
-                        <label for="titre">Titre</label>
-                        <input type="text" name="titre" id="titre">
-                    </div>
-
-                    <div class="box">
-                        <label for="liens">Ajoute un lien </label>
-                        <input type="text" name="liens" id="liens" value="https://">
-                    </div>
-
-                    <div class="box">
-                        <label for="projetdescription">Description</label>
-                        <textarea name="projetdescription" id="projetdescription" cols="30" rows="10"></textarea>
-                    </div>
-
-                    <div class="box">
-                        <p>Ajoute une image de ton projet</p>
-                        <div class="imageView">
-                            <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
-                            <input type="file" name="images" id="images">
-                            <img id="imagePreview" src="" alt="view">
-
-                            <script>
-                                // Récupérer l'élément input type file
-                                const inputImage = document.getElementById('images');
-
-                                // Écouter le changement de fichier sélectionné
-                                inputImage.addEventListener('change', () => {
-
-                                    // Récupérer le premier fichier sélectionné
-                                    const file = inputImage.files[0];
-
-                                    // Afficher l'aperçu dans l'élément img
-                                    const previewImg = document.getElementById('imagePreview');
-                                    previewImg.src = URL.createObjectURL(file);
-
-                                });
-                            </script>
-                        </div>
-
-                    </div>
-                    <input type="submit" name="valider" value="Ajouter" id="ajouter">
-                </form>
-
-            </div>
-
-            <script>
-                let ajout = document.querySelector('.ajout')
-                let form_projet = document.querySelector('.form_projet')
-
-                ajout.addEventListener('click', function () {
-                    if (form_projet.style.display === 'none' || form_projet.style.display === '') {
-                        form_projet.style.display = 'block';
-                    } else {
-                        form_projet.style.display = 'none';
-                    }
-                });
-            </script>
-            <div class="box2">
-
-                <?php if (empty($affichePojetUsers)): ?>
-                    <p class="p"> Aucun projet ajouter pour votre profil !</p>
-                <?php else: ?>
-                <?php endif; ?>
-
-                <?php foreach ($affichePojetUsers as $projets): ?>
-
-                    <div class="info_projet" data-aos="fade-up" data-aos-delay="0" data-aos-duration="300"
-                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                        data-aos-anchor-placement="top-bottom">
-
-                        <a href="?projets=<?php echo $projets['id'] ?>"><img class="supp" src="../image/croix.png"
-                                alt=""></a>
-                        <h2>
-                            <?php echo $projets['titre'] ?>
-                        </h2>
-                        <p>
-                            <?php echo $projets['projetdescription'] ?>
-                        </p>
-
-                        <a href="<?php echo $projets['liens'] ?>">Click sur ce lien :
-                            <?php echo $projets['liens'] ?>
-                        </a>
-
-                        <img src="../upload/<?php echo $projets['images'] ?>" alt="">
-                    </div>
-
-                <?php endforeach; ?>
-
-
-            </div>
-        </div>
-
 
 
 
@@ -1208,8 +1137,7 @@ if (isset($_GET['id'])) {
                 <?php else: ?>
                     <table>
                         <?php foreach ($afficheOutil as $outils): ?>
-                            <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
-                                data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                            <tr>
                                 <td>
                                     <?php echo $outils['outil'] ?>
                                 </td>
@@ -1288,8 +1216,7 @@ if (isset($_GET['id'])) {
                 <?php else: ?>
                     <table>
                         <?php foreach ($afficheLangue as $langues): ?>
-                            <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="300" data-aos-easing="ease-in-out"
-                                data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                            <tr>
                                 <td>
                                     <?php echo $langues['langue']; ?>
                                 </td>
@@ -1347,6 +1274,115 @@ if (isset($_GET['id'])) {
                 });
             </script>
         </div>
+
+
+        <div class="container_box7">
+
+            <div class="box1">
+                <h1>Projets et réalisations</h1>
+            </div>
+            <?php if (isset($_SESSION['users_id'])): ?>
+                <button class="ajout">Ajouter un projet/réalisation</button>
+            <?php else: ?>
+            <?php endif; ?>
+            <div class="form_projet">
+
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="box">
+                        <label for="titre">Titre</label>
+                        <input type="text" name="titre" id="titre">
+                    </div>
+
+                    <div class="box">
+                        <label for="liens">Ajoute un lien </label>
+                        <input type="text" name="liens" id="liens" value="https://">
+                    </div>
+
+                    <div class="box">
+                        <label for="projetdescription">Description</label>
+                        <textarea name="projetdescription" id="projetdescription"></textarea>
+                    </div>
+
+                    <div class="box">
+                        <p>Ajoute une image de ton projet</p>
+                        <div class="imageView">
+                            <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
+                            <input type="file" name="images" id="images"
+                                accept="image/jpeg, image/jpg, image/png, image/gif">
+                            <img id="imagePreview" src="" alt="view">
+
+                            <script>
+                                // Récupérer l'élément input type file
+                                const inputImage = document.getElementById('images');
+
+                                // Écouter le changement de fichier sélectionné
+                                inputImage.addEventListener('change', () => {
+
+                                    // Récupérer le premier fichier sélectionné
+                                    const file = inputImage.files[0];
+
+                                    // Afficher l'aperçu dans l'élément img
+                                    const previewImg = document.getElementById('imagePreview');
+                                    previewImg.src = URL.createObjectURL(file);
+
+                                });
+                            </script>
+                        </div>
+
+                    </div>
+                    <input type="submit" name="valider" value="Ajouter" id="ajouter">
+                </form>
+
+            </div>
+
+            <script>
+                let ajout = document.querySelector('.ajout')
+                let form_projet = document.querySelector('.form_projet')
+
+                ajout.addEventListener('click', function () {
+                    if (form_projet.style.display === 'none' || form_projet.style.display === '') {
+                        form_projet.style.display = 'block';
+                    } else {
+                        form_projet.style.display = 'none';
+                    }
+                });
+            </script>
+            <div class="box2">
+
+                <?php if (empty($affichePojetUsers)): ?>
+                    <p class="p"> Aucun projet ajouter pour votre profil !</p>
+                <?php else: ?>
+                <?php endif; ?>
+
+                <?php foreach ($affichePojetUsers as $projets): ?>
+
+                    <div class="info_projet">
+
+                        <a href="?projets=<?php echo $projets['id'] ?>"><img class="supp" src="../image/croix.png"
+                                alt=""></a>
+                        <h2>
+                            <?php echo $projets['titre'] ?>
+                        </h2>
+                        <p>
+                            <?php echo $projets['projetdescription'] ?>
+                        </p>
+
+                        <a href="<?php echo $projets['liens'] ?>">Click sur ce lien :
+                            <?php echo $projets['liens'] ?>
+                        </a>
+
+                        <img src="../upload/<?php echo $projets['images'] ?>" alt="">
+                    </div>
+
+                <?php endforeach; ?>
+
+
+            </div>
+        </div>
+
+
+
+
 
 
         <div class="container_box8">
@@ -1410,7 +1446,7 @@ if (isset($_GET['id'])) {
 
                 <div class="box2">
                     <form action="" method="post">
-                        <textarea name="message" class="form-control" id="" cols="30" rows="10"></textarea>
+                        <textarea name="message" class="form-control" id=""></textarea>
                         <button type="submit">Envoyer</button>
                     </form>
                 </div>
@@ -1492,84 +1528,8 @@ if (isset($_GET['id'])) {
     <script src="/js/owl.animate.js"></script>
     <script src="/js/owl.autoplay.js"></script>
 
-    <script>
-        // You can also pass an optional settings object
-        // below listed default settings
-        AOS.init({
-            // Global settings:
-            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-            initClassName: 'aos-init', // class applied after initialization
-            animatedClassName: 'aos-animate', // class applied on animation
-            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-
-            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-            offset: 120, // offset (in px) from the original trigger point
-            delay: 0, // values from 0 to 3000, with step 50ms
-            duration: 400, // values from 0 to 3000, with step 50ms
-            easing: 'ease', // default easing for AOS animations
-            once: false, // whether animation should happen only once - while scrolling down
-            mirror: false, // whether elements should animate out while scrolling past them
-            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-        });
-    </script>
 
     <script>
-        $(document).ready(function () {
-            $('#summernote').summernote({
-                placeholder: 'ajoute une description!!',
-                tabsize: 6,
-                height: 120,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-            });
-        });
-
-        $(document).ready(function () {
-            $('#description').summernote({
-                placeholder: 'ajoute une description!!',
-                tabsize: 6,
-                height: 120,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-            });
-        });
-
-        $(document).ready(function () {
-            $('#projetdescription').summernote({
-                placeholder: 'ajoute une description!!',
-                tabsize: 6,
-                height: 120,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-            });
-        });
 
 
 
@@ -1582,17 +1542,38 @@ if (isset($_GET['id'])) {
 
                 // Initialiser Owl carousel3 si il y a plus de 4 éléments
                 carousel3.owlCarousel({
-                    items: 4, // Limitez le nombre d'éléments à afficher à 5
+                    items: 3, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 6000,
+                    autoplayTimeout: 5000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     stagePadding: 30,
-                    smartSpeed: 450,
+                    smartSpeed: 650,
                     margin: 20,
                     nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
+                    responsive: {
+                        0: {
+                            items: 1,
+                            margin: 0,
+                        },
+                        550: {
+                            items: 1,
+                        },
+                        690: {
+                            items: 2,
+
+                        },
+                        890: {
+                            items: 3
+                        },
+                        1200: {
+                            items: 3
+                        },
+                        1400: {
+                            items: 3
+                        }
+                    }
                 });
 
                 var carousel3 = $('.carousel3').owlCarousel();

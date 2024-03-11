@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/../model/description_users.php');
+require_once(__DIR__ . '/../model/description_users.php');
 
 
 // Vérification si le bouton valider est cliqué
@@ -15,7 +15,7 @@ if (isset($_POST['ajouter'])) {
     if (empty($_POST['description'])) {
         $erreurs = "Veiller saisir votre description";
     } else {
-        $description = $_POST['description']; // Échapper les caractères spéciaux
+        $description = htmlspecialchars(nl2br($_POST['description'])); // Échapper les caractères spéciaux
     }
 
 
@@ -44,9 +44,9 @@ if (isset($_POST['Modifier'])) {
     // Vérification du nom
     if (empty($_POST['nouvelleDescription'])) {
         $_SESSION['error_message'] = " Veuillez saisir votre description";
-         // Correction ici
+        // Correction ici
     } else {
-        $nouvelleDescription = $_POST['nouvelleDescription']; // Correction ici, en enlevant l'espace après 'nouvelleDescription'
+        $nouvelleDescription = htmlspecialchars(nl2br($_POST['nouvelleDescription'])); // Correction ici, en enlevant l'espace après 'nouvelleDescription'
     }
 
     // Si aucune erreur n'est détectée, procédez à l'insertion
@@ -63,10 +63,10 @@ if (isset($_POST['Modifier'])) {
 }
 
 if (isset($_GET['id'])) {
-$descriptions = afficheDescription($db, $_GET['id'] );
-    
-}else{
-    $descriptions = afficheDescription($db, $_SESSION['users_id'] );
+    $descriptions = afficheDescription($db, $_GET['id']);
+
+} else {
+    $descriptions = afficheDescription($db, $_SESSION['users_id']);
 }
 
 ?>
