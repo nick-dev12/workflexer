@@ -26,6 +26,19 @@ if (isset($_SESSION['users_id'])) {
         $stmt->bindParam(':entreprise_id', $entreprise_id);
         $stmt->execute();
         $entreprise = $stmt->fetch(PDO::FETCH_ASSOC);
+    } else {
+        if (isset($_SESSION['admin'])) {
+            // L'utilisateur est connecté, récupérez son ID
+            $admin = $_SESSION['admin'];
+
+            // Maintenant, vous pouvez utiliser $admin pour récupérer les informations de l'utilisateur depuis la base de données
+            // Écrivez votre requête SQL pour récupérer les informations nécessaires
+            $conn = "SELECT * FROM admin WHERE id = :admin";
+            $stmt = $db->prepare($conn);
+            $stmt->bindParam(':admin', $admin);
+            $stmt->execute();
+            $admins = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
     }
 }
 
@@ -36,28 +49,28 @@ if (isset($_SESSION['users_id'])) {
 
 <nav>
     <a class="logo" href="../index.php"> <img src="/image/logo.png " alt="logo"></a>
-   <div class="container" >
-    <img class="menu" src="/image/menu.png" alt="">
-   <div class="box1">
-        <img class="cacheMenu" src="/image/croix.png" alt="">
-        <a href="../index.php">Accueil</a>
-        <a href="../page/voir_profil.php">Orientation</a>
-        <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
-        <a href="#">Entreprise</a>
-        <a href="../page/voir_profil.php">Explorer les profils</a>
-    </div>
-<script>
-    let menu = document.querySelector(".menu");
-    let box1 = document.querySelector(".box1");
-    let cacheMenu = document.querySelector(".cacheMenu");
-    menu.addEventListener("click", function () {
-        box1.style.left = "50%";
-    })
-    cacheMenu.addEventListener("click", function () {
-        box1.style.left = "-200%";
-    })
-</script>
-    <!-- <div id="box2">
+    <div class="container">
+        <img class="menu" src="/image/menu.png" alt="">
+        <div class="box1">
+            <img class="cacheMenu" src="/image/croix.png" alt="">
+            <a href="../index.php">Accueil</a>
+            <a href="../page/voir_profil.php">Orientation</a>
+            <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
+            <a href="#">Entreprise</a>
+            <a href="../page/voir_profil.php">Explorer les profils</a>
+        </div>
+        <script>
+            let menu = document.querySelector(".menu");
+            let box1 = document.querySelector(".box1");
+            let cacheMenu = document.querySelector(".cacheMenu");
+            menu.addEventListener("click", function () {
+                box1.style.left = "50%";
+            })
+            cacheMenu.addEventListener("click", function () {
+                box1.style.left = "-200%";
+            })
+        </script>
+        <!-- <div id="box2">
         <form action="post">
             <input type="search" name="search" id="search">
             <div class="bo-">
@@ -66,7 +79,7 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </form>
     </div> -->
-   </div>
+    </div>
 
     <?php if (isset($_SESSION['users_id'])): ?>
 
@@ -93,14 +106,25 @@ if (isset($_SESSION['users_id'])) {
                 <a class="liens" href="../conn/dconn_entreprise.php">Déconnexion</a>
             </div>
         <?php else: ?>
+            <?php if (isset($_SESSION['admin'])): ?>
+                <div class="box4">
+                    <div class="infos_users">
+                        <p class="affiche">
+                            Profil
+                        </p>
+                        <img class="affiche" src="/upload/<?= $admins['image']; ?>" alt="">
+                    </div>
+                    <a class="liens" href="../conn/dconn_admin.php">Déconnexion</a>
+                </div>
+            <?php else: ?>
 
-            <div class="box3">
-                <a href="/inscription.php">Inscription</a>
-                <a href="/connection_compte.php">Connexion</a>
-            </div>
+                <div class="box3">
+                    <a href="/inscription.php">Inscription</a>
+                    <a href="/connection_compte.php">Connexion</a>
+                </div>
 
+            <?php endif ?>
         <?php endif ?>
-
 
     <?php endif ?>
 
@@ -182,6 +206,37 @@ if (isset($_SESSION['users_id'])) {
                 </table>
 
                 <a href="../entreprise/entreprise_profil.php">Voir mon profil</a>
+
+            <? else: ?>
+                <?php if (isset($_SESSION['admin'])): ?>
+
+                    <img class="del" src="/image/croix.png" alt="">
+                    <img class="affiche" src="/upload/<?= $entreprise['images'] ?>" alt="">
+
+                    <table>
+                        <tr>
+                            <th>Nom</th>
+                            <td>
+                                <?php echo $admins['nom']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>E-mail</th>
+                            <td>
+                                <?php echo $admins['mail']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Téléphone</th>
+                            <td>
+                                <?php echo $admins['phone']; ?>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <a href="/admin/t_admin.php">Voir mon profil</a>
+                <?php endif; ?>
             <?php endif; ?>
         <?php endif; ?>
     </div>
@@ -193,11 +248,11 @@ if (isset($_SESSION['users_id'])) {
         let del = document.querySelector('.del');
 
         affiche.addEventListener('click', () => {
-                boxInfo.style.right = '5%';
+            boxInfo.style.right = '5%';
         });
 
         del.addEventListener('click', () => {
-                boxInfo.style.right = '-200%';
+            boxInfo.style.right = '-200%';
         });
 
 
@@ -205,15 +260,15 @@ if (isset($_SESSION['users_id'])) {
 </nav>
 
 <section class="section1">
-    <div class="div" >
+    <div class="div">
         <span>1</span>
         <p>Trouver rapidement les meilleurs talents qui correspondent à vos besoins</p>
     </div>
-    <div class="div" >
+    <div class="div">
         <span>2</span>
         <p>Un processus de recrutement freelance facile et sans prise de tête</p>
     </div>
-    <div class="div" >
+    <div class="div">
         <span>3</span>
         <p>Des profils hautement qualifiés et adaptables à vos projets</p>
     </div>

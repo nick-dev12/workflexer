@@ -108,56 +108,45 @@ include_once('app/controller/controllerOffre_emploi.php');
             </div>
         </div>
 
-
-
         <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="success">
-                <?php echo $_SESSION['success_message']; ?>
-                <?php unset($_SESSION['success_message']); ?>
+            <div class="message">
+                <p>
+                    <span></span>
+                    <?php echo $_SESSION['success_message']; ?>
+                    <?php unset($_SESSION['success_message']); ?>
+                </p>
             </div>
         <?php else: ?>
             <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="erreur">
+                <div class="erreurs" id="messageErreur">
+                    <span></span>
                     <?php echo $_SESSION['error_message']; ?>
                     <?php unset($_SESSION['error_message']); ?>
                 </div>
-            <?php else: ?>
-
-                <?php if (isset($_SESSION['delete_message'])): ?>
-                    <div class="delete">
-                        <?php echo $_SESSION['delete_message']; ?>
-                        <?php unset($_SESSION['delete_message']); ?>
-                    </div>
-
-                <?php endif; ?>
             <?php endif; ?>
-
         <?php endif; ?>
 
         <script>
-            let success = document.querySelector('.success')
+            let success = document.querySelector('.message')
             setTimeout(() => {
-                success.classList.add('visible')
-            }, 200)
+                success.classList.add('visible');
+            }, 200);
             setTimeout(() => {
-                success.classList.remove('visible')
-            }, 8000)
+                success.classList.remove('visible');
+            }, 6000);
 
-            let erreur = document.querySelector('.erreur')
-            setTimeout(() => {
-                erreur.classList.add('visible')
-            }, 200)
-            setTimeout(() => {
-                erreur.classList.remove('visible')
-            }, 8000)
+            // Sélectionnez l'élément contenant le message d'erreur
+            var messageErreur = document.getElementById('messageErreur');
 
-            let delet = document.querySelector('.delete')
-            setTimeout(() => {
-                delet.classList.add('visiblee')
-            }, 200)
-            setTimeout(() => {
-                delet.classList.remove('visiblee')
-            }, 8000)
+            // Fonction pour afficher le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.add('visible');
+            }, 200); // 1000 millisecondes équivalent à 1 seconde
+
+            // Fonction pour masquer le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.remove('visible');
+            }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
         <div class="container_box3">
             <div class="box1">
@@ -177,8 +166,8 @@ include_once('app/controller/controllerOffre_emploi.php');
                     <form method="post" action="">
                         <div>
                             <textarea name="descriptions" id="summernote" cols="30" rows="10">
-                                        <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
-                                    </textarea>
+                                                                                                                                    <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
+                                                                                                                                </textarea>
                         </div>
                         <div class="div">
                             <label for="site">Avez vous un site web ?(facultatif*)</label>
@@ -284,17 +273,17 @@ include_once('app/controller/controllerOffre_emploi.php');
                         <select name="experience" id="experience">
                             <option value="">-- Niveau d'expérience requis --</option>
                             <option value="1an">1an</option>
-                        <option value="2ans">2ans</option>
-                        <option value="3ans">3ans</option>
-                        <option value="4ans">4ans</option>
-                        <option value="5ans">5ans</option>
-                        <option value="6ans">6ans</option>
-                        <option value="7ans">7ans</option>
-                        <option value="8ans">8ans</option>
-                        <option value="9ans">9ans</option>
-                        <option value="10ans">10ans</option>
-                        <option value="Aucun">Aucun</option>
-                        
+                            <option value="2ans">2ans</option>
+                            <option value="3ans">3ans</option>
+                            <option value="4ans">4ans</option>
+                            <option value="5ans">5ans</option>
+                            <option value="6ans">6ans</option>
+                            <option value="7ans">7ans</option>
+                            <option value="8ans">8ans</option>
+                            <option value="9ans">9ans</option>
+                            <option value="10ans">10ans</option>
+                            <option value="Aucun">Aucun</option>
+
                         </select>
                     </div>
 
@@ -413,14 +402,36 @@ include_once('app/controller/controllerOffre_emploi.php');
 
 
         <div class="container_box6">
+            <style>
+                .container_box6 a {
+                    display: flex;
+                    align-items: center;
+                    color: gray;
+                }
+
+                .container_box6 a img {
+                    margin-right: 5px;
+                }
+
+                .container_box6 p {
+                    font-size: 20px;
+                    text-align: center;
+                }
+            </style>
             <div class="box1">
                 <h1>Assistance</h1>
+                <a href="tel:+221785303879"><img src="../image/whatsapp.png" alt=""> Phone : <strong>+221 78 530 38
+                        79</strong></a>
+                <a href="mailto:youremail@example.com"><img src="../image/icons8-gmail-48.png" alt=""> Mail
+                    :<strong>workflexer.service@gmail.com</strong></a>
+                <br>
+                <p>Ou écrivez nous ici !</p>
             </div>
 
             <div class="box2">
                 <form action="" method="post">
                     <textarea name="message" id="message" cols="30" rows="10"></textarea>
-                    <button type="submit">Envoyer</button>
+                    <button name="send" type="submit">Envoyer</button>
                 </form>
             </div>
         </div>

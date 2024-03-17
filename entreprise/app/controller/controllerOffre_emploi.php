@@ -1,24 +1,24 @@
 <?php
-include( __DIR__. '../../../../model/vue_offre.php');
+include(__DIR__ . '../../../../model/vue_offre.php');
 require_once(__DIR__ . '/../model/offre_emploi.php');
 include('controllerEntreprise.php');
 if (isset($_SESSION['compte_entreprise'])) {
-   include('../controller/controller_users.php');
+    include('../controller/controller_users.php');
 }
 
 
 if (isset($_SESSION['users_id'])) {
-    include( __DIR__. '../../../../controller/controller_niveau_etude_experience.php');
-    include( __DIR__. '../../../../controller/controller_description_users.php');
+    include(__DIR__ . '../../../../controller/controller_niveau_etude_experience.php');
+    include(__DIR__ . '../../../../controller/controller_description_users.php');
     if (isset($_GET['entreprise_id']) && isset($_GET['offres_id'])) {
-   include('../controller/controller_users.php');
-}
+        include('../controller/controller_users.php');
+    }
 }
 
 if (isset($_SESSION['users_id'])) {
     if (isset($_GET['entreprise_id']) && isset($_GET['users_id'])) {
-   include('../controller/controller_users.php');
-}
+        include('../controller/controller_users.php');
+    }
 }
 
 
@@ -29,29 +29,29 @@ if (isset($_get['offres_id'])) {
 
 
 if (isset($_POST['modifier'])) {
-      
+
     $poste = $_POST['poste'];
-    
-    $mission = $_POST['mission'] ;
 
-    $profil = $_POST['profil'] ;
+    $mission = $_POST['mission'];
 
-
-    $contrat = htmlspecialchars($_POST['contrat']) ;
+    $profil = $_POST['profil'];
 
 
-    $etudes = htmlspecialchars($_POST['etude']) ;
+    $contrat = htmlspecialchars($_POST['contrat']);
 
 
-    $experience = htmlspecialchars($_POST['experience']) ;
+    $etudes = htmlspecialchars($_POST['etude']);
 
 
-    $localite = htmlspecialchars($_POST['localite']) ;
+    $experience = htmlspecialchars($_POST['experience']);
 
 
-    $langues = htmlspecialchars($_POST['langues']) ;
+    $localite = htmlspecialchars($_POST['localite']);
 
-    $categorie = htmlspecialchars($_POST['categorie']) ;
+
+    $langues = htmlspecialchars($_POST['langues']);
+
+    $categorie = htmlspecialchars($_POST['categorie']);
 
     if (updatOffre($db, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $offre_id)) {
         $_SESSION['success_message'] = 'modification réussit !!!';
@@ -91,12 +91,12 @@ shuffle($offreIngenierie);
 if (isset($_GET['entreprise_id'])) {
 
     $afficheOffres = getOffresEmploit($db, $_GET['entreprise_id']);
-   
+
 }
 
 
 
-if (isset($_GET['offres_id']) AND isset($_GET['entreprise_id'])) {
+if (isset($_GET['offres_id']) and isset($_GET['entreprise_id'])) {
 
     $afficheOffres = getOffresEmploit($db, $_GET['offres_id']);
 
@@ -104,26 +104,26 @@ if (isset($_GET['offres_id']) AND isset($_GET['entreprise_id'])) {
 
     if (isset($_SESSION['users_id'])) {
 
-        $getVueOffre= getVueOffre($db,$_SESSION['users_id'],$_GET['offres_id']);
-        if($getVueOffre){
-  
-        }else{
-           $users_id = $_SESSION['users_id'];
+        $getVueOffre = getVueOffre($db, $_SESSION['users_id'], $_GET['offres_id']);
+        if ($getVueOffre) {
 
-        $getInfo = getInfoUsers($db, $_SESSION['users_id']);
+        } else {
+            $users_id = $_SESSION['users_id'];
 
-        $entreprise_id = $_GET['entreprise_id'];
-        $nom = $getInfo['nom'];
-        $mail = $getInfo['mail'];
-        $offre_id = $_GET['offres_id'];
+            $getInfo = getInfoUsers($db, $_SESSION['users_id']);
 
-        if (postVue ($db,$offre_id,$users_id, $entreprise_id,$nom,$mail)) {
-           
-        }
-       
-        if(PostHistoriqueUsers($db,$entreprise_id,$users_id,$offre_id)){
+            $entreprise_id = $_GET['entreprise_id'];
+            $nom = $getInfo['nom'];
+            $mail = $getInfo['mail'];
+            $offre_id = $_GET['offres_id'];
 
-        }
+            if (postVue($db, $offre_id, $users_id, $entreprise_id, $nom, $mail)) {
+
+            }
+
+            if (PostHistoriqueUsers($db, $entreprise_id, $users_id, $offre_id)) {
+
+            }
         }
 
     }
@@ -132,33 +132,34 @@ if (isset($_GET['offres_id']) AND isset($_GET['entreprise_id'])) {
 }
 
 if (isset($_SESSION['compte_entreprise'])) {
-   if(isset($_GET['offre_id'])){
+    if (isset($_GET['offre_id'])) {
 
-    $offre_id= $_GET['offre_id'];
-    if(deleteOffresEmploit($db,$offre_id)){
-        if (deletePostulation($db,$offre_id)) {
-            $sql = "DELETE FROM historique_users WHERE offre_id= :offre_id";
-            $stmt = $db->prepare($sql);
-            $stmt->bindValue(":offre_id", $offre_id, PDO::PARAM_STR);
-            $stmt->execute();
-            
-             $_SESSION['success_message']='Offre suprimer';
-        header('Location: ../entreprise/entreprise_profil.php');
-        exit();
+        $offre_id = $_GET['offre_id'];
+        if (deleteOffresEmploit($db, $offre_id)) {
+            if (deletePostulation($db, $offre_id)) {
+                $sql = "DELETE FROM historique_users WHERE offre_id= :offre_id";
+                $stmt = $db->prepare($sql);
+                $stmt->bindValue(":offre_id", $offre_id, PDO::PARAM_STR);
+                $stmt->execute();
+                $_SESSION['success_message'] = 'Offre suprimer';
+                header('Location: ../entreprise/entreprise_profil.php');
+                exit();
+            }
+
         }
-       
-    }
 
-}
+    }
 }
 
 
 $afficheAllOffre = getAllOffres($db);
 shuffle($afficheAllOffre);
 
-if(isset($_SESSION['users_id'])) {
-    $historique_users = getHistoriqueUsers($db,$_SESSION['users_id']);
+if (isset($_SESSION['users_id'])) {
+    $historique_users = getHistoriqueUsers($db, $_SESSION['users_id']);
 
 }
- 
+
+$getAlloffres_emploi = getAllOffres($db);
+
 ?>

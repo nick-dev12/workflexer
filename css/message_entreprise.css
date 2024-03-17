@@ -78,7 +78,7 @@ body {
     display: block;
   }
 }
-.section3 .message {
+.section3 .messages {
   margin-top: 20px;
   height: 70vh;
   width: 500px;
@@ -92,7 +92,7 @@ body {
   position: relative;
   padding: 20px 30px;
 }
-.section3 .message .container_aff {
+.section3 .messages .container_aff {
   margin-top: 20px;
   height: 85%;
   width: 100%;
@@ -100,7 +100,7 @@ body {
   padding-bottom: 50px;
   scroll-margin-bottom: 20px;
 }
-.section3 .message .box2 {
+.section3 .messages .box2 {
   margin-bottom: 10px;
   width: 100%;
   display: flex;
@@ -108,13 +108,13 @@ body {
   margin-top: 20px;
   position: sticky;
 }
-.section3 .message .box2 img {
+.section3 .messages .box2 img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   margin-right: 20px;
 }
-.section3 .message .box2 .aff {
+.section3 .messages .box2 .aff {
   position: relative;
   background: #d0d0d0;
   padding: 5px 10px;
@@ -126,13 +126,13 @@ body {
   border-bottom-left-radius: 2px;
   position: sticky;
 }
-.section3 .message .box2 .aff .span {
+.section3 .messages .box2 .aff .span {
   color: #0066ff;
   font-size: 13px;
 }
 
-.section3 .message .box2 .aff:after,
-.section3 .message .box2 .aff:before {
+.section3 .messages .box2 .aff:after,
+.section3 .messages .box2 .aff:before {
   right: 100%;
   top: 50%;
   border: solid transparent;
@@ -142,23 +142,23 @@ body {
   position: absolute;
   pointer-events: none;
 }
-.section3 .message .box2 .aff:after {
+.section3 .messages .box2 .aff:after {
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #d0d0d0;
   border-width: 22px;
   margin-top: -22px;
 }
-.section3 .message .box2 .aff:before {
+.section3 .messages .box2 .aff:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #d0d0d0;
   border-width: 26px;
   margin-top: -26px;
 }
-.section3 .message .box2 p {
+.section3 .messages .box2 p {
   color: #000000;
 }
 
-.section3 .message .box4 {
+.section3 .messages .box4 {
   margin-bottom: 5px;
   width: 100%;
   display: flex;
@@ -166,13 +166,13 @@ body {
   margin-top: 20px;
 }
 
-.section3 .message .box4 img {
+.section3 .messages .box4 img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   margin-left: 10px;
 }
-.section3 .message .box4 .affi {
+.section3 .messages .box4 .affi {
   position: relative;
   background-color: #0066ff56;
   padding: 5px 10px;
@@ -183,7 +183,7 @@ body {
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
 }
-.section3 .message .box4 .affi img {
+.section3 .messages .box4 .affi img {
   height: 13px;
   width: 13px;
   border: none;
@@ -192,12 +192,12 @@ body {
   right: 6px;
   cursor: pointer;
 }
-.section3 .message .box4 .affi .span {
+.section3 .messages .box4 .affi .span {
   color: #0066ff;
   font-size: 13px;
 }
-.section3 .message .box4 .affi:after,
-.section3 .message .box4 .affi:before {
+.section3 .messages .box4 .affi:after,
+.section3 .messages .box4 .affi:before {
   left: 100%;
   top: 50%;
   border: solid transparent;
@@ -207,12 +207,12 @@ body {
   position: absolute;
   pointer-events: none;
 }
-.section3 .message .box4 .affi:after {
+.section3 .messages .box4 .affi:after {
   border-left-color: #0066ff56;
   border-width: 22px;
   margin-top: -22px;
 }
-.section3 .message .box4 .affi:before {
+.section3 .messages .box4 .affi:before {
   border-left-color: #0066ff56;
   border-width: 26px;
   margin-top: -26px;
@@ -243,7 +243,7 @@ body {
   outline: none;
   font-size: 16px;
 }
-.section3 .message .box3 button img {
+.section3 .messages .box3 button img {
   height: 40px;
   border: none;
 }
@@ -254,6 +254,7 @@ body {
   align-items: center;
   justify-content: center;
   outline: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1050px) {

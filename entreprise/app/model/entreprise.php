@@ -17,6 +17,14 @@ function getEntreprise($db, $id)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function geAlltEntreprise($db)
+{
+    $sql = " SELECT * FROM compte_entreprise";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchALL(PDO::FETCH_ASSOC);
+}
+
 
 /**
  * Summary of postOffres
@@ -184,7 +192,8 @@ function update0($db, $images, $entreprise_id)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function getHistorique ($db,$entreprise_id){
+function getHistorique($db, $entreprise_id)
+{
     $sql = "SELECT * FROM historique WHERE entreprise_id = :entreprise_id";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':entreprise_id', $entreprise_id, PDO::PARAM_STR);

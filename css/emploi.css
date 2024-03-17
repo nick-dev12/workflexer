@@ -27,7 +27,7 @@ body {
   border: 2px solid #4f4f4f73;
   border-radius: 7px;
   overflow: hidden;
-  box-shadow: 7px 7px 10px 1px #34343469;
+  box-shadow: 15px 15px 5px 0px #1c1c1c69;
   margin: 30px;
 }
 .emploi .box img {
@@ -53,7 +53,7 @@ body {
 .emploi .box p {
   width: 100%;
   margin: 10px 0;
-  font-size: 14px;
+  font-size: 13px;
   padding: 0 15px;
   line-height: 22px;
 }
@@ -66,10 +66,25 @@ body {
   font-size: 16px;
   padding: 10px 15px;
   border-radius: 7px;
-  background-color: #4f4f4f;
+  background-color: #4d89ba;
   color: white;
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translate(-50%);
+}
+@media screen and (max-width: 600px) {
+  .emploi {
+    padding: 20px 5px;
+  }
+  .emploi .box {
+    height: 500px;
+    margin: 30px 10px;
+  }
+  .emploi .box p {
+    font-size: 12px;
+  }
+  .emploi .box a {
+    width: 70%;
+  }
 }

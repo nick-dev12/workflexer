@@ -496,4 +496,53 @@ if (isset($_POST['valide0'])) {
 if (isset($_SESSION['compte_entreprise'])) {
     $historiques = getHistorique($db, $_SESSION['compte_entreprise']);
 }
+
+
+if (isset($_POST['send'])) {
+    if (isset($_SESSION['users_id'])) {
+        $utilisateur = $_SESSION['users_id'];
+        $compte = 'compte professionnel';
+        $mail = $users['mail'];
+        $nom = $users['nom'];
+    } else {
+        if (isset($_SESSION['compte_entreprise'])) {
+            $utilisateur = $_SESSION['compte_entreprise'];
+            $compte = 'compte entreprise';
+            $mail = $getEntreprise['mail'];
+            $nom = $getEntreprise['nom'];
+        }
+    }
+    if (empty($_POST['message'])) {
+        $_SESSION['error_message'] = 'Ce champ de doit pas etre vide';
+    } else {
+        $message = htmlspecialchars($_POST['message']);
+    }
+
+    if (empty($_SESSION['error_message'])) {
+        $sql = "INSERT INTO admin_message (utilisateur_id, compte,message,mail,nom) VALUES (:utilisateur_id, :compte,:message,:mail,:nom)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(":utilisateur_id", $utilisateur);
+        $stmt->bindValue(":compte", $compte);
+        $stmt->bindValue(":message", $message);
+        $stmt->bindValue(":mail", $mail);
+        $stmt->bindValue(":nom", $nom);
+        $stmt->execute();
+
+        $_SESSION['success_message'] = 'Message envoyer';
+
+        if (isset($_SESSION['compte_entreprise'])) {
+            header('Location: entreprise_profil.php');
+        } else {
+            if (isset($_SESSION['users_id'])) {
+                header('Location: user_profil.php');
+            }
+        }
+        exit;
+
+    }
+
+}
+$getAllentreprise = geAlltEntreprise($db);
+
+
 ?>
