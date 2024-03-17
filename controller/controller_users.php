@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ .'/../model/users.php');
+require_once(__DIR__ . '/../model/users.php');
 
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['users_id'])) {
@@ -23,25 +23,26 @@ if (isset($_SESSION['users_id'])) {
 }
 
 if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
-   if ($totalUsers = getTotalUsers($db)) {
+    if ($totalUsers = getTotalUsers($db)) {
 
-} 
+    }
 
 }
+
 $totalUsers = getTotalUsers($db);
 
 
 
 
 if (isset($_SESSION['users_id'])) {
-    $users = infoUsers($db,$_SESSION['users_id'] );
-    $getVueProfil = GetVueProfil($db,$_SESSION['users_id']);
-    $userss = infoUsers($db,$_SESSION['users_id'] );
+    $users = infoUsers($db, $_SESSION['users_id']);
+    $getVueProfil = GetVueProfil($db, $_SESSION['users_id']);
+    $userss = infoUsers($db, $_SESSION['users_id']);
 }
 
 if (isset($_GET['id'])) {
-    
-    $userss = infoUsers($db,$_GET['id'] ); 
+
+    $userss = infoUsers($db, $_GET['id']);
 
     if (isset($_SESSION['users_id'])) {
         // Préparer la requête SQL pour vérifier si l'e-mail est déjà utilisé
@@ -49,37 +50,37 @@ if (isset($_GET['id'])) {
         $query->bindParam(':id_users', $_SESSION['users_id']);
         $query->bindParam(':profil_id', $_GET['id']);
         $query->execute();
-        if ($query->rowCount()>0) {
-            
-        }else{
-            if (PostVueProfil($db,$_SESSION['users_id'],$_GET['id'])) {
-              
+        if ($query->rowCount() > 0) {
+
+        } else {
+            if (PostVueProfil($db, $_SESSION['users_id'], $_GET['id'])) {
+
             }
         }
     }
 
     if (isset($_SESSION['compte_entreprise'])) {
-        
 
-    // Préparer la requête SQL pour vérifier si l'e-mail est déjà utilisé
-    $query = $db->prepare("SELECT * FROM vue_profil WHERE id_users = :id_users AND profil_id=:profil_id");
-    $query->bindParam(':id_users', $_SESSION['compte_entreprise']);
-    $query->bindParam(':profil_id', $_GET['id']);
-    $query->execute();
-    if ($query->rowCount()>0) {
-        
-    }else{
 
-        if (PostVueProfil($db,$_SESSION['compte_entreprise'],$_GET['id'])) {
-           
-        }
-        
-        if( PostHistorique($db,$_SESSION['compte_entreprise'],$_GET['id'])){
+        // Préparer la requête SQL pour vérifier si l'e-mail est déjà utilisé
+        $query = $db->prepare("SELECT * FROM vue_profil WHERE id_users = :id_users AND profil_id=:profil_id");
+        $query->bindParam(':id_users', $_SESSION['compte_entreprise']);
+        $query->bindParam(':profil_id', $_GET['id']);
+        $query->execute();
+        if ($query->rowCount() > 0) {
 
+        } else {
+
+            if (PostVueProfil($db, $_SESSION['compte_entreprise'], $_GET['id'])) {
+
+            }
+
+            if (PostHistorique($db, $_SESSION['compte_entreprise'], $_GET['id'])) {
+
+            }
         }
     }
-    }
-   
+
 }
 
 // if (isset($totalUsers)){
@@ -97,7 +98,7 @@ shuffle($UsersDesign);
 $UsersRédaction = getUsersRédaction($db);
 shuffle($UsersRédaction);
 // affiches les utilisateur qui sont dans la categorie marketing
-$Usersmarketing = getUsersmarketing($db); 
+$Usersmarketing = getUsersmarketing($db);
 shuffle($Usersmarketing);
 // affiches les utilisateur qui sont dans la categorie business
 $Usersbusiness = getUsersbusiness($db);
@@ -113,19 +114,19 @@ $getUssersCategorie = getUsers($db);
 
 
 
-if(isset($_GET['disponible'])){
+if (isset($_GET['disponible'])) {
     $statut = 'Disponible';
     $id = $_SESSION['users_id'];
-    if(Disponible($db,$statut,$id)){
+    if (Disponible($db, $statut, $id)) {
         header("Location: user_profil.php");
         exit();
     }
 }
 
-if(isset($_GET['occuper'])){
+if (isset($_GET['occuper'])) {
     $statut = 'Occuper';
     $id = $_SESSION['users_id'];
-    if(Occuper($db,$statut,$id)){
+    if (Occuper($db, $statut, $id)) {
         header("Location: user_profil.php");
         exit();
     }
@@ -165,7 +166,7 @@ if (isset($_POST['valide3'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update33($db, $mail, $users_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -183,7 +184,7 @@ if (isset($_POST['valide4'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update44($db, $phone, $users_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -201,7 +202,7 @@ if (isset($_POST['valide5'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update55($db, $competence, $users_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -219,7 +220,7 @@ if (isset($_POST['valide6'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update66($db, $ville, $users_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -237,7 +238,7 @@ if (isset($_POST['valide7'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update77($db, $profession, $users_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -255,7 +256,7 @@ if (isset($_POST['valide8'])) {
     }
     if (empty($_SESSION['error_message'])) {
         if (update88($db, $categorie, $users_id)) {
-            
+
         }
         $_SESSION['success_message'] = 'Modifier avec succès';
         header('Location: modifier.php');
@@ -263,45 +264,83 @@ if (isset($_POST['valide8'])) {
     }
 }
 
-if(isset($_POST['valide0'])){
+if (isset($_POST['valide0'])) {
 
     $users_id = $_SESSION['users_id'];
 
     $images = '';
 
     // Vérification de la ville
- if (empty($_FILES['images'])) {
-    $_SESSION['error_message'] = 'erreur choisissez une autre image .';
-} else {
-    // Récupérer les données du formulaire
-    $images = $_FILES['images'];
-    // Vérifier qu'un fichier est uploadé
-    if (empty( $_SESSION['error_message'])) {
+    if (empty($_FILES['images'])) {
+        $_SESSION['error_message'] = 'erreur choisissez une autre image .';
+    } else {
+        // Récupérer les données du formulaire
+        $images = $_FILES['images'];
+        // Vérifier qu'un fichier est uploadé
+        if (empty($_SESSION['error_message'])) {
 
-        // Récupérer le nom et le chemin temporaire
-        $fileName = $images['name'];
-        $tmpName = $images['tmp_name'];
+            // Récupérer le nom et le chemin temporaire
+            $fileName = $images['name'];
+            $tmpName = $images['tmp_name'];
 
-        // Ajouter l'identifiant unique au nom du fichier
-        $uniqueFileName = $id . '_' . $fileName;
+            // Ajouter l'identifiant unique au nom du fichier
+            $uniqueFileName = $id . '_' . $fileName;
 
-        // Déplacer le fichier dans le répertoire audio
-        $targetFile = '../upload/' . $uniqueFileName;
-        move_uploaded_file($tmpName, $targetFile);
+            // Déplacer le fichier dans le répertoire audio
+            $targetFile = '../upload/' . $uniqueFileName;
+            move_uploaded_file($tmpName, $targetFile);
 
 
-        if (update00 ($db,$uniqueFileName, $users_id)) {
+            if (update00($db, $uniqueFileName, $users_id)) {
+            }
+
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
         }
-    
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
+
+
+
+    }
+}
+
+
+if (isset($_POST['send'])) {
+    if (isset($_SESSION['users_id'])) {
+        $utilisateur = $_SESSION['users_id'];
+        $compte = 'compte professionnel';
+        $mail = $users['mail'];
+        $nom = $users['nom'];
+    } else {
+        if (isset($_SESSION['compte_entreprise'])) {
+            $utilisateur = $_SESSION['compte_entreprise'];
+            $compte = 'compte entreprise';
+            $mail = $getEntreprise['mail'];
+            $nom = $getEntreprise['nom'];
+        }
+    }
+    if (empty($_POST['message'])) {
+        $_SESSION['error_message'] = 'Ce champ de doit pas etre vide';
+    } else {
+        $message = htmlspecialchars($_POST['message']);
+    }
+
+    if (empty($_SESSION['error_message'])) {
+        $sql = "INSERT INTO admin_message (utilisateur_id, compte,message,mail,nom) VALUES (:utilisateur_id, :compte,:message,:mail,:nom)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(":utilisateur_id", $utilisateur);
+        $stmt->bindValue(":compte", $compte);
+        $stmt->bindValue(":message", $message);
+        $stmt->bindValue(":mail", $mail);
+        $stmt->bindValue(":nom", $nom);
+        $stmt->execute();
+
+        $_SESSION['success_message'] = 'Message envoyer';
+        header('Location: user_profil.php');
+        exit;
+
     }
 
 
-   
-}
 }
 ?>
-
-

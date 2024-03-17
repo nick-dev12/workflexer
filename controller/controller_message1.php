@@ -42,6 +42,7 @@ if (isset($_GET['entreprise_id'])) {
       if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
         // Assurez-vous de terminer le script après la redirection
       }
+      $_SESSION['success_message'] = 'Message envoyer';
       header("Location: message_entreprise2.php?entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id']);
       exit;
     }
@@ -80,6 +81,7 @@ if (isset($_GET['users_id'])) {
       if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
         // Assurez-vous de terminer le script après la redirection
       }
+      $_SESSION['success_message'] = 'Message envoyer';
       header("Location: get_message_users2.php?entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id']);
       exit;
     }
@@ -123,6 +125,7 @@ if (isset($_GET['offres_id'])) {
       if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
         // Assurez-vous de terminer le script après la redirection
       }
+      $_SESSION['success_message'] = 'Message envoyer';
       header("Location: message_entreprise.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
       exit;
     }
@@ -156,8 +159,8 @@ if (isset($_GET['offres_id'])) {
       );
       $date = $date_formatter->format($date_publication);
       if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
-
       }
+      $_SESSION['success_message'] = 'Message envoyer';
       header("Location: get_message_users.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
       exit();
     }
@@ -175,7 +178,6 @@ if (isset($_GET['id'])) {
     $indicatif = 'recruteur';
 
     if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
-
     }
 
     $titre = htmlspecialchars($_POST['titre']);
@@ -337,20 +339,14 @@ if (isset($_GET['id'])) {
         $mail->addAddress($destinataire);
         $mail->send();
 
-
-        $_SESSION['success_message'] = 'Postulation réussi !!';
-
         header('Location: ../entreprise/message.php');
         exit();
-
       } catch (Exception $e) {
         $_SESSION['error_message'] = 'Une erreur c\'est produit !!';
         header('Location: ../page/user_profil.php');
         exit();
       }
-
     }
-
   }
 }
 
@@ -358,7 +354,7 @@ if (isset($_GET['suprime'])) {
   if (isset($_SESSION['users_id'])) {
     $message_id = $_GET['suprime'];
     if (deletMessage($db, $message_id)) {
-
+      $_SESSION['success_message'] = 'Message siprimer';
       header("Location: ../page/message_users.php");
       exit();
     }
@@ -367,15 +363,12 @@ if (isset($_GET['suprime'])) {
   if (isset($_SESSION['compte_entreprise'])) {
     $message_id = $_GET['suprime'];
     if (deletMessage($db, $message_id)) {
-
+      $_SESSION['success_message'] = 'Message siprimer';
       header("Location: ../entreprise/message.php");
       exit();
     }
   }
-
 }
 
 
-$afficheAutreMessageEntreprise = getAutreMessageEntreprise($db, );
-
-?>
+$afficheAutreMessageEntreprise = getAutreMessageEntreprise($db,);

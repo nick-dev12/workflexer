@@ -5,43 +5,43 @@ include '../conn/conn.php';
 if (isset($_GET['id'])) {
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
-$users_id = $_GET['id'];
+    $users_id = $_GET['id'];
 
-// Vous pouvez maintenant utiliser $commercant_id pour récupérer les informations de l'utilisateur depuis la base de données
+    // Vous pouvez maintenant utiliser $commercant_id pour récupérer les informations de l'utilisateur depuis la base de données
 // Écrivez votre requête SQL pour récupérer les informations nécessaires
-$conn = "SELECT * FROM users WHERE id = :users_id";
-$stmt = $db->prepare($conn);
-$stmt->bindParam(':users_id', $users_id);
-$stmt->execute();
-$users = $stmt->fetch(PDO::FETCH_ASSOC);
+    $conn = "SELECT * FROM users WHERE id = :users_id";
+    $stmt = $db->prepare($conn);
+    $stmt->bindParam(':users_id', $users_id);
+    $stmt->execute();
+    $users = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$erreurs = '';
+    $erreurs = '';
 
-$message = '';
+    $message = '';
 
 
-include_once('../controller/controller_description_users.php');
-include_once('../controller/controller_metier_users.php');
-include_once('../controller/controller_competence_users.php');
-include_once('../controller/controller_formation_users.php');
-include_once('../controller/controller_diplome_users.php');
-include_once('../controller/controller_certificat_users.php');
-include_once('../controller/controller_outil_users.php');
-include_once('../controller/controller_langue_users.php');
-include_once('../controller/controller_projet_users.php');
-}else{
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+} else {
 
     if (isset($_COOKIE['users_id'])) {
         $users_id = $_COOKIE['users_id'];
     } else {
         $users_id = '';
     }
-    
-    
+
+
     // Récupérez l'ID du commerçant à partir de la session
     // Récupérez l'ID de l'utilisateur depuis la variable de session
     $users_id = $_SESSION['users_id'];
-    
+
     // Vous pouvez maintenant utiliser $commercant_id pour récupérer les informations de l'utilisateur depuis la base de données
     // Écrivez votre requête SQL pour récupérer les informations nécessaires
     $conn = "SELECT * FROM users WHERE id = :users_id";
@@ -49,27 +49,27 @@ include_once('../controller/controller_projet_users.php');
     $stmt->bindParam(':users_id', $users_id);
     $stmt->execute();
     $users = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    
+
+
     // $sql = "SELECT metier FROM metier_users WHERE users_id = :users_id";
     // $users_metier = $db->prepare($sql);
     // $users_metier->bindParam(':users_id', $users_id);
     // $users_metier->execute();
-    
-    
+
+
     $erreurs = '';
-    
+
     $message = '';
-    
-    
-    
-    
+
+
+
+
     // Récupérez l'ID du commerçant à partir de la session
     // Récupérez l'ID de l'utilisateur depuis la variable de session
-    
+
     // Récupérer l'id du métier à supprimer (via lien ou formulaire par exemple)
-    
-    
+
+
     include_once('../controller/controller_description_users.php');
     include_once('../controller/controller_metier_users.php');
     include_once('../controller/controller_competence_users.php');
@@ -83,7 +83,7 @@ include_once('../controller/controller_projet_users.php');
     include_once('../entreprise/app/controller/controllerEntreprise.php');
     include_once('../entreprise/app/controller/controllerOffre_emploi.php');
     include_once('../controller/controller_appel_offre.php');
-    include('../controller/controller_message1.php'); 
+    include('../controller/controller_message1.php');
     include_once('../controller/controller_users.php');
 }
 
@@ -101,25 +101,24 @@ include_once('../controller/controller_projet_users.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JBWCPV7');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <!-- End Google Tag Manager -->
 
     <title>Profil</title>
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
-   
+
     <script src="../script/jquery-3.6.0.min.js"></script>
 
     <script src="../script/summernote@0.8.18.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
-
-
-    <script src="../script/bootstrap-datepicker1.9.0.js"></script>
-    <link rel="stylesheet" href="../style/bootstrap-datepicker1.9.0.css">
 
 
     <link rel="stylesheet" href="../css/message.css">
@@ -132,13 +131,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <?php include('../navbare.php') ?>
-    
+
 
 
     <?php include('../include/header_users.php') ?>
@@ -146,7 +145,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section class="section3">
 
-    <img src="../image/fleche.png" alt="" class="img222">
+        <img src="../image/fleche.png" alt="" class="img222">
         <script>
             let img222 = document.querySelector('.img222');
             let section2 = document.querySelector('.section2');
@@ -161,60 +160,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 img222.style.display = 'block';
             });
         </script>
-<div class="container_profil">
+        <div class="container_profil">
 
-<div class="box3">
-        <h2>Candidatures retenues</h2>
-        <?php if( empty($getPostulationUsers)): ?>
-                    <p><strong>Info :</strong> aucune Candidatures trouver !!</p> 
-                    <?php else: ?>
-        <?php foreach ($getPostulationUsers as $postulationUsers): ?>
-            <?php if($postulationUsers['statut']=='accepter'):?>
-                <?php $infoEntreprise = getEntreprise($db,$postulationUsers['entreprise_id']) ?>
-                <?php $afficheOffre =getOffresEmploit($db,$postulationUsers['offre_id']);?>
-                <a href="get_message_users.php?users_id=<?= $postulationUsers['users_id']?>&offres_id=<?= $postulationUsers['offre_id']?>&entreprise_id=<?= $postulationUsers['entreprise_id']?>&statut=<?= $postulationUsers['statut']?>">
-       <div class="info" >
-            <img src="../upload/<?php echo $infoEntreprise['images']?>" alt="">
-            <div class="div" >
-                <h4><?= $infoEntreprise['entreprise']?></h4>
-                <p> <strong>Competences:</strong> <?= $postulationUsers['competences']?></p>
-                <p><span class="span1" ><strong>Offre postuler:</strong> <?=  $afficheOffre['poste']?></span> <span class="span2" ><?= $afficheOffre['contrat']?></span></p>
+            <div class="box3">
+                <h2>Candidatures retenues</h2>
+                <?php if (empty($getPostulationUsers)): ?>
+                    <p><strong>Info :</strong> aucune Candidatures trouver !!</p>
+                <?php else: ?>
+                    <?php foreach ($getPostulationUsers as $postulationUsers): ?>
+                        <?php if ($postulationUsers['statut'] == 'accepter'): ?>
+                            <?php $infoEntreprise = getEntreprise($db, $postulationUsers['entreprise_id']) ?>
+                            <?php $afficheOffre = getOffresEmploit($db, $postulationUsers['offre_id']); ?>
+                            <a
+                                href="get_message_users.php?users_id=<?= $postulationUsers['users_id'] ?>&offres_id=<?= $postulationUsers['offre_id'] ?>&entreprise_id=<?= $postulationUsers['entreprise_id'] ?>&statut=<?= $postulationUsers['statut'] ?>">
+                                <div class="info">
+                                    <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                    <div class="div">
+                                        <h4>
+                                            <?= $infoEntreprise['entreprise'] ?>
+                                        </h4>
+                                        <p> <strong>Competences:</strong>
+                                            <?= $postulationUsers['competences'] ?>
+                                        </p>
+                                        <p><span class="span1"><strong>Offre postuler:</strong>
+                                                <?= $afficheOffre['poste'] ?>
+                                            </span> <span class="span2">
+                                                <?= $afficheOffre['contrat'] ?>
+                                            </span></p>
+                                    </div>
+                                </div>
+                            </a>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+
+            <div class="box2">
+                <h2>Appelles d'offres</h2>
+                <?php if (empty($getAllAppel_offre)): ?>
+                    <p><strong>Info :</strong> aucun Appelle d'offres !!</p>
+                <?php else: ?>
+                    <?php foreach ($getAllAppel_offre as $appel_offre): ?>
+
+
+                        <?php $infoEntreprise = getEntreprise($db, $appel_offre['entreprise_id']) ?>
+                        <a
+                            href="get_message_users2.php?users_id=<?= $appel_offre['users_id'] ?>&entreprise_id=<?= $appel_offre['entreprise_id'] ?>">
+                            <div class="info">
+                                <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                <div class="div">
+                                    <h4>
+                                        <?= $infoEntreprise['nom'] ?>
+                                    </h4>
+                                    <p> <strong>Competences:</strong>
+                                        <?= $infoEntreprise['entreprise'] ?>
+                                    </p>
+                                    <p><span class="span1"><strong>Sujet:</strong> Appelle d'offre </span> </p>
+                                </div>
+                            </div>
+                        </a>
+
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
-       </a>
-        <?php endif;?>
-        <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
 
-    <div class="box2">
-            <h2>Appelles d'offres</h2> 
-            <?php if( empty($getAllAppel_offre)): ?>
-                    <p><strong>Info :</strong> aucun Appelle d'offres !!</p> 
-                    <?php else: ?>
-            <?php foreach($getAllAppel_offre as $appel_offre): ?>
-               
-                   
-                        <?php $infoEntreprise =getEntreprise($db,$appel_offre['entreprise_id']) ?>
-                <a href="get_message_users2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?>">
-            <div class="info">
-            <img src="../upload/<?php echo $infoEntreprise['images']?>" alt="">
-                <div class="div" >
-                <h4><?= $infoEntreprise['nom']?></h4>
-                    <p> <strong>Competences:</strong> <?= $infoEntreprise['entreprise']?></p>
-                    <p><span class="span1" ><strong>Sujet:</strong> Appelle d'offre </span> </p>
-                </div>
-            </div>
-        </a>
-               
-            <?php endforeach; ?> 
-             <?php endif; ?>
+
         </div>
-</div>
-
-
-    </div>
-</section>
+    </section>
 
 
     <script>
@@ -252,4 +265,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 
 </html>
-

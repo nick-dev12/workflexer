@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+}
+
+textarea {
+  width: 98%;
+  height: 100px;
+  padding: 10px 20px;
+  font-size: 13px;
+  border-radius: 10px;
+  outline: none;
+  border: 1.5px solid #818181;
+}
+.section2 .box3 table .me3 {
+  background-color: #797979;
+  border-radius: 15px;
+}
+.section2 .box3 table .me3 td a {
+  color: rgb(255, 255, 255);
+}
+
+.section3 {
+  margin-left: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background: url(../image/bg_bggenerator_com.jpg); */
+  /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
+  background-color: #e6e6e6;
+  padding: 50px 0;
+}
+
+@media screen and (max-width: 1050px) {
+  .section3 {
+    margin-left: 0;
+  }
+}
+
+.section3 h1 {
+  width: 70%;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #262626;
+  color: #ffffff;
+  border-radius: 7px;
+}
+
+.section3 table {
+  width: 98%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  background-color: #ffffff;
+}
+
+.section3 th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px 3px;
+  text-align: center;
+}
+
+.section3 th {
+  background-color: #929292;
+}
+.section3 td {
+  font-size: 12px;
+}
+
+.section3 .vue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section3 .vue img {
+  width: 20px;
+  height: 20px;
+}
+.section3 tr:nth-child(even) {
+  background-color: #d1d1d1;
+}
+
+.section3 td:hover {
+  background-color: #ddd;
+}
+
+.section3 img {
+  width: 100px;
+  height: 100px;
+}
+
+.section3 .input-group {
+  width: 600px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+}
+
+.section3 .input-group .form-control {
+  width: 400px;
+  height: 40px;
+  border-radius: 7px;
+  padding: 5px 10px;
+  outline: none;
+  border: 2px solid #818181;
+}
+.section3 .input-group #recherche {
+  display: none;
+}
+.section3 .input-group label img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}

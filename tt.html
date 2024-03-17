@@ -1,49 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      #caracteres-restants {
-        font-style: italic;
-      }
-
-      #caracteres-restants.erreur {
-        color: red;
-      }
-    </style>
+    <title>Work-Flexer - A Propos</title>
+    <link rel="stylesheet" href="teste.css" />
   </head>
   <body>
-    <label for="description">Description de soi:</label>
-    <textarea
-      id="description"
-      name="description"
-      maxlength="800"
-      rows="5"
-      cols="40"
-      required
-    ></textarea>
-    <p id="caracteres-restants">800 caractères restants</p>
+    <header>
+      <h1>Work-Flexer</h1>
+      <p>Votre plateforme emploi flexible</p>
+    </header>
 
-    <script>
-      const textarea = document.getElementById("description");
-      const caracteresRestants = document.getElementById("caracteres-restants");
+    <main>
+      <section class="about-us">
+        <h2>Qui sommes-nous ?</h2>
+        <p>
+          Créée en 2024, Work-Flexer est une plateforme emploi innovante qui
+          révolutionne le monde du travail en offrant aux entreprises et aux
+          professionnels une solution flexible et accessible pour répondre à
+          leurs besoins en matière d'emploi et de recrutement.
+        </p>
 
-      // Mise à jour du compteur de caractères en temps réel
-      textarea.addEventListener("keyup", () => {
-        const nombreCaracteres = textarea.value.length;
-        caracteresRestants.textContent = `${
-          800 - nombreCaracteres
-        } caractères restants`;
-      });
+        <p>
+          Que vous soyez à la recherche d'un CDD, d'une mission freelance, d'un
+          poste en télétravail ou d'une opportunité à temps partiel, Work-Flexer
+          vous met en relation avec les meilleures offres d'emploi flexibles du
+          marché.
+        </p>
 
-      // Limiter le nombre de caractères saisis en temps réel
-      textarea.addEventListener("input", () => {
-        if (textarea.value.length > 800) {
-          textarea.value = textarea.value.substring(0, 800);
-        }
-      });
-    </script>
+        <p>
+          Guidés par les valeurs d'innovation, de flexibilité et
+          d'accessibilité, nous nous engageons à offrir une expérience optimale
+          à tous nos utilisateurs.
+        </p>
+      </section>
+
+      <section class="about-us">
+        <h2>Créateur</h2>
+
+        <p>Work-Flexer est une plateforme née de l'imagination et du talent de <strong>Nick Effé Oyono</strong>, entrepreneur passionné par les solutions de développement numérique.</p>
+        
+        <p>Fort de son expérience dans le domaine, Nick a eu la vision de créer une plateforme innovante et flexible pour répondre aux besoins en constante évolution du marché du travail.</p>
+        
+        <p>Grâce à son leadership et à sa détermination, Work-Flexer est aujourd'hui une plateforme incontournable pour les entreprises et les professionnels à la recherche d'opportunités d'emploi flexibles.</p>
+        
+        <p>Vous pouvez contacter Nick Effé Oyono par email à l'adresse <strong><a href="mailto:webgeniuses12@email.com">webgeniuses12@email.com</a></strong>.</p>
+        
+        <p>Suivez Nick sur les réseaux sociaux :
+        
+        * **<a href="#">LinkedIn</a>**
+        * **<a href="#">Twitter</a>**
+        
+        </p>
+        
+      </section>
+
+      <section class="services">
+        <h2>Nos services</h2>
+          
+            <h3>**Dépôt d'annonces d'emploi**</h3>
+
+            <p>
+              Publiez vos offres d'emploi en quelques clics et ciblez les
+              candidats les plus qualifiés.
+            </p>
+
+            <ul>
+              <li>Filtres avancés pour une recherche précise</li>
+              <li>Diffusion sur plusieurs canaux</li>
+              <li>Suivi des candidatures</li>
+            </ul>
+          
+            <h3>**Création de profils professionnels avec CV virtuel**</h3>
+
+            <p>
+              Créez un profil professionnel complet et personnalisable et
+              valorisez vos compétences.
+            </p>
+
+            <ul>
+              <li>CV virtuel facile à mettre à jour</li>
+              <li>Téléchargement de votre CV en format PDF</li>
+              <li>Intégration de vos réseaux sociaux</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="services">
+        <h2>Pourquoi choisir Work-Flexer ?</h2>
+
+        <h3>**Gain de temps et d'efficacité**</h3>
+
+        <p>
+          Work-Flexer vous permet de gagner du temps et d'améliorer votre
+          efficacité dans vos démarches de recherche d'emploi et de recrutement.
+        </p>
+
+        <ul>
+          <li>Recherche d'offres d'emploi simplifiée</li>
+          <li>Candidature en ligne en quelques clics</li>
+          <li>Suivi des candidatures en temps réel</li>
+          <li>Sauvegarde de  documents intégré </li>
+        </ul>
+
+        <h3>**Meilleure visibilité**</h3>
+
+        <p>
+          Work-Flexer vous permet d'augmenter votre visibilité auprès des
+          meilleurs candidats et des entreprises les plus attractives.
+        </p>
+
+        <ul>
+          <li>Diffusion de votre profil à un large réseau</li>
+          <li>Mise en relation avec des entreprises en recherche de talents</li>
+          <li>Amélioration de vos chances de trouver un emploi</li>
+        </ul>
+
+        <!-- <p>
+          **Plus de 10 000 utilisateurs font déjà confiance à Work-Flexer pour
+          trouver leur emploi idéal.**
+        </p>
+
+        <p>
+          **"Work-Flexer m'a permis de trouver un emploi en freelance en
+          seulement quelques semaines."** - Jean Dupont, Développeur web
+        </p>
+
+        <p>
+          **"Notre équipe a pu recruter le candidat parfait pour notre poste
+          grâce à Work-Flexer."** - Marie Durand, DRH
+        </p> -->
+      </section>
+
+      <section class="contact">
+        <h2>Contactez-nous</h2>
+        <p>
+          Pour plus d'informations, n'hésitez pas à nous contacter via notre
+          <a href="#">formulaire de contact</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Work-Flexer 2024</p>
+    </footer>
   </body>
 </html>

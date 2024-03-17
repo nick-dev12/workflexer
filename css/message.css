@@ -1,59 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
 
-*{
-    margin:0 ;
-    box-sizing: border-box;
-    letter-spacing: 0.5px;
+* {
+  margin: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.5px;
 }
 
-body{
-    font-family: 'Nunito', sans-serif;
+body {
+  font-family: "Nunito", sans-serif;
 }
 
-
-
+.professionnel {
+  background-color: #bde3ff;
+}
 
 /* section 2 et toute ces modification  */
 
-.section2 .box3 table .me4{
+.section2 .box3 table .me4 {
   background-color: #797979;
   border-radius: 15px;
 }
 .section2 .box3 table .me4 td a {
-    color: rgb(255, 255, 255);
-
+  color: rgb(255, 255, 255);
 }
-  .section2 .box3 table .tr2{
-    background-color: #797979;
-  }
-  .section2 .box3 table .tr2 td a{
-    color: #ffffff;
-  }
-
-
-
-
-
-
-
+.section2 .box3 table .tr2 {
+  background-color: #797979;
+}
+.section2 .box3 table .tr2 td a {
+  color: #ffffff;
+}
 
 /* section 3 et toute ces modification  */
 
-.section3{
-    margin-left: 280px;
-    display: flex;
-   background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%);
-   background-position: center;
-   background-attachment: fixed;
-   position: relative;
-   height: auto;
-   padding-bottom: 150px;
-   display: flex;
-   justify-content: center;
+.section3 {
+  margin-left: 280px;
+  display: flex;
+  background: radial-gradient(
+    circle,
+    rgba(226, 226, 230, 1) 0%,
+    rgba(220, 220, 233, 1) 35%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  height: auto;
+  padding-bottom: 150px;
+  display: flex;
+  justify-content: center;
 }
-.section3 .img222{
+.section3 .img222 {
   position: fixed;
   top: 50%;
   left: 20px;
@@ -65,13 +63,13 @@ body{
   z-index: 5;
   display: none;
 }
-@media screen and (max-width : 1400px) {
-  .section3 .img222{
+@media screen and (max-width: 1400px) {
+  .section3 .img222 {
     display: none;
   }
 }
-@media screen and (max-width : 1050px) {
-  .section3 .img222{
+@media screen and (max-width: 1050px) {
+  .section3 .img222 {
     position: fixed;
     top: 50%;
     left: 20px;
@@ -84,13 +82,13 @@ body{
     display: block;
   }
 }
-@media screen and (max-width : 1050px) {
-  .section3{
+@media screen and (max-width: 1050px) {
+  .section3 {
     margin-left: 0;
   }
 }
 
-.section3 .success{
+.section3 .success {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -104,10 +102,10 @@ body{
   opacity: 0;
   padding: 10px 20px;
 }
-.section3 .success.visible{
+.section3 .success.visible {
   opacity: 1;
 }
-.section3 .erreur{
+.section3 .erreur {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -122,11 +120,11 @@ body{
   opacity: 0;
 }
 
-.section3 .erreur.visible{
+.section3 .erreur.visible {
   opacity: 1;
 }
 
-.section3 .delete{
+.section3 .delete {
   position: absolute;
   top: 90px;
   left: 50%;
@@ -141,34 +139,28 @@ body{
   padding: 10px 20px;
 }
 
-.section3 .delete.visiblee{
+.section3 .delete.visiblee {
   opacity: 1;
 }
 
-
-
-
-
-
-
-.container_profil{
-    width: 600px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+.container_profil {
+  width: 600px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.container_profil .box3{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.container_profil .box3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.container_profil .box3 p{
+.container_profil .box3 p {
   font-size: 14px;
   font-style: italic;
   color: rgb(0, 0, 0);
 }
-.container_profil .box3 p strong{
+.container_profil .box3 p strong {
   font-size: 20px;
   font-style: italic;
   color: rgb(255, 255, 255);
@@ -176,79 +168,74 @@ body{
   font-size: 14px;
   color: #000000;
 }
-.container_profil .box3 h2{
-    width: 100%;
-    padding: 3px 20px;
-    background-color: #67dd00;
-    color: #FFFFFF;
-    margin:7px 0;
-    font-size: 20px;
-    border-radius: 20px;
+.container_profil .box3 h2 {
+  width: 100%;
+  padding: 3px 20px;
+  background-color: #67dd00;
+  color: #ffffff;
+  margin: 7px 0;
+  font-size: 20px;
+  border-radius: 20px;
 }
-.container_profil .box3 a{
-    text-decoration: none;
+.container_profil .box3 a {
+  text-decoration: none;
 }
-.container_profil .box3 .info{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-left: -200px;
-    padding:5px 10px;
-    background-color: #ffffff;
-    margin: 10px 0;
-    border-radius: 10px;
-}
-
-.container_profil .box3 .info img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border:2px solid  #67dd00;
-    margin-right: 10px;
-}
-.container_profil .box3 .info .div h4{
-    font-weight: bolder;
-    font-size: 16px;
-    color: #000000;
-    padding: 5px;
-}
-.container_profil .box3 .info .div p{
-    color: #0066FF;
-    font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 5px;
-}
-.container_profil .box3 .info .div p .span1{
-    color: #000000;
-    font-weight: 500;
-    font-size: 14.5px; 
-    margin-right: 10px;
-}
-.container_profil .box3 .info .div p .span2{
-    color: #000000;
-    font-weight: bold;
-    font-size: 14.5px; 
-    margin-right: 10px;
+.container_profil .box3 .info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: -200px;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  margin: 10px 0;
+  border-radius: 10px;
 }
 
-
-
-
-
+.container_profil .box3 .info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #67dd00;
+  margin-right: 10px;
+}
+.container_profil .box3 .info .div h4 {
+  font-weight: bolder;
+  font-size: 16px;
+  color: #000000;
+  padding: 5px;
+}
+.container_profil .box3 .info .div p {
+  color: #0066ff;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.container_profil .box3 .info .div p .span1 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 14.5px;
+  margin-right: 10px;
+}
+.container_profil .box3 .info .div p .span2 {
+  color: #000000;
+  font-weight: bold;
+  font-size: 14.5px;
+  margin-right: 10px;
+}
 
 .container_profil .box2 {
   margin-top: 30px;
 }
-.container_profil .box2 a{
-    text-decoration: none;
+.container_profil .box2 a {
+  text-decoration: none;
 }
 
-.container_profil .box2 p{
+.container_profil .box2 p {
   font-size: 18px;
   font-style: italic;
   color: rgb(0, 0, 0);
 }
-.container_profil .box2 p strong{
+.container_profil .box2 p strong {
   font-size: 20px;
   font-style: italic;
   color: rgb(255, 255, 255);
@@ -256,136 +243,123 @@ body{
   font-size: 15px;
   color: #000000;
 }
-.container_profil .box2{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.container_profil .box2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.container_profil .box2 h2{
-    width: 100%;
-    padding: 7px 20px;
-    background-color: #002233;
-    color: #FFFFFF;
-    margin:10px 0;
-    font-size: 20px;
-    border-radius: 20px;
+.container_profil .box2 h2 {
+  width: 100%;
+  padding: 7px 20px;
+  background-color: #002233;
+  color: #ffffff;
+  margin: 10px 0;
+  font-size: 20px;
+  border-radius: 20px;
 }
-.container_profil .box2 .info{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-left: -200px;
-    padding:5px 10px;
-    background-color: #ffffff;
-    margin: 20px 0;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.container_profil .box2 .info img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border:2px solid  #002233;
-    margin-right: 20px;
+.container_profil .box2 .info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: -200px;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.container_profil .box2 .info .div h4{
-    font-weight: bolder;
-    font-size: 17px;
-    padding: 5px;
-    width: 500px;
-    color: #000000;
+.container_profil .box2 .info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #002233;
+  margin-right: 20px;
 }
-.container_profil .box2 .info .div p{
-    color: #0066FF;
-    font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 5px;
+
+.container_profil .box2 .info .div h4 {
+  font-weight: bolder;
+  font-size: 17px;
+  padding: 5px;
+  width: 500px;
+  color: #000000;
 }
-.container_profil .box2 .info .div p .span1{
+.container_profil .box2 .info .div p {
+  color: #0066ff;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.container_profil .box2 .info .div p .span1 {
   color: #000000;
 }
 
-@media screen and (max-width : 1050px) {
-  .section3{
+@media screen and (max-width: 1050px) {
+  .section3 {
     margin-left: 0;
   }
 
-  .container_profil .box3 .info .div h4{
+  .container_profil .box3 .info .div h4 {
     font-weight: bolder;
     font-size: 15px;
     color: #000000;
     padding: 5px;
-}
-.container_profil .box3 .info .div p{
-    color: #0066FF;
+  }
+  .container_profil .box3 .info .div p {
+    color: #0066ff;
     font-weight: 500;
     font-size: 13px;
     margin-bottom: 5px;
-}
-.container_profil .box3 .info .div p .span1{
+  }
+  .container_profil .box3 .info .div p .span1 {
     color: #000000;
     font-weight: 500;
-    font-size: 13.5px; 
+    font-size: 13.5px;
     margin-right: 10px;
-}
-.container_profil .box3 .info .div p .span2{
+  }
+  .container_profil .box3 .info .div p .span2 {
     color: #000000;
     font-weight: bold;
-    font-size: 13.5px; 
+    font-size: 13.5px;
     margin-right: 10px;
+  }
 }
-}
-@media screen and (max-width : 550px) {
-  .section3{
+@media screen and (max-width: 550px) {
+  .section3 {
     margin-left: 0;
     padding: 5px;
   }
 
-  .container_profil .box3 .info .div h4{
+  .container_profil .box3 .info .div h4 {
     font-weight: bolder;
     font-size: 12px;
     color: #000000;
     padding: 5px;
-}
-.container_profil .box3 .info .div p{
-    color: #0066FF;
+  }
+  .container_profil .box3 .info .div p {
+    color: #0066ff;
     font-weight: 500;
     font-size: 11px;
     margin-bottom: 5px;
-}
-.container_profil .box3 .info .div p strong{
-  font-size: 11px
-}
-.container_profil .box3 .info .div p .span1{
+  }
+  .container_profil .box3 .info .div p strong {
+    font-size: 11px;
+  }
+  .container_profil .box3 .info .div p .span1 {
     color: #000000;
     font-weight: 500;
-    font-size: 12.5px; 
+    font-size: 12.5px;
     margin-right: 10px;
-}
-.container_profil .box3 .info .div p .span2{
+  }
+  .container_profil .box3 .info .div p .span2 {
     color: #000000;
     font-weight: bold;
-    font-size: 12.5px; 
+    font-size: 12.5px;
     margin-right: 10px;
+  }
 }
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.section3 .mdf_info{
+.section3 .mdf_info {
   width: 90%;
   padding: 40px 20px;
   display: flex;
@@ -393,19 +367,19 @@ body{
   justify-content: center;
   position: relative;
 }
-.section3 .mdf_info .box-info{
+.section3 .mdf_info .box-info {
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   background-color: #ffffffd2;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
--moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
--webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000); /*IE 5.5-7*/
-   -ms-backdrop-filter: blur(5px);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)"; /*IE 8*/
+  -moz-box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1); /*FF 3.5+*/
+  -webkit-box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1); /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+  box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1); /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000); /*IE 5.5-7*/
+  -ms-backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   -moz-backdrop-filter: blur(5px);
@@ -414,12 +388,11 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   padding: 20px 40px;
   border-radius: 10px;
 }
-.section3 .mdf_info .box-info h2{
+.section3 .mdf_info .box-info h2 {
   font-size: 25px;
   margin-bottom: 120px;
-
 }
-.section3 .mdf_info .box-info .img{
+.section3 .mdf_info .box-info .img {
   height: 140px;
   width: 140px;
   position: absolute;
@@ -429,35 +402,34 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   border-radius: 50%;
   box-shadow: 0 0 0 4px;
 }
-.section3 .mdf_info .box-info .box-ul{
+.section3 .mdf_info .box-info .box-ul {
   display: flex;
   margin-top: 40px;
 }
-.section3 .mdf_info .box-info .box-ul ul{
+.section3 .mdf_info .box-info .box-ul ul {
   margin: 0 20px;
 }
-.section3 .mdf_info .box-info .box-ul .ul li{
+.section3 .mdf_info .box-info .box-ul .ul li {
   list-style: none;
   padding: 7px 10px;
   font-weight: bold;
-  
 }
-.section3 .mdf_info .box-info .box-ul ul li{
+.section3 .mdf_info .box-info .box-ul ul li {
   list-style: none;
   padding: 7px 10px;
 }
-.section3 .mdf_info .box-info .box-ul .modif li{
-  color: #0066FF;
+.section3 .mdf_info .box-info .box-ul .modif li {
+  color: #0066ff;
   cursor: pointer;
 }
 
-.section3 .mdf_info .box-info .box-form{
+.section3 .mdf_info .box-info .box-form {
   position: absolute;
   width: 100%;
   padding: 40px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: #0022339c;
   display: flex;
   align-items: center;
@@ -465,7 +437,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   display: none;
   z-index: 2;
 }
-.section3 .mdf_info .box-info .box-form img{
+.section3 .mdf_info .box-info .box-form img {
   height: 30px;
   width: 30px;
   position: absolute;
@@ -473,24 +445,24 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   right: 30px;
   cursor: pointer;
 }
-.section3 .mdf_info .box-info .box-form form{
-width: 400px;
-padding: 20px;
-display: none;
+.section3 .mdf_info .box-info .box-form form {
+  width: 400px;
+  padding: 20px;
+  display: none;
 }
-.section3 .mdf_info .box-info .box-form form div{
+.section3 .mdf_info .box-info .box-form form div {
   display: flex;
   flex-direction: column;
 }
-.section3 .mdf_info .box-info .box-form form div label{
+.section3 .mdf_info .box-info .box-form form div label {
   color: #ffffff;
-  font-weight:700 ;
+  font-weight: 700;
   font-style: italic;
   font-size: 18px;
   display: block;
   margin: 7px 0;
 }
-.section3 .mdf_info .box-info .box-form form div input{
+.section3 .mdf_info .box-info .box-form form div input {
   height: 40px;
   width: 100%;
   border: 2px solid #00000067;
@@ -500,13 +472,13 @@ display: none;
   font-size: 18px;
   padding: 0 10px;
 }
-.section3 .mdf_info .box-info .box-form form div input:hover{
+.section3 .mdf_info .box-info .box-form form div input:hover {
   box-shadow: 0 0 10px 5px #0066ff80;
   background-color: #dfdfdf;
 }
-.section3 .mdf_info .box-info .box-form form #modif{
+.section3 .mdf_info .box-info .box-form form #modif {
   border-radius: 7px;
-  font-size:16px ;
+  font-size: 16px;
   background-color: #002233;
   color: #ffffff;
   padding: 7px 15px;
@@ -514,7 +486,7 @@ display: none;
   cursor: pointer;
   transition: all 0.4s;
 }
-.section3 .mdf_info .box-info .box-form form #modif:hover{
+.section3 .mdf_info .box-info .box-form form #modif:hover {
   background-color: #ffffff;
   color: #000000;
 }

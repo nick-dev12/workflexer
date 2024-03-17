@@ -1440,14 +1440,36 @@ if (isset($_GET['id'])) {
 
         <?php if (isset($_SESSION['users_id'])): ?>
             <div class="container_box6">
+                <style>
+                    .container_box6 a {
+                        display: flex;
+                        align-items: center;
+                        color: gray;
+                    }
+
+                    .container_box6 a img {
+                        margin-right: 5px;
+                    }
+
+                    .container_box6 p {
+                        font-size: 20px;
+                        text-align: center;
+                    }
+                </style>
                 <div class="box1">
                     <h1>assistance</h1>
+                    <a href="tel:+221785303879"><img src="../image/whatsapp.png" alt=""> Phone : <strong>+221 78 530 38
+                            79</strong></a>
+                    <a href="mailto:youremail@example.com"><img src="../image/icons8-gmail-48.png" alt=""> Mail
+                        :<strong>workflexer.service@gmail.com</strong></a>
+                    <br>
+                    <p>Ou écrivez nous ici !</p>
                 </div>
 
                 <div class="box2">
                     <form action="" method="post">
                         <textarea name="message" class="form-control" id=""></textarea>
-                        <button type="submit">Envoyer</button>
+                        <button type="submit" name="send">Envoyer</button>
                     </form>
                 </div>
             </div>
