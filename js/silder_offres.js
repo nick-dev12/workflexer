@@ -5,15 +5,15 @@
 
             var numItems = carousel.find('.carousel').length;
 
-            if (numItems > 4) {
+            if (numItems > 3) {
 
                 // Initialiser Owl Carousel si il y a plus de 4 éléments
                 carousel.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
+                    items: 4, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 4000,
+                    autoplayTimeout: 6000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     smartSpeed: 600,
@@ -27,10 +27,10 @@
                             items: 2
                         },
                         800: {
-                            items: 3
+                            items: 2
                         },
                         1200: {
-                            items: 4
+                            items: 3
                         },
                         1400: {
                             items: 4
@@ -88,38 +88,37 @@
                 var carousel2 = $('.carousel2');
                 var numItems2 = carousel2.find('.carousel').length;
 
-                if (numItems2 > 4) {
+                if (numItems2 > 3) {
 
                     // Initialiser Owl carousel2 si il y a plus de 4 éléments
                     carousel2.owlCarousel({
-                        items: 5, // Limitez le nombre d'éléments à afficher à 5
+                        items: 4, // Limitez le nombre d'éléments à afficher à 5
                         loop: true,
                         autoplay: true,
-                        autoplayTimeout: 4000,
+                        autoplayTimeout: 6000,
                         animateOut: 'slideOutDown',
                         animateIn: 'flipInX',
                         smartSpeed: 600,
                         margin: 200,
                         nav: true,
                         responsive: {
-                        0: {
-                            items: 1,
-                            margin: 0,
-                            autoplayTimeout: 3000,
-                        },
-                        600: {
-                            items: 2
-                        },
-                        800: {
-                            items: 3
-                        },
-                        1200: {
-                            items: 4
-                        },
-                        1400: {
-                            items: 4
+                            0: {
+                                items: 1,
+                                margin: 0,
+                            },
+                            600: {
+                                items: 2
+                            },
+                            800: {
+                                items: 2
+                            },
+                            1200: {
+                                items: 3
+                            },
+                            1400: {
+                                items: 4
+                            }
                         }
-                    }
                     });
 
                     var carousel2 = $('.carousel2').owlCarousel();
@@ -159,14 +158,14 @@
             var carousel3 = $('.carousel3');
             var numItems2 = carousel3.find('.carousel').length;
 
-            if (numItems2 > 4) {
+            if (numItems2 > 3) {
 
                 // Initialiser Owl carousel3 si il y a plus de 4 éléments
                 carousel3.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
+                    items: 4, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 4000,
+                    autoplayTimeout: 6000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     smartSpeed: 600,
@@ -175,16 +174,15 @@
                         0: {
                             items: 1,
                             margin: 0,
-                            
                         },
                         600: {
                             items: 2
                         },
                         800: {
-                            items: 3
+                            items: 2
                         },
                         1200: {
-                            items: 4
+                            items: 3
                         },
                         1400: {
                             items: 4
@@ -221,14 +219,14 @@
             var carousel4 = $('.carousel4');
             var numItems2 = carousel4.find('.carousel').length;
 
-            if (numItems2 > 4) {
+            if (numItems2 > 3) {
 
                 // Initialiser Owl carousel4 si il y a plus de 4 éléments
                 carousel4.owlCarousel({
                     items: 4, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 4000,
+                    autoplayTimeout: 6000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     smartSpeed: 600,
@@ -242,10 +240,10 @@
                             items: 2
                         },
                         800: {
-                            items: 3
+                            items: 2
                         },
                         1200: {
-                            items: 4
+                            items: 3
                         },
                         1400: {
                             items: 4
@@ -284,10 +282,10 @@
 
                 // Initialiser Owl carousel5 si il y a plus de 4 éléments
                 carousel5.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
+                    items: 4, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 4000,
+                    autoplayTimeout: 6000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     smartSpeed: 600,
@@ -295,16 +293,16 @@
                     responsive: {
                         0: {
                             items: 1,
-                            margin:0,
+                            margin: 0,
                         },
                         600: {
                             items: 2
                         },
                         800: {
-                            items: 3
+                            items: 2
                         },
                         1200: {
-                            items: 4
+                            items: 3
                         },
                         1400: {
                             items: 4
@@ -340,14 +338,14 @@
             var carousel6 = $('.carousel6');
             var numItems2 = carousel6.find('.carousel').length;
 
-            if (numItems2 > 4) {
+            if (numItems2 > 3) {
 
                 // Initialiser Owl carousel6 si il y a plus de 4 éléments
                 carousel6.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
+                    items: 4, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 4000,
+                    autoplayTimeout: 6000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     smartSpeed: 600,
@@ -361,10 +359,10 @@
                             items: 2
                         },
                         800: {
-                            items: 3
+                            items: 2
                         },
                         1200: {
-                            items: 4
+                            items: 3
                         },
                         1400: {
                             items: 4
@@ -400,18 +398,19 @@
             var carousel7 = $('.carousel7');
             var numItems2 = carousel7.find('.carousel').length;
 
-            if (numItems2 > 4) {
+            if (numItems2 > 3) {
 
                 // Initialiser Owl carousel7 si il y a plus de 4 éléments
                 carousel7.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
+                    items: 4, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 4000,
+                    autoplayTimeout: 6000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     smartSpeed: 600,
                     nav: true,
+                    margin: 0,
                     responsive: {
                         0: {
                             items: 1,
@@ -421,6 +420,9 @@
                             items: 2
                         },
                         800: {
+                            items: 2
+                        },
+                        1200: {
                             items: 3
                         },
                         1400: {
@@ -477,10 +479,10 @@
 
                 // Initialiser Owl carousel8 si il y a plus de 4 éléments
                 carousel8.owlCarousel({
-                    items: 5, // Limitez le nombre d'éléments à afficher à 5
+                    items: 4, // Limitez le nombre d'éléments à afficher à 5
                     loop: true,
                     autoplay: true,
-                    autoplayTimeout: 4000,
+                    autoplayTimeout: 6000,
                     animateOut: 'slideOutDown',
                     animateIn: 'flipInX',
                     smartSpeed: 650,
@@ -494,6 +496,9 @@
                             items: 2
                         },
                         800: {
+                            items: 2
+                        },
+                        1200: {
                             items: 3
                         },
                         1400: {
