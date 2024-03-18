@@ -26,7 +26,7 @@ if (isset($_POST['recherche'])) {
         $sql .= " AND u.experience = :experience";
     }
     if (!empty($etude)) {
-        $sql .= " AND u.etude = :etude";
+        $sql .= " AND u.etudes = :etude";
     }
 
     $stmt = $db->prepare($sql);
@@ -184,8 +184,7 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/ingenieur.jpeg" alt="">
             <h1>Ingénierie et architecture</h1>
-            <p>Vous êtes passionné par la technique et l'innovation ? </p>
-            <p>Rejoignez l'Ingénierie et l'Architecture, secteur en plein essor, pour construire l'avenir. Trouvez parmi
+            <p> Trouvez parmi
                 nos offres le métier qui vous correspond :
                 <strong>ingénieur,
                     architecte, technicien, commercial, etc.</strong> Participez à des projets concrets et durables,
@@ -201,9 +200,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/webdesign.jpg" alt="">
             <h1>Design et création</h1>
-            <p>Intégrez le monde du Design et de la Création pour donner vie à vos idées. Passionné par l'esthétique et
-                l'innovation ?
-            </p>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: designer produit,
                     graphiste, directeur artistique, etc.</strong> Participez à des projets créatifs et stimulants,
@@ -222,16 +218,10 @@ if (isset($_POST['recherche'])) {
             <img src="/image/Redaction.jpg" alt="">
             <h1>Rédaction et traduction</h1>
             <p>
-                Rejoignez la rubrique Rédaction et Traduction pour donner vie aux mots. Passionné par l'écriture et les
-                langues ?
-            </p>
-            <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: rédacteur, traducteur, correcteur,
                     etc.</strong> Participez à des projets variés allant de la rédaction d'articles à la traduction de
                 documents. Faites de votre passion pour l'écriture et les langues votre métier avec nous !
             </p>
-
-
             <a href="../offres/Rédaction et traduction.php">Explorer les offres</a>
         </div>
 
@@ -239,10 +229,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/marketing.jpg" alt="">
             <h1>Marketing et communication</h1>
-            <p>
-                Intégrez la rubrique Marketing et Communication pour transformer les marques en succès. Vous êtes
-                passionné par la stratégie et la créativité ?
-            </p>
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>chef de produit, chargé de
                     communication, community manager, etc</strong> . Participez à des projets variés allant de la
@@ -257,10 +243,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/gestion.jpg" alt="">
             <h1>Conseil et gestion d'entreprise</h1>
-            <p>
-                Intégrez la rubrique Conseil et Gestion d'Entreprise pour aider les entreprises à se développer. Vous
-                êtes passionné par la stratégie et la performance ?
-            </p>
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>consultant, gestionnaire de projet,
                     analyste
@@ -278,10 +260,6 @@ if (isset($_POST['recherche'])) {
             <img src="/image/juridique.jpg" alt="">
             <h1>Juridique</h1>
             <p>
-                Intégrez la rubrique Juridique pour défendre les droits et intérêts de nos clients. Vous êtes passionné
-                par la loi et la justice ?
-            </p>
-            <p>
                 Trouvez votre voie parmi nos offres de métiers tels <strong>qu'avocat, juriste, notaire, etc.</strong>
                 Participez à des projets variés allant de la rédaction de contrats à la représentation en justice.
                 Faites de votre passion pour la loi et la justice votre métier avec nous !
@@ -294,10 +272,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/info.jpg" alt="">
             <h1>Informatique et tech</h1>
-            <p>
-                Rejoignez la rubrique Informatique et Tech pour créer les solutions de demain. Passionné par la
-                technologie et l'innovation ?
-            </p>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>développeur, ingénieur réseau, data
                     scientist, etc.</strong> Participez à des projets variés allant de la création de logiciels à la
@@ -313,10 +287,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/finance.png" alt="">
             <h1>Finance et comptabilité</h1>
-            <p>
-                Rejoignez la rubrique Finance et Comptabilité pour gérer les chiffres et les finances de nos clients.
-                Passionné par les chiffres et la gestion financière ?
-            </p>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong> expert-comptable, contrôleur de
                     gestion,
@@ -335,10 +305,6 @@ if (isset($_POST['recherche'])) {
             <img src="/image/santé.png" alt="">
             <h1>Santé et bien-être</h1>
             <p>
-                Rejoignez la rubrique Santé et Bien-être pour aider les gens à se sentir mieux. Passionné par la santé
-                et le bien-être ?
-            </p>
-            <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>médecin, infirmier, kinésithérapeute,
                     nutritionniste, etc.</strong> Participez à des projets variés allant de la prévention à la guérison.
                 Faites de votre passion pour la santé et le bien-être votre métier avec nous !
@@ -352,10 +318,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/education.png" alt="">
             <h1>Éducation et formation</h1>
-            <p>
-                Rejoignez la rubrique Éducation et Formation pour transmettre vos connaissances et aider les autres à se
-                développer. Passionné par l'enseignement et l'apprentissage ?
-            </p>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> enseignant, formateur, conseiller en
                     orientation, etc.</strong> Participez à des projets variés allant de la formation professionnelle à
@@ -373,10 +335,6 @@ if (isset($_POST['recherche'])) {
             <img src="/image/tourisme.png" alt="">
             <h1>Tourisme et hôtellerie</h1>
             <p>
-                Rejoignez la rubrique Tourisme et Hôtellerie pour offrir des expériences inoubliables à nos clients.
-                Passionné par les voyages et l'hospitalité ?
-            </p>
-            <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>réceptionniste, guide touristique, chef
                     cuisinier, etc.</strong> Participez à des projets variés allant de l'organisation de séjours à la
                 gestion d'hôtels. Faites de votre passion pour les voyages et l'hospitalité votre métier avec nous !
@@ -392,10 +350,6 @@ if (isset($_POST['recherche'])) {
             <img src="/image/vente.png" alt="">
             <h1>Commerce et vente</h1>
             <p>
-                Rejoignez la rubrique Commerce et Vente pour booster les ventes et satisfaire nos clients. Passionné par
-                la vente et la négociation ?
-            </p>
-            <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>commercial, responsable de magasin,
                     vendeur, etc.</strong> Participez à des projets variés allant de la prospection à la fidélisation
                 client. Faites de votre passion pour la vente et la négociation votre métier avec nous !
@@ -409,10 +363,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/transport.png" alt="">
             <h1>Transport et logistique</h1>
-            <p>
-                Rejoignez la rubrique Transport et Logistique pour assurer la livraison de marchandises en temps et en
-                heure. Passionné par la logistique et la gestion de chaîne d'approvisionnement ?
-            </p>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> logisticien, chauffeur-livreur,
                     responsable d'entrepôt, etc.</strong> Participez à des projets variés allant de la gestion de stock
@@ -429,10 +379,6 @@ if (isset($_POST['recherche'])) {
             <img src="/image/agriculture.png" alt="">
             <h1>Agriculture et agroalimentaire</h1>
             <p>
-                Rejoignez la rubrique Agriculture et Agroalimentaire pour nourrir le monde de manière durable. Passionné
-                par l'agriculture et l'alimentation ?
-            </p>
-            <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> agriculteur, ingénieur agronome,
                     technicien de laboratoire, etc.</strong> Participez à des projets variés allant de la production
                 agricole à la transformation alimentaire. Faites de votre passion pour l'agriculture et l'alimentation
@@ -448,10 +394,6 @@ if (isset($_POST['recherche'])) {
         <div class="box">
             <img src="/image/autre.png" alt="">
             <h1>Autre</h1>
-            <p>
-                Rejoignez notre rubrique Autres pour explorer de nouvelles opportunités professionnelles. Vous êtes
-                passionné par un domaine en particulier ?
-            </p>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond, qu'il s'agisse de métiers émergents ou de
                 professions plus traditionnelles. Participez à des projets variés et découvrez de nouveaux horizons

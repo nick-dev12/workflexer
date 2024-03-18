@@ -883,7 +883,7 @@ nav .box3 :nth-child(1) {
 
 
 
-.section3 .erreurs {
+ .erreurs {
   position: absolute;
   top: 130px;
   color: #000000;
@@ -900,15 +900,15 @@ nav .box3 :nth-child(1) {
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
 }
-.section3 .erreurs span {
+ .erreurs span {
   background-color: #f33b0d;
   padding: 7px 9px;
   margin-right: 30px;
 }
-.section3 .erreurs.visible {
+ .erreurs.visible {
   opacity: 1;
 }
-.section3 .message {
+ .message {
   position: absolute;
   top: 130px;
   color: #000000;
@@ -925,11 +925,11 @@ nav .box3 :nth-child(1) {
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
 }
-.section3 .message span {
+ .message span {
   background-color: #28f30d;
   padding: 7px 9px;
   margin-right: 30px;
 }
-.section3 .message.visible {
+ .message.visible {
   opacity: 1;
 }

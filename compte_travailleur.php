@@ -3,13 +3,13 @@
 session_start();
 
 include 'conn/conn.php';
-require 'vendor/autoload.php';
 
 // $_SESSION['users_id'] = true;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+require 'vendor/autoload.php';
 
 
 // Vérifier si l'utilisateur est déjà connecté
@@ -35,13 +35,11 @@ if (isset($_POST['valider'])) {
 
     $id = uniqid();
 
-    $id2 = uniqid();
-
     // Vérification du nom
     if (empty($_POST['nom'])) {
         $erreurs = "Le nom est obligatoire";
     } else {
-        $nom = htmlspecialchars($_POST['nom']); // Échapper les caractères spéciaux
+        $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8'); // Échapper les caractères spéciaux
     }
 
     // Vérification du mail
@@ -169,28 +167,6 @@ if (isset($_POST['valider'])) {
         }
 
         $verification = generateSecurityCode();
-        // Préparation de la requête SQL
-        $sql = "INSERT INTO users (id, nom, mail, phone, competences,profession, ville, categorie ,images,verification, passe) 
-              VALUES (:id, :nom, :mail, :phone, :competences,:profession, :ville, :categorie, :images,:verification, :passe)";
-
-        // Préparation de la requête 
-        $stmt = $db->prepare($sql);
-
-        // Association des paramètres
-        $stmt->bindParam(':id', $id2);
-        $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':mail', $email);
-        $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':competences', $competences);
-        $stmt->bindParam(':profession', $profession);
-        $stmt->bindParam(':ville', $ville);
-        $stmt->bindParam(':categorie', $categorie);
-        $stmt->bindParam(':images', $uniqueFileName);
-        $stmt->bindParam(':verification', $verification);
-        $stmt->bindParam(':passe', $passe);
-
-        // Exécution de la requête
-        $stmt->execute();
 
 
         // Créez l'instance PHPMailer
@@ -199,9 +175,9 @@ if (isset($_POST['valider'])) {
         try {
             // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'work-flexer.com';
+            $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
-            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Username = 'info@advantechgroup.online';
             $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
@@ -335,7 +311,7 @@ if (isset($_POST['valider'])) {
             </body>
             </html> ";
 
-            $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+            $mail->setFrom('info@advantechgroup.online', 'work-flexer');
             $mail->isHTML(true);
             $mail->Subject = $sujet;
             $mail->Body = $message;
@@ -345,17 +321,36 @@ if (isset($_POST['valider'])) {
             $mail->addAddress($destinataire);
             $mail->send();
 
-            header('Location:verification_users.php');
-            exit();
+              // Préparation de la requête SQL
+        $sql = "INSERT INTO users ( nom, mail, phone, competences,profession, ville, categorie ,images,verification, passe) 
+        VALUES ( :nom, :mail, :phone, :competences,:profession, :ville, :categorie, :images,:verification, :passe)";
 
+  // Préparation de la requête 
+  $stmt = $db->prepare($sql);
+
+  // Association des paramètres
+  $stmt->bindParam(':nom', $nom);
+  $stmt->bindParam(':mail', $email);
+  $stmt->bindParam(':phone', $phone);
+  $stmt->bindParam(':competences', $competences);
+  $stmt->bindParam(':profession', $profession);
+  $stmt->bindParam(':ville', $ville);
+  $stmt->bindParam(':categorie', $categorie);
+  $stmt->bindParam(':images', $uniqueFileName);
+  $stmt->bindParam(':verification', $verification);
+  $stmt->bindParam(':passe', $passe);
+  // Exécution de la requête
+  $stmt->execute();
+
+            header('Location: verification_users.php');
+            exit();            
         } catch (Exception $e) {
-            header('Location:compte_travailleur.php');
+            $_SESSION['error_message'] = 'une erreure c\'est produit';
+            header('Location: compte_travailleur.php');
             exit();
         }
 
     }
-
-
 }
 
 
@@ -406,6 +401,47 @@ if (isset($_POST['valider'])) {
     <!-- End Google Tag Manager (noscript) -->
 
     <?php include('navbare.php') ?>
+    
+    <?php if (isset($_SESSION['success_message'])): ?>
+            <div class="message">
+                <p>
+                    <span></span>
+                    <?php echo $_SESSION['success_message']; ?>
+                    <?php unset($_SESSION['success_message']); ?>
+                </p>
+            </div>
+        <?php else: ?>
+            <?php if (isset($_SESSION['error_message'])): ?>
+                <div class="erreurs" id="messageErreur">
+                    <span></span>
+                    <?php echo $_SESSION['error_message']; ?>
+                    <?php unset($_SESSION['error_message']); ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <script>
+            let success = document.querySelector('.message')
+            setTimeout(() => {
+                success.classList.add('visible');
+            }, 200);
+            setTimeout(() => {
+                success.classList.remove('visible');
+            }, 6000);
+
+            // Sélectionnez l'élément contenant le message d'erreur
+            var messageErreur = document.getElementById('messageErreur');
+
+            // Fonction pour afficher le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.add('visible');
+            }, 200); // 1000 millisecondes équivalent à 1 seconde
+
+            // Fonction pour masquer le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.remove('visible');
+            }, 6000); // 6000 millisecondes équivalent à 6 secondes
+        </script>
 
     <section class="section2">
         <img class="img" src="/image/work.jpeg" alt="">
@@ -446,7 +482,7 @@ if (isset($_POST['valider'])) {
                                 <div>
                                     <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
                                     <input type="file" name="images" id="images"
-                                        accept="image/jpeg, image/jpg, image/png, image/gif">
+                                        accept="image/jpeg, image/png, image/gif">
                                 </div>
                                 <div>
                                     <img id="imagePreview" src="" alt="view">

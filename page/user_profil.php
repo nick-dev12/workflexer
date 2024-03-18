@@ -2,13 +2,6 @@
 session_start();
 include '../conn/conn.php';
 
-require '../vendor/autoload.php';
-
-use \NlpTools\Similarity\CosineSimilarity;
-use \NlpTools\Tokenizers\WhitespaceTokenizer;
-
-$tokenizer = new WhitespaceTokenizer();
-$cosineSimilarity = new CosineSimilarity();
 
 
 // Vérifier si l'utilisateur est connecté
