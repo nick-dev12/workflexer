@@ -189,6 +189,7 @@ body {
   background-color: #ffffff;
   margin: 10px 0;
   border-radius: 10px;
+  position: relative;
 }
 
 .container_profil .box3 .info img {
@@ -197,29 +198,44 @@ body {
   border-radius: 50%;
   border: 2px solid #67dd00;
   margin-right: 10px;
+  object-fit: cover;
 }
 .container_profil .box3 .info .div h4 {
   font-weight: bolder;
-  font-size: 16px;
+  font-size: 14px;
   color: #000000;
   padding: 5px;
+}
+.container_profil .box3 .info .tmp{
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  background-color: red;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .container_profil .box3 .info .div p {
   color: #0066ff;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 5px;
 }
 .container_profil .box3 .info .div p .span1 {
   color: #000000;
   font-weight: 500;
-  font-size: 14.5px;
+  font-size: 13.5px;
   margin-right: 10px;
 }
 .container_profil .box3 .info .div p .span2 {
   color: #000000;
   font-weight: bold;
-  font-size: 14.5px;
+  font-size: 13.5px;
   margin-right: 10px;
 }
 
@@ -274,12 +290,13 @@ body {
   height: 50px;
   border-radius: 50%;
   border: 2px solid #002233;
-  margin-right: 20px;
+  margin-right: 10px;
+  object-fit: cover;
 }
 
 .container_profil .box2 .info .div h4 {
   font-weight: bolder;
-  font-size: 17px;
+  font-size: 14px;
   padding: 5px;
   width: 500px;
   color: #000000;
@@ -287,7 +304,7 @@ body {
 .container_profil .box2 .info .div p {
   color: #0066ff;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 5px;
 }
 .container_profil .box2 .info .div p .span1 {
@@ -301,7 +318,6 @@ body {
 
   .container_profil .box3 .info .div h4 {
     font-weight: bolder;
-    font-size: 15px;
     color: #000000;
     padding: 5px;
   }
@@ -314,13 +330,13 @@ body {
   .container_profil .box3 .info .div p .span1 {
     color: #000000;
     font-weight: 500;
-    font-size: 13.5px;
+    font-size: 12.5px;
     margin-right: 10px;
   }
   .container_profil .box3 .info .div p .span2 {
     color: #000000;
     font-weight: bold;
-    font-size: 13.5px;
+    font-size: 12.5px;
     margin-right: 10px;
   }
 }

@@ -4,7 +4,6 @@
 
 
 
-
 *{
     margin:0 ;
     box-sizing: border-box;
@@ -101,11 +100,11 @@ background-attachment: fixed;
     background-color: rgba(255, 0, 0, 0.443);
 }
 .div-section2 .container .items{
-    width: 270px;
+    width: 280px;
     padding: 5px 10px;
     border-radius: 7px;
     border: 1px solid #a5a4a494;
-    margin:0 10px ;
+    margin:20px 10px ;
     position: relative;
     height: 450px;
     background-color: #ffffff;

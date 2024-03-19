@@ -1,32 +1,32 @@
 <?php
-include(__DIR__ . '../../model/message1.php');
-require_once(__DIR__ . '/../model/appelle_offre.php');
-include('../entreprise/app/controller/controllerEntreprise.php');
-
+include (__DIR__ . '../../model/message1.php');
+require_once (__DIR__ . '/../model/appelle_offre.php');
+include ('../entreprise/app/controller/controllerEntreprise.php');
+require '../vendor/autoload.php';
 // include('../model/vue_offre.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
 
-if (isset($_GET['entreprise_id'])) {
 
-  if (isset($_SESSION['compte_entreprise'])) {
+if (isset ($_GET['entreprise_id'])) {
+
+  if (isset ($_SESSION['compte_entreprise'])) {
 
     $afficheMessage2 = getMessage2($db, $_SESSION['compte_entreprise'], $_GET['users_id']);
 
-    if (isset($_POST['envoyer1'])) {
+    if (isset ($_POST['envoyer1'])) {
 
       $entreprise_id = $_GET['entreprise_id'];
       $offre_id = '';
       $users_id = $_GET['users_id'];
-      if (isset($_GET['statut'])) {
+      if (isset ($_GET['statut'])) {
         $statut = $_GET['statut'];
       } else {
         $statut = '';
       }
-      $messages = htmlspecialchars(nl2br($_POST['messages']));
+      $messages =nl2br(htmlspecialchars($_POST['messages'])) ;
       $indicatif = 'recruteur';
       $date_publication = new DateTime();
       $date_formatter = new IntlDateFormatter(
@@ -39,9 +39,12 @@ if (isset($_GET['entreprise_id'])) {
       );
       $date = $date_formatter->format($date_publication);
 
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
-        // Assurez-vous de terminer le script après la redirection
+      if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
+       
       }
+      
+       postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date);
+
       $_SESSION['success_message'] = 'Message envoyer';
       header("Location: message_entreprise2.php?entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id']);
       exit;
@@ -49,18 +52,18 @@ if (isset($_GET['entreprise_id'])) {
   }
 }
 
-if (isset($_GET['users_id'])) {
+if (isset ($_GET['users_id'])) {
 
-  if (isset($_SESSION['users_id'])) {
+  if (isset ($_SESSION['users_id'])) {
 
     $afficheMessage2 = getMessage2($db, $_GET['entreprise_id'], $_GET['users_id']);
 
-    if (isset($_POST['envoyer1'])) {
+    if (isset ($_POST['envoyer1'])) {
 
       $entreprise_id = $_GET['entreprise_id'];
       $offre_id = '';
       $users_id = $_GET['users_id'];
-      if (isset($_GET['statut'])) {
+      if (isset ($_GET['statut'])) {
         $statut = $_GET['statut'];
       } else {
         $statut = '';
@@ -78,9 +81,12 @@ if (isset($_GET['users_id'])) {
       );
       $date = $date_formatter->format($date_publication);
 
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
-        // Assurez-vous de terminer le script après la redirection
+      if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
+       
       }
+      
+       postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date);
+
       $_SESSION['success_message'] = 'Message envoyer';
       header("Location: get_message_users2.php?entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id']);
       exit;
@@ -94,17 +100,18 @@ if (isset($_GET['users_id'])) {
 
 
 
-if (isset($_GET['offres_id'])) {
+if (isset ($_GET['offres_id'])) {
 
-  if (isset($_SESSION['compte_entreprise'])) {
+  if (isset ($_SESSION['compte_entreprise'])) {
+
     $afficheMessage1 = getMessage1($db, $_SESSION['compte_entreprise'], $_GET['offres_id'], $_GET['users_id']);
 
-    if (isset($_POST['envoyer'])) {
+    if (isset ($_POST['envoyer'])) {
 
       $entreprise_id = $_GET['entreprise_id'];
       $offre_id = $_GET['offres_id'];
       $users_id = $_GET['users_id'];
-      if (isset($_GET['statut'])) {
+      if (isset ($_GET['statut'])) {
         $statut = $_GET['statut'];
       } else {
         $statut = '';
@@ -121,10 +128,13 @@ if (isset($_GET['offres_id'])) {
         'EEEE d MMMM y HH:mm'
       );
       $date = $date_formatter->format($date_publication);
+     
+        if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
+        
+        }
+     
+        postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date);
 
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
-        // Assurez-vous de terminer le script après la redirection
-      }
       $_SESSION['success_message'] = 'Message envoyer';
       header("Location: message_entreprise.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
       exit;
@@ -132,15 +142,18 @@ if (isset($_GET['offres_id'])) {
   }
 
 
-  if (isset($_SESSION['users_id'])) {
-    $afficheMessage1 = getMessage1($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
 
-    if (isset($_POST['envoyer'])) {
+
+
+  if (isset ($_SESSION['users_id'])) {
+    $afficheMessage1 = getMessage1($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
+    
+    if (isset ($_POST['envoyer'])) {
 
       $entreprise_id = $_GET['entreprise_id'];
       $offre_id = $_GET['offres_id'];
       $users_id = $_GET['users_id'];
-      if (isset($_GET['statut'])) {
+      if (isset ($_GET['statut'])) {
         $statut = $_GET['statut'];
       } else {
         $statut = '';
@@ -158,8 +171,12 @@ if (isset($_GET['offres_id'])) {
         'EEEE d MMMM y HH:mm'
       );
       $date = $date_formatter->format($date_publication);
-      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
+      if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
+       
       }
+      
+       postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date);
+
       $_SESSION['success_message'] = 'Message envoyer';
       header("Location: get_message_users.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
       exit();
@@ -167,8 +184,8 @@ if (isset($_GET['offres_id'])) {
   }
 }
 
-if (isset($_GET['id'])) {
-  if (isset($_POST['send'])) {
+if (isset ($_GET['id'])) {
+  if (isset ($_POST['sende'])) {
 
     $entreprise_id = $_SESSION['compte_entreprise'];
     $offre_id = '';
@@ -176,8 +193,21 @@ if (isset($_GET['id'])) {
     $statut = '';
     $messages = nl2br($_POST['message']);
     $indicatif = 'recruteur';
+    $date_publication = new DateTime();
+      $date_formatter = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::LONG,
+        IntlDateFormatter::NONE,
+        'Europe/Paris',
+        IntlDateFormatter::GREGORIAN,
+        'EEEE d MMMM y HH:mm'
+      );
+      $date = $date_formatter->format($date_publication);
 
     if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
+      if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $date)) {
+        
+      }
     }
 
     $titre = htmlspecialchars($_POST['titre']);
@@ -193,15 +223,17 @@ if (isset($_GET['id'])) {
       try {
         // Paramètres SMTP
         $mail->isSMTP();
-        $mail->Host = 'work-flexer.com';
+        $mail->Host = 'advantechgroup.online';
         $mail->SMTPAuth = true;
-        $mail->Username = 'noreply-service@work-flexer.com';
-        $mail->Password = 'Ludvanne12'; // Remplacez par le mot de passe de votre compte e-mail
+        $mail->Username = 'info@advantechgroup.online';
+        $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
         $infoEntreprises = getEntreprise($db, $entreprise_id);
-        $destinataire = $infoUsers['mail'];
+        $infoUsers = infoUsers($db, $users_id);
+      $utilisateur = $infoUsers['nom'];
+      $destinataire = $infoUsers['mail'];
         $entreprise = $infoEntreprises['entreprise'];
 
         // Contenu de l'e-mail
@@ -322,14 +354,14 @@ if (isset($_GET['id'])) {
     <p>Nous avons le plaisir de vous informer que vous avez été sélectionné pour le poste de <strong>$titre</strong> au sein de notre entreprise.</p>
     <p>Nous apprécions votre intérêt pour cette opportunité et nous sommes impatients de vous accueillir dans notre équipe.</p>
     <p>Veuillez vous connecter à votre compte sur Work-Flexer pour consulter les détails de l'offre et accepter notre proposition :</p>
-    <p><a href='https://work-flexer.com/candidat/mon_compte.php'>Accéder à votre compte</a></p>
+    <p><a href='https://work-flexer.com/page/user_profil.php'>Accéder à votre compte</a></p>
     <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider à faciliter le processus d'intégration.</p>
     <p>Cordialement,<br>L'équipe de recrutement de $entreprise</p>
 </div>
                </body>
                </html> ";
 
-        $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+        $mail->setFrom('info@advantechgroup.online', 'work-flexer');
         $mail->isHTML(true);
         $mail->Subject = $sujet;
         $mail->Body = $message;
@@ -338,20 +370,20 @@ if (isset($_GET['id'])) {
         $mail->clearAddresses();
         $mail->addAddress($destinataire);
         $mail->send();
-
+        $_SESSION['success_message'] = " Appel D'offres envoyer!";
         header('Location: ../entreprise/message.php');
         exit();
       } catch (Exception $e) {
         $_SESSION['error_message'] = 'Une erreur c\'est produit !!';
-        header('Location: ../page/user_profil.php');
+        header('Location: ../entreprise/message.php');
         exit();
       }
     }
   }
 }
 
-if (isset($_GET['suprime'])) {
-  if (isset($_SESSION['users_id'])) {
+if (isset ($_GET['suprime'])) {
+  if (isset ($_SESSION['users_id'])) {
     $message_id = $_GET['suprime'];
     if (deletMessage($db, $message_id)) {
       $_SESSION['success_message'] = 'Message siprimer';
@@ -360,7 +392,7 @@ if (isset($_GET['suprime'])) {
     }
   }
 
-  if (isset($_SESSION['compte_entreprise'])) {
+  if (isset ($_SESSION['compte_entreprise'])) {
     $message_id = $_GET['suprime'];
     if (deletMessage($db, $message_id)) {
       $_SESSION['success_message'] = 'Message siprimer';
@@ -370,5 +402,11 @@ if (isset($_GET['suprime'])) {
   }
 }
 
+if ( isset ($_GET['offres_id'] ) AND  isset($_GET['users_id'])){
+  if (isset($_SESSION['users_id'])) {
+  deletTMP_Message($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
+  }
+  
+}
 
-$afficheAutreMessageEntreprise = getAutreMessageEntreprise($db,);
+$afficheAutreMessageEntreprise = getAutreMessageEntreprise($db, );

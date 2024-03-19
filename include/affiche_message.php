@@ -18,11 +18,15 @@
                                 <?= $Messages['date'] ?>
                             </span>
                         </div>
+                        <div>
                         <img src="../upload/<?= $afficheInfoEntreprise['images'] ?>" alt="">
+                        </div>
                     </div>
                 <?php else: ?>
                     <div class="box2">
+                        <div>
                         <img src="../upload/<?= $afficheInfoUsers['images'] ?>" alt="">
+                        </div>
                         <div class="aff">
 
                             <p>
@@ -75,11 +79,17 @@
                                 <?= $Messages['date'] ?>
                             </span>
                         </div>
-                        <img src="../upload/<?= $afficheInfoUsers['images'] ?>" alt="">
+                        <div>
+                            <img src="../upload/<?= $afficheInfoUsers['images'] ?>" alt="">
+                        </div>
+                        
                     </div>
                 <?php else: ?>
                     <div class="box2">
-                        <img src="../upload/<?= $infoEntreprise['images'] ?>" alt="">
+                        <div>
+                            <img src="../upload/<?= $infoEntreprise['images'] ?>" alt="">
+                        </div>
+                        
                         <div class="aff">
                             <p>
                                 <?= $Messages['messages'] ?>

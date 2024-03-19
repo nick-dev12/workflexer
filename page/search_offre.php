@@ -10,7 +10,7 @@ if (isset($_SESSION['resultats'])) {
     // Récupérer les résultats de la recherche
     $resultats = $_SESSION['resultats'];
     // Effacer les résultats de la recherche de la session (facultatif)
-    unset($_SESSION['resultats']);
+    shuffle($resultats);
 } else {
    
 }
@@ -35,7 +35,7 @@ if (isset($_SESSION['resultats'])) {
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>bienvenu</title>
+    <title>Recherche</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -65,14 +65,10 @@ if (isset($_SESSION['resultats'])) {
             <div class="affiche">
             </div>
         </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
+       
 
         <article
-            class="articles owl-carousel carousel1">
+            class="articles ">
             <?php if (empty($resultats)): ?>
 
                 <h1 class="message">Aucun resultat trouver pour cette recherche !</h1>

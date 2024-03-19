@@ -109,7 +109,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <?php $infoUsers =getInfoUsers($db,$postulant['users_id']) ?>
                     <a href="message_entreprise.php?users_id=<?= $postulant['users_id']?>&offres_id=<?= $postulant['offre_id']?>&entreprise_id=<?= $postulant['entreprise_id']?>&statut=<?= $postulant['statut']?>">
            <div class="info" >
-                <img src="../upload/<?php echo $infoUsers['images']?>" alt="">
+            <div class="c_img">
+                 <img class="img" src="../upload/<?php echo $infoUsers['images']?>" alt="">
+            </div>
+               
                 <div class="div" >
                     <h4><?= $postulant['nom']?></h4>
                     <p> <strong>Domaine de Competences: </strong> <?= $postulant['competences']?></p>
@@ -127,7 +130,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <?php $infoUsers =getInfoUsers($db,$appel_offre['users_id']) ?>
                 <a href="message_entreprise2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?>">
             <div class="info">
-            <img src="../upload/<?php echo $infoUsers['images']?>" alt="">
+            <div class="c_img">
+            <img class="img" src="../upload/<?php echo $infoUsers['images']?>" alt="">
+            </div>
                 <div class="div" >
                 <h4><?= $infoUsers['nom']?></h4>
                     <p> <strong>Domaine de Competences:</strong> <?= $infoUsers['competences']?></p>

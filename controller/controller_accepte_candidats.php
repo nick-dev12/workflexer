@@ -24,9 +24,9 @@ if (isset($_GET['accepter'])) {
         try {
             // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'work-flexer.com';
+            $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
-            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Username = 'info@advantechgroup.online';
             $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
@@ -159,7 +159,7 @@ if (isset($_GET['accepter'])) {
               </body>
               </html> ";
 
-            $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+             $mail->setFrom('info@advantechgroup.online', 'work-flexer');
             $mail->isHTML(true);
             $mail->Subject = $sujet;
             $mail->Body = $message;
@@ -198,9 +198,9 @@ if (isset($_GET['recaler'])) {
         try {
             // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'work-flexer.com';
+            $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
-            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Username = 'info@advantechgroup.online';
             $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
@@ -329,7 +329,7 @@ if (isset($_GET['recaler'])) {
                </body>
                </html> ";
 
-            $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+             $mail->setFrom('info@advantechgroup.online', 'work-flexer');
             $mail->isHTML(true);
             $mail->Subject = $sujet;
             $mail->Body = $message;

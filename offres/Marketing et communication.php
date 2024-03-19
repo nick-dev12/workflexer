@@ -26,7 +26,7 @@ if (isset($_POST['recherche'])) {
         $sql .= " AND u.experience = :experience";
     }
     if (!empty($etude)) {
-        $sql .= " AND u.etude = :etude";
+        $sql .= " AND u.etudes = :etude";
     }
 
     $stmt = $db->prepare($sql);
@@ -49,7 +49,7 @@ if (isset($_POST['recherche'])) {
     // Stocker les résultats de la recherche dans une session
     $_SESSION['resultats'] = $resulte;
 
-    header('Location: search_offre.php');
+    header('Location: ../page/search_offre.php');
 
     exit();
 

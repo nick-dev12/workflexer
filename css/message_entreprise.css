@@ -113,6 +113,7 @@ body {
   width: 50px;
   border-radius: 50%;
   margin-right: 20px;
+  object-fit: cover;
 }
 .section3 .messages .box2 .aff {
   position: relative;
@@ -171,6 +172,7 @@ body {
   width: 50px;
   border-radius: 50%;
   margin-left: 10px;
+  object-fit: cover;
 }
 .section3 .messages .box4 .affi {
   position: relative;
@@ -191,6 +193,7 @@ body {
   top: 6px;
   right: 6px;
   cursor: pointer;
+  object-fit: cover;
 }
 .section3 .messages .box4 .affi .span {
   color: #0066ff;
@@ -320,6 +323,7 @@ body {
   border-radius: 50%;
   border: 2px solid #67dd00;
   margin-right: 10px;
+  object-fit: cover;
 }
 .container_profil .box3 .info .div h4 {
   font-weight: bolder;
@@ -378,6 +382,7 @@ body {
   border-radius: 50%;
   border: 2px solid #002233;
   margin-right: 20px;
+  object-fit: cover;
 }
 
 .container_profil .box2 .info .div h4 {

@@ -1,5 +1,5 @@
 <?php if (isset($_SESSION['compte_entreprise'])): ?>
-    <div class="message">
+    <div class="messages">
         <div class="container_aff" id="message-container">
             <?php foreach ($afficheMessage2 as $Messages): ?>
                 <?php $afficheInfoUsers = getInfoUsers($db, $Messages['users_id']) ?>
@@ -55,7 +55,7 @@
 
 <?php if (isset($_SESSION['users_id'])): ?>
 
-    <div class="message">
+    <div class="messages">
         <div class="container_aff" id="message-container">
             <?php foreach ($afficheMessage2 as $Messages): ?>
                 <?php $infoEntreprise = getEntreprise($db, $Messages['entreprise_id']) ?>
@@ -74,11 +74,15 @@
                                 <?= $Messages['date'] ?>
                             </span>
                         </div>
+                        <div>
                         <img src="../upload/<?= $afficheInfoUsers['images'] ?>" alt="">
+                        </div>
                     </div>
                 <?php else: ?>
                     <div class="box2">
+                        <div>
                         <img src="../upload/<?= $infoEntreprise['images'] ?>" alt="">
+                        </div>
                         <div class="aff">
                             <p>
                                 <?= $Messages['messages'] ?>

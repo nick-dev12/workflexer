@@ -163,15 +163,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h1>Formulaire d'Appel d'Offres</h1>
                     <img class="fermer" src="../image/croix.png" alt="">
                     <div class="div" >
-                        <label for="titre">Titre d'Appel d'Offres :</label>
+                        <label for="titre">Poste Disponible:</label>
                         <input class="input1" type="text" name="titre" id="titre" required>
                     </div>
                     <div class="div" >
-                        <label for="message">Description d'Appel d'Offres :</label>
+                        <label for="message">Description du poste:</label>
                         <textarea  name="message" id="summernote" cols="30" rows="10" required></textarea>
                     </div>
 
-                    <input class="input" type="submit" name="send" value="Envoyer">
+                    <input class="input" type="submit" name="sende" value="Envoyer">
                 </form>
 
                 <script>
