@@ -486,7 +486,7 @@ body{
 }
 .section3 .container_box2 .box2  .carousel{
     height: 350px;
-    width: 230px;
+    width: 260px;
     background-color: rgba(247, 247, 247, 0.499);
     border-radius: 8px;
     overflow: hidden;
@@ -545,7 +545,7 @@ body{
 }
 
 .section3 .container_box2 .box2  .carousel img{
-    height: 130px;
+    height: 110px;
     width: 100%;
     object-fit: cover;
     border-bottom: 1px solid rgba(148, 146, 146, 0.499);
@@ -553,7 +553,7 @@ body{
 .section3 .container_box2 .box2  .carousel .p{
     width: 100%;;
     letter-spacing: 0.5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .section3 .container_box2 .box2  .carousel #nom{
@@ -564,7 +564,7 @@ body{
     margin-top: 4px;
     color: #3451c6;
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     left: 5px;
 }
 
@@ -572,14 +572,15 @@ body{
     display: flex;
     font-size: 14px;
     width: 100%;
-    max-height: 57px;
-    margin: 7px;
     flex-direction: column;
+    height: 166px;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: center;
 }
 .section3 .container_box2 .box2  .carousel .vendu p{
   font-size: 14px;
   font-weight: 300;
-  max-height: 50px;
   width: 100%;
   padding:0 5px;
   margin-top: 5px;

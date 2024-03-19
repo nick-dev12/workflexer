@@ -12,8 +12,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
 if (isset($_SESSION['resultats_recherche'])) {
     // Récupérer les résultats de la recherche
     $resultats = $_SESSION['resultats_recherche'];
-    // Effacer les résultats de la recherche de la session (facultatif)
-    unset($_SESSION['resultats_recherche']);
+    shuffle($resultats);
 } else {
    
 }

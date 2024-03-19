@@ -1,12 +1,19 @@
 <?php
 session_start();
 
+if (isset($_SESSION['compte_entreprise'])) {
+    
+}else{
+    header('Location: ../index.php');
+}
+
 include_once('../entreprise/app/controller/controllerEntreprise.php');
 include_once('../entreprise/app/controller/controllerDescription.php');
 include_once('../entreprise/app/controller/controllerOffre_emploi.php');
 include_once('../controller/controller_postulation.php');
 include_once('../controller/controller_accepte_candidats.php');
 include_once('../controller/controller_competence_users.php'); 
+include_once('../controller/controller_niveau_etude_experience.php'); 
 ?>
 
 
@@ -145,8 +152,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <?php else: ?>
             <?php foreach ($getALLpostulation as $postulant): ?>
                 <?php 
+                $niveau = gettNiveau($db, $postulant['users_id']);
+                $explode_nom = explode(' ', $postulant['nom']);
+                $nom =  $explode_nom[0]. ' , ' . $explode_nom[1];
                 $competencesUsers = getCompetences($db, $postulant['users_id']);
-                $nombreCompetencesAffichees = 4;
+                $nombreCompetencesAffichees = 2;
                 ?>
                 <?php if($postulant['statut']=='accepter'):?>
                     <?php else: ?>
@@ -175,11 +185,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <img src="../upload/<?= $postulant['images']?>" alt="">
                     <ul>
                         <li>
-                           <strong>Nom : </strong> <?= $postulant['nom'] ?>
+                           <strong>Nom : </strong> <?= $nom ?>
                         </li>
+                        <?php if($niveau) :?>
                         <li>
-                        <strong>Niveau : </strong> Bac+2ans
-                        </li>
+                        <strong>Niveau : </strong> <?= $niveau['etude'] ?>
+                        </li> 
+                        <li>
+                        <strong>expérience : </strong> <?= $niveau['experience'] ?>
+                        </li> 
+                        <?php else: ?>
+                            <li>
+                        <strong>Niveau : </strong> Non renseigner
+                        </li> 
+                        <li>
+                        <strong>expérience : </strong>  Non renseigner
+                        </li> 
+                        <?php endif ; ?>
                        
                         <?php foreach ($competencesUsers as $key => $compe):
                                             if ($key < $nombreCompetencesAffichees):
@@ -191,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             endif;
                                         endforeach;
                                         ?>
-                        <li><strong>Domaine :</strong>  <?= $postulant['competences'] ?> et reseaux comunication</li>
+                        <li><strong>Domaine :</strong>  <?= $postulant['competences'] ?></li>
                     </ul>
 
                     <div class="container-box_btn">
@@ -233,8 +255,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <?php foreach ($getALLpostulation as $postulant): ?>
                <?php 
-                $competencesUsers = getCompetences($db, $postulant['users_id']);
-                $nombreCompetencesAffichees = 4;
+                 $niveau = gettNiveau($db, $postulant['users_id']);
+                 $explode_nom = explode(' ', $postulant['nom']);
+                 $nom =  $explode_nom[0]. ' , ' . $explode_nom[1];
+                 $competencesUsers = getCompetences($db, $postulant['users_id']);
+                 $nombreCompetencesAffichees = 2;
                 ?>
                     
                    
@@ -248,13 +273,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </h3>
                     <img src="../upload/<?= $postulant['images']?>" alt="">
 
-                    <ul>
+                   <ul>
                         <li>
-                           <strong>Nom : </strong> <?= $postulant['nom'] ?>
+                           <strong>Nom : </strong> <?= $nom ?>
                         </li>
+                        <?php if($niveau) :?>
                         <li>
-                        <strong>Niveau : </strong> Bac+2ans
-                        </li>
+                        <strong>Niveau : </strong> <?= $niveau['etude'] ?>
+                        </li> 
+                        <li>
+                        <strong>expérience : </strong> <?= $niveau['experience'] ?>
+                        </li> 
+                        <?php else: ?>
+                            <li>
+                        <strong>Niveau : </strong> Non renseigner
+                        </li> 
+                        <li>
+                        <strong>expérience : </strong>  Non renseigner
+                        </li> 
+                        <?php endif ; ?>
                        
                         <?php foreach ($competencesUsers as $key => $compe):
                                             if ($key < $nombreCompetencesAffichees):
@@ -268,6 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         ?>
                         <li><strong>Domaine :</strong>  <?= $postulant['competences'] ?> et reseaux comunication</li>
                     </ul>
+
 
                     <div class="container-box_btn">
                          <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
@@ -305,8 +343,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container owl-carousel teste2">
             <?php foreach ($getALLpostulation as $postulant): ?>
                 <?php 
-                $competencesUsers = getCompetences($db, $postulant['users_id']);
-                $nombreCompetencesAffichees = 4;
+                 $niveau = gettNiveau($db, $postulant['users_id']);
+                 $explode_nom = explode(' ', $postulant['nom']);
+                 $nom =  $explode_nom[0]. ' , ' . $explode_nom[1];
+                 $competencesUsers = getCompetences($db, $postulant['users_id']);
+                 $nombreCompetencesAffichees = 2;
                 ?>
                 <?php if($postulant['statut']=='recaler'):?>
                    
@@ -317,13 +358,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <?= $postulant['poste'] ?>
                     </h3>
                     <img src="../upload/<?= $postulant['images']?>" alt="">
-                    <ul>
+                   <ul>
                         <li>
-                           <strong>Nom : </strong> <?= $postulant['nom'] ?>
+                           <strong>Nom : </strong> <?= $nom ?>
                         </li>
+                        <?php if($niveau) :?>
                         <li>
-                        <strong>Niveau : </strong> Bac+2ans
-                        </li>
+                        <strong>Niveau : </strong> <?= $niveau['etude'] ?>
+                        </li> 
+                        <li>
+                        <strong>expérience : </strong> <?= $niveau['experience'] ?>
+                        </li> 
+                        <?php else: ?>
+                            <li>
+                        <strong>Niveau : </strong> Non renseigner
+                        </li> 
+                        <li>
+                        <strong>expérience : </strong>  Non renseigner
+                        </li> 
+                        <?php endif ; ?>
                        
                         <?php foreach ($competencesUsers as $key => $compe):
                                             if ($key < $nombreCompetencesAffichees):
@@ -337,6 +390,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         ?>
                         <li><strong>Domaine :</strong>  <?= $postulant['competences'] ?> et reseaux comunication</li>
                     </ul>
+
 
                     <div class="container-box_btn">
                         <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le

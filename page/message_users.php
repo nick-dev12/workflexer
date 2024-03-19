@@ -2,7 +2,7 @@
 session_start();
 include '../conn/conn.php';
 
-if (isset($_GET['id'])) {
+if (isset ($_GET['id'])) {
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
     $users_id = $_GET['id'];
@@ -20,18 +20,18 @@ if (isset($_GET['id'])) {
     $message = '';
 
 
-    include_once('../controller/controller_description_users.php');
-    include_once('../controller/controller_metier_users.php');
-    include_once('../controller/controller_competence_users.php');
-    include_once('../controller/controller_formation_users.php');
-    include_once('../controller/controller_diplome_users.php');
-    include_once('../controller/controller_certificat_users.php');
-    include_once('../controller/controller_outil_users.php');
-    include_once('../controller/controller_langue_users.php');
-    include_once('../controller/controller_projet_users.php');
+    include_once ('../controller/controller_description_users.php');
+    include_once ('../controller/controller_metier_users.php');
+    include_once ('../controller/controller_competence_users.php');
+    include_once ('../controller/controller_formation_users.php');
+    include_once ('../controller/controller_diplome_users.php');
+    include_once ('../controller/controller_certificat_users.php');
+    include_once ('../controller/controller_outil_users.php');
+    include_once ('../controller/controller_langue_users.php');
+    include_once ('../controller/controller_projet_users.php');
 } else {
 
-    if (isset($_COOKIE['users_id'])) {
+    if (isset ($_COOKIE['users_id'])) {
         $users_id = $_COOKIE['users_id'];
     } else {
         $users_id = '';
@@ -70,21 +70,21 @@ if (isset($_GET['id'])) {
     // Récupérer l'id du métier à supprimer (via lien ou formulaire par exemple)
 
 
-    include_once('../controller/controller_description_users.php');
-    include_once('../controller/controller_metier_users.php');
-    include_once('../controller/controller_competence_users.php');
-    include_once('../controller/controller_formation_users.php');
-    include_once('../controller/controller_diplome_users.php');
-    include_once('../controller/controller_certificat_users.php');
-    include_once('../controller/controller_outil_users.php');
-    include_once('../controller/controller_langue_users.php');
-    include_once('../controller/controller_projet_users.php');
-    include_once('../controller/controller_postulation.php');
-    include_once('../entreprise/app/controller/controllerEntreprise.php');
-    include_once('../entreprise/app/controller/controllerOffre_emploi.php');
-    include_once('../controller/controller_appel_offre.php');
-    include('../controller/controller_message1.php');
-    include_once('../controller/controller_users.php');
+    include_once ('../controller/controller_description_users.php');
+    include_once ('../controller/controller_metier_users.php');
+    include_once ('../controller/controller_competence_users.php');
+    include_once ('../controller/controller_formation_users.php');
+    include_once ('../controller/controller_diplome_users.php');
+    include_once ('../controller/controller_certificat_users.php');
+    include_once ('../controller/controller_outil_users.php');
+    include_once ('../controller/controller_langue_users.php');
+    include_once ('../controller/controller_projet_users.php');
+    include_once ('../controller/controller_postulation.php');
+    include_once ('../entreprise/app/controller/controllerEntreprise.php');
+    include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
+    include_once ('../controller/controller_appel_offre.php');
+    include ('../controller/controller_message1.php');
+    include_once ('../controller/controller_users.php');
 }
 
 ?>
@@ -136,14 +136,56 @@ if (isset($_GET['id'])) {
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <?php include('../navbare.php') ?>
+    <?php include ('../navbare.php') ?>
 
 
 
-    <?php include('../include/header_users.php') ?>
+    <?php include ('../include/header_users.php') ?>
 
 
     <section class="section3">
+
+        <?php if (isset ($_SESSION['success_message'])): ?>
+            <div class="message">
+                <p>
+                    <span></span>
+                    <?php echo $_SESSION['success_message']; ?>
+                    <?php unset($_SESSION['success_message']); ?>
+                </p>
+            </div>
+        <?php else: ?>
+            <?php if (isset ($_SESSION['error_message'])): ?>
+                <div class="erreurs" id="messageErreur">
+                    <span></span>
+                    <?php echo $_SESSION['error_message']; ?>
+                    <?php unset($_SESSION['error_message']); ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <script>
+            let success = document.querySelector('.message')
+            setTimeout(() => {
+                success.classList.add('visible');
+            }, 200);
+            setTimeout(() => {
+                success.classList.remove('visible');
+            }, 6000);
+
+            // Sélectionnez l'élément contenant le message d'erreur
+            var messageErreur = document.getElementById('messageErreur');
+
+            // Fonction pour afficher le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.add('visible');
+            }, 200); // 1000 millisecondes équivalent à 1 seconde
+
+            // Fonction pour masquer le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.remove('visible');
+            }, 6000); // 6000 millisecondes équivalent à 6 secondes
+        </script>
+
 
         <img src="../image/fleche.png" alt="" class="img222">
         <script>
@@ -164,29 +206,47 @@ if (isset($_GET['id'])) {
 
             <div class="box3">
                 <h2>Candidatures retenues</h2>
-                <?php if (empty($getPostulationUsers)): ?>
+                <?php if (empty ($getPostulationUsers)): ?>
                     <p><strong>Info :</strong> aucune Candidatures trouver !!</p>
                 <?php else: ?>
                     <?php foreach ($getPostulationUsers as $postulationUsers): ?>
                         <?php if ($postulationUsers['statut'] == 'accepter'): ?>
-                            <?php $infoEntreprise = getEntreprise($db, $postulationUsers['entreprise_id']) ?>
-                            <?php $afficheOffre = getOffresEmploit($db, $postulationUsers['offre_id']); ?>
+                            <?php $infoEntreprise = getEntreprise($db, $postulationUsers['entreprise_id']); ?>
+                            <?php $afficheOffre = getOffresEmploit($db, $postulationUsers['offre_id']);
+
+                            $afficheTMP1_Message1 = getTMP1_Message1($db, $postulationUsers['entreprise_id'], $postulationUsers['offre_id'], $postulationUsers['users_id']);
+
+                            $totalMessage = count($afficheTMP1_Message1);
+
+                            ?>
                             <a
                                 href="get_message_users.php?users_id=<?= $postulationUsers['users_id'] ?>&offres_id=<?= $postulationUsers['offre_id'] ?>&entreprise_id=<?= $postulationUsers['entreprise_id'] ?>&statut=<?= $postulationUsers['statut'] ?>">
                                 <div class="info">
-                                    <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                    <div class="c_img">
+                                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                    </div>
+
                                     <div class="div">
                                         <h4>
                                             <?= $infoEntreprise['entreprise'] ?>
                                         </h4>
+
+                                        <?php if($totalMessage):?>
+                                        <strong class="tmp" >
+                                            <?= $totalMessage ?>
+                                        </strong>
+                                        <?php endif; ?>
+
                                         <p> <strong>Competences:</strong>
                                             <?= $postulationUsers['competences'] ?>
                                         </p>
+
                                         <p><span class="span1"><strong>Offre postuler:</strong>
                                                 <?= $afficheOffre['poste'] ?>
                                             </span> <span class="span2">
                                                 <?= $afficheOffre['contrat'] ?>
-                                            </span></p>
+                                            </span>
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -197,7 +257,7 @@ if (isset($_GET['id'])) {
 
             <div class="box2">
                 <h2>Appelles d'offres</h2>
-                <?php if (empty($getAllAppel_offre)): ?>
+                <?php if (empty ($getAllAppel_offre)): ?>
                     <p><strong>Info :</strong> aucun Appelle d'offres !!</p>
                 <?php else: ?>
                     <?php foreach ($getAllAppel_offre as $appel_offre): ?>
@@ -207,7 +267,10 @@ if (isset($_GET['id'])) {
                         <a
                             href="get_message_users2.php?users_id=<?= $appel_offre['users_id'] ?>&entreprise_id=<?= $appel_offre['entreprise_id'] ?>">
                             <div class="info">
-                                <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                <div class="c_img">
+                                    <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                </div>
+
                                 <div class="div">
                                     <h4>
                                         <?= $infoEntreprise['nom'] ?>

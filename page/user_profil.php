@@ -1565,7 +1565,6 @@ if (isset($_GET['id'])) {
                     animateIn: 'flipInX',
                     stagePadding: 30,
                     smartSpeed: 650,
-                    margin: 20,
                     nav: true,
                     responsive: {
                         0: {
@@ -1575,15 +1574,11 @@ if (isset($_GET['id'])) {
                         550: {
                             items: 1,
                         },
-                        690: {
-                            items: 2,
-
-                        },
                         890: {
-                            items: 3
+                            items: 2
                         },
                         1200: {
-                            items: 3
+                            items: 2
                         },
                         1400: {
                             items: 3

@@ -2734,7 +2734,7 @@ textarea {
 
 .section3 .container_box10 .slider .carousel {
   height: 380px;
-  width: 240px;
+  width: 270px;
   background-color: rgba(247, 247, 247, 0.499);
   border-radius: 8px;
   overflow: hidden;
@@ -2758,7 +2758,7 @@ textarea {
   border: 1px solid #2c3e501e;
 }
 .section3 .container_box10 .slider .carousel img {
-  height: 140px;
+  height: 110px;
   width: 100%;
   object-fit: cover;
   border-bottom: 1px solid rgba(148, 146, 146, 0.499);
@@ -2769,7 +2769,7 @@ textarea {
   position: absolute;
   background-color: #00223392;
   color: #ffffff;
-  top: 100px;
+  top: 70px;
   width: 100%;
   font-size: 14px;
 }
@@ -2795,7 +2795,8 @@ textarea {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 180px;
+  height: 190px;
+  margin-top: 5px;
 }
 
 .section3 .container_box10 .slider .carousel .vendu p {

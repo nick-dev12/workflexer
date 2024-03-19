@@ -13,7 +13,7 @@ include_once('app/controller/controllerEntreprise.php');
 include_once('app/controller/controllerDescription.php');
 include_once('app/controller/controllerOffre_emploi.php');
 include_once('../controller/controller_postulation.php');
-include('../controller/controller_message1.php'); 
+include_once('../controller/controller_message1.php'); 
 include_once('../controller/controller_appel_offre.php');
 ?>
 
@@ -114,47 +114,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 img222.style.display = 'block';
             });
         </script>
-    <div class="container_profil">
-
-    <div class="box3">
-            <h2>Candidats retenu</h2>
-            <?php foreach ($getALLpostulation as $postulant): ?>
-                <?php if($postulant['statut']=='accepter'):?>
-                    <?php $getoffre =getOffresEmploit($db,$postulant['offre_id']);?>
-                 <?php  $afficheInfoUsers = getInfoUsers($db,$postulant['users_id']) ?>
-                    <a href="message_entreprise.php?users_id=<?= $postulant['users_id']?>&offres_id=<?= $postulant['offre_id']?>&entreprise_id=<?= $postulant['entreprise_id']?>&statut=<?= $postulant['statut']?>">
-           <div class="info" >
-                <img src="../upload/<?php echo $afficheInfoUsers['images']?>" alt="">
-                <div class="div" >
-                    <h4><?= $postulant['nom']?></h4>
-                    <p> <strong>Competences:</strong> <?= $postulant['competences']?></p>
-                    <p><span class="span1" ><strong>Offre postuler:</strong> <?= $postulant['poste']?></span> <span class="span2" ><?= $getoffre['contrat']?></span></p>
-                </div>
-            </div>
-           </a>
-            <?php endif;?>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="box2">
-            <h2>Appel d'offres</h2>
-            <?php foreach($getAllAppel_offre as $appel_offre): ?>
-                <?php $infoUsers =getInfoUsers($db,$appel_offre['users_id']) ?>
-                <a href="message_entreprise2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?>">
-            <div class="info">
-            <img src="../upload/<?php echo $infoUsers['images']?>" alt="">
-                <div class="div" >
-                <h4><?= $infoUsers['nom']?></h4>
-                    <p> <strong>Competences:</strong> <?= $infoUsers['competences']?></p>
-                    <p><span class="span1" ><strong>Sujet:</strong> Appelle d'offre </span> </p>
-                </div>
-            </div>
-        </a>
-            <?php endforeach; ?>
-        </div>
-    </div>
-
-
 
 
 

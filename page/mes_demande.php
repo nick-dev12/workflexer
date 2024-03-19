@@ -238,7 +238,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p><strong>Niveau :</strong> <?= $getOffreEmploie['etudes'] ?> <span>...</span></p>
                         <p><strong>Localité : </strong> <?= $getOffreEmploie['localite'] ?> <span>...</span></p>
                         <?php if ($postulationUsers['statut'] == 'recaler'): ?>
-                        <a class="cursor" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
+                        <a class="a cursor" href="../entreprise/voir_offre.php?id=<?= $postulationUsers['offre_id']; ?>"><img
                                 src="../image/vue3.png" alt=""> Désactiver
                             </a>
                             <?php else: ?>

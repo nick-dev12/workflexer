@@ -56,8 +56,7 @@ if (isset($_POST['recherche'])) {
     // Stocker les résultats de la recherche dans une session
     $_SESSION['resultats_recherche'] = $resulte;
 
-    header('Location: search.php');
-
+    header('Location: ../page/search.php');
     exit();
 
 }

@@ -37,7 +37,7 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>Profil</title>
+    <title>Offre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -314,7 +314,24 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                     smartSpeed: 450,
                     margin: 20,
                     nav: true,
-                    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
+                    responsive: {
+                        0: {
+                            items: 1,
+                            margin: 0,
+                        },
+                        550: {
+                            items: 1,
+                        },
+                        890: {
+                            items: 2
+                        },
+                        1200: {
+                            items: 3
+                        },
+                        1400: {
+                            items: 4
+                        }
+                    }
                 });
 
                 var carousel3 = $('.carousel3').owlCarousel();

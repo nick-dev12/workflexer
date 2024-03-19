@@ -87,6 +87,15 @@ function countALLPostulationRecaler($db, $entreprise_id)
     $stmt->execute();
     return $stmt->rowCount();
 }
+function countALLPostulation($db, $entreprise_id)
+{
+    $sql = "SELECT * FROM postulation WHERE entreprise_id = :entreprise_id AND statut = '' ";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->rowCount();
+}
+
 
 
 /**

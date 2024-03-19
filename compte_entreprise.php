@@ -29,13 +29,12 @@ if (isset($_POST['valider'])) {
 
     $id = uniqid();
 
-    $id2 = uniqid();
 
     // Vérification du nom
     if (empty($_POST['nom'])) {
         $erreurs = "Le nom est obligatoire";
     } else {
-        $nom = htmlspecialchars($_POST['nom']); // Échapper les caractères spéciaux
+        $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES, 'UTF-8'); // Échapper les caractères spéciaux
     }
     // Vérification du nom de boutique
     if (empty($_POST['entreprise'])) {
@@ -87,7 +86,7 @@ if (isset($_POST['valider'])) {
     if (empty($_POST['categorie'])) {
         $erreurs = "La catégorie est obligatoire";
     } else {
-        $categorie = $_POST['categorie'];
+        $categorie = htmlspecialchars($_POST['categorie']);
     }
 
     // Vérification de la ville
@@ -154,8 +153,7 @@ if (isset($_POST['valider'])) {
         $passe = password_hash($passe, PASSWORD_DEFAULT);
 
 
-        function generateSecurityCode($length = 9)
-        {
+        function generateSecurityCode($length = 9) {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $code = '';
             $max = strlen($characters) - 1;
@@ -164,40 +162,20 @@ if (isset($_POST['valider'])) {
             }
             return $code;
         }
-
+        
         // Génération du code de sécurité
         $verification = generateSecurityCode();
 
-        // Requête SQL pour l'insertion des données
-        $sql = "INSERT INTO compte_entreprise (id ,nom, mail, phone,types, taille, entreprise, ville, categorie, images,verification , passe) 
-                VALUES (:id, :nom, :mail, :phone,:types, :taille, :entreprise, :ville, :categorie, :images,:verification , :passe)";
 
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':id', $id2);
-        $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':mail', $email);
-        $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':types', $types);
-        $stmt->bindParam(':taille', $taille);
-        $stmt->bindParam(':entreprise', $entreprise);
-        $stmt->bindParam(':ville', $ville);
-        $stmt->bindParam(':categorie', $categorie);
-        $stmt->bindParam(':images', $uniqueFileName);
-        $stmt->bindParam(':verification', $verification);
-        $stmt->bindParam(':passe', $passe);
-        // Exécution de la requête
-        $stmt->execute();
+          // Créez l'instance PHPMailer
+          $mail = new PHPMailer(true);
 
-
-        // Créez l'instance PHPMailer
-        $mail = new PHPMailer(true);
-
-        try {
+          try {
             // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'work-flexer.com';
+            $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
-            $mail->Username = 'noreply-service@work-flexer.com';
+            $mail->Username = 'info@advantechgroup.online';
             $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
@@ -206,11 +184,11 @@ if (isset($_POST['valider'])) {
 
             // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
 
-            $destinataire = $email;
+          $destinataire = $email ;
 
-            // Contenu de l'e-mail
-            $sujet = 'Confirmation de compte';
-            $message = "
+                // Contenu de l'e-mail
+                $sujet = 'Confirmation de compte';
+                $message = "
             <!DOCTYPE html>
             <html>
             <head><meta charset='utf-8'>
@@ -331,26 +309,44 @@ if (isset($_POST['valider'])) {
             </body>
             </html> ";
 
-            $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
-            $mail->isHTML(true);
-            $mail->Subject = $sujet;
-            $mail->Body = $message;
+                $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+                $mail->isHTML(true);
+                $mail->Subject = $sujet;
+                $mail->Body = $message;
 
 
-            $mail->clearAddresses();
-            $mail->addAddress($destinataire);
-            $mail->send();
+                $mail->clearAddresses();
+                $mail->addAddress($destinataire);
+                $mail->send();
+            
+                 // Requête SQL pour l'insertion des données
+        $sql = "INSERT INTO compte_entreprise (nom, mail, phone,types, taille, entreprise, ville, categorie, images,verification , passe) 
+        VALUES (:nom, :mail, :phone,:types, :taille, :entreprise, :ville, :categorie, :images,:verification , :passe)";
 
+$stmt = $db->prepare($sql);
+$stmt->bindParam(':nom', $nom);
+$stmt->bindParam(':mail', $email);
+$stmt->bindParam(':phone', $phone);
+$stmt->bindParam(':types', $types);
+$stmt->bindParam(':taille', $taille);
+$stmt->bindParam(':entreprise', $entreprise);
+$stmt->bindParam(':ville', $ville);
+$stmt->bindParam(':categorie', $categorie);
+$stmt->bindParam(':images', $uniqueFileName);
+$stmt->bindParam(':verification', $verification);
+$stmt->bindParam(':passe', $passe);
+// Exécution de la requête
+$stmt->execute();
 
-            $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
+            $_SESSION['success_message'] = 'Inscription reussie !';
             header('Location: ../entreprise/verification_entreprise.php');
             exit();
 
         } catch (Exception $e) {
-            header('Location: compte_entreprise.php.php');
+            header('Location: compte_entreprise.php');
             exit();
         }
-
+       
     }
 }
 
@@ -414,31 +410,30 @@ if (isset($_POST['valider'])) {
                 <div class="container_form">
 
                     <div class="container">
-                        <div class="box1">
-                            <label for="nom">Nom et Prénom</label>
-                            <input type="text" name="nom" id="nom" placeholder="Ex: John Doe">
-                        </div>
+                    <div class="box1">
+    <label for="nom">Nom et Prénom</label>
+    <input type="text" name="nom" id="nom" placeholder="Ex: John Doe">
+</div>
 
-                        <div class="box1">
-                            <label for="entreprise">Nom de votre entreprise</label>
-                            <input type="text" name="entreprise" id="entreprise" placeholder="Ex: ABC Company">
-                        </div>
+<div class="box1">
+    <label for="entreprise">Nom de votre entreprise</label>
+    <input type="text" name="entreprise" id="entreprise" placeholder="Ex: ABC Company">
+</div>
 
-                        <div class="box1">
-                            <label for="mail">Adresse e-mail</label>
-                            <input type="email" name="mail" id="mail" placeholder="Ex: john.doe@example.com">
-                        </div>
+<div class="box1">
+    <label for="mail">Adresse e-mail</label>
+    <input type="email" name="mail" id="mail" placeholder="Ex: john.doe@example.com">
+</div>
 
-                        <div class="box1">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" name="phone" id="phone" placeholder="Ex: 0123456789">
-                        </div>
+<div class="box1">
+    <label for="phone">Téléphone</label>
+    <input type="tel" name="phone" id="phone" placeholder="Ex: 0123456789">
+</div>
 
-                        <div class="box1">
-                            <label for="type">Type d'entreprise ou d'activité</label>
-                            <input type="text" name="types" id="type"
-                                placeholder="Ex: Technologie, Finance, Consultation">
-                        </div>
+<div class="box1">
+    <label for="type">Type d'entreprise ou d'activité</label>
+    <input type="text" name="types" id="type" placeholder="Ex: Technologie, Finance, Consultation">
+</div>
 
 
                         <div class="box1">
@@ -446,7 +441,7 @@ if (isset($_POST['valider'])) {
                             <div class="ab">
                                 <div>
                                     <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
-                                    <input type="file" name="images" id="images">
+                                    <input type="file" name="images" id="images" accept="image/jpeg,image/jpg, image/png, image/gif">
                                 </div>
                                 <div class="im">
                                     <img id="imagePreview" src="" alt="view">
@@ -494,22 +489,22 @@ if (isset($_POST['valider'])) {
                         </div>
 
                         <div class="box1">
-                            <label for="ville">Ville</label>
-                            <input type="text" name="ville" id="ville" placeholder="Ex: Paris">
-                        </div>
+    <label for="ville">Ville</label>
+    <input type="text" name="ville" id="ville" placeholder="Ex: Paris">
+</div>
 
-                        <div class="box1">
-                            <label for="passe">Mot de passe</label>
-                            <input type="password" name="passe" id="passe" placeholder="Ex: ********">
-                        </div>
-                        <div class="box1">
-                            <label for="cpasse">Confirmer mot de passe</label>
-                            <input type="password" name="cpasse" id="cpasse" placeholder="Ex: ********">
-                            <div class="view">
-                                <p>Afficher le mot de passe</p>
-                                <input type="checkbox" id="voirCPasse" onclick="showPassword()">
-                            </div>
-                        </div>
+<div class="box1">
+    <label for="passe">Mot de passe</label>
+    <input type="password" name="passe" id="passe" placeholder="Ex: ********">
+</div>
+<div class="box1">
+    <label for="cpasse">Confirmer mot de passe</label>
+    <input type="password" name="cpasse" id="cpasse" placeholder="Ex: ********">
+    <div class="view">
+        <p>Afficher le mot de passe</p>
+        <input type="checkbox" id="voirCPasse" onclick="showPassword()">
+    </div>
+</div>
 
 
                         <input type="submit" name="valider" value="valider" id="valider">

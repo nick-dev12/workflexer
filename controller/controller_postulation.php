@@ -11,7 +11,7 @@ require '../vendor/autoload.php';
 
 if (isset($_SESSION['compte_entreprise'])) {
     $getALLpostulation = getALLPostulation($db, $_SESSION['compte_entreprise']);
-    $countAllPostulation = count($getALLpostulation);
+    $countAllPostulation = countALLPostulation($db, $_SESSION['compte_entreprise']);
     $countPostulationAccepte = countALLPostulationAccept($db, $_SESSION['compte_entreprise']);
     $countPostulationRecqler = countALLPostulationRecaler($db, $_SESSION['compte_entreprise']);
     // $offre_id = $getALLpostulation['offre_id'];
@@ -60,14 +60,14 @@ if (isset($_SESSION['users_id'])) {
             $mail = new PHPMailer(true);
 
             try {
-                // Paramètres SMTP
-                $mail->isSMTP();
-                $mail->Host = 'work-flexer.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'noreply-service@work-flexer.com';
-                $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-                $mail->SMTPSecure = 'ssl';
-                $mail->Port = 465;
+               // Paramètres SMTP
+            $mail->isSMTP();
+            $mail->Host = 'advantechgroup.online';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'info@advantechgroup.online';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
 
                 $infoEntreprises = getEntreprise($db, $entreprise_id);
                 $destinataire = $infoEntreprises['mail'];
@@ -198,7 +198,7 @@ if (isset($_SESSION['users_id'])) {
                </body>
                </html> ";
 
-                $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+               $mail->setFrom('info@advantechgroup.online', 'work-flexer');
                 $mail->isHTML(true);
                 $mail->Subject = $sujet;
                 $mail->Body = $message;
