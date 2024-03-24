@@ -3,6 +3,11 @@ session_start();
 // Inclusion du fichier de connexion à la BDD
 include '../conn/conn.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php';
 
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
@@ -56,6 +61,197 @@ if (isset($_POST['valider'])) {
       }
     }
   }
+
+
+
+
+if(isset($_GET['mail'])){
+
+  $email = $_GET['mail'];
+
+$nom = $_SESSION['nom'];
+  function generateSecurityCode($length = 9) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $code = '';
+    $max = strlen($characters) - 1;
+    for ($i = 0; $i < $length; $i++) {
+        $code .= $characters[mt_rand(0, $max)];
+    }
+    return $code;
+}
+
+// Génération du code de sécurité
+$verification = generateSecurityCode();
+
+
+  // Créez l'instance PHPMailer
+  $mail = new PHPMailer(true);
+
+  try {
+    // Paramètres SMTP
+    $mail->isSMTP();
+    $mail->Host = 'mail.privateemail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'service@advantechgroup.online';
+    $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
+
+    // Fonction pour générer un code de sécurité aléatoire
+
+    // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
+
+  $destinataire = $email ;
+
+        // Contenu de l'e-mail
+        $sujet = 'Confirmation de compte';
+        $message = "
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset='utf-8'>
+     <style>
+     body{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .box1 {
+        width: 300px;
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+    
+    .box1 img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    
+    .box2 {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        width: 60%;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 20px;
+        color: #007bff;
+        margin-bottom: 15px;
+    }
+    
+    h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    a {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .box2 {
+            padding: 15px;
+            width: 80%;
+        }
+       
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .box2 {
+            padding: 15px;
+        }
+    
+        h1 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+    
+        h2 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+    
+        h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+    
+        p {
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+    
+        a {
+            padding: 8px 16px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+    }
+    
+     </style>
+    </head>
+    <body>
+
+    <div class='box1'>
+    <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
+</div>
+<div class='box2'>
+    <h1>Bonjour $nom,</h1>
+    <h2>Nouveau compte cree !</h2>
+    <p>Votre compte a été créé avec succès pour des raisons de sécurité, nous vous avons envoyé un code de sécurité, veuillez saisir ce code de sécurité dans le champ correspondant.</p>
+    <p> Code de confirmation : <strong> $verification </strong></p>
+    <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
+    <p>Cordialement,<br>L'équipe Work-Flexer</p>
+</div>
+    
+    </body>
+    </html> ";
+
+        $mail->setFrom('service@advantechgroup.online', 'work-flexer');
+        $mail->isHTML(true);
+        $mail->Subject = $sujet;
+        $mail->Body = $message;
+
+
+        $mail->clearAddresses();
+        $mail->addAddress($destinataire);
+        $mail->send();
+    
+         // Requête SQL pour l'insertion des données
+$sql = "UPDATE compte_entreprise SET verification = :verification  WHERE mail = :mail";
+$stmtUpdateToken = $db->prepare($sqlUpdateToken);
+$stmtUpdateToken->bindParam(':verification', $verification);
+$stmtUpdateToken->bindParam(':mail',  $email);
+$stmtUpdateToken->execute();
+  
+    header('Location: ../entreprise/verification_entreprise.php');
+    exit();
+
+} catch (Exception $e) {
+    header('Location: ../compte_entreprise.php');
+    exit();
+}
+}
+
 
 
 
@@ -122,7 +318,7 @@ if (isset($_POST['valider'])) {
           <label for="code">Entrer le code de vérification envoyé à votre boîte mail.</label>
           <input type="text" name="code" id="code">
         </div>
-
+        <a href="?mail=<?php $_SESSION['mail']?>">Renvoyer le code!</a>
         <input type="submit" name="valider" value="valider" id="valider">
       </form>
     </div>

@@ -95,16 +95,7 @@ if (isset($_POST['valider'])) {
     } else {
         $ville = htmlspecialchars($_POST['ville']);
     }
-
-    // $nom = $_POST['nom'];
-    // $entreprise = $_POST['entreprise'];
-    // $mail = $_POST['mail'];
-    // $phone = $_POST['phone'];
-    // $taille = $_POST['taille'];
-    // $categorie = $_POST['categorie'];
-    // $ville = $_POST['ville'];
-    // $passe = $_POST['passe'];
-    // $cpasse = $_POST['cpasse'];
+   
 
     // Vérification de la ville
     if (empty($_FILES['images'])) {
@@ -173,10 +164,10 @@ if (isset($_POST['valider'])) {
           try {
             // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'advantechgroup.online';
+            $mail->Host = 'mail.privateemail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'info@advantechgroup.online';
-            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->Username = 'service@advantechgroup.online';
+            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
@@ -309,7 +300,7 @@ if (isset($_POST['valider'])) {
             </body>
             </html> ";
 
-                $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+                $mail->setFrom('service@advantechgroup.online', 'work-flexer');
                 $mail->isHTML(true);
                 $mail->Subject = $sujet;
                 $mail->Body = $message;
@@ -339,6 +330,8 @@ $stmt->bindParam(':passe', $passe);
 $stmt->execute();
 
             $_SESSION['success_message'] = 'Inscription reussie !';
+            $_SESSION['mail'] = $email;
+            $_SESSION['nom'] = $nom;
             header('Location: ../entreprise/verification_entreprise.php');
             exit();
 

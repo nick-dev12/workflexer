@@ -99,6 +99,8 @@ if (isset($_SESSION['users_id'])) {
 
         <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
 
+
+
         <script>
             // Importez la bibliothèque jsPDF
             function generatePDF() {

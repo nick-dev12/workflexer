@@ -301,7 +301,7 @@ if (isset($_GET['id'])) {
         <div class="container_box1">
             <div class="box1">
                 <h2>A propos de moi ! <strong>
-                        <?php echo $getVueProfil; ?><img src="../image/vue.png" alt="">
+                        <?php echo $getVueProfil; ?><img src="../image/vue2.png" alt="">
                     </strong></h2>
 
                 <div class="description">
@@ -752,6 +752,7 @@ if (isset($_GET['id'])) {
                             <option value="Bac+8ans">Bac+8ans</option>
                             <option value="Bac+9ans">Bac+9ans</option>
                             <option value="Bac+10ans">Bac+10ans</option>
+                            <option value="Aucun">Aucun</option>
                         </select>
                     </div>
                     <div>
@@ -768,6 +769,7 @@ if (isset($_GET['id'])) {
                             <option value="8ans">8ans</option>
                             <option value="9ans">9ans</option>
                             <option value="10ans">10ans</option>
+                            <option value="Aucun">Aucun</option>
                         </select>
                     </div>
                     <?php if (isset($getNiveauEtude['etude'])): ?>

@@ -205,6 +205,7 @@ z-index: -1;
     height: 80px;
     width: 80px;
     cursor: pointer;
+    object-fit: cover;
 }
 .section2 .formulaire1 form .view{
     display: flex;

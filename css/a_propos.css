@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
+
+/*--------------------------------------------------------------
+  Variables
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+  Styles globaux
+--------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+
+body {
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+h1,
+h2 {
+  color: #0073b7;
+}
+
+a {
+  color: #0073b7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Typographie */
+
+h1 {
+  font-size: 2em;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* Structure */
+
+header {
+  padding: 1em;
+  text-align: center;
+}
+
+main {
+  padding: 2em;
+  width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid #201f1f6b;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+section {
+  margin-bottom: 2em;
+  padding: 10px 30px;
+}
+
+.about-us p {
+  text-align: justify;
+}
+section h3 {
+  margin: 20px auto;
+}
+section p {
+  margin: 10px auto;
+}
+.services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.services li {
+  margin-bottom: 1em;
+  list-style-type: square;
+}
+
+.contact p {
+  text-align: center;
+}
+
+/* Pied de page */
+
+footer {
+  background-color: #0073b7;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    width: 90%;
+  }
+  section {
+    padding: 10px;
+  }
+  section p {
+    font-size: 14px;
+  }
+  section ul li {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 700px) {
+  main {
+    width: 97%;
+  }
+  section {
+    padding: 5px;
+  }
+  section h2 {
+    font-size: 18px;
+  }
+  section h3 {
+    font-size: 14px;
+  }
+  section p {
+    font-size: 12px;
+  }
+  section ul li {
+    font-size: 12px;
+  }
+}

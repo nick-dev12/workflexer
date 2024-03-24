@@ -220,7 +220,7 @@ if (isset ($_GET['id'])) {
 
                             ?>
                             <a
-                                href="get_message_users.php?users_id=<?= $postulationUsers['users_id'] ?>&offres_id=<?= $postulationUsers['offre_id'] ?>&entreprise_id=<?= $postulationUsers['entreprise_id'] ?>&statut=<?= $postulationUsers['statut'] ?>">
+                                href="get_message_users.php?users_id=<?= $postulationUsers['users_id'] ?>&offres_id=<?= $postulationUsers['offre_id'] ?>&entreprise_id=<?= $postulationUsers['entreprise_id'] ?>&statut=<?= $postulationUsers['statut'] ?> ">
                                 <div class="info">
                                     <div class="c_img">
                                         <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
@@ -241,12 +241,11 @@ if (isset ($_GET['id'])) {
                                             <?= $postulationUsers['competences'] ?>
                                         </p>
 
-                                        <p><span class="span1"><strong>Offre postuler:</strong>
+                                        <p><strong>Offre postuler:</strong>
                                                 <?= $afficheOffre['poste'] ?>
-                                            </span> <span class="span2">
-                                                <?= $afficheOffre['contrat'] ?>
-                                            </span>
                                         </p>
+
+                                        <p><strong>Contrat :</strong> <?= $afficheOffre['contrat'] ?></p>
                                     </div>
                                 </div>
                             </a>
@@ -262,8 +261,14 @@ if (isset ($_GET['id'])) {
                 <?php else: ?>
                     <?php foreach ($getAllAppel_offre as $appel_offre): ?>
 
+                        <?php $infoEntreprise = getEntreprise($db, $appel_offre['entreprise_id']);
 
-                        <?php $infoEntreprise = getEntreprise($db, $appel_offre['entreprise_id']) ?>
+                         $appel_offre = getAppelOffre($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
+
+                         $afficheTMP_message = getTMP2_Message3($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
+                         $countTMP_message = count($afficheTMP_message);
+                        
+                        ?>
                         <a
                             href="get_message_users2.php?users_id=<?= $appel_offre['users_id'] ?>&entreprise_id=<?= $appel_offre['entreprise_id'] ?>">
                             <div class="info">
@@ -275,10 +280,17 @@ if (isset ($_GET['id'])) {
                                     <h4>
                                         <?= $infoEntreprise['nom'] ?>
                                     </h4>
+
+                                    <?php if($countTMP_message): ?>
+                    <strong class="tmp" >
+                        <?= $countTMP_message ?>
+                    </strong>
+                    <?php endif; ?>
+
                                     <p> <strong>Competences:</strong>
                                         <?= $infoEntreprise['entreprise'] ?>
                                     </p>
-                                    <p><span class="span1"><strong>Sujet:</strong> Appelle d'offre </span> </p>
+                                    <p><strong>Poste :</strong> <?= $appel_offre['titre'] ?></p>
                                 </div>
                             </div>
                         </a>

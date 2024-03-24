@@ -16,7 +16,7 @@ include('../conn/conn.php');
  * @param mixed $profession
  * @return mixed
  */
-function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $mail, $phone, $competences, $profession, $images)
+function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images)
 {
     $sql = "INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,images) 
     VALUES (:entreprise_id,:poste,:offre_id,:users_id,:nom,:mail,:phone,:competences,:profession,:images)";
@@ -26,7 +26,7 @@ function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom
     $stmt->bindParam(':offre_id', $offre_id);
     $stmt->bindParam(':users_id', $users_id);
     $stmt->bindParam(':nom', $nom);
-    $stmt->bindParam(':mail', $mail);
+    $stmt->bindParam(':mail', $maile);
     $stmt->bindParam(':phone', $phone);
     $stmt->bindParam(':competences', $competences);
     $stmt->bindParam(':profession', $profession);

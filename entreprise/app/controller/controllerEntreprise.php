@@ -125,7 +125,6 @@ if (isset($_POST['publier'])) {
 
 
     if (empty($_SESSION['error_message'])) {
-        if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $date)) {
 
             // Créez l'instance PHPMailer
             $mail = new PHPMailer(true);
@@ -133,12 +132,12 @@ if (isset($_POST['publier'])) {
             try {
                 // Paramètres SMTP
                 $mail->isSMTP();
-                $mail->Host = 'advantechgroup.online';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'info@advantechgroup.online';
-                $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-                $mail->SMTPSecure = 'ssl';
-                $mail->Port = 465;
+            $mail->Host = 'mail.privateemail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'service@advantechgroup.online';
+            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
 
                 // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
 
@@ -277,7 +276,7 @@ if (isset($_POST['publier'])) {
                 </body>
                 </html> ";
 
-                    $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+                    $mail->setFrom('service@advantechgroup.online', 'work-flexer');
                     $mail->isHTML(true);
                     $mail->Subject = $sujet;
                     $mail->Body = $message;
@@ -288,18 +287,21 @@ if (isset($_POST['publier'])) {
                     $mail->send();
                 }
 
-                $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
+                if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $date)) {
+
+                     $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
                 header('Location: entreprise_profil.php');
                 exit();
+                }
 
             } catch (Exception $e) {
-                $_SESSION['success_message'] = 'Offre d\'emploi publiée';
+                $_SESSION['error_message'] = 'Une erreur c\'est produit';
                 header('Location: entreprise_profil.php');
                 exit();
             }
         }
     }
-}
+
 
 
 if (isset($_SESSION['users_id'])) {
