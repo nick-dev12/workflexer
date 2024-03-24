@@ -468,3 +468,33 @@ display: none;
       padding: 10px;
     }
 }
+
+.ab{
+  display: flex;
+    align-items: center;
+    margin: 20px 0;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    height: 100px;
+}
+.ab label #img{
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+  left: 0;
+}
+#images{
+  display: none;
+}
+/* .section2 .formulaire1 form .box1 .ab .im{
+  width: 100px;
+  
+} */#imagePreview {
+  display: block;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  object-fit: cover;
+  margin-right: 50px;
+}

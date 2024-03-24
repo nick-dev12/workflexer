@@ -140,11 +140,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <img class="croix1" src="../image/croix.png" alt="">
 
                     <form class="form0" action="" method="post" enctype="multipart/form-data" >
-                        <div>
-                            <label for="photo">Photo de profil</label>
-                            <input type="file" name="images" id=""  >
-                        </div>
+                    <div class="ab">
+                                <div>
+                                    <label class="label" for="images"> <img id="img" src="/image/galerie.jpg" alt=""></label>
+                                    <input type="file" name="images" id="images" accept="image/jpeg,image/jpg, image/png, image/gif">
+                                </div>
+                                <div class="im">
+                                    <img id="imagePreview" src="" alt="view">
+                                </div>
+
+                            </div>
                         <input id="modif" name="valide0" type="submit" value="Modifier">
+                        <script>
+        // Récupérer l'élément input type file
+        const inputImage = document.getElementById('images');
+
+        // Écouter le changement de fichier sélectionné
+        inputImage.addEventListener('change', () => {
+
+            // Récupérer le premier fichier sélectionné
+            const file = inputImage.files[0];
+
+            // Afficher l'aperçu dans l'élément img
+            const previewImg = document.getElementById('imagePreview');
+            previewImg.src = URL.createObjectURL(file);
+
+        });
+    </script>
                     </form>
 
                     <form class="form1" action="" method="post">

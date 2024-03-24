@@ -9,11 +9,11 @@
             <div class="footer-section">
                 <h3>Naviguer</h3>
                 <ul>
-                    <li><img src="../image/accueil.png" alt=""><a href="../index.php">Accueil</a></li>
-                    <li><img src="../image/emploi.png" alt=""><a href="/page/Offres_d'emploi.php">Offres d'emploi</a></li>
-                    <li><img src="../image/candidat.png" alt=""><a href="/page/voir_profil.php">Profils des candidats</a></li>
-                    <li><img src="../image/a propos.png" alt=""><a href="#">À propos de nous</a></li>
-                    <li><img src="../image/contacts-48.png" alt=""> <a href="#">Contactez-nous</a></li>
+                    <a href="../index.php"><li><img src="../image/accueil.png" alt="">Accueil</li></a>
+                    <a href="/page/Offres_d'emploi.php"><li><img src="../image/emploi.png" alt="">Offres d'emploi</li></a>
+                    <a href="/page/voir_profil.php"><li><img src="../image/candidat.png" alt="">Profils des candidats</li></a>
+                    <a href="/a_propos.php"><li><img src="../image/a propos.png" alt="">À propos de nous</li></a>
+                    <a href="#"><li><img src="../image/contacts-48.png" alt=""> Contactez-nous</li></a>
                 </ul>
             </div>
             <div class="footer-section">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="legal-info">
-            <p>Copyright &copy; 2023 work-flexer. Tous droits réservés. | <a href="/page/politique.php">Mentions légales</a> | <a href="/page/politique.php">Politique de confidentialité</a></p>
+            <p>Copyright &copy; 2024 work-flexer. Tous droits réservés. | <a href="/page/politique.php">Mentions légales</a> | <a href="/page/politique.php">Politique de confidentialité</a></p>
         </div>
 </div>
 

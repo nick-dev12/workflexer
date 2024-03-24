@@ -29,7 +29,7 @@ if (isset($_GET['offres_id'])) {
 if (isset($_SESSION['users_id'])) {
 
     if (isset($_POST['postuler'])) {
-        $entreprise_id = $offre_id = $users_id = $nom = $mail = $phone = $competances = $profession = '';
+        $entreprise_id = $offre_id = $users_id = $nom = $maile = $phone = $competances = $profession = '';
 
         $offre_id = $_GET['offres_id'];
 
@@ -43,7 +43,7 @@ if (isset($_SESSION['users_id'])) {
 
         $nom = $_POST['nom_users'];
 
-        $mail = $_POST['mail_users'];
+        $maile = $_POST['mail_users'];
 
         $phone = $_POST['phone_users'];
 
@@ -53,8 +53,6 @@ if (isset($_SESSION['users_id'])) {
 
         $images = $_POST['images_users'];
 
-        if (postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $mail, $phone, $competences, $profession, $images)) {
-
 
             // Créez l'instance PHPMailer
             $mail = new PHPMailer(true);
@@ -62,10 +60,10 @@ if (isset($_SESSION['users_id'])) {
             try {
                // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'advantechgroup.online';
+            $mail->Host = 'mail.privateemail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'info@advantechgroup.online';
-            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->Username = 'service@advantechgroup.online';
+            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
@@ -198,7 +196,7 @@ if (isset($_SESSION['users_id'])) {
                </body>
                </html> ";
 
-               $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+               $mail->setFrom('service@advantechgroup.online', 'work-flexer');
                 $mail->isHTML(true);
                 $mail->Subject = $sujet;
                 $mail->Body = $message;
@@ -208,6 +206,7 @@ if (isset($_SESSION['users_id'])) {
                 $mail->addAddress($destinataire);
                 $mail->send();
 
+                postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images);
 
                 $_SESSION['success_message'] = 'Postulation réussi !!';
 
@@ -223,8 +222,7 @@ if (isset($_SESSION['users_id'])) {
 
         }
 
-    }
+    
 
     $getPostulationUsers = getPostulationUsers($db, $_SESSION['users_id']);
 }
-?>

@@ -135,7 +135,7 @@ include_once('controller/controller_users.php');
                 <img src="/image/etudiant2.png" alt="">
             </div>
             <div class="box1">
-                <h2>je construis mon histoire </h2>
+                <h2>Je construis mon histoire </h2>
             </div>
 
         </section>
@@ -287,6 +287,47 @@ include_once('controller/controller_users.php');
             <img class="img2" src="/image/resp1.png" alt="">
         </div>
     </section>
+
+
+    <section class="service">
+  <div class="container">
+    <h1>Entreprise</h1>
+    <h3>Services</h3>
+    <div class="box">
+      <ul>
+        <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+        <li><img src="/image/valider.png" alt=""> Publication d'offres illimité</li>
+        <li><img src="/image/valider.png" alt=""> Mise à jour des publications illimitées</li>
+        <li><img src="/image/valider.png" alt=""> Appel d'offres  intégrer et illimité </li>
+        <li><img src="/image/valider.png" alt=""> Système de messagerie intégré </li>
+        <li><img src="/image/valider.png" alt=""> Système de suivi de candidature intégré </li>
+        <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet</li>
+        <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
+      </ul>
+      <a class="a" href="/compte_entreprise.php">Inscription gratuit</a>
+    </div>
+  </div>
+
+
+  <div class="container container1">
+    <h1>Professionnel</h1>
+    <h3>Services</h3>
+    <div class="box">
+      <ul>
+        <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+        <li><img src="/image/valider.png" alt="">CV virtuel intégré 100% personnalisable </li>
+        <li><img src="/image/valider.png" alt=""> Profils connectés 24/24 , 7/7 aux recruteurs </li>
+        <li><img src="/image/valider.png" alt=""> Postulation simple et illimité </li>
+        <li><img src="/image/valider.png" alt=""> Création de CV physique automatique avec téléchargement gratuit  </li>
+        <li><img src="/image/valider.png" alt=""> Système de suivi de postulation intégré </li>
+
+        <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
+      </ul>
+
+      <a href="/compte_travailleur.php">Inscription gratuit</a>
+    </div>
+  </div>
+</section>
 
 
     <section class="n_section">

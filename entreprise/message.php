@@ -106,7 +106,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <?php foreach ($getALLpostulation as $postulant): ?>
                 <?php if($postulant['statut']=='accepter'):?>
                     <?php $getoffre =getOffresEmploit($db,$postulant['offre_id']);?>
-                    <?php $infoUsers =getInfoUsers($db,$postulant['users_id']) ?>
+                    <?php $infoUsers =getInfoUsers($db,$postulant['users_id']);
+                    $afficheTMP_message = getTMP1_Message2($db, $postulant['entreprise_id'], $postulant['offre_id'], $postulant['users_id']);
+                    $countTMP_message = count($afficheTMP_message);
+                    ?>
                     <a href="message_entreprise.php?users_id=<?= $postulant['users_id']?>&offres_id=<?= $postulant['offre_id']?>&entreprise_id=<?= $postulant['entreprise_id']?>&statut=<?= $postulant['statut']?>">
            <div class="info" >
             <div class="c_img">
@@ -115,8 +118,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                
                 <div class="div" >
                     <h4><?= $postulant['nom']?></h4>
+
+                    <?php if($countTMP_message): ?>
+                    <strong class="tmp" >
+                        <?= $countTMP_message ?>
+                    </strong>
+                    <?php endif; ?>
+
                     <p> <strong>Domaine de Competences: </strong> <?= $postulant['competences']?></p>
-                    <p><span class="span1" ><strong>Offre postuler :</strong> <?= $postulant['poste']?></span> <span class="span2" ><?= $getoffre['contrat']?></span></p>
+                    <p><span class="span1" ><strong>Offre postuler :</strong> <?= $postulant['poste']?></span>
+                    <p><strong>Contrat :</strong><?= $getoffre['contrat']?></p> 
                 </div>
             </div>
            </a>
@@ -127,7 +138,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="box2">
             <h2>Appel d'offres </h2>
             <?php foreach($getAllAppel_offre as $appel_offre): ?>
-                <?php $infoUsers =getInfoUsers($db,$appel_offre['users_id']) ?>
+                <?php $infoUsers =getInfoUsers($db,$appel_offre['users_id']); 
+
+                $appel_offre = getAppelOffre($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
+
+                $afficheTMP_message = getTMP2_Message2($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
+                $countTMP_message = count($afficheTMP_message);
+                
+                ?>
                 <a href="message_entreprise2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?>">
             <div class="info">
             <div class="c_img">
@@ -135,8 +153,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
                 <div class="div" >
                 <h4><?= $infoUsers['nom']?></h4>
+                <?php if($countTMP_message): ?>
+                    <strong class="tmp" >
+                        <?= $countTMP_message ?>
+                    </strong>
+                    <?php endif; ?>
                     <p> <strong>Domaine de Competences:</strong> <?= $infoUsers['competences']?></p>
-                    <p><span class="span1" ><strong>Sujet : </strong> Appelle d'offre </span> </p>
+                    <p><strong>Poste :</strong> <?= $appel_offre['titre'] ?></p>
                 </div>
             </div>
         </a>

@@ -53,12 +53,12 @@ $users_id = $_GET['id'];
       try {
           // Paramètres SMTP
           $mail->isSMTP();
-          $mail->Host = 'work-flexer.com';
-          $mail->SMTPAuth = true;
-          $mail->Username = 'noreply-service@work-flexer.com';
-          $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-          $mail->SMTPSecure = 'ssl';
-          $mail->Port = 465;
+            $mail->Host = 'mail.privateemail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'service@advantechgroup.online';
+            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
        
          $destinataire = $users['mail'];
          $nom = $users['nom'];
@@ -168,7 +168,7 @@ $users_id = $_GET['id'];
           </body>
           </html>  " ;
 
-          $mail->setFrom('noreply-service@work-flexer.com', 'work-flexer');
+          $mail->setFrom('service@advantechgroup.online', 'work-flexer');
           $mail->isHTML(true);
           $mail->Subject = $sujet;
           $mail->Body = $message;
@@ -238,9 +238,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><?= $users['nom'] ?></p>
     </div>
 
-    <p class="p">ce n'est pas votre compte ?</p>
+    <a href="../page/mdp_oublier.php"><p class="p">ce n'est pas votre compte ?</p></a>
 
-    <a href="?id=<?= $users['id'] ?>">Modifier le mot de passe</a>
+    <a class="aa" href="?id=<?= $users['id'] ?>">Modifier le mot de passe</a>
   </div>
 
   </section>

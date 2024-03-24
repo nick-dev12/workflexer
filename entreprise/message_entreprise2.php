@@ -15,6 +15,20 @@ include_once('app/controller/controllerOffre_emploi.php');
 include_once('../controller/controller_postulation.php');
 include_once('../controller/controller_message1.php'); 
 include_once('../controller/controller_appel_offre.php');
+
+
+if ( isset ($_GET['users_id'] ) AND  isset($_GET['entreprise_id']) ){
+
+    if (isset($_SESSION['users_id'])) {
+deletTMP_Message4($db, $_GET['entreprise_id'], $_GET['users_id']);
+}
+
+if (isset($_SESSION['compte_entreprise'])) {
+  deletTMP_Message3($db, $_GET['entreprise_id'], $_GET['users_id']);
+  }
+
+
+}
 ?>
 
 

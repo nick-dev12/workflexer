@@ -54,9 +54,9 @@ if (isset($_SESSION['users_id'])) {
         <div class="box1">
             <img class="cacheMenu" src="/image/croix.png" alt="">
             <a href="../index.php">Accueil</a>
-            <a href="../page/voir_profil.php">Orientation</a>
+            <a href="../page/orientation.php">Orientation</a>
             <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
-            <a href="#">Entreprise</a>
+            <a href="/page/entreprise.php">Entreprise</a>
             <a href="../page/voir_profil.php">Explorer les profils</a>
         </div>
         <script>
