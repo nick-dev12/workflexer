@@ -67,6 +67,9 @@ header h2 {
     width: 100%;
     margin-left: 0;
   }
+  .section3 .button12{
+    display: none;
+  }
 }
 
 .section3 .button12 {
@@ -78,6 +81,17 @@ header h2 {
   border: none;
   cursor: pointer;
   transition: all 0.4s;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1050px) {
+  .section3 {
+    width: 100%;
+    margin-left: 0;
+  }
+  .section3 .button12{
+    display: none;
+  }
 }
 .section3 button:hover {
   background-color: #303030;
@@ -154,6 +168,10 @@ header h2 {
   width: 100%;
   align-items: start;
 }
+#container .box1 .bb p span{
+  overflow: hidden;
+  width: 140px;
+}
 
 #container .box1 ul {
   width: 80%;
@@ -199,7 +217,7 @@ header h2 {
 #container .box2 p {
   font-size: 13px;
   width: 85%;
-  margin: 10px auto;
+  margin: 15px auto;
 }
 
 #container .box2 .experiences .div {
@@ -207,14 +225,21 @@ header h2 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 5px auto;
-  flex-direction: column;
+  margin: 10px auto;
+  flex-wrap: wrap;
 }
 #container .box2 .experiences .div1 {
   display: flex;
   align-items: center;
-  margin: 3px;
+  margin: 10px;
   width: 80%;
+}
+
+#container .box2 .experiences .div2 {
+  display: flex;
+  align-items: center;
+  margin: 7px 10px;
+  width: 230px;
 }
 #container .box2 .div .info {
   display: flex;
@@ -223,7 +248,7 @@ header h2 {
   width: 100%;
 }
 #container .box2 .div h4 {
-  width: 100%;
+  width: 80%;
   font-size: 13px;
   margin-top: 2px;
 }
@@ -244,7 +269,7 @@ header h2 {
 }
 
 #container .box2 .experiences .outils {
-  width: 80%;
+  width: 90%;
   display: flex;
   align-items: center;
   margin: 0 auto;
