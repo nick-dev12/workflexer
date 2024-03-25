@@ -102,12 +102,23 @@ if (isset($_SESSION['users_id'])) {
 
 
         <script>
-            // Importez la bibliothèque jsPDF
-            function generatePDF() {
-                const element = document.getElementById("container");
-                html2pdf().from(element).save("cv.pdf");
-            }
-        </script>
+    // Importez la bibliothèque jsPDF
+    function generatePDF() {
+        const element = document.getElementById("container");
+
+        // Hypothétiquement, si resolution et imageMode étaient des options valides
+        // vous pourriez les fusionner avec les options existantes de cette manière :
+        const mergedOptions = {
+            filename: 'cv.pdf',
+            image: { type: 'jpeg', quality: 0.98 }, // Qualité JPEG de l'image
+            html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas
+        };
+
+        // Utiliser les options fusionnées pour la conversion HTML vers PDF
+        html2pdf().set(mergedOptions).from(element).save("cv.pdf");
+    }
+</script>
+
 
 
         <div id="container" class="container">
@@ -278,7 +289,12 @@ if (isset($_SESSION['users_id'])) {
                             <?php if (empty($afficheMetier)): ?>
                                 <h4>Aucune donnée trouvée</h4>
                             <?php else: ?>
-                                <?php foreach ($afficheMetier as $Metiers): ?>
+                                <?php 
+                                shuffle($afficheMetier);
+                                $nombre_metier = 2
+                                ?>
+                                <?php foreach ($afficheMetier as $key  => $Metiers ): ?>
+                                    <?php if($key < $nombre_metier): ?>
                                     <div class="div1">
                                         <strong class="strong"></strong>
                                         <div class="info">
@@ -297,6 +313,7 @@ if (isset($_SESSION['users_id'])) {
                                             </p>
                                         </div>
                                     </div>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
@@ -307,13 +324,18 @@ if (isset($_SESSION['users_id'])) {
                     <div class="experiences">
                         <h1>FORMATIONS</h1>
 
-                        <div class="div">
+                        <div class="div formation">
                             <?php if (empty($formationUsers)): ?>
                                 <strong></strong>
                                 <h4>Aucune donnée trouver</h4>
                             <?php else: ?>
-                                <?php foreach ($formationUsers as $formations): ?>
-                                    <div class="div1">
+                                <?php 
+                                shuffle($formationUsers);
+                                $nombre_formation = 3;
+                                ?>
+                                <?php foreach ($formationUsers as $key => $formations): ?>
+                                    <?php if($key < $nombre_formation): ?>
+                                    <div class="div1 div2">
                                         <strong class="strong"></strong>
 
                                         <div class="info">
@@ -329,14 +351,12 @@ if (isset($_SESSION['users_id'])) {
                                                 </em>
                                             </span>
                                             <p> <strong>
-                                                    <?= $formations['Filiere'] ?>
+                                                    <?= $formations['Filiere'] ?> ,  <?= $formations['niveau'] ?>
                                                 </strong> </p>
-                                            <p>
-                                                <?= $formations['niveau'] ?>
-                                            </p>
 
                                         </div>
                                     </div>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
