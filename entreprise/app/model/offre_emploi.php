@@ -16,8 +16,6 @@ function getOffres($db, $offre_id) {
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
-        
-    
 }
 function getAllOffres($db){
     $sql = "SELECT * FROM offre_emploi ";
