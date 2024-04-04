@@ -244,38 +244,7 @@ include_once('controller/controller_users.php');
     </div>
 
 
-    <!-- <section class="box-section3">
-        <div class="box1">
-            <div>
-            <h2>Pour les Professionnels</h2>
-            <p>Explorez Work-Flexer, la plateforme qui révolutionne la flexibilité
-                au travail! Redéfinissez votre carrière avec des opportunités uniques.
-                Créez des profils et CV virtuels percutants pour raconter votre histoire
-                professionnelle. Transformez votre avenir dès maintenant!
-            </p>
-            </div>
-            <div  class="div" >
-                <img src="/image/image1.png" alt="">
-            </div>
-        </div>
 
-        <div class="box1">
-            <div class="div" >
-                <img src="/image/image2.png" alt="">
-            </div>
-            <div>
-            <h2>Pour les Recruteurs</h2>
-            <p>Découvrez Work-Flexer, le futur du recrutement pour les leaders visionnaires!
-                Simplifiez la gestion de vos offres d'emploi avec notre interface intuitive.
-                Atteignez les talents les plus prometteurs, gérez les candidatures en toute fluidité,
-                et interagissez sans effort avec les candidats. Transformez votre
-                processus de recrutement dès maintenant!
-            </p>
-            </div>
-            
-        </div>
-       
-    </section> -->
 
     <section class="n_section2">
         <div class="div">
