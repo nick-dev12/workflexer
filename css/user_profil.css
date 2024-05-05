@@ -1261,6 +1261,15 @@ textarea {
   border: 1px solid rgba(78, 77, 77, 0.325);
   margin-top: 20px;
   flex-wrap: wrap;
+  position: relative;
+}
+.section3 .container_box3 .containne .formee  img{
+position: absolute;
+top: 10px;
+right: 10px;
+height: 25px;
+width: 25px;
+cursor: pointer;
 }
 .section3 .container_box3 .containne form .container_box {
   margin-right: 60px;
