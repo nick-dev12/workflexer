@@ -82,7 +82,7 @@ include_once('controller/controller_users.php');
                     l'ingénierie et bien d'autres domaines. Nous sommes là pour répondre
                     à vos besoins professionnels avec expertise et professionnalisme.</p>
 
-                <a href="/inscription.php">Commencer</a>
+               
             </div>
         </div>
         <div class="slider-item">
@@ -93,7 +93,7 @@ include_once('controller/controller_users.php');
                     besoins. Que vous recherchiez des opportunités en freelance à court terme, des
                     engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
 
-                <a href="/inscription.php">Commencer</a>
+               
             </div>
         </div>
         <div class="slider-item">
@@ -104,7 +104,7 @@ include_once('controller/controller_users.php');
                     notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne
                     renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
 
-                <a href="/inscription.php">Commencer</a>
+               
             </div>
         </div>
     </div>

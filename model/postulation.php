@@ -1,5 +1,5 @@
 <?php
-include('../conn/conn.php');
+include ('../conn/conn.php');
 
 
 /**
@@ -14,12 +14,14 @@ include('../conn/conn.php');
  * @param mixed $phone
  * @param mixed $competences
  * @param mixed $profession
+ * @param mixed $images
+ * @param mixed $categorie
  * @return mixed
  */
-function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images)
+function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images ,$categorie)
 {
-    $sql = "INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,images) 
-    VALUES (:entreprise_id,:poste,:offre_id,:users_id,:nom,:mail,:phone,:competences,:profession,:images)";
+    $sql = "INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,images,categorie) 
+    VALUES (:entreprise_id,:poste,:offre_id,:users_id,:nom,:mail,:phone,:competences,:profession,:images,:categorie)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':entreprise_id', $entreprise_id);
     $stmt->bindParam(':poste', $poste);
@@ -31,6 +33,7 @@ function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom
     $stmt->bindParam(':competences', $competences);
     $stmt->bindParam(':profession', $profession);
     $stmt->bindParam(':images', $images);
+    $stmt->bindParam(':categorie', $categorie);
     return $stmt->execute();
 }
 
@@ -122,4 +125,19 @@ function getPostulationUsers($db, $users_id)
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-?>
+
+
+function getPostulation_categorie($db, $entreprise_id)
+{
+    // Sélection des postulations avec les informations des offres d'emploi associées
+    $sql = "SELECT postulation.*, offre_emploi.categorie
+              FROM postulation
+              INNER JOIN offre_emploi ON postulation.offre_id = offre_emploi.offre_id
+              WHERE postulation.entreprise_id = :entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+

@@ -881,6 +881,8 @@ if (isset($_GET['id'])) {
             <div class="containne">
                 <form class="formee" action="" method="post">
 
+                <img class="imgFormee" src="../image/croix.png" alt="">
+
                     <div class="container_box">
 
                         <div class="box1">
@@ -1007,13 +1009,14 @@ if (isset($_GET['id'])) {
             <script>
                 let Ajoutes = document.querySelector('.Ajouters')
                 let formee = document.querySelector('.containne')
+                let imgFormee = document.querySelector('.imgFormee')
 
                 Ajoutes.addEventListener('click', function () {
-                    if (formee.style.display === 'none' || formee.style.display === '') {
                         formee.style.display = 'block';
-                    } else {
+                });
+                imgFormee.addEventListener('click', function () {
                         formee.style.display = 'none';
-                    }
+                    
                 });
             </script>
         </div>

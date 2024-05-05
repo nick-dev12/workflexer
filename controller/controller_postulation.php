@@ -14,6 +14,8 @@ if (isset($_SESSION['compte_entreprise'])) {
     $countAllPostulation = countALLPostulation($db, $_SESSION['compte_entreprise']);
     $countPostulationAccepte = countALLPostulationAccept($db, $_SESSION['compte_entreprise']);
     $countPostulationRecqler = countALLPostulationRecaler($db, $_SESSION['compte_entreprise']);
+    $getCategoriePostulation = getPostulation_categorie($db, $_SESSION['compte_entreprise']);
+    $count_postulation = count($getCategoriePostulation);
     // $offre_id = $getALLpostulation['offre_id'];
 
     // $affichePostulant=affichePostulant($db,$offre_id);
@@ -36,6 +38,8 @@ if (isset($_SESSION['users_id'])) {
         $Offres = getOffres($db, $offre_id);
 
         $poste = $Offres['poste'];
+
+        $categorie = $Offres['categorie'];
 
         $entreprise_id = $Offres['entreprise_id'];
 
@@ -206,7 +210,7 @@ if (isset($_SESSION['users_id'])) {
                 $mail->addAddress($destinataire);
                 $mail->send();
 
-                postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images);
+                postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images , $categorie);
 
                 $_SESSION['success_message'] = 'Postulation réussi !!';
 
@@ -225,4 +229,6 @@ if (isset($_SESSION['users_id'])) {
     
 
     $getPostulationUsers = getPostulationUsers($db, $_SESSION['users_id']);
+    
 }
+

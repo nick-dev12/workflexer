@@ -328,6 +328,34 @@ text-transform: capitalize;
     height: 20px;
 }
 
+
+.section3 .categorie{
+  width: 80%;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: -50px;
+}
+
+.section3 .categorie a{
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #002233;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #002233;
+  border-radius: 5px;
+}
+.section3 .categorie a span{
+  background-color: #797979;
+  color: #ffffff;
+  padding: 1px 3px;
+  margin: 0 7px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
   @media screen and (max-width : 1050px) {
     .div-section2 .container{
         width: 100%;

@@ -1,55 +1,688 @@
+
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV - Laura Dubois</title>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-    <link rel="stylesheet" href="/teste.css" />
-  </head>
-  <body>
-<section class="service">
-  <div class="container">
-    <h1>Entreprise</h1>
-    <h3>Services</h3>
-    <div class="box">
-      <ul>
-        <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-        <li><img src="/image/valider.png" alt=""> Publication d'offres illimité</li>
-        <li><img src="/image/valider.png" alt=""> Mise à jour des publications illimitées</li>
-        <li><img src="/image/valider.png" alt=""> Appel d'offres  intégrer et illimité </li>
-        <li><img src="/image/valider.png" alt=""> Système de messagerie intégré </li>
-        <li><img src="/image/valider.png" alt=""> Système de suivi de candidature intégré </li>
-        <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet</li>
-        <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
-      </ul>
-      <a class="a" href="/compte_entreprise.php">Inscription gratuit</a>
-    </div>
+
+    <link rel="stylesheet" href="../css/navbare.css">
+    <link rel="stylesheet" href="teste.css">
+</head>
+
+<body>
+   
+
+    <section class="section3">
+
+        <img src="../image/fleche.png" alt="" class="img222">
+        <script>
+            let img222 = document.querySelector('.img222');
+            let section2 = document.querySelector('.section2');
+            let img111 = document.querySelector('.img111')
+            img222.addEventListener('click', () => {
+                section2.style.marginLeft = '0px';
+                img222.style.display = 'none';
+            });
+
+            img111.addEventListener('click', () => {
+                section2.style.marginLeft = '-150%';
+                img222.style.display = 'block';
+            });
+        </script>
+
+        <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
+
+
+
+        <script>
+    // Importez la bibliothèque jsPDF
+    function generatePDF() {
+        const element = document.querySelector(".cv2");
+
+        // Hypothétiquement, si resolution et imageMode étaient des options valides
+        // vous pourriez les fusionner avec les options existantes de cette manière :
+        const mergedOptions = {
+            filename: 'cv.pdf',
+            image: { type: 'jpeg', quality: 0.98 }, // Qualité JPEG de l'image
+            html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas
+        };
+
+        // Utiliser les options fusionnées pour la conversion HTML vers PDF
+        html2pdf().set(mergedOptions).from(element).save("cv.pdf");
+    }
+</script>
+
+<div class="personnalisation">
+  <div class="box">
+    <p>Couleur de fond des titres principaux </p>
+     <input type="color" name="" id="fontColor">
+  </div>
+  <div class="box">
+    <p>Couleur de de fond (section informations)</p>
+     <input type="color" name="" id="fontColor2">
   </div>
 
-
-  <div class="container container1">
-    <h1>Professionnel</h1>
-    <h3>Services</h3>
-    <div class="box">
-      <ul>
-        <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-        <li><img src="/image/valider.png" alt="">CV virtuel intégré 100% personnalisable </li>
-        <li><img src="/image/valider.png" alt=""> Profils connectés 24/24 , 7/7 aux recruteurs </li>
-        <li><img src="/image/valider.png" alt=""> Postulation simple et illimité </li>
-        <li><img src="/image/valider.png" alt=""> Création de CV physique automatique avec téléchargement gratuit  </li>
-        <li><img src="/image/valider.png" alt=""> Système de suivi de postulation intégré </li>
-
-        <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
-      </ul>
-
-      <a href="/compte_travailleur.php">Inscription gratuit</a>
-    </div>
+  <div class="box">
+    <p>Couleur du texte (section informations)</p>
+     <input type="color" name="" id="fontColor3">
   </div>
-</section>
-  </body>
+ 
+  <script>
+    const colorInput = document.getElementById('fontColor');
+    // Récupérer la valeur sauvegardée dans le stockage local (si elle existe)
+const savedColor = localStorage.getItem('fontColor');
+
+// Appliquer la couleur sauvegardée ou une valeur par défaut si aucune couleur n'a été sauvegardée
+document.documentElement.style.setProperty('--font-color', savedColor || 'black');
+colorInput.value = savedColor || '#000000'; // Mettre à jour la valeur du champ input
+
+// Écouter les changements sur le champ input
+colorInput.addEventListener('input', function() {
+  // Mettre à jour la valeur de la variable CSS en fonction de la couleur choisie par l'utilisateur
+  const selectedColor = colorInput.value;
+  document.documentElement.style.setProperty('--font-color', selectedColor);
+
+  // Sauvegarder la couleur sélectionnée dans le stockage local
+  localStorage.setItem('fontColor', selectedColor);
+});
+
+
+const colorInput1 = document.getElementById('fontColor2');
+const saveColor2 = localStorage.getItem('fontColor2');
+
+document.documentElement.style.setProperty('--font-color2', saveColor2 || '#e6e6e6');
+colorInput1.value = saveColor2 || '#e6e6e6'; // Mettre à jour la valeur du champ input
+
+colorInput1.addEventListener('input', function() {
+const selectedColor = colorInput1.value;
+document.documentElement.style.setProperty('--font-color2', selectedColor);
+localStorage.setItem('fontColor2', selectedColor);
+});
+
+const colorInput2 = document.getElementById('fontColor3');
+const saveColor3 = localStorage.getItem('fontColor3');
+
+document.documentElement.style.setProperty('--text-color', saveColor3 || '#000000');
+colorInput2.value = saveColor3 || '#000000'; // Mettre à jour la valeur du champ input
+
+colorInput2.addEventListener('input', function() {
+const selectedColor = colorInput2.value;
+document.documentElement.style.setProperty('--text-color', selectedColor);
+localStorage.setItem('fontColor3', selectedColor);
+});
+  </script>
+</div>
+
+        <div id="box">
+            <div id="container" class="container">
+                <div class="haut"></div>
+      
+                  <div class="container-box">
+      
+                      <div class="box1">
+      
+                        <div class="profil">
+                          <img class="img" src="/image/Administrateur.png" alt="">
+                              <h1 class="nom">
+                                 je suis ce que je suis
+                              </h1>
+                              <h2 class="profession">
+                                 deveoppeur web
+                              </h2>
+                        </div>
+      
+                          <div>
+                              <h1 class="text">Profil</h1>
+                              <div class="bb">
+                                  <img src="/image/address.png" alt="">
+                                  <p>
+                                      <strong>
+                                          ADDRESSE
+                                      </strong>
+                                      <span>
+                                          Dakar
+                                      </span>
+                                  </p>
+                              </div>
+      
+                              <div class="bb">
+                                  <img src="/image/icons8-gmail-48.png" alt="">
+                                  <p>
+                                      <strong>
+                                          E-mail
+                                      </strong>
+                                      <span>
+                                          oyonoeffe11@gmail.com
+                                      </span>
+                                  </p>
+                              </div>
+      
+                              <div class="bb">
+                                  <img src="/image/phone.png" alt="">
+                                  <p>
+                                      <strong>
+                                          TELEPHONE
+                                      </strong>
+                                      <span>
+                                          +221 78 530 38 79
+                                      </span>
+                                  </p>
+                              </div>
+      
+                              <div class="bb">
+                                  <img src="/image/nationaliet.png" alt="">
+                                  <p>
+                                      <strong>
+                                          NATIONALITE
+                                      </strong>
+                                      <span>*********</span>
+                                  </p>
+                              </div>
+                          </div>
+      
+      
+                          <div>
+                              <h1 class="text"><img src="../image/diplome.png" alt=""> Diplômes</h1>
+                                  <ul>
+                                      <li>
+                                          Non renseigner
+                                      </li>
+                                      <li>
+                                        Non renseigner
+                                    </li>
+                                    <li>
+                                      Non renseigner
+                                  </li>
+                                  </ul>
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/diplome.png" alt=""> Certificates</h1>
+                             
+                                  <ul>
+                                      <li>Aucune donnée trouvée!</li>
+                                      <li>Aucune donnée trouvée!</li>
+                                      <li>Aucune donnée trouvée!</li>
+                                  </ul>
+                                  
+      
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
+                                  <ul>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                  </ul>
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/loisir.png" alt=""> Loisir</h1>
+                                  <ul>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                  </ul>
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/social.png" alt=""> Reseaux </h1>
+                              <div class="reseaux">
+                                  <img src="../image/facebook.png" alt="">
+                                  <img src="../image/linkedin.png" alt="">
+                                  <img src="../image/tweeter.png" alt="">
+                                  <img src="../image/whatsapp.png" alt="">
+                              </div>
+                          </div>
+                      </div>
+      
+                      <div class="box2">
+      
+                          <div class="info_users">
+                              <h1 class="text">A PROPOS</h1>
+                                  <p>Aucune donnée trouver En fin de compte, le meilleur choix dépend de vos besoins et priorités spécifiques. Si vous pouvez fournir plus de détails sur votre flux de travail DevOps, je peux vous proposer des recommandations plus adaptées. Le local storage est un espace de stockage persistant dans le navigateur web. Vous pouvez l'utiliser pour stocker des données simples, telles que les couleurs choisies par l'utilisateur. Le local storage est un espace de stockage persistant dans le navigateur web. Vous pouvez l'utiliser pour stocker des données simples, telles que les couleurs choisies par l'utilisateur.</p>
+                          </div>
+      
+                          <div class="experiences">
+                              <h1 class="text">EXPÉRIENCES PROFESSIONNELLES</h1>
+      
+                              <div class="div">
+                                          <div class="div1">
+                                              <strong class="strong"></strong>
+                                              <div class="info">
+                                                  <h4>
+                                                     teste de vitesse
+                                                  </h4>
+                                                  <span><em>
+                                                          12 /
+                                                          2004
+                                                      </em> à <em>
+                                                        12 /
+                                                        2004
+                                                      </em></span>
+                                                  <p>
+                                                    spécifiques. Si vous pouvez fournir plus de détails sur votre flux de travail DevOps, je peux vous proposer des recommandations plus adaptées.
+                                                  </p>
+                                              </div>
+                                          </div>
+      
+                                          <div class="div1">
+                                            <strong class="strong"></strong>
+                                            <div class="info">
+                                                <h4>
+                                                   teste de vitesse
+                                                </h4>
+                                                <span><em>
+                                                        12 /
+                                                        2004
+                                                    </em> à <em>
+                                                      12 /
+                                                      2004
+                                                    </em></span>
+                                                <p>
+                                                  spécifiques. Si vous pouvez fournir plus de détails sur votre flux de travail DevOps, je peux vous proposer des recommandations plus adaptées.
+                                                </p>
+                                            </div>
+                                        </div>
+                              </div>
+      
+                          </div>
+      
+      
+                          <div class="experiences">
+                              <h1 class="text">FORMATIONS</h1>
+      
+                              <div class="div formation">
+                                          <div class="div1 div2">
+                                              <strong class="strong"></strong>
+      
+                                              <div class="info">
+                                                  <h4>
+                                                      ce n'est que un teste
+                                                  </h4>
+                                                  <span><em>
+                                                    12 /
+                                                    2004
+                                                      </em> à <em>
+                                                        12 /
+                                                        2004
+                                                      </em>
+                                                  </span>
+                                                  <p> <strong>
+                                                          developpement web , License 1
+                                                      </strong> </p>
+      
+                                              </div>
+                                          </div>
+      
+      
+                                          <div class="div1 div2">
+                                            <strong class="strong"></strong>
+      
+                                            <div class="info">
+                                                <h4>
+                                                    ce n'est que un teste
+                                                </h4>
+                                                <span><em>
+                                                  12 /
+                                                  2004
+                                                    </em> à <em>
+                                                      12 /
+                                                      2004
+                                                    </em>
+                                                </span>
+                                                <p> <strong>
+                                                        developpement web , License 1
+                                                    </strong> </p>
+      
+                                            </div>
+                                        </div>
+                                         
+                              </div>
+      
+                          </div>
+      
+                          <div class="experiences">
+                              <h1 class="text">Competences</h1>
+                              <div class="div-comp">
+                                          <span class="comp">
+                                             teste de vittes 
+                                          </span>
+      
+                                          <span class="comp">
+                                             vittes 
+                                         </span>
+                                         <span class="comp">
+                                          teste de vittes 
+                                       </span>
+                                       <span class="comp">
+                                        teste de vittes 
+                                     </span>
+                                     
+                              </div>
+      
+                          </div>
+      
+                          <div class="experiences">
+                              <h1 class="text">outils informatique</h1>
+                                  <div class="outils">
+                                          <p><span></span>
+                                             rien de tou sa
+                                          </p>
+      
+                                          <p><span></span>
+                                            rien de tou sa
+                                         </p>
+      
+                                         <p><span></span>
+                                          rien de tou sa
+                                       </p>
+      
+                                       <p><span></span>
+                                        rien de tou sa
+                                     </p>
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div class="bas"></div>
+              </div>
+        </div>
+
+        <div id="box1">
+            <div id="container" class="container cv2">
+                <div class="haut"></div>
+      
+                  <div class="container-box">
+      
+                      <div class="box1">
+      
+                        <div class="profil">
+                          <img class="img" src="/image/Administrateur.png" alt="">
+                              <h1 class="nom">
+                                 je suis ce que je suis
+                              </h1>
+                              <h2 class="profession">
+                                 deveoppeur web
+                              </h2>
+                        </div>
+      
+                          <div>
+                              <h1 class="text">Profil</h1>
+                              <div class="bb">
+                                  <img src="/image/address.png" alt="">
+                                  <p>
+                                      <strong>
+                                          ADDRESSE
+                                      </strong>
+                                      <span>
+                                          Dakar
+                                      </span>
+                                  </p>
+                              </div>
+      
+                              <div class="bb">
+                                  <img src="/image/icons8-gmail-48.png" alt="">
+                                  <p>
+                                      <strong>
+                                          E-mail
+                                      </strong>
+                                      <span>
+                                          oyonoeffe11@gmail.com
+                                      </span>
+                                  </p>
+                              </div>
+      
+                              <div class="bb">
+                                  <img src="/image/phone.png" alt="">
+                                  <p>
+                                      <strong>
+                                          TELEPHONE
+                                      </strong>
+                                      <span>
+                                          +221 78 530 38 79
+                                      </span>
+                                  </p>
+                              </div>
+      
+                              <div class="bb">
+                                  <img src="/image/nationaliet.png" alt="">
+                                  <p>
+                                      <strong>
+                                          NATIONALITE
+                                      </strong>
+                                      <span>*********</span>
+                                  </p>
+                              </div>
+                          </div>
+      
+      
+                          <div>
+                              <h1 class="text"><img src="../image/diplome.png" alt=""> Diplômes</h1>
+                                  <ul>
+                                      <li>
+                                          Non renseigner
+                                      </li>
+                                      <li>
+                                        Non renseigner
+                                    </li>
+                                    <li>
+                                      Non renseigner
+                                  </li>
+                                  </ul>
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/diplome.png" alt=""> Certificates</h1>
+                             
+                                  <ul>
+                                      <li>Aucune donnée trouvée!</li>
+                                      <li>Aucune donnée trouvée!</li>
+                                      <li>Aucune donnée trouvée!</li>
+                                  </ul>
+                                  
+      
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
+                                  <ul>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                  </ul>
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/loisir.png" alt=""> Loisir</h1>
+                                  <ul>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                      <li>Aucune donnée trouver</li>
+                                  </ul>
+                          </div>
+      
+                          <div>
+                              <h1 class="text"><img src="../image/social.png" alt=""> Reseaux </h1>
+                              <div class="reseaux">
+                                  <img src="../image/facebook.png" alt="">
+                                  <img src="../image/linkedin.png" alt="">
+                                  <img src="../image/tweeter.png" alt="">
+                                  <img src="../image/whatsapp.png" alt="">
+                              </div>
+                          </div>
+                      </div>
+      
+                      <div class="box2">
+      
+                          <div class="info_users">
+                              <h1 class="text">A PROPOS</h1>
+                                  <p>Aucune donnée trouver En fin de compte, le meilleur choix dépend de vos besoins et priorités spécifiques. Si vous pouvez fournir plus de détails sur votre flux de travail DevOps, je peux vous proposer des recommandations plus adaptées. Le local storage est un espace de stockage persistant dans le navigateur web. Vous pouvez l'utiliser pour stocker des données simples, telles que les couleurs choisies par l'utilisateur. Le local storage est un espace de stockage persistant dans le navigateur web. Vous pouvez l'utiliser pour stocker des données simples, telles que les couleurs choisies par l'utilisateur.</p>
+                          </div>
+      
+                          <div class="experiences">
+                              <h1 class="text">EXPÉRIENCES PROFESSIONNELLES</h1>
+      
+                              <div class="div">
+                                          <div class="div1">
+                                              <strong class="strong"></strong>
+                                              <div class="info">
+                                                  <h4>
+                                                     teste de vitesse
+                                                  </h4>
+                                                  <span><em>
+                                                          12 /
+                                                          2004
+                                                      </em> à <em>
+                                                        12 /
+                                                        2004
+                                                      </em></span>
+                                                  <p>
+                                                    spécifiques. Si vous pouvez fournir plus de détails sur votre flux de travail DevOps, je peux vous proposer des recommandations plus adaptées.
+                                                  </p>
+                                              </div>
+                                          </div>
+      
+                                          <div class="div1">
+                                            <strong class="strong"></strong>
+                                            <div class="info">
+                                                <h4>
+                                                   teste de vitesse
+                                                </h4>
+                                                <span><em>
+                                                        12 /
+                                                        2004
+                                                    </em> à <em>
+                                                      12 /
+                                                      2004
+                                                    </em></span>
+                                                <p>
+                                                  spécifiques. Si vous pouvez fournir plus de détails sur votre flux de travail DevOps, je peux vous proposer des recommandations plus adaptées.
+                                                </p>
+                                            </div>
+                                        </div>
+                              </div>
+      
+                          </div>
+      
+      
+                          <div class="experiences">
+                              <h1 class="text">FORMATIONS</h1>
+      
+                              <div class="div formation">
+                                          <div class="div1 div2">
+                                              <strong class="strong"></strong>
+      
+                                              <div class="info">
+                                                  <h4>
+                                                      ce n'est que un teste
+                                                  </h4>
+                                                  <span><em>
+                                                    12 /
+                                                    2004
+                                                      </em> à <em>
+                                                        12 /
+                                                        2004
+                                                      </em>
+                                                  </span>
+                                                  <p> <strong>
+                                                          developpement web , License 1
+                                                      </strong> </p>
+      
+                                              </div>
+                                          </div>
+      
+      
+                                          <div class="div1 div2">
+                                            <strong class="strong"></strong>
+      
+                                            <div class="info">
+                                                <h4>
+                                                    ce n'est que un teste
+                                                </h4>
+                                                <span><em>
+                                                  12 /
+                                                  2004
+                                                    </em> à <em>
+                                                      12 /
+                                                      2004
+                                                    </em>
+                                                </span>
+                                                <p> <strong>
+                                                        developpement web , License 1
+                                                    </strong> </p>
+      
+                                            </div>
+                                        </div>
+                                         
+                              </div>
+      
+                          </div>
+      
+                          <div class="experiences">
+                              <h1 class="text">Competences</h1>
+                              <div class="div-comp">
+                                          <span class="comp">
+                                             teste de vittes 
+                                          </span>
+      
+                                          <span class="comp">
+                                             vittes 
+                                         </span>
+                                         <span class="comp">
+                                          teste de vittes 
+                                       </span>
+                                       <span class="comp">
+                                        teste de vittes 
+                                     </span>
+                                     
+                              </div>
+      
+                          </div>
+      
+                          <div class="experiences">
+                              <h1 class="text">outils informatique</h1>
+                                  <div class="outils">
+                                          <p><span></span>
+                                             rien de tou sa
+                                          </p>
+      
+                                          <p><span></span>
+                                            rien de tou sa
+                                         </p>
+      
+                                         <p><span></span>
+                                          rien de tou sa
+                                       </p>
+      
+                                       <p><span></span>
+                                        rien de tou sa
+                                     </p>
+                                  </div>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div class="bas"></div>
+              </div>
+        </div>
+
+
+
+
+    </section>
+
+
+</body>
+
 </html>
