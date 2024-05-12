@@ -4,6 +4,12 @@ require_once(__DIR__ . '/../model/offre_emploi.php');
 include('controllerEntreprise.php');
 if (isset($_SESSION['compte_entreprise'])) {
     include('../controller/controller_users.php');
+
+    $categorie_offre = get_categorieOffre ($db, $_SESSION['compte_entreprise']);
+    if (isset($_GET['categorie'])) {
+        $categorie = $_GET['categorie'];
+        $OffresEmplois =  get_poste($db, $_SESSION['compte_entreprise'] , $categorie);
+    }
 }
 
 

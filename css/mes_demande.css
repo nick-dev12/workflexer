@@ -19,10 +19,10 @@ body {
 .section2 .box3 table .me td a {
   color: black;
 }
-.section2 .box3 table .tr1 {
+.section2 .box3 .tr1 {
   background-color: #797979;
 }
-.section2 .box3 table .tr1 td a {
+.section2 .box3 .tr1 {
   color: #ffffff;
 }
 

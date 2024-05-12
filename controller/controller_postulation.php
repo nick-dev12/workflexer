@@ -10,7 +10,6 @@ require '../vendor/autoload.php';
 
 
 if (isset($_SESSION['compte_entreprise'])) {
-    $getALLpostulation = getALLPostulation($db, $_SESSION['compte_entreprise']);
     $countAllPostulation = countALLPostulation($db, $_SESSION['compte_entreprise']);
     $countPostulationAccepte = countALLPostulationAccept($db, $_SESSION['compte_entreprise']);
     $countPostulationRecqler = countALLPostulationRecaler($db, $_SESSION['compte_entreprise']);

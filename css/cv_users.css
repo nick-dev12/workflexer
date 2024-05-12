@@ -17,7 +17,6 @@
 --------------------------------------------------------------*/
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -25,10 +24,10 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
-.section2 .box3 table .tr4 {
+.section2 .box3 .tr4 {
   background-color: #636262;
 }
-.section2 .box3 table .tr4 td a {
+.section2 .box3 .tr4 {
   color: #ffffff;
 }
 #box1{
@@ -56,6 +55,7 @@ header h2 {
 
 .section3 {
   margin-left: 280px;
+  margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;

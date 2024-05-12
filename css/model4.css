@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
+
+/*--------------------------------------------------------------
+  Variables
+--------------------------------------------------------------*/
+:root {
+  --text-color: black;
+  --titre-color: white;
+  --font-color :#00587b ;
+  --font-color2 :#e6e6e6 ;
+}
+
+/*--------------------------------------------------------------
+  Styles globaux
+--------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+.section2 .box3 table .tr4 {
+  background-color: #636262;
+}
+.section2 .box3 table .tr4 td a {
+  color: #ffffff;
+}
+
+
+.container{
+  width: 793px;
+  height: 1122px;
+  border: 1.5px solid #a3a3a3;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  display: flex;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .decor{
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    background-color: #e6e6e6;
+  }
+
+
+  .box1{
+    height: 47%;
+    width: 100%;
+    background-color: #e6e6e6;
+
+    .item1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+
+        img{
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0 200px 200px;
+            margin-right: 20px;
+        }
+
+        div{
+            width: 300px;
+            
+            h1{
+                font-size: 25px;
+                text-align: center;
+            }
+            h2{
+                font-size: 18px;
+                color: #636262;
+                text-align: center;
+            }
+        }
+
+    }
+
+
+    .item2{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 30px;
+
+        .a_propos{
+            width: 50%;
+            font-size: 14px;
+            text-align: justify;
+            line-height: 23px;
+        }
+
+        div{
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+
+            h2{
+                text-align: center;
+                font-size: 18px;
+            }
+
+            p{
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                margin: 5px 0;
+
+                img{
+                    width: 25px;
+                    margin-right: 7px;
+                }
+            }
+        }
+    }
+
+    .item3{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 30px;
+
+        div{
+            width: 250px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            h2{
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            ul{
+                display: flex;
+                align-items: center;
+
+               li{
+                font-size: 13px;
+                color: #636262;
+                margin: 10px 20px
+               }
+            }
+        }
+    }
+  }
+
+
+  .box2{
+    height: 50%;
+    width: 100%;
+
+    .item1{
+        display: flex;
+        margin-top: 30px;
+
+
+        .exp{
+            margin-right: 20px;
+            width: 70%;
+            margin-left: 30px;
+            h2{
+                font-size: 22px;
+                margin-left: 30px;
+                display: flex;
+                align-items: center;
+                img{
+                    width: 25px;
+                    margin-left: 20px;
+                }
+            }
+            .box{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 5px 0;
+                border-bottom: 2px solid #636262;
+                width: 450px;
+                  div{
+                margin: 10px 0;
+                margin-right: 20px;
+                h3{
+                    font-size: 16px;
+                }
+                span{
+                    font-size: 12px;
+                    color: #a3a3a3;
+                }
+                p{
+                    font-size: 13px;
+                    color: #636262;
+                }
+            }
+
+            .desc{
+                font-size: 13px;
+                color: #636262;
+                width: 250px;
+                text-align: justify;
+            }
+            }
+        }
+       
+
+        .educ{
+            margin-right: 30px;
+            margin-left: 30px;
+            display: flex;
+            flex-direction: column;
+            h2{
+                font-size: 22px;
+                margin-left: 30px;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                img{
+                    width: 25px;
+                    margin-left: 20px;
+                }
+            }
+            .box{
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                div{
+                    margin-bottom: 20px;
+                    margin-right: 20px;
+                    width: 200px;
+    
+                    h3{
+                        font-size: 16px;
+                    }
+                    span{
+                        font-size: 12px;
+                        color: #a3a3a3;
+                    }
+                    p{
+                        font-size: 13px;
+                        color: #636262;
+                    }
+                }
+            }
+        }
+    }
+
+    .item2{
+        display: flex;
+        margin-top: 40px;
+
+        .logiciel{
+            display: flex;
+            margin-left: 20px;
+            h2{
+                font-size: 22px;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                img{
+                    width: 25px;
+                    margin-left: 20px;
+                }
+            }
+
+            div{
+                margin-right: 30px;
+                margin-left: 30px;
+                  ul{
+
+                display: flex;
+                flex-wrap: wrap;
+                li{
+                    margin: 5px 20px;
+                    font-size: 13px;
+                }
+            }
+            }
+          
+        }
+       
+    }
+  }
+
+  }
+

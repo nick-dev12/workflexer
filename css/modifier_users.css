@@ -26,10 +26,10 @@ body{
     color: rgb(255, 255, 255);
 
 }
-  .section2 .box3 table .tr3{
+  .section2 .box3  .tr3{
     background-color: #797979;
   }
-  .section2 .box3 table .tr3 td a{
+  .section2 .box3 .tr3 {
     color: #ffffff;
   }
 
