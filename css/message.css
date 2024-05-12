@@ -25,10 +25,10 @@ body {
 .section2 .box3 table .me4 td a {
   color: rgb(255, 255, 255);
 }
-.section2 .box3 table .tr2 {
+.section2 .box3 .tr2 {
   background-color: #797979;
 }
-.section2 .box3 table .tr2 td a {
+.section2 .box3 .tr2  {
   color: #ffffff;
 }
 
@@ -36,6 +36,7 @@ body {
 
 .section3 {
   margin-left: 280px;
+  margin-top: 100px;
   display: flex;
   background: radial-gradient(
     circle,

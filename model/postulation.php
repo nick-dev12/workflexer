@@ -64,11 +64,12 @@ function getPostulation($db, $users_id, $offre_id)
  * @param mixed $entreprise_id
  * @return mixed
  */
-function getALLPostulation($db, $entreprise_id)
+function getALLPostulation($db, $entreprise_id , $poste)
 {
-    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id ORDER BY (statut = 'accepter') DESC";
+    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id AND poste=:poste";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->bindValue(':poste', $poste, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

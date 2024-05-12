@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(isset($_GET['categorie'])){
+
+}else{
+    header('Location: ../page/candidature.php');
+}
+
 if (isset($_SESSION['compte_entreprise'])) {
     
 }else{
@@ -139,33 +145,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
 
-        <div class="categorie">
-            <h2>Liste des categories</h2>
-            <?php if(empty($categorie_offre)) :?>
-                <p>Aucune categorie d'offres trouvée</p>
-                <?php else: ?>
-            <ul>
-                <?php foreach ($categorie_offre as $categories): ?>
-                    <?php
-                    $categorie = $categories['categorie'];
-                         $sql = " SELECT * FROM offre_emploi WHERE categorie = :categorie";
-                         $stmt = $db->prepare($sql);
-                         $stmt->bindValue(':categorie', $categorie ,PDO::PARAM_INT);
-                         $stmt->execute();
-                         $offre = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                         $countOffre = count($offre)
-                        ?>
-                <li> <a href="../entreprise/postulation.php?categorie=<?= $categories['categorie'] ?>"><?= $categories['categorie'] ?> <span><?= $countOffre ?></span></a></li>
-
-                <li> <a href="../entreprise/postulation.php?categorie=<?= $categories['categorie'] ?>"><?= $categories['categorie'] ?> <span><?= $countOffre ?></span></a></li>
-
-                <li> <a href="../entreprise/postulation.php?categorie=<?= $categories['categorie'] ?>"><?= $categories['categorie'] ?> <span><?= $countOffre ?></span></a></li>
-
-                <li> <a href="../entreprise/postulation.php?categorie=<?= $categories['categorie'] ?>"><?= $categories['categorie'] ?> <span><?= $countOffre ?></span></a></li>
-               
-                <?php endforeach; ?>
-            </ul>
-            <?php endif; ?> 
+        <div class="postulation">
+            <h1>Candidats</h1>
+            <?php foreach($OffresEmplois as $poste) :?>
+            <h2><?= $poste['poste']?> <span>Voir le Candidats</span></h2>
+            <?php endforeach; ?>
         </div>
 
 

@@ -16,7 +16,22 @@
             <div class="box2">
                 <h3> <?= $getEntreprise['entreprise']; ?></h3>
             </div>
+
             <div class="box3">
+            <ul>
+               <a href="modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> <span class="td">Modifier</span></li></a>
+
+               <a href="../entreprise/entreprise_profil.php"> <li class="tr"><img src="../image/entreprise_ic.png" alt=""> <span class="td">Mon entreprise</span></li></a>
+
+               <a  href="../page/candidature.php"> <li class="me3"><img src="../image/candidat.png" alt=""> <span class="td">Candidats</span></li></a>
+
+               <a href="../entreprise/message.php"> <li class="tr2"><img src="../image/modifier.png" alt=""><span class="td">Message</span></li></a>
+             
+               <a  href="../entreprise/historique.php"> <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li></a>   
+            </ul>
+               
+            </div>
+            <!-- <div class="box3">
                 <table>
 
                 <tr class="me1">
@@ -43,6 +58,6 @@
                         <td class="td"> <a href="../entreprise/historique.php">Historique</a></td>
                     </tr>
                 </table>
-            </div>
+            </div> -->
         </div>
     </section>

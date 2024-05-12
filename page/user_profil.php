@@ -82,7 +82,7 @@ if (isset($_GET['id'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -309,7 +309,7 @@ if (isset($_GET['id'])) {
                     // Vérifier si la description de l'utilisateur est vide
                     if (empty($descriptions['description'])):
                         ?>
-                        <p class="p">Aucune description pour ce profil veuillez Ajouté une description pour votre profil</p>
+                        <p class="p">Veuillez Ajouté une description pour votre profil</p>
                     <?php else: ?>
                         <?php echo $descriptions['description']; ?>
                     <?php endif; ?>
@@ -320,7 +320,7 @@ if (isset($_GET['id'])) {
                 if (empty($descriptions['description'])):
                     ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="buton">Ajouter une description</button>
+                         <img class="buton" src="../image/edite.png" alt="">
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -337,7 +337,7 @@ if (isset($_GET['id'])) {
                             <textarea name="description" id="counte" placeholder="Ajoute une description ici"
                                 maxlength="500"></textarea>
                             <p id="caracteres-restantes">500 caractères restants</p>
-                            <input type="submit" value="ajouter" name="ajouter" id="ajoute">
+                            <input type="submit" value="Enregister" name="ajouter" id="ajoute">
 
                         </form>
 
@@ -363,7 +363,7 @@ if (isset($_GET['id'])) {
 
                 <?php else: ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="buton buttons">Modifier la description</button>
+                         <img class="buton buttons" src="../image/edite.png" alt="">
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -375,7 +375,7 @@ if (isset($_GET['id'])) {
                             <textarea name="nouvelleDescription" id="count" placeholder="Ajoute une description ici"
                                 maxlength="500"> <?php echo $descriptions['description'] ?></textarea>
                             <p id="caracteres-restants">500 caractères restants</p>
-                            <input type="submit" value="Modifier" name="Modifier" id="ajoute">
+                            <input type="submit" value="Enregister" name="Modifier" id="ajoute">
 
                         </form>
                     </div>
@@ -389,9 +389,11 @@ if (isset($_GET['id'])) {
 
                     buton.addEventListener('click', function () {
                         form_box.style.display = 'block';
+                        buton.style.display = 'none'
                     });
                     imgs.addEventListener('click', function () {
                         form_box.style.display = 'none';
+                        buton.style.display = 'block'
                     });
 
                     let button = document.querySelector('.buttons')
@@ -399,9 +401,11 @@ if (isset($_GET['id'])) {
 
                     button.addEventListener('click', function () {
                         texte.style.display = 'block';
+                        button.style.display = 'none'
                     });
                     imgs.addEventListener('click', function () {
                         texte.style.display = 'none';
+                        button.style.display = 'block'
                     });
 
                     const textarea = document.getElementById("count");
@@ -501,7 +505,7 @@ if (isset($_GET['id'])) {
 
 
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="affiche_form">Ajouter une experience</button>
+                    <button class="affiche_form"><img src="../image/edite.png" alt=""></button>
                 <?php else: ?>
                 <?php endif; ?>
 
@@ -612,7 +616,7 @@ if (isset($_GET['id'])) {
                         <textarea name="Metierdescription" id="description" maxlength="300"></textarea>
                         <p id="caractere">300 caracteres restants</p>
                     </div>
-                    <input type="submit" value="Ajouter" name="Ajouter" id="Ajouter">
+                    <input type="submit" value="Enregister" name="Ajouter" id="Ajouter">
                 </form>
 
                 <script>
@@ -622,9 +626,11 @@ if (isset($_GET['id'])) {
 
                     affiche_form.addEventListener('click', function () {
                         form.style.display = 'block';
+                        affiche_form.style.display = 'none';
                     });
                     imgs1.addEventListener('click', function () {
                         form.style.display = 'none';
+                        affiche_form.style.display = 'block';
                     });
 
                     const textee = document.getElementById("description");
@@ -674,14 +680,14 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="affiche_forms">Ajouter une compétences</button>
+                    <button class="affiche_forms"><img src="../image/edite.png" alt=""></button>
                 <?php else: ?>
                 <?php endif; ?>
 
                 <form class="forms" action="" method="post">
                     <img class="imgs2" src="../image/croix.png" alt="">
                     <input type="text" name="competence" id="competence">
-                    <input type="submit" value="Ajouter" name="Ajouter1" id="Ajouter">
+                    <input type="submit" value="Enregister" name="Ajouter1" id="Ajouter">
                 </form>
 
                 <script>
@@ -691,9 +697,11 @@ if (isset($_GET['id'])) {
 
                     affiche_forms.addEventListener('click', function () {
                         forms.style.display = 'block';
+                        affiche_forms.style.display = 'none';
                     });
                     imgs2.addEventListener('click', function () {
                         forms.style.display = 'none';
+                        affiche_forms.style.display = 'block';
                     });
                 </script>
 
@@ -726,7 +734,7 @@ if (isset($_GET['id'])) {
                     <?php if (isset($getNiveauEtude['etude'])): ?>
                         <button class="affiche_formss">Modifier</button>
                     <?php else: ?>
-                        <button class="affiche_formss">Ajouter un niveau d'etude et experience</button>
+                        <button class="affiche_formss"><img src="../image/edite.png" alt=""></button>
                     <?php endif; ?>
                 <?php endif; ?>
 
@@ -773,9 +781,9 @@ if (isset($_GET['id'])) {
                         </select>
                     </div>
                     <?php if (isset($getNiveauEtude['etude'])): ?>
-                        <input type="submit" value="Modifier" name="Ajouters1" id="Ajouter">
+                        <input type="submit" value="Enregister" name="Ajouters1" id="Ajouter">
                     <?php else: ?>
-                        <input type="submit" value="Ajouter" name="Ajouters" id="Ajouter">
+                        <input type="submit" value="Enregister" name="Ajouters" id="Ajouter">
                     <?php endif; ?>
                 </form>
 
@@ -786,9 +794,11 @@ if (isset($_GET['id'])) {
 
                     affiche_formss.addEventListener('click', function () {
                         formss.style.display = 'block';
+                        affiche_formss.style.display = 'none';
                     });
                     imgs22.addEventListener('click', function () {
                         formss.style.display = 'none';
+                        affiche_formss.style.display = 'block';
                     });
                 </script>
 
@@ -872,7 +882,7 @@ if (isset($_GET['id'])) {
 
             <div class="fa-formation">
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="Ajouters">Ajouter une formation</button>
+                    <button class="Ajouters"><img src="../image/edite.png" alt=""></button>
                 <?php else: ?>
                 <?php endif; ?>
 
@@ -977,7 +987,7 @@ if (isset($_GET['id'])) {
                             </select>
                         </div>
                         <div class="box1">
-                            <input type="submit" value="ajouter" name="ajouter2" id="ajouter">
+                            <input type="submit" value="Enregister" name="ajouter2" id="ajouter">
                         </div>
                     </div>
 
@@ -1013,16 +1023,18 @@ if (isset($_GET['id'])) {
 
                 Ajoutes.addEventListener('click', function () {
                         formee.style.display = 'block';
+                        Ajoutes.style.display = 'none'
                 });
                 imgFormee.addEventListener('click', function () {
                         formee.style.display = 'none';
+                        Ajoutes.style.display = 'block'
                     
                 });
             </script>
         </div>
 
 
-        <div class="container_box4">
+        <!-- <div class="container_box4">
             <div class="box1">
                 <div class="div">
                     <table>
@@ -1071,8 +1083,8 @@ if (isset($_GET['id'])) {
 
             <div class="box2">
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="btn btn1"> ajouter un Diplôme</button>
-                    <button class="btn btn2"> ajouter un certificat</button>
+                    <button class="btn btn1"> <img src="../image/edite.png" alt=""> Diplôme</button>
+                    <button class="btn btn2"> <img src="../image/edite.png" alt=""> Certificat</button>
                 <?php else: ?>
                 <?php endif; ?>
 
@@ -1081,12 +1093,14 @@ if (isset($_GET['id'])) {
 
             <div class="box3 box31">
                 <form action="" method="post">
+                    <img src="../image/croix.png" alt="">
                     <input class="input" type="text" name="diplome" id="diplome">
                     <input type="submit" value="ajouter" name="ajouteer1" id="ajouteer">
                 </form>
             </div>
             <div class="box3 box32">
                 <form action="" method="post">
+                <img src="../image/croix.png" alt="">
                     <input class="input" type="text" name="certificat" id="diplome">
                     <input type="submit" value="ajouter" name="ajouteer2" id="ajouteer">
                 </form>
@@ -1117,7 +1131,7 @@ if (isset($_GET['id'])) {
                 });
             </script>
 
-        </div>
+        </div> -->
 
 
 
@@ -1154,7 +1168,7 @@ if (isset($_GET['id'])) {
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn3"> Ajouter un outil</button>
+                        <button class="btn3"> <img src="../image/edite.png" alt=""></button>
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -1163,6 +1177,7 @@ if (isset($_GET['id'])) {
 
             <div class="box3 box34">
                 <form action="" method="post" enctype="multipart/form-data">
+                    <img class="croixx" src="../image/croix.png" alt="">
                     <div class="tcp">
                         <label for="outil">Ajouter un outil informatique</label>
                         <input type="text" name="outil" id="outil">
@@ -1176,7 +1191,7 @@ if (isset($_GET['id'])) {
                             <option value="professionel">Professionnel</option>
                             <option value="Avencer">Avancer</option>
                         </select>
-                        <input type="submit" value="ajouter" name="ajouts" id="ajout">
+                        <input type="submit" value="Enregister" name="ajouts" id="ajout">
                     </div>
 
                 </form>
@@ -1185,14 +1200,16 @@ if (isset($_GET['id'])) {
             <script>
                 let btn3 = document.querySelector('.btn3')
                 let box34 = document.querySelector('.box34')
+                let croixx =document.querySelector('.croixx')
 
                 btn3.addEventListener('click', function () {
-                    if (box34.style.display === 'none' || box34.style.display === '') {
                         box34.style.display = 'block';
-                    } else {
-                        box34.style.display = 'none';
-                    }
+                        btn3.style.display = 'none'
                 });
+                croixx.addEventListener('click', ()=>{
+                    box34.style.display = 'none';
+                        btn3.style.display = 'block'
+                })
             </script>
         </div>
 
@@ -1231,7 +1248,7 @@ if (isset($_GET['id'])) {
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn4"> Ajouter une langue</button>
+                        <button class="btn4"> <img src="../image/edite.png" alt=""></button>
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -1240,6 +1257,7 @@ if (isset($_GET['id'])) {
 
             <div class="box3 box35">
                 <form action="" method="post">
+                <img class="croixxx" src="../image/croix.png" alt="">
                     <div class="tcp">
                         <label for="tangue">Ajouter une langue</label>
                         <input type="text" name="langue" id="langue">
@@ -1253,7 +1271,7 @@ if (isset($_GET['id'])) {
                             <option value="professionel">Professionnel</option>
                             <option value="Avencer">Avancer</option>
                         </select>
-                        <input type="submit" value="ajouter" name="ajoutss" id="ajout">
+                        <input type="submit" value="Enregister" name="ajoutss" id="ajout">
                     </div>
 
                 </form>
@@ -1262,14 +1280,16 @@ if (isset($_GET['id'])) {
             <script>
                 let btn4 = document.querySelector('.btn4')
                 let box35 = document.querySelector('.box35')
+                let croixxx =document.querySelector('.croixxx')
 
                 btn4.addEventListener('click', function () {
-                    if (box35.style.display === 'none' || box35.style.display === '') {
-                        box35.style.display = 'block';
-                    } else {
-                        box35.style.display = 'none';
-                    }
+                    box35.style.display = 'block'
+                        btn4.style.display = 'none'
                 });
+                croixxx.addEventListener('click', ()=>{
+                    box35.style.display = 'none';
+                        btn4.style.display = 'block'
+                })
             </script>
         </div>
 
@@ -1280,12 +1300,13 @@ if (isset($_GET['id'])) {
                 <h1>Projets et réalisations</h1>
             </div>
             <?php if (isset($_SESSION['users_id'])): ?>
-                <button class="ajout">Ajouter un projet/réalisation</button>
+                <button class="ajout"><img src="../image/edite.png" alt=""></button>
             <?php else: ?>
             <?php endif; ?>
             <div class="form_projet">
 
                 <form action="" method="post" enctype="multipart/form-data">
+                    <img class="im" src="../image/croix.png" alt="">
                     <div class="box">
                         <label for="titre">Titre</label>
                         <input type="text" name="titre" id="titre">
@@ -1328,7 +1349,7 @@ if (isset($_GET['id'])) {
                         </div>
 
                     </div>
-                    <input type="submit" name="valider" value="Ajouter" id="ajouter">
+                    <input type="submit" name="valider" value="Enregister" id="ajouter">
                 </form>
 
             </div>
@@ -1336,14 +1357,17 @@ if (isset($_GET['id'])) {
             <script>
                 let ajout = document.querySelector('.ajout')
                 let form_projet = document.querySelector('.form_projet')
+                let im =document.querySelector('.im')
 
                 ajout.addEventListener('click', function () {
-                    if (form_projet.style.display === 'none' || form_projet.style.display === '') {
                         form_projet.style.display = 'block';
-                    } else {
-                        form_projet.style.display = 'none';
-                    }
+                        ajout.style.display = 'none';
+                      
                 });
+                im.addEventListener('click', ()=>{
+                      form_projet.style.display = 'none';
+                      ajout.style.display = 'block';
+                })
             </script>
             <div class="box2">
 
@@ -1390,16 +1414,17 @@ if (isset($_GET['id'])) {
 
             <div class="box2">
 
-                <button class="btn_eteret">Ajouter un centre d’intérêt</button>
+                <button class="btn_eteret"><img class="im" src="../image/edite.png" alt=""></button>
 
                 <form class="form_btn" method="post" action="">
+                <img class="ims" src="../image/croix.png" alt="">
                     <?php if (isset($erreurs)): ?>
                         <div>
                             <?php echo $erreurs ?>
                         </div>
                     <?php endif; ?>
                     <input type="text" name="interet" id="interet">
-                    <input type="submit" name="ajouter_interet" value="Ajouter" id="ajouter">
+                    <input type="submit" name="ajouter_interet" value="Enregister" id="ajouter">
                 </form>
 
                 <?php if (empty($afficheCentreInteret)): ?>
@@ -1419,14 +1444,16 @@ if (isset($_GET['id'])) {
                 <script>
                     let btn_i = document.querySelector('.btn_eteret');
                     let form_btn = document.querySelector('.form_btn');
+                    let ims =document.querySelector('.ims')
 
                     btn_i.addEventListener('click', () => {
-                        if (form_btn.style.display == 'none') {
                             form_btn.style.display = 'block'
-                        } else {
-                            form_btn.style.display = 'none'
-                        }
+                            btn_i.style.display = 'none';
                     })
+                    ims.addEventListener('click', ()=>{
+                        form_btn.style.display = 'none';
+                        btn_i.style.display = 'block';
+                })
                 </script>
             </div>
 

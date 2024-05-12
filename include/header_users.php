@@ -55,41 +55,25 @@
 
             <div class="box2">
                 <h3>
-                    <?php echo $users['competences']; ?>
+                    <?php echo $users['competences']; ?> et ingenieur des mine 
                 </h3>
             </div>
+
             <div class="box3">
-                <table>
+            <ul>
+               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> <span class="td">Modifier</span></li></a>
 
-                <tr class="tr3" >
-                        <td id="td"><img src="../image/modifier.png" alt=""></td>
-                        <td class="td"> <a href="../page/modifier.php">Modifier</a></td>
-                    </tr>
+               <a href="../page/user_profil.php"> <li class="tr"><img src="../image/a propos.png" alt=""> <span class="td">Mon parcour</span></li></a>
 
-                    <tr class="tr4" >
-                        <td id="td"><img src="../image/MCV.png" alt=""></td>
-                        <td class="td"> <a href="/model_cv/cv_users.php">Mon cv</a></td>
-                    </tr>
+               <a href="/model_cv/cv_users.php"> <li class="tr4"><img src="../image/MCV.png" alt=""> <span class="td">Mon cv</span></li></a>
 
-                   
-                    <tr class="tr ">
-                        <td id="td"><a href="../page/user_profil.php"><img src="../image/mpc.png" alt=""></a></td>
-                        <td class="td"><a href="../page/user_profil.php">Mon parcours</a></td>
-                    </tr>
-                   
-                    <tr class="tr1">
-                        <td id="td"> <a href="../page/mes_demande.php"><img src="../image/mdep.png" alt=""></a></td>
-                        <td class="td"><a href="../page/mes_demande.php">Mes demandes d’emploies</a></td>
-                    </tr>
-                    <tr class="tr2" >
-                        <td id="td"><a href="message.php"><img src="../image/modifier.png" alt=""></a></td>
-                        <td class="td"> <a href="../page/message_users.php">Message</a></td>
-                    </tr>
-                    <tr class="me4">
-                        <td id="td"><a href="../page/historique_users.php"><img src="../image/historique.png" alt=""></a></td>
-                        <td class="td"> <a href="../page/historique_users.php">Historique</a></td>
-                    </tr>
-                </table>
+               <a href="../page/mes_demande.php"> <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d’emploies</span></li></a>
+
+               <a href="../page/message_users.php"> <li class="tr2"><img src="../image/modifier.png" alt=""><span class="td">Message</span></li></a>
+
+               <a  href="../page/historique_users.php"> <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li></a>   
+            </ul>
+               
             </div>
         </div>
     </section>

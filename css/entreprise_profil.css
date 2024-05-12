@@ -18,14 +18,19 @@ body{
 /* section 2 et toute ces modification  */
 
 
-  .section2 .box3 table .me2{
-    background-color: #797979;
+.section2 .box3 .me {
+    background-color: #ffffff;
     border-radius: 15px;
   }
-  .section2 .box3 table .me2 td a {
-      color: rgb(255, 255, 255);
+  .section2 .box3 .me td a {
+    color: black;
   }
-
+  .section2 .box3 .tr {
+    background-color: #797979;
+  }
+  .section2 .box3 .tr {
+    color: #ffffff;
+  }
 
 
 

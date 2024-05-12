@@ -15,13 +15,12 @@ body{
 /* section 2 et toute ces modification  */
 
 
-  .section2 .box3 table .me2{
-    background-color: #797979;
-    border-radius: 15px;
-  }
-  .section2 .box3 table .me2 td a {
-      color: rgb(255, 255, 255);
-  }
+.section2 .box3 .tr5 {
+  background-color: #797979;
+}
+.section2 .box3 .tr5 {
+  color: #ffffff;
+}
 
   .section3 .img222{
     position: fixed;

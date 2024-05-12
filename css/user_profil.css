@@ -24,17 +24,17 @@ textarea {
 
 /* section 2 et toute ces modification  */
 
-.section2 .box3 table .me {
+.section2 .box3 .me {
   background-color: #ffffff;
   border-radius: 15px;
 }
-.section2 .box3 table .me td a {
+.section2 .box3 .me td a {
   color: black;
 }
-.section2 .box3 table .tr {
+.section2 .box3 .tr {
   background-color: #797979;
 }
-.section2 .box3 table .tr td a {
+.section2 .box3 .tr {
   color: #ffffff;
 }
 
@@ -42,6 +42,7 @@ textarea {
 
 .section3 {
   margin-left: 280px;
+  margin-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,8 +429,8 @@ textarea {
 }
 
 .section3 .container_box1 .box1 p {
-  font-size: 17px;
-  line-height: 25px;
+  font-size: 15px;
+  line-height: 28px;
 }
 .section3 .container_box1 h2 {
   padding: 7px 40px;
@@ -453,23 +454,18 @@ textarea {
   height: 30px;
   width: 30px;
 }
-.section3 .container_box1 .buton {
-  background-color: #e4144d;
-  color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
-  font-size: 15px;
-  transition: all 0.3s ease-out;
-  margin-top: 20px;
-  cursor: pointer;
-  border: none;
-}
-.section3 .container_box1 button {
-  color: #000000;
-}
-.section3 .container_box1 button:hover {
-  background-color: #f39c12;
-}
+
+.section3 .container_box1 .buton,.buttons{
+    width: 40px;
+    position: absolute;
+    bottom: 10px;
+    right: 100px;
+    cursor: pointer;
+    transform: translate(-50%);
+  }
+
+
+
 .section3 .container_box1 .form_box {
   width: 100%;
   display: none;
@@ -505,10 +501,12 @@ textarea {
 .section3 .container_box1 .form_box form textarea {
   height: 200px;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 10px;
-  padding: 30px;
+  padding:15px 30px;
   color: #000000;
+  font-family: "Nunito", sans-serif;
+
 }
 .section3 .container_box1 .form_box form textarea::placeholder {
   font-size: 16px;
@@ -535,7 +533,8 @@ textarea {
   text-align: left;
   width: 100%;
   margin-top: 20px;
-  font-size: 17px;
+  font-size: 15px;
+  margin-bottom: 60px;
 }
 
 .section3 .container_box1 .description .p {
@@ -758,15 +757,21 @@ textarea {
 
 .section3 .container_box2 .box2 .affiche_form {
   margin-left: 70%;
-  background-color: #e4144d;
   color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
-  font-size: 14px;
   transition: all 0.3s ease-out;
   margin-top: 20px;
   cursor: pointer;
   border: none;
+  background-color: #ffffff;
+  padding: 2px 5px;
+  border-radius: 10px;
+
+  img{
+    width: 40px;
+  }
+}
+.section3 .container_box2 .box2 .affiche_form:hover{
+  background-color: #f39c12;
 }
 
 .section3 .container_box2 .box2 form {
@@ -1004,15 +1009,16 @@ textarea {
 .section3 .container_box2 .box3 .affiche_forms,
 .section3 .container_box2 .box3 .affiche_formss {
   margin-left: 70%;
-  background-color: #e4144d;
-  color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
-  font-size: 14px;
+  background-color: #ffffff;
   transition: all 0.3s ease-out;
   margin-top: 20px;
   cursor: pointer;
   border: none;
+  border-radius: 10px;
+
+  img{
+    width: 40px;
+  }
 }
 
 .section3 .container_box2 .box3 .affiche_forms:hover,
@@ -1399,15 +1405,19 @@ cursor: pointer;
   margin-top: 10px;
 }
 .section3 .container_box3 .fa-formation .Ajouters {
-  background-color: #e4144d;
+  background-color: #ffffff;
   color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
-  font-size: 15px;
+  padding: 2px 7px;
+  border-radius: 10px;
   transition: all 0.3s ease-out;
   margin-top: 20px;
   cursor: pointer;
   border: none;
+  margin-left: 70%;
+
+  img{
+    width: 50px;
+  }
 }
 .section3 .container_box3 .fa-formation .Ajouters:hover {
   background-color: #f39c12;
@@ -1711,17 +1721,25 @@ cursor: pointer;
 
 .section3 .container_box4 .box2 {
   margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 .section3 .container_box4 .box2 .btn {
-  background-color: #e4144d;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   padding: 5px 7px;
   border-radius: 5px;
   font-size: 15px;
   transition: all 0.3s ease-out;
-  margin-top: 20px;
   cursor: pointer;
   border: none;
+  display: flex;
+  align-items: center;
+  margin: 20px 10px;
+  img{
+    width: 40px;
+    margin-right: 5px;
+  }
 }
 .section3 .container_box4 .box2 .btn:hover {
   background-color: #f39c12;
@@ -1734,11 +1752,18 @@ cursor: pointer;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   border: 2px solid #00223376;
   padding: 10px;
   border-radius: 10px;
   flex-wrap: wrap;
+  position: relative;
+
+  img{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+  }
 }
 
 .section3 .container_box4 .box3 form .input {
@@ -1868,15 +1893,19 @@ cursor: pointer;
   margin: 20px;
 }
 .section3 .container_box5 .box2 .outil button {
-  background-color: #e4144d;
+  background-color: #ffffff;
   color: #ffffff;
-  padding: 5px 7px;
+  padding: 2px 7px;
   border-radius: 5px;
   font-size: 15px;
   transition: all 0.3s ease-out;
   margin-top: 20px;
   cursor: pointer;
   border: none;
+
+  img{
+    width: 40px;
+  }
 }
 .section3 .container_box5 .box2 .outil button:hover {
   background-color: #f39c12;
@@ -1913,6 +1942,18 @@ cursor: pointer;
 }
 .section3 .container_box5 .box3 form {
   padding: 20px;
+  position: relative;
+  width: 450px;
+  border: 2px solid #002233;
+  border-radius: 10px;
+
+  img{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    cursor: pointer;
+  }
 }
 .section3 .container_box5 .box3 form .tcp {
   margin: 10px 0;
@@ -2199,15 +2240,18 @@ cursor: pointer;
   border-bottom: 1px solid rgba(165, 165, 165, 0.337);
 }
 .section3 .container_box7 .ajout {
-  background-color: #e4144d;
-  color: #ffffff;
-  padding: 5px 7px;
+  background-color: #ffffff;
+  padding: 2px 7px;
   border-radius: 5px;
   font-size: 15px;
   transition: all 0.3s ease-out;
   margin-top: 20px;
   cursor: pointer;
   border: none;
+
+  img{
+    width: 40px;
+  }
 }
 .section3 .container_box7 .ajout:hover {
   background-color: #f39c12;
@@ -2242,6 +2286,17 @@ cursor: pointer;
   border-radius: 7px;
   flex-direction: column;
   width: 80%;
+  position: relative;
+  border: 2px solid #002233;
+
+  .im{
+    position: absolute;
+    width: 20px;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
 }
 .section3 .container_box7 .form_projet form #ajouter {
   background-color: #e4144d;
@@ -2560,14 +2615,19 @@ cursor: pointer;
   margin: 20px;
 }
 .section3 .container_box8 .box2 button {
-  background-color: #e4144d;
+  background-color: #ffffff;
   color: #ffffff;
-  padding: 5px 7px;
+  padding: 2px 7px;
   border-radius: 5px;
-  font-size: 15px;
   transition: all 0.3s ease-out;
   cursor: pointer;
   border: none;
+  margin-top: 20px;
+
+  img{
+    width: 40px;
+    cursor: pointer;
+  }
 }
 .section3 .container_box8 .box2 button:hover {
   background-color: #f39c12;
@@ -2579,6 +2639,15 @@ cursor: pointer;
   border: 2px solid #0022335c;
   border-radius: 10px;
   margin-top: 20px;
+  position: relative;
+
+  img{
+    position: absolute;
+    width: 20px;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+  }
 }
 .section3 .container_box8 .box2 form #interet {
   width: 50%;

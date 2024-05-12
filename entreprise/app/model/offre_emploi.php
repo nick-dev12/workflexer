@@ -191,4 +191,21 @@ function getHistoriqueUsers($db,$users_id){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-?>
+
+
+function get_categorieOffre ($db, $entreprise_id){
+    $sql = " SELECT categorie FROM offre_emploi WHERE entreprise_id = :entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id ,PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_poste ($db, $entreprise_id, $categorie){
+    $sql = " SELECT * FROM offre_emploi WHERE entreprise_id = :entreprise_id AND categorie = :categorie";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id ,PDO::PARAM_INT);
+    $stmt->bindValue(':categorie', $categorie ,PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
