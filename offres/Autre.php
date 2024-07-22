@@ -52,7 +52,6 @@ if (isset($_POST['recherche'])) {
     header('Location: ../page/search_offre.php');
 
     exit();
-
 }
 
 
@@ -67,21 +66,27 @@ if (isset($_POST['recherche'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+    </script>
     <!-- End Google Tag Manager -->
 
     <title>Autre</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/offre_d'emploit.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
@@ -91,8 +96,7 @@ if (isset($_POST['recherche'])) {
 <body>
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <?php include('../navbare.php') ?>
@@ -188,18 +192,14 @@ if (isset($_POST['recherche'])) {
                 <img src="/image/autre.png" alt="">
             </div>
         </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
+      
         <article class="articles owl-carousel carousel7">
 
-            <?php foreach ($afficheAllOffre as $Information): ?>
+            <?php foreach ($afficheAllOffre as $Information) : ?>
+            <?php if($Information['statut'] === 'publiee' or $Information['statut'] === ''): ?>
                 <?php $infoEntreprise = getEntreprise($db, $Information['entreprise_id']) ?>
 
-                <?php if ($Information['categorie'] === 'Autre'): ?>
+                <?php if ($Information['categorie'] === 'Autre') : ?>
 
                     <div class="carousel">
                         <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
@@ -210,12 +210,13 @@ if (isset($_POST['recherche'])) {
                                 </strong>
 
                             </p>
+                            <p class="poste">
+                                <strong>Nous recherchons un(une)</strong>
+                                <?php echo ($Information['poste']); ?>
+                            </p>
                             <div class="box_vendu">
                                 <div class="vendu">
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Information['poste']); ?>
-                                    </p>
+
                                     <p>
                                         <strong>Contrat :</strong>
                                         <?php echo ($Information['contrat']); ?>
@@ -228,13 +229,6 @@ if (isset($_POST['recherche'])) {
                                         <strong>Experience :</strong>
                                         <?php echo ($Information['experience']); ?>
                                     </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
                                     <p class="ville">
                                         <strong>Ville :</strong>
                                         <?php echo ($Information['localite']); ?>
@@ -243,18 +237,19 @@ if (isset($_POST['recherche'])) {
 
                             </div>
 
+
                             <p id="nom">
                                 <?php echo $Information['date']; ?>
                             </p>
 
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
+                            <a href="../entreprise/voir_offre.php?offres_id=<?= $Information['offre_id']; ?>&entreprise_id=<?= $Information['entreprise_id']; ?>">
                                 <i class="fa-solid fa-eye"></i>Voir l'offre
                             </a>
                         </div>
 
                     </div>
-                <?php else: ?>
+                <?php else : ?>
+                <?php endif; ?>
                 <?php endif; ?>
             <?php endforeach ?>
         </article>

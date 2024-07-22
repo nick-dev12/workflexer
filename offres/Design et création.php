@@ -188,11 +188,7 @@ if (isset($_POST['recherche'])) {
                 <img src="/image/webdesign.jpg" alt="">
             </div>
         </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
+      
 
         <article class="articles owl-carousel carousel2">
             <?php if (empty($offreDesing)): ?>
@@ -202,6 +198,7 @@ if (isset($_POST['recherche'])) {
             <?php else: ?>
 
                 <?php foreach ($offreDesing as $Designs): ?>
+                <?php if($Designs['statut'] === 'publiee' or $Designs['statut'] === ''): ?>
 
                     <div class="carousel">
                         <img src="../upload/<?php echo $Designs['images'] ?>" alt="">
@@ -211,14 +208,12 @@ if (isset($_POST['recherche'])) {
                                     <?php echo $Designs['entreprise']; ?>
                                 </strong>
                             </p>
-
+                            <p class="poste" >
+                                <strong>Nous recherchons un(une)</strong>
+                                <?php echo ($Designs['poste']); ?>
+                            </p>
                             <div class="box_vendu">
                                 <div class="vendu">
-
-                                    <p>
-                                        <strong>Nous recherchons un(une)</strong>
-                                        <?php echo ($Designs['poste']); ?>
-                                    </p>
 
                                     <p>
                                         <strong>Contrat :</strong>
@@ -231,14 +226,7 @@ if (isset($_POST['recherche'])) {
                                     <p>
                                         <strong>Experience :</strong>
                                         <?php echo ($Designs['experience']); ?>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
+                                    </p> 
                                     <p class="ville">
                                         <strong>Ville :</strong>
                                         <?php echo ($Designs['ville']); ?>
@@ -258,12 +246,13 @@ if (isset($_POST['recherche'])) {
                         </div>
                     </div>
 
+                <?php endif; ?>
                 <?php endforeach ?>
+
 
             <?php endif; ?>
         </article>
     </section>
-
 
 
 

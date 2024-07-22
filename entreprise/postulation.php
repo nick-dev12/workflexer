@@ -41,7 +41,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>Document</title>
+    <title>Postulation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -69,21 +69,6 @@ include_once ('../controller/controller_niveau_etude_experience.php');
 
 
     <section class="section3">
-        <img src="../image/fleche.png" alt="" class="img222">
-        <script>
-            let img222 = document.querySelector('.img222');
-            let section2 = document.querySelector('.section2');
-            let img111 = document.querySelector('.img111')
-            img222.addEventListener('click', () => {
-                section2.style.marginLeft = '0px';
-                img222.style.display = 'none';
-            });
-
-            img111.addEventListener('click', () => {
-                section2.style.marginLeft = '-150%';
-                img222.style.display = 'block';
-            });
-        </script>
 
 
         <?php if (isset($_SESSION['success_message'])): ?>
@@ -126,50 +111,31 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                 messageErreur.classList.remove('visible');
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
-        <!-- <div class="box1">
-            <h1>Bienvenu au centre de gestion des offres postuler !</h1>
-            <div class="container_slider owl-carousel ">
-            <img src="../image/gse.png" alt="">
-            <img src="../image/gse2.jpg" alt="">
-                <img src="../image/gestion_off1.jpg" alt="">
-                <img src="../image/gestion_off2.jpg" alt="">
-                <img src="../image/GestionOffre.png" alt="">
-            </div>
-        </div> -->
-
-        <div class="box2">
-            <p> <span>1</span><strong>Gérez vos candidatures :</strong> Suivez
-                facilement les postulants à vos offres d'emploi et simplifiez le processus de sélection
-            </p>
-            <p>
-                <span>2</span><strong>Consultez vos candidats :</strong>Accédez
-                aux profils des personnes qui ont répondu à vos offres, explorez leurs compétences et expériences.
-            </p>
-        </div>
-
-
+        
         <div class="postulation">
             <h1>Candidats</h1>
             <?php foreach ($OffresEmplois as $poste): ?>
+                <?php
+                $getALLpostulation = getALLPostulation($db, $_SESSION['compte_entreprise'], $poste['poste']);
+                $countAllposte = count($getALLpostulation);
+                ?>
                 <ul>
-                    <li class="li"><strong>Poste :</strong> <?= $poste['poste'] ?> <span> Voir14</span></li>
+                    <li class="li"><strong>Poste :</strong> <?= $poste['poste'] ?> <span><?= $countAllposte ?></span> <img
+                            src="../image/droit.png" alt=""></li>
                 </ul>
 
-
-                <?php $getALLpostulation = getALLPostulation($db, $_SESSION['compte_entreprise'], $poste['poste']); ?>
-
                 <div class="div-section2">
-                    <h2>Liste des candidatures</h2>
 
                     <img class="fermer" src="../image/croix.png" alt="" id="img">
-                    <div class="box22">
+                    <!-- <div class="box22">
                         <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-                        <span class="count"><?= $countAllPostulation ?></span>
                         <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-                    </div>
+                    </div> -->
                     <div class="container owl-carousel teste">
                         <?php if (empty($getALLpostulation)): ?>
-                            <p class="info"><strong>Info!</strong> Aucune candidature a vos offres d'emplois pour le moment.</p>
+                            <p class="info">
+                                <strong>Info!</strong> Aucune candidature trouvée pour ce poste.
+                            </p>
                         <?php else: ?>
                             <?php foreach ($getALLpostulation as $postulant): ?>
                                 <?php
@@ -208,71 +174,8 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                                                     <li>
                                                         <strong>Nom : </strong> <?= $nom ?>
                                                     </li>
-                                                    <?php if ($niveau): ?>
-                                                        <li>
-                                                            <strong>Niveau : </strong> <?= $niveau['etude'] ?>
-                                                        </li>
-                                                        <li>
-                                                            <strong>expérience : </strong> <?= $niveau['experience'] ?>
-                                                        </li>
-                                                    <?php else: ?>
-                                                        <li>
-                                                            <strong>Niveau : </strong> Non renseigner
-                                                        </li>
-                                                        <li>
-                                                            <strong>expérience : </strong> Non renseigner
-                                                        </li>
-                                                    <?php endif; ?>
-
-                                                    <?php foreach ($competencesUsers as $key => $compe):
-                                                        if ($key < $nombreCompetencesAffichees):
-                                                            ?>
-                                                            <span>
-                                                                <?= $compe['competence'] ?>
-                                                            </span>
-                                                            <?php
-                                                        endif;
-                                                    endforeach;
-                                                    ?>
-                                                </ul>
-
-                                                <div class="container-box_btn">
-                                                    <button class="btn1"><img src="../image/vue2.png" alt=""> <a
-                                                            href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
-                                                            profil</a></button>
-                                                    <div class="box-btn">
-
-
-                                                        <a class="btn2"
-                                                            href="?accepter=<?= $postulant['poste_id'] ?>&offrees_id=<?= $postulant['offre_id'] ?> ">
-                                                            Accepter</a>
-
-
-                                                        <a class="btn3"
-                                                            href="?recaler=<?= $postulant['poste_id'] ?>&offrees_id=<?= $postulant['offre_id'] ?>">Recaler</a>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="items">
-                                                <?php if ($postulant['statut'] == 'accepter'): ?>
-                                                    <h5 class="h51">accepter</h5>
-                                                <?php else: ?>
-                                                    <?php if ($postulant['statut'] == 'recaler'): ?>
-                                                        <h5 class="h52">recaler</h5>
-                                                    <?php else: ?>
-                                                        <h5 class="h53">non traiter</h5>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-
-                                                <img src="../upload/<?= $postulant['images'] ?>" alt="">
-
-                                                <h5> <?= $postulant['competences'] ?></h5>
-                                                <ul>
                                                     <li>
-                                                        <strong>Nom : </strong> <?= $nom ?>
+                                                        <strong>Tell : </strong> <?= $postulant['phone'] ?>
                                                     </li>
                                                     <?php if ($niveau): ?>
                                                         <li>
@@ -289,17 +192,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                                                             <strong>expérience : </strong> Non renseigner
                                                         </li>
                                                     <?php endif; ?>
-
-                                                    <?php foreach ($competencesUsers as $key => $compe):
-                                                        if ($key < $nombreCompetencesAffichees):
-                                                            ?>
-                                                            <span>
-                                                                <?= $compe['competence'] ?>
-                                                            </span>
-                                                            <?php
-                                                        endif;
-                                                    endforeach;
-                                                    ?>
+                                                   
                                                 </ul>
 
                                                 <div class="container-box_btn">
@@ -322,6 +215,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                                                 </div>
                                             </div>
 
+
                                         <?php endif; ?>
 
                                     <?php endif; ?>
@@ -335,24 +229,24 @@ include_once ('../controller/controller_niveau_etude_experience.php');
             <?php endforeach; ?>
 
 
-            
+
 
             <script>
                 let poste = document.querySelectorAll('.li')
                 let profil = document.querySelectorAll('.div-section2')
-                let fermer =document.querySelectorAll('.fermer')
+                let fermer = document.querySelectorAll('.fermer')
 
-    poste.forEach((post, index) => {
-        post.addEventListener('click', () => {
-                profil[index].style.display = 'block';
-        });
-    });
+                poste.forEach((post, index) => {
+                    post.addEventListener('click', () => {
+                        profil[index].style.display = 'block';
+                    });
+                });
 
-    fermer.forEach((ferme, index) => {
-        ferme.addEventListener('click', () => {
-                profil[index].style.display = 'none';
-        });
-    });
+                fermer.forEach((ferme, index) => {
+                    ferme.addEventListener('click', () => {
+                        profil[index].style.display = 'none';
+                    });
+                });
             </script>
         </div>
 
@@ -408,7 +302,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                 var enfantSection = owlSlider.children;
 
                 // Vérifiez la condition du nombre d'éléments enfants
-                if (enfantSection.length > 1) {
+                if (enfantSection.length > 2) {
                     // Code à exécuter si le nombre d'éléments enfants est supérieur à 3
                     $('.teste').addClass('owl-carousel').owlCarousel({
                         items: 3,
@@ -458,7 +352,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
         });
 
 
-          
+
     </script>
 </body>
 

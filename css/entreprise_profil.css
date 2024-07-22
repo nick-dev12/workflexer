@@ -10,6 +10,7 @@
 
 body{
     font-family: 'Nunito', sans-serif;
+    background-color: #e1e2e275;
 }
 
 
@@ -41,58 +42,36 @@ body{
 /* section 3 et toute ces modification  */
 
 .section3{
-    margin-left: 280px;
+    margin-left: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
    /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
-   background-color: #e6e6e6;
+   
    background-position: center;
    background-attachment: fixed;
    position: relative;
+   margin-top: 80px;
 }
 
 @media screen and (max-width : 1050px){
     .section3{
-        margin-left: 0;
         width: 100%;
+       padding-left: 50px;
+       margin-left: 0;
     }
 }
 
-.section3 .img222{
-    display: none;
-  }
-
-@media screen and (max-width : 1400px) {
-    .section3 .img222{
-      display: none;
-    }
-  }
-  @media screen and (max-width : 1050px) {
-    .section3 .img222{
-      position: fixed;
-      top: 50%;
-      left: 20px;
-      height: 50px;
-      width: 50px;
-      background-color: #ffffff;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
-      display: block;
-    }
-  }
-
   
 .section2-div{
-    height: 400px;
+    height: 200px;
     position: relative;
     width: 100%;
 }
 
 .section2-div .slider{
-    height: 400px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,13 +79,13 @@ body{
 }
 .section2-div .slider1 img{
     width: 100%;
-    height: 400px;
+    height: 200px;
     object-fit: contain;
 }
 .section2-div  .box1{
     position: absolute;
     width: 100%;
-    height: 400px;
+    height: 200px;
     background-color: rgba(10, 10, 10, 0.315);
     top: 0;
     z-index: 5;
@@ -114,16 +93,15 @@ body{
 }
 .section2-div  .box1 h1{
     color: #FFFFFF;
-    font-size: 30px;
-    width: 70%;
-    padding: 20px;
+    font-size: 25px;
+    width: 60%;
     text-align: center;
+    margin: 20px auto;
 }
 .section2-div  .box1 p{
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 14px;
     width: 60%;
-    padding: 20px;
     width: 100%;
     font-style: italic;
 }
@@ -135,25 +113,22 @@ body{
 
 @media screen and (max-width : 1300px) {
     .section2-div{
-        height: 300px;
+        height: 250px;
     }
     
     .section2-div .slider{
-        height: 300px;
+        height: 250px;
     }
     .section2-div .slider1 img{
-        height: 300px;
+        height: 250px;
     }
     .section2-div  .box1{
         height: 100%;
     }
     .section2-div  .box1 h1{
-        font-size: 30px;
         margin-top: 20px;
-        padding: 10px;
     }
     .section2-div  .box1 p{
-        font-size: 15px;
         padding: 10px;
     }
     
@@ -279,38 +254,40 @@ body{
     margin: 0;
 }
 .section3 .container_box1 .box2 button{
-    /* background-color: #002233; */
-    background-color:  #2C3E50;
-    color: #ffffff;
     padding: 6px 10px;
-    border-radius: 5px ;
-    font-size: 15px;
-    margin-left: 70%;
-    transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  background-color: #666666;
+  margin-bottom: 30px;
+  margin-left: 70%;
+  img{
+    width: 30px;
+    cursor: pointer;
+  }
 }
 .section3 .container_box1 .box2 button:hover{
     background-color: #F39C12;
 }
 .section3 .container_box1 .form_off{
-    display: flex;
     width: 100%;
-    height: 0;
     overflow: hidden;
     transition: all 0.5s ease;
     position: relative;
+    margin-top: 20px;
+    height: 0;
    
 }
 
 .section3 .container_box1 .form_off form{
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    padding: 10px; 
-    align-items: center;
-    justify-content: center;
+    padding: 40px 10px; 
     position: relative;
     border: 1px solid #00223373;
     border-radius: 20px;
+    
 }
 .section3 .container_box1 .form_off form img{
     height: 20px;
@@ -322,11 +299,12 @@ body{
 }
 .section3 .container_box1 .form_off form label{
     color: #3451c6;
+    display: block;
 }
 .section3 .container_box1 .form_off form .box{
     display: flex;
    flex-direction: column;
-   margin: 10px;
+   margin: 15px;
    width: 80%;
    padding: 0 10px;
 }
@@ -338,6 +316,7 @@ body{
     outline: none;
     transition: all 0.3s;
     width: 400px;
+    display: block;
 }
 .section3 .container_box1 .form_off form .box input::placeholder{
     font-size: 14px;
@@ -358,6 +337,7 @@ body{
     border:2px solid #0000004d;
     outline: none;
     width: 400px;
+    display: block;
 }
 
 .section3 .container_box1 .form_off form .box select:hover{
@@ -393,7 +373,14 @@ body{
  .section3 .container_box1{
         width: 90%;
         margin-left: 0px;
+
+        .box1{
+            h1{
+                font-size: 20px;
+            }
+        }
     }
+    
     .section3 .container_box1 .form_off form{
         border: 1px solid #00223373;
         border-radius: 20px;
@@ -408,7 +395,7 @@ body{
     }
     .section3 .container_box1 .form_off form{
         width: 100%;
-        padding: 5px;
+        padding: 20px 5px;
     }
     .section3 .container_box1 .form_off form .box{
         display: flex;
@@ -490,8 +477,8 @@ body{
     width: 100%;
 }
 .section3 .container_box2 .box2  .carousel{
-    height: 350px;
-    width: 260px;
+    height: 220px;
+    width: 500px;
     background-color: rgba(247, 247, 247, 0.499);
     border-radius: 8px;
     overflow: hidden;
@@ -500,6 +487,9 @@ body{
     transition: all 0.5s ease-in-out;
     margin:20px 20px;
     position: relative;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
 }
 
 .section3 .container_box2 .box2  .info{
@@ -535,7 +525,7 @@ body{
 .section3 .container_box2 .box2  .carousel .suprimer{
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 60px;
     padding: 2px 0;
     background-color: rgba(255, 0, 0, 0.487);
     color: #ffffff;
@@ -551,48 +541,55 @@ body{
 
 .section3 .container_box2 .box2  .carousel img{
     height: 110px;
-    width: 100%;
+    width:110px ;
+    border-radius: 50%;
     object-fit: cover;
     border-bottom: 1px solid rgba(148, 146, 146, 0.499);
+}
+.boximg{
+    display: none;
 }
 .section3 .container_box2 .box2  .carousel .p{
     width: 100%;;
     letter-spacing: 0.5px;
     margin-bottom: 5px;
+    font-size: 13px;
+    padding: 0 10px;
 }
 
 .section3 .container_box2 .box2  .carousel #nom{
     font-weight: 400;
-    margin-left: 8px !important;
     overflow: hidden;
     font-size: 13px;
     margin-top: 4px;
     color: #3451c6;
     position: absolute;
-    bottom: 30px;
-    left: 5px;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .section3 .container_box2 .box2  .carousel .vendu{
     display: flex;
     font-size: 14px;
     width: 100%;
-    flex-direction: column;
-    height: 166px;
     padding: 5px 10px;
     align-items: center;
     justify-content: center;
 }
 .section3 .container_box2 .box2  .carousel .vendu p{
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 300;
   width: 100%;
   padding:0 5px;
   margin-top: 5px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .section3 .container_box2 .box2  .carousel a{
-    padding: 3px 60px;
+    padding: 3px 20px;
     margin-top: 5px;
     background-color: #002233;
     color: white;
@@ -603,8 +600,18 @@ body{
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 100%;
     bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 7px;
+}
+.section3 .container_box2 .box2  .carousel .restore {
+    background-color: #0093dc;
+    img{
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
 }
 
 .section3 .container_box2 .box2  .carousel a :nth-child(1){
@@ -618,7 +625,76 @@ body{
     .section3 .container_box2 {
         width: 95%;
         padding: 30px 10px;
+
+        .box1{
+            h1{
+                font-size: 20px;
+            }
+
+            span{
+                font-size: 16px;
+                padding: 5px 10px;
+            }
+        }
     }
+}
+
+    @media screen and (max-width : 650px){
+        .section3 .container_box2 {
+            width: 98%;
+            padding: 20px 5px;
+    
+            .box1{
+                h1{
+                    font-size: 20px;
+                }
+    
+                span{
+                    font-size: 16px;
+                    padding: 5px 10px;
+                }
+            }
+        }
+
+        .section3 .container_box2 .box2  .carousel .p{
+            font-size: 11px;
+            padding: 0 10px;
+        }
+        .section3 .container_box2 .box2  .carousel .vendu p{
+            font-size: 8px;
+            padding:0 5px;
+            margin-right: 5px;
+          }
+
+          .section3 .container_box2 .box2  .carousel a{
+            padding: 3px 20px;
+            font-size: 12px;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            bottom: 5px;
+        }
+
+        .section3 .container_box2 .box2  .carousel{
+            height: 220px;
+            width: 350px;
+            min-width: 330px;
+            margin:20px 5px;
+            padding: 10px 10px;
+        }
+
+        .section3 .container_box2 .box2  .carousel .suprimer{
+            left: 50px;
+            padding: 2px 0;
+            width: 70px;
+            height: 20px;
+            border-radius: 7px;
+            font-size: 10px;
+        }
+        
+        .section3 .container_box2 .box2  .carousel #nom{
+            font-size: 9px;
+        }
+        
 }
 
 
@@ -716,15 +792,18 @@ body{
 }
 
 .section3 .container_box3 .btn1 {
-    padding: 6px 15px;
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #ffffff;
-    background-color: #002233;
-    transition: all 0.3s;
-    border-radius: 7px;
+    padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  background-color: #666666;
+  margin-bottom: 30px;
+  img{
+    width: 30px;
     cursor: pointer;
-    margin-bottom: 20px;
+  }
 }
 .section3 .container_box3 .btn1:hover{
     background-color: #F39C12;
@@ -732,17 +811,35 @@ body{
 @media screen and (max-width : 1050px){
     .section3 .container_box3 {
         width: 95%;
+        h2{
+            font-size: 20px;
+        }
+
+        .box1{
+            .p{
+            font-size: 13px;
+        }
+        }
     }
     .section3 .container_box3 .box1{
         width: 100%;
     }
     .section3 .container_box3 .box1 p{
-        font-size: 15px;
+        font-size: 13px;
         color: #272727a3;
     }
     .section3 .container_box3 .box1 li{
         font-size: 15px;
         color: #272727a3;
+    }
+
+    .section3 .container_box3 .btn1 {
+        padding: 4px 8px;
+        margin-bottom: 20px;
+      img{
+        width: 25px;
+        cursor: pointer;
+      }
     }
 }
 
@@ -779,6 +876,57 @@ body{
     border-bottom: 1px solid rgba(165, 165, 165, 0.337);
     width: 100%;
 }
+
+.section3 .container_box6 .box1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .whatsapp{
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      background-color: #00a003;
+      text-decoration: none;
+      margin-bottom: 10px;
+      padding: 6px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      img{
+        height: 25px;
+        width: 25px;
+        object-fit: cover;
+        margin-right: 5px;
+      }
+  }
+  
+  .mail{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #ff0000;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 6px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    img{
+      height: 25px;
+      width: 25px;
+      object-fit: cover;
+      margin-right: 5px;
+    }
+  }
+  
+   a img {
+      margin-right: 5px;
+  }
+  
+   p {
+      font-size: 20px;
+      text-align: center;
+  }
+  }
 .section3 .container_box6 .box2{
     margin-top: 20px;
 }
@@ -856,5 +1004,18 @@ body{
     }
     .section3 .container_box6 .box2 form button:hover{
         background-color: #F39C12;
+    }
+
+    .section3 .container_box6 .box1 h1{
+       font-size: 20px;
+    }
+
+    .section3 .container_box6 a{
+        margin-top: 10px;
+        font-size: 14px;
+        img{
+            width: 25px;
+            margin-right: 10px;
+        }
     }
 }

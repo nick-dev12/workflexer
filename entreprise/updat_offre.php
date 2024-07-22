@@ -111,6 +111,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="box2">
         <h3>Informations supplémentaires</h3>
+        <div class="box_info">
         <p class="info"> <strong>Métier : </strong>
             <?= $Offres['metier'] ?>
         </p>
@@ -129,6 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="info"> <strong>Langues exigées : </strong>
             <?= $Offres['langues'] ?>
         </p>
+        </div>
        
     </div>
 

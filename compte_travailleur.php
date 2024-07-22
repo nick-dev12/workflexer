@@ -63,9 +63,9 @@ if (isset($_POST['valider'])) {
 
     // Vérification du téléphone  
     if (empty($_POST['phone'])) {
-        $erreurs = "Le téléphone est obligatoire";
+        $erreurs = "Le Numéro de téléphone est obligatoire";
     } else {
-        $phone = $_POST['phone'];
+        $phone = $_POST['full_phone'];
     }
 
     // Vérification de la ville
@@ -175,10 +175,10 @@ if (isset($_POST['valider'])) {
         try {
             // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'mail.privateemail.com';
+            $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
-            $mail->Username = 'service@advantechgroup.online';
-            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->Username = 'info@advantechgroup.online';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
@@ -311,7 +311,7 @@ if (isset($_POST['valider'])) {
             </body>
             </html> ";
 
-            $mail->setFrom('service@advantechgroup.online', 'work-flexer');
+            $mail->setFrom('info@advantechgroup.online', 'work-flexer');
             $mail->isHTML(true);
             $mail->Subject = $sujet;
             $mail->Body = $message;
@@ -365,7 +365,7 @@ if (isset($_POST['valider'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -468,7 +468,8 @@ if (isset($_POST['valider'])) {
 
                         <div class="box1">
                             <label for="phone">Téléphone</label>
-                            <input type="tel" name="phone" id="phone" placeholder="Ex: 0123456789">
+                            <input type="texte" name="phone" id="phone" placeholder="Ex: 0123456789">
+                            <input type="hidden" id="full_phone" name="full_phone">
                         </div>
 
                         <div class="box1">
@@ -595,25 +596,30 @@ if (isset($_POST['valider'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
     <script>
-        const input = document.querySelector("#phone");
-        const iti = window.intlTelInput(input, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-            separateDialCode: true,
-            autoHideDialCode: false,
-            initialCountry: "auto",
-            geoIpLookup: function (callback) {
-                fetch("https://ipapi.co/json")
-                    .then(function (res) {
-                        return res.json();
-                    })
-                    .then(function (data) {
-                        callback(data.country_code);
-                    })
-                    .catch(function () {
-                        callback("us");
-                    });
-            }
-        });
+      
+        const phoneInputField = document.querySelector("#phone");
+    const fullPhoneInput = document.querySelector("#full_phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        initialCountry: "auto",
+        preferredCountries: ["fr", "us", "gb"],
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        geoIpLookup: function (callback) {
+            fetch("https://ipapi.co/json")
+                .then(function (res) {
+                    return res.json();
+                })
+                .then(function (data) {
+                    callback(data.country_code);
+                })
+                .catch(function () {
+                    callback("us");
+                });
+        }
+    });
+
+    phoneInputField.addEventListener("blur", function() {
+        fullPhoneInput.value = phoneInput.getNumber();
+    });
 
 
 

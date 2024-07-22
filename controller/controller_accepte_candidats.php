@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../model/accepte_candidats.php');
+require_once (__DIR__ . '/../model/accepte_candidats.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -12,30 +12,32 @@ if (isset($_GET['accepter'])) {
 
     $postulation = affichePostulant($db, $poste_id);
 
+    $entreprise_id = $postulation['entreprise_id'];
+    $user_id = $postulation['users_id'];
+
     $nom = $postulation['nom'];
     $poste = $postulation['poste'];
 
 
-        // Créez l'instance PHPMailer
-        $mail = new PHPMailer(true);
+    // Créez l'instance PHPMailer
+    $mail = new PHPMailer(true);
 
-        try {
-            // Paramètres SMTP
-            $mail->isSMTP();
-            $mail->Host = 'mail.privateemail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'service@advantechgroup.online';
-            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'advantechgroup.online';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'info@advantechgroup.online';
+        $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
 
-            //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
-            $destinataire = $postulation['mail'];
-            //     //   $entreprise = $infoEntreprises['entreprise'];
+        //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
+        $destinataire = $postulation['mail'];
+        //     //   $entreprise = $infoEntreprises['entreprise'];
 
-            // Contenu de l'e-mail
-            $sujet = 'Suivi de candidature';
-            $message = "
+        // Contenu de l'e-mail
+        $sujet = 'Suivi de candidature';
+        $message = "
               <!DOCTYPE html>
               <html>
               <head><meta charset='utf-8'>
@@ -157,29 +159,33 @@ if (isset($_GET['accepter'])) {
               </body>
               </html> ";
 
-             $mail->setFrom('service@advantechgroup.online', 'work-flexer');
-            $mail->isHTML(true);
-            $mail->Subject = $sujet;
-            $mail->Body = $message;
+        $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+        $mail->isHTML(true);
+        $mail->Subject = $sujet;
+        $mail->Body = $message;
 
 
-            $mail->clearAddresses();
-            $mail->addAddress($destinataire);
-            $mail->send();
+        $mail->clearAddresses();
+        $mail->addAddress($destinataire);
+        $mail->send();
 
-            if (AccepteCandidats($db, $statut, $poste_id)){
-                 $_SESSION['success_message'] = 'Candidat accepter avec succès!!';
-            header('Location: ../page/candidature.php');
-            exit();
+
+
+        if (AccepteCandidats($db, $statut, $poste_id)) {
+            if (notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut)) {
+                $_SESSION['success_message'] = 'Candidat accepter';
+                header('Location: ../page/candidature.php');
             }
-
-        } catch (Exception $e) {
-            $_SESSION['error_message'] = 'Erreur !';
-            header('Location: ../page/candidature.php');
             exit();
         }
 
+    } catch (Exception $e) {
+        $_SESSION['error_message'] = 'Erreur !';
+        header('Location: ../page/candidature.php');
+        exit();
     }
+
+}
 
 if (isset($_GET['recaler'])) {
     $poste_id = $_GET['recaler'];
@@ -187,28 +193,32 @@ if (isset($_GET['recaler'])) {
 
     $postulation = affichePostulant($db, $poste_id);
 
+    $entreprise_id = $postulation['entreprise_id'];
+    $user_id = $postulation['users_id'];
+
     $nom = $postulation['nom'];
     $poste = $postulation['poste'];
-        // Créez l'instance PHPMailer
-        $mail = new PHPMailer(true);
+    // Créez l'instance PHPMailer
 
-        try {
-            // Paramètres SMTP
-            $mail->isSMTP();
-            $mail->Host = 'mail.privateemail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'service@advantechgroup.online';
-            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
+    $mail = new PHPMailer(true);
 
-            //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
-            $destinataire = $postulation['mail'];
-            //     //   $entreprise = $infoEntreprises['entreprise'];
+    try {
+        // Paramètres SMTP
+        $mail->isSMTP();
+        $mail->Host = 'advantechgroup.online';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'info@advantechgroup.online';
+        $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
 
-            // Contenu de l'e-mail
-            $sujet = 'Suivi de candidature';
-            $message = "
+        //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
+        $destinataire = $postulation['mail'];
+        //     //   $entreprise = $infoEntreprises['entreprise'];
+
+        // Contenu de l'e-mail
+        $sujet = 'Suivi de candidature';
+        $message = "
                <!DOCTYPE html>
                <html>
                <head><meta charset='utf-8'>
@@ -326,31 +336,35 @@ if (isset($_GET['recaler'])) {
                </body>
                </html> ";
 
-             $mail->setFrom('service@advantechgroup.online', 'work-flexer');
-            $mail->isHTML(true);
-            $mail->Subject = $sujet;
-            $mail->Body = $message;
+        $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+        $mail->isHTML(true);
+        $mail->Subject = $sujet;
+        $mail->Body = $message;
 
 
-            $mail->clearAddresses();
-            $mail->addAddress($destinataire);
-            $mail->send();
+        $mail->clearAddresses();
+        $mail->addAddress($destinataire);
+        $mail->send();
 
-            if (recalerCandidats($db, $statut, $poste_id)) {
-                 $_SESSION['success_message'] = 'Candidat recaler!';
-            header('Location: ../page/candidature.php');
-            exit();
+
+        if (recalerCandidats($db, $statut, $poste_id)) {
+
+            if (notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut)) {
+                $_SESSION['success_message'] = 'Candidat recaler!';
+                header('Location: ../page/candidature.php');
+                exit();
             }
 
-           
-
-        } catch (Exception $e) {
-            $_SESSION['error_message'] = 'Candidat recaler!';
-            header('Location: ../page/candidature.php');
-            exit();
         }
 
+
+
+    } catch (Exception $e) {
+        $_SESSION['error_message'] = 'Une erreur c\'est produite!';
+        header('Location: ../page/candidature.php');
+        exit();
     }
 
+}
+
 // $getAccepteCandidat= getAccepteCandidat($db,$_SESSION['compte_entreprise'])
-?>

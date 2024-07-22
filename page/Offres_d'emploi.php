@@ -182,75 +182,60 @@ if (isset($_POST['recherche'])) {
 
     <section class="emploi">
         <div class="box">
-            <img src="/image/ingenieur.jpeg" alt="">
-            <h1>Ingénierie et architecture</h1>
+            <img src="/image/ingénieur.png" alt="">
             <p> Trouvez parmi
                 nos offres le métier qui vous correspond :
                 <strong>ingénieur,
-                    architecte, technicien, commercial, etc.</strong> Participez à des projets concrets et durables,
-                allant des
-                infrastructures aux bâtiments intelligents. Changez le monde avec nous !
+                    architecte, technicien, commercial, etc.</strong> Participez à des projets concrets et durables.
             </p>
 
-            <a href="../offres/Ingénierie et architecture.php">Explorer les offres</a>
+            <a href="../offres/Ingénierie et architecture.php">Ingénierie et architecture</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/webdesign.jpg" alt="">
-            <h1>Design et création</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: designer produit,
-                    graphiste, directeur artistique, etc.</strong> Participez à des projets créatifs et stimulants,
-                allant de la
-                conception de produits à la réalisation de campagnes publicitaires. Exprimez votre créativité avec nous
-                !
+                    graphiste, directeur artistique, etc.</strong> Participez à des projets créatifs et stimulants.
             </p>
-
-
-            <a href="../offres/Design et création.php">Explorer les offres</a>
+            <a href="../offres/Design et création.php">Design et création</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/Redaction.jpg" alt="">
-            <h1>Rédaction et traduction</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: rédacteur, traducteur, correcteur,
                     etc.</strong> Participez à des projets variés allant de la rédaction d'articles à la traduction de
-                documents. Faites de votre passion pour l'écriture et les langues votre métier avec nous !
+                documents.
             </p>
-            <a href="../offres/Rédaction et traduction.php">Explorer les offres</a>
+            <a href="../offres/Rédaction et traduction.php">Rédaction et traduction</a>
         </div>
 
 
         <div class="box">
             <img src="/image/marketing.jpg" alt="">
-            <h1>Marketing et communication</h1>
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>chef de produit, chargé de
-                    communication, community manager, etc</strong> . Participez à des projets variés allant de la
-                création de campagnes publicitaires à la gestion de l'image de marque. Faites de votre passion pour la
-                stratégie et la créativité votre métier avec nous !
+                    communication, community manager, etc</strong> . Participez à des projets variés.
             </p>
 
-            <a href="../offres/Marketing et communication.php">Explorer les offres</a>
+            <a href="../offres/Marketing et communication.php">Marketing et communication</a>
         </div>
 
 
         <div class="box">
-            <img src="/image/gestion.jpg" alt="">
-            <h1>Conseil et gestion d'entreprise</h1>
+            <img src="/image/gestion.png" alt="">
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>consultant, gestionnaire de projet,
                     analyste
-                    financier, etc.</strong> Participez à des projets variés allant de l'optimisation de processus à la
-                gestion de crise. Faites de votre passion pour la stratégie et la performance votre métier avec nous !
+                    financier, etc.</strong> Participez à des projets variés.
             </p>
 
-            <a href="../offres/Conseil et gestion d'entreprise.php">Explorer les offres</a>
+            <a href="../offres/Conseil et gestion d'entreprise.php">Conseil et gestion d'entreprise</a>
         </div>
 
 
@@ -258,44 +243,36 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/juridique.jpg" alt="">
-            <h1>Juridique</h1>
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels <strong>qu'avocat, juriste, notaire, etc.</strong>
-                Participez à des projets variés allant de la rédaction de contrats à la représentation en justice.
-                Faites de votre passion pour la loi et la justice votre métier avec nous !
+                Participez à des projets variés.
             </p>
 
-            <a href="../offres/Juridique.php">Explorer les offres</a>
+            <a href="../offres/Juridique.php">Juridique</a>
         </div>
 
 
         <div class="box">
             <img src="/image/info.jpg" alt="">
-            <h1>Informatique et tech</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>développeur, ingénieur réseau, data
-                    scientist, etc.</strong> Participez à des projets variés allant de la création de logiciels à la
-                gestion de bases de données. Faites de votre passion pour la technologie et l'innovation votre métier
-                avec nous !
+                    scientist, etc.</strong> Participez à des projets variés.
             </p>
 
-            <a href="../offres/Informatique et tech.php">Explorer les offres</a>
+            <a href="../offres/Informatique et tech.php">Informatique et tech</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/finance.png" alt="">
-            <h1>Finance et comptabilité</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong> expert-comptable, contrôleur de
                     gestion,
-                    analyste financier, etc.</strong> Participez à des projets variés allant de la gestion de budget à
-                l'analyse
-                financière. Faites de votre passion pour les chiffres et la gestion financière votre métier avec nous !
+                    analyste financier, etc.</strong> Participez à des projets variés.
             </p>
 
-            <a href="../offres/Finance et comptabilité.php">Explorer les offres</a>
+            <a href="../offres/Finance et comptabilité.php">Finance et comptabilité</a>
         </div>
 
 
@@ -303,29 +280,24 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/santé.png" alt="">
-            <h1>Santé et bien-être</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>médecin, infirmier, kinésithérapeute,
-                    nutritionniste, etc.</strong> Participez à des projets variés allant de la prévention à la guérison.
-                Faites de votre passion pour la santé et le bien-être votre métier avec nous !
+                    nutritionniste, etc.</strong> Participez à des projets variés.
             </p>
 
-            <a href="../offres/Santé et bien-être.php">Explorer les offres</a>
+            <a href="../offres/Santé et bien-être.php">Santé et bien-être</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/education.png" alt="">
-            <h1>Éducation et formation</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> enseignant, formateur, conseiller en
-                    orientation, etc.</strong> Participez à des projets variés allant de la formation professionnelle à
-                l'enseignement supérieur. Faites de votre passion pour l'enseignement et l'apprentissage votre métier
-                avec nous !
+                    orientation, etc.</strong> Participez à des projets variés.
             </p>
 
-            <a href="../offres/Éducation et formation.php">Explorer les offres</a>
+            <a href="../offres/Éducation et formation.php">Éducation et formation</a>
         </div>
 
 
@@ -333,14 +305,12 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/tourisme.png" alt="">
-            <h1>Tourisme et hôtellerie</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>réceptionniste, guide touristique, chef
-                    cuisinier, etc.</strong> Participez à des projets variés allant de l'organisation de séjours à la
-                gestion d'hôtels. Faites de votre passion pour les voyages et l'hospitalité votre métier avec nous !
+                    cuisinier, etc.</strong> Participez à des projets variés
             </p>
 
-            <a href="../offres/Tourisme et hôtellerie.php">Explorer les offres</a>
+            <a href="../offres/Tourisme et hôtellerie.php">Tourisme et hôtellerie</a>
         </div>
 
 
@@ -348,44 +318,36 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/vente.png" alt="">
-            <h1>Commerce et vente</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>commercial, responsable de magasin,
-                    vendeur, etc.</strong> Participez à des projets variés allant de la prospection à la fidélisation
-                client. Faites de votre passion pour la vente et la négociation votre métier avec nous !
+                    vendeur, etc.</strong> Participez à des projets variés
             </p>
 
-            <a href="../offres/Commerce et vente.php">Explorer les offres</a>
+            <a href="../offres/Commerce et vente.php">Commerce et vente</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/transport.png" alt="">
-            <h1>Transport et logistique</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> logisticien, chauffeur-livreur,
-                    responsable d'entrepôt, etc.</strong> Participez à des projets variés allant de la gestion de stock
-                à la planification de transport. Faites de votre passion pour la logistique et la gestion de chaîne
-                d'approvisionnement votre métier avec nous !
+                    responsable d'entrepôt, etc.</strong> Participez à des projets variés.
             </p>
 
-            <a href="../offres/Transport et logistique.php">Explorer les offres</a>
+            <a href="../offres/Transport et logistique.php">Transport et logistique</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/agriculture.png" alt="">
-            <h1>Agriculture et agroalimentaire</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> agriculteur, ingénieur agronome,
-                    technicien de laboratoire, etc.</strong> Participez à des projets variés allant de la production
-                agricole à la transformation alimentaire. Faites de votre passion pour l'agriculture et l'alimentation
-                votre métier avec nous !
+                    technicien de laboratoire, etc.</strong> Participez à des projets variés.
             </p>
 
-            <a href="../offres/Agriculture et agroalimentaire.php">Explorer les offres</a>
+            <a href="../offres/Agriculture et agroalimentaire.php">Agriculture et agroalimentaire</a>
         </div>
 
 
@@ -393,14 +355,12 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/autre.png" alt="">
-            <h1>Autre</h1>
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond, qu'il s'agisse de métiers émergents ou de
-                professions plus traditionnelles. Participez à des projets variés et découvrez de nouveaux horizons
-                professionnels. Faites de votre passion votre métier avec nous !
+                professions plus traditionnelles. Participez à des projets variés.
             </p>
 
-            <a href="../offres/Autre.php">Explorer les offres</a>
+            <a href="../offres/Autre.php">Autre</a>
         </div>
     </section>
 

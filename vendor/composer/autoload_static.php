@@ -7,6 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
 {
     public static $files = array (
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'db356362850385d08a5381de2638b5fd' => __DIR__ . '/..' . '/mpdf/mpdf/src/functions.php',
     );
@@ -25,6 +28,7 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
@@ -32,16 +36,37 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
             'Mpdf\\PsrLogAwareTrait\\' => 22,
             'Mpdf\\PsrHttpMessageShim\\' => 24,
             'Mpdf\\' => 5,
+            'Minishlink\\WebPush\\' => 19,
             'Masterminds\\' => 12,
+        ),
+        'J' => 
+        array (
+            'Jose\\Component\\Signature\\Algorithm\\' => 35,
+            'Jose\\Component\\Signature\\' => 25,
+            'Jose\\Component\\KeyManagement\\' => 29,
+            'Jose\\Component\\Core\\Util\\Ecc\\' => 29,
+            'Jose\\Component\\Core\\' => 20,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
         'F' => 
         array (
             'FontLib\\' => 8,
+            'FG\\' => 3,
         ),
         'D' => 
         array (
             'Dompdf\\' => 7,
             'DeepCopy\\' => 9,
+        ),
+        'B' => 
+        array (
+            'Brick\\Math\\' => 11,
+            'Base64Url\\' => 10,
         ),
     );
 
@@ -65,6 +90,11 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (
@@ -82,13 +112,53 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
+        'Minishlink\\WebPush\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/minishlink/web-push/src',
+        ),
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
+        'Jose\\Component\\Signature\\Algorithm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/web-token/jwt-signature-algorithm-ecdsa',
+        ),
+        'Jose\\Component\\Signature\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/web-token/jwt-signature',
+        ),
+        'Jose\\Component\\KeyManagement\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/web-token/jwt-key-mgmt',
+        ),
+        'Jose\\Component\\Core\\Util\\Ecc\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/web-token/jwt-util-ecc',
+        ),
+        'Jose\\Component\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/web-token/jwt-core',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
         'FontLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
+        'FG\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fgrosse/phpasn1/lib',
         ),
         'Dompdf\\' => 
         array (
@@ -97,6 +167,14 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Brick\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'Base64Url\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spomky-labs/base64url/src',
         ),
     );
 

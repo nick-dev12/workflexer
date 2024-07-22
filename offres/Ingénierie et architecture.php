@@ -60,7 +60,7 @@ if (isset($_POST['recherche'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -186,11 +186,7 @@ if (isset($_POST['recherche'])) {
                 <img src="/image/ingenieur.jpeg" alt="">
             </div>
         </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
+       
 
         <article class="articles owl-carousel carousel1">
             <?php if (empty($offreIngenierie)): ?>
@@ -199,6 +195,7 @@ if (isset($_POST['recherche'])) {
 
             <?php else: ?>
                 <?php foreach ($offreIngenierie as $ingenieurs): ?>
+                <?php if($ingenieurs['statut'] === 'publiee' or $ingenieurs['statut'] === ''): ?>
                     <div class="carousel">
                         <img src="../upload/<?php echo $ingenieurs['images'] ?>" alt="">
                         <div class="info-box">
@@ -208,14 +205,13 @@ if (isset($_POST['recherche'])) {
                                 </strong>
 
                             </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p>
+                            <p  class="poste" >
                                         <strong>Nous recherchons un(une)</strong>
                                         <?php echo ($ingenieurs['poste']); ?>
                                     </p>
+                            <div class="box_vendu">
+                                <div class="vendu">
+                                  
                                     <p>
                                         <strong>Contrat :</strong>
                                         <?php echo ($ingenieurs['contrat']); ?>
@@ -228,14 +224,6 @@ if (isset($_POST['recherche'])) {
                                         <strong>Experience :</strong>
                                         <?php echo ($ingenieurs['experience']); ?>
                                     </p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
                                     <p class="ville">
                                         <strong>Ville :</strong>
                                         <?php echo ($ingenieurs['ville']); ?>
@@ -243,6 +231,7 @@ if (isset($_POST['recherche'])) {
                                 </div>
 
                             </div>
+                           
 
                             <p id="nom">
                                 <?php echo $ingenieurs['date']; ?>
@@ -255,6 +244,7 @@ if (isset($_POST['recherche'])) {
                     </div>
 
 
+                <?php endif; ?>
                 <?php endforeach ?>
             <?php endif; ?>
         </article>

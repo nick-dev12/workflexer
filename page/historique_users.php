@@ -36,24 +36,6 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
     <section class="section3">
 
 
-        <img src="../image/fleche.png" alt="" class="img222">
-        <script>
-            let img222 = document.querySelector('.img222');
-            let section2 = document.querySelector('.section2');
-            let img111 = document.querySelector('.img111')
-
-            img222.addEventListener('click', () => {
-                section2.style.marginLeft = '0px';
-                img222.style.display = 'none';
-            });
-
-            img111.addEventListener('click', () => {
-                section2.style.marginLeft = '-150%';
-                img222.style.display = 'block';
-            });
-        </script>
-
-
         <div class="container_box2">
             <div class="box1">
                 <h1>Mon historique</h1>
@@ -95,6 +77,16 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                                 <p class="ville">
                                     <strong>Ville :</strong>
                                     <?php echo ($infoOffre['localite']); ?>
+                                </p>
+
+                                <p class="ville">
+                                    <strong>Niveau :</strong>
+                                    <?php echo ($infoOffre['etudes']); ?>
+                                </p>
+
+                                <p class="ville">
+                                    <strong>Experience :</strong>
+                                    <?php echo ($infoOffre['experience']); ?>
                                 </p>
                             </div>
 

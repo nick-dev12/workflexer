@@ -168,4 +168,14 @@ if (isset($_SESSION['users_id'])) {
 
 $getAlloffres_emploi = getAllOffres($db);
 
-?>
+if(isset($_GET['restore'])){
+    $offre_id = $_GET['restore'];
+    $info_offre = getOffresEmploit($db, $offre_id);
+    $date_aujourdhui = date('Y-m-d');
+    $new_date_expiration = date('Y-m-d', strtotime( $date_aujourdhui. ' +14 days'));
+    if(restoreOffre($db, $offre_id ,$_SESSION['compte_entreprise'] , $new_date_expiration)){
+        $_SESSION['success_message'] = 'L\'offre a été republiée';
+        header('Location: ../entreprise/offre_expirer.php');
+        exit();
+    }
+}

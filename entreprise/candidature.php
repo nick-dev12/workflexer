@@ -120,16 +120,6 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                 messageErreur.classList.remove('visible');
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
-        <div class="box1">
-            <h1>Bienvenu au centre de gestion des offres postuler !</h1>
-            <div class="container_slider owl-carousel ">
-                <img src="../image/gse.png" alt="">
-                <img src="../image/gse2.jpg" alt="">
-                <img src="../image/gestion_off1.jpg" alt="">
-                <img src="../image/gestion_off2.jpg" alt="">
-                <img src="../image/GestionOffre.png" alt="">
-            </div>
-        </div>
 
         <div class="box2">
             <p> <span>1</span><strong>Gérez vos candidatures :</strong> Suivez
@@ -144,26 +134,30 @@ include_once ('../controller/controller_niveau_etude_experience.php');
 
         <div class="div-section2">
             <h2>Liste des candidatures</h2>
-            <div class="box22">
-                <span class="count">
-                    <?= $countAllPostulation ?>
-                </span>
-            </div>
 
-        </div>
-
-        <div class="categorie">
-            <?php if(  $getALLpostulation): ?>
+            <div class="categorie">
+            <?php if(isset($getAllcategorie)  ): ?>
                 
-                <?php foreach( $getALLpostulation as $categorie): ?>
-                <?php $getOffresEmploi = getOffres($db, $categorie['offre_id']);
-                 ?>
-                 <?php if($categorie['categorie']=== 'Informatique et tech') ?>
-                    <a href="#"><?= $categorie['categorie'] ?> <span><?= $count_postulation ?></span> </a>
+                <?php foreach( $getAllcategorie as $categorie): ?>
+                    <?php
+                        
+                        $sql_o = " SELECT * FROM offre_emploi WHERE entreprise_id = :entreprise_id AND categorie = :categorie";
+                        $stmt_o = $db->prepare($sql_o);
+                        $stmt_o->bindValue(':entreprise_id', $_SESSION['compte_entreprise'] ,PDO::PARAM_INT);
+                        $stmt_o->bindValue(':categorie', $categorie['categori'] ,PDO::PARAM_STR);
+                        $stmt_o->execute();
+                        $count_postulation = $stmt_o->fetchAll(PDO::FETCH_ASSOC);
+                        $count_c = count($count_postulation);
+
+                        ?>
+                    <a href="postulation.php?categorie=<?= $categorie['categori'] ?>"><?= $categorie['categori'] ?> <span><?= $count_c ?></span> </a>
             
             <?php endforeach ?>
             <?php endif; ?>
         </div>
+
+        </div>
+       
 
     </section>
 

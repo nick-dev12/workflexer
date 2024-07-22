@@ -60,7 +60,7 @@ if (isset($_POST['recherche'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -187,11 +187,7 @@ if (isset($_POST['recherche'])) {
                 <img src="/image/Redaction.jpg" alt="">
             </div>
         </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
+       
 
         <article class="articles owl-carousel carousel3">
             <?php if (empty($offreRedaction)): ?>
@@ -201,6 +197,7 @@ if (isset($_POST['recherche'])) {
             <?php else: ?>
 
                 <?php foreach ($offreRedaction as $Redaction): ?>
+                <?php if($Redaction['statut'] === 'publiee' or $Redaction['statut'] === ''): ?>
 
                     <div class="carousel">
                         <img src="../upload/<?php echo $Redaction['images'] ?>" alt="">
@@ -210,14 +207,13 @@ if (isset($_POST['recherche'])) {
                                     <?php echo $Redaction['entreprise']; ?>
                                 </strong>
                             </p>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
-                                    <p>
+                            <p class="poste" >
                                         <strong>Nous recherchons un(une)</strong>
                                         <?php echo ($Redaction['poste']); ?>
                                     </p>
+                            <div class="box_vendu">
+                                <div class="vendu">
+                                  
 
                                     <p>
                                         <strong>Contrat :</strong>
@@ -231,13 +227,6 @@ if (isset($_POST['recherche'])) {
                                         <strong>Experience :</strong>
                                         <?php echo ($Redaction['experience']); ?>
                                     </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
                                     <p class="ville">
                                         <strong>Ville :</strong>
                                         <?php echo ($Redaction['ville']); ?>
@@ -245,6 +234,8 @@ if (isset($_POST['recherche'])) {
                                 </div>
 
                             </div>
+
+                           
                             <p id="nom">
                                 <?php echo $Redaction['date']; ?>
                             </p>
@@ -255,6 +246,7 @@ if (isset($_POST['recherche'])) {
                             </a>
                         </div>
                     </div>
+                <?php endif; ?>
                 <?php endforeach ?>
 
             <?php endif; ?>

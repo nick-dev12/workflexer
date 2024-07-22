@@ -6,10 +6,10 @@
   Variables
 --------------------------------------------------------------*/
 :root {
-  --text-color: black;
-  --titre-color: white;
-  --font-color :#00587b ;
-  --font-color2 :#e6e6e6 ;
+  --texte-color_titre:#ededed ;
+  --font-color_titre :#00587b ;
+  --font-color_section :#e6e6e6 ;
+  --texte-color_section : #000000;
 }
 
 /*--------------------------------------------------------------
@@ -23,6 +23,7 @@
 
 body {
   font-family: "Nunito", sans-serif;
+  background-color: #e1e2e275;
 }
 
 .section2 .box3 table .tr4 {
@@ -35,7 +36,7 @@ body {
   display: none;
 }
 header {
-  background-color:  var(--font-color2);
+  background-color:  var(--font-color_section);
   padding: 40px;
   text-align: center;
   /* background-color: #d7d7d7; */
@@ -45,7 +46,7 @@ header h1 {
   margin-left: 200px;
   font-size: 25px;
   padding: 0 20px;
-  color: var(--text-color);
+  color: var(--texte-color_section);
 }
 header h2 {
   width: 70%;
@@ -54,31 +55,26 @@ header h2 {
   color: #346dc8;
 }
 
-.section3 {
-  margin-left: 280px;
+.section3{
+  margin-left: 250px;
+  background-color: #d4f2f675;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* background: url(../image/bg_bggenerator_com.jpg); */
-  background: radial-gradient(
-    circle,
-    rgba(226, 226, 230, 1) 0%,
-    rgba(220, 220, 233, 1) 35%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background-size: contain;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 40px 0;
+ /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
+ 
+ background-position: center;
+ background-attachment: fixed;
+ position: relative;
+ margin-top: 80px;
 }
-@media screen and (max-width: 1050px) {
-  .section3 {
-    width: 100%;
-    margin-left: 0;
-  }
-  .section3 .button12{
-    
+
+@media screen and (max-width : 1050px){
+  .section3{
+      width: 100%;
+     padding-left: 50px;
+     margin-left: 0;
   }
 }
 
@@ -108,7 +104,7 @@ header h2 {
 }
 
 .section3 .personnalisation{
-  width: 330px;
+  width: 350px;
   padding: 20px;
   margin: 20px 0;
   background-color: #ffffff;
@@ -122,6 +118,13 @@ header h2 {
   align-items: center;
   flex-direction: column;
   margin-top: 6px;
+
+  p{
+    color: #868686;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }
 .section3 .personnalisation .box input{
   width: 70px;
@@ -162,13 +165,13 @@ header h2 {
   background-color: #ffffff;
 }
 #container .box1 p{
-  color: var(--text-color);
+  color: var(--texte-color_section);
 }
 #container .box1 p span{
-  color: var(--text-color);
+  color: var(--texte-color_section);
 }
 #container .box1 ul li{
-  color: var(--text-color);
+  color: var(--texte-color_section);
 }
 #container .img {
   position: absolute;
@@ -193,13 +196,16 @@ header h2 {
   position: relative;
   border-right: 3px solid #000000;
   padding-top: 40px;
-  background-color: var(--font-color2);
+  background-color: var(--font-color_section);
 }
 #container .box1 .iff{
   margin-top: 30px;
+  p{
+    color: var(--texte-color_section);
+  }
 }
 #container .bas{
-  background-color: var(--font-color2);
+  background-color: var(--font-color_section);
   height: 30px;
   width: 100%;
   position: absolute;
@@ -210,14 +216,14 @@ header h2 {
   width: 80%;
   text-align: center;
   padding: 3px 20px;
-  background-color: var(--font-color);
-  color: #ddd;
+  background-color: var(--font-color_titre);
   margin: 17px auto;
   font-size: 12px;
   display: flex;
   align-items: center;
   border-radius: 4px;
   text-transform: uppercase;
+  color: var(--texte-color_titre);
 }
 #container .box1 h1 img {
   height: 20px;
@@ -259,6 +265,7 @@ header h2 {
   width: 100%;
   margin: 2px auto;
   margin-left: 10px;
+  color: var(--texte-color_section);
 }
 #container .box1 .reseaux {
   display: flex;
@@ -284,8 +291,8 @@ header h2 {
   font-size: 14px;
   width: 80%;
   margin: 7px auto;
-  background-color: var(--font-color);
-  color: #ddd;
+  background-color: var(--font-color_titre);
+  color: var(--texte-color_titre);
   padding: 4px 20px;
   border-radius: 4px;
   text-transform: uppercase;
