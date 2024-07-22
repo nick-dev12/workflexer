@@ -1,8 +1,9 @@
 <?php
 include (__DIR__ . '../../model/message1.php');
 require_once (__DIR__ . '/../model/appelle_offre.php');
-include ('../entreprise/app/controller/controllerEntreprise.php');
-require '../vendor/autoload.php';
+include (__DIR__ .'/../entreprise/app/controller/controllerEntreprise.php');
+require __DIR__ .'../../vendor/autoload.php';
+
 // include('../model/vue_offre.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -42,6 +43,10 @@ if (isset ($_GET['entreprise_id'])) {
 
       if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date)) {
        
+      }
+
+      if (notification_messageUsers($db,$entreprise_id,$users_id)){
+        # code...
       }
       
        postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date);
@@ -84,7 +89,10 @@ if (isset ($_GET['users_id'])) {
       $date = $date_formatter->format($date_publication);
 
       if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date)) {
-       
+      }
+
+      if (notification_message($db,$entreprise_id,$users_id)) {
+        # code...
       }
       
        postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date);
@@ -135,6 +143,10 @@ if (isset ($_GET['offres_id'])) {
         if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date)) {
         
         }
+
+        if (notification_messageUsers($db,$entreprise_id,$users_id)) {
+          # code...
+        }
      
         postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date);
 
@@ -178,6 +190,9 @@ if (isset ($_GET['offres_id'])) {
        
       }
       
+      if (notification_message($db,$entreprise_id,$users_id)) {
+        # code...
+      }
        postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date);
 
       $_SESSION['success_message'] = 'Message envoyer';
@@ -373,6 +388,11 @@ if (isset ($_GET['id'])) {
         if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date)) {
         
         }
+
+        if (notification_messageUsers($db,$entreprise_id,$users_id)) {
+          # code...
+        }
+
         postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date);
 
         $_SESSION['success_message'] = " Appel D'offres envoyer!";
@@ -407,6 +427,24 @@ if (isset ($_GET['suprime'])) {
   }
 }
 
+if (isset($_SESSION['compte_entreprise'])) {
+  $afficheNotificationMessage = get_message($db,$_SESSION['compte_entreprise']);
+  $countafficheNotificationMessage = count($afficheNotificationMessage);
 
+  $afficheNotificationPostulation = get_notificationPostulation($db,$_SESSION['compte_entreprise']);
+  $countnotificationPostulation = count($afficheNotificationPostulation);
+}
+
+if (isset($_SESSION['users_id'])) {
+  $notif_users = get_messageUsers($db,$_SESSION['users_id']);
+  $count_notif_users = count($notif_users);
+
+  $notif_suivi = get_notif_suiviAccepter($db,$_SESSION['users_id']);
+  $count_notif_suivi = count($notif_suivi);
+
+  $notif_suiviRecaler = get_notif_suiviRecaler($db,$_SESSION['users_id']);
+  $count_notif_suiviRecaler = count($notif_suiviRecaler);
+}
 
 $afficheAutreMessageEntreprise = getAutreMessageEntreprise($db, );
+

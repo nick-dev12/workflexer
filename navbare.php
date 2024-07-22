@@ -1,5 +1,5 @@
 <?php
-include('conn/conn.php');
+include ('conn/conn.php');
 
 
 if (isset($_SESSION['users_id'])) {
@@ -43,6 +43,28 @@ if (isset($_SESSION['users_id'])) {
 }
 
 
+if (isset($_SESSION['compte_entreprise'])) {
+    include_once ('controller/controller_message1.php');
+}
+
+if(isset($_SESSION['users_id'])){
+    include(__DIR__.'../controller/controller_message1.php');
+}
+
+
+if ( isset ($_GET['offres_id'] ) AND  isset($_GET['statut']) ){
+
+    if (isset($_SESSION['users_id'])) {
+  deletTMP_Message($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
+  }
+
+  if (isset($_SESSION['compte_entreprise'])) {
+    deletTMP_Message2($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
+    }
+  
+}
+
+include(__DIR__. '/controller/controller_statut_offre.php');
 ?>
 
 <link rel="stylesheet" href="/css/navbare.css">
@@ -53,7 +75,6 @@ if (isset($_SESSION['users_id'])) {
         <img class="menu" src="/image/menu.png" alt="">
         <div class="box1">
             <img class="cacheMenu" src="/image/croix.png" alt="">
-            <a href="../index.php">Accueil</a>
             <a href="../page/orientation.php">Orientation</a>
             <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
             <a href="/page/entreprise.php">Entreprise</a>
@@ -70,41 +91,136 @@ if (isset($_SESSION['users_id'])) {
                 box1.style.left = "-200%";
             })
         </script>
-        <!-- <div id="box2">
-        <form action="post">
-            <input type="search" name="search" id="search">
-            <div class="bo-">
-                <label id="label" for="submit"><img src="/image/recherche-.png" alt=""></label>
-                <input type="submit" name="submit" id="submit" value="submit">
-            </div>
-        </form>
-    </div> -->
+
     </div>
 
     <?php if (isset($_SESSION['users_id'])): ?>
 
         <div class="box4">
             <div class="infos_users">
-                <p class="affiche">
-                    Profil
-                </p>
                 <img class="affiche" src="/upload/<?= $users['images']; ?>" alt="">
+
             </div>
-            <a class="liens" href="../conn/dconn_users.php">Déconnexion</a>
         </div>
+
+        <div class="not">
+                    <img src="/image/notification.png" alt="" class="notif">
+                    <?php if($notif_users OR $notif_suivi OR $notif_suiviRecaler):?>
+                        <span><?= $count_notif_users + $count_notif_suivi + $count_notif_suiviRecaler ?></span>
+                        <?php else :?>
+                        
+                    <?php endif ;?>
+                </div>
+
+                <div class="box_notif">
+                <img src="/image/croix.png" alt="" class="croi">
+
+                <?php if(empty($notif_users)) :?>
+                    <?php else: ?>
+                <a href="message_users.php?supp3= <?= $_SESSION['users_id'] ?>">
+                    <div class="item">
+                        <img src="/image/notif.png" alt="">
+                        <p>Vous avez <span><?= $count_notif_users ?></span> nouveaux messages</p>
+                    </div>
+                </a>
+                <?php endif ;?>
+
+                <?php if(empty($notif_suiviRecaler)) :?>
+                    <?php else: ?>
+                <a href="/page/mes_demande.php?supp4= <?= $_SESSION['users_id'] ?>">
+                    <div class="item">
+                        <img src="/image/notif.png" alt="">
+                        <p>Vous avez <span><?= $count_notif_suiviRecaler ?></span> candidature(s) recaler</p>
+                    </div>
+                </a>
+                <?php endif ;?>
+
+
+                <?php if(empty($notif_suivi)) :?>
+                    <?php else: ?>
+                <a href="/page/candidature.php?supp2= <?= $_SESSION['users_id'] ?>">
+                    <div class="item">
+                        <img src="/image/notif.png" alt="">
+                        <p>Vous avez <span><?= $count_notif_suivi ?></span> candidature(s) accepter</p>
+                    </div>
+                </a>
+                <?php endif ;?>
+
+
+                <script>
+                    let not1 = document.querySelector('.not');
+                    let notif1 = document.querySelector('.croi')
+                    let notification1 = document.querySelector('.box_notif')
+
+                    not1.addEventListener('click', () => {
+                        notification1.style.display = 'block'
+                    })
+                    notif1.addEventListener('click', () => {
+                        notification1.style.display = 'none'
+                    })
+                </script>
+            </div>
+
     <?php else: ?>
+
+
 
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
 
             <div class="box4">
                 <div class="infos_users">
-                    <p class="affiche">
-                        Profil
-                    </p>
                     <img class="affiche" src="/upload/<?= $entreprise['images']; ?>" alt="">
                 </div>
-                <a class="liens" href="../conn/dconn_entreprise.php">Déconnexion</a>
             </div>
+
+            <div class="not">
+                    <img src="/image/notification.png" alt="" class="notif">
+                    <?php if($afficheNotificationMessage OR $afficheNotificationPostulation):?>
+                        
+                        <span><?= $countafficheNotificationMessage + $countnotificationPostulation ?></span><?php else :?>
+                     <?php endif ;?>
+                </div>
+
+
+            <div class="box_notif">
+                <img src="/image/croix.png" alt="" class="croi">
+
+                <?php if(empty($afficheNotificationMessage)) :?>
+                        <?php else :?>
+                <a href="/entreprise/message.php?supp1= <?= $_SESSION['compte_entreprise'] ?>">
+                    <div class="item">
+                        <img src="/image/notif.png" alt="">
+                        <p>Vous avez <span><?= $countafficheNotificationMessage ?></span> nouveaux message(s)</p>
+                    </div>
+                </a>
+                <?php endif ;?>
+
+
+                <?php if(empty( $afficheNotificationPostulation)) :?>
+                        <?php else :?>
+                <a href="/page/candidature.php?supp2= <?= $_SESSION['compte_entreprise'] ?>">
+                    <div class="item">
+                        <img src="/image/notif.png" alt="">
+                        <p>Vous avez <span><?= $countnotificationPostulation ?></span> nouvelle(s) postulation(s)</p>
+                    </div>
+                </a>
+                <?php endif ;?>
+
+
+                <script>
+                    let not = document.querySelector('.not');
+                    let notif = document.querySelector('.croi')
+                    let notification = document.querySelector('.box_notif')
+
+                    not.addEventListener('click', () => {
+                        notification.style.display = 'block'
+                    })
+                    notif.addEventListener('click', () => {
+                        notification.style.display = 'none'
+                    })
+                </script>
+            </div>
+           
         <?php else: ?>
             <?php if (isset($_SESSION['admin'])): ?>
                 <div class="box4">
@@ -127,6 +243,7 @@ if (isset($_SESSION['users_id'])) {
         <?php endif ?>
 
     <?php endif ?>
+
 
     <div class="box_info">
         <?php if (isset($_SESSION['users_id'])): ?>
@@ -248,18 +365,18 @@ if (isset($_SESSION['users_id'])) {
         let del = document.querySelector('.del');
 
         affiche.addEventListener('click', () => {
-            boxInfo.style.right = '5%';
+            boxInfo.style.right = '10%';
         });
 
         del.addEventListener('click', () => {
-            boxInfo.style.right = '-200%';
+            boxInfo.style.right = '-500%';
         });
 
 
     </script>
 </nav>
 
-<section class="section1">
+<section id="none" class="section1">
     <div class="div">
         <span>1</span>
         <p>Trouver rapidement les meilleurs talents qui correspondent à vos besoins</p>

@@ -1,14 +1,14 @@
 <?php
 // require_once('..//entreprise/app/model/entreprise.php');
 require_once(__DIR__ . '/../model/entreprise.php');
-include('../controller/controller_competence_users.php');
+include(__DIR__ .'../../../../controller/controller_competence_users.php');
 
 // include('../model/vue_offre.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require __DIR__ .'../../../../vendor/autoload.php';
 
 if (isset($_SESSION['compte_entreprise'])) {
     $getEntreprise = getEntreprise($db, $_SESSION['compte_entreprise']);
@@ -42,13 +42,7 @@ if (isset($_SESSION['compte_entreprise'])) {
 
 
 if (isset($_POST['publier'])) {
-    function TotalUsers($db)
-    {
-        $sql = "SELECT * FROM users";
-        $stmt = $db->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+   
 
     $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
 
@@ -85,13 +79,42 @@ if (isset($_POST['publier'])) {
         $_SESSION['error_message'] = 'veuiller ajouter le niveau de etude  !!!';
     } else {
         $etudes = $_POST['etude'];
+         // Convertir les niveaux d'étude et d'expérience en valeurs numériques
+    $etude_valeurs = array(
+        "Bac+1an" => 1,
+        "Bac+2ans" => 2,
+        "Bac+3ans" => 3,
+        "Bac+4ans" => 4,
+        "Bac+5ans" => 5,
+        "Bac+6ans" => 6,
+        "Bac+7ans" => 7,
+        "Bac+8ans" => 8,
+        "Bac+9ans" => 9,
+        "Bac+10ans" => 10,
+        "Aucun" => 0
+    );
+    $n_etudes = $etude_valeurs[$etudes];
     }
-
 
     if (empty($_POST['experience'])) {
         $_SESSION['error_message'] = 'veuiller ajouter un niveau d\'experience  !!!';
     } else {
         $experience = $_POST['experience'];
+         // Convertir les niveaux d'étude et d'expérience en valeurs numériques
+    $experience_valeurs = array(
+        "1an" => 1,
+        "2ans" => 2,
+        "3ans" => 3,
+        "4ans" => 4,
+        "5ans" => 5,
+        "6ans" => 6,
+        "7ans" => 7,
+        "8ans" => 8,
+        "9ans" => 9,
+        "10ans" => 10,
+        "Aucun" => 0
+    );
+    $n_experience = $experience_valeurs[$experience];
     }
 
     if (empty($_POST['localite'])) {
@@ -106,10 +129,35 @@ if (isset($_POST['publier'])) {
         $langues = $_POST['langues'];
     }
 
-    $categorie = $_POST['categorie'];
-    if (empty($categorie)) {
-        $_SESSION['error_message'] = 'veuiller sélectionner une catégorie !!!';
+    if(empty($_POST['places'])){
+        $_SESSION['error_message'] = 'veuiller ajouter le nombre de places disponible  !!!';    
+    }else{
+        $places = $_POST['places'];
     }
+
+    if(empty($_POST['duree'])){
+        $_SESSION['error_message'] = 'veuiller ajouter la duree de l\'offre avant expiration  !!!';    
+    }else{
+        $duree = $_POST['duree'];
+         // Calculer la date d'expiration
+    $date_expiration = date('Y-m-d', strtotime("+$duree days"));
+    }
+
+    
+    if (empty($_POST['categorie'])) {
+        $_SESSION['error_message'] = 'veuiller sélectionner une catégorie !!!';
+    }else{
+        $categorie = $_POST['categorie'];
+
+       $T_categorie = Categorie ($db,$categorie);
+
+       if ($T_categorie > 0) {
+        
+       }else {
+        PostCategorie ($db,$categorie);
+       }
+    }
+
 
     $date_publication = new DateTime();
     $date_formatter = new IntlDateFormatter(
@@ -132,10 +180,10 @@ if (isset($_POST['publier'])) {
             try {
                 // Paramètres SMTP
                 $mail->isSMTP();
-            $mail->Host = 'mail.privateemail.com';
+            $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
-            $mail->Username = 'service@advantechgroup.online';
-            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->Username = 'info@advantechgroup.online';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
@@ -276,7 +324,7 @@ if (isset($_POST['publier'])) {
                 </body>
                 </html> ";
 
-                    $mail->setFrom('service@advantechgroup.online', 'work-flexer');
+                    $mail->setFrom('info@advantechgroup.online', 'work-flexer');
                     $mail->isHTML(true);
                     $mail->Subject = $sujet;
                     $mail->Body = $message;
@@ -287,7 +335,7 @@ if (isset($_POST['publier'])) {
                     $mail->send();
                 }
 
-                if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $date)) {
+                if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)) {
 
                      $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
                 header('Location: entreprise_profil.php');

@@ -1,8 +1,12 @@
+
+
+
+
 <link rel="stylesheet" href="../css/section2.css">
 
 
-<section class="section2">
-    <img src="../image/croix.png" alt="" class="img111">
+<section class="section2 ste" id="ste" >
+    <img src="../image/croix.png" alt="" class="img111" id="img24">
         <div class="container">
             <div class="box1">
                 <?php if ($users['statut'] == 'Disponible'): ?>
@@ -67,13 +71,130 @@
 
                <a href="/model_cv/cv_users.php"> <li class="tr4"><img src="../image/MCV.png" alt=""> <span class="td">Mon cv</span></li></a>
 
-               <a href="../page/mes_demande.php"> <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d’emploies</span></li></a>
+               <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>"> <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d’emploies</span>
+               <?php if(empty($notif_suivi) OR empty($notif_suiviRecaler)) :?>
+                <?php else :?>
+               <?php if(isset($notif_suivi) OR isset($notif_suiviRecaler)) :?>
+                        <em><?= $count_notif_suivi + $count_notif_suiviRecaler ?></em>
+                    <?php endif ;?>
+                    <?php endif ;?>
+            </li></a>
 
-               <a href="../page/message_users.php"> <li class="tr2"><img src="../image/modifier.png" alt=""><span class="td">Message</span></li></a>
+            <a  href="../page/candature_accepter.php"> <li class="tr10"><img src="../image/reussi.png" alt=""> <span class="td">Candidatures accepter</span>
+            <?php if(empty($notif_suivi) OR empty($notif_suiviRecaler)) :?>
+                <?php else :?>
+               <?php if(isset($notif_suivi)) :?>
+                        <em><?= $count_notif_suivi ?></em>
+                    <?php endif ;?>
+                    <?php endif ;?>
+        
+        </li></a> 
+
+               <a href="../page/message_users.php?supp3=<?= $_SESSION['users_id'] ?>"> <li class="tr2"><img src="../image/message.png" alt=""><span class="td">Message</span>
+               <?php if(empty($notif_users)) :?> 
+                 <?php else :?> 
+               <?php if(isset($notif_users)) :?> 
+                        <em><?= $count_notif_users ?></em>
+                    <?php endif ;?>
+                    <?php endif ;?>
+            </li></a>
+
+               <a  href="../page/historique_users.php"> <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li></a>   
+            </ul>
+               
+            </div>
+
+            <a class="liens" href="../conn/dconn_users.php">Déconnexion</a>
+        </div>
+
+       
+    </section>
+
+
+
+    <section class="section2 menu" id="menu" >
+    <img class="img23" id="img23" src="../image/menu n.png" alt="">
+        <div class="container">
+            <div class="box1">
+
+                <img class="affiche" src="/upload/<?= $users['images'] ?>" alt="">
+                <span></span>
+                
+            </div>
+            
+
+            <div class="box3">
+            <ul>
+               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> </li></a>
+
+               <a href="../page/user_profil.php"> <li class="tr"><img src="../image/a propos.png" alt=""> </li></a>
+
+               <a href="/model_cv/cv_users.php"> <li class="tr4"><img src="../image/MCV.png" alt=""></li></a>
+
+               <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>"> <li class="tr1"><img src="../image/mdep.png" alt="">
+               <?php if(empty($notif_suivi) OR empty($notif_suiviRecaler)) :?>
+                <?php else :?>
+               <?php if(isset($notif_suivi) OR isset($notif_suiviRecaler)) :?>
+                        <em><?= $count_notif_suivi + $count_notif_suiviRecaler ?></em>
+                    <?php endif ;?>
+                    <?php endif ;?>
+            </li></a>
+
+            <a  href="../page/candature_accepter.php"> <li class="tr10"><img src="../image/reussi.png" alt=""> <span class="td"></span>
+            <?php if(empty($notif_suivi) OR empty($notif_suiviRecaler)) :?>
+                <?php else :?>
+               <?php if(isset($notif_suivi)) :?>
+                        <em><?= $count_notif_suivi ?></em>
+                    <?php endif ;?>
+                    <?php endif ;?>
+        
+        </li></a> 
+
+               <a href="../page/message_users.php?supp3=<?= $_SESSION['users_id'] ?>"> <li class="tr2"><img src="../image/message.png" alt="">
+               <?php if(empty($notif_users)) :?> 
+                 <?php else :?> 
+               <?php if(isset($notif_users)) :?> 
+                        <em><?= $count_notif_users ?></em>
+                    <?php endif ;?>
+                    <?php endif ;?>
+            </li></a>
 
                <a  href="../page/historique_users.php"> <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li></a>   
             </ul>
                
             </div>
         </div>
+
+
+      
     </section>
+
+    <script>
+    // Sélectionne l'élément avec la classe 'img' et l'assigne à img222
+    let cache = document.getElementById('img23');
+
+    let section = document.querySelector('.section2')
+    // Sélectionne l'élément avec la classe 'ste' et l'assigne à section2
+    let section2 = document.getElementById('ste');
+
+    // Sélectionne l'élément avec la classe 'menu' et l'assigne à menu
+    let menu1 = document.getElementById('menu');
+
+    // Sélectionne l'élément avec la classe 'img111' et l'assigne à img111
+    let img111 = document.getElementById('img24');
+
+    // Ajoute un événement de clic à img222
+    cache.addEventListener('click', () => {
+        // Lorsque img222 est cliqué, déplace section2 à gauche (visible) et cache menu
+        section2.style.left = '0';
+        menu1.style.left = '-400px';
+    });
+
+    // Ajoute un événement de clic à img111
+    img111.addEventListener('click', () => {
+        // Lorsque img111 est cliqué, cache section2 et montre menu
+        section2.style.left = '-100%';
+        menu1.style.left = '0';
+    });
+
+</script>

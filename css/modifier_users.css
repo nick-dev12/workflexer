@@ -10,6 +10,7 @@
 
 body{
     font-family: 'Nunito', sans-serif;
+    background-color: #e1e2e275;
 }
 
 
@@ -43,21 +44,25 @@ body{
 /* section 3 et toute ces modification  */
 
 .section3{
-    margin-left: 280px;
-    display: flex;
-   background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%);
-   background-position: center;
-   background-attachment: fixed;
-   position: relative;
-   height: 100vh;
-   padding-bottom: 150px;
-   display: flex;
-   justify-content: center;
-
+  margin-left: 250px;
+  /* background-color: #d4f2f675; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
+ 
+ background-position: center;
+ background-attachment: fixed;
+ position: relative;
+ margin-top: 80px;
 }
-@media screen and (max-width : 1050px) {
-  .section3 {
-    margin-left: 0;
+
+@media screen and (max-width : 1050px){
+  .section3{
+      width: 100%;
+     padding-left: 50px;
+     margin-left: 0;
   }
 }
 
@@ -343,6 +348,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Colo
   margin: 10px 0;
   height: 35px;
   max-height: 40px;
+  font-size: 14px;
 }
 .section3 .mdf_info .box-info .box-ul .modif li{
   color: #0066FF;
@@ -443,6 +449,10 @@ display: none;
   .section3 .mdf_info .box-info ul{
     width: 60%;
     font-size: 13px;
+  }
+
+  .section3 .mdf_info .box-info ul li{
+    font-size: 12px;
   }
   .section3 .mdf_info .box-info .box-ul .modif {
    width: 30%;

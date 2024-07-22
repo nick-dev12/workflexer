@@ -43,6 +43,7 @@ function updatOffre($db,$poste,$mission,$profil,$contrat,$etudes,$experience,$lo
      return  $stmt->execute();
 }
 
+
 // function getTotalOffres($db){
 //     $sql = " SELECT * FROM offre_emploi WHERE";
 // }
@@ -208,4 +209,14 @@ function get_poste ($db, $entreprise_id, $categorie){
     $stmt->bindValue(':categorie', $categorie ,PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function restoreOffre($db, $offre_id ,$entreprise_id, $new_date_expiration){
+    $sql = "UPDATE offre_emploi SET statut = 'publiee' , date_expiration = :date_expiration WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id ,PDO::PARAM_INT);
+    $stmt->bindValue(':entreprise_id', $entreprise_id ,PDO::PARAM_INT);
+    $stmt->bindValue(':date_expiration', $new_date_expiration );
+    $stmt->execute();
+    return $stmt->rowCount();
 }

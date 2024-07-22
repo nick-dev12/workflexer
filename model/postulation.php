@@ -66,10 +66,27 @@ function getPostulation($db, $users_id, $offre_id)
  */
 function getALLPostulation($db, $entreprise_id , $poste)
 {
-    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id AND poste=:poste";
+    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id AND poste=:poste AND statut = '' ";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':poste', $poste, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getALLPostulations($db, $entreprise_id )
+{
+    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getALLcategorie($db )
+{
+    $sql = "SELECT * FROM categorie ";
+    $stmt = $db->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -128,17 +145,23 @@ function getPostulationUsers($db, $users_id)
 }
 
 
-function getPostulation_categorie($db, $entreprise_id)
+function getPostulation_categorie($db, $entreprise_id, $categorie)
 {
     // Sélection des postulations avec les informations des offres d'emploi associées
-    $sql = "SELECT postulation.*, offre_emploi.categorie
-              FROM postulation
-              INNER JOIN offre_emploi ON postulation.offre_id = offre_emploi.offre_id
-              WHERE postulation.entreprise_id = :entreprise_id";
+    $sql = "SELECT * FROM postulation WHERE entreprise_id = :entreprise_id AND categorie = :categorie";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function notification_postulation($db,$entreprise_id,$users_id) {
+    $sql = "INSERT INTO notification_postulation (entreprise_id,users_id)
+    VALUES (:entreprise_id,:users_id)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":entreprise_id", $entreprise_id, );
+        $stmt->bindParam(":users_id", $users_id, );
+        $stmt->execute();
+}
 

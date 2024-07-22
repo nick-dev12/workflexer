@@ -1,6 +1,6 @@
 <?php
 
-include('../conn/conn.php');
+include(__DIR__.'../../conn/conn.php');
 
 function postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date)
 {
@@ -15,7 +15,7 @@ VALUES (:entreprise_id,:users_id,:offre_id,:statut,:messages,:indicatif,:sujet,:
     $stmt->bindParam(":indicatif", $indicatif, );
     $stmt->bindParam(":sujet", $sujet, );
     $stmt->bindParam(":date", $date, );
-    $stmt->execute();
+    return $stmt->execute();
 }
 
 function post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif,$sujet, $date )
@@ -31,7 +31,7 @@ VALUES (:entreprise_id,:users_id,:offre_id,:statut,:messages,:indicatif,:sujet,:
     $stmt->bindParam(":indicatif", $indicatif, );
     $stmt->bindParam(":sujet", $sujet, );
     $stmt->bindParam(":date", $date, );
-    $stmt->execute();
+    return  $stmt->execute();
 }
 
 function getMessage1($db, $entreprise_id, $offre_id, $users_id)
@@ -139,7 +139,7 @@ function deletTMP_Message($db, $entreprise_id, $offre_id, $users_id)
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
-    $stmt->execute();
+    return $stmt->execute();
 }
 
 function deletTMP_Message2($db, $entreprise_id, $offre_id, $users_id)
@@ -149,7 +149,7 @@ function deletTMP_Message2($db, $entreprise_id, $offre_id, $users_id)
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
-    $stmt->execute();
+    return  $stmt->execute();
 }
 
 function deletTMP_Message3($db, $entreprise_id, $users_id)
@@ -158,7 +158,7 @@ function deletTMP_Message3($db, $entreprise_id, $users_id)
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
-    $stmt->execute();
+    return  $stmt->execute();
 }
 
 function deletTMP_Message4($db, $entreprise_id, $users_id)
@@ -167,7 +167,64 @@ function deletTMP_Message4($db, $entreprise_id, $users_id)
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
-    $stmt->execute();
+    return $stmt->execute();
 }
 
-?>
+function notification_message($db,$entreprise_id,$users_id) {
+    $sql = "INSERT INTO notification_message (entreprise_id,users_id)
+    VALUES (:entreprise_id,:users_id)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":entreprise_id", $entreprise_id, );
+        $stmt->bindParam(":users_id", $users_id, );
+        return $stmt->execute();
+}
+
+function notification_messageUsers($db,$entreprise_id,$users_id) {
+    $sql = "INSERT INTO notification_message_users (entreprise_id,users_id)
+    VALUES (:entreprise_id,:users_id)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":entreprise_id", $entreprise_id, );
+        $stmt->bindParam(":users_id", $users_id, );
+        return $stmt->execute();
+}
+
+function get_message($db,$entreprise_id) {
+    $sql = "SELECT * from notification_message WHERE entreprise_id = :entreprise_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":entreprise_id", $entreprise_id, );
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function get_notificationPostulation($db,$entreprise_id) {
+    $sql = "SELECT * from notification_postulation WHERE entreprise_id = :entreprise_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":entreprise_id", $entreprise_id, );
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function get_messageUsers($db,$users_id) {
+    $sql = "SELECT * from notification_message_users WHERE users_id = :users_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":users_id", $users_id, );
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_notif_suiviAccepter($db,$users_id) {
+    $sql = "SELECT * from notification_suivi WHERE users_id = :users_id  AND statut = 'accepter' ";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":users_id", $users_id, );
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function get_notif_suiviRecaler($db,$users_id) {
+    $sql = "SELECT * from notification_suivi WHERE users_id = :users_id AND statut = 'recaler'";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":users_id", $users_id, );
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}

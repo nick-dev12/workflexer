@@ -19,32 +19,34 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #e0e0e0;
+  background-color: #d4f2f675;
 }
 .emploi .box {
-  width: 330px;
-  height: 360px;
+  width: 300px;
+  height: 330px;
   position: relative;
   border: 2px solid #4f4f4f73;
   border-radius: 7px;
   overflow: hidden;
-  box-shadow: 13px 16px 10px 0px #1c1c1c69;
+  box-shadow: 7px 10px 10px 0px #1c1c1c69;
   margin: 30px;
   background-color: #ffffff;
 }
 .emploi .box img {
-  width: 100%;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-bottom: 2.5px solid #2c2c2c77;
+  display: block;
+  margin: 10px auto;
+  border-radius: 50%;
 }
 .emploi .box h1 {
   position: absolute;
-  left: 50%;
-  transform: translate(-50%);
   top: 60px;
-  width: 80%;
-  font-size: 18px;
+  width: 150px;
+  right: 10px;
+  font-size: 16px;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
@@ -55,7 +57,7 @@ body {
 .emploi .box p {
   width: 100%;
   margin: 10px 0;
-  font-size: 13px;
+  font-size: 12px;
   padding: 0 15px;
   line-height: 22px;
 }
@@ -65,8 +67,8 @@ body {
   display: block;
   text-align: center;
   margin: 10px auto;
-  font-size: 16px;
-  padding: 10px 15px;
+  font-size: 14px;
+  padding: 6px 10px;
   border-radius: 7px;
   background-color: #005499;
   color: white;
@@ -79,23 +81,4 @@ body {
 .emploi .box a:hover{
   background-color: #000a13;
 }
-@media screen and (max-width: 600px) {
-  .emploi {
-    padding: 20px 5px;
-  }
-  .emploi .box {
-    height: 400px;
-  }
-  .emploi .box p {
-    font-size: 12px;
-  }
-  .emploi .box a {
-    width: 70%;
-  }
-  .emploi .box img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-bottom: 2.5px solid #2c2c2c77;
-  }
-}
+

@@ -34,12 +34,12 @@ function recalerCandidats($db,$statut,$poste_id){
 
 
 
-/**
- * Summary of getAccepteCandidat
- * @param mixed $db
- * @param mixed $entreprise_id
- * @return mixed
- */
-
-
-?>
+function notification_suivi($db,$entreprise_id,$users_id,$statut) {
+    $sql = "INSERT INTO notification_suivi (entreprise_id,users_id,statut)
+    VALUES (:entreprise_id,:users_id,:statut)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":entreprise_id", $entreprise_id, );
+        $stmt->bindParam(":users_id", $users_id, );
+        $stmt->bindParam(":statut", $statut, );
+       return $stmt->execute();
+}

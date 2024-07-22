@@ -227,22 +227,7 @@ if (isset($_GET['id'])) {
 
         <?php endif; ?>
 
-        <img src="../image/fleche.png" alt="" class="img222">
-        <script>
-            let img222 = document.querySelector('.img222');
-            let section2 = document.querySelector('.section2');
-            let img111 = document.querySelector('.img111');
-
-            img222.addEventListener('click', () => {
-                section2.style.marginLeft = '0px';
-                img222.style.display = 'none';
-            });
-
-            img111.addEventListener('click', () => {
-                section2.style.marginLeft = '-150%';
-                img222.style.display = 'block';
-            });
-        </script>
+       
 
         <div class="fille">
             <!-- <strong class="btn_f"><img src="../image/fichier.png" alt="">+</strong> -->
@@ -1465,27 +1450,11 @@ if (isset($_GET['id'])) {
 
         <?php if (isset($_SESSION['users_id'])): ?>
             <div class="container_box6">
-                <style>
-                    .container_box6 a {
-                        display: flex;
-                        align-items: center;
-                        color: gray;
-                    }
-
-                    .container_box6 a img {
-                        margin-right: 5px;
-                    }
-
-                    .container_box6 p {
-                        font-size: 20px;
-                        text-align: center;
-                    }
-                </style>
                 <div class="box1">
                     <h1>assistance</h1>
-                    <a href="tel:+221785303879"><img src="../image/whatsapp.png" alt=""> Phone : <strong>+221 78 530 38
+                    <a class="whatsapp" href="tel:+221785303879"><img src="../image/whatsapp.png" alt=""> Phone : <strong>+221 78 530 38
                             79</strong></a>
-                    <a href="mailto:youremail@example.com"><img src="../image/icons8-gmail-48.png" alt=""> Mail
+                    <a class="mail" href="mailto:workflexer.service@gmail.com"><img src="../image/icons8-gmail-48.png" alt=""> Mail
                         :<strong>workflexer.service@gmail.com</strong></a>
                     <br>
                     <p>Ou écrivez nous ici !</p>
@@ -1506,33 +1475,37 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box10">
+        <div class="container_box10" id="container_box10">
             <h2>Offres qui correspondes a votre profil </h2>
-
-            <div class="box2">
-                <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-                <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-            </div>
+          
             <div class="slider owl-carousel carousel3">
                 <?php if ($afficheAllOffre): ?>
 
                     <?php foreach ($afficheAllOffre as $affiches): ?>
 
-                        <?php $info_entreprise = getEntreprise($db, $affiches['entreprise_id']); ?>
+                        <?php 
+                        $info_entreprise = getEntreprise($db, $affiches['entreprise_id']); 
+                        $niveau_etude = gettNiveau($db, $_SESSION['users_id']);
+                        ?>
 
-                        <?php if ($affiches['categorie'] === $users['categorie']): ?>
+                        <?php if ($affiches['categorie'] === $users['categorie'] && ($niveau_etude['n_etude'] >= $affiches['n_etudes']) && $niveau_etude['n_experience'] >= $affiches['n_experience']): ?>
 
                             <div class="carousel">
                                 <img src="../upload/<?= $info_entreprise['images'] ?>" alt="">
+
+                                <div class="info-box">
+                                
                                 <p class="p">
                                     <strong>
                                         <?= $info_entreprise['entreprise'] ?>
                                     </strong>
                                 </p>
-                                <div class="vendu">
-                                    <p><strong>Nous recherchons un(une) </strong>
+                                <p class="poste"><strong>Nous recherchons un(une) </strong>
                                         <?= $affiches['poste'] ?>
                                     </p>
+                                    <div class="box_vendu">
+                                <div class="vendu">
+                                   
                                     <p><strong>Niveau : </strong>
                                         <?= $affiches['etudes'] ?>
                                     </p>
@@ -1547,12 +1520,15 @@ if (isset($_GET['id'])) {
                                         <?= $affiches['localite'] ?>
                                     </p>
                                 </div>
+                                </div>
                                 <p id="nom">
                                     <?= $affiches['date'] ?>
                                 </p>
                                 <a
                                     href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id'] ?> & entreprise_id=<?= $affiches['entreprise_id'] ?>"><i
                                         class="fa-solid fa-eye"></i>Voir l\'offre</a>
+
+                                        </div>
                             </div>
 
                         <?php else: ?>

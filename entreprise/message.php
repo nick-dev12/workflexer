@@ -3,6 +3,18 @@
 session_start();
 include('../conn/conn.php');
 
+if(isset($_GET['supp1'])){
+    $entreprise_id = $_GET['supp1'];
+    $sql = "DELETE FROM notification_message WHERE entreprise_id=:entreprise_id ";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    header("Location: message.php");
+
+    exit();
+}
+
 include_once('app/controller/controllerEntreprise.php');
 include_once('app/controller/controllerDescription.php');
 include_once('app/controller/controllerOffre_emploi.php');
@@ -103,7 +115,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="box3">
             <h2>Candidats retenu</h2>
-            <?php foreach ($getALLpostulation as $postulant): ?>
+            <?php foreach ($getALLpostulations as $postulant): ?>
                 <?php if($postulant['statut']=='accepter'):?>
                     <?php $getoffre =getOffresEmploit($db,$postulant['offre_id']);?>
                     <?php $infoUsers =getInfoUsers($db,$postulant['users_id']);
@@ -127,7 +139,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <p> <strong>Domaine de Competences: </strong> <?= $postulant['competences']?></p>
                     <p><span class="span1" ><strong>Offre postuler :</strong> <?= $postulant['poste']?></span>
-                    <p><strong>Contrat :</strong><?= $getoffre['contrat']?></p> 
                 </div>
             </div>
            </a>

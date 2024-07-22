@@ -43,12 +43,11 @@ function geAlltEntreprise($db)
  * @param mixed $date
  * @return mixed
  */
-function postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $localite, $langues, $categorie, $date)
+function postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)
 {
 
-    $sql = "INSERT INTO offre_emploi (entreprise_id,poste,mission,profil,contrat,etudes,experience,localite,langues,categorie,date)
-    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:localite,:langues,:categorie,:date)";
-
+    $sql = "INSERT INTO offre_emploi (entreprise_id,poste,mission,profil,contrat,etudes,experience,n_etudes,n_experience,localite,langues, places, date_expiration,categorie,date)
+    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:n_etudes,:n_experience,:localite,:langues, :places, :date_expiration,:categorie,:date)";
     $stmt = $db->prepare($sql);
     // Bind de chaque paramètre
     $stmt->bindParam(':entreprise_id', $entreprise_id);
@@ -58,13 +57,32 @@ function postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $e
     $stmt->bindParam(':contrat', $contrat);
     $stmt->bindParam(':etudes', $etudes);
     $stmt->bindParam(':experience', $experience);
+    $stmt->bindParam(':n_etudes', $n_etudes);
+    $stmt->bindParam(':n_experience', $n_experience);
     $stmt->bindParam(':localite', $localite);
     $stmt->bindParam(':langues', $langues);
+    $stmt->bindParam(':places', $places);
+    $stmt->bindParam(':date_expiration', $date_expiration);
     $stmt->bindParam(':categorie', $categorie);
     $stmt->bindParam(':date', $date);
     return $stmt->execute();
 }
 
+function Categorie ($db,$categorie){
+    $sql_c = "SELECT categori FROM categorie WHERE categori = :categori";
+    $stmt_c = $db->prepare($sql_c);
+    $stmt_c->bindParam(':categori', $categorie);
+    $stmt_c->execute();
+    return $stmt_c->fetch(PDO::FETCH_ASSOC);
+}
+
+function PostCategorie ($db,$categorie){
+    $sql_c = "INSERT INTO categorie (categori) VALUES (:categori)";
+    $stmt_c = $db->prepare($sql_c);
+    $stmt_c->bindParam(':categori', $categorie);
+    return  $stmt_c->execute();
+   
+}
 
 /**
  * Summary of getOffresEmplois

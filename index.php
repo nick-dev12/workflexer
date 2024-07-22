@@ -4,7 +4,7 @@ session_start();
 // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
 
-include_once('controller/controller_users.php');
+include_once ('controller/controller_users.php');
 
 ?>
 
@@ -42,7 +42,7 @@ include_once('controller/controller_users.php');
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <?php include('navbare.php') ?>
+    <?php include ('navbare.php') ?>
 
 
     <!-- menu carousel slider -->
@@ -82,7 +82,7 @@ include_once('controller/controller_users.php');
                     l'ingénierie et bien d'autres domaines. Nous sommes là pour répondre
                     à vos besoins professionnels avec expertise et professionnalisme.</p>
 
-               
+
             </div>
         </div>
         <div class="slider-item">
@@ -93,7 +93,7 @@ include_once('controller/controller_users.php');
                     besoins. Que vous recherchiez des opportunités en freelance à court terme, des
                     engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
 
-               
+
             </div>
         </div>
         <div class="slider-item">
@@ -104,7 +104,7 @@ include_once('controller/controller_users.php');
                     notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne
                     renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
 
-               
+
             </div>
         </div>
     </div>
@@ -128,7 +128,7 @@ include_once('controller/controller_users.php');
     </section>
 
 
-    <section class="box-section">
+    <!-- <section class="box-section">
 
         <section class="partie-box1">
             <div class="box2">
@@ -140,30 +140,29 @@ include_once('controller/controller_users.php');
 
         </section>
 
-    </section>
+    </section> -->
 
 
 
     <section class="reference">
         <div class="container">
             <div class="box1">
-                <img src="/image/défi.png" alt="">
+                <img src="/image/defi.png" alt="">
             </div>
             <div class="box2">
-                <h1>Notre Défi </h1>
-                <p>Forgez votre avenir professionnel et devenez le maître de votre propre réussite</p>
+                <h1>Notre Vision :  </h1>
+                <p>Permettre à chaque individu de construire un avenir professionnel prometteur et de devenir l’architecte de sa propre réussite.</p>
                 <a href="/connection_compte.php">Commencer!</a>
             </div>
         </div>
 
         <div class="container">
             <div class="box1">
-                <img src="/image/ambition.png" alt="">
+                <img src="/image/ambitio.png" alt="">
             </div>
             <div class="box2">
-                <h1>"Notre Ambition </h1>
-                <p> Élevez votre stature professionnelle et faites de votre entreprise la référence incontournable du
-                    secteur</p>
+                <h1>Notre Engagement : </h1>
+                <p>Faire croître votre stature professionnelle et positionner votre entreprise comme un acteur de premier plan dans votre secteur.</p>
                 <a href="/connection_compte.php">Commencer!</a>
             </div>
         </div>
@@ -171,7 +170,7 @@ include_once('controller/controller_users.php');
 
 
 
-    <div class="div-section">
+    <!-- <div class="div-section">
         <section class="section3 nth1">
             <h1>Adoptez un ton affirmatif et confiant</h1>
             <div class="box1">
@@ -241,6 +240,38 @@ include_once('controller/controller_users.php');
             </div>
         </section>
 
+    </div> -->
+
+    <div class="div_section">
+        <div class="box">
+            <img src="/image/image-2.png" alt="">
+            <div class="item">
+                <h1>Adoptez un ton affirmatif et confiant</h1>
+                <p>
+                    Découvrez les meilleurs freelances avec Work-Flexer !
+                    Trouvez rapidement le talent idéal pour vos projets,
+                    que ce soit un développeur, un designer ou un expert en
+                    marketing. Utilisez notre moteur de recherche intelligent pour des résultats précis.
+                    Boostez vos projets en recrutant simplement le freelance parfait.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="div_section">
+        <div class="box">
+            <div class="item">
+                <h1>Recrutez en Toute Confiance avec Notre Plateforme de Recrutement</h1>
+                <p>
+                    Simplifiez votre recrutement avec Work-Flexer ! Publiez vos offres
+                    d'emploi en quelques clics, découvrez des candidats qualifiés qui
+                    correspondent à votre entreprise et aux exigences du marché. Trouvez
+                    les meilleurs talents rapidement et efficacement.
+                    La recherche de candidats exceptionnels n'a jamais été aussi simple.
+                </p>
+            </div>
+            <img src="/image/image3.png" alt="">
+        </div>
     </div>
 
 
@@ -259,44 +290,45 @@ include_once('controller/controller_users.php');
 
 
     <section class="service">
-  <div class="container">
-    <h1>Entreprise</h1>
-    <h3>Services</h3>
-    <div class="box">
-      <ul>
-        <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-        <li><img src="/image/valider.png" alt=""> Publication d'offres illimité</li>
-        <li><img src="/image/valider.png" alt=""> Mise à jour des publications illimitées</li>
-        <li><img src="/image/valider.png" alt=""> Appel d'offres  intégrer et illimité </li>
-        <li><img src="/image/valider.png" alt=""> Système de messagerie intégré </li>
-        <li><img src="/image/valider.png" alt=""> Système de suivi de candidature intégré </li>
-        <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet</li>
-        <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
-      </ul>
-      <a class="a" href="/compte_entreprise.php">Inscription gratuit</a>
-    </div>
-  </div>
+        <div class="container">
+            <h1>Entreprise</h1>
+            <h3>Services</h3>
+            <div class="box">
+                <ul>
+                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                    <li><img src="/image/valider.png" alt=""> Publication d'offres illimité</li>
+                    <li><img src="/image/valider.png" alt=""> Mise à jour des publications illimitées</li>
+                    <li><img src="/image/valider.png" alt=""> Appel d'offres intégrer et illimité </li>
+                    <li><img src="/image/valider.png" alt=""> Système de messagerie intégré </li>
+                    <li><img src="/image/valider.png" alt=""> Système de suivi de candidature intégré </li>
+                    <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet</li>
+                    <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
+                </ul>
+                <a class="a" href="/compte_entreprise.php">Inscription gratuit</a>
+            </div>
+        </div>
 
 
-  <div class="container container1">
-    <h1>Professionnel</h1>
-    <h3>Services</h3>
-    <div class="box">
-      <ul>
-        <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-        <li><img src="/image/valider.png" alt="">CV virtuel intégré 100% personnalisable </li>
-        <li><img src="/image/valider.png" alt=""> Profils connectés 24/24 , 7/7 aux recruteurs </li>
-        <li><img src="/image/valider.png" alt=""> Postulation simple et illimité </li>
-        <li><img src="/image/valider.png" alt=""> Création de CV physique automatique avec téléchargement gratuit  </li>
-        <li><img src="/image/valider.png" alt=""> Système de suivi de postulation intégré </li>
+        <div class="container container1">
+            <h1>Professionnel</h1>
+            <h3>Services</h3>
+            <div class="box">
+                <ul>
+                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                    <li><img src="/image/valider.png" alt="">CV virtuel intégré 100% personnalisable </li>
+                    <li><img src="/image/valider.png" alt=""> Profils connectés 24/24 , 7/7 aux recruteurs </li>
+                    <li><img src="/image/valider.png" alt=""> Postulation simple et illimité </li>
+                    <li><img src="/image/valider.png" alt=""> Création de CV physique automatique avec téléchargement
+                        gratuit </li>
+                    <li><img src="/image/valider.png" alt=""> Système de suivi de postulation intégré </li>
 
-        <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
-      </ul>
+                    <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
+                </ul>
 
-      <a href="/compte_travailleur.php">Inscription gratuit</a>
-    </div>
-  </div>
-</section>
+                <a href="/compte_travailleur.php">Inscription gratuit</a>
+            </div>
+        </div>
+    </section>
 
 
     <section class="n_section">
@@ -420,7 +452,7 @@ include_once('controller/controller_users.php');
         </div>
     </section>
 
-    <?php include('footer.php') ?>
+    <?php include ('footer.php') ?>
 
 
 

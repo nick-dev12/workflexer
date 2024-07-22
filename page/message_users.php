@@ -2,6 +2,18 @@
 session_start();
 include '../conn/conn.php';
 
+if (isset($_GET['supp3'])) {
+    $users_id = $_GET['supp3'];
+    $sql = "DELETE FROM notification_message_users WHERE users_id=:users_id ";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    header("Location: message_users.php");
+
+    exit();
+}
+
 if (isset ($_GET['id'])) {
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
@@ -83,7 +95,6 @@ if (isset ($_GET['id'])) {
     include_once ('../entreprise/app/controller/controllerEntreprise.php');
     include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
     include_once ('../controller/controller_appel_offre.php');
-    include ('../controller/controller_message1.php');
     include_once ('../controller/controller_users.php');
 }
 
@@ -186,22 +197,7 @@ if (isset ($_GET['id'])) {
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
 
-
-        <img src="../image/fleche.png" alt="" class="img222">
-        <script>
-            let img222 = document.querySelector('.img222');
-            let section2 = document.querySelector('.section2');
-            let img111 = document.querySelector('.img111')
-            img222.addEventListener('click', () => {
-                section2.style.marginLeft = '0px';
-                img222.style.display = 'none';
-            });
-
-            img111.addEventListener('click', () => {
-                section2.style.marginLeft = '-150%';
-                img222.style.display = 'block';
-            });
-        </script>
+       
         <div class="container_profil">
 
             <div class="box3">
@@ -214,7 +210,7 @@ if (isset ($_GET['id'])) {
                             <?php $infoEntreprise = getEntreprise($db, $postulationUsers['entreprise_id']); ?>
                             <?php $afficheOffre = getOffresEmploit($db, $postulationUsers['offre_id']);
 
-                            $afficheTMP1_Message1 = getTMP1_Message1($db, $postulationUsers['entreprise_id'], $postulationUsers['offre_id'], $postulationUsers['users_id']);
+                            $afficheTMP1_Message1 = getTMP1_Message1($db, $postulationUsers['entreprise_id'],$postulationUsers['offre_id'], $postulationUsers['users_id']);
 
                             $totalMessage = count($afficheTMP1_Message1);
 
@@ -237,15 +233,9 @@ if (isset ($_GET['id'])) {
                                         </strong>
                                         <?php endif; ?>
 
-                                        <p> <strong>Competences:</strong>
-                                            <?= $postulationUsers['competences'] ?>
-                                        </p>
-
                                         <p><strong>Offre postuler:</strong>
                                                 <?= $afficheOffre['poste'] ?>
                                         </p>
-
-                                        <p><strong>Contrat :</strong> <?= $afficheOffre['contrat'] ?></p>
                                     </div>
                                 </div>
                             </a>
@@ -290,7 +280,6 @@ if (isset ($_GET['id'])) {
                                     <p> <strong>Competences:</strong>
                                         <?= $infoEntreprise['entreprise'] ?>
                                     </p>
-                                    <p><strong>Poste :</strong> <?= $appel_offre['titre'] ?></p>
                                 </div>
                             </div>
                         </a>

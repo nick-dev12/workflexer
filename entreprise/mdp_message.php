@@ -39,11 +39,14 @@ $entreprise_id = $_GET['id'];
   $entreprise_id = $entreprise['id'];
   $code_verification = rand(100000, 999999);
 
-  $sql = "INSERT INTO verification_entreprise (entreprise_id , code) VALUES (:entreprise_id,:code)";
-  $stmt = $db->prepare($sql);
-  $stmt->bindParam(":entreprise_id", $entreprise_id);
-  $stmt->bindParam(":code", $code_verification);
-  $stmt->execute();
+
+   // Vérifier si un code de vérification existe déjà
+   $sql_check = "SELECT * FROM verification_entreprise WHERE entreprise_id = :entreprise_id";
+   $stmt_check = $db->prepare($sql_check);
+   $stmt_check->bindParam(':entreprise_id', $entreprise_id);
+   $stmt_check->execute();
+   $existing_code = $stmt_check->fetch(PDO::FETCH_ASSOC);
+   
 
       // Créez l'instance PHPMailer
       $mail = new PHPMailer(true);
@@ -51,10 +54,10 @@ $entreprise_id = $_GET['id'];
       try {
           // Paramètres SMTP
           $mail->isSMTP();
-          $mail->Host = 'mail.privateemail.com';
+          $mail->Host = 'advantechgroup.online';
           $mail->SMTPAuth = true;
-          $mail->Username = 'service@advantechgroup.online';
-          $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+          $mail->Username = 'info@advantechgroup.online';
+          $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
           $mail->SMTPSecure = 'ssl';
           $mail->Port = 465;
        
@@ -81,18 +84,7 @@ $entreprise_id = $_GET['id'];
             border-radius: 10px;
             padding: 40px;
           }
-          .container .box1{
-            width: 200px;
-            margin: 20px auto;
-            position: relative;
-            height: 180px;
-            background-image: url(/image/WF__2_.png);
-            background-color: blue;
-            background-position: center;
-            background-size: cover;
-            border-radius: 7px;
-        
-          }
+         
         
           .container .box2{
               width: 500px;
@@ -104,7 +96,7 @@ $entreprise_id = $_GET['id'];
             text-align: center;
             padding: 5px 20px;
             border-radius: 10px;
-            font-size: 25px;
+            font-size: 18px;
             border: 1px solid #6b6a6a;
           }
           .container .box2{
@@ -117,7 +109,7 @@ $entreprise_id = $_GET['id'];
             text-transform: uppercase;
             width: 50%;
             margin: 20px auto;
-            font-size: 20px;
+            font-size: 14px;
             border-radius: 10px;
             background-color: rgb(149, 149, 149);
             color: #ffffff;
@@ -128,10 +120,14 @@ $entreprise_id = $_GET['id'];
             padding: 5px 19px;
             width: 100%;
             margin: 0 auto;
-            font-size: 16px;
+            font-size: 13px;
             color: black;
             line-height: 23px;
           }
+            .container .box2 p strong{
+            color: #0044ff; 
+            font-weight: bold;  
+        }
           .container .box2 h3{
           text-align: start;
             padding: 20px;
@@ -156,17 +152,20 @@ $entreprise_id = $_GET['id'];
             </div>
           
             <div class='box2'>
-              <h1>helo! $nom </h1>
-              <h2>demande de réinitialisation de mot d passe</h2>
-              <p>Vous avez demandé une réinitialisation de mot de passe au nom de $nom</p>
-              <br><p> Entrer le code suivant : <strong>$code_verification</strong> </p>
+              <h1>Bonjour $nom</h1>
+                <h2>Demande de réinitialisation de mot de passe</h2>
+                <p>Nous avons reçu une demande de réinitialisation du mot de passe pour votre compte. Si vous êtes à l'origine de cette demande, veuillez utiliser le code de vérification ci-dessous.</p>
+                <br><p>Code de vérification : <strong>$code_verification</strong></p>
+                <p>Si vous n'avez pas demandé cette réinitialisation, ignorez cet e-mail.</p>
+                <p>Pour toute question, n'hésitez pas à nous contacter.</p>
+                <p>Cordialement,<br>L'équipe de support</p>
             </div>
           </div>
           
           </body>
           </html>  " ;
 
-          $mail->setFrom('service@advantechgroup.online', 'work-flexer');
+          $mail->setFrom('info@advantechgroup.online', 'work-flexer');
           $mail->isHTML(true);
           $mail->Subject = $sujet;
           $mail->Body = $message;
@@ -174,6 +173,18 @@ $entreprise_id = $_GET['id'];
               $mail->clearAddresses();
               $mail->addAddress($destinataire);
               $mail->send();
+
+              if($existing_code){
+                // Mettre à jour le code de vérification si l'entrée existe
+                $sql = "UPDATE verification_entreprise SET code = :code WHERE entreprise_id = :entreprise_id";
+            }else{
+                // Insérer un nouveau code de vérification si l'entrée n'existe pas
+                $sql = "INSERT INTO verification_entreprise (entreprise_id , code) VALUES (:entreprise_id,:code)";
+            }
+           $stmt = $db->prepare($sql);
+           $stmt->bindParam(":entreprise_id", $entreprise_id);
+           $stmt->bindParam(":code", $code_verification);
+           $stmt->execute();
          
    
           header('Location: verification.php');

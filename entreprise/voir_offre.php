@@ -56,9 +56,50 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <?php include('../navbare.php') ?>
-
+    
     <section class="section3">
+
+
+    <?php if (isset($_SESSION['success_message'])): ?>
+            <div class="message">
+                <p>
+                    <span></span>
+                    <?php echo $_SESSION['success_message']; ?>
+                    <?php unset($_SESSION['success_message']); ?>
+                </p>
+            </div>
+        <?php else: ?>
+            <?php if (isset($_SESSION['error_message'])): ?>
+                <div class="erreurs" id="messageErreur">
+                    <span></span>
+                    <?php echo $_SESSION['error_message']; ?>
+                    <?php unset($_SESSION['error_message']); ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <script>
+            let success = document.querySelector('.message')
+            setTimeout(() => {
+                success.classList.add('visible');
+            }, 200);
+            setTimeout(() => {
+                success.classList.remove('visible');
+            }, 6000);
+
+            // Sélectionnez l'élément contenant le message d'erreur
+            var messageErreur = document.getElementById('messageErreur');
+
+            // Fonction pour afficher le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.add('visible');
+            }, 200); // 1000 millisecondes équivalent à 1 seconde
+
+            // Fonction pour masquer le message avec une transition de fondu
+            setTimeout(function () {
+                messageErreur.classList.remove('visible');
+            }, 6000); // 6000 millisecondes équivalent à 6 secondes
+        </script>
 
 
         <div class="job-offer">
@@ -106,20 +147,18 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
 
                 <div class="box2">
                     <h3>Missions et responsabilités</h3>
-                    <?= $Offres['mission'] ?>
+                    <p><?= $Offres['mission'] ?></p>
                 </div>
 
                 <div class="box2">
                     <h3>Profil recherché</h3>
                     <p>Qualités et compétences requises:</p>
-                    <?= $Offres['profil'] ?>
+                   <p> <?= $Offres['profil'] ?></p>
                 </div>
 
                 <div class="box2">
                     <h3>Informations supplémentaires</h3>
-                    <p class="info"> <strong>Métier : </strong>
-                        <?= $Offres['metier'] ?>
-                    </p>
+                  <div class="box_info">
                     <p class="info"> <strong> Type de contrat :</strong>
                         <?= $Offres['contrat'] ?>
                     </p>
@@ -135,6 +174,7 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                     <p class="info"> <strong>Langues exigées : </strong>
                         <?= $Offres['langues'] ?>
                     </p>
+                  </div>
 
                 </div>
 
@@ -172,15 +212,13 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
         </div>
 
     </section>
-    <div class="container_box10">
-        <h2>Offres qui correspondes a votre profil </h2>
 
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
+    <div class="container_box10">
+        <h2>Offres Simillaires </h2>
+     
         <div class="slider owl-carousel carousel3">
             <?php foreach ($afficheAllOffre as $affiches): ?>
+            <?php if($affiches['statut'] === 'publiee' or $affiches['statut'] === ''): ?>
                 <?php $infoEntreprise = getEntreprise($db, $affiches['entreprise_id']) ?>
 
                 <?php if ($affiches['categorie'] === $Offres['categorie']): ?>
@@ -193,14 +231,13 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                                 <strong>
                                     <?php echo $infoEntreprise['entreprise']; ?>
                                 </strong>
-
                             </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
+                            <p class="poste" >
                                         <strong>Nous recherchons un(une)</strong>
                                         <?php echo ($affiches['poste']); ?>
                                     </p>
+                            <div class="box_vendu">
+                                <div class="vendu">
                                     <p>
                                         <strong>Contrat :</strong>
                                         <?php echo ($affiches['contrat']); ?>
@@ -209,13 +246,10 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                                         <strong>Niveau :</strong>
                                         <?php echo ($affiches['etudes']); ?>
                                     </p>
-                                </div>
-
-                            </div>
-
-                            <div class="box_vendu">
-                                <div class="vendu">
-
+                                    <p>
+                                        <strong>Experience :</strong>
+                                        <?php echo ($affiches['experience']); ?>
+                                    </p>
                                     <p class="ville">
                                         <strong>Ville :</strong>
                                         <?php echo ($affiches['localite']); ?>
@@ -223,19 +257,21 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                                 </div>
 
                             </div>
+                           
 
                             <p id="nom">
                                 <?php echo $affiches['date']; ?>
                             </p>
 
                             <a
-                                href="../entreprise/voir_offre.php?id=<?= $affiches['offre_id']; ?>&entreprise_id=<?= $affiches['entreprise_id']; ?>">
+                                href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id']; ?>&entreprise_id=<?= $affiches['entreprise_id']; ?>">
                                 <i class="fa-solid fa-eye"></i>Voir l'offre
                             </a>
                         </div>
 
                     </div>
 
+                <?php endif; ?>
                 <?php endif; ?>
             <?php endforeach ?>
         </div>
@@ -249,112 +285,7 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
     <script src="../js/owl.carousel.js"></script>
     <script src="../js/owl.animate.js"></script>
     <script src="../js/owl.autoplay.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            // Initialiser le carrousel 1 avec la portée appropriée
-            $('.carousel1').owlCarousel({
-                items: 4,
-                loop: true,
-                autoplay: true,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 450,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-            var carousel1 = $('.carousel1').owlCarousel();
-            $('.owl-next').click(function () {
-                carousel1.trigger('next.owl.carousel');
-            })
-            $('.owl-prev').click(function () {
-                carousel1.trigger('prev.owl.carousel');
-            })
-
-
-            $('.boot').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: false,
-                autoplayTimeout: 5000,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-            var carousel2 = $('.carousel2').owlCarousel();
-            $('.owl-next2').click(function () {
-                carousel2.trigger('next.owl.carousel');
-            })
-            $('.owl-prev2').click(function () {
-                carousel2.trigger('prev.owl.carousel');
-            })
-
-
-        });
-
-
-
-        $(document).ready(function () {
-            // Carrousel 3  
-            var carousel3 = $('.carousel3');
-            var numItems2 = carousel3.find('.carousel').length;
-
-            if (numItems2 > 3) {
-
-                // Initialiser Owl carousel3 si il y a plus de 4 éléments
-                carousel3.owlCarousel({
-                    items: 4, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 6000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 450,
-                    margin: 20,
-                    nav: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            margin: 0,
-                        },
-                        550: {
-                            items: 1,
-                        },
-                        890: {
-                            items: 2
-                        },
-                        1200: {
-                            items: 3
-                        },
-                        1400: {
-                            items: 4
-                        }
-                    }
-                });
-
-                var carousel3 = $('.carousel3').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel3.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel3.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                carousel3.trigger('destroy.owl.carousel');
-                carousel3.removeClass('owl-carousel owl-loaded');
-                carousel3.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-
-        });
-    </script>
+  
 </body>
 
 </html>

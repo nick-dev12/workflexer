@@ -52,7 +52,7 @@ if (isset($_POST['valider'])) {
     $stmt->execute();
 
     // Redirection vers la page de profil utilisateur après la mise à jour du mot de passe
-    header('location: ../page/user_profil.php');
+    header('location: ../connexion.php');
     exit();
   }
 }
@@ -138,7 +138,7 @@ if (isset($_POST['valider'])) {
 
         <div class="box1">
           <label for="code">Code de Verification</label>
-          <input type="text" name="code" id="code">
+          <input type="number" name="code" id="code">
         </div>
         <div class="box1">
           <label for="mdp">Nouveau mot de passe</label>

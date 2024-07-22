@@ -77,16 +77,24 @@ body{
 }
 
 .section2 .formulaire1 form #valider {
-   width: 100px;
-    height: 30px;
-    background-color: #F39C12;
+    padding: 5px 20px;
+    background-color: #0671dcea;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
     color: white;
     text-transform: capitalize;
     letter-spacing: 1px;
+    cursor: pointer;
+    display: inline;
+    width: 150px;
+    transition: all 0.3s ease-in-out;
 }
+.section2 .formulaire1 form #valider:hover{
+background-color: #001738;
+transform: scale(1.03);
+}
+
 
 .section2 .formulaire1 form .erreur{
     padding: 7px 10px;

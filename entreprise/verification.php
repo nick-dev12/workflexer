@@ -131,7 +131,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="box1">
           <label for="code">Code de Verification</label>
-          <input type="text" name="code" id="code">
+          <input type="number" name="code" id="code">
         </div>
         <div class="box1">
           <label for="mdp">Nouveau mot de passe</label>

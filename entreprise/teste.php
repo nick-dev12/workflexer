@@ -429,6 +429,92 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Sup</th>
+                                <th>Profil</th>
+                                <th>Nom</th>
+                                <th>Abonnement</th>
+                                <th>Montant</th>
+                                <th>Numéro de Téléphone</th>
+                                <th>Adresse Mail</th>
+                                <th>Debut</th>
+                                <th>Fin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if (empty($getALLpostulation)): ?>
+                                <p class="info"><strong>Info!</strong> Aucune candidature a vos offres d'emplois pour le moment.
+                                </p>
+                            <?php else: ?>
+                                <?php foreach ($getALLpostulation as $postulant): ?>
+                                    <?php
+                                    $niveau = gettNiveau($db, $postulant['users_id']);
+                                    $explode_nom = explode(' ', $postulant['nom']);
+                                    $nom = $explode_nom[0] . ' , ' . $explode_nom[1];
+                                    $competencesUsers = getCompetences($db, $postulant['users_id']);
+                                    $nombreCompetencesAffichees = 2;
+                                    ?>
+
+                                    <?php if ($postulant['statut'] == 'accepter'): ?>
+                                    <?php else: ?>
+                                        <?php if ($postulant['statut'] == 'recaler'): ?>
+
+                                        <?php else: ?>
+                                            <?php if (empty($postulant['statut'] == '')): ?>
+
+                                                <h6>accune candidature a traiter pour le moment!</h6>
+                                            <?php else: ?>
+                                                <tr id="ex">
+                                                    <td class="sup"> voir le profil</td>
+                                                    <td> <img src="../upload/<?= $postulant['images'] ?>" alt=""></td>
+                                                    <td> <?= $nom ?></td>
+                                                    <td><?= $postulant['competences'] ?></td>
+                                                    <td>
+                                                    <?php if ($niveau): ?>
+                                                        <?= $niveau['etude'] ?>
+                                                        <?php else: ?>
+                                                            Non renseigner
+                                                            <?php endif ?>
+                                                    </td>
+                                                    <td>
+                                                    <?php if ($niveau): ?>
+                                                        <?= $niveau['experience'] ?>
+                                                        <?php else: ?>
+                                                            Non renseigner
+                                                            <?php endif ?>
+                                                    </td>
+                                                    <td> <?php foreach ($competencesUsers as $key => $compe):
+                                                        if ($key < $nombreCompetencesAffichees):
+                                                            ?>
+                                                                <span>
+                                                                    <?= $compe['competence'] ?>
+                                                                </span>
+                                                                <?php
+                                                        endif;
+                                                    endforeach;
+                                                    ?>
+                                                    </td>
+                                                    <td> Accepter</td>
+                                                    <td>Recaler</td>
+                                                </tr>
+
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            <!-- Ajoutez plus de lignées (tr) ici pour plus d'entrées -->
+                        </tbody>
+
+
+                    </table>
+
+
+
+
 
 
 

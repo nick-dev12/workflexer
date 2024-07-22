@@ -198,75 +198,53 @@ if (isset($_POST['recherche'])) {
     <section class="emploi">
         <div class="box">
             <img src="/image/ingenieur.jpeg" alt="">
-            <h1>Ingénierie et architecture</h1>
             <p>
                 Vous cherchez des professionnels qualifiés en ingénierie et architecture pour mener à bien vos projets
                 de construction ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins.
-            </p>
-            <a href="../profils/Ingénierie et architecture.php">Explorer les profils</a>
+            <a href="../profils/Ingénierie et architecture.php">Ingénierie et architecture</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/webdesign.jpg" alt="">
-            <h1>Design et création</h1>
             <p>
                 Vous avez besoin de professionnels créatifs pour donner vie à vos projets de design ?
             </p>
-            <p>
-                Découvrez notre sélection de profils talentueux et innovants pour répondre à vos attentes.
-            </p>
-            <a href="../profils/Design et création.php">Explorer les profils</a>
+            <a href="../profils/Design et création.php">Design et création</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/Redaction.jpg" alt="">
-            <h1>Rédaction et traduction</h1>
             <p>
                 Vous cherchez des rédacteurs et traducteurs qualifiés pour vos projets de communication ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et polyvalents pour répondre à vos besoins
-                linguistiques.
-            </p>
-            <a href="../profils/Rédaction et traduction.php">Explorer les profils</a>
+            <a href="../profils/Rédaction et traduction.php">Rédaction et traduction</a>
         </div>
 
 
         <div class="box">
             <img src="/image/marketing.jpg" alt="">
-            <h1>Marketing et communication</h1>
             <p>
                 Vous cherchez des professionnels du marketing et de la communication pour promouvoir votre entreprise et
                 votre marque ?
             </p>
-            <p>
-                Découvrez notre sélection de profils créatifs et stratégiques pour répondre à vos besoins de
-                communication.
-            </p>
 
-            <a href="../profils/Marketing et communication.php">Explorer les profils</a>
+            <a href="../profils/Marketing et communication.php">Marketing et communication</a>
         </div>
 
 
         <div class="box">
-            <img src="/image/gestion.jpg" alt="">
-            <h1>Conseil et gestion d'entreprise</h1>
+            <img src="/image/gestion.png" alt="">
             <p>
                 Vous cherchez des professionnels du conseil et de la gestion d'entreprise pour optimiser vos
                 performances et votre rentabilité ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins de gestion.
-            </p>
 
-            <a href="../profils/Conseil et gestion d'entreprise.php">Explorer les profils</a>
+            <a href="../profils/Conseil et gestion d'entreprise.php">Conseil et gestion d'entreprise</a>
         </div>
 
 
@@ -274,48 +252,34 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/juridique.jpg" alt="">
-            <h1>Juridique</h1>
             <p>
                 Vous cherchez des professionnels du droit pour vous conseiller et vous accompagner dans vos démarches
                 juridiques ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins juridiques.
-            </p>
 
-            <a href="../profils/Juridique.php">Explorer les profils</a>
+            <a href="../profils/Juridique.php">Juridique</a>
         </div>
 
 
         <div class="box">
             <img src="/image/info.jpg" alt="">
-            <h1>Informatique et tech</h1>
             <p>
                 Vous cherchez des professionnels de l'informatique et de la tech pour développer vos projets numériques
                 ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins
-                technologiques.
-            </p>
-
-            <a href="../profils/Informatique et tech.php">Explorer les profils</a>
+            <a href="../profils/Informatique et tech.php">Informatique et tech</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/finance.png" alt="">
-            <h1>Finance et comptabilité</h1>
             <p>
                 Vous cherchez des professionnels de la finance et de la comptabilité pour gérer vos finances et votre
                 comptabilité ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins financiers.
-            </p>
 
-            <a href="../profils/Finance et comptabilité.php">Explorer les profils</a>
+            <a href="../profils/Finance et comptabilité.php">Finance et comptabilité</a>
         </div>
 
 
@@ -323,34 +287,24 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/santé.png" alt="">
-            <h1>Santé et bien-être</h1>
             <p>
                 Vous cherchez des professionnels de la santé et du bien-être pour prendre soin de vos employés et de vos
                 clients ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins de santé et
-                de bien-être.
-            </p>
 
-            <a href="../profils/Santé et bien-être.php">Explorer les profils</a>
+            <a href="../profils/Santé et bien-être.php">Santé et bien-être</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/education.png" alt="">
-            <h1>Éducation et formation</h1>
             <p>
                 Vous cherchez des professionnels de l'éducation et de la formation pour former et développer les
                 compétences de vos employés ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins de
-                formation.
-            </p>
 
-            <a href="../profils/Éducation et formation.php">Explorer les profils</a>
+            <a href="../profils/Éducation et formation.php">Éducation et formation</a>
         </div>
 
 
@@ -358,17 +312,12 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/tourisme.png" alt="">
-            <h1>Tourisme et hôtellerie</h1>
             <p>
                 Vous cherchez des professionnels du tourisme et de l'hôtellerie pour offrir des expériences inoubliables
                 à vos clients ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins en matière
-                d'hospitalité.
-            </p>
 
-            <a href="../profils/Tourisme et hôtellerie.php">Explorer les profils</a>
+            <a href="../profils/Tourisme et hôtellerie.php">Tourisme et hôtellerie</a>
         </div>
 
 
@@ -376,49 +325,36 @@ if (isset($_POST['recherche'])) {
 
         <div class="box">
             <img src="/image/vente.png" alt="">
-            <h1>Commerce et vente</h1>
             <p>
                 Vous cherchez des professionnels du commerce et de la vente pour développer vos ventes et votre chiffre
                 d'affaires ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins commerciaux.
-            </p>
 
-            <a href="../profils/Commerce et vente.php">Explorer les profils</a>
+            <a href="../profils/Commerce et vente.php">Commerce et vente</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/transport.png" alt="">
-            <h1>Transport et logistique</h1>
             <p>
                 ous cherchez des professionnels du transport et de la logistique pour optimiser vos chaînes
                 d'approvisionnement et vos livraisons ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins logistiques.
-            </p>
 
-            <a href="../profils/Transport et logistique.php">Explorer les profils</a>
+            <a href="../profils/Transport et logistique.php">Transport et logistique</a>
         </div>
 
 
 
         <div class="box">
             <img src="/image/agriculture.png" alt="">
-            <h1>Agriculture et agroalimentaire</h1>
             <p>
                 ous cherchez des professionnels de l'agriculture et de l'agroalimentaire pour améliorer votre production
                 et votre qualité ?
             </p>
-            <p>
-                Découvrez notre sélection de profils expérimentés et compétents pour répondre à vos besoins agricoles et
-                agroalimentaires.
-            </p>
 
-            <a href="../profils/Agriculture et agroalimentaire.php">Explorer les profils</a>
+            <a href="../profils/Agriculture et agroalimentaire.php">Agriculture et agroalimentaire</a>
         </div>
 
 
@@ -430,11 +366,8 @@ if (isset($_POST['recherche'])) {
             <p>
                 Vous cherchez des profils professionnels pour répondre à des besoins spécifiques ?
             </p>
-            <p>
-                Découvrez notre sélection de profils variés et polyvalents pour répondre à vos besoins particuliers.
-            </p>
 
-            <a href="../profils/Autre.php">Explorer les profils</a>
+            <a href="../profils/Autre.php">Autre</a>
         </div>
     </section>
 

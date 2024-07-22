@@ -25,7 +25,6 @@ if (isset($_GET['id'])) {
     include_once('../controller/controller_outil_users.php');
     include_once('../controller/controller_langue_users.php');
     include_once('../controller/controller_projet_users.php');
-    include_once('../controller/controller_message1.php');
     include_once('../controller/controller_appel_offre.php');
     include_once('../controller/controller_centre_interet.php');
     include_once('../controller/controller_niveau_etude_experience.php');
@@ -40,7 +39,7 @@ if (isset($_GET['id'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -70,6 +69,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+    <style>
+        #none{
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -80,31 +85,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
     <?php include('../navbare.php') ?>
+   
 
 
-
-    <section class="section2">
+    <section class="section2 ste" id="ste" >
+    <img src="../image/croix.png" alt="" class="img111" id="img24">
         <div class="container">
-        <img src="../image/croix.png" alt="" class="img111">
             <div class="box1">
-                <?php if ($userss['statut'] == 'Disponible'): ?>
-                    <button class="statut occ">
-                        <?= $userss['statut'] ?>
-                    </button>
-                <?php else: ?>
-                    <?php if ($userss['statut'] == 'Occuper'): ?>
-                        <button class="statut disp">
-                            <?= $userss['statut'] ?>
-                        </button>
-                    <?php else: ?>
-                        <button class="statut occ">Statut</button>
-                    <?php endif; ?>
-                <?php endif; ?>
-                <div class="div_statut">
-                    <a class="disp" href="?occuper=<?= $userss['id'] ?>">Occuper</a>
-                    <a class=" occ" href="?disponible=<?= $userss['id'] ?>">Disponible</a>
-                </div>
 
+                <script>
+                    let statut = document.querySelector('.statut')
+                    let div_statut = document.querySelector('.div_statut')
+                    let imag = document.querySelector('.imag')
+                    statut.addEventListener('click', () => {
+                            div_statut.style.left = '0'
+                    })
+                    imag.addEventListener('click', () => {
+                            div_statut.style.left = '-200%'
+                    })
+
+                    // Ajouter un gestionnaire au clic n'importe où sur la page
+                    document.addEventListener('click', (e) => {
+                        // Vérifier que le clic ne vient pas du bouton
+                        if (e.target !== statut) {
+                            // Masquer la div
+                            div_statut.style.left = '-200%'
+                        }
+                    });
+                </script>
 
 
                 <img class="affiche" src="/upload/<?= $userss['images'] ?>" alt="">
@@ -119,45 +127,90 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <?php echo $userss['competences']; ?>
                 </h3>
             </div>
+
             <div class="box3">
-                <table>
-                 
-                    <tr class="tr">
-                        <td id="td"><img src="../image/mpc.png" alt=""></td>
-                        <td class="td"><a href="../page/candidats.php?id=<?php echo $userss['id'];  ?>">Mon parcours</a></td>
-                    </tr>
-                   
-                </table>
+            <ul>
+               <a href="../page/candidats.php?id=<?php echo $userss['id'];  ?>"> <li class="tr pcr"><img src="../image/mpc.png" alt=""> <span class="td">Mon parcour</span></li></a>
+            
+            </ul>
+               
             </div>
+           
         </div>
+
+       
     </section>
 
 
-    <section class="section3">
 
-    <img src="../image/fleche.png" alt="" class="img222">
-        <script>
-            let img222 = document.querySelector('.img222');
-            let section2 = document.querySelector('.section2');
-            let img111 = document.querySelector('.img111');
+    <section class="section2 menu" id="menu" >
+    <img class="img23" id="img23" src="../image/menu n.png" alt="">
+        <div class="container">
+            <div class="box1">
+
+                <img class="affiche" src="/upload/<?= $userss['images'] ?>" alt="">
+                <span></span>
+                
+            </div>
             
-            img222.addEventListener('click', () => {
-                section2.style.marginLeft = '0px';
-                img222.style.display = 'none';
-            });
 
-            img111.addEventListener('click', () => {
-                section2.style.marginLeft = '-150%';
-                img222.style.display = 'block';
-            });
-        </script>
+            <div class="box3">
+            <ul>
+
+               <a href="../page/user_profil.php"> <li class="tr pcr"><img src="../image/mpc.png" alt=""> </li></a>
+              
+            </ul>
+               
+            </div>
+        </div>
+
+
+      
+    </section>
+
+    <script>
+    // Sélectionne l'élément avec la classe 'img' et l'assigne à img222
+    let cache = document.getElementById('img23');
+
+    let section = document.querySelector('.section2')
+    // Sélectionne l'élément avec la classe 'ste' et l'assigne à section2
+    let section2 = document.getElementById('ste');
+
+    // Sélectionne l'élément avec la classe 'menu' et l'assigne à menu
+    let menu1 = document.getElementById('menu');
+
+    // Sélectionne l'élément avec la classe 'img111' et l'assigne à img111
+    let img111 = document.getElementById('img24');
+
+    // Ajoute un événement de clic à img222
+    cache.addEventListener('click', () => {
+        // Lorsque img222 est cliqué, déplace section2 à gauche (visible) et cache menu
+        section2.style.left = '0';
+        menu1.style.left = '-400px';
+    });
+
+    // Ajoute un événement de clic à img111
+    img111.addEventListener('click', () => {
+        // Lorsque img111 est cliqué, cache section2 et montre menu
+        section2.style.left = '-100%';
+        menu1.style.left = '0';
+    });
+
+</script>
+
+
+    <section class="section3">
+   
 
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
             <?php if ($getappelOffre): ?>
-                <button class="contactes"> <strong> Alerte!</strong> Ce candidat a deja ete contacter par votre
-                    entreprise</button>
+              <button class="contactes"> <strong> Alerte!</strong> Ce candidat a deja ete contacter par votre
+              entreprise</button>
+              </div>
             <?php else: ?>
+                <div class="contact">
                 <button class="contacte"><span></span> Contacter ce candidat</button>
+                </div>
 
                 <form action="" method="post" class="form_appel" enctype="multipart/form-data">
                     <h1>Formulaire d'Appel d'Offres</h1>
@@ -182,17 +235,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
                     contacte.addEventListener('click', () => {
-                        if (form_appel.style.left = '160%') {
+                        if (form_appel.style.left = '260%') {
                             form_appel.style.left = '60%'
                         } else {
-                            form_appel.style.left = '160%'
+                            form_appel.style.left = '260%'
                         }
 
                         contacte.style.opacity = '0';
                     })
                     fermer.addEventListener('click', () => {
                         if (form_appel.style.left = '60%') {
-                            form_appel.style.left = '160%'
+                            form_appel.style.left = '260%'
                         } else {
                             form_appel.style.left = '60%'
                         }
