@@ -67,11 +67,11 @@
             <ul>
                <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> <span class="td">Modifier</span></li></a>
 
-               <a href="../page/user_profil.php"> <li class="tr"><img src="../image/a propos.png" alt=""> <span class="td">Mon parcour</span></li></a>
+               <a href="../page/user_profil.php"> <li class="tr"><img src="../image/a propos.png" alt=""> <span class="td">Mon parcours</span></li></a>
 
-               <a href="/model_cv/cv_users.php"> <li class="tr4"><img src="../image/MCV.png" alt=""> <span class="td">Mon cv</span></li></a>
+               <a href="/model_cv/cv_users.php"> <li class="tr4"><img src="../image/MCV.png" alt=""> <span class="td">Mon CV</span></li></a>
 
-               <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>"> <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d’emploies</span>
+               <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>"> <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d’emplois</span>
                <?php if(empty($notif_suivi) OR empty($notif_suiviRecaler)) :?>
                 <?php else :?>
                <?php if(isset($notif_suivi) OR isset($notif_suiviRecaler)) :?>
@@ -90,7 +90,7 @@
         
         </li></a> 
 
-               <a href="../page/message_users.php?supp3=<?= $_SESSION['users_id'] ?>"> <li class="tr2"><img src="../image/message.png" alt=""><span class="td">Message</span>
+               <a href="../page/message_users.php?supp3=<?= $_SESSION['users_id'] ?>"> <li class="tr2"><img src="../image/message.png" alt=""><span class="td">Messages</span>
                <?php if(empty($notif_users)) :?> 
                  <?php else :?> 
                <?php if(isset($notif_users)) :?> 

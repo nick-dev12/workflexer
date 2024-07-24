@@ -107,9 +107,9 @@ if (isset($_POST['recherche'])) {
                     <img src="/image/offre4.jpeg" alt="">
                 </div>
                 <div class="text">
-                    <h1>Explorer les offres d'emploi répondant à vos critère</h1>
-                    <p>Un large éventail d'offres d'emplois toute catégorie confondu pour satisfaire le moindres
-                        de vos besoins </p>
+                <h1>Explorez les offres d'emploi répondant à vos critères</h1>
+                    <p>Un large éventail d'offres d'emploi, toutes catégories confondues, pour satisfaire le moindre de
+                        vos besoins.</p>
 
                     <form action="" method="post">
                         <div class="search">
