@@ -69,7 +69,7 @@ if (isset($_POST['recherche'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -122,14 +122,14 @@ if (isset($_POST['recherche'])) {
                     <img src="/image/profile2.jpg" alt="">
                 </div>
                 <div class="text">
-                    <h1 data-aos="fade-right" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-                        data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">Exploré les
-                        profils qui conviennent à vos besoins</h1>
-                    <p data-aos="fade-left" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-                        data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">
-                        Un large éventail de profiles professionnels toute catégorie confondu pour satisfaire le
-                        moindres de vos besoins en main d'œuvre et bien plus encore
-                    </p>
+                <h1 data-aos="fade-right" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+    data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">Explorez les
+    profils qui conviennent à vos besoins</h1>
+<p data-aos="fade-left" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+    data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">
+    Un large éventail de profils professionnels, toutes catégories confondues, pour satisfaire le
+    moindre de vos besoins en main-d'œuvre et bien plus encore.
+</p>
                     <form data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
                         data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                         data-aos-anchor-placement="top-right" action="" method="post">

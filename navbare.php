@@ -379,7 +379,7 @@ include(__DIR__. '/controller/controller_statut_offre.php');
 <section id="none" class="section1">
     <div class="div">
         <span>1</span>
-        <p>Trouver rapidement les meilleurs talents qui correspondent à vos besoins</p>
+        <p>Trouvez rapidement les meilleurs talents qui correspondent à vos besoins</p>
     </div>
     <div class="div">
         <span>2</span>

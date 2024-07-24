@@ -1,84 +1,250 @@
 <!DOCTYPE html>
-          <html lang="fr">
-          <head><meta charset='utf-8'>
-          <style>
-          *{
-              padding: 0;
-              margin: 0;
-              font-family: Verdana, Geneva, Tahoma, sans-serif;
-          }
-          .container{
-              width: 600px;
-              margin: 0 auto;
-              border: 1px solid #6b6a6a;
-              border-radius: 10px;
-              padding: 40px;
-          }
-          
-          .container .box2{
-              width: 500px;
-              margin: 20px 0;
-          }
-          .container .box2 h1{
-              width: 100%;
-              background-color: rgb(255, 255, 255);
-              color: #000000;
-              text-align: center;
-              padding: 5px 20px;
-              border-radius: 10px;
-              font-size: 20px;
-              border: 1px solid #6b6a6a;
-          }
-          .container .box2 h2{
-              text-align: center;
-              padding: 5px 20px;
-              text-transform: uppercase;
-              width: 50%;
-              margin: 20px auto;
-              font-size: 20px;
-              border-radius: 10px;
-              background-color: rgb(149, 149, 149);
-              color: #ffffff;
-              font-weight: 400;
-              font-size: 14px;
-          }
-          .container .box2 p{
-              text-align: start;
-              padding: 5px 19px;
-              width: 100%;
-              margin: 0 auto;
-              font-size: 16px;
-              color: black;
-              line-height: 20px;
-              font-size: 13px;
-          }
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domaines d'Expertise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            height: 100vh;
+        }
+        
+        .expertise {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            padding: 50px 80px;
 
-          .container .box2 p strong{
-            color: #0044ff; 
-            font-weight: bold;  
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                color: #1a374d;
+                margin-bottom: 20px;
+            }
+            
+            .expertise-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            
+            .expertise-item {
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin: 10px;
+                width: calc(50.333% - 100px);
+                min-width: 280px;
+                max-width: 300px;
+            }
+            
+            .expertise-item h2 {
+                font-size: 1.5em;
+                color: #1a374d;
+                margin-bottom: 10px;
+            }
+            
+            .expertise-item p {
+                font-size: 16px;
+                color: #666;
+                margin: 10px 5px;
+                line-height: 25px;
+                text-align: left;
+            }
+            
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .expertise-item {
+                    width: calc(50% - 40px);
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .expertise-container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .expertise-item {
+                    width: 80%;
+                }
+            }
         }
 
-          .container .box2 a{
-              padding: 5px 15px;
-              border-radius: 7px;
-              color: #0044ff;
-              text-decoration: none;
-              font-size: 15px;
-          }
-          </style>
-          </head>
-          <body>
-          <div class='container'>
-              <div class='box1'></div>
-              <div class='box2'>
-                <h1>Bonjour $nom</h1>
-                <h2>Demande de réinitialisation de mot de passe</h2>
-                <p>Nous avons reçu une demande de réinitialisation du mot de passe pour votre compte. Si vous êtes à l'origine de cette demande, veuillez utiliser le code de vérification ci-dessous.</p>
-                <br><p>Code de vérification : <strong>$code_verification</strong></p>
-                <p>Si vous n'avez pas demandé cette réinitialisation, ignorez cet e-mail.</p>
-                <p>Pour toute question, n'hésitez pas à nous contacter.</p>
-                <p>Cordialement,<br>L'équipe de support</p>
-              </div>
-          </div>
-          </body>
-          </html>"
+
+        .vision {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 1200px;
+            width: 100%;
+            margin: 30px auto;
+
+
+            .vision-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 10px 20px;
+            }
+        }
+            
+            .vision-content {
+                padding: 20px;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+             h1 {
+                font-size: 35px;
+                margin-bottom: 20px;
+                color: #1a374d;
+            }
+            
+            .vision-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+            .vision-number {
+                font-size: 2em;
+                font-weight: bold;
+                color: #1a374d;
+                margin-right: 20px;
+            }
+            
+            .vision-text h2 {
+                font-size: 1.5em;
+                color: #1a374d;
+                margin-bottom: 10px;
+            }
+            
+            .vision-text p {
+                font-size: 1em;
+                color: #666;
+            }
+            
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .vision {
+                    flex-direction: column;
+                }
+                
+                .vision-image img {
+                    height: 200px;
+                    object-fit: cover;
+                }
+                
+                .vision-number {
+                    font-size: 1.5em;
+                    margin-right: 10px;
+                }
+                
+                .vision-text h2 {
+                    font-size: 1.2em;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .vision-content {
+                    padding: 10px;
+                }
+                
+                .vision h1 {
+                    font-size: 1.5em;
+                }
+                
+                .vision-number {
+                    font-size: 1.2em;
+                    margin-right: 5px;
+                }
+                
+                .vision-text h2 {
+                    font-size: 1em;
+                }
+            }
+            
+        }
+       
+
+        
+        
+    </style>
+</head>
+<body>
+    <section class="expertise">
+        <h1>Domaines d'Expertise</h1>
+        <div class="expertise-container">
+            <div class="expertise-item">
+                <h2>Informatique</h2>
+                <p>Développement web, applications mobiles, cybersécurité.</p>
+            </div>
+            <div class="expertise-item">
+                <h2>Marketing</h2>
+                <p>Stratégie digitale, SEO, publicité en ligne.</p>
+            </div>
+            <div class="expertise-item">
+                <h2>Finance</h2>
+                <p>Comptabilité, audit, gestion de trésorerie.</p>
+            </div>
+            <div class="expertise-item">
+                <h2>Ressources Humaines</h2>
+                <p>Recrutement, gestion des talents, formation.</p>
+            </div>
+           
+        </div>
+    </section>
+
+
+    <section class="vision">
+        <div class="vision-image">
+            <img src="/image/defi.png" alt="">
+            <img src="/image/ambitio.png" alt="">
+        </div>
+        <div class="vision-content">
+            <h1>Notre Vision</h1>
+            <div class="vision-item">
+                <div class="vision-number">1</div>
+                <div class="vision-text">
+                    <h2>Réussite Professionnelle</h2>
+                    <p>Permettre à chacun de construire un avenir prometteur.</p>
+                </div>
+            </div>
+            <div class="vision-item">
+                <div class="vision-number">2</div>
+                <div class="vision-text">
+                    <h2>Expertise et Flexibilité</h2>
+                    <p>Offrir des solutions sur-mesure à nos clients.</p>
+                </div>
+            </div>
+            <div class="vision-item">
+                <div class="vision-number">3</div>
+                <div class="vision-text">
+                    <h2>Croissance Durable</h2>
+                    <p>Devenir un acteur de premier plan dans notre secteur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

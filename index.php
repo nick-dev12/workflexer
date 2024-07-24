@@ -47,85 +47,79 @@ include_once ('controller/controller_users.php');
 
     <!-- menu carousel slider -->
     <div class="slider-area owl-carousel" data-aos="zoom-in">
-        <div class="slider-item">
-            <img src="/image/image1.png" alt="">
-            <div class="box">
-                <h1 data-aos="fade-up"> <span>Work</span><span>-Flexer</span> une platform de mise en relation </h1>
-                <p data-aos="fade-up">La plateforme de professionnalisation qui relie entreprise , entrepreneur ,
-                    travailleur et
-                    étudiant
-                    dans tous les Domaines confondu.
-                </p>
-
-                <a data-aos="fade-up" href="/inscription.php">Commencer</a>
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/image/mission.png" alt="">
-            <div class="box">
-                <h1>Nos Services</h1>
-                <p>Découvrez notre gamme complète de services spécialisés conçus
-                    pour répondre à vos besoins uniques et stimuler votre succès
-                    commercial. De la création de sites internet sur mesure à l'audit
-                    marketing en passant par la traduction multilingue, nous sommes là pour
-                    vous aider à atteindre vos objectifs.</p>
-
-                <a href="/inscription.html">Commencer</a>
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/image/Backgroudn-domaines-epita.jpg" alt="">
-            <div class="box">
-                <h1>Domaines d'Expertise</h1>
-                <p>Découvrez nos compétences spécialisées dans l'informatique,
-                    le marketing, la finance, les ressources humaines, le droit,
-                    l'ingénierie et bien d'autres domaines. Nous sommes là pour répondre
-                    à vos besoins professionnels avec expertise et professionnalisme.</p>
-
-
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/image/duré.jpg" alt="">
-            <div class="box">
-                <h1>Flexibilité des Missions</h1>
-                <p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos
-                    besoins. Que vous recherchiez des opportunités en freelance à court terme, des
-                    engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
-
-
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/image/Quand-la-participation.jpg" alt="">
-            <div class="box">
-                <h1>Boostez Votre Flexibilité</h1>
-                <p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à
-                    notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne
-                    renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
-
-
-            </div>
+    <div class="slider-item">
+        <img src="/image/image1.png" alt="">
+        <div class="box">
+            <h1 data-aos="fade-up"> <span>Work</span><span>-Flexer</span> une plateforme de mise en relation </h1>
+            <p data-aos="fade-up">La plateforme de professionnalisation qui relie entreprises, entrepreneurs,
+                travailleurs et
+                étudiants
+                dans tous les domaines confondus.
+            </p>
+            <a data-aos="fade-up" href="/inscription.php">Commencer</a>
         </div>
     </div>
+    <div class="slider-item">
+        <img src="/image/mission.png" alt="">
+        <div class="box">
+            <h1>Nos Services</h1>
+            <p>Découvrez notre gamme complète de services spécialisés conçus
+                pour répondre à vos besoins uniques et stimuler votre succès
+                commercial. De la création de sites internet sur mesure à l'audit
+                marketing en passant par la traduction multilingue, nous sommes là pour
+                vous aider à atteindre vos objectifs.</p>
+            <a href="/inscription.html">Commencer</a>
+        </div>
+    </div>
+    <div class="slider-item">
+        <img src="/image/Backgroudn-domaines-epita.jpg" alt="">
+        <div class="box">
+            <h1>Domaines d'Expertise</h1>
+            <p>Découvrez nos compétences spécialisées dans l'informatique,
+                le marketing, la finance, les ressources humaines, le droit,
+                l'ingénierie et bien d'autres domaines. Nous sommes là pour répondre
+                à vos besoins professionnels avec expertise et professionnalisme.</p>
+        </div>
+    </div>
+    <div class="slider-item">
+        <img src="/image/duré.jpg" alt="">
+        <div class="box">
+            <h1>Flexibilité des Missions</h1>
+            <p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos
+                besoins. Que vous recherchiez des opportunités en freelance à court terme, des
+                engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
+        </div>
+    </div>
+    <div class="slider-item">
+        <img src="/image/Quand-la-participation.jpg" alt="">
+        <div class="box">
+            <h1>Boostez Votre Flexibilité</h1>
+            <p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à
+                notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne
+                renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
+        </div>
+    </div>
+</div>
 
-    <section class="partie-box">
-        <div class="box1">
-            <h1>
-                Trouvez le candidat idéal pour votre offre d'emploi
-            </h1>
-            <p>
-                Work-Flexer est une plateforme qui permet aux recruteurs de
-                trouver et de se connecter facilement avec des candidats qualifiés pour leurs offres d'emploi.
-            </p>
-            <a href="/inscription.php">Commencer dés maintenant!</a>
-            <div class="div4"></div>
-        </div>
-        <div class="box2">
-            <img src="/image/rain_background.png" alt="" class="img1">
-            <img src="/image/etudiant1.png" alt="" class="img2">
-        </div>
-    </section>
+
+<section class="partie-box">
+    <div class="box1">
+        <h1>
+            Trouvez le candidat idéal pour votre offre d'emploi
+        </h1>
+        <p>
+            Work-Flexer est une plateforme qui permet aux recruteurs de
+            trouver et de se connecter facilement avec des candidats qualifiés pour leurs offres d'emploi.
+        </p>
+        <a href="/inscription.php">Commencer dès maintenant!</a>
+        <div class="div4"></div>
+    </div>
+    <div class="box2">
+        <img src="/image/rain_background.png" alt="" class="img1">
+        <img src="/image/etudiant1.png" alt="" class="img2">
+    </div>
+</section>
+
 
 
     <!-- <section class="box-section">
@@ -145,28 +139,27 @@ include_once ('controller/controller_users.php');
 
 
     <section class="reference">
-        <div class="container">
-            <div class="box1">
-                <img src="/image/defi.png" alt="">
-            </div>
-            <div class="box2">
-                <h1>Notre Vision :  </h1>
-                <p>Permettre à chaque individu de construire un avenir professionnel prometteur et de devenir l’architecte de sa propre réussite.</p>
-                <a href="/connection_compte.php">Commencer!</a>
-            </div>
+    <div class="container">
+        <div class="box1">
+            <img src="/image/defi.png" alt="">
         </div>
+        <div class="box2">
+            <h1>Notre Vision :  </h1>
+            <p>Permettre à chaque individu de construire un avenir professionnel prometteur et de devenir l’architecte de sa propre réussite.</p>
+        </div>
+    </div>
 
-        <div class="container">
-            <div class="box1">
-                <img src="/image/ambitio.png" alt="">
-            </div>
-            <div class="box2">
-                <h1>Notre Engagement : </h1>
-                <p>Faire croître votre stature professionnelle et positionner votre entreprise comme un acteur de premier plan dans votre secteur.</p>
-                <a href="/connection_compte.php">Commencer!</a>
-            </div>
+    <div class="container">
+        <div class="box1">
+            <img src="/image/ambitio.png" alt="">
         </div>
-    </section>
+        <div class="box2">
+            <h1>Notre Engagement : </h1>
+            <p>Faire croître votre stature professionnelle et positionner votre entreprise comme un acteur de premier plan dans votre secteur.</p>
+        </div>
+    </div>
+</section>
+
 
 
 
@@ -290,45 +283,47 @@ include_once ('controller/controller_users.php');
 
 
     <section class="service">
-        <div class="container">
-            <h1>Entreprise</h1>
-            <h3>Services</h3>
-            <div class="box">
-                <ul>
-                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                    <li><img src="/image/valider.png" alt=""> Publication d'offres illimité</li>
-                    <li><img src="/image/valider.png" alt=""> Mise à jour des publications illimitées</li>
-                    <li><img src="/image/valider.png" alt=""> Appel d'offres intégrer et illimité </li>
-                    <li><img src="/image/valider.png" alt=""> Système de messagerie intégré </li>
-                    <li><img src="/image/valider.png" alt=""> Système de suivi de candidature intégré </li>
-                    <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet</li>
-                    <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
-                </ul>
-                <a class="a" href="/compte_entreprise.php">Inscription gratuit</a>
-            </div>
+    <div class="container">
+        <h1>Entreprise</h1>
+        <h3>Services</h3>
+        <div class="box">
+            <ul>
+                <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                <li><img src="/image/valider.png" alt=""> Publication d'offres illimitées</li>
+                <li><img src="/image/valider.png" alt=""> Mise à jour des publications illimitées</li>
+                <li><img src="/image/valider.png" alt=""> Appel d'offres intégré et illimité</li>
+                <li><img src="/image/valider.png" alt=""> Système de messagerie intégré</li>
+                <li><img src="/image/valider.png" alt=""> Système de suivi de candidature intégré</li>
+                <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet</li>
+                <li><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
+                <li><img src="/image/valider.png" alt=""> Outils d'analyse des candidatures</li>
+                <li><img src="/image/valider.png" alt=""> Notifications automatiques des nouvelles candidatures</li>
+            </ul>
+            <a class="a" href="/compte_entreprise.php">Inscription gratuite</a>
         </div>
+    </div>
 
-
-        <div class="container container1">
-            <h1>Professionnel</h1>
-            <h3>Services</h3>
-            <div class="box">
-                <ul>
-                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                    <li><img src="/image/valider.png" alt="">CV virtuel intégré 100% personnalisable </li>
-                    <li><img src="/image/valider.png" alt=""> Profils connectés 24/24 , 7/7 aux recruteurs </li>
-                    <li><img src="/image/valider.png" alt=""> Postulation simple et illimité </li>
-                    <li><img src="/image/valider.png" alt=""> Création de CV physique automatique avec téléchargement
-                        gratuit </li>
-                    <li><img src="/image/valider.png" alt=""> Système de suivi de postulation intégré </li>
-
-                    <li><img src="/image/valider.png" alt=""> Profile 100% modifiable</li>
-                </ul>
-
-                <a href="/compte_travailleur.php">Inscription gratuit</a>
-            </div>
+    <div class="container container1">
+        <h1>Professionnel</h1>
+        <h3>Services</h3>
+        <div class="box">
+            <ul>
+                <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                <li><img src="/image/valider.png" alt=""> CV virtuel intégré 100% personnalisable</li>
+                <li><img src="/image/valider.png" alt=""> Profils connectés 24/24, 7/7 aux recruteurs</li>
+                <li><img src="/image/valider.png" alt=""> Postulations simples et illimitées</li>
+                <li><img src="/image/valider.png" alt=""> Création automatique de CV physiques avec téléchargement gratuit</li>
+                <li><img src="/image/valider.png" alt=""> Système de suivi de postulation intégré</li>
+                <li><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
+                <li><img src="/image/valider.png" alt=""> Portfolios en ligne</li>
+                <li><img src="/image/valider.png" alt=""> Recommandations et avis d'anciens employeurs</li>
+            </ul>
+            <a href="/compte_travailleur.php">Inscription gratuite</a>
         </div>
-    </section>
+    </div>
+</section>
+
+
 
 
     <section class="n_section">

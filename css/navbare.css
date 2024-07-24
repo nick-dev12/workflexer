@@ -953,7 +953,7 @@ nav .box3 :nth-child(1) {
   color: #000000;
   font-size: 16px;
   border: none;
-  z-index: 5;
+  z-index: -1;
   font-style: italic;
   background-color: #ffffff;
   box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1);
@@ -971,6 +971,7 @@ nav .box3 :nth-child(1) {
 }
  .erreurs.visible {
   opacity: 1;
+  z-index: 5;
 }
  .message {
   position: absolute;
@@ -978,7 +979,7 @@ nav .box3 :nth-child(1) {
   color: #000000;
   font-size: 16px;
   border: none;
-  z-index: 5;
+  z-index: -1;
   font-style: italic;
   background-color: #ffffff;
   box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1);
@@ -996,4 +997,5 @@ nav .box3 :nth-child(1) {
 }
  .message.visible {
   opacity: 1;
+  z-index: 5;
 }

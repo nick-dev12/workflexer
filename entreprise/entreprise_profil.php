@@ -10,7 +10,7 @@ include_once('app/controller/controllerOffre_emploi.php');
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
