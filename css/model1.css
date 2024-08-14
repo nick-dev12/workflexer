@@ -139,17 +139,17 @@ body {
   background-color: #ffffff;
 }
 #container .box1 p{
-  color: var(---texte-color_section);
+  color: var(--texte-color_section);
 }
 #container .box1 p span{
-  color: var(---texte-color_section);
+  color: var(--texte-color_section);
 }
 #container .box1 ul li{
-  color: var(---texte-color_section);
+  color: var(--texte-color_section);
 }
 
 #container .box1 h2{
-  color: var(---texte-color_section);
+  color: var(--texte-color_section);
   font-size: 18px;
 }
 #container .haut{

@@ -541,6 +541,30 @@ text-transform: capitalize;
       }
   }
   
+  @media screen and (max-width : 1050px) {
+    .section3 .categorie{
+      width: 98%;
+  
+      p{
+        margin-top: 10px;
+        color: #a54040;
+  
+      }
+  
+      ul{
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+  
+          li{
+            font-size: 14px;
+            color: #3d3c3c;
+            margin: 7px 20px;
+    
+          }
+        }
+    }
+  }
   .section3 .postulation{
     margin-top: 20px;
     width: 80%;
@@ -627,18 +651,6 @@ text-transform: capitalize;
       width: 90%;
       margin-top: 20px;
     }
-    .section3 .box2 p{
-      font-size: 14px;
-    }
-    .section3 .box2 p span{
-      height: 30px;
-      width: 30px;
-      max-width: 30px;
-      min-width: 30px;
-    }
-    .section3 .box2 p strong{
-      margin-left: 10px;
-    }
   }
   @media screen and (max-width : 600px) {
   
@@ -666,23 +678,22 @@ text-transform: capitalize;
     }
   
     .section3 .box2{
-      width: 90%;
+      width: 98%;
       margin-top: 20px;
     }
     .section3 .box2 p{
-      font-size: 14px;
       display: flex;
       flex-direction: column;
       text-align: center;
+      justify-content: center;
     }
     .section3 .box2 p span{
       height: 30px;
       width: 30px;
-      max-width: 30px;
-      min-width: 30px;
+      
     }
     .section3 .box2 p strong{
-      margin-left: 10px;
+      margin-left: 0;
     }
   }
 

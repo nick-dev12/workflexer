@@ -12,7 +12,9 @@ if (isset($_SESSION['compte_entreprise'])) {
     $getALLpostulations = getALLPostulations($db, $_SESSION['compte_entreprise']);
     // $offre_id = $getALLpostulation['offre_id'];
     $getAllcategorie = getALLcategorie($db);
-
+    if (isset($_GET['id'])) {
+    $getAllPostulation_users = getALLPostulation_users($db, $_SESSION['compte_entreprise'], $_GET['id']);
+    }
     // $affichePostulant=affichePostulant($db,$offre_id);
 }
 
@@ -52,23 +54,40 @@ if (isset($_SESSION['users_id'])) {
 
         $images = $_POST['images_users'];
 
+        if(isset($db)){
 
-        $sql = "SELECT * FROM offre_emploi WHERE offre_id = :offre_id";
+            $sql = "SELECT * FROM offre_emploi WHERE offre_id = :offre_id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':offre_id', $offre_id);
+            $stmt->execute();
+            $info_offre = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            // recuperer les informations du candidat
+            $sql = "SELECT * FROM niveau_etude WHERE users_id = :users_id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':users_id', $users_id);
+            $stmt->execute();
+            $info_users = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            // recuperer la catégorie du candidat
+         // Récupérer la catégorie du candidat
+        $sql = "SELECT * FROM users WHERE id = :users_id";
         $stmt = $db->prepare($sql);
-        $stmt->bindParam(':offre_id', $offre_id);
+        $stmt->bindParam(':users_id', $users_id, PDO::PARAM_INT);
         $stmt->execute();
-        $info_offre = $stmt->fetch(PDO::FETCH_ASSOC);
+        $infoUsers = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        }
+       
 
-        $sql = "SELECT * FROM niveau_etude WHERE users_id = :users_id";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':users_id', $users_id);
-        $stmt->execute();
-        $info_users = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Vérifie si le candidat est dans la même catégorie que l'offre
+        $categorieUsers = $infoUsers['categorie'];
 
-        if ($info_users['n_etude'] >= $info_offre['n_etudes']   &&  $info_users['n_experience'] >= $info_offre['n_experience']  ) {
+       
+
+        if ($info_users['n_etude'] >= $info_offre['n_etudes']   &&  $info_users['n_experience'] >= $info_offre['n_experience']) {
             if (notification_postulation($db, $entreprise_id, $users_id)) {
-                # code...
+                
             }
 
 
@@ -83,10 +102,8 @@ if (isset($_SESSION['users_id'])) {
             header('Location: voir_offre.php?offres_id='.$offre_id);
             exit();
         }
-
-
-
-    }
+    
+}
 
 
 

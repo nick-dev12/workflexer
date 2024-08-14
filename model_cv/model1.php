@@ -160,19 +160,7 @@ if (isset($_SESSION['users_id'])) {
                     localStorage.setItem('font_color_section', selectedColor);
                 });
 
-
-
-                const colorInput2 = document.getElementById('fontColor3');
-                const texte_color_section = localStorage.getItem('texte_color_section');
-
-                document.documentElement.style.setProperty('--texte-color_section', texte_color_section || '#000000');
-                colorInput2.value = texte_color_section || '#000000'; // Mettre à jour la valeur du champ input
-
-                colorInput2.addEventListener('input', function () {
-                    const selectedColor = colorInput2.value;
-                    document.documentElement.style.setProperty('--texte-color_section', selectedColor);
-                    localStorage.setItem('texte_color_section', selectedColor);
-                });
+               
 
                 const colorInput01 = document.getElementById('fontColor1');
                 const texte_color_titre = localStorage.getItem('texte_color_titre');
@@ -186,6 +174,19 @@ if (isset($_SESSION['users_id'])) {
                     const selectedColor = colorInput01.value;
                     document.documentElement.style.setProperty('--texte-color_titre', selectedColor);
                     localStorage.setItem('texte_color_titre', selectedColor);
+                });
+
+                
+                const colorInput2 = document.getElementById('fontColor3');
+                const texte_color_section = localStorage.getItem('texte_color_section');
+
+                document.documentElement.style.setProperty('--texte-color_section', texte_color_section || '#000000');
+                colorInput2.value = texte_color_section || '#000000'; // Mettre à jour la valeur du champ input
+
+                colorInput2.addEventListener('input', function () {
+                    const selectedColor = colorInput2.value;
+                    document.documentElement.style.setProperty('--texte-color_section', selectedColor);
+                    localStorage.setItem('texte_color_section', selectedColor);
                 });
 
             </script>

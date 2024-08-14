@@ -39,6 +39,14 @@ if (isset($_POST['valider'])) {
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if($user){
+      if($user['verification_statut'] === ''){
+        $erreurs = "Votre compte n'est pas encore validé";
+        header('location: verification_users.php');
+        exit();
+      }
+    }
+
     if ($mail && !$user) {
       $erreurs = "Email incorrect";
     } else if ($phone && !$user) {

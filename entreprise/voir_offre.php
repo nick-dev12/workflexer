@@ -168,9 +168,15 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                     <p class="info"> <strong>Ville : </strong>
                         <?= $getEntreprise['ville'] ?>
                     </p>
-                    <p class="info"> <strong>Niveau d'expérience : </strong>
+                  
+                    <p class="info"> <strong>Niveau d'expérience minimum : </strong>
+                        <?= $Offres['experience'] ?>
+                    </p>
+
+                    <p class="info"> <strong>Niveau d'etude minimum: </strong>
                         <?= $Offres['etudes'] ?>
                     </p>
+                    
                     <p class="info"> <strong>Langues exigées : </strong>
                         <?= $Offres['langues'] ?>
                     </p>
@@ -202,6 +208,10 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                             <button class="btn001" type="submit" name="postuler">Postuler maintenant</button>
                         <?php endif; ?>
                     </form>
+                    <?php else : ?>
+                    <form action="">
+                    <p class="msg001">Vous devez avoir un compte professionel pour pouvoir postuler</p>
+                    </form>
                 <?php endif; ?>
 
 
@@ -214,9 +224,10 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
     </section>
 
     <div class="container_box10">
-        <h2>Offres Simillaires </h2>
+        <h2>Offres Simillaires</h2>
      
         <div class="slider owl-carousel carousel3">
+            <?php if(isset($afficheAllOffre)): ?>
             <?php foreach ($afficheAllOffre as $affiches): ?>
             <?php if($affiches['statut'] === 'publiee' or $affiches['statut'] === ''): ?>
                 <?php $infoEntreprise = getEntreprise($db, $affiches['entreprise_id']) ?>
@@ -274,6 +285,7 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                 <?php endif; ?>
                 <?php endif; ?>
             <?php endforeach ?>
+            <?php endif; ?>
         </div>
     </div>
 

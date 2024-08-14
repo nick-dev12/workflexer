@@ -55,7 +55,8 @@ if (isset($_POST['valider'])) {
 
         setcookie('compte_entreprise', $token, time() + 60 * 60 * 24 * 30, '/');
         $_SESSION['compte_entreprise'] = $entreprise['id']; // Initialisation de la variable de session
-
+        unset($_SESSION['mail']);
+        unset($_SESSION['nom']);
         header('location: entreprise_profil.php');
         exit();
       }
@@ -65,9 +66,9 @@ if (isset($_POST['valider'])) {
 
 
 
-if(isset($_GET['mail'])){
+if(isset($_POST['renvoyer'])){
 
-  $email = $_GET['mail'];
+  $email = $_SESSION['mail'];
 
 $nom = $_SESSION['nom'];
   function generateSecurityCode($length = 9) {
@@ -90,10 +91,10 @@ $verification = generateSecurityCode();
   try {
     // Paramètres SMTP
     $mail->isSMTP();
-    $mail->Host = 'mail.privateemail.com';
+    $mail->Host = 'advantechgroup.online';
     $mail->SMTPAuth = true;
-    $mail->Username = 'service@advantechgroup.online';
-    $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+    $mail->Username = 'info@advantechgroup.online';
+    $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
@@ -226,7 +227,7 @@ $verification = generateSecurityCode();
     </body>
     </html> ";
 
-        $mail->setFrom('service@advantechgroup.online', 'work-flexer');
+        $mail->setFrom('info@advantechgroup.online', 'work-flexer');
         $mail->isHTML(true);
         $mail->Subject = $sujet;
         $mail->Body = $message;
@@ -238,11 +239,12 @@ $verification = generateSecurityCode();
     
          // Requête SQL pour l'insertion des données
 $sql = "UPDATE compte_entreprise SET verification = :verification  WHERE mail = :mail";
-$stmtUpdateToken = $db->prepare($sqlUpdateToken);
+$stmtUpdateToken = $db->prepare($sql);
 $stmtUpdateToken->bindParam(':verification', $verification);
 $stmtUpdateToken->bindParam(':mail',  $email);
 $stmtUpdateToken->execute();
-  
+
+$_SESSION['success_message'] = 'Code de vérification envoyé!';
     header('Location: ../entreprise/verification_entreprise.php');
     exit();
 
@@ -267,7 +269,7 @@ $stmtUpdateToken->execute();
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -300,6 +302,47 @@ $stmtUpdateToken->execute();
     <!-- End Google Tag Manager (noscript) -->
 
 <?php include ('../navbare.php') ?>
+
+<?php if (isset($_SESSION['success_message'])) : ?>
+            <div class="message">
+                <p>
+                    <span></span>
+                    <?php echo $_SESSION['success_message']; ?>
+                    <?php unset($_SESSION['success_message']); ?>
+                </p>
+            </div>
+        <?php else : ?>
+            <?php if (isset($_SESSION['error_message'])) : ?>
+                <div class="erreurs" id="messageErreur">
+                    <span></span>
+                    <?php echo $_SESSION['error_message']; ?>
+                    <?php unset($_SESSION['error_message']); ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <script>
+            let success = document.querySelector('.message')
+            setTimeout(() => {
+                success.classList.add('visible');
+            }, 200);
+            setTimeout(() => {
+                success.classList.remove('visible');
+            }, 6000);
+
+            // Sélectionnez l'élément contenant le message d'erreur
+            var messageErreur = document.getElementById('messageErreur');
+
+            // Fonction pour afficher le message avec une transition de fondu
+            setTimeout(function() {
+                messageErreur.classList.add('visible');
+            }, 200); // 1000 millisecondes équivalent à 1 seconde
+
+            // Fonction pour masquer le message avec une transition de fondu
+            setTimeout(function() {
+                messageErreur.classList.remove('visible');
+            }, 6000); // 6000 millisecondes équivalent à 6 secondes
+        </script>
  
 
   <section class="section2">
@@ -318,8 +361,12 @@ $stmtUpdateToken->execute();
           <label for="code">Entrer le code de vérification envoyé à votre boîte mail.</label>
           <input type="text" name="code" id="code">
         </div>
-        <a href="?mail=<?php $_SESSION['mail']?>">Renvoyer le code!</a>
         <input type="submit" name="valider" value="valider" id="valider">
+
+        <div class="bo">
+        <p>Vous avez reçu un code de vérification par mail, ? <span id="email"></span></p>
+        <input type="submit" name="renvoyer" value="Renvoyer le code!" id="renvoyer">
+      </div>
       </form>
     </div>
   </section>

@@ -109,8 +109,9 @@ shuffle($UsersJuridique);
 // Affiche les utilisateurs qui sont dans la catégorie Informatique
 $UsersInformatique = getUsersInformatique($db);
 shuffle($UsersInformatique);
-
+// Affiche les utilisateurs qui sont dans la catégorie Informatique
 $getUssersCategorie = getUsers($db);
+shuffle($getUssersCategorie);
 
 
 

@@ -164,10 +164,10 @@ if (isset($_POST['valider'])) {
           try {
             // Paramètres SMTP
             $mail->isSMTP();
-            $mail->Host = 'mail.privateemail.com';
+            $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
-            $mail->Username = 'service@advantechgroup.online';
-            $mail->Password = 'oyonoeffe11@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->Username = 'info@advantechgroup.online';
+            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
@@ -300,7 +300,7 @@ if (isset($_POST['valider'])) {
             </body>
             </html> ";
 
-                $mail->setFrom('service@advantechgroup.online', 'work-flexer');
+                $mail->setFrom('info@advantechgroup.online', 'work-flexer');
                 $mail->isHTML(true);
                 $mail->Subject = $sujet;
                 $mail->Body = $message;

@@ -342,6 +342,9 @@ if (isset($_POST['valider'])) {
   // Exécution de la requête
   $stmt->execute();
 
+  $_SESSION['mail_users'] = $email;
+  $_SESSION['nom']= $nom;
+            $_SESSION['success_message'] = 'Inscription réussie !';
             header('Location: verification_users.php');
             exit();            
         } catch (Exception $e) {

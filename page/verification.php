@@ -120,6 +120,47 @@ if (isset($_POST['valider'])) {
   <!-- End Google Tag Manager (noscript) -->
 
 
+  <?php if (isset($_SESSION['success_message'])) : ?>
+            <div class="message">
+                <p>
+                    <span></span>
+                    <?php echo $_SESSION['success_message']; ?>
+                    <?php unset($_SESSION['success_message']); ?>
+                </p>
+            </div>
+        <?php else : ?>
+            <?php if (isset($_SESSION['error_message'])) : ?>
+                <div class="erreurs" id="messageErreur">
+                    <span></span>
+                    <?php echo $_SESSION['error_message']; ?>
+                    <?php unset($_SESSION['error_message']); ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <script>
+            let success = document.querySelector('.message')
+            setTimeout(() => {
+                success.classList.add('visible');
+            }, 200);
+            setTimeout(() => {
+                success.classList.remove('visible');
+            }, 6000);
+
+            // Sélectionnez l'élément contenant le message d'erreur
+            var messageErreur = document.getElementById('messageErreur');
+
+            // Fonction pour afficher le message avec une transition de fondu
+            setTimeout(function() {
+                messageErreur.classList.add('visible');
+            }, 200); // 1000 millisecondes équivalent à 1 seconde
+
+            // Fonction pour masquer le message avec une transition de fondu
+            setTimeout(function() {
+                messageErreur.classList.remove('visible');
+            }, 6000); // 6000 millisecondes équivalent à 6 secondes
+        </script>
+
 
 
   <section class="section2">

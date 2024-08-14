@@ -29,17 +29,17 @@ if (isset($_GET['id'])) {
     $message = '';
 
 
-    include_once('../controller/controller_description_users.php');
-    include_once('../controller/controller_metier_users.php');
-    include_once('../controller/controller_competence_users.php');
-    include_once('../controller/controller_formation_users.php');
-    include_once('../controller/controller_diplome_users.php');
-    include_once('../controller/controller_certificat_users.php');
-    include_once('../controller/controller_outil_users.php');
-    include_once('../controller/controller_langue_users.php');
-    include_once('../controller/controller_projet_users.php');
-    include_once('../controller/controller_centre_interet.php');
-    include_once('../controller/controller_niveau_etude_experience.php');
+    include_once ('../controller/controller_description_users.php');
+    include_once ('../controller/controller_metier_users.php');
+    include_once ('../controller/controller_competence_users.php');
+    include_once ('../controller/controller_formation_users.php');
+    include_once ('../controller/controller_diplome_users.php');
+    include_once ('../controller/controller_certificat_users.php');
+    include_once ('../controller/controller_outil_users.php');
+    include_once ('../controller/controller_langue_users.php');
+    include_once ('../controller/controller_projet_users.php');
+    include_once ('../controller/controller_centre_interet.php');
+    include_once ('../controller/controller_niveau_etude_experience.php');
 } else {
 
 
@@ -57,21 +57,21 @@ if (isset($_GET['id'])) {
 
     // Récupérer l'id du métier à supprimer (via lien ou formulaire par exemple)
 
-    include_once('../controller/controller_document_users.php');
-    include_once('../controller/controller_description_users.php');
-    include_once('../controller/controller_metier_users.php');
-    include_once('../controller/controller_competence_users.php');
-    include_once('../controller/controller_formation_users.php');
-    include_once('../controller/controller_diplome_users.php');
-    include_once('../controller/controller_certificat_users.php');
-    include_once('../controller/controller_outil_users.php');
-    include_once('../controller/controller_langue_users.php');
-    include_once('../controller/controller_projet_users.php');
-    include_once('../controller/controller_users.php');
-    include_once('../controller/controller_centre_interet.php');
-    include_once('../entreprise/app/controller/controllerOffre_emploi.php');
-    include_once('../entreprise/app/controller/controllerEntreprise.php');
-    include_once('../controller/controller_niveau_etude_experience.php');
+    include_once ('../controller/controller_document_users.php');
+    include_once ('../controller/controller_description_users.php');
+    include_once ('../controller/controller_metier_users.php');
+    include_once ('../controller/controller_competence_users.php');
+    include_once ('../controller/controller_formation_users.php');
+    include_once ('../controller/controller_diplome_users.php');
+    include_once ('../controller/controller_certificat_users.php');
+    include_once ('../controller/controller_outil_users.php');
+    include_once ('../controller/controller_langue_users.php');
+    include_once ('../controller/controller_projet_users.php');
+    include_once ('../controller/controller_users.php');
+    include_once ('../controller/controller_centre_interet.php');
+    include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
+    include_once ('../entreprise/app/controller/controllerEntreprise.php');
+    include_once ('../controller/controller_niveau_etude_experience.php');
 }
 
 ?>
@@ -134,9 +134,9 @@ if (isset($_GET['id'])) {
     <!-- End Google Tag Manager (noscript) -->
 
 
-    <?php include('../navbare.php') ?>
+    <?php include ('../navbare.php') ?>
 
-    <?php include('../include/header_users.php') ?>
+    <?php include ('../include/header_users.php') ?>
 
     <section class="section3">
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
@@ -227,7 +227,7 @@ if (isset($_GET['id'])) {
 
         <?php endif; ?>
 
-       
+
 
         <div class="fille">
             <!-- <strong class="btn_f"><img src="../image/fichier.png" alt="">+</strong> -->
@@ -305,7 +305,7 @@ if (isset($_GET['id'])) {
                 if (empty($descriptions['description'])):
                     ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                         <img class="buton" src="../image/edite.png" alt="">
+                        <img class="buton" src="../image/edite.png" alt="">
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -348,7 +348,7 @@ if (isset($_GET['id'])) {
 
                 <?php else: ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                         <img class="buton buttons" src="../image/edite.png" alt="">
+                        <img class="buton buttons" src="../image/edite.png" alt="">
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -876,7 +876,7 @@ if (isset($_GET['id'])) {
             <div class="containne">
                 <form class="formee" action="" method="post">
 
-                <img class="imgFormee" src="../image/croix.png" alt="">
+                    <img class="imgFormee" src="../image/croix.png" alt="">
 
                     <div class="container_box">
 
@@ -1007,13 +1007,13 @@ if (isset($_GET['id'])) {
                 let imgFormee = document.querySelector('.imgFormee')
 
                 Ajoutes.addEventListener('click', function () {
-                        formee.style.display = 'block';
-                        Ajoutes.style.display = 'none'
+                    formee.style.display = 'block';
+                    Ajoutes.style.display = 'none'
                 });
                 imgFormee.addEventListener('click', function () {
-                        formee.style.display = 'none';
-                        Ajoutes.style.display = 'block'
-                    
+                    formee.style.display = 'none';
+                    Ajoutes.style.display = 'block'
+
                 });
             </script>
         </div>
@@ -1185,15 +1185,15 @@ if (isset($_GET['id'])) {
             <script>
                 let btn3 = document.querySelector('.btn3')
                 let box34 = document.querySelector('.box34')
-                let croixx =document.querySelector('.croixx')
+                let croixx = document.querySelector('.croixx')
 
                 btn3.addEventListener('click', function () {
-                        box34.style.display = 'block';
-                        btn3.style.display = 'none'
+                    box34.style.display = 'block';
+                    btn3.style.display = 'none'
                 });
-                croixx.addEventListener('click', ()=>{
+                croixx.addEventListener('click', () => {
                     box34.style.display = 'none';
-                        btn3.style.display = 'block'
+                    btn3.style.display = 'block'
                 })
             </script>
         </div>
@@ -1242,7 +1242,7 @@ if (isset($_GET['id'])) {
 
             <div class="box3 box35">
                 <form action="" method="post">
-                <img class="croixxx" src="../image/croix.png" alt="">
+                    <img class="croixxx" src="../image/croix.png" alt="">
                     <div class="tcp">
                         <label for="tangue">Ajouter une langue</label>
                         <input type="text" name="langue" id="langue">
@@ -1265,15 +1265,15 @@ if (isset($_GET['id'])) {
             <script>
                 let btn4 = document.querySelector('.btn4')
                 let box35 = document.querySelector('.box35')
-                let croixxx =document.querySelector('.croixxx')
+                let croixxx = document.querySelector('.croixxx')
 
                 btn4.addEventListener('click', function () {
                     box35.style.display = 'block'
-                        btn4.style.display = 'none'
+                    btn4.style.display = 'none'
                 });
-                croixxx.addEventListener('click', ()=>{
+                croixxx.addEventListener('click', () => {
                     box35.style.display = 'none';
-                        btn4.style.display = 'block'
+                    btn4.style.display = 'block'
                 })
             </script>
         </div>
@@ -1342,16 +1342,16 @@ if (isset($_GET['id'])) {
             <script>
                 let ajout = document.querySelector('.ajout')
                 let form_projet = document.querySelector('.form_projet')
-                let im =document.querySelector('.im')
+                let im = document.querySelector('.im')
 
                 ajout.addEventListener('click', function () {
-                        form_projet.style.display = 'block';
-                        ajout.style.display = 'none';
-                      
+                    form_projet.style.display = 'block';
+                    ajout.style.display = 'none';
+
                 });
-                im.addEventListener('click', ()=>{
-                      form_projet.style.display = 'none';
-                      ajout.style.display = 'block';
+                im.addEventListener('click', () => {
+                    form_projet.style.display = 'none';
+                    ajout.style.display = 'block';
                 })
             </script>
             <div class="box2">
@@ -1402,7 +1402,7 @@ if (isset($_GET['id'])) {
                 <button class="btn_eteret"><img class="im" src="../image/edite.png" alt=""></button>
 
                 <form class="form_btn" method="post" action="">
-                <img class="ims" src="../image/croix.png" alt="">
+                    <img class="ims" src="../image/croix.png" alt="">
                     <?php if (isset($erreurs)): ?>
                         <div>
                             <?php echo $erreurs ?>
@@ -1429,16 +1429,16 @@ if (isset($_GET['id'])) {
                 <script>
                     let btn_i = document.querySelector('.btn_eteret');
                     let form_btn = document.querySelector('.form_btn');
-                    let ims =document.querySelector('.ims')
+                    let ims = document.querySelector('.ims')
 
                     btn_i.addEventListener('click', () => {
-                            form_btn.style.display = 'block'
-                            btn_i.style.display = 'none';
+                        form_btn.style.display = 'block'
+                        btn_i.style.display = 'none';
                     })
-                    ims.addEventListener('click', ()=>{
+                    ims.addEventListener('click', () => {
                         form_btn.style.display = 'none';
                         btn_i.style.display = 'block';
-                })
+                    })
                 </script>
             </div>
 
@@ -1446,16 +1446,19 @@ if (isset($_GET['id'])) {
 
         </div>
 
-
-
-        <?php if (isset($_SESSION['users_id'])): ?>
-            <div class="container_box6">
+      <div class="box_assistance">
+        <div>
+            <a  href="#container_box6"><button id="contacte"><img src="../image/service.png" alt=""></button></a>
+        <a class="whatsapp" href="https://api.whatsapp.com/send?phone=785303879" target="_blank" ><img src="../image/whatsapp.png" alt=""></a>
+        <a class="mail" href="mailto:workflexer.service@gmail.com"><img src="../image/icons8-gmail-48.png" alt=""> </a>
+        </div>
+      </div>
+      
+      <?php if (isset($_SESSION['users_id'])): ?>
+            <div class="container_box6" id="container_box6">
                 <div class="box1">
+                    <!-- <img src="../image/croix.png" alt="" id="img"> -->
                     <h1>assistance</h1>
-                    <a class="whatsapp" href="tel:+221785303879"><img src="../image/whatsapp.png" alt=""> Phone : <strong>+221 78 530 38
-                            79</strong></a>
-                    <a class="mail" href="mailto:workflexer.service@gmail.com"><img src="../image/icons8-gmail-48.png" alt=""> Mail
-                        :<strong>workflexer.service@gmail.com</strong></a>
                     <br>
                     <p>Ou écrivez nous ici !</p>
                 </div>
@@ -1475,16 +1478,17 @@ if (isset($_GET['id'])) {
 
 
 
+
         <div class="container_box10" id="container_box10">
             <h2>Offres qui correspondes a votre profil </h2>
-          
+
             <div class="slider owl-carousel carousel3">
                 <?php if ($afficheAllOffre): ?>
 
                     <?php foreach ($afficheAllOffre as $affiches): ?>
 
-                        <?php 
-                        $info_entreprise = getEntreprise($db, $affiches['entreprise_id']); 
+                        <?php
+                        $info_entreprise = getEntreprise($db, $affiches['entreprise_id']);
                         $niveau_etude = gettNiveau($db, $_SESSION['users_id']);
                         ?>
 
@@ -1494,41 +1498,41 @@ if (isset($_GET['id'])) {
                                 <img src="../upload/<?= $info_entreprise['images'] ?>" alt="">
 
                                 <div class="info-box">
-                                
-                                <p class="p">
-                                    <strong>
-                                        <?= $info_entreprise['entreprise'] ?>
-                                    </strong>
-                                </p>
-                                <p class="poste"><strong>Nous recherchons un(une) </strong>
+
+                                    <p class="p">
+                                        <strong>
+                                            <?= $info_entreprise['entreprise'] ?>
+                                        </strong>
+                                    </p>
+                                    <p class="poste"><strong>Nous recherchons un(une) </strong>
                                         <?= $affiches['poste'] ?>
                                     </p>
                                     <div class="box_vendu">
-                                <div class="vendu">
-                                   
-                                    <p><strong>Niveau : </strong>
-                                        <?= $affiches['etudes'] ?>
-                                    </p>
-                                    <p><strong>Experience : </strong>
-                                        <?= $affiches['experience'] ?>
-                                    </p>
+                                        <div class="vendu">
 
-                                    <p><strong>Contrat : </strong>
-                                        <?= $affiches['contrat'] ?>
-                                    </p>
-                                    <p><strong>Ville : </strong>
-                                        <?= $affiches['localite'] ?>
-                                    </p>
-                                </div>
-                                </div>
-                                <p id="nom">
-                                    <?= $affiches['date'] ?>
-                                </p>
-                                <a
-                                    href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id'] ?> & entreprise_id=<?= $affiches['entreprise_id'] ?>"><i
-                                        class="fa-solid fa-eye"></i>Voir l\'offre</a>
+                                            <p><strong>Niveau : </strong>
+                                                <?= $affiches['etudes'] ?>
+                                            </p>
+                                            <p><strong>Experience : </strong>
+                                                <?= $affiches['experience'] ?>
+                                            </p>
 
+                                            <p><strong>Contrat : </strong>
+                                                <?= $affiches['contrat'] ?>
+                                            </p>
+                                            <p><strong>Ville : </strong>
+                                                <?= $affiches['localite'] ?>
+                                            </p>
                                         </div>
+                                    </div>
+                                    <p id="nom">
+                                        <?= $affiches['date'] ?>
+                                    </p>
+                                    <a
+                                        href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id'] ?> & entreprise_id=<?= $affiches['entreprise_id'] ?>"><i
+                                            class="fa-solid fa-eye"></i>Voir l\'offre</a>
+
+                                </div>
                             </div>
 
                         <?php else: ?>
@@ -1543,77 +1547,21 @@ if (isset($_GET['id'])) {
 
 
     </section>
-
-
-
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
+   
 
 
     <script>
+        let assistance = document.getElementById('contacte');
+let cache = document.getElementById('img');
+let container_box6 = document.querySelector('.container_box6');
 
+assistance.addEventListener('click', () => {
+    
+});
 
-
-        $(document).ready(function () {
-            // Carrousel 3  
-            var carousel3 = $('.carousel3');
-            var numItems2 = carousel3.find('.carousel').length;
-
-            if (numItems2 > 3) {
-
-                // Initialiser Owl carousel3 si il y a plus de 4 éléments
-                carousel3.owlCarousel({
-                    items: 3, // Limitez le nombre d'éléments à afficher à 5
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 5000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 30,
-                    smartSpeed: 650,
-                    nav: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            margin: 0,
-                        },
-                        550: {
-                            items: 1,
-                        },
-                        890: {
-                            items: 2
-                        },
-                        1200: {
-                            items: 2
-                        },
-                        1400: {
-                            items: 3
-                        }
-                    }
-                });
-
-                var carousel3 = $('.carousel3').owlCarousel();
-                $('.owl-next').click(function () {
-                    carousel3.trigger('next.owl.carousel');
-                })
-                $('.owl-prev').click(function () {
-                    carousel3.trigger('prev.owl.carousel');
-                })
-
-
-
-            } else {
-
-                carousel3.trigger('destroy.owl.carousel');
-                carousel3.removeClass('owl-carousel owl-loaded');
-                carousel3.find('.owl-stage-outer').children().unwrap();
-
-            }
-
-
-        });
+cache.addEventListener('click', () => {
+    container_box6.style.transform = 'translateX(0px)';
+});
     </script>
 
 </body>

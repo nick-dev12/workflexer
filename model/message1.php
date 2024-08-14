@@ -70,7 +70,7 @@ function getTMP1_Message2($db, $entreprise_id, $offre_id, $users_id)
 function getMessage2($db, $entreprise_id, $users_id)
 {
     $sql = "SELECT * FROM message1 WHERE 
-    entreprise_id=:entreprise_id AND users_id=:users_id";
+    entreprise_id=:entreprise_id AND users_id=:users_id AND sujet='appel' ORDER BY dates DESC";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
@@ -80,7 +80,7 @@ function getMessage2($db, $entreprise_id, $users_id)
 function getTMP2_Message2($db, $entreprise_id, $users_id)
 {
     $sql = "SELECT * FROM tmp_message1 WHERE 
-    entreprise_id=:entreprise_id AND users_id=:users_id AND indicatif= 'candidat'";
+    entreprise_id=:entreprise_id AND users_id=:users_id AND indicatif= 'candidat' AND sujet='appel'";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
@@ -91,7 +91,7 @@ function getTMP2_Message2($db, $entreprise_id, $users_id)
 function getTMP2_Message3($db, $entreprise_id, $users_id)
 {
     $sql = "SELECT * FROM tmp_message1 WHERE 
-    entreprise_id=:entreprise_id AND users_id=:users_id AND indicatif= 'recruteur'";
+    entreprise_id=:entreprise_id AND users_id=:users_id AND indicatif= 'recruteur' AND sujet='appel'";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
@@ -179,12 +179,13 @@ function notification_message($db,$entreprise_id,$users_id) {
         return $stmt->execute();
 }
 
-function notification_messageUsers($db,$entreprise_id,$users_id) {
-    $sql = "INSERT INTO notification_message_users (entreprise_id,users_id)
-    VALUES (:entreprise_id,:users_id)";
+function notification_messageUsers($db,$entreprise_id,$users_id ,$sujet) {
+    $sql = "INSERT INTO notification_message_users (entreprise_id,users_id,sujet)
+    VALUES (:entreprise_id,:users_id,:sujet)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":entreprise_id", $entreprise_id, );
         $stmt->bindParam(":users_id", $users_id, );
+        $stmt->bindParam(":sujet", $sujet, );
         return $stmt->execute();
 }
 
@@ -227,4 +228,23 @@ function get_notif_suiviRecaler($db,$users_id) {
         $stmt->bindParam(":users_id", $users_id, );
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function updateDatePostulation($db,$entreprise_id,$users_id,$offre_id , $dates) {
+        $sql = "UPDATE postulation SET date = :date WHERE entreprise_id = :entreprise_id AND users_id = :users_id AND offre_id = :offre_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":date", $dates, );
+        $stmt->bindParam(":entreprise_id", $entreprise_id, );
+        $stmt->bindParam(":users_id", $users_id, );
+        $stmt->bindParam(":offre_id", $offre_id, );
+        return $stmt->execute();
+}
+
+function updateDateAppelOffre($db,$entreprise_id,$users_id , $dates) {
+    $sql = "UPDATE postulation SET date = :date WHERE entreprise_id = :entreprise_id AND users_id = :users_id AND sujet = 'appel'";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":date", $dates, );
+    $stmt->bindParam(":entreprise_id", $entreprise_id, );
+    $stmt->bindParam(":users_id", $users_id, );
+    return $stmt->execute();
 }

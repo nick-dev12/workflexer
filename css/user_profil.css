@@ -257,6 +257,7 @@ textarea {
     height: 40px;
     width: 300px;
     text-align: left;
+    cursor: pointer;
   }
   .contacte span {
     background-color: #0004ff;
@@ -2122,9 +2123,10 @@ cursor: pointer;
 
 .section3 .container_box6 {
   width: 80%;
-  margin-top: 50px;
+  max-width: 700px;
+  min-width: 300px;
+  
   padding: 30px;
-  position: relative;
   background-color: #ffffff;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)"; /*IE 8*/
   -moz-box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1); /*FF 3.5+*/
@@ -2137,6 +2139,20 @@ cursor: pointer;
   -moz-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 7px;
+  transition: all 0.3s ease-in-out;
+  margin-top: 40px;
+  
+}
+
+#img{
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .section3 .container_box6 .box1 h1 {
@@ -2145,46 +2161,93 @@ cursor: pointer;
   width: 100%;
   text-transform: uppercase;
 }
-.section3 .container_box6 .box1{
+
+.box_assistance{
+  position: fixed;
+  top: 50%;
+  right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  z-index: 25;
+
+  #contacte{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 5px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 19;
+    transition: all 0.3s ease-in-out;
+    img{
+      height: 30px;
+      width: 30px;
+      object-fit: cover;
+    }
+  }
+  #contacte:hover{
+      transform: scale(1.1);
+      background-color: #000000;
+  }
+
+  .mail{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #ff0000;
+    text-decoration: none;
+    margin-bottom: 5px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    img{
+      height: 25px;
+      width: 25px;
+      object-fit: cover;
+    }
+  }
+  .mail:hover{
+      transform: scale(1.1);
+      background-color: #000000 ;
+  }
+  
+  
   .whatsapp{
     display: flex;
     align-items: center;
     color: #ffffff;
     background-color: #00a003;
     text-decoration: none;
-    margin-bottom: 10px;
-    padding: 6px 15px;
+    margin-bottom: 5px;
+    padding: 6px 10px;
     border-radius: 10px;
     font-size: 14px;
     img{
       height: 25px;
       width: 25px;
       object-fit: cover;
-      margin-right: 5px;
     }
-}
-
-.mail{
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  background-color: #ff0000;
-  text-decoration: none;
-  margin-bottom: 10px;
-  padding: 6px 15px;
-  border-radius: 10px;
-  font-size: 14px;
-  img{
-    height: 25px;
-    width: 25px;
-    object-fit: cover;
-    margin-right: 5px;
+  }
+  .whatsapp:hover{
+      transform: scale(1.1);
+      background-color: #000000;
   }
 }
+
+
+.section3 .container_box6 .box1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
  a img {
     margin-right: 5px;
@@ -2207,7 +2270,7 @@ cursor: pointer;
   justify-content: center;
 }
 .section3 .container_box6 .box2 textarea {
-  width: 60%;
+  width: 90%;
   padding: 20px;
   font-size: 18px;
   border-radius: 10px;

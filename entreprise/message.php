@@ -157,7 +157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 $countTMP_message = count($afficheTMP_message);
                 
                 ?>
-                <a href="message_entreprise2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?>">
+                <a href="message_entreprise2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?> &sujet=<?= $appel_offre['sujet']?>">
             <div class="info">
             <div class="c_img">
             <img class="img" src="../upload/<?php echo $infoUsers['images']?>" alt="">

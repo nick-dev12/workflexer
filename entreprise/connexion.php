@@ -38,6 +38,14 @@ if (isset($_POST['valider'])) {
     $stmt->execute();
     $entreprise = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if($entreprise){
+      if($entreprise['verification_statut'] === ''){
+        $erreurs = "Votre compte n'est pas encore validé";
+        header('location: verification_entreprise.php');
+        exit();
+      }
+    }
+
     if ($mail && !$entreprise) {
       $erreurs = "Email incorrect";
     } else if ($phone && !$entreprise) {

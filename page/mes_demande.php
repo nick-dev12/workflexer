@@ -103,12 +103,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="div-section3">
         <div class="box6">
             <h2>Suivi de candidatures</h2>
-            <h3>Candidatures non traiter</h3>
+            <h3>Candidatures non traitées</h3>
             <div class="box6">
             <p>Ici apparaîtront les candidatures</p>
             <div class="container_accept">
             <?php if( empty($getPostulationUsers)): ?>
-                    <p><strong>Info :</strong> aucune Candidatures trouver !!</p> 
+                    <p><strong>Info :</strong> aucune Candidature trouvé !!</p> 
                     <?php else: ?>
                 <?php foreach ($getPostulationUsers as $postulationUsers): ?>
                     <?php $getOffreEmploie = getOffresEmploit($db,$postulationUsers['offre_id']);
