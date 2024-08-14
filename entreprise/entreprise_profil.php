@@ -405,16 +405,19 @@ include_once('app/controller/controllerOffre_emploi.php');
             </div>
         </div>
 
+        <div class="box_assistance">
+        <div>
+            <a  href="#container_box6"><button id="contacte"><img src="../image/service.png" alt=""></button></a>
+        <a class="whatsapp" href="https://api.whatsapp.com/send?phone=785303879" target="_blank" ><img src="../image/whatsapp.png" alt=""></a>
+        <a class="mail" href="mailto:workflexer.service@gmail.com"><img src="../image/icons8-gmail-48.png" alt=""> </a>
+        </div>
+      </div>
 
-        <div class="container_box6">
+        <div class="container_box6" id="container_box6">
            
             <div class="box1">
                 <h1>Assistance</h1>
-                <a class="whatsapp" href="tel:+221785303879"><img src="../image/whatsapp.png" alt=""> Phone : <strong>+221 78 530 38
-                        79</strong></a>
-                <a class="mail" href="mailto:workflexer.service@gmail.com"><img src="../image/icons8-gmail-48.png" alt=""> Mail
-                    :<strong>workflexer.service@gmail.com</strong></a>
-                <br>
+              <br>
                 <p>Ou écrivez nous ici !</p>
             </div>
 

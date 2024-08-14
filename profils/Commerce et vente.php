@@ -210,15 +210,11 @@ if (isset($_POST['recherche'])) {
                 <img src="/image/vente.png" alt="">
             </div>
         </div>
-
-        <div class="box2">
-            <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-            <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
+       
 
         <article data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
             data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom"
-            class="articles owl-carousel carousel7">
+            class="articles">
 
             <?php foreach ($getUssersCategorie as $teste): ?>
                 <?php if ($teste['categorie'] === 'Commerce et vente'): ?>

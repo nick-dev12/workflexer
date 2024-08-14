@@ -849,33 +849,126 @@ body{
 
 
 
-.section3 .container_box6{
+.section3 .container_box6 {
     width: 80%;
-    margin-top: 50px;
+    max-width: 700px;
+    min-width: 300px;
+    
     padding: 30px;
-    position: relative;
-    background-color: #fffffffe;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)";/*IE 8*/
-  -moz-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*FF 3.5+*/
-  -webkit-box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
-  box-shadow: 18px 18px 4px -11px rgba(0,0,0,0.1);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000); /*IE 5.5-7*/
-     -ms-backdrop-filter: blur(5px);
+    background-color: #ffffff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000)"; /*IE 8*/
+    -moz-box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1); /*FF 3.5+*/
+    -webkit-box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1); /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    box-shadow: 18px 18px 4px -11px rgba(0, 0, 0, 0.1); /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=#000000); /*IE 5.5-7*/
+    -ms-backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     -moz-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    border-radius: 7px;
+    transition: all 0.3s ease-in-out;
+    margin-top: 40px;
+    
+  }
+  
+  #img{
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .section3 .container_box6 .box1 h1 {
+    padding: 10px;
+    border-bottom: 1px solid rgba(165, 165, 165, 0.337);
+    width: 100%;
+    text-transform: uppercase;
+  }
+  
+  .box_assistance{
+    position: fixed;
+    top: 50%;
+    right: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.section3 .container_box6 .box1 h1{
-    padding: 10px;
-    border-bottom: 1px solid rgba(165, 165, 165, 0.337);
-    width: 100%;
-}
+    z-index: 25;
+  
+    #contacte{
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      background-color: #ffffff;
+      text-decoration: none;
+      margin-bottom: 5px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 19;
+      transition: all 0.3s ease-in-out;
+      img{
+        height: 30px;
+        width: 30px;
+        object-fit: cover;
+      }
+    }
+    #contacte:hover{
+        transform: scale(1.1);
+        background-color: #000000;
+    }
+  
+    .mail{
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      background-color: #ff0000;
+      text-decoration: none;
+      margin-bottom: 5px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: all 0.3s ease-in-out;
+      img{
+        height: 25px;
+        width: 25px;
+        object-fit: cover;
+      }
+    }
+    .mail:hover{
+        transform: scale(1.1);
+        background-color: #000000 ;
+    }
+    
+    
+    .whatsapp{
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      background-color: #00a003;
+      text-decoration: none;
+      margin-bottom: 5px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      img{
+        height: 25px;
+        width: 25px;
+        object-fit: cover;
+      }
+    }
+    .whatsapp:hover{
+        transform: scale(1.1);
+        background-color: #000000;
+    }
+  }
 
 .section3 .container_box6 .box1{
     display: flex;
@@ -900,32 +993,7 @@ body{
       }
   }
   
-  .mail{
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    background-color: #ff0000;
-    text-decoration: none;
-    margin-bottom: 10px;
-    padding: 6px 15px;
-    border-radius: 10px;
-    font-size: 14px;
-    img{
-      height: 25px;
-      width: 25px;
-      object-fit: cover;
-      margin-right: 5px;
-    }
-  }
-  
-   a img {
-      margin-right: 5px;
-  }
-  
-   p {
-      font-size: 20px;
-      text-align: center;
-  }
+ 
   }
 .section3 .container_box6 .box2{
     margin-top: 20px;

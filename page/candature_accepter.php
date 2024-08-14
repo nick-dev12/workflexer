@@ -147,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                    
 
                        <?php if ($postulationUsers['statut'] == 'accepter'): ?>
-                            <h5 class="h51"><span>accepter</span></h5>
+                            <h5 class="h51"><span>acceptée</span></h5>
                         <?php endif; ?>
                        
                     </div>

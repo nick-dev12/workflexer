@@ -47,24 +47,24 @@ if (isset($_SESSION['compte_entreprise'])) {
     include_once ('controller/controller_message1.php');
 }
 
-if(isset($_SESSION['users_id'])){
-    include(__DIR__.'../controller/controller_message1.php');
+if (isset($_SESSION['users_id'])) {
+    include (__DIR__ . '../controller/controller_message1.php');
 }
 
 
-if ( isset ($_GET['offres_id'] ) AND  isset($_GET['statut']) ){
+if (isset($_GET['offres_id']) and isset($_GET['statut'])) {
 
     if (isset($_SESSION['users_id'])) {
-  deletTMP_Message($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
-  }
-
-  if (isset($_SESSION['compte_entreprise'])) {
-    deletTMP_Message2($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
+        deletTMP_Message($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
     }
-  
+
+    if (isset($_SESSION['compte_entreprise'])) {
+        deletTMP_Message2($db, $_GET['entreprise_id'], $_GET['offres_id'], $_GET['users_id']);
+    }
+
 }
 
-include(__DIR__. '/controller/controller_statut_offre.php');
+include (__DIR__ . '/controller/controller_statut_offre.php');
 ?>
 
 <link rel="stylesheet" href="/css/navbare.css">
@@ -85,10 +85,10 @@ include(__DIR__. '/controller/controller_statut_offre.php');
             let box1 = document.querySelector(".box1");
             let cacheMenu = document.querySelector(".cacheMenu");
             menu.addEventListener("click", function () {
-                box1.style.left = "50%";
+                box1.style.transform = "translateY(0%)";
             })
             cacheMenu.addEventListener("click", function () {
-                box1.style.left = "-200%";
+                box1.style.transform = "translateY(-200%)";
             })
         </script>
 
@@ -104,62 +104,62 @@ include(__DIR__. '/controller/controller_statut_offre.php');
         </div>
 
         <div class="not">
-                    <img src="/image/notification.png" alt="" class="notif">
-                    <?php if($notif_users OR $notif_suivi OR $notif_suiviRecaler):?>
-                        <span><?= $count_notif_users + $count_notif_suivi + $count_notif_suiviRecaler ?></span>
-                        <?php else :?>
-                        
-                    <?php endif ;?>
-                </div>
+            <img src="/image/notification.png" alt="" class="notif">
+            <?php if ($notif_users or $notif_suivi or $notif_suiviRecaler): ?>
+                <span><?= $count_notif_users + $count_notif_suivi + $count_notif_suiviRecaler ?></span>
+            <?php else: ?>
 
-                <div class="box_notif">
-                <img src="/image/croix.png" alt="" class="croi">
+            <?php endif; ?>
+        </div>
 
-                <?php if(empty($notif_users)) :?>
-                    <?php else: ?>
+        <div class="box_notif">
+            <img src="/image/croix.png" alt="" class="croi">
+
+            <?php if (empty($notif_users)): ?>
+            <?php else: ?>
                 <a href="message_users.php?supp3= <?= $_SESSION['users_id'] ?>">
                     <div class="item">
                         <img src="/image/notif.png" alt="">
                         <p>Vous avez <span><?= $count_notif_users ?></span> nouveaux messages</p>
                     </div>
                 </a>
-                <?php endif ;?>
+            <?php endif; ?>
 
-                <?php if(empty($notif_suiviRecaler)) :?>
-                    <?php else: ?>
+            <?php if (empty($notif_suiviRecaler)): ?>
+            <?php else: ?>
                 <a href="/page/mes_demande.php?supp4= <?= $_SESSION['users_id'] ?>">
                     <div class="item">
                         <img src="/image/notif.png" alt="">
                         <p>Vous avez <span><?= $count_notif_suiviRecaler ?></span> candidature(s) recaler</p>
                     </div>
                 </a>
-                <?php endif ;?>
+            <?php endif; ?>
 
 
-                <?php if(empty($notif_suivi)) :?>
-                    <?php else: ?>
+            <?php if (empty($notif_suivi)): ?>
+            <?php else: ?>
                 <a href="/page/candidature.php?supp2= <?= $_SESSION['users_id'] ?>">
                     <div class="item">
                         <img src="/image/notif.png" alt="">
                         <p>Vous avez <span><?= $count_notif_suivi ?></span> candidature(s) accepter</p>
                     </div>
                 </a>
-                <?php endif ;?>
+            <?php endif; ?>
 
 
-                <script>
-                    let not1 = document.querySelector('.not');
-                    let notif1 = document.querySelector('.croi')
-                    let notification1 = document.querySelector('.box_notif')
+            <script>
+                let not1 = document.querySelector('.not');
+                let notif1 = document.querySelector('.croi')
+                let notification1 = document.querySelector('.box_notif')
 
-                    not1.addEventListener('click', () => {
-                        notification1.style.display = 'block'
-                    })
-                    notif1.addEventListener('click', () => {
-                        notification1.style.display = 'none'
-                    })
-                </script>
-            </div>
+                not1.addEventListener('click', () => {
+                    notification1.style.display = 'block'
+                })
+                notif1.addEventListener('click', () => {
+                    notification1.style.display = 'none'
+                })
+            </script>
+        </div>
 
     <?php else: ?>
 
@@ -174,37 +174,37 @@ include(__DIR__. '/controller/controller_statut_offre.php');
             </div>
 
             <div class="not">
-                    <img src="/image/notification.png" alt="" class="notif">
-                    <?php if($afficheNotificationMessage OR $afficheNotificationPostulation):?>
-                        
-                        <span><?= $countafficheNotificationMessage + $countnotificationPostulation ?></span><?php else :?>
-                     <?php endif ;?>
-                </div>
+                <img src="/image/notification.png" alt="" class="notif">
+                <?php if ($afficheNotificationMessage or $afficheNotificationPostulation): ?>
+
+                    <span><?= $countafficheNotificationMessage + $countnotificationPostulation ?></span><?php else: ?>
+                <?php endif; ?>
+            </div>
 
 
             <div class="box_notif">
                 <img src="/image/croix.png" alt="" class="croi">
 
-                <?php if(empty($afficheNotificationMessage)) :?>
-                        <?php else :?>
-                <a href="/entreprise/message.php?supp1= <?= $_SESSION['compte_entreprise'] ?>">
-                    <div class="item">
-                        <img src="/image/notif.png" alt="">
-                        <p>Vous avez <span><?= $countafficheNotificationMessage ?></span> nouveaux message(s)</p>
-                    </div>
-                </a>
-                <?php endif ;?>
+                <?php if (empty($afficheNotificationMessage)): ?>
+                <?php else: ?>
+                    <a href="/entreprise/message.php?supp1= <?= $_SESSION['compte_entreprise'] ?>">
+                        <div class="item">
+                            <img src="/image/notif.png" alt="">
+                            <p>Vous avez <span><?= $countafficheNotificationMessage ?></span> nouveaux message(s)</p>
+                        </div>
+                    </a>
+                <?php endif; ?>
 
 
-                <?php if(empty( $afficheNotificationPostulation)) :?>
-                        <?php else :?>
-                <a href="/page/candidature.php?supp2= <?= $_SESSION['compte_entreprise'] ?>">
-                    <div class="item">
-                        <img src="/image/notif.png" alt="">
-                        <p>Vous avez <span><?= $countnotificationPostulation ?></span> nouvelle(s) postulation(s)</p>
-                    </div>
-                </a>
-                <?php endif ;?>
+                <?php if (empty($afficheNotificationPostulation)): ?>
+                <?php else: ?>
+                    <a href="/page/candidature.php?supp2= <?= $_SESSION['compte_entreprise'] ?>">
+                        <div class="item">
+                            <img src="/image/notif.png" alt="">
+                            <p>Vous avez <span><?= $countnotificationPostulation ?></span> nouvelle(s) postulation(s)</p>
+                        </div>
+                    </a>
+                <?php endif; ?>
 
 
                 <script>
@@ -220,7 +220,7 @@ include(__DIR__. '/controller/controller_statut_offre.php');
                     })
                 </script>
             </div>
-           
+
         <?php else: ?>
             <?php if (isset($_SESSION['admin'])): ?>
                 <div class="box4">
@@ -283,6 +283,7 @@ include(__DIR__. '/controller/controller_statut_offre.php');
             </table>
 
             <a href="../page/user_profil.php">Voir mon profil</a>
+            <a class="dconn" href="/conn/dconn_users.php">Deconnexion</a>
 
         <?php else: ?>
 
@@ -323,6 +324,7 @@ include(__DIR__. '/controller/controller_statut_offre.php');
                 </table>
 
                 <a href="../entreprise/entreprise_profil.php">Voir mon profil</a>
+                <a class="dconn" href="/conn/dconn_entreprise.php">Deconnexion</a>
 
             <? else: ?>
                 <?php if (isset($_SESSION['admin'])): ?>

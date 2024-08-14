@@ -36,7 +36,7 @@
                     </li>
                 </a>
                 <a href="../entreprise/message.php?supp1= <?= $_SESSION['compte_entreprise'] ?>">
-                    <li class="tr2"><img src="../image/message.png" alt=""><span class="td">Message</span>
+                    <li class="tr2"><img src="../image/message.png" alt=""><span class="td">Messages</span>
                         <?php if (empty($afficheNotificationMessage)): ?>
                         <?php else: ?>
                             <em><?= $countafficheNotificationMessage ?></em><?php endif; ?>
@@ -46,7 +46,7 @@
                     <li class="tr6"><img src="../image/valider.png" alt=""> <span class="td">Candidat accepter</span></li>
                 </a>
                 <a href="../entreprise/offre_expirer.php">
-                    <li class="tr6"><img src="../image/Expiration.png" alt=""> Offre expirée</li>
+                    <li class="tr6"><img src="../image/Expiration.png" alt=""> Offre expirer</li>
                 </a>
                 <a href="../entreprise/historique.php">
                     <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li>

@@ -28,6 +28,7 @@ if (isset($_GET['id'])) {
     include_once('../controller/controller_appel_offre.php');
     include_once('../controller/controller_centre_interet.php');
     include_once('../controller/controller_niveau_etude_experience.php');
+    include_once('../controller/controller_postulation.php');
 
 }
 
@@ -203,9 +204,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    
 
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
+        <?php $contGetAllpostulation_users = count($getAllPostulation_users); ?>
+        <?php if ($contGetAllpostulation_users > 0): ?>
+        <button class="contactes"> <strong> Alerte!</strong> ce candidat a déjà postulé à une de vos offres d'emploi  </button>
+        <?php else: ?>
             <?php if ($getappelOffre): ?>
-              <button class="contactes"> <strong> Alerte!</strong> Ce candidat a deja ete contacter par votre
-              entreprise</button>
+              <button class="contactes"> <strong> Alerte!</strong> Ce candidat a déjà été contacté  par votre entreprise </button>
               </div>
             <?php else: ?>
                 <div class="contact">
@@ -273,6 +277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
                 </script>
             <?php endif; ?>
+        <?php endif; ?>
         <?php endif; ?>
 
 

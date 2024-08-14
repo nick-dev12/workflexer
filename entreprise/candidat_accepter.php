@@ -42,7 +42,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>Document</title>
+    <title>candidat accepté</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="../script/jquery-3.6.0.min.js"></script>
@@ -124,7 +124,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
 
 
         <div class="div-section2 acc">
-            <h4>Candidatures accepter</h4>
+            <h4>Candidatures acceptées</h4>
             <div class="container  ">
 
                 <?php foreach ($getALLpostulations as $postulant) : ?>
@@ -140,7 +140,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
                     <?php if ($postulant['statut'] == 'accepter') : ?>
 
                         <div class="items">
-                            <h5 class="h51">accepter</h5>
+                            <h5 class="h51">acceptée</h5>
 
                             <img src="../upload/<?= $postulant['images'] ?>" alt="">
 
@@ -158,10 +158,10 @@ include_once('../controller/controller_niveau_etude_experience.php');
                                     </li>
                                 <?php else : ?>
                                     <li>
-                                        <strong>Niveau : </strong> Non renseigner
+                                        <strong>Niveau : </strong> Non renseigné
                                     </li>
                                     <li>
-                                        <strong>expérience : </strong> Non renseigner
+                                        <strong>expérience : </strong> Non renseignée
                                     </li>
                                 <?php endif; ?>
                                 <li>

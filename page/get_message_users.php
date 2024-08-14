@@ -19,16 +19,6 @@ if (isset($_GET['id'])) {
 
     $message = '';
 
-
-    include_once('../controller/controller_description_users.php');
-    include_once('../controller/controller_metier_users.php');
-    include_once('../controller/controller_competence_users.php');
-    include_once('../controller/controller_formation_users.php');
-    include_once('../controller/controller_diplome_users.php');
-    include_once('../controller/controller_certificat_users.php');
-    include_once('../controller/controller_outil_users.php');
-    include_once('../controller/controller_langue_users.php');
-    include_once('../controller/controller_projet_users.php');
 } else {
 
     if (isset($_COOKIE['users_id'])) {
@@ -69,20 +59,11 @@ if (isset($_GET['id'])) {
 
     // Récupérer l'id du métier à supprimer (via lien ou formulaire par exemple)
 
-
-    include_once('../controller/controller_description_users.php');
-    include_once('../controller/controller_metier_users.php');
-    include_once('../controller/controller_competence_users.php');
-    include_once('../controller/controller_formation_users.php');
-    include_once('../controller/controller_diplome_users.php');
-    include_once('../controller/controller_certificat_users.php');
-    include_once('../controller/controller_outil_users.php');
-    include_once('../controller/controller_langue_users.php');
-    include_once('../controller/controller_projet_users.php');
     include_once('../controller/controller_postulation.php');
     include_once('../entreprise/app/controller/controllerEntreprise.php');
     include_once('../entreprise/app/controller/controllerOffre_emploi.php');
     include_once('../controller/controller_appel_offre.php');
+    include_once('../controller/controller_users.php');
 }
 
 ?>
@@ -180,9 +161,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
        
-
-
-        <?php include('../include/affiche_message.php') ?>
+<?php include ('../include/affiche_message.php') ?>
+      
     </section>
 
 

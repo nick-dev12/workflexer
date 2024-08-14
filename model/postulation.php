@@ -66,7 +66,7 @@ function getPostulation($db, $users_id, $offre_id)
  */
 function getALLPostulation($db, $entreprise_id , $poste)
 {
-    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id AND poste=:poste AND statut = '' ";
+    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id AND poste=:poste AND statut = ''  ORDER BY date DESC";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':poste', $poste, PDO::PARAM_STR);
@@ -74,9 +74,19 @@ function getALLPostulation($db, $entreprise_id , $poste)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getALLPostulation_users($db, $entreprise_id, $users_id)
+{
+    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id AND users_id=:users_id ORDER BY date DESC";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+}
+
 function getALLPostulations($db, $entreprise_id )
 {
-    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id";
+    $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id ORDER BY date DESC";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->execute();
@@ -137,7 +147,7 @@ function affichePostulant($db, $poste_id)
 
 function getPostulationUsers($db, $users_id)
 {
-    $sql = "SELECT * FROM postulation WHERE users_id=:users_id";
+    $sql = "SELECT * FROM postulation WHERE users_id=:users_id  ORDER BY date DESC";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
     $stmt->execute();
