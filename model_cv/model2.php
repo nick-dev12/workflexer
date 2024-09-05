@@ -60,7 +60,7 @@ if (isset($_SESSION['users_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Model2</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -81,11 +81,11 @@ if (isset($_SESSION['users_id'])) {
 
     <section class="section3">
 
+      
 
+
+        <div class="personnalisation">
         <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
-
-
-
         <script>
             // Importez la bibliothèque jsPDF
             function generatePDF() {
@@ -103,9 +103,6 @@ if (isset($_SESSION['users_id'])) {
                 html2pdf().set(mergedOptions).from(element).save("cv.pdf");
             }
         </script>
-
-
-        <div class="personnalisation">
             <div class="box">
                 <p>Couleur de fond des titres principaux </p>
                 <input type="color" name="" id="fontColor">

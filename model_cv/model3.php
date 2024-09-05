@@ -77,10 +77,9 @@ if (isset($_SESSION['users_id'])) {
 
    <section class="section3">
 
-   <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
-
 
    <div class="personnalisation">
+   <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
            
 
             <div class="box">

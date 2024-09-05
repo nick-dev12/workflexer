@@ -99,8 +99,12 @@ body {
   }
 }
 .section3 .personnalisation .box input{
-  width: 70px;
+  width: 60px;
   height: 30px;
+  max-width: 60px;
+  max-height: 30px;
+  min-height: 30px;
+  min-width: 60px;
 }
 
 @media screen and (max-width: 720px){
@@ -712,13 +716,11 @@ body {
           bottom: 0;
           height: 20px;
           width: 100%;
-          background-color: #e6e6e6;
         }
       
         .box1 {
           height: 43%;
           width: 100%;
-          background-color: #e6e6e6;
       
           .item1 {
             margin-top: 20px;
@@ -740,7 +742,6 @@ body {
               }
               h2 {
                 font-size: 14px;
-                color: #636262;
                 text-align: center;
               }
             }
@@ -787,7 +788,6 @@ body {
               ul {
                 li {
                   font-size: 10px;
-                  color: #474747;
                   margin: 5px 10px;
                 }
               }
@@ -916,7 +916,6 @@ body {
           bottom: 0;
           height: 20px;
           width: 100%;
-          background-color: #e6e6e6;
         }
       
         .box1 {
