@@ -86,7 +86,9 @@ if (isset($_SESSION['users_id'])) {
 
     <section class="section3">
 
+       
 
+        <div class="personnalisation">
         <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
         <script>
             // Importez la bibliothèque jsPDF
@@ -105,8 +107,6 @@ if (isset($_SESSION['users_id'])) {
                 html2pdf().set(mergedOptions).from(element).save("cv.pdf");
             }
         </script>
-
-        <div class="personnalisation">
             <div class="box">
                 <p>Couleur de fond des titres principaux </p>
                 <input type="color" name="" id="fontColor">

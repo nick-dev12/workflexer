@@ -26,6 +26,7 @@ session_start();
         <a href="../model_cv/model1.php"><img src="../image/cv2.jpg" alt=""></a>
         <img src="../image/cv1.jpg" alt="">
         <img src="../image/cv3.jpg" alt="">
+        <img src="../image/cv6.jpg" alt="">
         <img src="../image/cv4.jpg" alt="">
         <img src="../image/cv5.jpg" alt="">
     </div>

@@ -127,8 +127,12 @@ header h2 {
   }
 }
 .section3 .personnalisation .box input{
-  width: 70px;
+  width: 60px;
   height: 30px;
+  max-width: 60px;
+  max-height: 30px;
+  min-height: 30px;
+  min-width: 60px;
 }
 
 @media screen and (max-width: 720px){
