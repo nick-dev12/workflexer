@@ -65,9 +65,9 @@
 
             <div class="box3">
             <ul>
-               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> <span class="td">Modifier</span></li></a>
+               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> <span class="td">Paramètres </span></li></a>
 
-               <a href="../page/user_profil.php"> <li class="tr"><img src="../image/a propos.png" alt=""> <span class="td">Mon parcours</span></li></a>
+               <a href="../page/user_profil.php"> <li class="tr"><img src="../image/diplômé.png" alt=""> <span class="td">Mon parcours</span></li></a>
 
                <a href="/model_cv/cv_users.php"> <li class="tr4"><img src="../image/MCV.png" alt=""> <span class="td">Mon CV</span></li></a>
 

@@ -892,7 +892,7 @@ body{
   
   .box_assistance{
     position: fixed;
-    top: 50%;
+    top: 80%;
     right: 20px;
     display: flex;
     align-items: center;
@@ -1086,4 +1086,44 @@ body{
             margin-right: 10px;
         }
     }
+
+    .box_assistance{
+  
+        #contacte{
+          margin-bottom: 5px;
+          padding: 6px 10px;
+          border-radius: 10px;
+          font-size: 14px;
+          cursor: pointer;
+          img{
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+          }
+        }
+      
+        .mail{
+          margin-bottom: 5px;
+          padding: 6px 10px;
+          border-radius: 10px;
+          font-size: 14px;
+          img{
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+          }
+        }
+        
+        
+        .whatsapp{
+          margin-bottom: 5px;
+          padding: 6px 10px;
+          border-radius: 10px;
+          font-size: 14px;
+          img{
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
 }

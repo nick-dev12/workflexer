@@ -19,7 +19,7 @@
 
         <div class="box3">
             <ul><a href="../entreprise/modifier.php">
-                    <li class="tr3"><img src="../image/modifier 1.png" alt=""> <span class="td">Modifier</span></li>
+                    <li class="tr3"><img src="../image/modifier 1.png" alt=""> <span class="td">Paramètres </span></li>
                 </a><a href="../entreprise/entreprise_profil.php">
                     <li class="tr"><img src="../image/entreprise_ic.png" alt=""> <span class="td">Mon entreprise</span>
                     </li>
