@@ -82,11 +82,14 @@ if (isset($_POST['recherche'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../css/aos.css" />
+        <script src="../js/aos.js"></script>
     <link rel="stylesheet" href="../css/offre_d'emploit.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/emploi.css">
+
 </head>
 
 <body>
@@ -182,7 +185,10 @@ if (isset($_POST['recherche'])) {
 
 
     <section class="emploi">
-        <div class="box">
+        <div class="box"  data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/ingénieur.png" alt="">
             <p> Trouvez parmi
                 nos offres le métier qui vous correspond :
@@ -195,7 +201,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/webdesign.jpg" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: designer produit,
@@ -206,7 +215,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/Redaction.jpg" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: rédacteur, traducteur, correcteur,
@@ -217,7 +229,10 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/marketing.jpg" alt="">
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>chef de produit, chargé de
@@ -228,7 +243,10 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/gestion.png" alt="">
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>consultant, gestionnaire de projet,
@@ -242,7 +260,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/juridique.jpg" alt="">
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels <strong>qu'avocat, juriste, notaire, etc.</strong>
@@ -253,7 +274,10 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/info.jpg" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>développeur, ingénieur réseau, data
@@ -265,7 +289,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/finance.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong> expert-comptable, contrôleur de
@@ -279,7 +306,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/santé.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>médecin, infirmier, kinésithérapeute,
@@ -291,7 +321,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/education.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> enseignant, formateur, conseiller en
@@ -304,7 +337,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/tourisme.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>réceptionniste, guide touristique, chef
@@ -317,7 +353,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/vente.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>commercial, responsable de magasin,
@@ -329,7 +368,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/transport.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> logisticien, chauffeur-livreur,
@@ -341,7 +383,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/agriculture.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> agriculteur, ingénieur agronome,
@@ -354,7 +399,10 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up"  data-aos-duration="600"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false">
             <img src="/image/autre.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond, qu'il s'agisse de métiers émergents ou de
@@ -374,6 +422,34 @@ if (isset($_POST['recherche'])) {
     <script src="../js/silder_offres.js"></script>
 
 
+    <script>
+      AOS.init();
+
+// You can also pass an optional settings object
+// below listed default settings
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
+
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});
+    </script>
 
 </body>
 

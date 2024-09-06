@@ -42,7 +42,7 @@ body{
   }
 
   .job-offer .box11 p {
-    font-size: 15px;
+    font-size: 14px;
     margin-top: 5px;
   }
 
@@ -147,13 +147,13 @@ body{
   /* Responsive Design */
 
   @media only screen and (max-width: 600px) {
-    .job-offer .box11 {
+     .box11 {
       width: 99%;
       margin: 0 auto;
     }
-    .job-offer .box11 .description p  {
+    .job-offer .box11 p {
       font-size: 12px;
-      text-align: center;
+      margin-top: 5px;
     }
     .job-offer {
       width: 99%;
