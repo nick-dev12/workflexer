@@ -109,7 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
   
-  <title>connection</title>
+  <title>connexion</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="../css/navbare.css">
@@ -132,7 +132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="formulaire1  ">
       <img src="/image/undraw_secure_login_pdn4.svg" alt="">
       <form method="post" action="">
-        <h3>Connection</h3>
+        <h3>Connexion</h3>
 
 
         <?php if (isset($erreurs)) : ?>
@@ -152,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <input type="submit" name="valider" value="valider" id="valider">
 
-        <a href="/page/mdp_oublier.php">Mot de passe oublier ?</a>
+        <a href="/page/mdp_oublier.php">Mot de passe oublié ?</a>
       </form>
     </div>
   </section>

@@ -113,7 +113,7 @@ if (isset($_GET['users_id'])) {
 
       postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $sujet, $date);
 
-      $_SESSION['success_message'] = 'Message envoyer';
+      $_SESSION['success_message'] = 'Message envoyé';
       header("Location: get_message_users2.php?entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id']);
       exit;
     }
@@ -175,7 +175,7 @@ if (isset($_GET['offres_id'])) {
 
       postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $sujet, $date);
 
-      $_SESSION['success_message'] = 'Message envoyer';
+      $_SESSION['success_message'] = 'Message envoyé';
       header("Location: message_entreprise.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
       exit;
     }
@@ -229,7 +229,7 @@ if (isset($_GET['offres_id'])) {
       }
       postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $sujet, $date);
 
-      $_SESSION['success_message'] = 'Message envoyer';
+      $_SESSION['success_message'] = 'Message envoyé';
       header("Location: get_message_users.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
       exit();
     }
@@ -500,6 +500,7 @@ if (isset($_SESSION['users_id'])) {
 
   $notif_suivi = get_notif_suiviAccepter($db, $_SESSION['users_id']);
   $count_notif_suivi = count($notif_suivi);
+  
 
   $notif_suiviRecaler = get_notif_suiviRecaler($db, $_SESSION['users_id']);
   $count_notif_suiviRecaler = count($notif_suiviRecaler);

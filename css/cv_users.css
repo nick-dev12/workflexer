@@ -86,3 +86,12 @@ header h2 {
     height: 500px;
     margin: 20px 30px;
 }
+@media screen and (max-width : 650px){
+
+  .section3 .model a img{
+    height: 350px;
+    margin: 20px 30px;
+    object-fit: cover;
+}
+}
+

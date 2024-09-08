@@ -101,6 +101,17 @@ function getOffresEmplois($db, $entreprise_id)
     return $stmt->fetchALL(PDO::FETCH_ASSOC);
 }
 
+function getOffresEmplois_suprimer($db, $entreprise_id)
+{
+    $sql = "SELECT * FROM offre_suprimer t1
+    JOIN compte_entreprise t2 ON t1.entreprise_id = t2.id
+     WHERE entreprise_id = :entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchALL(PDO::FETCH_ASSOC);
+}
+
 function selectOffre($db, $entreprise_id)
 {
     $sql = "SELECT * FROM offre_emploi WHERE entreprise_id = :entreprise_id ";

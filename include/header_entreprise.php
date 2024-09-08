@@ -46,7 +46,10 @@
                     <li class="tr6"><img src="../image/valider.png" alt=""> <span class="td">Candidat accepter</span></li>
                 </a>
                 <a href="../entreprise/offre_expirer.php">
-                    <li class="tr6"><img src="../image/Expiration.png" alt=""> Offre expirer</li>
+                    <li class="tr7"><img src="../image/Expiration.png" alt=""> Offre expirer</li>
+                </a>
+                <a href="../entreprise/offre_suprimer.php">
+                    <li class="tr8"><img src="../image/supprimé.png" alt=""> Offre suprimer</li>
                 </a>
                 <a href="../entreprise/historique.php">
                     <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li>
@@ -93,7 +96,7 @@
                 </a>
 
                 <a href="../entreprise/message.php?supp1= <?= $_SESSION['compte_entreprise'] ?>">
-                    <li class="tr2"><img src="../image/modifier.png" alt="">
+                    <li class="tr2"><img src="../image/message.png" alt="">
                         <?php if (empty($afficheNotificationMessage)): ?>
 
                         <?php else: ?>
@@ -109,7 +112,9 @@
                 <a href="../entreprise/offre_expirer.php">
                     <li class="tr6"><img src="../image/Expiration.png" alt=""></li>
                 </a>
-
+                <a href="../entreprise/offre_suprimer.php">
+                    <li class="tr6"><img src="../image/supprimé.png" alt=""> </li>
+                </a>
                 <a href="../entreprise/historique.php">
                     <li class="tr5"><img src="../image/historique.png" alt=""></li>
                 </a>

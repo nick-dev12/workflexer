@@ -18,6 +18,14 @@ function getOffres($db, $offre_id) {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function getOffres_suprimer($db, $offre_id) {
+    $sql = "SELECT * FROM offre_suprimer WHERE offre_id = :offre_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 function getAllOffres($db){
     $sql = "SELECT * FROM offre_emploi ";
     $stmt = $db->prepare($sql);
@@ -41,6 +49,31 @@ function updatOffre($db,$poste,$mission,$profil,$contrat,$etudes,$experience,$lo
     $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
      return  $stmt->execute();
+}
+
+function post_suprime_offre($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)
+{
+
+    $sql = "INSERT INTO offre_suprimer (entreprise_id,poste,mission,profil,contrat,etudes,experience,n_etudes,n_experience,localite,langues, places, date_expiration,categorie,date)
+    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:n_etudes,:n_experience,:localite,:langues, :places, :date_expiration,:categorie,:date)";
+    $stmt = $db->prepare($sql);
+    // Bind de chaque paramètre
+    $stmt->bindParam(':entreprise_id', $entreprise_id);
+    $stmt->bindParam(':poste', $poste);
+    $stmt->bindParam(':mission', $mission);
+    $stmt->bindParam(':profil', $profil);
+    $stmt->bindParam(':contrat', $contrat);
+    $stmt->bindParam(':etudes', $etudes);
+    $stmt->bindParam(':experience', $experience);
+    $stmt->bindParam(':n_etudes', $n_etudes);
+    $stmt->bindParam(':n_experience', $n_experience);
+    $stmt->bindParam(':localite', $localite);
+    $stmt->bindParam(':langues', $langues);
+    $stmt->bindParam(':places', $places);
+    $stmt->bindParam(':date_expiration', $date_expiration);
+    $stmt->bindParam(':categorie', $categorie);
+    $stmt->bindParam(':date', $date);
+    return $stmt->execute();
 }
 
 
@@ -170,6 +203,12 @@ function deleteOffresEmploit($db,$offre_id){
     $stmt->bindValue(':offre_id',$offre_id, PDO::PARAM_INT);
     return  $stmt->execute();
 }
+function deleteOffresEmploit_suprimer($db,$offre_id){
+    $sql= "DELETE FROM offre_suprimer WHERE offre_id=:offre_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id',$offre_id, PDO::PARAM_INT);
+    return  $stmt->execute();
+}
 function deletePostulation($db,$offre_id){
     $sql= "DELETE FROM postulation WHERE offre_id=:offre_id";
     $stmt = $db->prepare($sql);
@@ -213,6 +252,16 @@ function get_poste ($db, $entreprise_id, $categorie){
 
 function restoreOffre($db, $offre_id ,$entreprise_id, $new_date_expiration){
     $sql = "UPDATE offre_emploi SET statut = 'publiee' , date_expiration = :date_expiration WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id ,PDO::PARAM_INT);
+    $stmt->bindValue(':entreprise_id', $entreprise_id ,PDO::PARAM_INT);
+    $stmt->bindValue(':date_expiration', $new_date_expiration );
+    $stmt->execute();
+    return $stmt->rowCount();
+}
+
+function restorerOffre($db, $offre_id ,$entreprise_id, $new_date_expiration){
+    $sql = "UPDATE offre_suprimer SET statut = 'publiee' , date_expiration = :date_expiration WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':offre_id', $offre_id ,PDO::PARAM_INT);
     $stmt->bindValue(':entreprise_id', $entreprise_id ,PDO::PARAM_INT);

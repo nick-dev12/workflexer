@@ -185,10 +185,9 @@ if (isset($_POST['recherche'])) {
 
 
     <section class="emploi">
-        <div class="box"  data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box"  data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/ingénieur.png" alt="">
             <p> Trouvez parmi
                 nos offres le métier qui vous correspond :
@@ -201,10 +200,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/webdesign.jpg" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: designer produit,
@@ -215,10 +213,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/Redaction.jpg" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond <strong>: rédacteur, traducteur, correcteur,
@@ -229,10 +226,9 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/marketing.jpg" alt="">
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>chef de produit, chargé de
@@ -243,10 +239,9 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/gestion.png" alt="">
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels que <strong>consultant, gestionnaire de projet,
@@ -260,10 +255,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/juridique.jpg" alt="">
             <p>
                 Trouvez votre voie parmi nos offres de métiers tels <strong>qu'avocat, juriste, notaire, etc.</strong>
@@ -274,10 +268,9 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/info.jpg" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>développeur, ingénieur réseau, data
@@ -289,10 +282,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/finance.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong> expert-comptable, contrôleur de
@@ -306,10 +298,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/santé.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>médecin, infirmier, kinésithérapeute,
@@ -321,10 +312,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/education.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> enseignant, formateur, conseiller en
@@ -337,10 +327,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/tourisme.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>réceptionniste, guide touristique, chef
@@ -353,10 +342,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/vente.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond : <strong>commercial, responsable de magasin,
@@ -368,10 +356,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/transport.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> logisticien, chauffeur-livreur,
@@ -383,10 +370,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/agriculture.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond :<strong> agriculteur, ingénieur agronome,
@@ -399,10 +385,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/autre.png" alt="">
             <p>
                 Trouvez parmi nos offres le métier qui vous correspond, qu'il s'agisse de métiers émergents ou de

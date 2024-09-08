@@ -2,15 +2,25 @@
 session_start();
 include '../conn/conn.php';
 
-if (isset($_GET['supp4'])) {
-    $users_id = $_GET['supp4'];
-    $sql = "DELETE FROM notification_suivi WHERE users_id=:users_id ";
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_INT);
-    $stmt->execute();
-
-    header("Location: mes_demande.php");
-    exit();
+if($_SESSION['users_id']){
+    if (isset($_GET['supp4'])) {
+        $users_id = $_GET['supp4'];
+        $sql = "DELETE FROM notification_suivi WHERE users_id=:users_id AND statut='recaler'";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':users_id', $users_id, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        header("Location: mes_demande.php");
+        exit();
+    }
+ 
+    if (isset($_GET['supp2'])) {
+        $users_id = $_GET['supp2'];
+        $sql = "DELETE FROM notification_suivi WHERE users_id=:users_id AND statut='accepter'";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':users_id', $users_id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }
 
 include_once('../controller/controller_postulation.php');
@@ -108,7 +118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Ici apparaîtront les candidatures</p>
             <div class="container_accept">
             <?php if( empty($getPostulationUsers)): ?>
-                    <p><strong>Info :</strong> aucune Candidature trouvé !!</p> 
+                    <p><strong>Info :</strong> aucune Candidatures trouvées !!</p> 
                     <?php else: ?>
                 <?php foreach ($getPostulationUsers as $postulationUsers): ?>
                     <?php $getOffreEmploie = getOffresEmploit($db,$postulationUsers['offre_id']);
