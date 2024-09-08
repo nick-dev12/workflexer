@@ -175,3 +175,10 @@ function notification_postulation($db,$entreprise_id,$users_id) {
         $stmt->execute();
 }
 
+
+function delete_notif_suiviAccepter($db,$users_id) {
+    $sql = "DELETE from notification_suivi WHERE users_id = :users_id  AND statut = 'accepter' ";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":users_id", $users_id, );
+        $stmt->execute();
+}

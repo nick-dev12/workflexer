@@ -16,6 +16,7 @@ if (isset($_SESSION['compte_entreprise'])) {
     $selecteOffre = selectOffre($db, $getEntreprise['id']);
 
     $afficheOffreEmplois = getOffresEmplois($db, $getEntreprise['id']);
+    $afficheOffreEmplois_suprimer = getOffresEmplois_suprimer($db, $getEntreprise['id']);
 
 }
 

@@ -50,7 +50,7 @@ include_once('app/controller/controllerOffre_emploi.php');
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/css/offre_expirer.css">
+    <link rel="stylesheet" href="/css/offre_suprimer.css">
     <link rel="stylesheet" href="../css/navbare.css">
 </head>
 
@@ -112,9 +112,9 @@ include_once('app/controller/controllerOffre_emploi.php');
 
         <div class="container_box2">
             <div class="box1">
-                <h1>Mes offres expirées</h1>
+                <h1>Mes offres suprimé</h1>
                 <span>
-                    <?php $countOffre = count($afficheOffreEmplois);
+                    <?php $countOffre = count($afficheOffreEmplois_suprimer);
                     echo $countOffre
                     ?>
                 </span>
@@ -122,19 +122,18 @@ include_once('app/controller/controllerOffre_emploi.php');
 
             <div class="box2">
                 <?php
-                if (empty($afficheOffreEmplois)) :
+                if (empty($afficheOffreEmplois_suprimer)) :
                 ?>
-                    <p class="info"><strong>Info!</strong> Aucune offre d’emplois publier ! veuillez ajouter une offre</p>
+                    <p class="info"><strong>Info!</strong> Aucune offre d’emplois suprimé !</p>
                 <?php else : ?>
 
                     <?php
-                    foreach ($afficheOffreEmplois as $offres) :
+                    foreach ($afficheOffreEmplois_suprimer as $offres) :
                     ?>
-                    <?php if($offres['statut'] === 'expirée'): ?>
 
                         <?php $countOffre = countOffre($db, $offres['entreprise_id'], $offres['offre_id']); ?>
                         <div class="carousel">
-                        <a class="suprimer" href="?offre_id=<?= $offres['offre_id']; ?>"> Supprimer</a>
+                        <a class="suprimer" href="?offre_id_suprime=<?= $offres['offre_id']; ?>"> Supprimer</a>
                         <div class="vue">
                                     <img src="../image/vue.png" alt="">
                                     <span>
@@ -173,11 +172,10 @@ include_once('app/controller/controllerOffre_emploi.php');
                             </p>
 
                             <div class="liens">
-                                <a  class="restore" href="../entreprise/updat_offre.php?restore=<?= $offres['offre_id'] ?>"><img src="../image/restore.png" alt=""></span>Republier l'offre</a>
+                                <a  class="restore" href="?restorer=<?= $offres['offre_id'] ?>"><img src="../image/restore.png" alt=""></span>Republier l'offre</a>
                             </div>
 
                         </div>
-                        <?php endif ?>
                     <?php endforeach; ?>
                 <?php endif ?>
 

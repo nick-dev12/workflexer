@@ -59,13 +59,13 @@
 
             <div class="box2">
                 <h3>
-                    <?php echo $users['competences']; ?> et ingenieur des mine 
+                    <?php echo $users['competences']; ?> 
                 </h3>
             </div>
 
             <div class="box3">
             <ul>
-               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> <span class="td">Paramètres </span></li></a>
+               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier 1.png" alt=""> <span class="td">Paramètres </span></li></a>
 
                <a href="../page/user_profil.php"> <li class="tr"><img src="../image/diplômé.png" alt=""> <span class="td">Mon parcours</span></li></a>
 
@@ -125,27 +125,23 @@
 
             <div class="box3">
             <ul>
-               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier.png" alt=""> </li></a>
+               <a href="../page/modifier.php"> <li class="tr3"><img src="../image/modifier 1.png" alt=""> </li></a>
 
                <a href="../page/user_profil.php"> <li class="tr"><img src="../image/a propos.png" alt=""> </li></a>
 
                <a href="/model_cv/cv_users.php"> <li class="tr4"><img src="../image/MCV.png" alt=""></li></a>
 
                <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>"> <li class="tr1"><img src="../image/mdep.png" alt="">
-               <?php if(empty($notif_suivi) OR empty($notif_suiviRecaler)) :?>
+               <?php if(($notif_suivi) OR ($notif_suiviRecaler)) :?>
+               <em><?= $count_notif_suivi + $count_notif_suiviRecaler ?></em>
                 <?php else :?>
-               <?php if(isset($notif_suivi) OR isset($notif_suiviRecaler)) :?>
-                        <em><?= $count_notif_suivi + $count_notif_suiviRecaler ?></em>
-                    <?php endif ;?>
                     <?php endif ;?>
             </li></a>
 
             <a  href="../page/candature_accepter.php"> <li class="tr10"><img src="../image/reussi.png" alt=""> <span class="td"></span>
-            <?php if(empty($notif_suivi) OR empty($notif_suiviRecaler)) :?>
+            <?php if($notif_suivi) :?>
+            <em><?= $count_notif_suivi ?></em>
                 <?php else :?>
-               <?php if(isset($notif_suivi)) :?>
-                        <em><?= $count_notif_suivi ?></em>
-                    <?php endif ;?>
                     <?php endif ;?>
         
         </li></a> 

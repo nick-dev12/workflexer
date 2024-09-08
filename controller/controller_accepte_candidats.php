@@ -173,7 +173,7 @@ if (isset($_GET['accepter'])) {
 
         if (AccepteCandidats($db, $statut, $poste_id)) {
             if (notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut)) {
-                $_SESSION['success_message'] = 'Candidat accepter';
+                $_SESSION['success_message'] = 'Candidat accepté';
                 header('Location: ../page/candidature.php');
             }
             exit();
@@ -350,7 +350,7 @@ if (isset($_GET['recaler'])) {
         if (recalerCandidats($db, $statut, $poste_id)) {
 
             if (notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut)) {
-                $_SESSION['success_message'] = 'Candidat recaler!';
+                $_SESSION['success_message'] = 'Candidat recalé!';
                 header('Location: ../page/candidature.php');
                 exit();
             }

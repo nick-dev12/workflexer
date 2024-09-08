@@ -345,7 +345,7 @@ include_once('app/controller/controllerOffre_emploi.php');
                 <?php
                 if (empty($afficheOffreEmplois)) :
                 ?>
-                    <p class="info"><strong>Info!</strong> Aucune offre d’emplois publier ! veuillez ajouter une offre</p>
+                    <p class="info"><strong>Info!</strong> Aucune offres d’emplois publiée ! veuillez ajouter une offre</p>
                 <?php else : ?>
 
                     <?php

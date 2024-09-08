@@ -105,19 +105,11 @@ include_once ('controller/controller_users.php');
 <section class="partie-box">
     <div class="box1">
         <h1  data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+   >
             Trouvez le candidat idéal pour votre offre d'emploi
         </h1>
         <p data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+   >
             Work-Flexer est une plateforme qui permet aux recruteurs de
             trouver et de se connecter facilement avec des candidats qualifiés pour leurs offres d'emploi.
         </p>
@@ -125,11 +117,7 @@ include_once ('controller/controller_users.php');
         <div class="div4"></div>
     </div>
     <div class="box2" data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+   >
         <img src="/image/rain_background.png" alt="" class="img1">
         <img src="/image/etudiant1.png" alt="" class="img2">
     </div>
@@ -156,19 +144,11 @@ include_once ('controller/controller_users.php');
     <section class="reference">
     <div class="container">
         <div class="box1" data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+   >
             <img src="/image/defi.png" alt="">
         </div>
         <div class="box2" data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+   >
             <h1>Notre Vision :  </h1>
             <p>Permettre à chaque individu de construire un avenir professionnel prometteur et de devenir l’architecte de sa propre réussite.</p>
         </div>
@@ -176,19 +156,11 @@ include_once ('controller/controller_users.php');
 
     <div class="container">
         <div class="box1" data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+   >
             <img src="/image/ambitio.png" alt="">
         </div>
         <div class="box2" data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+   >
             <h1>Notre Engagement : </h1>
             <p>Faire croître votre stature professionnelle et positionner votre entreprise comme un acteur de premier plan dans votre secteur.</p>
         </div>
@@ -272,22 +244,10 @@ include_once ('controller/controller_users.php');
 
     <div class="div_section">
         <div class="box">
-            <img data-aos="fade-right" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false" src="/image/image-2.png" alt="">
+            <img data-aos="fade-right" src="/image/image-2.png" alt="">
             <div class="item">
-                <h1 data-aos="fade-right" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">Adoptez un ton affirmatif et confiant</h1>
-                <p data-aos="fade-right" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+                <h1 data-aos="fade-right">Adoptez un ton affirmatif et confiant</h1>
+                <p data-aos="fade-right">
                     Découvrez les meilleurs freelances avec Work-Flexer !
                     Trouvez rapidement le talent idéal pour vos projets,
                     que ce soit un développeur, un designer ou un expert en
@@ -300,17 +260,9 @@ include_once ('controller/controller_users.php');
 
     <div class="div_section">
         <div class="box">
-            <div class="item" data-aos="fade-left" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+            <div class="item" data-aos="fade-left">
                 <h1>Recrutez en Toute Confiance avec Notre Plateforme de Recrutement</h1>
-                <p data-aos="fade-left" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+                <p data-aos="fade-left">
                     Simplifiez votre recrutement avec Work-Flexer ! Publiez vos offres
                     d'emploi en quelques clics, découvrez des candidats qualifiés qui
                     correspondent à votre entreprise et aux exigences du marché. Trouvez
@@ -318,11 +270,7 @@ include_once ('controller/controller_users.php');
                     La recherche de candidats exceptionnels n'a jamais été aussi simple.
                 </p>
             </div>
-            <img data-aos="fade-left" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false" src="/image/image3.png" alt="">
+            <img data-aos="fade-left" src="/image/image3.png" alt="">
         </div>
     </div>
 
@@ -330,19 +278,11 @@ include_once ('controller/controller_users.php');
 
 
     <section class="n_section2">
-        <div class="div" data-aos="zoom-in" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="div" data-aos="zoom-in">
             <h1>Application Android disponible</h1>
             <a href="/apk/work-flexer_2_2.0.apk">Telecharger</a>
         </div>
-        <div class="box" data-aos="zoom-in" data-aos-offset="200"
-    data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="zoom-in">
             <img class="img1" src="/image/android.png" alt="">
             <img class="img2" src="/image/resp1.png" alt="">
         </div>
@@ -815,30 +755,6 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
     <script>
       AOS.init();
 
-// You can also pass an optional settings object
-// below listed default settings
-AOS.init({
-  // Global settings:
-  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-  initClassName: 'aos-init', // class applied after initialization
-  animatedClassName: 'aos-animate', // class applied on animation
-  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-  
-
-  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 120, // offset (in px) from the original trigger point
-  delay: 0, // values from 0 to 3000, with step 50ms
-  duration: 400, // values from 0 to 3000, with step 50ms
-  easing: 'ease', // default easing for AOS animations
-  once: false, // whether animation should happen only once - while scrolling down
-  mirror: false, // whether elements should animate out while scrolling past them
-  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-});
     </script>
 </body>
 

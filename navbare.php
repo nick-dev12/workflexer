@@ -1,6 +1,9 @@
 <?php
 include ('conn/conn.php');
 
+include('entreprise/app/controller/controllerEntreprise.php');
+include('controller/controller_users.php');
+
 
 if (isset($_SESSION['users_id'])) {
     // L'utilisateur est connecté, récupérez son ID
@@ -130,7 +133,7 @@ include (__DIR__ . '/controller/controller_statut_offre.php');
                 <a href="/page/mes_demande.php?supp4= <?= $_SESSION['users_id'] ?>">
                     <div class="item">
                         <img src="/image/notif.png" alt="">
-                        <p>Vous avez <span><?= $count_notif_suiviRecaler ?></span> candidature(s) recaler</p>
+                        <p>Vous avez <span><?= $count_notif_suiviRecaler ?></span> candidature(s) recalée(s)</p>
                     </div>
                 </a>
             <?php endif; ?>
@@ -138,10 +141,10 @@ include (__DIR__ . '/controller/controller_statut_offre.php');
 
             <?php if (empty($notif_suivi)): ?>
             <?php else: ?>
-                <a href="/page/candidature.php?supp2= <?= $_SESSION['users_id'] ?>">
+                <a href="/page/mes_demande.php?supp2= <?= $_SESSION['users_id'] ?>">
                     <div class="item">
                         <img src="/image/notif.png" alt="">
-                        <p>Vous avez <span><?= $count_notif_suivi ?></span> candidature(s) accepter</p>
+                        <p>Vous avez <span><?= $count_notif_suivi ?></span> candidature(s) acceptée(s)</p>
                     </div>
                 </a>
             <?php endif; ?>

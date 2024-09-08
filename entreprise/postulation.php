@@ -134,7 +134,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                     <div class="container owl-carousel teste">
                         <?php if (empty($getALLpostulation)): ?>
                             <p class="info">
-                                <strong>Info!</strong> Aucune candidature trouvée pour ce poste.
+                                <strong>Info!</strong> Aucune candidatures trouvées pour ce poste.
                             </p>
                         <?php else: ?>
                             <?php foreach ($getALLpostulation as $postulant): ?>
@@ -153,7 +153,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
 
                                         <?php if (empty($postulant['statut'] == '')): ?>
 
-                                            <h6>accune candidature a traiter pour le moment!</h6>
+                                            <h6>accune candidatures a traitées pour le moment!</h6>
 
                                         <?php else: ?>
                                             <div class="items">
@@ -163,7 +163,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                                                     <?php if ($postulant['statut'] == 'recaler'): ?>
                                                         <h5 class="h52">recaler</h5>
                                                     <?php else: ?>
-                                                        <h5 class="h53">non traiter</h5>
+                                                        <h5 class="h53">non traitée</h5>
                                                     <?php endif; ?>
                                                 <?php endif; ?>
 

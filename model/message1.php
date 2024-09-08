@@ -222,6 +222,7 @@ function get_notif_suiviAccepter($db,$users_id) {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 function get_notif_suiviRecaler($db,$users_id) {
     $sql = "SELECT * from notification_suivi WHERE users_id = :users_id AND statut = 'recaler'";
         $stmt = $db->prepare($sql);

@@ -199,10 +199,9 @@ if (isset($_POST['recherche'])) {
 
 
     <section class="emploi">
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/ingenieur.jpeg" alt="">
             <p>
                 Vous cherchez des professionnels qualifiés en ingénierie et architecture pour mener à bien vos projets
@@ -213,10 +212,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/webdesign.jpg" alt="">
             <p>
                 Vous avez besoin de professionnels créatifs pour donner vie à vos projets de design ?
@@ -226,10 +224,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/Redaction.jpg" alt="">
             <p>
                 Vous cherchez des rédacteurs et traducteurs qualifiés pour vos projets de communication ?
@@ -238,10 +235,9 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/marketing.jpg" alt="">
             <p>
                 Vous cherchez des professionnels du marketing et de la communication pour promouvoir votre entreprise et
@@ -252,10 +248,9 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/gestion.png" alt="">
             <p>
                 Vous cherchez des professionnels du conseil et de la gestion d'entreprise pour optimiser vos
@@ -268,10 +263,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/juridique.jpg" alt="">
             <p>
                 Vous cherchez des professionnels du droit pour vous conseiller et vous accompagner dans vos démarches
@@ -282,10 +276,9 @@ if (isset($_POST['recherche'])) {
         </div>
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/info.jpg" alt="">
             <p>
                 Vous cherchez des professionnels de l'informatique et de la tech pour développer vos projets numériques
@@ -296,10 +289,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/finance.png" alt="">
             <p>
                 Vous cherchez des professionnels de la finance et de la comptabilité pour gérer vos finances et votre
@@ -312,10 +304,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/santé.png" alt="">
             <p>
                 Vous cherchez des professionnels de la santé et du bien-être pour prendre soin de vos employés et de vos
@@ -327,10 +318,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/education.png" alt="">
             <p>
                 Vous cherchez des professionnels de l'éducation et de la formation pour former et développer les
@@ -343,10 +333,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/tourisme.png" alt="">
             <p>
                 Vous cherchez des professionnels du tourisme et de l'hôtellerie pour offrir des expériences inoubliables
@@ -359,10 +348,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/vente.png" alt="">
             <p>
                 Vous cherchez des professionnels du commerce et de la vente pour développer vos ventes et votre chiffre
@@ -374,10 +362,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/transport.png" alt="">
             <p>
                 ous cherchez des professionnels du transport et de la logistique pour optimiser vos chaînes
@@ -389,10 +376,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/agriculture.png" alt="">
             <p>
                 ous cherchez des professionnels de l'agriculture et de l'agroalimentaire pour améliorer votre production
@@ -405,10 +391,9 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box" data-aos="fade-up"  data-aos-duration="600"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false">
+        <div class="box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
+                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                        data-aos-anchor-placement="top-right">
             <img src="/image/autre.png" alt="">
             <h1>Autre</h1>
             <p>
