@@ -4,7 +4,7 @@ session_start();
 // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
 
-include_once ('controller/controller_users.php');
+include_once('controller/controller_users.php');
 
 ?>
 
@@ -27,7 +27,7 @@ include_once ('controller/controller_users.php');
     <!-- End Google Tag Manager -->
 
     <link rel="icon" href="../image/logo.png" type="image/x-icon">
-    <title>Bienvenu</title>
+    <title>Bienvenue</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/aos.css" />
     <script src="../js/aos.js"></script>
@@ -42,86 +42,81 @@ include_once ('controller/controller_users.php');
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <?php include ('navbare.php') ?>
+    <?php include('navbare.php') ?>
 
 
     <!-- menu carousel slider -->
     <div class="slider-area owl-carousel">
-    <div class="slider-item">
-        <img src="/image/image1.png" alt="">
-        <div class="box">
-            <h1 > <span>Work</span><span>-Flexer</span> une plateforme de mise en relation </h1>
-            <p >La plateforme de professionnalisation qui relie entreprises, entrepreneurs,
-                travailleurs et
-                étudiants
-                dans tous les domaines confondus.
+        <div class="slider-item">
+            <img src="/image/image1.png" alt="">
+            <div class="box">
+                <h1> <span>Work</span><span>-Flexer</span> une plateforme de mise en relation </h1>
+                <p>La plateforme de professionnalisation qui relie entreprises, entrepreneurs,
+                    travailleurs et
+                    étudiants
+                    dans tous les domaines confondus.
+                </p>
+                <a href="/inscription.php">Commencer</a>
+            </div>
+        </div>
+        <div class="slider-item">
+            <img src="/image/mission.png" alt="">
+            <div class="box">
+                <h1>Nos Services</h1>
+                <p>Découvrez notre gamme complète de services spécialisés, conçus pour répondre à vos besoins uniques et
+                    stimuler votre succès commercial. De la création de sites internet sur mesure à l'audit marketing en
+                    passant par la traduction multilingue, nous sommes là pour vous aider à atteindre vos objectifs.</p>
+                <a href="/inscription.html">Commencer</a>
+            </div>
+        </div>
+        <div class="slider-item">
+            <img src="/image/Backgroudn-domaines-epita.jpg" alt="">
+            <div class="box">
+                <h1>Domaines d'expertise</h1>
+                <p>Découvrez nos compétences spécialisées dans l'informatique,
+                    le marketing, la finance, les ressources humaines, le droit,
+                    l'ingénierie et bien d'autres domaines. Nous sommes là pour répondre
+                    à vos besoins professionnels avec expertise et professionnalisme.</p>
+            </div>
+        </div>
+        <div class="slider-item">
+            <img src="/image/duré.jpg" alt="">
+            <div class="box">
+                <h1>Flexibilité des missions</h1>
+                <p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos
+                    besoins. Que vous recherchiez des opportunités en freelance à court terme, des
+                    engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
+            </div>
+        </div>
+        <div class="slider-item">
+            <img src="/image/Quand-la-participation.jpg" alt="">
+            <div class="box">
+                <h1>Boostez votre flexibilité</h1>
+                <p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à
+                    notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne
+                    renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="partie-box">
+        <div class="box1">
+            <h1 data-aos="fade-up">
+                Trouvez le candidat idéal pour votre offre d'emploi
+            </h1>
+            <p data-aos="fade-up">
+                Work-Flexer est une plateforme qui permet aux recruteurs de
+                trouver et de se connecter facilement avec des candidats qualifiés pour leurs offres d'emploi.
             </p>
-            <a  href="/inscription.php">Commencer</a>
+            <a href="/inscription.php">Commencer dès maintenant!</a>
+            <div class="div4"></div>
         </div>
-    </div>
-    <div class="slider-item">
-        <img src="/image/mission.png" alt="">
-        <div class="box">
-            <h1>Nos Services</h1>
-            <p>Découvrez notre gamme complète de services spécialisés conçus
-                pour répondre à vos besoins uniques et stimuler votre succès
-                commercial. De la création de sites internet sur mesure à l'audit
-                marketing en passant par la traduction multilingue, nous sommes là pour
-                vous aider à atteindre vos objectifs.</p>
-            <a href="/inscription.html">Commencer</a>
+        <div class="box2" data-aos="fade-up">
+            <img src="/image/rain_background.png" alt="" class="img1">
+            <img src="/image/etudiant1.png" alt="" class="img2">
         </div>
-    </div>
-    <div class="slider-item">
-        <img src="/image/Backgroudn-domaines-epita.jpg" alt="">
-        <div class="box">
-            <h1>Domaines d'Expertise</h1>
-            <p>Découvrez nos compétences spécialisées dans l'informatique,
-                le marketing, la finance, les ressources humaines, le droit,
-                l'ingénierie et bien d'autres domaines. Nous sommes là pour répondre
-                à vos besoins professionnels avec expertise et professionnalisme.</p>
-        </div>
-    </div>
-    <div class="slider-item">
-        <img src="/image/duré.jpg" alt="">
-        <div class="box">
-            <h1>Flexibilité des Missions</h1>
-            <p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos
-                besoins. Que vous recherchiez des opportunités en freelance à court terme, des
-                engagements à long terme ou des postes à temps plein, nous avons ce qu'il vous faut.</p>
-        </div>
-    </div>
-    <div class="slider-item">
-        <img src="/image/Quand-la-participation.jpg" alt="">
-        <div class="box">
-            <h1>Boostez Votre Flexibilité</h1>
-            <p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à
-                notre expertise en référencement. Profitez d'une visibilité accrue et d'une présence en ligne
-                renforcée pour atteindre vos objectifs commerciaux avec succès.</p>
-        </div>
-    </div>
-</div>
-
-
-<section class="partie-box">
-    <div class="box1">
-        <h1  data-aos="fade-up"
-   >
-            Trouvez le candidat idéal pour votre offre d'emploi
-        </h1>
-        <p data-aos="fade-up"
-   >
-            Work-Flexer est une plateforme qui permet aux recruteurs de
-            trouver et de se connecter facilement avec des candidats qualifiés pour leurs offres d'emploi.
-        </p>
-        <a href="/inscription.php">Commencer dès maintenant!</a>
-        <div class="div4"></div>
-    </div>
-    <div class="box2" data-aos="fade-up"
-   >
-        <img src="/image/rain_background.png" alt="" class="img1">
-        <img src="/image/etudiant1.png" alt="" class="img2">
-    </div>
-</section>
+    </section>
 
 
 
@@ -142,30 +137,28 @@ include_once ('controller/controller_users.php');
 
 
     <section class="reference">
-    <div class="container">
-        <div class="box1" data-aos="fade-up"
-   >
-            <img src="/image/defi.png" alt="">
+        <div class="container">
+            <div class="box1" data-aos="fade-up">
+                <img src="/image/defi.png" alt="">
+            </div>
+            <div class="box2" data-aos="fade-up">
+                <h1>Notre Vision : </h1>
+                <p>Permettre à chaque individu de construire un avenir professionnel prometteur et de devenir
+                    l'architecte de sa propre réussite.</p>
+            </div>
         </div>
-        <div class="box2" data-aos="fade-up"
-   >
-            <h1>Notre Vision :  </h1>
-            <p>Permettre à chaque individu de construire un avenir professionnel prometteur et de devenir l’architecte de sa propre réussite.</p>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="box1" data-aos="fade-up"
-   >
-            <img src="/image/ambitio.png" alt="">
+        <div class="container">
+            <div class="box1" data-aos="fade-up">
+                <img src="/image/ambitio.png" alt="">
+            </div>
+            <div class="box2" data-aos="fade-up">
+                <h1>Notre Engagement : </h1>
+                <p>Faire croître votre stature professionnelle et positionner votre entreprise comme un acteur de
+                    premier plan dans votre secteur.</p>
+            </div>
         </div>
-        <div class="box2" data-aos="fade-up"
-   >
-            <h1>Notre Engagement : </h1>
-            <p>Faire croître votre stature professionnelle et positionner votre entreprise comme un acteur de premier plan dans votre secteur.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -290,102 +283,76 @@ include_once ('controller/controller_users.php');
 
 
     <section class="service">
-    <div class="container">
-        <h1>Entreprise</h1>
-        <h3>Services</h3>
-        <div class="box">
-            <ul>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Publication d'offres illimitées</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Mise à jour des publications illimitées</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Appel d'offres intégré et illimité</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Système de messagerie intégré</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Système de suivi de candidature intégré</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Système de gestion d'offres complet</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Outils d'analyse des candidatures</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Notifications automatiques des nouvelles candidatures</li>
-            </ul>
-            <a class="a" href="/compte_entreprise.php">Inscription gratuite</a>
+        <div class="container">
+            <h1>Entreprise</h1>
+            <h3>Services</h3>
+            <div class="box">
+                <ul>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Publication d'offres illimitées</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Mise à jour des publications
+                        illimitées</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Appel d'offres intégré et illimité
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de messagerie intégré</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de suivi de candidature
+                        intégré</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de gestion d'offres complet
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Outils d'analyse des candidatures
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Notifications automatiques des
+                        nouvelles candidatures.</li>
+                </ul>
+                <a class="a" href="/compte_entreprise.php">Inscription gratuite</a>
+            </div>
         </div>
-    </div>
 
-    <div class="container container1">
-        <h1>Professionnel</h1>
-        <h3>Services</h3>
-        <div class="box">
-            <ul>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> CV virtuel intégré 100% personnalisable</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Profils connectés 24/24, 7/7 aux recruteurs</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Postulations simples et illimitées</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Création automatique de CV physiques avec téléchargement gratuit</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Système de suivi de postulation intégré</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Portfolios en ligne</li>
-                <li data-aos="fade-up"  data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-mirror="true"
-    data-aos-once="false"><img src="/image/valider.png" alt=""> Recommandations et avis d'anciens employeurs</li>
-            </ul>
-            <a href="/compte_travailleur.php">Inscription gratuite</a>
+        <div class="container container1">
+            <h1>Professionnel</h1>
+            <h3>Services</h3>
+            <div class="box">
+                <ul>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> CV virtuel intégré 100%
+                        personnalisable</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Profils connectés 24/24, 7/7 aux
+                        recruteurs</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Postulations simples et illimitées
+                    </li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Création automatique de CV physiques
+                        avec téléchargement gratuit</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de suivi de postulation
+                        intégré</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Portfolios en ligne</li>
+                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
+                        data-aos-once="false"><img src="/image/valider.png" alt=""> Recommandations et avis d'anciens
+                        employeurs</li>
+                </ul>
+                <a href="/compte_travailleur.php">Inscription gratuite</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -467,7 +434,7 @@ include_once ('controller/controller_users.php');
                 </div>
                 <span class="formes1"></span>
                 <span class="formes2"></span>
-                <h2>Recrutez les meilleurs talents en quelques clics</h2>
+                <h2>Recrutez les meilleurs talents en quelques clics.</h2>
                 <p>Grâce à notre plateforme, publiez vos offres d'emploi et accédez à un vivier de candidats qualifiés
                     et motivés. Trouvez rapidement le profil idéal pour vos postes à pourvoir.
                 </p>
@@ -483,7 +450,7 @@ include_once ('controller/controller_users.php');
 
     <section class="explore">
         <div class="t1">
-            <h1>Explorer les profiles qui vous conviennent</h1>
+            <h1>Explorer les profils qui vous conviennent</h1>
         </div>
 
         <div class="profil">
@@ -511,7 +478,7 @@ include_once ('controller/controller_users.php');
         </div>
     </section>
 
-    <?php include ('footer.php') ?>
+    <?php include('footer.php') ?>
 
 
 
@@ -753,7 +720,7 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
     </script>
 
     <script>
-      AOS.init();
+        AOS.init();
 
     </script>
 </body>

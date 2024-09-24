@@ -38,34 +38,34 @@ if (isset($_GET['id'])) {
   $users = $stmt->fetch(PDO::FETCH_ASSOC);
 
   if ($users) {
-      $users_id = $users['id'];
-      $code_verification = rand(100000, 999999);
+    $users_id = $users['id'];
+    $code_verification = rand(100000, 999999);
 
-      // Vérifier si un code de vérification existe déjà
-      $sql_check = "SELECT * FROM verification_users WHERE users_id = :users_id";
-      $stmt_check = $db->prepare($sql_check);
-      $stmt_check->bindParam(':users_id', $users_id);
-      $stmt_check->execute();
-      $existing_code = $stmt_check->fetch(PDO::FETCH_ASSOC);
+    // Vérifier si un code de vérification existe déjà
+    $sql_check = "SELECT * FROM verification_users WHERE users_id = :users_id";
+    $stmt_check = $db->prepare($sql_check);
+    $stmt_check->bindParam(':users_id', $users_id);
+    $stmt_check->execute();
+    $existing_code = $stmt_check->fetch(PDO::FETCH_ASSOC);
 
-      // Créez l'instance PHPMailer
-      $mail = new PHPMailer(true);
+    // Créez l'instance PHPMailer
+    $mail = new PHPMailer(true);
 
-      try {
-          $mail->isSMTP();
-          $mail->Host = 'advantechgroup.online';
-          $mail->SMTPAuth = true;
-          $mail->Username = 'info@advantechgroup.online';
-          $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-          $mail->SMTPSecure = 'ssl';
-          $mail->Port = 465;
-         
-          $destinataire = $users['mail'];
-          $nom = $users['nom'];
-            
-          // Contenu de l'e-mail
-          $sujet = 'Récupération de mot de passe';
-          $message = "
+    try {
+      $mail->isSMTP();
+      $mail->Host = 'advantechgroup.online';
+      $mail->SMTPAuth = true;
+      $mail->Username = 'info@advantechgroup.online';
+      $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+      $mail->SMTPSecure = 'ssl';
+      $mail->Port = 465;
+
+      $destinataire = $users['mail'];
+      $nom = $users['nom'];
+
+      // Contenu de l'e-mail
+      $sujet = 'Récupération de mot de passe';
+      $message = "
           <!DOCTYPE html>
           <html >
           <head><meta charset='utf-8'>
@@ -149,39 +149,41 @@ if (isset($_GET['id'])) {
           </body>
           </html>";
 
-          $mail->setFrom('info@advantechgroup.online', 'work-flexer');
-          $mail->isHTML(true);
-          $mail->Subject = $sujet;
-          $mail->Body = $message;
-          $mail->clearAddresses();
-          $mail->addAddress($destinataire);
-          $mail->send();
+      $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+      $mail->isHTML(true);
+      $mail->Subject = $sujet;
+      $mail->Body = $message;
+      $mail->clearAddresses();
+      $mail->addAddress($destinataire);
+      $mail->send();
 
-          if ($existing_code) {
-            // Mettre à jour le code de vérification si l'entrée existe
-            $sql = "UPDATE verification_users SET code = :code WHERE users_id = :users_id";
-        } else {
-            // Insérer un nouveau code de vérification si l'entrée n'existe pas
-            $sql = "INSERT INTO verification_users (users_id, code) VALUES (:users_id, :code)";
-        }
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":users_id", $users_id, PDO::PARAM_INT);
-        $stmt->bindParam(":code", $code_verification, PDO::PARAM_INT);
-        $stmt->execute();
-         
-          header('Location: ../page/verification.php');
-          exit();
-        
-      } catch (Exception $e) {
-          // Gestion des erreurs d'envoi d'email
-          $_SESSION['error_message'] = 'Une erreur est survenue lors de l\'envoi de l\'e-mail.';
-          header('Location: mdp_message.php');
-          exit();
+      $mail->CharSet = 'UTF-8'; // Ajout pour l'encodage
+
+      if ($existing_code) {
+        // Mettre à jour le code de vérification si l'entrée existe
+        $sql = "UPDATE verification_users SET code = :code WHERE users_id = :users_id";
+      } else {
+        // Insérer un nouveau code de vérification si l'entrée n'existe pas
+        $sql = "INSERT INTO verification_users (users_id, code) VALUES (:users_id, :code)";
       }
-  } else {
-      $_SESSION['error_message'] = 'Utilisateur non trouvé.';
+      $stmt = $db->prepare($sql);
+      $stmt->bindParam(":users_id", $users_id, PDO::PARAM_INT);
+      $stmt->bindParam(":code", $code_verification, PDO::PARAM_INT);
+      $stmt->execute();
+
+      header('Location: ../page/verification.php');
+      exit();
+
+    } catch (Exception $e) {
+      // Gestion des erreurs d'envoi d'email
+      $_SESSION['error_message'] = 'Une erreur est survenue lors de l\'envoi de l\'e-mail.';
       header('Location: mdp_message.php');
       exit();
+    }
+  } else {
+    $_SESSION['error_message'] = 'Utilisateur non trouvé.';
+    header('Location: mdp_message.php');
+    exit();
   }
 }
 ?>
@@ -202,43 +204,50 @@ if (isset($_GET['id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JBWCPV7');</script>
-<!-- End Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+  <!-- End Google Tag Manager -->
 
   <title>Recuperation</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/navbare.css">
   <link rel="stylesheet" href="/css/mdp_message.css">
 </head>
 
 <body>
-  
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-<?php include ('../navbare.php') ?>
-  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <?php include('../navbare.php') ?>
+
 
   <section class="section2">
 
-  <div class="container">
-    <h2>Compte trouver !</h2>
+    <div class="container">
+      <h2>Compte trouvé !</h2> // Correction de l'orthographe
 
-    <div class="box">
+      <div class="box">
         <img src="../upload/<?= $users['images'] ?>" alt="">
         <p><?= $users['nom'] ?></p>
+      </div>
+
+      <a href="../page/mdp_oublier.php">
+        <p class="p">Ce n'est pas votre compte ?</p>
+      </a> // Majuscule au début
+
+      <a class="aa" href="?id=<?= $users['id'] ?>">Modifier le mot de passe ?</a> // Ajout d'un point d'interrogation
     </div>
-
-    <a href="../page/mdp_oublier.php"><p class="p">ce n'est pas votre compte ?</p></a>
-
-    <a class="aa" href="?id=<?= $users['id'] ?>">Modifier le mot de passe</a>
-  </div>
 
   </section>
 

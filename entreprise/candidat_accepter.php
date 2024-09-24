@@ -25,7 +25,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
 
     <!-- Google Tag Manager -->
     <script>
-        (function(w, d, s, l, i) {
+        (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
                 'gtm.start': new Date().getTime(),
@@ -43,7 +43,9 @@ include_once('../controller/controller_niveau_etude_experience.php');
     <!-- End Google Tag Manager -->
 
     <title>candidat accepté</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="../script/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
@@ -55,12 +57,13 @@ include_once('../controller/controller_niveau_etude_experience.php');
 <body>
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <?php
     include('../navbare.php')
-    ?>
+        ?>
 
     <?php include('../include/header_entreprise.php') ?>
 
@@ -68,7 +71,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
     <section class="section3">
 
 
-        <?php if (isset($_SESSION['success_message'])) : ?>
+        <?php if (isset($_SESSION['success_message'])): ?>
             <div class="message">
                 <p>
                     <span></span>
@@ -76,8 +79,8 @@ include_once('../controller/controller_niveau_etude_experience.php');
                     <?php unset($_SESSION['success_message']); ?>
                 </p>
             </div>
-        <?php else : ?>
-            <?php if (isset($_SESSION['error_message'])) : ?>
+        <?php else: ?>
+            <?php if (isset($_SESSION['error_message'])): ?>
                 <div class="erreurs" id="messageErreur">
                     <span></span>
                     <?php echo $_SESSION['error_message']; ?>
@@ -99,12 +102,12 @@ include_once('../controller/controller_niveau_etude_experience.php');
             var messageErreur = document.getElementById('messageErreur');
 
             // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function() {
+            setTimeout(function () {
                 messageErreur.classList.add('visible');
             }, 200); // 1000 millisecondes équivalent à 1 seconde
 
             // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function() {
+            setTimeout(function () {
                 messageErreur.classList.remove('visible');
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
@@ -127,20 +130,20 @@ include_once('../controller/controller_niveau_etude_experience.php');
             <h4>Candidatures acceptées</h4>
             <div class="container  ">
 
-                <?php foreach ($getALLpostulations as $postulant) : ?>
+                <?php foreach ($getALLpostulations as $postulant): ?>
                     <?php
                     $niveau = gettNiveau($db, $postulant['users_id']);
                     $explode_nom = explode(' ', $postulant['nom']);
-                    $nom =  $explode_nom[0] . ' , ' . $explode_nom[1];
+                    $nom = $explode_nom[0] . ' , ' . $explode_nom[1];
                     $competencesUsers = getCompetences($db, $postulant['users_id']);
                     $nombreCompetencesAffichees = 2;
                     ?>
 
 
-                    <?php if ($postulant['statut'] == 'accepter') : ?>
+                    <?php if ($postulant['statut'] == 'accepter'): ?>
 
                         <div class="items">
-                            <h5 class="h51">acceptée</h5>
+                            <h5 class="h51">Acceptée</h5>
 
                             <img src="../upload/<?= $postulant['images'] ?>" alt="">
 
@@ -149,14 +152,14 @@ include_once('../controller/controller_niveau_etude_experience.php');
                                 <li>
                                     <strong>Nom : </strong> <?= $nom ?>
                                 </li>
-                                <?php if ($niveau) : ?>
+                                <?php if ($niveau): ?>
                                     <li>
                                         <strong>Niveau : </strong> <?= $niveau['etude'] ?>
                                     </li>
                                     <li>
-                                        <strong>expérience : </strong> <?= $niveau['experience'] ?>
+                                        <strong>Expérience : </strong> <?= $niveau['experience'] ?>
                                     </li>
-                                <?php else : ?>
+                                <?php else: ?>
                                     <li>
                                         <strong>Niveau : </strong> Non renseigné
                                     </li>
@@ -171,9 +174,11 @@ include_once('../controller/controller_niveau_etude_experience.php');
 
 
                             <div class="container-box_btn">
-                                <button class="btn1"><img src="../image/vue2.png" alt=""> <a href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
-                                        profil</a></button>
-                                <button class="btn11"><img src="../image/message.png" alt=""> <a href="../entreprise/message.php">Message</a></button>
+                                <button class="btn1"><img src="../image/vue2.png" alt=""> <a
+                                        href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
+                                        Profil</a></button>
+                                <button class="btn11"><img src="../image/message.png" alt=""> <a
+                                        href="../entreprise/message.php">Message</a></button>
 
                             </div>
                         </div>
@@ -197,7 +202,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
 
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
+
 </body>
 
 </html>

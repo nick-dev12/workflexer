@@ -14,52 +14,51 @@ include_once('../controller/controller_niveau_etude_experience.php');
 if (isset($_POST['recherche'])) {
 
     // Récupération des données du formulaire
-    $recherche = $_POST['search'];
-    $categorie = $_POST['categorie'];
-    $experience = $_POST['experience'];
-    $etude = $_POST['etude'];
+    $recherche = $_POST['search'] ?? '';
+    $categorie = $_POST['categorie'] ?? '';
+    $experience = $_POST['experience'] ?? '';
+    $etude = $_POST['etude'] ?? '';
 
     // Requête SQL pour rechercher dans la base de données en fonction des critères
     $sql = "SELECT u.* FROM users u LEFT JOIN niveau_etude e ON u.id = e.users_id WHERE 1=1";
+    $params = [];
+
     if (!empty($recherche)) {
         $sql .= " AND (u.competences LIKE :recherche OR u.nom LIKE :recherche)";
+        $params[':recherche'] = "%$recherche%";
     } else {
-        $erreurs = ' Ce champ ne doit pas etre vide !';
+        $erreurs = 'Ce champ ne doit pas être vide !';
     }
+
     if (!empty($categorie)) {
         $sql .= " AND u.categorie = :categorie";
+        $params[':categorie'] = $categorie;
     }
+
     if (!empty($experience)) {
         $sql .= " AND e.experience = :experience";
+        $params[':experience'] = $experience;
     }
+
     if (!empty($etude)) {
         $sql .= " AND e.etude = :etude";
+        $params[':etude'] = $etude;
     }
 
     $stmt = $db->prepare($sql);
-    if (!empty($recherche)) {
-        $stmt->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
-    }
-    if (!empty($categorie)) {
-        $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
-    }
-    if (!empty($experience)) {
-        $stmt->bindValue(':experience', $experience, PDO::PARAM_STR);
-    }
-    if (!empty($etude)) {
-        $stmt->bindValue(':etude', $etude, PDO::PARAM_STR);
-    }
-    $stmt->execute();
 
+    foreach ($params as $key => $value) {
+        $stmt->bindValue($key, $value, PDO::PARAM_STR);
+    }
+
+    $stmt->execute();
     $resulte = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Stocker les résultats de la recherche dans une session
     $_SESSION['resultats_recherche'] = $resulte;
 
     header('Location: ../page/search.php');
-
     exit();
-
 }
 
 ?>
@@ -123,14 +122,14 @@ if (isset($_POST['recherche'])) {
                     <img src="/image/profile2.jpg" alt="">
                 </div>
                 <div class="text">
-                <h1 data-aos="fade-right" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-    data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">Explorez les
-    profils qui conviennent à vos besoins</h1>
-<p data-aos="fade-left" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-    data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">
-    Un large éventail de profils professionnels, toutes catégories confondues, pour satisfaire le
-    moindre de vos besoins en main-d'œuvre et bien plus encore.
-</p>
+                    <h1 data-aos="fade-right" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+                        data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">Explorez les
+                        profils qui conviennent à vos besoins</h1>
+                    <p data-aos="fade-left" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+                        data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-right">
+                        Un large éventail de profils professionnels, toutes catégories confondues, pour satisfaire le
+                        moindre de vos besoins en main-d'œuvre et bien plus encore.
+                    </p>
                     <form data-aos="fade-left" data-aos-delay="500" data-aos-duration="400"
                         data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
                         data-aos-anchor-placement="top-right" action="" method="post">
@@ -209,103 +208,104 @@ if (isset($_POST['recherche'])) {
                 <img src="/image/juridique.jpg" alt="">
             </div>
         </div>
-       
+
 
         <article data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom"
-            class="articles ">
-            <?php if (empty($UsersJuridique)): ?>
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom" class="articles ">
+            <?php if (empty($getUssersCategorie)): ?>
 
                 <h1 class="message">Aucun profil disponible pour cette catégorie</h1>
 
             <?php else: ?>
 
-                <?php foreach ($UsersJuridique as $Juridique): ?>
-                    <?php
-                    $nombreCompetences = countCompetences($db, $Juridique['id']);
-                    $niveauEtude = gettNiveau($db, $Juridique['id']);
-                    ?>
-                    <?php if ($nombreCompetences < 5): ?>
-                    <?php else: ?>
-                        <?php if ($Juridique['statut'] == 'Occuper'): ?>
-
+                <?php foreach ($getUssersCategorie as $Juridique): ?>
+                    <?php if ($Juridique['categorie'] === 'Juridique'): ?>
+                        <?php
+                        $nombreCompetences = countCompetences($db, $Juridique['id']);
+                        $niveauEtude = gettNiveau($db, $Juridique['id']);
+                        ?>
+                        <?php if ($nombreCompetences < 5): ?>
                         <?php else: ?>
+                            <?php if ($Juridique['statut'] == 'Occuper'): ?>
 
-                            <div class="carousel">
-                                <?php if ($Juridique['statut'] == 'Disponible'): ?>
-                                    <p class="statut"><span></span>
-                                        <?= $Juridique['statut'] ?>
-                                    </p>
-                                <?php else: ?>
-                                    <?php if ($Juridique['statut'] == 'Occuper'): ?>
-                                        <p class="statut2"><span></span>
+                            <?php else: ?>
+
+                                <div class="carousel">
+                                    <?php if ($Juridique['statut'] == 'Disponible'): ?>
+                                        <p class="statut"><span></span>
                                             <?= $Juridique['statut'] ?>
                                         </p>
+                                    <?php else: ?>
+                                        <?php if ($Juridique['statut'] == 'Occuper'): ?>
+                                            <p class="statut2"><span></span>
+                                                <?= $Juridique['statut'] ?>
+                                            </p>
+                                        <?php endif; ?>
                                     <?php endif; ?>
-                                <?php endif; ?>
-                                <img src="../upload/<?php echo $Juridique['images'] ?>" alt="">
+                                    <img src="../upload/<?php echo $Juridique['images'] ?>" alt="">
 
-                                <div class="info-box">
-                                    <h4>
-                                        <?php echo $Juridique['competences']; ?>
-                                    </h4>
+                                    <div class="info-box">
+                                        <h4>
+                                            <?php echo $Juridique['competences']; ?>
+                                        </h4>
 
-                                    <div class="vendu">
-                                        <?php $afficheCompetences = getCompetences($db, $Juridique['id']);
-                                        $nombreCompetencesAffichees = 5;
-                                        ?>
-                                        <?php if (empty($afficheCompetences)): ?>
-                                            <span>Competences indisponibles</span>
-                                        <?php else: ?>
-                                            <?php foreach ($afficheCompetences as $key => $compe):
-                                                if ($key < $nombreCompetencesAffichees):
-                                                    ?>
-                                                    <span>
-                                                        <?= $compe['competence'] ?>
-                                                    </span>
-                                                    <?php
-                                                endif;
-                                            endforeach;
+                                        <div class="vendu">
+                                            <?php $afficheCompetences = getCompetences($db, $Juridique['id']);
+                                            $nombreCompetencesAffichees = 5;
                                             ?>
-                                        <?php endif; ?>
+                                            <?php if (empty($afficheCompetences)): ?>
+                                                <span>Competences indisponibles</span>
+                                            <?php else: ?>
+                                                <?php foreach ($afficheCompetences as $key => $compe):
+                                                    if ($key < $nombreCompetencesAffichees):
+                                                        ?>
+                                                        <span>
+                                                            <?= $compe['competence'] ?>
+                                                        </span>
+                                                        <?php
+                                                    endif;
+                                                endforeach;
+                                                ?>
+                                            <?php endif; ?>
+                                        </div>
+                                        <p class="nom">
+                                            <?php
+                                            $fullName = $Juridique['nom'];
+                                            // Utilisez la fonction explode pour diviser le nom en mots
+                                            $words = explode(' ', $fullName);
+                                            // $words[0] contient le premier mot, $words[1] contient le deuxième mot
+                                            $nameUsers = $words[0] . ' ' . $words[1];
+                                            ?>
+                                            <?php echo $nameUsers; ?>
+                                        </p>
+                                        <p class="ville">
+                                            <?php echo $Juridique['ville']; ?>
+                                        </p>
+
+                                        <div class="divpp"></div>
+                                        <p class="pp"><strong>Niveau :</strong>
+                                            <?php if (empty($niveauEtude['etude'])): ?>
+                                                indisponibles
+                                            <?php else: ?>
+                                                <?php echo $niveauEtude['etude'] ?>
+                                            <?php endif; ?>
+                                        </p>
+                                        <p class="pp"><strong>Experience :</strong>
+                                            <?php if (empty($niveauEtude['etude'])): ?>
+                                                indisponibles
+                                            <?php else: ?>
+                                                <?php echo $niveauEtude['experience'] ?>
+                                            <?php endif; ?>
+                                        </p>
                                     </div>
-                                    <p class="nom">
-                                        <?php
-                                        $fullName = $Juridique['nom'];
-                                        // Utilisez la fonction explode pour diviser le nom en mots
-                                        $words = explode(' ', $fullName);
-                                        // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                        $nameUsers = $words[0] . ' ' . $words[1];
-                                        ?>
-                                        <?php echo $nameUsers; ?>
-                                    </p>
-                                    <p class="ville">
-                                        <?php echo $Juridique['ville']; ?>
-                                    </p>
 
-                                    <div class="divpp"></div>
-                                    <p class="pp"><strong>Niveau :</strong>
-                                        <?php if (empty($niveauEtude['etude'])): ?>
-                                            indisponibles
-                                        <?php else: ?>
-                                            <?php echo $niveauEtude['etude'] ?>
-                                        <?php endif; ?>
-                                    </p>
-                                    <p class="pp"><strong>Experience :</strong>
-                                        <?php if (empty($niveauEtude['etude'])): ?>
-                                            indisponibles
-                                        <?php else: ?>
-                                            <?php echo $niveauEtude['experience'] ?>
-                                        <?php endif; ?>
-                                    </p>
+
+
+                                    <a href="/page/candidats.php?id=<?php echo $Juridique['id']; ?>">
+                                        <i class="fa-solid fa-eye"></i>Profil
+                                    </a>
                                 </div>
-
-
-
-                                <a href="/page/candidats.php?id=<?php echo $Juridique['id']; ?>">
-                                    <i class="fa-solid fa-eye"></i>Profil
-                                </a>
-                            </div>
+                            <?php endif; ?>
                         <?php endif; ?>
                     <?php endif; ?>
                 <?php endforeach ?>

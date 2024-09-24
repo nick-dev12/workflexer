@@ -24,15 +24,14 @@
                     <li class="tr"><img src="../image/entreprise_ic.png" alt=""> <span class="td">Mon entreprise</span>
                     </li>
                 </a><a href="../page/candidature.php?supp2= <?= $_SESSION['compte_entreprise'] ?>">
-                    <li class="me3"><img src="../image/candidat.png" alt=""> <span
-                            class="td">Candidats</span>
-                            <?php if (empty($afficheNotificationPostulation)): ?>
-                           
-                           <?php else: ?>
-                               <?php if (isset($afficheNotificationPostulation)): ?>
-                                   <em><?= $countnotificationPostulation ?></em>
-                               <?php endif; ?> 
-                               <?php endif; ?>
+                    <li class="me3"><img src="../image/candidat.png" alt=""> <span class="td">Candidats</span>
+                        <?php if (empty($afficheNotificationPostulation)): ?>
+
+                        <?php else: ?>
+                            <?php if (isset($afficheNotificationPostulation)): ?>
+                                <em><?= $countnotificationPostulation ?></em>
+                            <?php endif; ?>
+                        <?php endif; ?>
                     </li>
                 </a>
                 <a href="../entreprise/message.php?supp1= <?= $_SESSION['compte_entreprise'] ?>">
@@ -43,13 +42,14 @@
                     </li>
                 </a>
                 <a href="../entreprise/candidat_accepter.php">
-                    <li class="tr6"><img src="../image/valider.png" alt=""> <span class="td">Candidat accepter</span></li>
+                    <li class="tr6"><img src="../image/valider.png" alt=""> <span class="td">Candidat accepté</span>
+                    </li>
                 </a>
                 <a href="../entreprise/offre_expirer.php">
-                    <li class="tr7"><img src="../image/Expiration.png" alt=""> Offre expirer</li>
+                    <li class="tr7"><img src="../image/Expiration.png" alt=""> Offre expirée</li>
                 </a>
                 <a href="../entreprise/offre_suprimer.php">
-                    <li class="tr8"><img src="../image/supprimé.png" alt=""> Offre suprimer</li>
+                    <li class="tr8"><img src="../image/supprimé.png" alt=""> Offre supprimée</li>
                 </a>
                 <a href="../entreprise/historique.php">
                     <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li>
@@ -86,12 +86,12 @@
                     <li class="me3">
                         <img src="../image/candidat.png" alt="">
                         <?php if (empty($afficheNotificationPostulation)): ?>
-                           
+
                         <?php else: ?>
                             <?php if (isset($afficheNotificationPostulation)): ?>
                                 <em><?= $countnotificationPostulation ?></em>
-                            <?php endif; ?> 
                             <?php endif; ?>
+                        <?php endif; ?>
                     </li>
                 </a>
 

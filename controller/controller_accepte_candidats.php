@@ -1,5 +1,5 @@
 <?php
-require_once (__DIR__ . '/../model/accepte_candidats.php');
+require_once(__DIR__ . '/../model/accepte_candidats.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -164,6 +164,7 @@ if (isset($_GET['accepter'])) {
         $mail->Subject = $sujet;
         $mail->Body = $message;
 
+        $mail->CharSet = 'UTF-8'; // Ajout pour l'encodage
 
         $mail->clearAddresses();
         $mail->addAddress($destinataire);
@@ -341,6 +342,7 @@ if (isset($_GET['recaler'])) {
         $mail->Subject = $sujet;
         $mail->Body = $message;
 
+        $mail->CharSet = 'UTF-8'; // Ajout pour l'encodage
 
         $mail->clearAddresses();
         $mail->addAddress($destinataire);
@@ -350,7 +352,7 @@ if (isset($_GET['recaler'])) {
         if (recalerCandidats($db, $statut, $poste_id)) {
 
             if (notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut)) {
-                $_SESSION['success_message'] = 'Candidat recalé!';
+                $_SESSION['success_message'] = 'Candidat recalé !'; // Correction de l'orthographe
                 header('Location: ../page/candidature.php');
                 exit();
             }
@@ -360,7 +362,7 @@ if (isset($_GET['recaler'])) {
 
 
     } catch (Exception $e) {
-        $_SESSION['error_message'] = 'Une erreur c\'est produite!';
+        $_SESSION['error_message'] = 'Une erreur s\'est produite !'; // Correction de l'orthographe
         header('Location: ../page/candidature.php');
         exit();
     }

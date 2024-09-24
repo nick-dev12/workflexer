@@ -1,14 +1,14 @@
 <?php
 // require_once('..//entreprise/app/model/entreprise.php');
 require_once(__DIR__ . '/../model/entreprise.php');
-include(__DIR__ .'../../../../controller/controller_competence_users.php');
+include(__DIR__ . '../../../../controller/controller_competence_users.php');
 
 // include('../model/vue_offre.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ .'../../../../vendor/autoload.php';
+require __DIR__ . '../../../../vendor/autoload.php';
 
 if (isset($_SESSION['compte_entreprise'])) {
     $getEntreprise = getEntreprise($db, $_SESSION['compte_entreprise']);
@@ -43,7 +43,7 @@ if (isset($_SESSION['compte_entreprise'])) {
 
 
 if (isset($_POST['publier'])) {
-   
+
 
     $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
 
@@ -52,111 +52,111 @@ if (isset($_POST['publier'])) {
 
 
     if (empty($_POST['poste'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter le poste disponible !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter le poste disponible !';
     } else {
         $poste = $_POST['poste'];
     }
 
     if (empty($_POST['mission'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter les mission correspondant au prolil !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter les missions correspondant au profil !';
     } else {
         $mission = $_POST['mission'];
     }
 
     if (empty($_POST['profil'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter les criteres du profil rechercher  !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter les critères du profil recherché !';
     } else {
         $profil = $_POST['profil'];
     }
 
 
     if (empty($_POST['contrat'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter le type de contrat  !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter le type de contrat !';
     } else {
         $contrat = $_POST['contrat'];
     }
 
     if (empty($_POST['etude'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter le niveau de etude  !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter le niveau d\'étude !';
     } else {
         $etudes = $_POST['etude'];
-         // Convertir les niveaux d'étude et d'expérience en valeurs numériques
-    $etude_valeurs = array(
-        "Bac+1an" => 1,
-        "Bac+2ans" => 2,
-        "Bac+3ans" => 3,
-        "Bac+4ans" => 4,
-        "Bac+5ans" => 5,
-        "Bac+6ans" => 6,
-        "Bac+7ans" => 7,
-        "Bac+8ans" => 8,
-        "Bac+9ans" => 9,
-        "Bac+10ans" => 10,
-        "Aucun" => 0
-    );
-    $n_etudes = $etude_valeurs[$etudes];
+        // Convertir les niveaux d'étude et d'expérience en valeurs numériques
+        $etude_valeurs = array(
+            "Bac+1an" => 1,
+            "Bac+2ans" => 2,
+            "Bac+3ans" => 3,
+            "Bac+4ans" => 4,
+            "Bac+5ans" => 5,
+            "Bac+6ans" => 6,
+            "Bac+7ans" => 7,
+            "Bac+8ans" => 8,
+            "Bac+9ans" => 9,
+            "Bac+10ans" => 10,
+            "Aucun" => 0
+        );
+        $n_etudes = $etude_valeurs[$etudes];
     }
 
     if (empty($_POST['experience'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter un niveau d\'experience  !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter un niveau d\'expérience !';
     } else {
         $experience = $_POST['experience'];
-         // Convertir les niveaux d'étude et d'expérience en valeurs numériques
-    $experience_valeurs = array(
-        "1an" => 1,
-        "2ans" => 2,
-        "3ans" => 3,
-        "4ans" => 4,
-        "5ans" => 5,
-        "6ans" => 6,
-        "7ans" => 7,
-        "8ans" => 8,
-        "9ans" => 9,
-        "10ans" => 10,
-        "Aucun" => 0
-    );
-    $n_experience = $experience_valeurs[$experience];
+        // Convertir les niveaux d'étude et d'expérience en valeurs numériques
+        $experience_valeurs = array(
+            "1an" => 1,
+            "2ans" => 2,
+            "3ans" => 3,
+            "4ans" => 4,
+            "5ans" => 5,
+            "6ans" => 6,
+            "7ans" => 7,
+            "8ans" => 8,
+            "9ans" => 9,
+            "10ans" => 10,
+            "Aucun" => 0
+        );
+        $n_experience = $experience_valeurs[$experience];
     }
 
     if (empty($_POST['localite'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter une localiter !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter une localité !';
     } else {
         $localite = $_POST['localite'];
     }
 
     if (empty($_POST['langues'])) {
-        $_SESSION['error_message'] = 'veuiller ajouter la ou les langues exiger  !!!';
+        $_SESSION['error_message'] = 'Veuillez ajouter la ou les langues exigées !';
     } else {
         $langues = $_POST['langues'];
     }
 
-    if(empty($_POST['places'])){
-        $_SESSION['error_message'] = 'veuiller ajouter le nombre de places disponible  !!!';    
-    }else{
+    if (empty($_POST['places'])) {
+        $_SESSION['error_message'] = 'Veuillez ajouter le nombre de places disponibles !';
+    } else {
         $places = $_POST['places'];
     }
 
-    if(empty($_POST['duree'])){
-        $_SESSION['error_message'] = 'veuiller ajouter la duree de l\'offre avant expiration  !!!';    
-    }else{
+    if (empty($_POST['duree'])) {
+        $_SESSION['error_message'] = 'Veuillez ajouter la durée de l\'offre avant expiration !';
+    } else {
         $duree = $_POST['duree'];
-         // Calculer la date d'expiration
-    $date_expiration = date('Y-m-d', strtotime("+$duree days"));
+        // Calculer la date d'expiration
+        $date_expiration = date('Y-m-d', strtotime("+$duree days"));
     }
 
-    
+
     if (empty($_POST['categorie'])) {
-        $_SESSION['error_message'] = 'veuiller sélectionner une catégorie !!!';
-    }else{
+        $_SESSION['error_message'] = 'Veuillez sélectionner une catégorie !';
+    } else {
         $categorie = $_POST['categorie'];
 
-       $T_categorie = Categorie ($db,$categorie);
+        $T_categorie = Categorie($db, $categorie);
 
-       if ($T_categorie > 0) {
-        
-       }else {
-        PostCategorie ($db,$categorie);
-       }
+        if ($T_categorie > 0) {
+
+        } else {
+            PostCategorie($db, $categorie);
+        }
     }
 
 
@@ -175,12 +175,12 @@ if (isset($_POST['publier'])) {
 
     if (empty($_SESSION['error_message'])) {
 
-            // Créez l'instance PHPMailer
-            $mail = new PHPMailer(true);
+        // Créez l'instance PHPMailer
+        $mail = new PHPMailer(true);
 
-            try {
-                // Paramètres SMTP
-                $mail->isSMTP();
+        try {
+            // Paramètres SMTP
+            $mail->isSMTP();
             $mail->Host = 'advantechgroup.online';
             $mail->SMTPAuth = true;
             $mail->Username = 'info@advantechgroup.online';
@@ -188,20 +188,20 @@ if (isset($_POST['publier'])) {
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
-                // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
+            // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
 
-                $sql = "SELECT * FROM users WHERE categorie = :categorie";
-                $stmt = $db->prepare($sql);
-                $stmt->bindValue(":categorie", $categorie);
-                $stmt->execute();
-                $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $sql = "SELECT * FROM users WHERE categorie = :categorie";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(":categorie", $categorie);
+            $stmt->execute();
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($users as $candidate) {
-                    $destinataire = $candidate['mail'];
-                    $nom = $candidate['nom'];
-                    // Contenu de l'e-mail
-                    $sujet = 'Nouvelle offre d\'emploi correspondant à vos critères';
-                    $message = "
+            foreach ($users as $candidate) {
+                $destinataire = $candidate['mail'];
+                $nom = $candidate['nom'];
+                // Contenu de l'e-mail
+                $sujet = 'Nouvelle offre d\'emploi correspondant à vos critères';
+                $message = "
                 <!DOCTYPE html>
                 <html>
                 <head><meta charset='utf-8'>
@@ -268,7 +268,7 @@ if (isset($_POST['publier'])) {
                         padding: 15px;
                         width: 80%;
                     }
-                   
+                  
                 }
                 
                 @media only screen and (max-width: 600px) {
@@ -325,31 +325,31 @@ if (isset($_POST['publier'])) {
                 </body>
                 </html> ";
 
-                    $mail->setFrom('info@advantechgroup.online', 'work-flexer');
-                    $mail->isHTML(true);
-                    $mail->Subject = $sujet;
-                    $mail->Body = $message;
+                $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+                $mail->isHTML(true);
+                $mail->Subject = $sujet;
+                $mail->Body = $message;
 
 
-                    $mail->clearAddresses();
-                    $mail->addAddress($destinataire);
-                    $mail->send();
-                }
+                $mail->clearAddresses();
+                $mail->addAddress($destinataire);
+                $mail->send();
+            }
 
-                if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)) {
+            if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)) {
 
-                     $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
-                header('Location: entreprise_profil.php');
-                exit();
-                }
-
-            } catch (Exception $e) {
-                $_SESSION['error_message'] = 'Une erreur c\'est produit';
+                $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
                 header('Location: entreprise_profil.php');
                 exit();
             }
+
+        } catch (Exception $e) {
+            $_SESSION['error_message'] = 'Une erreur s\'est produite';
+            header('Location: entreprise_profil.php');
+            exit();
         }
     }
+}
 
 
 
@@ -579,7 +579,7 @@ if (isset($_POST['send'])) {
         $stmt->bindValue(":nom", $nom);
         $stmt->execute();
 
-        $_SESSION['success_message'] = 'Message envoyer';
+        $_SESSION['success_message'] = 'Message envoyé';
 
         if (isset($_SESSION['compte_entreprise'])) {
             header('Location: entreprise_profil.php');
