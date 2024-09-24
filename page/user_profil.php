@@ -1,8 +1,56 @@
 <?php
 session_start();
 include '../conn/conn.php';
+require '../vendor/autoload.php';
 
+use Endroid\QrCode\Builder\Builder;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\LabelAlignment;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Label;
+use Endroid\QrCode\Logo;
+use Endroid\QrCode\RoundBlockSizeMode;
 
+function generateQRCode($userId)
+{
+    // Vérifier si l'ID utilisateur est défini
+    if (!isset($_SESSION['users_id'])) {
+        return '<p>Erreur : ID utilisateur non défini.</p>';
+    }
+
+    $userId = $_SESSION['users_id'];
+    $url = 'https://www.work-flexer.com/page/candidats.php?id=' . $userId; // Lien vers le profil utilisateur
+
+    // Chemin du répertoire des QR codes
+    $qrCodeDir = __DIR__ . '/qrcodes';
+
+    // Vérifier si le répertoire existe, sinon le créer
+    if (!is_dir($qrCodeDir)) {
+        mkdir($qrCodeDir, 0777, true);
+    }
+
+    // Générer le QR code
+    $result = Builder::create()
+        ->writer(new PngWriter())  // Choisir le format PNG
+        ->data($url)               // Les données à inclure dans le QR code
+        ->size(300)                // Taille du QR code
+        ->margin(10)               // Marge autour du QR code
+        ->build();                 // Construire le QR code
+
+    // Enregistrer le QR code en tant qu'image
+    $qrCodePath = $qrCodeDir . '/user_' . $userId . '.png';
+    $result->saveToFile($qrCodePath);
+
+    // Vérifier si le fichier a été créé
+    if (!file_exists($qrCodePath)) {
+        return '<p>Erreur : le QR code n\'a pas pu être généré.</p>';
+    }
+
+    // Retourner l'image du QR code dans un <img> HTML
+    return '<img src="qrcodes/user_' . $userId . '.png" alt="QR Code" />';
+}
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['users_id']) || empty($_SESSION['users_id'])) {
@@ -29,17 +77,17 @@ if (isset($_GET['id'])) {
     $message = '';
 
 
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
-    include_once ('../controller/controller_centre_interet.php');
-    include_once ('../controller/controller_niveau_etude_experience.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_niveau_etude_experience.php');
 } else {
 
 
@@ -57,21 +105,21 @@ if (isset($_GET['id'])) {
 
     // Récupérer l'id du métier à supprimer (via lien ou formulaire par exemple)
 
-    include_once ('../controller/controller_document_users.php');
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
-    include_once ('../controller/controller_users.php');
-    include_once ('../controller/controller_centre_interet.php');
-    include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
-    include_once ('../entreprise/app/controller/controllerEntreprise.php');
-    include_once ('../controller/controller_niveau_etude_experience.php');
+    include_once('../controller/controller_document_users.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_users.php');
+    include_once('../controller/controller_centre_interet.php');
+    include_once('../entreprise/app/controller/controllerOffre_emploi.php');
+    include_once('../entreprise/app/controller/controllerEntreprise.php');
+    include_once('../controller/controller_niveau_etude_experience.php');
 }
 
 ?>
@@ -124,6 +172,8 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
 
+    <!-- Inclure la bibliothèque html5-qrcode -->
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 </head>
 
 <body>
@@ -134,9 +184,9 @@ if (isset($_GET['id'])) {
     <!-- End Google Tag Manager (noscript) -->
 
 
-    <?php include ('../navbare.php') ?>
+    <?php include('../navbare.php') ?>
 
-    <?php include ('../include/header_users.php') ?>
+    <?php include('../include/header_users.php') ?>
 
     <section class="section3">
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
@@ -175,6 +225,8 @@ if (isset($_GET['id'])) {
             </script>
 
         <?php endif; ?>
+
+
 
         <?php if (isset($_SESSION['success_message'])): ?>
             <div class="message">
@@ -217,6 +269,40 @@ if (isset($_GET['id'])) {
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
 
+        <!-- Afficher le QR code -->
+        <div class="qr-code">
+            <?php echo generateQRCode($_SESSION['users_id']); ?>
+        </div>
+        <!-- Bouton pour ouvrir le scanner de QR code -->
+        <button id="open-scanner">Scanner un QR Code</button>
+
+        <!-- Conteneur pour le scanner de QR code -->
+        <div id="qr-reader" style="width: 500px; height: 500px; display: none;"></div>
+        <script>
+            document.getElementById('open-scanner').addEventListener('click', function () {
+                document.getElementById('qr-reader').style.display = 'block';
+                const html5QrCode = new Html5Qrcode("qr-reader");
+
+                html5QrCode.start(
+                    { facingMode: "environment" }, // Utiliser la caméra arrière
+                    {
+                        fps: 10,    // Fréquence d'images par seconde
+                        qrbox: 250  // Taille de la boîte de scan
+                    },
+                    qrCodeMessage => {
+                        // Ouvrir le lien scanné
+                        window.location.href = qrCodeMessage;
+                    },
+                    errorMessage => {
+                        // Gérer les erreurs de scan
+                        console.log(`Erreur de scan: ${errorMessage}`);
+                    }
+                ).catch(err => {
+                    // Gérer les erreurs de démarrage du scanner
+                    console.log(`Erreur de démarrage du scanner: ${err}`);
+                });
+            });
+        </script>
 
 
         <?php if (empty($competencesUtilisateur)): ?>
@@ -426,7 +512,7 @@ if (isset($_GET['id'])) {
                 <h2>Experience professionnel</h2>
 
                 <?php if (empty($afficheMetier)): ?>
-                    <p class="p">Aucune experience professionnel enregistrer!</p>
+                    <p class="p">Aucune expérience professionnelle enregistrée !</p>
 
                 <?php else: ?>
                     <?php
@@ -1446,15 +1532,17 @@ if (isset($_GET['id'])) {
 
         </div>
 
-      <div class="box_assistance">
-        <div>
-            <a  href="#container_box6"><button id="contacte"><img src="../image/service.png" alt=""></button></a>
-        <a class="whatsapp" href="https://api.whatsapp.com/send?phone=785303879" target="_blank" ><img src="../image/whatsapp.png" alt=""></a>
-        <a class="mail" href="mailto:workflexer.service@gmail.com"><img src="../image/icons8-gmail-48.png" alt=""> </a>
+        <div class="box_assistance">
+            <div>
+                <a href="#container_box6"><button id="contacte"><img src="../image/service.png" alt=""></button></a>
+                <a class="whatsapp" href="https://api.whatsapp.com/send?phone=785303879" target="_blank"><img
+                        src="../image/whatsapp.png" alt=""></a>
+                <a class="mail" href="mailto:workflexer.service@gmail.com"><img src="../image/icons8-gmail-48.png"
+                        alt=""> </a>
+            </div>
         </div>
-      </div>
-      
-      <?php if (isset($_SESSION['users_id'])): ?>
+
+        <?php if (isset($_SESSION['users_id'])): ?>
             <div class="container_box6" id="container_box6">
                 <div class="box1">
                     <!-- <img src="../image/croix.png" alt="" id="img"> -->
@@ -1547,21 +1635,21 @@ if (isset($_GET['id'])) {
 
 
     </section>
-   
+
 
 
     <script>
         let assistance = document.getElementById('contacte');
-let cache = document.getElementById('img');
-let container_box6 = document.querySelector('.container_box6');
+        let cache = document.getElementById('img');
+        let container_box6 = document.querySelector('.container_box6');
 
-assistance.addEventListener('click', () => {
-    
-});
+        assistance.addEventListener('click', () => {
 
-cache.addEventListener('click', () => {
-    container_box6.style.transform = 'translateX(0px)';
-});
+        });
+
+        cache.addEventListener('click', () => {
+            container_box6.style.transform = 'translateX(0px)';
+        });
     </script>
 
 </body>

@@ -51,7 +51,7 @@ if (isset($_SESSION['compte_entreprise'])) {
 }
 
 if (isset($_SESSION['users_id'])) {
-    include (__DIR__ . '../controller/controller_message1.php');
+    include ('controller/controller_message1.php');
 }
 
 

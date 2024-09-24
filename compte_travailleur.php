@@ -44,7 +44,7 @@ if (isset($_POST['valider'])) {
 
     // Vérification du mail
     if (empty($_POST['mail'])) {
-        $erreurs = "email est obligatoire";
+        $erreurs = "L'email est obligatoire";
     } elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
         $erreurs = "L'email n'est pas valide";
     } else {
@@ -76,13 +76,13 @@ if (isset($_POST['valider'])) {
     }
     // Vérification du nom de boutique
     if (empty($_POST['competences'])) {
-        $erreurs = "ce champ ne dois pas être vide";
+        $erreurs = "Ce champ ne doit pas être vide";
     } else {
         $competences = htmlspecialchars($_POST['competences']);
     }
 
     if (empty($_POST['profession'])) {
-        $erreurs = "Veiller sélectionner un profession!!";
+        $erreurs = "Veuillez sélectionner une profession !";
     } else {
         $profession = htmlspecialchars($_POST['profession']);
     }
@@ -301,7 +301,7 @@ if (isset($_POST['valider'])) {
         </div>
         <div class='box2'>
             <h1>Bonjour $nom,</h1>
-            <h2>Nouveau compte cree !</h2>
+            <h2>Nouveau compte créé !</h2>
             <p>Votre compte a été créé avec succès pour des raisons de sécurité, nous vous avons envoyé un code de sécurité, veuillez saisir ce code de sécurité dans le champ correspondant.</p>
             <p> Code de confirmation : <strong> $verification </strong></p>
             <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
@@ -315,40 +315,41 @@ if (isset($_POST['valider'])) {
             $mail->isHTML(true);
             $mail->Subject = $sujet;
             $mail->Body = $message;
+            $mail->CharSet = 'UTF-8'; // Ajout pour l'encodage
 
 
             $mail->clearAddresses();
             $mail->addAddress($destinataire);
             $mail->send();
 
-              // Préparation de la requête SQL
-        $sql = "INSERT INTO users ( nom, mail, phone, competences,profession, ville, categorie ,images,verification, passe) 
+            // Préparation de la requête SQL
+            $sql = "INSERT INTO users ( nom, mail, phone, competences,profession, ville, categorie ,images,verification, passe) 
         VALUES ( :nom, :mail, :phone, :competences,:profession, :ville, :categorie, :images,:verification, :passe)";
 
-  // Préparation de la requête 
-  $stmt = $db->prepare($sql);
+            // Préparation de la requête 
+            $stmt = $db->prepare($sql);
 
-  // Association des paramètres
-  $stmt->bindParam(':nom', $nom);
-  $stmt->bindParam(':mail', $email);
-  $stmt->bindParam(':phone', $phone);
-  $stmt->bindParam(':competences', $competences);
-  $stmt->bindParam(':profession', $profession);
-  $stmt->bindParam(':ville', $ville);
-  $stmt->bindParam(':categorie', $categorie);
-  $stmt->bindParam(':images', $uniqueFileName);
-  $stmt->bindParam(':verification', $verification);
-  $stmt->bindParam(':passe', $passe);
-  // Exécution de la requête
-  $stmt->execute();
+            // Association des paramètres
+            $stmt->bindParam(':nom', $nom);
+            $stmt->bindParam(':mail', $email);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':competences', $competences);
+            $stmt->bindParam(':profession', $profession);
+            $stmt->bindParam(':ville', $ville);
+            $stmt->bindParam(':categorie', $categorie);
+            $stmt->bindParam(':images', $uniqueFileName);
+            $stmt->bindParam(':verification', $verification);
+            $stmt->bindParam(':passe', $passe);
+            // Exécution de la requête
+            $stmt->execute();
 
-  $_SESSION['mail_users'] = $email;
-  $_SESSION['nom']= $nom;
+            $_SESSION['mail_users'] = $email;
+            $_SESSION['nom'] = $nom;
             $_SESSION['success_message'] = 'Inscription réussie !';
             header('Location: verification_users.php');
-            exit();            
+            exit();
         } catch (Exception $e) {
-            $_SESSION['error_message'] = 'une erreure c\'est produit';
+            $_SESSION['error_message'] = 'Une erreur s\'est produite';
             header('Location: compte_travailleur.php');
             exit();
         }
@@ -404,47 +405,47 @@ if (isset($_POST['valider'])) {
     <!-- End Google Tag Manager (noscript) -->
 
     <?php include('navbare.php') ?>
-    
+
     <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="message">
-                <p>
-                    <span></span>
-                    <?php echo $_SESSION['success_message']; ?>
-                    <?php unset($_SESSION['success_message']); ?>
-                </p>
+        <div class="message">
+            <p>
+                <span></span>
+                <?php echo $_SESSION['success_message']; ?>
+                <?php unset($_SESSION['success_message']); ?>
+            </p>
+        </div>
+    <?php else: ?>
+        <?php if (isset($_SESSION['error_message'])): ?>
+            <div class="erreurs" id="messageErreur">
+                <span></span>
+                <?php echo $_SESSION['error_message']; ?>
+                <?php unset($_SESSION['error_message']); ?>
             </div>
-        <?php else: ?>
-            <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="erreurs" id="messageErreur">
-                    <span></span>
-                    <?php echo $_SESSION['error_message']; ?>
-                    <?php unset($_SESSION['error_message']); ?>
-                </div>
-            <?php endif; ?>
         <?php endif; ?>
+    <?php endif; ?>
 
-        <script>
-            let success = document.querySelector('.message')
-            setTimeout(() => {
-                success.classList.add('visible');
-            }, 200);
-            setTimeout(() => {
-                success.classList.remove('visible');
-            }, 6000);
+    <script>
+        let success = document.querySelector('.message')
+        setTimeout(() => {
+            success.classList.add('visible');
+        }, 200);
+        setTimeout(() => {
+            success.classList.remove('visible');
+        }, 6000);
 
-            // Sélectionnez l'élément contenant le message d'erreur
-            var messageErreur = document.getElementById('messageErreur');
+        // Sélectionnez l'élément contenant le message d'erreur
+        var messageErreur = document.getElementById('messageErreur');
 
-            // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.add('visible');
-            }, 200); // 1000 millisecondes équivalent à 1 seconde
+        // Fonction pour afficher le message avec une transition de fondu
+        setTimeout(function () {
+            messageErreur.classList.add('visible');
+        }, 200); // 1000 millisecondes équivalent à 1 seconde
 
-            // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.remove('visible');
-            }, 6000); // 6000 millisecondes équivalent à 6 secondes
-        </script>
+        // Fonction pour masquer le message avec une transition de fondu
+        setTimeout(function () {
+            messageErreur.classList.remove('visible');
+        }, 6000); // 6000 millisecondes équivalent à 6 secondes
+    </script>
 
     <section class="section2">
         <img class="img" src="/image/work.jpeg" alt="">
@@ -481,7 +482,7 @@ if (isset($_POST['valider'])) {
                         </div>
 
                         <div class="box1">
-                            <p>Photo de profile</p>
+                            <p>Photo de profil</p>
                             <div class="ab">
                                 <div>
                                     <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
@@ -599,30 +600,30 @@ if (isset($_POST['valider'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
     <script>
-      
-        const phoneInputField = document.querySelector("#phone");
-    const fullPhoneInput = document.querySelector("#full_phone");
-    const phoneInput = window.intlTelInput(phoneInputField, {
-        initialCountry: "auto",
-        preferredCountries: ["fr", "us", "gb"],
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        geoIpLookup: function (callback) {
-            fetch("https://ipapi.co/json")
-                .then(function (res) {
-                    return res.json();
-                })
-                .then(function (data) {
-                    callback(data.country_code);
-                })
-                .catch(function () {
-                    callback("us");
-                });
-        }
-    });
 
-    phoneInputField.addEventListener("blur", function() {
-        fullPhoneInput.value = phoneInput.getNumber();
-    });
+        const phoneInputField = document.querySelector("#phone");
+        const fullPhoneInput = document.querySelector("#full_phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "auto",
+            preferredCountries: ["fr", "us", "gb"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            geoIpLookup: function (callback) {
+                fetch("https://ipapi.co/json")
+                    .then(function (res) {
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        callback(data.country_code);
+                    })
+                    .catch(function () {
+                        callback("us");
+                    });
+            }
+        });
+
+        phoneInputField.addEventListener("blur", function () {
+            fullPhoneInput.value = phoneInput.getNumber();
+        });
 
 
 

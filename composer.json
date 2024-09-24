@@ -1,10 +1,14 @@
 {
+    "config": {
+        "platform": {
+            "php": "8.3.0"
+        }
+    },
     "require": {
         "phpmailer/phpmailer": "^6.9",
         "dompdf/dompdf": "^2.0",
         "mpdf/mpdf": "^8.2",
         "minishlink/web-push": "^8.0",
-        "web-token/jwt-library": "^2.0"
+        "endroid/qr-code": "^5.1"
     }
-   
 }

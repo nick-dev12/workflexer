@@ -42,68 +42,7 @@ function infoUsers($db, $users_id)
  * @param mixed $db
  * @return mixed
  */
-function getUsersIngenieur($db)
-{
-    $sql = "SELECT * FROM users WHERE categorie = 'Ingénierie et architecture'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
 
-
-function getUsersDesign($db)
-{
-    $sql = "SELECT * FROM users WHERE categorie = 'Design et création'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-function getUsersRédaction($db)
-{
-    $sql = "SELECT * FROM users WHERE categorie = 'Rédaction et traduction'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-function getUsersmarketing($db)
-{
-    $sql = "SELECT * FROM users WHERE categorie = 'Marketing et communication'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getUsersbusiness($db)
-{
-    $sql = "SELECT * FROM users WHERE categorie = 'Conseil et gestion d\'entreprise'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getUsersJuridique($db)
-{
-    // $sql = "SELECT * FROM users WHERE categorie = 'Juridique'";
-    $sql = "SELECT * FROM users WHERE categorie = 'Juridique' ";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-function getUsersInformatique($db)
-{
-    // $sql = "SELECT * FROM users  JOIN competence_users ON users.id = competence_users.users_id   WHERE categorie = 'Informatique'";
-    $sql = "SELECT *  
-    FROM users WHERE categorie = 'Informatique et tech' ";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
 
 function getInfoUsers($db, $id)
 {
