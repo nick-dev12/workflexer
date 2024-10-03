@@ -68,7 +68,8 @@ function postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $e
     return $stmt->execute();
 }
 
-function Categorie ($db,$categorie){
+function Categorie($db, $categorie)
+{
     $sql_c = "SELECT categori FROM categorie WHERE categori = :categori";
     $stmt_c = $db->prepare($sql_c);
     $stmt_c->bindParam(':categori', $categorie);
@@ -76,12 +77,13 @@ function Categorie ($db,$categorie){
     return $stmt_c->fetch(PDO::FETCH_ASSOC);
 }
 
-function PostCategorie ($db,$categorie){
+function PostCategorie($db, $categorie)
+{
     $sql_c = "INSERT INTO categorie (categori) VALUES (:categori)";
     $stmt_c = $db->prepare($sql_c);
     $stmt_c->bindParam(':categori', $categorie);
-    return  $stmt_c->execute();
-   
+    return $stmt_c->execute();
+
 }
 
 /**
@@ -211,6 +213,15 @@ function update8($db, $categorie, $entreprise_id)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+function update9($db, $hashedPass1, $entreprise_id)
+{
+    $sql = " UPDATE compte_entreprise SET passe = :pass1 WHERE id = :entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':pass1', $hashedPass1, PDO::PARAM_STR);
+    $stmt->bindParam(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 function update0($db, $images, $entreprise_id)
 {
     $sql = " UPDATE compte_entreprise SET images = :images WHERE id = :entreprise_id";

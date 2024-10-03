@@ -3,7 +3,7 @@
 session_start();
 include('../conn/conn.php');
 
-if(isset($_GET['supp1'])){
+if (isset($_GET['supp1'])) {
     $entreprise_id = $_GET['supp1'];
     $sql = "DELETE FROM notification_message WHERE entreprise_id=:entreprise_id ";
     $stmt = $db->prepare($sql);
@@ -33,19 +33,22 @@ include_once('../controller/controller_appel_offre.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-         <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JBWCPV7');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <!-- End Google Tag Manager -->
 
     <title> <?= $getEntreprise['entreprise']; ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -58,19 +61,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <?php include('../navbare.php') ?>
 
 
-    <?php include ('../include/header_entreprise.php') ?>
+    <?php include('../include/header_entreprise.php') ?>
 
     <section class="section3">
 
-    <?php if (isset($_SESSION['success_message'])): ?>
+        <?php if (isset($_SESSION['success_message'])): ?>
             <div class="message">
                 <p>
                     <span></span>
@@ -111,72 +114,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
 
-    <div class="container_profil">
+        <div class="container_profil">
 
-    <div class="box3">
-            <h2>Candidats retenu</h2>
-            <?php foreach ($getALLpostulations as $postulant): ?>
-                <?php if($postulant['statut']=='accepter'):?>
-                    <?php $getoffre =getOffresEmploit($db,$postulant['offre_id']);?>
-                    <?php $infoUsers =getInfoUsers($db,$postulant['users_id']);
-                    $afficheTMP_message = getTMP1_Message2($db, $postulant['entreprise_id'], $postulant['offre_id'], $postulant['users_id']);
+            <div class="box3">
+                <h2>Candidats retenu</h2>
+                <?php foreach ($getALLpostulations as $postulant): ?>
+                    <?php if ($postulant['statut'] == 'accepter'): ?>
+                        <?php $getoffre = getOffresEmploit($db, $postulant['offre_id']); ?>
+                        <?php $infoUsers = getInfoUsers($db, $postulant['users_id']);
+                        $afficheTMP_message = getTMP1_Message2($db, $postulant['entreprise_id'], $postulant['offre_id'], $postulant['users_id']);
+                        $countTMP_message = count($afficheTMP_message);
+                        ?>
+                        <a
+                            href="message_entreprise.php?users_id=<?= $postulant['users_id'] ?>&offres_id=<?= $postulant['offre_id'] ?>&entreprise_id=<?= $postulant['entreprise_id'] ?>&statut=<?= $postulant['statut'] ?>">
+                            <div class="info">
+                                <div class="c_img">
+                                    <img class="img" src="../upload/<?php echo $infoUsers['images'] ?>" alt="">
+                                </div>
+
+                                <div class="div">
+                                    <h4><?= $postulant['nom'] ?></h4>
+
+                                    <?php if ($countTMP_message): ?>
+                                        <strong class="tmp">
+                                            <?= $countTMP_message ?>
+                                        </strong>
+                                    <?php endif; ?>
+
+                                    <p> <strong>Domaine de Competences: </strong> <?= $postulant['competences'] ?></p>
+                                    <p><span class="span1"><strong>Offre postuler :</strong> <?= $postulant['poste'] ?></span>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="box2">
+                <h2>Appel d'offres </h2>
+                <?php foreach ($getAllAppel_offre as $appel_offre): ?>
+                    <?php $infoUsers = getInfoUsers($db, $appel_offre['users_id']);
+
+                    $appel_offre = getAppelOffre($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
+
+                    $afficheTMP_message = getTMP2_Message2($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
                     $countTMP_message = count($afficheTMP_message);
+
                     ?>
-                    <a href="message_entreprise.php?users_id=<?= $postulant['users_id']?>&offres_id=<?= $postulant['offre_id']?>&entreprise_id=<?= $postulant['entreprise_id']?>&statut=<?= $postulant['statut']?>">
-           <div class="info" >
-            <div class="c_img">
-                 <img class="img" src="../upload/<?php echo $infoUsers['images']?>" alt="">
+                    <a
+                        href="message_entreprise2.php?users_id=<?= $appel_offre['users_id'] ?>&entreprise_id=<?= $appel_offre['entreprise_id'] ?> &sujet=<?= $appel_offre['sujet'] ?>">
+                        <div class="info">
+                            <div class="c_img">
+                                <img class="img" src="../upload/<?php echo $infoUsers['images'] ?>" alt="">
+                            </div>
+                            <div class="div">
+                                <h4><?= $infoUsers['nom'] ?></h4>
+                                <?php if ($countTMP_message): ?>
+                                    <strong class="tmp">
+                                        <?= $countTMP_message ?>
+                                    </strong>
+                                <?php endif; ?>
+                                <p> <strong>Domaine de Competences:</strong> <?= $infoUsers['competences'] ?></p>
+                                <p><strong>Poste :</strong> <?= $appel_offre['titre'] ?></p>
+                            </div>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
-               
-                <div class="div" >
-                    <h4><?= $postulant['nom']?></h4>
-
-                    <?php if($countTMP_message): ?>
-                    <strong class="tmp" >
-                        <?= $countTMP_message ?>
-                    </strong>
-                    <?php endif; ?>
-
-                    <p> <strong>Domaine de Competences: </strong> <?= $postulant['competences']?></p>
-                    <p><span class="span1" ><strong>Offre postuler :</strong> <?= $postulant['poste']?></span>
-                </div>
-            </div>
-           </a>
-            <?php endif;?>
-            <?php endforeach; ?>
         </div>
-
-        <div class="box2">
-            <h2>Appel d'offres </h2>
-            <?php foreach($getAllAppel_offre as $appel_offre): ?>
-                <?php $infoUsers =getInfoUsers($db,$appel_offre['users_id']); 
-
-                $appel_offre = getAppelOffre($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
-
-                $afficheTMP_message = getTMP2_Message2($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
-                $countTMP_message = count($afficheTMP_message);
-                
-                ?>
-                <a href="message_entreprise2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?> &sujet=<?= $appel_offre['sujet']?>">
-            <div class="info">
-            <div class="c_img">
-            <img class="img" src="../upload/<?php echo $infoUsers['images']?>" alt="">
-            </div>
-                <div class="div" >
-                <h4><?= $infoUsers['nom']?></h4>
-                <?php if($countTMP_message): ?>
-                    <strong class="tmp" >
-                        <?= $countTMP_message ?>
-                    </strong>
-                    <?php endif; ?>
-                    <p> <strong>Domaine de Competences:</strong> <?= $infoUsers['competences']?></p>
-                    <p><strong>Poste :</strong> <?= $appel_offre['titre'] ?></p>
-                </div>
-            </div>
-        </a>
-            <?php endforeach; ?>
-        </div>
-    </div>
 
 
         </div>

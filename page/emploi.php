@@ -78,6 +78,7 @@ if (isset($_POST['recherche'])) {
     <!-- End Google Tag Manager -->
 
     <title>Offres D'emploi</title>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="

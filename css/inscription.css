@@ -226,6 +226,9 @@ z-index: -1;
     margin-bottom: 1px;
     margin-left: -220px;
 }
+.section2 .formulaire1 form #phone{
+    padding-left: 50px;
+}
 .section2 .formulaire1 form .erreur{
     padding: 0px 10px;
     background-color: red;
@@ -328,11 +331,11 @@ z-index: -1;
 }
 @media screen and (max-width : 650px) {
     .section2{
-        margin-top: 80px;
+        margin-top: 0px;
     }
 
     .section3 {
-       margin-top: 80px;
+       margin-top: 0px;
     }
 
     .section3 button{

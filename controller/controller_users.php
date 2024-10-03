@@ -128,7 +128,7 @@ if (isset($_POST['valide1'])) {
         if (update11($db, $nom, $users_id)) {
 
         }
-        $_SESSION['success_message'] = 'Modifier avec succès';
+        $_SESSION['success_message'] = 'Modifié avec succès';
         header('Location: modifier.php');
         exit();
     }
@@ -139,16 +139,32 @@ if (isset($_POST['valide1'])) {
 if (isset($_POST['valide3'])) {
     $users_id = $_SESSION['users_id'];
     $mail = '';
+    $pass = '';
     if (empty($_POST['mail'])) {
         $_SESSION['error_message'] = 'nom obligatoire';
     } else {
         $mail = $_POST['mail'];
     }
-    if (empty($_SESSION['error_message'])) {
+    if (empty($_POST['pass'])) {
+        $_SESSION['error_message'] = 'Mot de passe actuel obligatoire';
+    } else {
+        $pass = $_POST['pass'];
+    }
+    // Vérifier le mot de passe actuel
+    $sql = "SELECT passe FROM users WHERE id = :users_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':users_id', $users_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($result && password_verify($pass, $result['passe'])) {
         if (update33($db, $mail, $users_id)) {
 
         }
-        $_SESSION['success_message'] = 'Modifier avec succès';
+        $_SESSION['success_message'] = 'Modifié avec succès';
+        header('Location: modifier.php');
+        exit();
+    } else {
+        $_SESSION['error_message'] = 'Mot de passe actuel incorrect';
         header('Location: modifier.php');
         exit();
     }
@@ -166,7 +182,7 @@ if (isset($_POST['valide4'])) {
         if (update44($db, $phone, $users_id)) {
 
         }
-        $_SESSION['success_message'] = 'Modifier avec succès';
+        $_SESSION['success_message'] = 'Modifié avec succès';
         header('Location: modifier.php');
         exit();
     }
@@ -184,7 +200,7 @@ if (isset($_POST['valide5'])) {
         if (update55($db, $competence, $users_id)) {
 
         }
-        $_SESSION['success_message'] = 'Modifier avec succès';
+        $_SESSION['success_message'] = 'Modifié avec succès';
         header('Location: modifier.php');
         exit();
     }
@@ -202,7 +218,7 @@ if (isset($_POST['valide6'])) {
         if (update66($db, $ville, $users_id)) {
 
         }
-        $_SESSION['success_message'] = 'Modifier avec succès';
+        $_SESSION['success_message'] = 'Modifié avec succès';
         header('Location: modifier.php');
         exit();
     }
@@ -220,7 +236,7 @@ if (isset($_POST['valide7'])) {
         if (update77($db, $profession, $users_id)) {
 
         }
-        $_SESSION['success_message'] = 'Modifier avec succès';
+        $_SESSION['success_message'] = 'Modifié avec succès';
         header('Location: modifier.php');
         exit();
     }
@@ -238,9 +254,51 @@ if (isset($_POST['valide8'])) {
         if (update88($db, $categorie, $users_id)) {
 
         }
-        $_SESSION['success_message'] = 'Modifier avec succès';
+        $_SESSION['success_message'] = 'Modifié avec succès';
         header('Location: modifier.php');
         exit();
+    }
+}
+
+if (isset($_POST['valide9'])) {
+    $users_id = $_SESSION['users_id'];
+    $pass = '';
+    $pass1 = '';
+    if (empty($_POST['pass'])) {
+        $_SESSION['error_message'] = 'Mot de passe actuel obligatoire';
+    } else {
+        $pass = $_POST['pass'];
+    }
+    if (empty($_POST['pass1'])) {
+        $_SESSION['error_message'] = 'Nouveau mot de passe obligatoire';
+    } else {
+        $pass1 = $_POST['pass1'];
+    }
+
+    if (empty($_SESSION['error_message'])) {
+        // Vérifier le mot de passe actuel
+        $sql = "SELECT passe FROM users WHERE id = :users_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':users_id', $users_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result && password_verify($pass, $result['passe'])) {
+            // Hacher le nouveau mot de passe
+            $hashedPass1 = password_hash($pass1, PASSWORD_DEFAULT);
+
+            // Mettre à jour le mot de passe dans la base de données
+            if (update99($db, $hashedPass1, $users_id)) {
+            }
+
+            $_SESSION['success_message'] = 'Mot de passe modifié avec succès';
+            header('Location: modifier.php');
+            exit();
+        } else {
+            $_SESSION['error_message'] = 'Mot de passe actuel incorrect';
+            header('Location: modifier.php');
+            exit();
+        }
     }
 }
 
@@ -274,7 +332,7 @@ if (isset($_POST['valide0'])) {
             if (update00($db, $uniqueFileName, $users_id)) {
             }
 
-            $_SESSION['success_message'] = 'Modifier avec succès';
+            $_SESSION['success_message'] = 'Modifiée avec succès';
             header('Location: modifier.php');
             exit();
         }

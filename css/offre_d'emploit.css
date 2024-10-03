@@ -12,6 +12,7 @@
 
 body {
   font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
 }
 
 .section2 {
@@ -423,6 +424,7 @@ statut2 {
   height: 200px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: rgba(247, 247, 247, 0.499);
   border-radius: 8px;
   overflow: hidden;
@@ -441,6 +443,7 @@ statut2 {
   justify-content: center;
   flex-direction: column;
   padding-bottom: 15px;
+  width: 100%;
 }
 .produit_vedete .articles .carousel:hover {
   transform: scale(1.05);
@@ -506,6 +509,8 @@ statut2 {
 .produit_vedete .articles .carousel .box_vendu {
   display: flex;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .produit_vedete .articles .carousel .vendu {
@@ -648,11 +653,13 @@ statut2 {
     margin-right: 10px;
   }
   .produit_vedete .articles .carousel .p {
-    font-size: 16px;
+    font-size: 12px;
        margin-bottom: 5px;
+       text-align: center;
+       margin-top: 10px;
   }
   .produit_vedete .articles .carousel .p strong {
-    font-size: 14px;
+    font-size: 12px;
   }
   
   .produit_vedete .articles .carousel .poste{
@@ -670,6 +677,7 @@ statut2 {
   
   .produit_vedete .articles .carousel .vendu {
     font-size: 10px;
+    margin-left: 20px;
   }
   
   .produit_vedete .articles .carousel .vendu p {
@@ -721,5 +729,13 @@ statut2 {
 
   .produit_vedete .articles .message {
     font-size: 12px;
+  }
+
+  .produit_vedete .articles .carousel {
+    width: 100%;
+    height: auto;
+    margin: 10px 5px;
+    padding: 5px 5px;
+    flex-direction: column;
   }
 }

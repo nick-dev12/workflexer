@@ -297,7 +297,7 @@ if (isset($_POST['valider'])) {
             <body>
 
             <div class='box1'>
-            <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
+            <img src='https://work-flexer.com/image/logo 2.png' alt='Logo de l'entreprise'>
         </div>
         <div class='box2'>
             <h1>Bonjour $nom,</h1>
@@ -387,6 +387,7 @@ if (isset($_POST['valider'])) {
     <!-- End Google Tag Manager -->
 
     <title> inscription professionnel</title>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -485,7 +486,7 @@ if (isset($_POST['valider'])) {
                             <p>Photo de profil</p>
                             <div class="ab">
                                 <div>
-                                    <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
+                                    <label class="label" for="images"> <img src="/image/caméra.png" alt=""></label>
                                     <input type="file" name="images" id="images"
                                         accept="image/jpeg,image/jpg, image/png, image/gif">
                                 </div>

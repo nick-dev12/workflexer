@@ -7,7 +7,7 @@ nav {
   min-height: 80px;
   border-bottom: 1px solid rgb(215, 215, 215);
   background-color: #fffffff7;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 20;
@@ -15,9 +15,11 @@ nav {
   text-decoration: none;
 }
 
+
+
 nav .logo img {
-  width: 130px;
-  height: 120px;
+  width: 110px;
+  height: 100px;
   object-fit: cover;
 }
 nav .box11 {
@@ -50,6 +52,9 @@ nav .box1 {
   justify-content: center;
 }
 
+#navigation {
+  display: none;
+}
 nav .box1 a {
   color: #0b0b0b;
   font-weight: 500;
@@ -162,7 +167,8 @@ nav .box_info {
   position: absolute;
   top: 120px;
   z-index: 20;
-  right: -100%;
+  right: 200px;
+  transform: translateX(400%);
   transition: all 0.5s ease;
   border-radius: 10px;
   border: 1px solid rgba(64, 64, 64, 0.299);
@@ -233,27 +239,27 @@ nav .box4 img {
   border-radius: 50%;
 }
 
-nav .not{
+nav .not {
   cursor: pointer;
   position: relative;
-  span{
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 2px 6px;
-    font-size: 12px;
-    background-color: red;
-    color: #ffffff;
-    border-radius: 50%;
-  }
-  .notif{
+}
+nav .not span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 2px 6px;
+  font-size: 12px;
+  background-color: red;
+  color: #ffffff;
+  border-radius: 50%;
+}
+nav .not .notif {
   width: 30px;
   height: 30px;
   margin: 0 10px;
 }
-} 
 
-nav .box_notif{
+nav .box_notif {
   display: none;
   width: 350px;
   padding: 30px 20px;
@@ -263,43 +269,42 @@ nav .box_notif{
   border: 1.5px solid #c4c3c3;
   top: 10px;
   right: 30px;
-  .croi{
-    position: absolute;
-    top: 0px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-  a{
-    text-decoration: none;
-  }
-  .item:hover{
-    background-color: #f39d1249;
-  }
-  .item{
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    background-color: #d9d9d9;
-    padding: 10px 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-    img{
-      width: 20px;
-      height: 20px;
-      margin-right: 15px;
-    }
-
-    p{
-      font-size: 14px;
-      span{
-        color: red;
-        font-weight: bold;
-      }
-    }
-  }
+}
+nav .box_notif .croi {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+nav .box_notif a {
+  text-decoration: none;
+}
+nav .box_notif .item:hover {
+  background-color: #f39d1249;
+}
+nav .box_notif .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #d9d9d9;
+  padding: 10px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+nav .box_notif .item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+nav .box_notif .item p {
+  font-size: 14px;
+}
+nav .box_notif .item p span {
+  color: red;
+  font-weight: bold;
 }
 
 nav .box_info img {
@@ -405,7 +410,6 @@ nav .box3 :nth-child(1) {
     position: absolute;
     top: 120px;
     z-index: 20;
-    right: -100%;
     transition: all 0.5s ease;
     border-radius: 10px;
     border: 1px solid rgba(64, 64, 64, 0.299);
@@ -512,7 +516,6 @@ nav .box3 :nth-child(1) {
   nav .box_info {
     top: 120px;
     z-index: 20;
-    right: -200%;
     transition: all 0.5s ease;
     border-radius: 10px;
     border: 1px solid rgba(64, 64, 64, 0.299);
@@ -595,11 +598,11 @@ nav .box3 :nth-child(1) {
   nav .box_info {
     top: 120px;
     z-index: 20;
-    right: -100%;
     transition: all 0.5s ease;
     border-radius: 10px;
     border: 1px solid rgba(64, 64, 64, 0.299);
     width: 260px;
+    right: 20px;
   }
   nav .box_info table {
     border-collapse: collapse;
@@ -676,10 +679,11 @@ nav .box3 :nth-child(1) {
     object-fit: cover;
   }
   nav .container .menu {
-    display: block;
+    /* display: block; */
     height: 35px;
     width: 35px;
     cursor: pointer;
+    
   }
 
   nav .not{
@@ -689,20 +693,31 @@ nav .box3 :nth-child(1) {
     margin: 0 5px;
   }
   } 
-  nav .box1 {
-    flex-direction: column;
-    position: absolute;
-    background-color: #fffffff9;
-    z-index: 20;
-    width: 60%;
-    height: 400px;
-    /* left: -200%; */
-    transform: translateY(-200%);
-    transition: all 0.4s;
-    margin-top: 450px;
-    border-radius: 20px;
-    padding: 20px;
+  nav .container .box1 {
+    display: none;
   }
+
+  #navigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    padding: 5px 0;
+  }
+  #navigation a{
+    color: #0b0b0b;
+
+    font-weight: 500;
+    display: block;
+    margin: 10px 5px;
+    transition: all 0.3s ease-out;
+    padding: 0px 7px;
+    font-size: 14.5px;
+    text-decoration: none;
+    border-right: 1px solid #002233;
+  }
+
   nav .box1 .cacheMenu {
     height: 25px;
     width: 25px;
@@ -740,8 +755,8 @@ nav .box3 :nth-child(1) {
   nav .box_info {
     top: 120px;
     z-index: 20;
-    right: -100%;
     width: 260px;
+    right: 20px;
   }
   nav .box_info table {
     border-collapse: collapse;
@@ -832,19 +847,43 @@ nav .box3 :nth-child(1) {
     width: 90px;
     height: 90px;
   }
+  #navigation a{
+    font-size: 12px;
+    padding: 5px 5px;
+  }
 }
 @media screen and (max-width: 500px) {
-
+  #navigation{
+    padding-left: 40px;
+  }
+  #navigation a{
+    font-size: 11px;
+    padding: 2px 5px;
+    margin: 5px 7px;
+  }
 }
 
 @media screen and (max-width: 400px) {
   nav {
-    width: 400px;
+    width: 100%;
+  }
+  nav .logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  #navigation a{
+    font-size: 11px;
+    padding: 2px 5px;
   }
 }
 @media screen and (max-width: 300px) {
   nav {
-    width: 300px;
+    width: 100%;
+  }
+  #navigation a{
+    margin-top: 4px;
+    
   }
 }
 /* modification de la premiere section */
@@ -855,7 +894,7 @@ nav .box3 :nth-child(1) {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 80px;
+  margin-top: 10px;
   z-index: 10;
   flex-wrap: wrap;
   padding: 5px 0;

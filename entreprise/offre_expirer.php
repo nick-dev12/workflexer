@@ -18,7 +18,7 @@ include_once('app/controller/controllerOffre_emploi.php');
 
     <!-- Google Tag Manager -->
     <script>
-        (function(w, d, s, l, i) {
+        (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
                 'gtm.start': new Date().getTime(),
@@ -38,8 +38,10 @@ include_once('app/controller/controllerOffre_emploi.php');
     <title>
         <?= $getEntreprise['entreprise']; ?>
     </title>
-    <link rel="icon" href="../image/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../image/logo.png" type="image/x-icon">
     <title>
         <?= $getEntreprise['entreprise']; ?>
@@ -57,7 +59,8 @@ include_once('app/controller/controllerOffre_emploi.php');
 <body>
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <?php include('../navbare.php') ?>
@@ -66,9 +69,9 @@ include_once('app/controller/controllerOffre_emploi.php');
     <?php include('../include/header_entreprise.php') ?>
 
     <section class="section3">
-      
 
-        <?php if (isset($_SESSION['success_message'])) : ?>
+
+        <?php if (isset($_SESSION['success_message'])): ?>
             <div class="message">
                 <p>
                     <span></span>
@@ -76,8 +79,8 @@ include_once('app/controller/controllerOffre_emploi.php');
                     <?php unset($_SESSION['success_message']); ?>
                 </p>
             </div>
-        <?php else : ?>
-            <?php if (isset($_SESSION['error_message'])) : ?>
+        <?php else: ?>
+            <?php if (isset($_SESSION['error_message'])): ?>
                 <div class="erreurs" id="messageErreur">
                     <span></span>
                     <?php echo $_SESSION['error_message']; ?>
@@ -99,12 +102,12 @@ include_once('app/controller/controllerOffre_emploi.php');
             var messageErreur = document.getElementById('messageErreur');
 
             // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function() {
+            setTimeout(function () {
                 messageErreur.classList.add('visible');
             }, 200); // 1000 millisecondes équivalent à 1 seconde
 
             // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function() {
+            setTimeout(function () {
                 messageErreur.classList.remove('visible');
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
@@ -116,67 +119,68 @@ include_once('app/controller/controllerOffre_emploi.php');
                 <span>
                     <?php $countOffre = count($afficheOffreEmplois);
                     echo $countOffre
-                    ?>
+                        ?>
                 </span>
             </div>
 
             <div class="box2">
                 <?php
-                if (empty($afficheOffreEmplois)) :
-                ?>
+                if (empty($afficheOffreEmplois)):
+                    ?>
                     <p class="info"><strong>Info!</strong> Aucune offre d’emplois publier ! veuillez ajouter une offre</p>
-                <?php else : ?>
+                <?php else: ?>
 
                     <?php
-                    foreach ($afficheOffreEmplois as $offres) :
-                    ?>
-                    <?php if($offres['statut'] === 'expirée'): ?>
+                    foreach ($afficheOffreEmplois as $offres):
+                        ?>
+                        <?php if ($offres['statut'] === 'expirée'): ?>
 
-                        <?php $countOffre = countOffre($db, $offres['entreprise_id'], $offres['offre_id']); ?>
-                        <div class="carousel">
-                        <a class="suprimer" href="?offre_id=<?= $offres['offre_id']; ?>"> Supprimer</a>
-                        <div class="vue">
+                            <?php $countOffre = countOffre($db, $offres['entreprise_id'], $offres['offre_id']); ?>
+                            <div class="carousel">
+                                <a class="suprimer" href="?offre_id=<?= $offres['offre_id']; ?>"> Supprimer</a>
+                                <div class="vue">
                                     <img src="../image/vue.png" alt="">
                                     <span>
                                         <?= $countOffre ?>
                                     </span>
                                 </div>
 
-                            <div class="boximg">
-                                <img src="../upload/<?= $offres['images'] ?> " alt="">
-                            </div>
-                           
+                                <div class="boximg">
+                                    <img src="../upload/<?= $offres['images'] ?> " alt="">
+                                </div>
 
-                            <div class="box_vendu">
 
-                            <p class="p"><strong>Nous recherchons un(une)</strong>
+                                <div class="box_vendu">
+
+                                    <p class="p"><strong>Nous recherchons un(une)</strong>
                                         <?= $offres['poste'] ?>
                                     </p>
-                                <div class="vendu">
-                                    <p><strong>Niveau :</strong>
-                                        <?= $offres['etudes'] ?>
-                                    </p>
-                                    <p><strong>Experience :</strong>
-                                        <?= $offres['experience'] ?>
-                                    </p>
-                                    <p><strong>Contrat :</strong>
-                                        <?= $offres['contrat'] ?>
-                                    </p>
-                                    <p><strong>Localite :</strong>
-                                        <?= $offres['ville'] ?>
-                                    </p>
+                                    <div class="vendu">
+                                        <p><strong>Niveau :</strong>
+                                            <?= $offres['etudes'] ?>
+                                        </p>
+                                        <p><strong>Experience :</strong>
+                                            <?= $offres['experience'] ?>
+                                        </p>
+                                        <p><strong>Contrat :</strong>
+                                            <?= $offres['contrat'] ?>
+                                        </p>
+                                        <p><strong>Localite :</strong>
+                                            <?= $offres['ville'] ?>
+                                        </p>
+                                    </div>
                                 </div>
+
+                                <p id="nom">
+                                    <?= $offres['date'] ?>
+                                </p>
+
+                                <div class="liens">
+                                    <a class="restore" href="../entreprise/updat_offre.php?restore=<?= $offres['offre_id'] ?>"><img
+                                            src="../image/restore.png" alt=""></span>Republier l'offre</a>
+                                </div>
+
                             </div>
-
-                            <p id="nom">
-                                <?= $offres['date'] ?>
-                            </p>
-
-                            <div class="liens">
-                                <a  class="restore" href="../entreprise/updat_offre.php?restore=<?= $offres['offre_id'] ?>"><img src="../image/restore.png" alt=""></span>Republier l'offre</a>
-                            </div>
-
-                        </div>
                         <?php endif ?>
                     <?php endforeach; ?>
                 <?php endif ?>
@@ -185,10 +189,10 @@ include_once('app/controller/controllerOffre_emploi.php');
         </div>
 
 
-       
+
     </section>
-    
-   
+
+
 
 
 

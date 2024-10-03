@@ -308,7 +308,7 @@ if (isset($_POST['publier'])) {
                 <body>
 
                 <div class='box1'>
-                <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
+                <img src='https://work-flexer.com/image/logo 2.png' alt='Logo de l'entreprise'>
             </div>
             <div class='box2'>
                 <h1>Bonjour $nom,</h1>
@@ -360,11 +360,11 @@ if (isset($_SESSION['users_id'])) {
 
 
 
-if (isset($_POST['valide1'])) {
+if (isset($_POST['valider1'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $nom = '';
     if (empty($_POST['nom'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'votre nom obligatoire';
     } else {
         $nom = $_POST['nom'];
     }
@@ -378,11 +378,11 @@ if (isset($_POST['valide1'])) {
     }
 }
 
-if (isset($_POST['valide2'])) {
+if (isset($_POST['valider2'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $entreprise = '';
     if (empty($_POST['entreprise'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'le nom de l\'entreprise obligatoire';
     } else {
         $entreprise = $_POST['entreprise'];
     }
@@ -396,11 +396,11 @@ if (isset($_POST['valide2'])) {
     }
 }
 
-if (isset($_POST['valide3'])) {
+if (isset($_POST['valider3'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $mail = '';
     if (empty($_POST['mail'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'l\'adresse mail obligatoire';
     } else {
         $mail = $_POST['mail'];
     }
@@ -414,11 +414,11 @@ if (isset($_POST['valide3'])) {
     }
 }
 
-if (isset($_POST['valide4'])) {
+if (isset($_POST['valider4'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $phone = '';
     if (empty($_POST['phone'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'numéro de téléphone obligatoire';
     } else {
         $phone = $_POST['phone'];
     }
@@ -432,11 +432,11 @@ if (isset($_POST['valide4'])) {
     }
 }
 
-if (isset($_POST['valide5'])) {
+if (isset($_POST['valider5'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $types = '';
     if (empty($_POST['types'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'type d\'entreprise obligatoire';
     } else {
         $types = $_POST['types'];
     }
@@ -450,11 +450,11 @@ if (isset($_POST['valide5'])) {
     }
 }
 
-if (isset($_POST['valide6'])) {
+if (isset($_POST['valider6'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $ville = '';
     if (empty($_POST['ville'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'ville obligatoire';
     } else {
         $ville = $_POST['ville'];
     }
@@ -468,11 +468,11 @@ if (isset($_POST['valide6'])) {
     }
 }
 
-if (isset($_POST['valide7'])) {
+if (isset($_POST['valider7'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $taille = '';
     if (empty($_POST['taille'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'taille de l\'entreprise obligatoire';
     } else {
         $taille = $_POST['taille'];
     }
@@ -486,11 +486,11 @@ if (isset($_POST['valide7'])) {
     }
 }
 
-if (isset($_POST['valide8'])) {
+if (isset($_POST['valider8'])) {
     $entreprise_id = $_SESSION['compte_entreprise'];
     $categorie = '';
     if (empty($_POST['categorie'])) {
-        $_SESSION['error_message'] = 'nom obligatoire';
+        $_SESSION['error_message'] = 'secteur d\'activité obligatoire';
     } else {
         $categorie = $_POST['categorie'];
     }
@@ -504,7 +504,49 @@ if (isset($_POST['valide8'])) {
     }
 }
 
-if (isset($_POST['valide0'])) {
+if (isset($_POST['valider9'])) {
+    $entreprise_id = $_SESSION['compte_entreprise'];
+    $pass = '';
+    $pass1 = '';
+    if (empty($_POST['pass'])) {
+        $_SESSION['error_message'] = 'Mot de passe actuel obligatoire';
+    } else {
+        $pass = $_POST['pass'];
+    }
+    if (empty($_POST['pass1'])) {
+        $_SESSION['error_message'] = 'Nouveau mot de passe obligatoire';
+    } else {
+        $pass1 = $_POST['pass1'];
+    }
+
+    if (empty($_SESSION['error_message'])) {
+        // Vérifier le mot de passe actuel
+        $sql = "SELECT passe FROM compte_entreprise WHERE id = :entreprise_id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result && password_verify($pass, $result['passe'])) {
+            // Hacher le nouveau mot de passe
+            $hashedPass1 = password_hash($pass1, PASSWORD_DEFAULT);
+
+            // Mettre à jour le mot de passe dans la base de données
+            if (update9($db, $hashedPass1, $entreprise_id)) {
+            }
+
+            $_SESSION['success_message'] = 'Mot de passe modifié avec succès';
+            header('Location: modifier.php');
+            exit();
+        } else {
+            $_SESSION['error_message'] = 'Mot de passe actuel incorrect';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+}
+
+if (isset($_POST['valider0'])) {
 
     $entreprise_id = $_SESSION['compte_entreprise'];
 

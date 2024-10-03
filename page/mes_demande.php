@@ -81,6 +81,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
     <!-- End Google Tag Manager -->
 
     <title>Mes demandes</title>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
     <script src="../script/jquery-3.6.0.min.js"></script>
@@ -115,13 +116,13 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
 
         <div class="div-section3">
             <div class="box6">
-                <h2>Suivi des candidatures</h2> // Ajout de l'article pour la clarté
-                <h3>Candidatures non traitées.</h3> // Ajout d'un point à la fin
+                <h2>Suivi des candidatures</h2>
+                <h3>Candidatures non traitées.</h3>
                 <div class="box6">
-                    <p>Ici apparaîtront les candidatures.</p> // Ajout d'un point à la fin
+                    <p>Ici apparaîtront les candidatures.</p>
                     <div class="container_accept">
                         <?php if (empty($getPostulationUsers)): ?>
-                            <p><strong>Info :</strong> Aucune candidature trouvée !</p> // Correction de la majuscule et de
+                            <p><strong>Info :</strong> Aucune candidature trouvée !</p>
                             l'accord
                         <?php else: ?>
                             <?php foreach ($getPostulationUsers as $postulationUsers): ?>
@@ -159,7 +160,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
 
 
                                         <?php if ($postulationUsers['statut'] == ''): ?>
-                                            <h5 class="h51"><span>Traitement en cours</span></h5> // Majuscule au début
+                                            <h5 class="h51"><span>Traitement en cours</span></h5>
                                         <?php endif; ?>
 
                                     </div>

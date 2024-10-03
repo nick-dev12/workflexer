@@ -55,7 +55,7 @@ body{
    background-position: center;
    background-attachment: fixed;
    position: relative;
-   margin-top: 80px;
+   margin-top: 10px;
 }
 
 @media screen and (max-width : 1050px){
@@ -256,20 +256,20 @@ body{
 .section3 .container_box1 .box2 {
     margin: 0;
 }
-.section3 .container_box1 .box2 button{
+
+.section3 .container_box1 .box2 button {
     padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 10px;
-  background-color: #666666;
-  margin-bottom: 30px;
-  margin-left: 70%;
-  img{
+    display: block; /* Changement de flex à block pour compatibilité */
+    border: none;
+    border-radius: 10px;
+    background-color: #666666;
+    margin-bottom: 30px;
+    margin-left: 70%;
+}
+
+.section3 .container_box1 .box2 button img {
     width: 30px;
     cursor: pointer;
-  }
 }
 .section3 .container_box1 .box2 button:hover{
     background-color: #F39C12;
@@ -373,15 +373,12 @@ body{
     background-color: #F39C12;
 }
 @media screen and (max-width : 1050px){
- .section3 .container_box1{
+ .section3 .container_box1 {
         width: 90%;
         margin-left: 0px;
-
-        .box1{
-            h1{
-                font-size: 20px;
-            }
-        }
+    }
+    .section3 .container_box1 .box1 h1 {
+        font-size: 20px;
     }
     
     .section3 .container_box1 .form_off form{
@@ -610,11 +607,12 @@ body{
 }
 .section3 .container_box2 .box2  .carousel .restore {
     background-color: #0093dc;
-    img{
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-    }
+}
+
+.section3 .container_box2 .box2  .carousel .restore img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
 }
 
 .section3 .container_box2 .box2  .carousel a :nth-child(1){
@@ -628,17 +626,15 @@ body{
     .section3 .container_box2 {
         width: 95%;
         padding: 30px 10px;
-
-        .box1{
-            h1{
-                font-size: 20px;
-            }
-
-            span{
-                font-size: 16px;
-                padding: 5px 10px;
-            }
-        }
+    }
+    
+    .section3 .container_box2 .box1 h1 {
+        font-size: 20px;
+    }
+    
+    .section3 .container_box2 .box1 span {
+        font-size: 16px;
+        padding: 5px 10px;
     }
 }
 
@@ -646,17 +642,15 @@ body{
         .section3 .container_box2 {
             width: 98%;
             padding: 20px 5px;
-    
-            .box1{
-                h1{
-                    font-size: 20px;
-                }
-    
-                span{
-                    font-size: 16px;
-                    padding: 5px 10px;
-                }
-            }
+        }
+        
+        .section3 .container_box2 .box1 h1 {
+            font-size: 20px;
+        }
+        
+        .section3 .container_box2 .box1 span {
+            font-size: 16px;
+            padding: 5px 10px;
         }
 
         .section3 .container_box2 .box2  .carousel .p{
@@ -814,15 +808,14 @@ body{
 @media screen and (max-width : 1050px){
     .section3 .container_box3 {
         width: 95%;
-        h2{
-            font-size: 20px;
-        }
+    }
+    
+    .section3 .container_box3 h2 {
+        font-size: 20px;
+    }
 
-        .box1{
-            .p{
-            font-size: 13px;
-        }
-        }
+    .section3 .container_box3 .box1 .p {
+        font-size: 13px;
     }
     .section3 .container_box3 .box1{
         width: 100%;
@@ -839,10 +832,10 @@ body{
     .section3 .container_box3 .btn1 {
         padding: 4px 8px;
         margin-bottom: 20px;
-      img{
+    }
+    .section3 .container_box3 .btn1 img {
         width: 25px;
         cursor: pointer;
-      }
     }
 }
 
@@ -893,7 +886,7 @@ body{
     text-transform: uppercase;
   }
   
-  .box_assistance{
+  .box_assistance {
     position: fixed;
     top: 80%;
     right: 20px;
@@ -902,102 +895,107 @@ body{
     justify-content: center;
     flex-direction: column;
     z-index: 25;
-  
-    #contacte{
-      display: flex;
-      align-items: center;
-      color: #ffffff;
-      background-color: #ffffff;
-      text-decoration: none;
-      margin-bottom: 5px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      border: none;
-      font-size: 14px;
-      cursor: pointer;
-      z-index: 19;
-      transition: all 0.3s ease-in-out;
-      img{
-        height: 30px;
-        width: 30px;
-        object-fit: cover;
-      }
-    }
-    #contacte:hover{
-        transform: scale(1.1);
-        background-color: #000000;
-    }
-  
-    .mail{
-      display: flex;
-      align-items: center;
-      color: #ffffff;
-      background-color: #ff0000;
-      text-decoration: none;
-      margin-bottom: 5px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-size: 14px;
-      transition: all 0.3s ease-in-out;
-      img{
-        height: 25px;
-        width: 25px;
-        object-fit: cover;
-      }
-    }
-    .mail:hover{
-        transform: scale(1.1);
-        background-color: #000000 ;
-    }
-    
-    
-    .whatsapp{
-      display: flex;
-      align-items: center;
-      color: #ffffff;
-      background-color: #00a003;
-      text-decoration: none;
-      margin-bottom: 5px;
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-size: 14px;
-      img{
-        height: 25px;
-        width: 25px;
-        object-fit: cover;
-      }
-    }
-    .whatsapp:hover{
-        transform: scale(1.1);
-        background-color: #000000;
-    }
   }
 
-.section3 .container_box6 .box1{
+  .box_assistance #contacte {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 5px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 19;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .box_assistance #contacte img {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+  }
+
+  .box_assistance #contacte:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+  }
+
+  .box_assistance .mail {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #ff0000;
+    text-decoration: none;
+    margin-bottom: 5px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .box_assistance .mail img {
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+  }
+
+  .box_assistance .mail:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+  }
+
+  .box_assistance .whatsapp {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #00a003;
+    text-decoration: none;
+    margin-bottom: 5px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .box_assistance .whatsapp img {
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+  }
+
+  .box_assistance .whatsapp:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+  }
+
+.section3 .container_box6 .box1 {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    .whatsapp{
-      display: flex;
-      align-items: center;
-      color: #ffffff;
-      background-color: #00a003;
-      text-decoration: none;
-      margin-bottom: 10px;
-      padding: 6px 15px;
-      border-radius: 10px;
-      font-size: 14px;
-      img{
-        height: 25px;
-        width: 25px;
-        object-fit: cover;
-        margin-right: 5px;
-      }
-  }
-  
- 
-  }
+}
+
+.section3 .container_box6 .box1 .whatsapp {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #00a003;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 6px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.section3 .container_box6 .box1 .whatsapp img {
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+    margin-right: 5px;
+}
 .section3 .container_box6 .box2{
     margin-top: 20px;
 }
@@ -1081,52 +1079,51 @@ body{
        font-size: 20px;
     }
 
-    .section3 .container_box6 a{
+    .section3 .container_box6 a {
         margin-top: 10px;
         font-size: 14px;
-        img{
-            width: 25px;
-            margin-right: 10px;
-        }
+    }
+    .section3 .container_box6 a img {
+        width: 25px;
+        margin-right: 10px;
     }
 
-    .box_assistance{
-  
-        #contacte{
-          margin-bottom: 5px;
-          padding: 6px 10px;
-          border-radius: 10px;
-          font-size: 14px;
-          cursor: pointer;
-          img{
-            height: 20px;
-            width: 20px;
-            object-fit: cover;
-          }
-        }
-      
-        .mail{
-          margin-bottom: 5px;
-          padding: 6px 10px;
-          border-radius: 10px;
-          font-size: 14px;
-          img{
-            height: 20px;
-            width: 20px;
-            object-fit: cover;
-          }
-        }
-        
-        
-        .whatsapp{
-          margin-bottom: 5px;
-          padding: 6px 10px;
-          border-radius: 10px;
-          font-size: 14px;
-          img{
-            height: 20px;
-            width: 20px;
-          }
-        }
-      }
+    .box_assistance .contacte {
+        margin-bottom: 5px;
+        padding: 6px 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    
+    .box_assistance .contacte img {
+        height: 20px;
+        width: 20px;
+        /* object-fit: cover; */
+    }
+
+    .box_assistance .mail {
+        margin-bottom: 5px;
+        padding: 6px 10px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    .box_assistance .mail img {
+        height: 20px;
+        width: 20px;
+        /* object-fit: cover; */
+    }
+
+    .box_assistance .whatsapp {
+        margin-bottom: 5px;
+        padding: 6px 10px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    .box_assistance .whatsapp img {
+        height: 20px;
+        width: 20px;
+    }
 }

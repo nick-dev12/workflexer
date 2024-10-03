@@ -87,31 +87,32 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-<script src="../script/jquery-3.6.0.min.js"></script>
-
-<link rel="stylesheet" href="../css/cv_users.css">
+    <script src="../script/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/cv_users.css">
     <link rel="stylesheet" href="../css/navbare.css">
-    
+
 </head>
 
 <body>
 
     <?php include('../navbare.php') ?>
-   
+
     <?php include('../include/header_users.php') ?>
 
 
 
     <section class="section3">
-    
-    <div class="model">
-        <a href="../model_cv/model1.php"><img src="../image/cv1.png" alt=""></a> 
-        <a href="../model_cv/model3.php"><img src="../image/cv3.png" alt=""></a>
-        <a href="../model_cv/model5.php"><img src="../image/cv6.png" alt=""></a>
-        <a href="../model_cv/model2.php"><img src="../image/cv2.png" alt=""></a>
-        <a href="../model_cv/model6.php"><img src="../image/cv7.png" alt=""></a>
-        <a href="../model_cv/model4.php"><img src="../image/cv4.png" alt=""></a>
-    </div>
+
+        <div class="model">
+            <a href="../model_cv/model1.php"><img src="../image/cv1.png" alt=""></a>
+            <a href="../model_cv/model7.php"><img src="../image/cv8.png" alt=""></a>
+            <a href="../model_cv/model3.php"><img src="../image/cv3.png" alt=""></a>
+            <a href="../model_cv/model5.php"><img src="../image/cv6.png" alt=""></a>
+            <a href="../model_cv/model2.php"><img src="../image/cv2.png" alt=""></a>
+            <a href="../model_cv/model6.php"><img src="../image/cv7.png" alt=""></a>
+            <a href="../model_cv/model4.php"><img src="../image/cv4.png" alt=""></a>
+        </div>
 
     </section>
 

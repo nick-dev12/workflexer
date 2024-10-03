@@ -14,7 +14,7 @@ if (isset($_SESSION['resultats_recherche'])) {
     $resultats = $_SESSION['resultats_recherche'];
     shuffle($resultats);
 } else {
-   
+
 }
 
 
@@ -43,7 +43,7 @@ if (isset($_SESSION['resultats_recherche'])) {
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
-    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <title>Recherche</title>
     <link rel="stylesheet" href="/css/slick.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -74,7 +74,7 @@ if (isset($_SESSION['resultats_recherche'])) {
 
 
 
-    
+
 
     <!-- <div class="affiche">
         <img src="/image/webdesign.jpg" alt="">
@@ -103,93 +103,93 @@ if (isset($_SESSION['resultats_recherche'])) {
                 <?php foreach ($resultats as $ingenieurs): ?>
                     <?php
                     $nombreCompetences = countCompetences($db, $ingenieurs['id']);
-                    $niveauEtude = gettNiveau($db,$ingenieurs['id']);
+                    $niveauEtude = gettNiveau($db, $ingenieurs['id']);
                     ?>
                     <?php if ($nombreCompetences < 4): ?>
                     <?php else: ?>
-                    <?php if ($ingenieurs['statut'] == 'Occuper'): ?>
+                        <?php if ($ingenieurs['statut'] == 'Occuper'): ?>
 
-                    <?php else: ?>
-                        <div class="carousel">
+                        <?php else: ?>
+                            <div class="carousel">
 
-                            <?php if ($ingenieurs['statut'] == 'Disponible'): ?>
-                                <p class="statut"><span></span>
-                                    <?= $ingenieurs['statut'] ?>
-                                </p>
-                            <?php else: ?>
-                                <?php if ($ingenieurs['statut'] == 'Occuper'): ?>
-                                    <p class="statut2"><span></span>
+                                <?php if ($ingenieurs['statut'] == 'Disponible'): ?>
+                                    <p class="statut"><span></span>
                                         <?= $ingenieurs['statut'] ?>
                                     </p>
-                                <?php endif; ?>
-                            <?php endif; ?>
-
-                            <img src="../upload/<?php echo $ingenieurs['images'] ?>" alt="">
-                           
-                            <div class="info-box">
-                            <h4>
-                                <?php echo $ingenieurs['competences']; ?>
-                            </h4>
-
-                            <div class="vendu">
-                                <?php $afficheCompetences = getCompetences($db, $ingenieurs['id']) ?>
-                                <?php if (empty($afficheCompetences)): ?>
-                                    <span>Competences indisponibles</span>
                                 <?php else: ?>
-                                    <?php
-                                    $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
-                    
-                                    foreach ($afficheCompetences as $compe):
-                                        if ($competencesAffichees < 4):
-                                            ?>
-                                            <span>
-                                                <?= $compe['competence'] ?>
-                                            </span>
+                                    <?php if ($ingenieurs['statut'] == 'Occuper'): ?>
+                                        <p class="statut2"><span></span>
+                                            <?= $ingenieurs['statut'] ?>
+                                        </p>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+                                <img src="../upload/<?php echo $ingenieurs['images'] ?>" alt="">
+
+                                <div class="info-box">
+                                    <h4>
+                                        <?php echo $ingenieurs['competences']; ?>
+                                    </h4>
+
+                                    <div class="vendu">
+                                        <?php $afficheCompetences = getCompetences($db, $ingenieurs['id']) ?>
+                                        <?php if (empty($afficheCompetences)): ?>
+                                            <span>Competences indisponibles</span>
+                                        <?php else: ?>
                                             <?php
-                                            $competencesAffichees++;
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                <?php endif; ?>
+                                            $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
+                        
+                                            foreach ($afficheCompetences as $compe):
+                                                if ($competencesAffichees < 4):
+                                                    ?>
+                                                    <span>
+                                                        <?= $compe['competence'] ?>
+                                                    </span>
+                                                    <?php
+                                                    $competencesAffichees++;
+                                                endif;
+                                            endforeach;
+                                            ?>
+                                        <?php endif; ?>
+                                    </div>
+                                    <p class="nom">
+                                        <?php
+                                        $fullName = $ingenieurs['nom'];
+                                        // Utilisez la fonction explode pour diviser le nom en mots
+                                        $words = explode(' ', $fullName);
+                                        // $words[0] contient le premier mot, $words[1] contient le deuxième mot
+                                        $nameUsers = $words[0] . ' ' . $words[1];
+                                        ?>
+                                        <?php echo $nameUsers ?>
+                                    </p>
+
+                                    <p class="ville">
+                                        <?php echo $ingenieurs['ville']; ?>
+                                    </p>
+
+                                    <div class="divpp"></div>
+                                    <p class="pp"><strong>Niveau :</strong>
+                                        <?php if (empty($niveauEtude['etude'])): ?>
+                                            indisponibles
+                                        <?php else: ?>
+                                            <?php echo $niveauEtude['etude'] ?>
+                                        <?php endif; ?>
+                                    </p>
+                                    <p class="pp"><strong>Experience :</strong>
+                                        <?php if (empty($niveauEtude['etude'])): ?>
+                                            indisponibles
+                                        <?php else: ?>
+                                            <?php echo $niveauEtude['experience'] ?>
+                                        <?php endif; ?>
+                                    </p>
+                                </div>
+
+                                <a href="/page/candidats.php?id=<?php echo $ingenieurs['id']; ?>">
+                                    <i class="fa-solid fa-eye"></i>Profil
+                                </a>
                             </div>
-                            <p class="nom">
-                            <?php
-                                    $fullName = $ingenieurs['nom'];
-                                    // Utilisez la fonction explode pour diviser le nom en mots
-                                    $words = explode(' ', $fullName);
-                                    // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                    $nameUsers = $words[0] . ' ' . $words[1];
-                                    ?>
-                                <?php echo $nameUsers?>
-                            </p>
 
-                            <p class="ville">
-                                <?php echo $ingenieurs['ville']; ?>
-                            </p>
-
-                            <div class="divpp"></div>
-                           <p class="pp"><strong>Niveau :</strong>
-                            <?php if(empty($niveauEtude['etude'])) :?>
-                                indisponibles
-                            <?php else :?>
-                                <?php echo $niveauEtude['etude'] ?>
-                                <?php endif; ?>
-                            </p>
-                            <p class="pp"><strong>Experience :</strong>
-                            <?php if(empty($niveauEtude['etude'])) :?>
-                                indisponibles
-                            <?php else :?>
-                                <?php echo $niveauEtude['experience'] ?>
-                                <?php endif; ?>
-                            </p>
-                            </div>
-
-                            <a href="/page/candidats.php?id=<?php echo $ingenieurs['id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Profil
-                            </a>
-                        </div>
-
-                    <?php endif; ?>
+                        <?php endif; ?>
                     <?php endif; ?>
                 <?php endforeach ?>
             <?php endif; ?>
@@ -277,19 +277,19 @@ if (isset($_SESSION['resultats_recherche'])) {
         });
 
 
-            $('.container_slider').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 1000,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
+        $('.container_slider').owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            animateOut: 'slideOutDown',
+            animateIn: 'flipInX',
+            stagePadding: 1,
+            smartSpeed: 1000,
+            margin: 0,
+            nav: true,
+            navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
+        });
     </script>
 
 </body>

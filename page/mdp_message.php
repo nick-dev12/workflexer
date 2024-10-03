@@ -52,6 +52,7 @@ if (isset($_GET['id'])) {
     $mail = new PHPMailer(true);
 
     try {
+      // Paramètres SMTP
       $mail->isSMTP();
       $mail->Host = 'advantechgroup.online';
       $mail->SMTPAuth = true;
@@ -153,11 +154,13 @@ if (isset($_GET['id'])) {
       $mail->isHTML(true);
       $mail->Subject = $sujet;
       $mail->Body = $message;
+      $mail->CharSet = 'UTF-8'; // Ajout pour l'encodage
+
+
       $mail->clearAddresses();
       $mail->addAddress($destinataire);
       $mail->send();
 
-      $mail->CharSet = 'UTF-8'; // Ajout pour l'encodage
 
       if ($existing_code) {
         // Mettre à jour le code de vérification si l'entrée existe
@@ -215,6 +218,7 @@ if (isset($_GET['id'])) {
   <!-- End Google Tag Manager -->
 
   <title>Recuperation</title>
+  <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -235,7 +239,7 @@ if (isset($_GET['id'])) {
   <section class="section2">
 
     <div class="container">
-      <h2>Compte trouvé !</h2> // Correction de l'orthographe
+      <h2>Compte trouvé !</h2>
 
       <div class="box">
         <img src="../upload/<?= $users['images'] ?>" alt="">
@@ -244,9 +248,9 @@ if (isset($_GET['id'])) {
 
       <a href="../page/mdp_oublier.php">
         <p class="p">Ce n'est pas votre compte ?</p>
-      </a> // Majuscule au début
+      </a>
 
-      <a class="aa" href="?id=<?= $users['id'] ?>">Modifier le mot de passe ?</a> // Ajout d'un point d'interrogation
+      <a class="aa" href="?id=<?= $users['id'] ?>">Modifier le mot de passe ?</a>
     </div>
 
   </section>

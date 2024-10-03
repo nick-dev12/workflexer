@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ('../conn/conn.php');
+include('../conn/conn.php');
 
 if (isset($_SESSION['compte_entreprise'])) {
 
@@ -21,13 +21,13 @@ if (isset($_GET['supp2'])) {
     exit();
 }
 
-include_once ('../entreprise/app/controller/controllerEntreprise.php');
-include_once ('../entreprise/app/controller/controllerDescription.php');
-include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
-include_once ('../controller/controller_postulation.php');
-include_once ('../controller/controller_accepte_candidats.php');
-include_once ('../controller/controller_competence_users.php');
-include_once ('../controller/controller_niveau_etude_experience.php');
+include_once('../entreprise/app/controller/controllerEntreprise.php');
+include_once('../entreprise/app/controller/controllerDescription.php');
+include_once('../entreprise/app/controller/controllerOffre_emploi.php');
+include_once('../controller/controller_postulation.php');
+include_once('../controller/controller_accepte_candidats.php');
+include_once('../controller/controller_competence_users.php');
+include_once('../controller/controller_niveau_etude_experience.php');
 ?>
 
 
@@ -53,7 +53,7 @@ include_once ('../controller/controller_niveau_etude_experience.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <script src="../script/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
     <link rel="stylesheet" href="../css/navbare.css">
@@ -70,10 +70,10 @@ include_once ('../controller/controller_niveau_etude_experience.php');
     <!-- End Google Tag Manager (noscript) -->
 
     <?php
-    include ('../navbare.php')
+    include('../navbare.php')
         ?>
 
-    <?php include ('../include/header_entreprise.php') ?>
+    <?php include('../include/header_entreprise.php') ?>
 
 
     <section class="section3">

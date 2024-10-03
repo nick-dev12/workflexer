@@ -47,7 +47,7 @@ body {
 
 .section3{
   margin-left: 250px;
-  background-color: #d4f2f675;
+  background-color: #f2f2f275;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,7 @@ body {
  background-position: center;
  background-attachment: fixed;
  position: relative;
- margin-top: 80px;
+ margin-top: 10px;
 }
 
 @media screen and (max-width : 1050px){
@@ -76,19 +76,18 @@ body {
   border-radius: 10px;
 }
 
-.section3 .personnalisation .box{
+.section3 .personnalisation .box {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
   margin-top: 10px;
+}
 
-  p{
-    font-size: 12px;
-    color: #636262;
-    text-align: center;
-    margin-right: 20px;
-  }
+.section3 .personnalisation .box p {
+  font-size: 12px;
+  color: #636262;
+  text-align: center;
+  margin-right: 20px;
 }
 .section3 .personnalisation .box input{
   width: 60px;
@@ -121,7 +120,7 @@ body {
 #containe{
   display: none;
 }
-.containers{
+.containers {
   width: 793px;
   height: 1122px;
   border: 1.5px solid #a3a3a3;
@@ -131,934 +130,890 @@ body {
   background-color: #ffffff;
   display: flex;
   overflow: hidden;
-  
+}
 
-  .box1{
-    height: 1122px;
-    width: 260px;
-    background-color: #ffffff;
-    border-right: 2px solid var(--font-color_section);
-    display: flex;
-    flex-direction: column;
-    position: relative;
+.containers .box1 {
+  height: 1122px;
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 2px solid var(--font-color_section);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
-    .item::before{
-      content:"";
-      position: absolute;
-      background-color: var(--font-color_section);
-      width: 100%;
-      height: 600px;
-      z-index:-1;
-      /* border-bottom-right-radius: 700px; */
-    }
+.containers .box1 .item::before {
+  content:"";
+  position: absolute;
+  background-color: var(--font-color_section);
+  width: 100%;
+  height: 600px;
+  z-index:-1;
+}
 
-    .item{
-      width: 100%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-      background-color: var(--font-color_section);
-      position: relative;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
+.containers .box1 .item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--font-color_section);
+  position: relative;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
 
-      h1{
-        text-align: center;
-        font-size: 20px;
-        width: 100%;
-        padding: 0 10px;
-        line-height: 28px;
-        text-transform: uppercase;
-        margin-top: 20px;
-      }
+.containers .box1 .item h1 {
+  text-align: center;
+  font-size: 20px;
+  width: 100%;
+  padding: 0 10px;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
 
-      img{
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin: 10px 0;
-      }
+.containers .box1 .item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px 0;
+}
 
-      h2{
-        font-size: 18px;
-        text-align: center;
-        margin-bottom: 10px;
-      }
+.containers .box1 .item h2 {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-      p{
-        text-align: justify;
-        font-size: 13px;
-        color: var(--texte-color_section);
-      }
-    }
+.containers .box1 .item p {
+  text-align: justify;
+  font-size: 13px;
+  color: var(--texte-color_section);
+}
 
+.containers .box1 .items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
-    .items{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+.containers .box1 .items h1 {
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  margin-top: 20px;
+}
 
-      h1{
-        text-align: center;
-        font-size: 18px;
-        text-transform: uppercase;
-        margin-bottom: 7px;
-        margin-top: 20px;
-      }
+.containers .box1 .items div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 7px;
+}
 
-      div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 7px;
+.containers .box1 .items div img {
+  width: 30px;
+  height: 30px;
+}
 
-        img{
-          width: 30px;
-          height: 30px;
-        }
+.containers .box1 .items div span {
+  font-size: 12px;
+  color: #343434;
+}
 
-        span{
-          font-size: 12px;
-          color: #343434;
-        }
-      }
-    }
-    
+.containers .box1 .itemss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  bottom: 10px;
+}
 
-    .itemss{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      width: 100%;
-      padding: 20px;
-      position: absolute;
-      bottom: 10px;
+.containers .box1 .itemss h1 {
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+}
 
-      h1{
-        text-align: center;
-        font-size: 16px;
-        text-transform: uppercase;
-      }
+.containers .box1 .itemss div img {
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+}
 
-      div{
-         img{
-        margin: 10px ;
-        width: 30px;
-        height: 30px;
-      }
-      }
-    }
-  }
+.containers .box2 {
+  width: 510px;
+  position: relative;
+}
 
+.containers .box2 .decor1 {
+  position: absolute;
+  right: -60px;
+  width: 100px;
+  height: 40px;
+  background-color: var(--font-color_section);
+  transform: rotate(45deg);
+}
 
+.containers .box2 .decor2 {
+  position: absolute;
+  right: -60px;
+  bottom: 0;
+  width: 100px;
+  height: 40px;
+  background-color: var(--font-color_section);
+  transform: rotate(-45deg);
+}
 
+.containers .box2 .item {
+  padding: 20px;
+}
 
+.containers .box2 .item h1 {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-  .box2{
-    width: 510px;
-    position: relative;
+.containers .box2 .item h1 strong {
+  padding: 7px;
+  background-color: var(--font-color_section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  border-radius: 50%;
+}
 
-    .decor1{
-      position: absolute;
-      right: -60px;
-      width: 100px;
-      height: 40px;
-      background-color: var(--font-color_section);
-      transform: rotate(45deg);
-    }
+.containers .box2 .item h1 strong img {
+  width: 30px;
+  height: 30px;
+}
 
-    .decor2{
-      position: absolute;
-      right: -60px;
-      bottom: 0;
-      width: 100px;
-      height: 40px;
-      background-color: var(--font-color_section);
-      transform: rotate(-45deg);
-    }
+.containers .box2 .item .exp {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
 
-    .item{
-      padding: 20px;
+.containers .box2 .item .exp .part {
+  width: 4px;
+  height: 80px;
+  background-color: #343434;
+  margin-right: 20px;
+}
 
-      h1{
-        font-size: 22px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
+.containers .box2 .item .exp .exper {
+  width: 90%;
+}
 
-        strong{
-          padding: 7px;
-          background-color: var(--font-color_section);
-          display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right:30px ;
-        border-radius: 50%;
+.containers .box2 .item .exp .exper h3 {
+  font-size: 15px;
+}
 
-         img{
-          width: 30px;
-          height: 30px;
-        }
-        }
-      }
+.containers .box2 .item .exp .exper h3 em {
+  color: var(--font-color_section);
+  font-size: 13px;
+}
 
-      .exp{
-        display: flex;
-        align-items: center;
-        padding-left: 10px;
-        margin-bottom: 20px;
+.containers .box2 .item .exp .exper span {
+  font-size: 13px;
+  color: #636262;
+}
 
-        .part{
-          width: 4px;
-          height: 80px;
-          background-color: #343434;
-          margin-right: 20px;
-        }
+.containers .box2 .item .exp .exper p {
+  font-size: 12px;
+  text-align: justify;
+}
 
-        .exper{
-          width: 90%;
+.containers .box2 .items {
+  padding-left: 20px;
+  width: 100%;
+}
 
-          h3{
-            font-size: 15px;
+.containers .box2 .items h1 {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-            em{
-              color: var(--font-color_section);
-              font-size: 13px;
-            }
-          }
+.containers .box2 .items h1 strong {
+  padding: 7px;
+  background-color: var(--font-color_section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  border-radius: 50%;
+}
 
-          span{
-            font-size: 13px;
-            color: #636262;
-          }
-          p{
-            font-size: 12px;
-            text-align: justify;
-          }
-        }
-      }
-    }
+.containers .box2 .items h1 strong img {
+  width: 30px;
+  height: 30px;
+}
 
+.containers .box2 .items .containe-exp {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
 
-    .items{
-      padding-left: 20px;
-      width: 100%;
-      h1{
-        font-size: 22px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
+.containers .box2 .items .containe-exp .exp {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  width: 47%;
+  margin: 5px;
+}
 
-        strong{
-          padding: 7px;
-          background-color: var(--font-color_section);
-          display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right:30px ;
-        border-radius: 50%;
+.containers .box2 .items .containe-exp .exp .part {
+  width: 3px;
+  height: 60px;
+  background-color: #343434;
+  margin-right: 10px;
+}
 
-         img{
-          width: 30px;
-          height: 30px;
-        }
-        }
-      }
+.containers .box2 .items .containe-exp .exp .exper {
+  width: 90%;
+}
 
-      .containe-exp{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
+.containers .box2 .items .containe-exp .exp .exper h3 {
+  font-size: 15px;
+}
 
-        .exp{
-          display: flex;
-          align-items: center;
-          padding-left: 10px;
-          margin-bottom: 20px;
-          width: 47%;
-          margin: 5px;
-  
-          .part{
-            width: 3px;
-            height: 60px;
-            background-color: #343434;
-            margin-right: 10px;
-          }
-  
-          .exper{
-            width: 90%;
-            h3{
-              font-size: 15px;
-  
-              em{
-                color: var(--font-color_section);
-                font-size: 13px;
-              }
-            }
-  
-            span{
-              font-size: 13px;
-              color: #636262;
-            }
-            p{
-              font-size: 12px;
-              text-align: justify;
-            }
-          }
-        }
-      }
-     
-    }
+.containers .box2 .items .containe-exp .exp .exper h3 em {
+  color: var(--font-color_section);
+  font-size: 13px;
+}
 
+.containers .box2 .items .containe-exp .exp .exper span {
+  font-size: 13px;
+  color: #636262;
+}
 
-    .itemss{
-      padding-left: 20px;
-      width: 100%;
-      margin-top: 20px;
-      h1{
-        font-size: 22px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
+.containers .box2 .items .containe-exp .exp .exper p {
+  font-size: 12px;
+  text-align: justify;
+}
 
-        strong{
-          padding: 7px;
-          background-color: var(--font-color_section);
-          display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right:30px ;
-        border-radius: 50%;
+.containers .box2 .itemss {
+  padding-left: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
 
-         img{
-          width: 30px;
-          height: 30px;
-        }
-        }
-      }
+.containers .box2 .itemss h1 {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-     ul{
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+.containers .box2 .itemss h1 strong {
+  padding: 7px;
+  background-color: var(--font-color_section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  border-radius: 50%;
+}
 
-      li{
-        list-style: none;
-        font-size: 14px;
-        padding: 3px 7px;
-        background-color: #e6e6e6;
-        color: #343434;
-        margin: 7px;
-        border-radius: 5px;
-      }
-     }
-     
-    }
+.containers .box2 .itemss h1 strong img {
+  width: 30px;
+  height: 30px;
+}
 
+.containers .box2 .itemss ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-    .itemsss{
-      padding-left: 20px;
-      width: 100%;
-      margin-top: 20px;
-      h1{
-        font-size: 22px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
+.containers .box2 .itemss ul li {
+  list-style: none;
+  font-size: 14px;
+  padding: 3px 7px;
+  background-color: #e6e6e6;
+  color: #343434;
+  margin: 7px;
+  border-radius: 5px;
+}
 
-        strong{
-          padding: 7px;
-          background-color: var(--font-color_section);
-          display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right:30px ;
-        border-radius: 50%;
+.containers .box2 .itemsss {
+  padding-left: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
 
-         img{
-          width: 30px;
-          height: 30px;
-        }
-        }
-      }
+.containers .box2 .itemsss h1 {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-     ul{
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+.containers .box2 .itemsss h1 strong {
+  padding: 7px;
+  background-color: var(--font-color_section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  border-radius: 50%;
+}
 
-      li{
-        font-size: 14px;
-        color: #343434;
-        margin: 10px 30px;
-        border-radius: 5px;
-      }
-     }
-     
-    }
-  }
+.containers .box2 .itemsss h1 strong img {
+  width: 30px;
+  height: 30px;
+}
+
+.containers .box2 .itemsss ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.containers .box2 .itemsss ul li {
+  font-size: 14px;
+  color: #343434;
+  margin: 10px 30px;
+  border-radius: 5px;
 }
 
 
-@media screen and (max-width: 1050px) {
-  #containe1{
-    .containers{
+
+  @media screen and (max-width: 1050px) {
+    #containe1 .containers {
       width: 593px;
       height: 822px;
+    }
     
-      .box1{
-        height: 822px;
-        width: 260px;
+    #containe1 .containers .box1 {
+      height: 822px;
+      width: 260px;
+    }
     
-        .item::before{
-          z-index:-1;
-        }
+    #containe1 .containers .box1 .item::before {
+      z-index: -1;
+    }
     
-        .item{
-          padding: 20px;
+    #containe1 .containers .box1 .item {
+      padding: 20px;
+    }
     
-          h1{
-            font-size: 16px;
-            width: 100%;
-            padding: 0 10px;
-            line-height: 20px;
-            margin-top: 10px;
-          }
+    #containe1 .containers .box1 .item h1 {
+      font-size: 16px;
+      width: 100%;
+      padding: 0 10px;
+      line-height: 20px;
+      margin-top: 10px;
+    }
     
-          img{
-            width: 100px;
-            height: 100px;
-            margin: 10px 0;
-          }
+    #containe1 .containers .box1 .item img {
+      width: 100px;
+      height: 100px;
+      margin: 10px 0;
+    }
     
-          h2{
-            font-size: 14px;
-            margin-bottom: 10px;
-          }
+    #containe1 .containers .box1 .item h2 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
     
-          p{
-            font-size: 10px;
-          }
-        }
+    #containe1 .containers .box1 .item p {
+      font-size: 10px;
+    }
     
+    #containe1 .containers .box1 .items h1 {
+      font-size: 14px;
+      margin-bottom: 7px;
+      margin-top: 15px;
+    }
     
-        .items{
+    #containe1 .containers .box1 .items div {
+      margin: 7px;
+      font-size: 12px;
+    }
     
-          h1{
-            font-size: 14px;
-            margin-bottom: 7px;
-            margin-top: 15px;
-          }
+    #containe1 .containers .box1 .items div p {
+      font-size: 11px;
+    }
     
-          div{
-            margin: 7px;
-            font-size: 12px;
-
-            p{
-              font-size: 11px;
-            }
+    #containe1 .containers .box1 .items div img {
+      width: 20px;
+      height: 20px;
+    }
     
-            img{
-              width: 20px;
-              height: 20px;
-            }
+    #containe1 .containers .box1 .items div span {
+      font-size: 10px;
+    }
     
-            span{
-              font-size: 10px;
-            }
-          }
-        }
-        
+    #containe1 .containers .box1 .itemss {
+      padding: 10px;
+      bottom: 0px;
+    }
     
-        .itemss{
-          padding: 10px;
-          bottom: 0px;
+    #containe1 .containers .box1 .itemss h1 {
+      font-size: 14px;
+    }
     
-          h1{
-            font-size: 14px;
-          }
+    #containe1 .containers .box1 .itemss div {
+      bottom: 5px;
+    }
     
-          div{
-            bottom: 5px;
-             img{
-            margin: 5px ;
-            width: 20px;
-            height: 20px;
-          }
-          }
-        }
-      }
+    #containe1 .containers .box1 .itemss div img {
+      margin: 5px;
+      width: 20px;
+      height: 20px;
+    }
     
+    #containe1 .containers .box2 {
+      width: 510px;
+    }
     
+    #containe1 .containers .box2 .decor1 {
+      right: -60px;
+      width: 100px;
+      height: 40px;
+      transform: rotate(45deg);
+    }
     
+    #containe1 .containers .box2 .decor2 {
+      right: -60px;
+      width: 100px;
+      height: 40px;
+      transform: rotate(-45deg);
+    }
     
+    #containe1 .containers .box2 .item {
+      padding: 20px;
+    }
     
-      .box2{
-        width: 510px;
+    #containe1 .containers .box2 .item h1 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
     
-        .decor1{
-          right: -60px;
-          width: 100px;
-          height: 40px;
-          transform: rotate(45deg);
-        }
+    #containe1 .containers .box2 .item h1 strong {
+      padding: 7px;
+      margin-right: 20px;
+    }
     
-        .decor2{
-          right: -60px;
-          width: 100px;
-          height: 40px;
-          transform: rotate(-45deg);
-        }
+    #containe1 .containers .box2 .item h1 strong img {
+      width: 20px;
+      height: 20px;
+    }
     
-        .item{
-          padding: 20px;
+    #containe1 .containers .box2 .item .exp {
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
     
-          h1{
-            font-size: 16px;
-            margin-bottom: 15px;
+    #containe1 .containers .box2 .item .exp .part {
+      width: 4px;
+      height: 80px;
+      margin-right: 20px;
+    }
     
-            strong{
-              padding: 7px;
-            margin-right:20px ;
-             img{
-              width: 20px;
-              height: 20px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .item .exp .exper {
+      width: 90%;
+    }
     
-          .exp{
-            padding-left: 10px;
-            margin-bottom: 10px;
+    #containe1 .containers .box2 .item .exp .exper h3 {
+      font-size: 11px;
+    }
     
-            .part{
-              width: 4px;
-              height: 80px;
-              margin-right: 20px;
-            }
+    #containe1 .containers .box2 .item .exp .exper h3 em {
+      font-size: 9px;
+    }
     
-            .exper{
-              width: 90%;
+    #containe1 .containers .box2 .item .exp .exper span {
+      font-size: 9px;
+    }
     
-              h3{
-                font-size: 11px;
+    #containe1 .containers .box2 .item .exp .exper p {
+      font-size: 9px;
+    }
     
-                em{
-                  font-size: 9px;
-                }
-              }
+    #containe1 .containers .box2 .items {
+      padding-left: 15px;
+    }
     
-              span{
-                font-size: 9px;
-              }
-              p{
-                font-size: 9px;
-              }
-            }
-          }
-        }
+    #containe1 .containers .box2 .items h1 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
     
+    #containe1 .containers .box2 .items h1 strong {
+      padding: 7px;
+      margin-right: 30px;
+    }
     
-        .items{
-          padding-left: 15px;
-          h1{
-            font-size: 16px;
-            margin-bottom: 10px;
+    #containe1 .containers .box2 .items h1 strong img {
+      width: 20px;
+      height: 20px;
+    }
     
-            strong{
-              padding: 7px;
-            margin-right:30px ;
+    #containe1 .containers .box2 .items .containe-exp .exp {
+      padding-left: 15px;
+      margin-bottom: 10px;
+      width: 47%;
+      margin: 5px;
+    }
     
-             img{
-              width: 20px;
-              height: 20px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .items .containe-exp .exp .part {
+      width: 3px;
+      height: 60px;
+      margin-right: 10px;
+    }
     
-          .containe-exp{
+    #containe1 .containers .box2 .items .containe-exp .exp .exper {
+      width: 90%;
+    }
     
-            .exp{
-              padding-left: 15px;
-              margin-bottom: 10px;
-              width: 47%;
-              margin: 5px;
-      
-              .part{
-                width: 3px;
-                height: 60px;
-                margin-right: 10px;
-              }
-      
-              .exper{
-                width: 90%;
-                h3{
-                  font-size: 11px;
-      
-                  em{
-                    font-size: 9px;
-                  }
-                }
-      
-                span{
-                  font-size: 9px;
-                 
-                }
-                p{
-                  font-size: 10px;
-                }
-              }
-            }
-          }
-         
-        }
+    #containe1 .containers .box2 .items .containe-exp .exp .exper h3 {
+      font-size: 11px;
+    }
     
+    #containe1 .containers .box2 .items .containe-exp .exp .exper h3 em {
+      font-size: 9px;
+    }
     
-        .itemss{
-          padding-left: 20px;
-          margin-top: 20px;
-          h1{
-            font-size: 16px;
-            margin-bottom: 10px;
+    #containe1 .containers .box2 .items .containe-exp .exp .exper span {
+      font-size: 9px;
+    }
     
-            strong{
-              padding: 7px;
-            margin-right:30px ;
+    #containe1 .containers .box2 .items .containe-exp .exp .exper p {
+      font-size: 10px;
+    }
     
-             img{
-              width: 20px;
-              height: 20px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .itemss {
+      padding-left: 20px;
+      margin-top: 20px;
+    }
     
-         ul{
+    #containe1 .containers .box2 .itemss h1 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
     
-          li{
-            font-size: 10px;
-            padding: 3px 7px;
-            margin: 7px;
-          }
-         }
-         
-        }
+    #containe1 .containers .box2 .itemss h1 strong {
+      padding: 7px;
+      margin-right: 30px;
+    }
     
+    #containe1 .containers .box2 .itemss h1 strong img {
+      width: 20px;
+      height: 20px;
+    }
     
-        .itemsss{
-          padding-left: 20px;
-          margin-top: 10px;
-          h1{
-            font-size: 16px;
-            margin-bottom: 10px;
+    #containe1 .containers .box2 .itemss ul li {
+      font-size: 10px;
+      padding: 3px 7px;
+      margin: 7px;
+    }
     
-            strong{
-              padding: 7px;
-            margin-right:30px ;
+    #containe1 .containers .box2 .itemsss {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
     
-             img{
-              width: 20px;
-              height: 20px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .itemsss h1 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
     
-         ul{
+    #containe1 .containers .box2 .itemsss h1 strong {
+      padding: 7px;
+      margin-right: 30px;
+    }
     
-          li{
-            font-size: 10px;
-            margin: 5px 20px;
-          }
-         }
-         
-        }
-      }
+    #containe1 .containers .box2 .itemsss h1 strong img {
+      width: 20px;
+      height: 20px;
+    }
+    
+    #containe1 .containers .box2 .itemsss ul li {
+      font-size: 10px;
+      margin: 5px 20px;
     }
   }
-}
 
 
-@media screen and (max-width: 680px) {
-  #containe1{
-    .containers{
+
+
+  @media screen and (max-width: 680px) {
+    #containe1 .containers {
       width: 380px;
       height: 622px;
+    }
     
-      .box1{
-        height: 622px;
-        width: 150px;
+    #containe1 .containers .box1 {
+      height: 622px;
+      width: 150px;
+    }
     
-        .item::before{
-          z-index:-1;
-        }
+    #containe1 .containers .box1 .item::before {
+      z-index: -1;
+    }
     
-        .item{
-          padding: 20px;
+    #containe1 .containers .box1 .item {
+      padding: 20px;
+    }
     
-          h1{
-            font-size: 14px;
-            width: 140px;
-            padding: 0 5px;
-            line-height: 20px;
-            margin-top: 10px;
-          }
+    #containe1 .containers .box1 .item h1 {
+      font-size: 14px;
+      width: 140px;
+      padding: 0 5px;
+      line-height: 20px;
+      margin-top: 10px;
+    }
     
-          img{
-            width: 100px;
-            height: 100px;
-            margin: 10px 0;
-          }
+    #containe1 .containers .box1 .item img {
+      width: 100px;
+      height: 100px;
+      margin: 10px 0;
+    }
     
-          h2{
-            font-size: 12px;
-            margin-bottom: 10px;
-            width: 130px;
-          }
+    #containe1 .containers .box1 .item h2 {
+      font-size: 12px;
+      margin-bottom: 10px;
+      width: 130px;
+    }
     
-          p{
-            font-size: 6px;
-            width: 130px;
-          }
-        }
+    #containe1 .containers .box1 .item p {
+      font-size: 6px;
+      width: 130px;
+    }
     
+    #containe1 .containers .box1 .items h1 {
+      font-size: 12px;
+      margin-bottom: 7px;
+      margin-top: 15px;
+    }
     
-        .items{
+    #containe1 .containers .box1 .items div {
+      margin: 7px;
+      font-size: 7px;
+    }
     
-          h1{
-            font-size: 12px;
-            margin-bottom: 7px;
-            margin-top: 15px;
-          }
+    #containe1 .containers .box1 .items div p {
+      font-size: 7px;
+    }
     
-          div{
-            margin: 7px;
-            font-size: 7px;
-
-            p{
-              font-size: 7px;
-            }
+    #containe1 .containers .box1 .items div img {
+      width: 15px;
+      height: 15px;
+    }
     
-            img{
-              width: 15px;
-              height: 15px;
-            }
+    #containe1 .containers .box1 .items div span {
+      font-size: 7px;
+    }
     
-            span{
-              font-size: 7px;
-            }
-          }
-        }
-        
+    #containe1 .containers .box1 .itemss {
+      padding: 5px;
+      bottom: 0px;
+    }
     
-        .itemss{
-          padding: 5px;
-          bottom: 0px;
+    #containe1 .containers .box1 .itemss h1 {
+      font-size: 12px;
+    }
     
-          h1{
-            font-size: 12px;
-          }
+    #containe1 .containers .box1 .itemss div {
+      bottom: 5px;
+    }
     
-          div{
-            bottom: 5px;
-             img{
-            margin: 5px ;
-            width: 15px;
-            height: 15px;
-          }
-          }
-        }
-      }
+    #containe1 .containers .box1 .itemss div img {
+      margin: 5px;
+      width: 15px;
+      height: 15px;
+    }
     
+    #containe1 .containers .box2 {
+      width: 510px;
+    }
     
+    #containe1 .containers .box2 .decor1 {
+      right: -60px;
+      width: 100px;
+      height: 40px;
+      transform: rotate(45deg);
+    }
     
+    #containe1 .containers .box2 .decor2 {
+      right: -60px;
+      width: 100px;
+      height: 40px;
+      transform: rotate(-45deg);
+    }
     
+    #containe1 .containers .box2 .item {
+      padding: 5px;
+    }
     
-      .box2{
-        width: 510px;
+    #containe1 .containers .box2 .item h1 {
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
     
-        .decor1{
-          right: -60px;
-          width: 100px;
-          height: 40px;
-          transform: rotate(45deg);
-        }
+    #containe1 .containers .box2 .item h1 strong {
+      padding: 5px;
+      margin-right: 15px;
+    }
     
-        .decor2{
-          right: -60px;
-          width: 100px;
-          height: 40px;
-          transform: rotate(-45deg);
-        }
+    #containe1 .containers .box2 .item h1 strong img {
+      width: 15px;
+      height: 15px;
+    }
     
-        .item{
-          padding: 5px;
+    #containe1 .containers .box2 .item .exp {
+      padding-left: 5px;
+      margin-bottom: 7px;
+      padding-right: 5px;
+    }
     
-          h1{
-            font-size: 12px;
-            margin-bottom: 7px;
+    #containe1 .containers .box2 .item .exp .part {
+      width: 3px;
+      height: 40px;
+      margin-right: 20px;
+    }
     
-            strong{
-              padding: 5px;
-            margin-right:15px ;
-             img{
-              width: 15px;
-              height: 15px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .item .exp .exper {
+      width: 97%;
+      margin-top: 10px;
+    }
     
-          .exp{
-            padding-left: 5px;
-            margin-bottom: 7px;
-            padding-right: 5px;
+    #containe1 .containers .box2 .item .exp .exper h3 {
+      font-size: 9px;
+      margin-bottom: -7px;
+    }
     
-            .part{
-              width: 3px;
-              height: 40px;
-              margin-right: 20px;
-            }
+    #containe1 .containers .box2 .item .exp .exper h3 em {
+      font-size: 6px;
+    }
     
-            .exper{
-              width: 97%;
-              margin-top: 10px;
-              h3{
-                font-size: 9px;
-                margin-bottom: -7px;
-                em{
-                  font-size: 6px;
-                }
-              }
+    #containe1 .containers .box2 .item .exp .exper span {
+      font-size: 6px;
+    }
     
-              span{
-                font-size: 6px;
-                
-              }
-              p{
-                font-size: 6px;
-              }
-            }
-          }
-        }
+    #containe1 .containers .box2 .item .exp .exper p {
+      font-size: 6px;
+    }
     
+    #containe1 .containers .box2 .items h1 {
+      font-size: 12px;
+      margin-bottom: 7px;
+      width: 100%;
+    }
     
-        .items{
-          h1{
-            font-size: 12px;
-            margin-bottom: 7px;
-            width: 100%;
+    #containe1 .containers .box2 .items h1 strong {
+      padding: 7px;
+      margin-right: 20px;
+    }
     
-            strong{
-              padding: 7px;
-            margin-right:20px ;
+    #containe1 .containers .box2 .items h1 strong img {
+      width: 15px;
+      height: 15px;
+    }
     
-             img{
-              width: 15px;
-              height: 15px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .items .containe-exp {
+      width: 100%;
+      margin-left: 0;
+    }
     
-          .containe-exp{
-            width: 100%;
-            margin-left: 0;
-            .exp{
-              padding-left: 0px;
-              width: 40%;
-              margin: 5px 10px;
-      
-              .part{
-                width: 3px;
-                height: 30px;
-                margin-right: 10px;
-              }
-      
-              .exper{
-                width: 100%;
-                
-                h3{
-                  font-size: 6px;
-      
-                  em{
-                    font-size: 5px;
-                  }
-                }
-      
-                span{
-                  font-size: 5px;
-                 
-                }
-                p{
-                  font-size: 5px;
-                }
-              }
-            }
-          }
-         
-        }
+    #containe1 .containers .box2 .items .containe-exp .exp {
+      padding-left: 0px;
+      width: 40%;
+      margin: 5px 10px;
+    }
     
+    #containe1 .containers .box2 .items .containe-exp .exp .part {
+      width: 3px;
+      height: 30px;
+      margin-right: 10px;
+    }
     
-        .itemss{
-          padding-left: 5px;
-          margin-top: 10px;
-          h1{
-            font-size: 12px;
-            margin-bottom: 10px;
+    #containe1 .containers .box2 .items .containe-exp .exp .exper {
+      width: 100%;
+    }
     
-            strong{
-              padding: 7px;
-            margin-right:20px ;
+    #containe1 .containers .box2 .items .containe-exp .exp .exper h3 {
+      font-size: 6px;
+    }
     
-             img{
-              width: 15px;
-              height: 15px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .items .containe-exp .exp .exper h3 em {
+      font-size: 5px;
+    }
     
-         ul{
+    #containe1 .containers .box2 .items .containe-exp .exp .exper span {
+      font-size: 5px;
+    }
     
-          li{
-            font-size: 6px;
-            padding: 2px 5px;
-            margin: 5px;
-          }
-         }
-         
-        }
+    #containe1 .containers .box2 .items .containe-exp .exp .exper p {
+      font-size: 5px;
+    }
     
+    #containe1 .containers .box2 .itemss {
+      padding-left: 5px;
+      margin-top: 10px;
+    }
     
-        .itemsss{
-          padding-left: 10px;
-          margin-top: 5px;
-          h1{
-            font-size: 12px;
-            margin-bottom: 10px;
+    #containe1 .containers .box2 .itemss h1 {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
     
-            strong{
-              padding: 7px;
-            margin-right:20px ;
+    #containe1 .containers .box2 .itemss h1 strong {
+      padding: 7px;
+      margin-right: 20px;
+    }
     
-             img{
-              width: 15px;
-              height: 15px;
-            }
-            }
-          }
+    #containe1 .containers .box2 .itemss h1 strong img {
+      width: 15px;
+      height: 15px;
+    }
     
-         ul{
+    #containe1 .containers .box2 .itemss ul li {
+      font-size: 6px;
+      padding: 2px 5px;
+      margin: 5px;
+    }
     
-          li{
-            font-size: 6px;
-            margin: 5px 20px;
-          }
-         }
-         
-        }
-      }
+    #containe1 .containers .box2 .itemsss {
+      padding-left: 10px;
+      margin-top: 5px;
+    }
+    
+    #containe1 .containers .box2 .itemsss h1 {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    
+    #containe1 .containers .box2 .itemsss h1 strong {
+      padding: 7px;
+      margin-right: 20px;
+    }
+    
+    #containe1 .containers .box2 .itemsss h1 strong img {
+      width: 15px;
+      height: 15px;
+    }
+    
+    #containe1 .containers .box2 .itemsss ul li {
+      font-size: 6px;
+      margin: 5px 20px;
     }
   }
-}

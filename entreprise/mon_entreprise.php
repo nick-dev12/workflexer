@@ -22,6 +22,7 @@ include_once('../controller/controller_appel_offre.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
@@ -59,34 +60,36 @@ include_once('../controller/controller_appel_offre.php');
         <div class="box3">
             <h2>Candidats retenu</h2>
             <?php foreach ($getALLpostulation as $postulant): ?>
-                <?php if($postulant['statut']=='accepter'):?>
-           <a href="message_entreprise.php?users_id=<?= $postulant['users_id']?>&offres_id=<?= $postulant['offre_id']?>&entreprise_id=<?= $postulant['entreprise_id']?>&statut=<?= $postulant['statut']?>">
-           <div class="info" >
-                <img src="../upload/<?php echo $postulant['images']?>" alt="">
-                <div class="div" >
-                    <h4><?= $postulant['nom']?></h4>
-                    <p><?= $postulant['competences']?></p>
-                </div>
-            </div>
-           </a>
-            <?php endif;?>
+                <?php if ($postulant['statut'] == 'accepter'): ?>
+                    <a
+                        href="message_entreprise.php?users_id=<?= $postulant['users_id'] ?>&offres_id=<?= $postulant['offre_id'] ?>&entreprise_id=<?= $postulant['entreprise_id'] ?>&statut=<?= $postulant['statut'] ?>">
+                        <div class="info">
+                            <img src="../upload/<?php echo $postulant['images'] ?>" alt="">
+                            <div class="div">
+                                <h4><?= $postulant['nom'] ?></h4>
+                                <p><?= $postulant['competences'] ?></p>
+                            </div>
+                        </div>
+                    </a>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
 
         <div class="box2">
             <h2>Appel d'offres </h2>
-            <?php foreach($getAllAppel_offre as $appel_offre): ?>
-                <?php $infoUsers =getInfoUsers($db,$appel_offre['users_id']) ?>
-                <a href="message_entreprise2.php?users_id=<?= $appel_offre['users_id']?>&entreprise_id=<?=$appel_offre['entreprise_id']?>">
-            <div class="info">
-            <img src="../upload/<?php echo $infoUsers['images']?>" alt="">
-                <div class="div" >
-                <h4><?= $infoUsers['nom']?></h4>
-                    <p> <strong>Competences:</strong> <?= $infoUsers['competences']?></p>
-                    <p><span class="span1" ><strong>Sujet:</strong> Appelle d'offre </span> </p>
-                </div>
-            </div>
-        </a>
+            <?php foreach ($getAllAppel_offre as $appel_offre): ?>
+                <?php $infoUsers = getInfoUsers($db, $appel_offre['users_id']) ?>
+                <a
+                    href="message_entreprise2.php?users_id=<?= $appel_offre['users_id'] ?>&entreprise_id=<?= $appel_offre['entreprise_id'] ?>">
+                    <div class="info">
+                        <img src="../upload/<?php echo $infoUsers['images'] ?>" alt="">
+                        <div class="div">
+                            <h4><?= $infoUsers['nom'] ?></h4>
+                            <p> <strong>Competences:</strong> <?= $infoUsers['competences'] ?></p>
+                            <p><span class="span1"><strong>Sujet:</strong> Appelle d'offre </span> </p>
+                        </div>
+                    </div>
+                </a>
             <?php endforeach; ?>
         </div>
     </section>

@@ -10,6 +10,7 @@
 
 body {
   font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
 }
 
 .emploi {
@@ -19,7 +20,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #d4f2f675;
+  background-color: #f2f2f275;
 }
 .emploi .box {
   width: 310px;

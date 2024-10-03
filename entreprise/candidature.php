@@ -7,13 +7,13 @@ if (isset($_SESSION['compte_entreprise'])) {
     header('Location: ../index.php');
 }
 
-include_once ('../entreprise/app/controller/controllerEntreprise.php');
-include_once ('../entreprise/app/controller/controllerDescription.php');
-include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
-include_once ('../controller/controller_postulation.php');
-include_once ('../controller/controller_accepte_candidats.php');
-include_once ('../controller/controller_competence_users.php');
-include_once ('../controller/controller_niveau_etude_experience.php');
+include_once('../entreprise/app/controller/controllerEntreprise.php');
+include_once('../entreprise/app/controller/controllerDescription.php');
+include_once('../entreprise/app/controller/controllerOffre_emploi.php');
+include_once('../controller/controller_postulation.php');
+include_once('../controller/controller_accepte_candidats.php');
+include_once('../controller/controller_competence_users.php');
+include_once('../controller/controller_niveau_etude_experience.php');
 ?>
 
 
@@ -34,11 +34,11 @@ include_once ('../controller/controller_niveau_etude_experience.php');
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
-
     <title>candidature</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
 
     <script src="../script/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
@@ -56,10 +56,10 @@ include_once ('../controller/controller_niveau_etude_experience.php');
     <!-- End Google Tag Manager (noscript) -->
 
     <?php
-    include ('../navbare.php')
+    include('../navbare.php')
         ?>
 
-    <?php include ('../include/header_entreprise.php') ?>
+    <?php include('../include/header_entreprise.php') ?>
 
 
     <section class="section3">
@@ -136,28 +136,29 @@ include_once ('../controller/controller_niveau_etude_experience.php');
             <h2>Liste des candidatures</h2>
 
             <div class="categorie">
-            <?php if(isset($getAllcategorie)  ): ?>
-                
-                <?php foreach( $getAllcategorie as $categorie): ?>
-                    <?php
-                        
+                <?php if (isset($getAllcategorie)): ?>
+
+                    <?php foreach ($getAllcategorie as $categorie): ?>
+                        <?php
+
                         $sql_o = " SELECT * FROM offre_emploi WHERE entreprise_id = :entreprise_id AND categorie = :categorie";
                         $stmt_o = $db->prepare($sql_o);
-                        $stmt_o->bindValue(':entreprise_id', $_SESSION['compte_entreprise'] ,PDO::PARAM_INT);
-                        $stmt_o->bindValue(':categorie', $categorie['categori'] ,PDO::PARAM_STR);
+                        $stmt_o->bindValue(':entreprise_id', $_SESSION['compte_entreprise'], PDO::PARAM_INT);
+                        $stmt_o->bindValue(':categorie', $categorie['categori'], PDO::PARAM_STR);
                         $stmt_o->execute();
                         $count_postulation = $stmt_o->fetchAll(PDO::FETCH_ASSOC);
                         $count_c = count($count_postulation);
 
                         ?>
-                    <a href="postulation.php?categorie=<?= $categorie['categori'] ?>"><?= $categorie['categori'] ?> <span><?= $count_c ?></span> </a>
-            
-            <?php endforeach ?>
-            <?php endif; ?>
-        </div>
+                        <a href="postulation.php?categorie=<?= $categorie['categori'] ?>"><?= $categorie['categori'] ?>
+                            <span><?= $count_c ?></span> </a>
+
+                    <?php endforeach ?>
+                <?php endif; ?>
+            </div>
 
         </div>
-       
+
 
     </section>
 

@@ -12,19 +12,19 @@ if (isset($_GET['id'])) {
 
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
-    include_once ('../controller/controller_users.php');
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
-    include_once ('../controller/controller_message1.php');
-    include_once ('../controller/controller_appel_offre.php');
-    include_once ('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_users.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_message1.php');
+    include_once('../controller/controller_appel_offre.php');
+    include_once('../controller/controller_centre_interet.php');
 }
 
 if (isset($_SESSION['users_id'])) {
@@ -36,17 +36,17 @@ if (isset($_SESSION['users_id'])) {
 
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
-    include_once ('../controller/controller_users.php');
-    include_once ('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_users.php');
+    include_once('../controller/controller_centre_interet.php');
 }
 
 ?>
@@ -61,10 +61,11 @@ if (isset($_SESSION['users_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CV1</title>
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
     <script src="../script/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -77,36 +78,35 @@ if (isset($_SESSION['users_id'])) {
 
 <body>
 
-    <?php include ('../navbare.php') ?>
+    <?php include('../navbare.php') ?>
 
-    <?php include ('../include/header_users.php') ?>
+    <?php include('../include/header_users.php') ?>
 
 
 
 
     <section class="section3">
 
-       
+
 
         <div class="personnalisation">
-        <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
-        <script>
-            // Importez la bibliothèque jsPDF
-            function generatePDF() {
-                const element = document.querySelector(".cv2");
+            <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
+            <script>
+                // Importez la bibliothèque jsPDF
+                function generatePDF() {
+                    const element = document.querySelector(".cv2");
 
-                // Hypothétiquement, si resolution et imageMode étaient des options valides
-                // vous pourriez les fusionner avec les options existantes de cette manière :
-                const mergedOptions = {
-                    filename: 'cv.pdf',
-                    image: { type: 'jpeg', quality: 0.98 }, // Qualité JPEG de l'image
-                    html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas
-                };
+                    // Options pour une haute qualité avec une image claire
+                    const mergedOptions = {
+                        filename: 'cv.pdf',
+                        image: { type: 'jpeg', quality: 1.0 }, // Qualité JPEG maximale de l'image
+                        html2canvas: { scale: 3 }, // Échelle de rendu HTML2Canvas pour une meilleure résolution
+                    };
 
-                // Utiliser les options fusionnées pour la conversion HTML vers PDF
-                html2pdf().set(mergedOptions).from(element).save("cv.pdf");
-            }
-        </script>
+                    // Utiliser les options fusionnées pour la conversion HTML vers PDF
+                    html2pdf().set(mergedOptions).from(element).save("cv.pdf");
+                }
+            </script>
             <div class="box">
                 <p>Couleur de fond des titres principaux </p>
                 <input type="color" name="" id="fontColor">
@@ -160,7 +160,7 @@ if (isset($_SESSION['users_id'])) {
                     localStorage.setItem('font_color_section', selectedColor);
                 });
 
-               
+
 
                 const colorInput01 = document.getElementById('fontColor1');
                 const texte_color_titre = localStorage.getItem('texte_color_titre');
@@ -176,7 +176,7 @@ if (isset($_SESSION['users_id'])) {
                     localStorage.setItem('texte_color_titre', selectedColor);
                 });
 
-                
+
                 const colorInput2 = document.getElementById('fontColor3');
                 const texte_color_section = localStorage.getItem('texte_color_section');
 
@@ -194,7 +194,7 @@ if (isset($_SESSION['users_id'])) {
 
         <div id="box">
             <div id="container" class="container">
-                <div class="haut"></div>
+                <!-- <div class="haut"></div> -->
 
                 <div class="container-box">
 
@@ -215,7 +215,7 @@ if (isset($_SESSION['users_id'])) {
                                 <img src="/image/address.png" alt="">
                                 <p>
                                     <strong>
-                                        ADDRESSE
+                                        ADRESSE
                                     </strong>
                                     <span>
                                         <?= $userss['ville'] ?>
@@ -239,7 +239,7 @@ if (isset($_SESSION['users_id'])) {
                                 <img src="/image/phone.png" alt="">
                                 <p>
                                     <strong>
-                                        TELEPHONE
+                                        TÉLÉPHONE
                                     </strong>
                                     <span>
                                         <?= $userss['phone'] ?>
@@ -248,10 +248,10 @@ if (isset($_SESSION['users_id'])) {
                             </div>
 
                             <div class="bb">
-                                <img src="/image/nationaliet.png" alt="">
+                                <img src="/image/nationalite.png" alt="">
                                 <p>
                                     <strong>
-                                        NATIONALITE
+                                        NATIONALITÉ
                                     </strong>
                                     <span>*********</span>
                                 </p>
@@ -264,7 +264,7 @@ if (isset($_SESSION['users_id'])) {
                             <?php if (empty($afficheDiplome)): ?>
                                 <ul>
                                     <li>
-                                        Non renseigner
+                                        Non renseigné
                                     </li>
                                 </ul>
                             <?php else: ?>
@@ -279,7 +279,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div>
-                            <h1 class="text"><img src="../image/diplome.png" alt=""> Certificates</h1>
+                            <h1 class="text"><img src="../image/diplome.png" alt=""> Certificats</h1>
                             <?php if (empty($afficheCertificat)): ?>
                                 <ul>
                                     <li>Aucune donnée trouvée!</li>
@@ -302,7 +302,7 @@ if (isset($_SESSION['users_id'])) {
                             <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
                             <?php if (empty($afficheLangue)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheLangue as $langues): ?>
@@ -316,10 +316,10 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div>
-                            <h1 class="text"><img src="../image/loisir.png" alt=""> Loisir</h1>
+                            <h1 class="text"><img src="../image/loisir.png" alt=""> Loisirs</h1>
                             <?php if (empty($afficheCentreInteret)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheCentreInteret as $interet): ?>
@@ -333,11 +333,11 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div>
-                            <h1 class="text"><img src="../image/social.png" alt=""> Reseaux </h1>
+                            <h1 class="text"><img src="../image/social.png" alt=""> Réseaux </h1>
                             <div class="reseaux">
                                 <img src="../image/facebook.png" alt="">
                                 <img src="../image/linkedin.png" alt="">
-                                <img src="../image/tweeter.png" alt="">
+                                <img src="../image/twitter.png" alt="">
                                 <img src="../image/whatsapp.png" alt="">
                             </div>
                         </div>
@@ -348,9 +348,9 @@ if (isset($_SESSION['users_id'])) {
                     <div class="box2">
 
                         <div class="info_users">
-                            <h1 class="text">A PROPOS</h1>
+                            <h1 class="text"> <img src="/image/a propos.png" alt=""> À PROPOS </h1>
                             <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouver</p>
+                                <p>Aucune donnée trouvée</p>
                             <?php else: ?>
                                 <p class="p">
                                     <?= $descriptions['description'] ?>
@@ -359,7 +359,8 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div class="experiences">
-                            <h1 class="text">EXPÉRIENCES PROFESSIONNELLES</h1>
+                            <h1 class="text"> <img src="/image/experience.png" alt=""> EXPÉRIENCES PROFESSIONNELLES
+                            </h1>
 
                             <div class="div">
                                 <?php if (empty($afficheMetier)): ?>
@@ -372,7 +373,7 @@ if (isset($_SESSION['users_id'])) {
                                     <?php foreach ($afficheMetier as $key => $Metiers): ?>
                                         <?php if ($key < $nombre_metier): ?>
                                             <div class="div1">
-                                                <strong class="strong"></strong>
+                                                <strong id="strong"></strong>
                                                 <div class="info">
                                                     <h4>
                                                         <?= $Metiers['metier'] ?>
@@ -400,14 +401,14 @@ if (isset($_SESSION['users_id'])) {
 
 
                         <div class="experiences">
-                            <h1 class="text">FORMATIONS</h1>
+                            <h1 class="text"> <img src="/image/etude.png" alt=""> FORMATIONS </h1>
 
                             <div class="div formation">
 
 
                                 <?php if (empty($formationUsers)): ?>
                                     <strong></strong>
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
                                     <?php
                                     shuffle($formationUsers);
@@ -416,7 +417,7 @@ if (isset($_SESSION['users_id'])) {
                                     <?php foreach ($formationUsers as $key => $formations): ?>
                                         <?php if ($key < $nombre_formation): ?>
                                             <div class="div1 div2">
-                                                <strong class="strong"></strong>
+                                                <strong id="strong"></strong>
 
                                                 <div class="info">
                                                     <h4>
@@ -446,7 +447,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div class="experiences">
-                            <h1 class="text">Competences</h1>
+                            <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
                             <div class="div-comp">
                                 <?php if ($competencesUtilisateur): ?>
                                     <?php foreach ($competencesUtilisateur as $competence): ?>
@@ -456,7 +457,7 @@ if (isset($_SESSION['users_id'])) {
                                     <?php endforeach; ?>
                                 <?php else: ?>
 
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php endif ?>
 
                             </div>
@@ -464,7 +465,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div class="experiences">
-                            <h1 class="text">outils informatique</h1>
+                            <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>
                             <?php if ($afficheOutil): ?>
                                 <div class="outils">
                                     <?php foreach ($afficheOutil as $outils): ?>
@@ -478,13 +479,13 @@ if (isset($_SESSION['users_id'])) {
                     </div>
                 </div>
 
-                <div class="bas"></div>
+                <!-- <div class="bas"></div> -->
             </div>
         </div>
 
         <div id="box1">
             <div id="container" class="container cv2">
-                <div class="haut"></div>
+                <!-- <div class="haut"></div> -->
 
                 <div class="container-box">
 
@@ -505,7 +506,7 @@ if (isset($_SESSION['users_id'])) {
                                 <img src="/image/address.png" alt="">
                                 <p>
                                     <strong>
-                                        ADDRESSE
+                                        ADRESSE
                                     </strong>
                                     <span>
                                         <?= $userss['ville'] ?>
@@ -529,7 +530,7 @@ if (isset($_SESSION['users_id'])) {
                                 <img src="/image/phone.png" alt="">
                                 <p>
                                     <strong>
-                                        TELEPHONE
+                                        TÉLÉPHONE
                                     </strong>
                                     <span>
                                         <?= $userss['phone'] ?>
@@ -538,10 +539,10 @@ if (isset($_SESSION['users_id'])) {
                             </div>
 
                             <div class="bb">
-                                <img src="/image/nationaliet.png" alt="">
+                                <img src="/image/nationalite.png" alt="">
                                 <p>
                                     <strong>
-                                        NATIONALITE
+                                        NATIONALITÉ
                                     </strong>
                                     <span>*********</span>
                                 </p>
@@ -554,7 +555,7 @@ if (isset($_SESSION['users_id'])) {
                             <?php if (empty($afficheDiplome)): ?>
                                 <ul>
                                     <li>
-                                        Non renseigner
+                                        Non renseigné
                                     </li>
                                 </ul>
                             <?php else: ?>
@@ -569,7 +570,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div>
-                            <h1 class="text"><img src="../image/diplome.png" alt=""> Certificates</h1>
+                            <h1 class="text"><img src="../image/diplome.png" alt=""> Certificats</h1>
                             <?php if (empty($afficheCertificat)): ?>
                                 <ul>
                                     <li>Aucune donnée trouvée!</li>
@@ -592,7 +593,7 @@ if (isset($_SESSION['users_id'])) {
                             <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
                             <?php if (empty($afficheLangue)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheLangue as $langues): ?>
@@ -606,10 +607,10 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div>
-                            <h1 class="text"><img src="../image/loisir.png" alt=""> Loisir</h1>
+                            <h1 class="text"><img src="../image/loisir.png" alt=""> Loisirs</h1>
                             <?php if (empty($afficheCentreInteret)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheCentreInteret as $interet): ?>
@@ -623,11 +624,11 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div>
-                            <h1 class="text"><img src="../image/social.png" alt=""> Reseaux </h1>
+                            <h1 class="text"><img src="../image/social.png" alt=""> Réseaux</h1>
                             <div class="reseaux">
                                 <img src="../image/facebook.png" alt="">
                                 <img src="../image/linkedin.png" alt="">
-                                <img src="../image/tweeter.png" alt="">
+                                <img src="../image/twitter.png" alt="">
                                 <img src="../image/whatsapp.png" alt="">
                             </div>
                         </div>
@@ -636,9 +637,9 @@ if (isset($_SESSION['users_id'])) {
                     <div class="box2">
 
                         <div class="info_users">
-                            <h1 class="text">A PROPOS</h1>
+                            <h1 class="text"> <img src="/image/a_propos.png" alt=""> À PROPOS </h1>
                             <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouver</p>
+                                <p>Aucune donnée trouvée</p>
                             <?php else: ?>
                                 <p class="p">
                                     <?= $descriptions['description'] ?>
@@ -647,7 +648,8 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div class="experiences">
-                            <h1 class="text">EXPÉRIENCES PROFESSIONNELLES</h1>
+                            <h1 class="text"> <img src="/image/experience.png" alt=""> EXPÉRIENCES PROFESSIONNELLES
+                            </h1>
 
                             <div class="div">
                                 <?php if (empty($afficheMetier)): ?>
@@ -660,7 +662,7 @@ if (isset($_SESSION['users_id'])) {
                                     <?php foreach ($afficheMetier as $key => $Metiers): ?>
                                         <?php if ($key < $nombre_metier): ?>
                                             <div class="div1">
-                                                <strong class="strong"></strong>
+                                                <strong id="strong"></strong>
                                                 <div class="info">
                                                     <h4>
                                                         <?= $Metiers['metier'] ?>
@@ -688,14 +690,14 @@ if (isset($_SESSION['users_id'])) {
 
 
                         <div class="experiences">
-                            <h1 class="text">FORMATIONS</h1>
+                            <h1 class="text"> <img src="/image/etude.png" alt=""> FORMATIONS </h1>
 
                             <div class="div formation">
 
 
                                 <?php if (empty($formationUsers)): ?>
                                     <strong></strong>
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
                                     <?php
                                     shuffle($formationUsers);
@@ -704,7 +706,7 @@ if (isset($_SESSION['users_id'])) {
                                     <?php foreach ($formationUsers as $key => $formations): ?>
                                         <?php if ($key < $nombre_formation): ?>
                                             <div class="div1 div2">
-                                                <strong class="strong"></strong>
+                                                <strong id="strong"></strong>
 
                                                 <div class="info">
                                                     <h4>
@@ -734,7 +736,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div class="experiences">
-                            <h1 class="text">Competences</h1>
+                            <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
                             <div class="div-comp">
                                 <?php if ($competencesUtilisateur): ?>
                                     <?php foreach ($competencesUtilisateur as $competence): ?>
@@ -744,7 +746,7 @@ if (isset($_SESSION['users_id'])) {
                                     <?php endforeach; ?>
                                 <?php else: ?>
 
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php endif ?>
 
                             </div>
@@ -752,7 +754,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div class="experiences">
-                            <h1 class="text">outils informatique</h1>
+                            <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>
                             <?php if ($afficheOutil): ?>
                                 <div class="outils">
                                     <?php foreach ($afficheOutil as $outils): ?>
@@ -766,7 +768,7 @@ if (isset($_SESSION['users_id'])) {
                     </div>
                 </div>
 
-                <div class="bas"></div>
+                <!-- <div class="bas"></div> -->
             </div>
         </div>
 

@@ -35,18 +35,15 @@ include_once('app/controller/controllerOffre_emploi.php');
     </script>
     <!-- End Google Tag Manager -->
 
-    <title>
-        <?= $getEntreprise['entreprise']; ?>
-    </title>
     <link rel="icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="icon" href="../image/logo.png" type="image/x-icon">
     <title>
         <?= $getEntreprise['entreprise']; ?>
     </title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
+    <script src="../script/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -54,6 +51,7 @@ include_once('app/controller/controllerOffre_emploi.php');
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/entreprise_profil.css">
     <link rel="stylesheet" href="../css/navbare.css">
+    <script src="../js/html5Qrcode.js"></script>
 </head>
 
 <body>
@@ -139,6 +137,62 @@ include_once('app/controller/controllerOffre_emploi.php');
                 messageErreur.classList.remove('visible');
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
+
+        <!-- Afficher le QR code -->
+        <div class="qr-code">
+            <!-- Bouton pour ouvrir le scanner de QR code -->
+            <button id="open-scanner">Scanner le QR Code d'un candidat <img src="../image/scanner.png" alt=""></button>
+        </div>
+
+
+        <!-- Conteneur pour le scanner de QR code -->
+        <div id="qr-reader"></div>
+
+        <script>
+
+            let scannerActive = false;
+            const html5QrCode = new Html5Qrcode("qr-reader");
+
+            document.getElementById('open-scanner').addEventListener('click', function () {
+                if (scannerActive) {
+                    html5QrCode.stop().then(ignore => {
+                        document.getElementById('qr-reader').style.display = 'none';
+                        scannerActive = false;
+                        console.log("Scanner arrêté.");
+                    }).catch(err => {
+                        console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                    });
+                } else {
+                    document.getElementById('qr-reader').style.display = 'block';
+                    html5QrCode.start(
+                        { facingMode: "environment" }, // Utiliser la caméra arrière
+                        {
+                            fps: 10,    // Fréquence d'images par seconde
+                            qrbox: 250  // Taille de la boîte de scan
+                        },
+                        qrCodeMessage => {
+                            // Ouvrir le lien scanné dans un nouvel onglet
+                            window.open(qrCodeMessage, '_blank');
+                            // Arrêter le scanner
+                            html5QrCode.stop().then(ignore => {
+                                document.getElementById('qr-reader').style.display = 'none';
+                                scannerActive = false;
+                                console.log("Scanner arrêté.");
+                            }).catch(err => {
+                                console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                            });
+                        },
+                        errorMessage => {
+                            console.log(`Erreur de scan: ${errorMessage}`);
+                        }
+                    ).catch(err => {
+                        console.log(`Erreur de démarrage du scanner: ${err}`);
+                    });
+                    scannerActive = true;
+                }
+            });
+        </script>
+
         <div class="container_box3">
             <div class="box1">
                 <h2>Description !</h2>
@@ -157,8 +211,8 @@ include_once('app/controller/controllerOffre_emploi.php');
                     <form method="post" action="">
                         <div>
                             <textarea name="descriptions" id="summernote" cols="30" rows="10">
-                                                                                                                                                <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
-                                                                                                                                            </textarea>
+                                                                                                                                                                            <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
+                                                                                                                                                                        </textarea>
                         </div>
                         <div class="div">
                             <label for="site">Avez vous un site web ?(facultatif*)</label>

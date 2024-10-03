@@ -63,9 +63,9 @@ if (isset($_POST['valider'])) {
 
     // Vérification du téléphone  
     if (empty($_POST['phone'])) {
-        $erreurs = "Le téléphone est obligatoire";
+        $erreurs = "Le Numéro de téléphone est obligatoire";
     } else {
-        $phone = $_POST['phone'];
+        $phone = $_POST['full_phone'];
     }
 
     // Vérification du téléphone  
@@ -287,7 +287,7 @@ if (isset($_POST['valider'])) {
             <body>
 
             <div class='box1'>
-            <img src='../../../image/ambition.png' alt='Logo de l'entreprise'>
+            <img src='https://work-flexer.com/image/logo 2.png' alt='Logo de l'entreprise'>
         </div>
         <div class='box2'>
             <h1>Bonjour $nom,</h1>
@@ -370,7 +370,7 @@ if (isset($_POST['valider'])) {
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
-    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <title>inscription entreprise</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -422,7 +422,8 @@ if (isset($_POST['valider'])) {
 
                         <div class="box1">
                             <label for="phone">Téléphone</label>
-                            <input type="tel" name="phone" id="phone" placeholder="Ex: 0123456789">
+                            <input type="texte" name="phone" id="phone" placeholder="Ex: 0123456789">
+                            <input type="hidden" id="full_phone" name="full_phone">
                         </div>
 
                         <div class="box1">
@@ -436,7 +437,7 @@ if (isset($_POST['valider'])) {
                             <p>Photo de profil</p>
                             <div class="ab">
                                 <div>
-                                    <label class="label" for="images"> <img src="/image/galerie.jpg" alt=""></label>
+                                    <label class="label" for="images"> <img src="/image/caméra.png" alt=""></label>
                                     <input type="file" name="images" id="images"
                                         accept="image/jpeg,image/jpg, image/png, image/gif">
                                 </div>
@@ -515,41 +516,6 @@ if (isset($_POST['valider'])) {
 
 
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
-    <script>
-        const input = document.querySelector("#phone");
-        const iti = window.intlTelInput(input, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-            separateDialCode: true,
-            autoHideDialCode: false,
-            initialCountry: "auto",
-            geoIpLookup: function (callback) {
-                fetch("https://ipapi.co/json")
-                    .then(function (res) {
-                        return res.json();
-                    })
-                    .then(function (data) {
-                        callback(data.country_code);
-                    })
-                    .catch(function () {
-                        callback("us");
-                    });
-            }
-        });
-
-
-
-        // Masquer la liste au clic sur le champ de téléphone
-        input.addEventListener('click', function () {
-            iti.closeDropdown();
-        });
-
-        // Masquer au clic en dehors du champ de téléphone
-        document.addEventListener('click', function (e) {
-            if (!input.contains(e.target) && !iti.container.contains(e.target)) {
-                iti.closeDropdown();
-            }
-        });
-    </script>
 
     <script>
         function showPassword() {
@@ -582,6 +548,47 @@ if (isset($_POST['valider'])) {
             const previewImg = document.getElementById('imagePreview');
             previewImg.src = URL.createObjectURL(file);
 
+        });
+    </script>
+
+    <script>
+
+        const phoneInputField = document.querySelector("#phone");
+        const fullPhoneInput = document.querySelector("#full_phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "auto",
+            preferredCountries: ["fr", "us", "gb"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            geoIpLookup: function (callback) {
+                fetch("https://ipapi.co/json")
+                    .then(function (res) {
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        callback(data.country_code);
+                    })
+                    .catch(function () {
+                        callback("us");
+                    });
+            }
+        });
+
+        phoneInputField.addEventListener("blur", function () {
+            fullPhoneInput.value = phoneInput.getNumber();
+        });
+
+
+
+        // Masquer la liste au clic sur le champ de téléphone
+        phoneInputField.addEventListener('click', function () {
+            phoneInput.closeDropdown();
+        });
+
+        // Masquer au clic en dehors du champ de téléphone
+        document.addEventListener('click', function (e) {
+            if (!phoneInputField.contains(e.target) && !phoneInput.container.contains(e.target)) {
+                phoneInput.closeDropdown();
+            }
         });
     </script>
 </body>
