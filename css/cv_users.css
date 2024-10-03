@@ -65,7 +65,7 @@ header h2 {
  background-position: center;
  background-attachment: fixed;
  position: relative;
- margin-top: 80px;
+ margin-top: 10px;
 }
 
 @media screen and (max-width : 1050px){

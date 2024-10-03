@@ -24,7 +24,7 @@ session_start();
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <title>Bienvenu</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/aos.css" />
@@ -32,17 +32,17 @@ session_start();
     <link rel="stylesheet" href="/css/owl.carousel.css">
 
     <style>
-        .section3{
+        .section3 {
             height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .section3 h1{
+        .section3 h1 {
             width: 400px;
             text-align: center;
-            padding:10px 30px;
+            padding: 10px 30px;
             background-color: red;
             color: white;
             border-radius: 20px;
@@ -58,15 +58,15 @@ session_start();
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <?php include ('../navbare.php') ?>
+    <?php include('../navbare.php') ?>
 
-<section class="section3">
-    <h1>
-        Indisponible pour le moment !
-    </h1>
-</section>
+    <section class="section3">
+        <h1>
+            Indisponible pour le moment !
+        </h1>
+    </section>
 
-    <?php include ('../footer.php') ?>
+    <?php include('../footer.php') ?>
 
 
 

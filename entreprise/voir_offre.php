@@ -38,6 +38,7 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
     <!-- End Google Tag Manager -->
 
     <title>Offre</title>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,11 +57,11 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    
+
     <section class="section3">
 
 
-    <?php if (isset($_SESSION['success_message'])): ?>
+        <?php if (isset($_SESSION['success_message'])): ?>
             <div class="message">
                 <p>
                     <span></span>
@@ -153,34 +154,34 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                 <div class="box2">
                     <h3>Profil recherché</h3>
                     <p>Qualités et compétences requises:</p>
-                   <p> <?= $Offres['profil'] ?></p>
+                    <p> <?= $Offres['profil'] ?></p>
                 </div>
 
                 <div class="box2">
                     <h3>Informations supplémentaires</h3>
-                  <div class="box_info">
-                    <p class="info"> <strong> Type de contrat :</strong>
-                        <?= $Offres['contrat'] ?>
-                    </p>
-                    <p class="info"> <strong>Région : </strong>
-                        <?= $Offres['localite'] ?>
-                    </p>
-                    <p class="info"> <strong>Ville : </strong>
-                        <?= $getEntreprise['ville'] ?>
-                    </p>
-                  
-                    <p class="info"> <strong>Niveau d'expérience minimum : </strong>
-                        <?= $Offres['experience'] ?>
-                    </p>
+                    <div class="box_info">
+                        <p class="info"> <strong> Type de contrat :</strong>
+                            <?= $Offres['contrat'] ?>
+                        </p>
+                        <p class="info"> <strong>Région : </strong>
+                            <?= $Offres['localite'] ?>
+                        </p>
+                        <p class="info"> <strong>Ville : </strong>
+                            <?= $getEntreprise['ville'] ?>
+                        </p>
 
-                    <p class="info"> <strong>Niveau d'etude minimum: </strong>
-                        <?= $Offres['etudes'] ?>
-                    </p>
-                    
-                    <p class="info"> <strong>Langues exigées : </strong>
-                        <?= $Offres['langues'] ?>
-                    </p>
-                  </div>
+                        <p class="info"> <strong>Niveau d'expérience minimum : </strong>
+                            <?= $Offres['experience'] ?>
+                        </p>
+
+                        <p class="info"> <strong>Niveau d'etude minimum: </strong>
+                            <?= $Offres['etudes'] ?>
+                        </p>
+
+                        <p class="info"> <strong>Langues exigées : </strong>
+                            <?= $Offres['langues'] ?>
+                        </p>
+                    </div>
 
                 </div>
 
@@ -208,9 +209,9 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
                             <button class="btn001" type="submit" name="postuler">Postuler maintenant</button>
                         <?php endif; ?>
                     </form>
-                    <?php else : ?>
+                <?php else: ?>
                     <form action="">
-                    <p class="msg001">Vous devez avoir un compte professionel pour pouvoir postuler</p>
+                        <p class="msg001">Vous devez avoir un compte professionel pour pouvoir postuler</p>
                     </form>
                 <?php endif; ?>
 
@@ -225,66 +226,66 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
 
     <div class="container_box10">
         <h2>Offres Simillaires</h2>
-     
+
         <div class="slider owl-carousel carousel3">
-            <?php if(isset($afficheAllOffre)): ?>
-            <?php foreach ($afficheAllOffre as $affiches): ?>
-            <?php if($affiches['statut'] === 'publiee' or $affiches['statut'] === ''): ?>
-                <?php $infoEntreprise = getEntreprise($db, $affiches['entreprise_id']) ?>
+            <?php if (isset($afficheAllOffre)): ?>
+                <?php foreach ($afficheAllOffre as $affiches): ?>
+                    <?php if ($affiches['statut'] === 'publiee' or $affiches['statut'] === ''): ?>
+                        <?php $infoEntreprise = getEntreprise($db, $affiches['entreprise_id']) ?>
 
-                <?php if ($affiches['categorie'] === $Offres['categorie']): ?>
+                        <?php if ($affiches['categorie'] === $Offres['categorie']): ?>
 
-                    <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
-                        data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                        <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $infoEntreprise['entreprise']; ?>
-                                </strong>
-                            </p>
-                            <p class="poste" >
+                            <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
+                                data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
+                                <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                <div class="info-box">
+                                    <p class="p">
+                                        <strong>
+                                            <?php echo $infoEntreprise['entreprise']; ?>
+                                        </strong>
+                                    </p>
+                                    <p class="poste">
                                         <strong>Nous recherchons un(une)</strong>
                                         <?php echo ($affiches['poste']); ?>
                                     </p>
-                            <div class="box_vendu">
-                                <div class="vendu">
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($affiches['contrat']); ?>
+                                    <div class="box_vendu">
+                                        <div class="vendu">
+                                            <p>
+                                                <strong>Contrat :</strong>
+                                                <?php echo ($affiches['contrat']); ?>
+                                            </p>
+                                            <p>
+                                                <strong>Niveau :</strong>
+                                                <?php echo ($affiches['etudes']); ?>
+                                            </p>
+                                            <p>
+                                                <strong>Experience :</strong>
+                                                <?php echo ($affiches['experience']); ?>
+                                            </p>
+                                            <p class="ville">
+                                                <strong>Ville :</strong>
+                                                <?php echo ($affiches['localite']); ?>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+
+                                    <p id="nom">
+                                        <?php echo $affiches['date']; ?>
                                     </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($affiches['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($affiches['experience']); ?>
-                                    </p>
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($affiches['localite']); ?>
-                                    </p>
+
+                                    <a
+                                        href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id']; ?>&entreprise_id=<?= $affiches['entreprise_id']; ?>">
+                                        <i class="fa-solid fa-eye"></i>Voir l'offre
+                                    </a>
                                 </div>
 
                             </div>
-                           
 
-                            <p id="nom">
-                                <?php echo $affiches['date']; ?>
-                            </p>
-
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id']; ?>&entreprise_id=<?= $affiches['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
-                        </div>
-
-                    </div>
-
-                <?php endif; ?>
-                <?php endif; ?>
-            <?php endforeach ?>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endforeach ?>
             <?php endif; ?>
         </div>
     </div>
@@ -297,7 +298,7 @@ $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
     <script src="../js/owl.carousel.js"></script>
     <script src="../js/owl.animate.js"></script>
     <script src="../js/owl.autoplay.js"></script>
-  
+
 </body>
 
 </html>

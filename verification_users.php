@@ -71,38 +71,38 @@ if (isset($_POST['renvoyer'])) {
   $nom = $_SESSION['nom'];
   function generateSecurityCode($length = 9)
   {
-      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      $code = '';
-      $max = strlen($characters) - 1;
-      for ($i = 0; $i < $length; $i++) {
-          $code .= $characters[mt_rand(0, $max)];
-      }
-      return $code;
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $code = '';
+    $max = strlen($characters) - 1;
+    for ($i = 0; $i < $length; $i++) {
+      $code .= $characters[mt_rand(0, $max)];
+    }
+    return $code;
   }
 
   $verification = generateSecurityCode();
 
-    // Créez l'instance PHPMailer
-    $mail = new PHPMailer(true);
-    try {
-      // Paramètres SMTP
-      $mail->isSMTP();
-      $mail->Host = 'advantechgroup.online';
-      $mail->SMTPAuth = true;
-      $mail->Username = 'info@advantechgroup.online';
-      $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-      $mail->SMTPSecure = 'ssl';
-      $mail->Port = 465;
+  // Créez l'instance PHPMailer
+  $mail = new PHPMailer(true);
+  try {
+    // Paramètres SMTP
+    $mail->isSMTP();
+    $mail->Host = 'advantechgroup.online';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'info@advantechgroup.online';
+    $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
 
-      // Fonction pour générer un code de sécurité aléatoire
+    // Fonction pour générer un code de sécurité aléatoire
 
-      // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
+    // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
 
-      $destinataire = $email;
+    $destinataire = $email;
 
-      // Contenu de l'e-mail
-      $sujet = 'Confirmation de compte';
-      $message = "
+    // Contenu de l'e-mail
+    $sujet = 'Confirmation de compte';
+    $message = "
       <!DOCTYPE html>
       <html>
       <head><meta charset='utf-8'>
@@ -221,28 +221,28 @@ if (isset($_POST['renvoyer'])) {
       </body>
       </html> ";
 
-      $mail->setFrom('info@advantechgroup.online', 'work-flexer');
-      $mail->isHTML(true);
-      $mail->Subject = $sujet;
-      $mail->Body = $message;
+    $mail->setFrom('info@advantechgroup.online', 'work-flexer');
+    $mail->isHTML(true);
+    $mail->Subject = $sujet;
+    $mail->Body = $message;
 
 
-      $mail->clearAddresses();
-      $mail->addAddress($destinataire);
-      $mail->send();
-   
-      $sql = "UPDATE users SET verification = :verification WHERE mail = :mail";
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(':verification', $verification);
-      $stmt->bindParam(':mail', $email);
-      $stmt->execute();
-      $_SESSION['success_message'] = 'Code de vérification envoyé!';
-      header('Location: verification_users.php');
-      exit();            
+    $mail->clearAddresses();
+    $mail->addAddress($destinataire);
+    $mail->send();
+
+    $sql = "UPDATE users SET verification = :verification WHERE mail = :mail";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':verification', $verification);
+    $stmt->bindParam(':mail', $email);
+    $stmt->execute();
+    $_SESSION['success_message'] = 'Code de vérification envoyé!';
+    header('Location: verification_users.php');
+    exit();
   } catch (Exception $e) {
-      $_SESSION['error_message'] = 'une erreure c\'est produit';
-      header('Location: compte_travailleur.php');
-      exit();
+    $_SESSION['error_message'] = 'une erreure c\'est produit';
+    header('Location: compte_travailleur.php');
+    exit();
   }
 
 }
@@ -297,46 +297,46 @@ if (isset($_POST['renvoyer'])) {
   <!-- End Google Tag Manager (noscript) -->
 
 
-  <?php if (isset($_SESSION['success_message'])) : ?>
-            <div class="message">
-                <p>
-                    <span></span>
-                    <?php echo $_SESSION['success_message']; ?>
-                    <?php unset($_SESSION['success_message']); ?>
-                </p>
-            </div>
-        <?php else : ?>
-            <?php if (isset($_SESSION['error_message'])) : ?>
-                <div class="erreurs" id="messageErreur">
-                    <span></span>
-                    <?php echo $_SESSION['error_message']; ?>
-                    <?php unset($_SESSION['error_message']); ?>
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
+  <?php if (isset($_SESSION['success_message'])): ?>
+    <div class="message">
+      <p>
+        <span></span>
+        <?php echo $_SESSION['success_message']; ?>
+        <?php unset($_SESSION['success_message']); ?>
+      </p>
+    </div>
+  <?php else: ?>
+    <?php if (isset($_SESSION['error_message'])): ?>
+      <div class="erreurs" id="messageErreur">
+        <span></span>
+        <?php echo $_SESSION['error_message']; ?>
+        <?php unset($_SESSION['error_message']); ?>
+      </div>
+    <?php endif; ?>
+  <?php endif; ?>
 
-        <script>
-            let success = document.querySelector('.message')
-            setTimeout(() => {
-                success.classList.add('visible');
-            }, 200);
-            setTimeout(() => {
-                success.classList.remove('visible');
-            }, 6000);
+  <script>
+    let success = document.querySelector('.message')
+    setTimeout(() => {
+      success.classList.add('visible');
+    }, 200);
+    setTimeout(() => {
+      success.classList.remove('visible');
+    }, 6000);
 
-            // Sélectionnez l'élément contenant le message d'erreur
-            var messageErreur = document.getElementById('messageErreur');
+    // Sélectionnez l'élément contenant le message d'erreur
+    var messageErreur = document.getElementById('messageErreur');
 
-            // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function() {
-                messageErreur.classList.add('visible');
-            }, 200); // 1000 millisecondes équivalent à 1 seconde
+    // Fonction pour afficher le message avec une transition de fondu
+    setTimeout(function () {
+      messageErreur.classList.add('visible');
+    }, 200); // 1000 millisecondes équivalent à 1 seconde
 
-            // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function() {
-                messageErreur.classList.remove('visible');
-            }, 6000); // 6000 millisecondes équivalent à 6 secondes
-        </script>
+    // Fonction pour masquer le message avec une transition de fondu
+    setTimeout(function () {
+      messageErreur.classList.remove('visible');
+    }, 6000); // 6000 millisecondes équivalent à 6 secondes
+  </script>
 
 
 
@@ -355,17 +355,17 @@ if (isset($_POST['renvoyer'])) {
 
 
         <div class="box1">
-          <label for="code">Entrer le code de vérification envoyé à votre boîte mail.</label>
+          <label for="code">Entrez le code de vérification envoyé à votre boîte mail.</label>
           <input type="text" name="code" id="code">
         </div>
 
-        <input type="submit" name="valider" value="valider" id="valider">
+        <input type="submit" name="valider" value="Valider" id="valider">
         <div class="bo">
           <p>Si vous n'avez pas reçu de code de vérification, vous pouvez le renvoyer.</p>
-        <input type="submit" name="renvoyer" value="Renvoyer le code" id="renvoyer">
+          <input type="submit" name="renvoyer" value="Renvoyer le code" id="renvoyer">
         </div>
       </form>
-      
+
     </div>
   </section>
 

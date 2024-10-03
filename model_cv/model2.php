@@ -11,19 +11,19 @@ if (isset($_GET['id'])) {
 
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
-    include_once ('../controller/controller_users.php');
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
-    include_once ('../controller/controller_message1.php');
-    include_once ('../controller/controller_appel_offre.php');
-    include_once ('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_users.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_message1.php');
+    include_once('../controller/controller_appel_offre.php');
+    include_once('../controller/controller_centre_interet.php');
 }
 
 if (isset($_SESSION['users_id'])) {
@@ -35,17 +35,17 @@ if (isset($_SESSION['users_id'])) {
 
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
-    include_once ('../controller/controller_users.php');
-    include_once ('../controller/controller_centre_interet.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_users.php');
+    include_once('../controller/controller_centre_interet.php');
 }
 
 ?>
@@ -61,7 +61,7 @@ if (isset($_SESSION['users_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Model2</title>
-
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -74,35 +74,35 @@ if (isset($_SESSION['users_id'])) {
 
 <body>
 
-    <?php include ('../navbare.php') ?>
+    <?php include('../navbare.php') ?>
 
-    <?php include ('../include/header_cv.php') ?>
+    <?php include('../include/header_cv.php') ?>
 
 
     <section class="section3">
 
-      
+
 
 
         <div class="personnalisation">
-        <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
-        <script>
-            // Importez la bibliothèque jsPDF
-            function generatePDF() {
-                const element = document.querySelector(".cv1");
+            <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
+            <script>
+                // Importez la bibliothèque jsPDF
+                function generatePDF() {
+                    const element = document.querySelector(".cv1");
 
-                // Hypothétiquement, si resolution et imageMode étaient des options valides
-                // vous pourriez les fusionner avec les options existantes de cette manière :
-                const mergedOptions = {
-                    filename: 'cv.pdf',
-                    image: { type: 'jpeg', quality: 0.98 }, // Qualité JPEG de l'image
-                    html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas
-                };
+                    // Hypothétiquement, si resolution et imageMode étaient des options valides
+                    // vous pourriez les fusionner avec les options existantes de cette manière :
+                    const mergedOptions = {
+                        filename: 'cv.pdf',
+                        image: { type: 'jpeg', quality: 0.98 }, // Qualité JPEG de l'image
+                        html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas
+                    };
 
-                // Utiliser les options fusionnées pour la conversion HTML vers PDF
-                html2pdf().set(mergedOptions).from(element).save("cv.pdf");
-            }
-        </script>
+                    // Utiliser les options fusionnées pour la conversion HTML vers PDF
+                    html2pdf().set(mergedOptions).from(element).save("cv.pdf");
+                }
+            </script>
             <div class="box">
                 <p>Couleur de fond des titres principaux </p>
                 <input type="color" name="" id="fontColor">
@@ -171,18 +171,18 @@ if (isset($_SESSION['users_id'])) {
                 });
 
                 const colorInput01 = document.getElementById('fontColor1');
-const texte_color_titre = localStorage.getItem('texte_color_titre');
+                const texte_color_titre = localStorage.getItem('texte_color_titre');
 
-// Appliquer la couleur sauvegardée ou une valeur par défaut si aucune couleur n'a été sauvegardée
-document.documentElement.style.setProperty('--texte-color_titre', texte_color_titre || '#ededed');
-colorInput01.value = texte_color_titre || '#ededed'; // Mettre à jour la valeur du champ input
+                // Appliquer la couleur sauvegardée ou une valeur par défaut si aucune couleur n'a été sauvegardée
+                document.documentElement.style.setProperty('--texte-color_titre', texte_color_titre || '#ededed');
+                colorInput01.value = texte_color_titre || '#ededed'; // Mettre à jour la valeur du champ input
 
-// Écouter les changements sur le champ input
-colorInput01.addEventListener('input', function () {
-    const selectedColor = colorInput01.value;
-    document.documentElement.style.setProperty('--texte-color_titre', selectedColor);
-    localStorage.setItem('texte_color_titre', selectedColor);
-});
+                // Écouter les changements sur le champ input
+                colorInput01.addEventListener('input', function () {
+                    const selectedColor = colorInput01.value;
+                    document.documentElement.style.setProperty('--texte-color_titre', selectedColor);
+                    localStorage.setItem('texte_color_titre', selectedColor);
+                });
 
             </script>
         </div>
@@ -211,7 +211,7 @@ colorInput01.addEventListener('input', function () {
                                 <img src="/image/address.png" alt="">
                                 <p>
                                     <strong>
-                                        ADDRESSE
+                                        ADRESSE
                                     </strong>
                                     <span>
                                         <?= $userss['ville'] ?>
@@ -235,7 +235,7 @@ colorInput01.addEventListener('input', function () {
                                 <img src="/image/phone.png" alt="">
                                 <p>
                                     <strong>
-                                        TELEPHONE
+                                        TÉLÉPHONE
                                     </strong>
                                     <span>
                                         <?= $userss['phone'] ?>
@@ -247,7 +247,7 @@ colorInput01.addEventListener('input', function () {
                                 <img src="/image/nationaliet.png" alt="">
                                 <p>
                                     <strong>
-                                        NATIONALITE
+                                        NATIONALITÉ
                                     </strong>
                                     <span>*********</span>
                                 </p>
@@ -260,7 +260,7 @@ colorInput01.addEventListener('input', function () {
                             <?php if (empty($afficheDiplome)): ?>
                                 <ul>
                                     <li>
-                                        Non renseigner
+                                        Non renseigné
                                     </li>
                                 </ul>
                             <?php else: ?>
@@ -275,7 +275,7 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div>
-                            <h1><img src="../image/diplome.png" alt=""> Certificates</h1>
+                            <h1><img src="../image/diplome.png" alt=""> Certificats</h1>
                             <?php if (empty($afficheCertificat)): ?>
                                 <ul>
                                     <li>Aucune donnée trouvée!</li>
@@ -297,7 +297,7 @@ colorInput01.addEventListener('input', function () {
                             <h1><img src="../image/langue.png" alt=""> Langues</h1>
                             <?php if (empty($afficheLangue)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheLangue as $langues): ?>
@@ -312,10 +312,10 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div>
-                            <h1><img src="../image/loisir.png" alt=""> Loisir</h1>
+                            <h1><img src="../image/loisir.png" alt=""> Loisirs</h1>
                             <?php if (empty($afficheCentreInteret)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheCentreInteret as $interet): ?>
@@ -329,7 +329,7 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div>
-                            <h1><img src="../image/social.png" alt=""> Reseaux </h1>
+                            <h1><img src="../image/social.png" alt=""> Réseaux</h1>
                             <div class="reseaux">
                                 <img src="../image/facebook.png" alt="">
                                 <img src="../image/linkedin.png" alt="">
@@ -344,7 +344,7 @@ colorInput01.addEventListener('input', function () {
                         <div>
                             <h1>A PROPOS</h1>
                             <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouver</p>
+                                <p>Aucune donnée trouvée</p>
                             <?php else: ?>
                                 <p class="p">
                                     <?= $descriptions['description'] ?>
@@ -397,7 +397,7 @@ colorInput01.addEventListener('input', function () {
                             <div class="div formation">
                                 <?php if (empty($formationUsers)): ?>
                                     <strong></strong>
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
                                     <?php
                                     shuffle($formationUsers);
@@ -435,7 +435,7 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div class="experiences">
-                            <h1>Competences</h1>
+                            <h1>Compétences</h1>
                             <div class="div-comp">
                                 <?php if ($competencesUtilisateur): ?>
                                     <?php foreach ($competencesUtilisateur as $competence): ?>
@@ -445,14 +445,14 @@ colorInput01.addEventListener('input', function () {
                                     <?php endforeach; ?>
                                 <?php else: ?>
 
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php endif ?>
                             </div>
 
                         </div>
 
                         <div class="experiences">
-                            <h1>outils informatique</h1>
+                            <h1>Outils informatiques</h1>
                             <?php if ($afficheOutil): ?>
                                 <div class="outils">
                                     <?php foreach ($afficheOutil as $outils): ?>
@@ -491,7 +491,7 @@ colorInput01.addEventListener('input', function () {
                                 <img src="/image/address.png" alt="">
                                 <p>
                                     <strong>
-                                        ADDRESSE
+                                        ADRESSE
                                     </strong>
                                     <span>
                                         <?= $userss['ville'] ?>
@@ -515,7 +515,7 @@ colorInput01.addEventListener('input', function () {
                                 <img src="/image/phone.png" alt="">
                                 <p>
                                     <strong>
-                                        TELEPHONE
+                                        TÉLÉPHONE
                                     </strong>
                                     <span>
                                         <?= $userss['phone'] ?>
@@ -527,7 +527,7 @@ colorInput01.addEventListener('input', function () {
                                 <img src="/image/nationaliet.png" alt="">
                                 <p>
                                     <strong>
-                                        NATIONALITE
+                                        NATIONALITÉ
                                     </strong>
                                     <span>*********</span>
                                 </p>
@@ -540,7 +540,7 @@ colorInput01.addEventListener('input', function () {
                             <?php if (empty($afficheDiplome)): ?>
                                 <ul>
                                     <li>
-                                        Non renseigner
+                                        Non renseigné
                                     </li>
                                 </ul>
                             <?php else: ?>
@@ -555,7 +555,7 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div>
-                            <h1><img src="../image/diplome.png" alt=""> Certificates</h1>
+                            <h1><img src="../image/diplome.png" alt=""> Certificats</h1>
                             <?php if (empty($afficheCertificat)): ?>
                                 <ul>
                                     <li>Aucune donnée trouvée!</li>
@@ -577,7 +577,7 @@ colorInput01.addEventListener('input', function () {
                             <h1><img src="../image/langue.png" alt=""> Langues</h1>
                             <?php if (empty($afficheLangue)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheLangue as $langues): ?>
@@ -592,10 +592,10 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div>
-                            <h1><img src="../image/loisir.png" alt=""> Loisir</h1>
+                            <h1><img src="../image/loisir.png" alt=""> Loisirs</h1>
                             <?php if (empty($afficheCentreInteret)): ?>
                                 <ul>
-                                    <li>Aucune donnée trouver</li>
+                                    <li>Aucune donnée trouvée</li>
                                 </ul>
                             <?php else: ?>
                                 <?php foreach ($afficheCentreInteret as $interet): ?>
@@ -609,7 +609,7 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div>
-                            <h1><img src="../image/social.png" alt=""> Reseaux </h1>
+                            <h1><img src="../image/social.png" alt=""> Réseaux</h1>
                             <div class="reseaux">
                                 <img src="../image/facebook.png" alt="">
                                 <img src="../image/linkedin.png" alt="">
@@ -624,7 +624,7 @@ colorInput01.addEventListener('input', function () {
                         <div>
                             <h1>A PROPOS</h1>
                             <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouver</p>
+                                <p>Aucune donnée trouvée</p>
                             <?php else: ?>
                                 <p class="p">
                                     <?= $descriptions['description'] ?>
@@ -677,7 +677,7 @@ colorInput01.addEventListener('input', function () {
                             <div class="div formation">
                                 <?php if (empty($formationUsers)): ?>
                                     <strong></strong>
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
                                     <?php
                                     shuffle($formationUsers);
@@ -715,7 +715,7 @@ colorInput01.addEventListener('input', function () {
                         </div>
 
                         <div class="experiences">
-                            <h1>Competences</h1>
+                            <h1>Compétences</h1>
                             <div class="div-comp">
                                 <?php if ($competencesUtilisateur): ?>
                                     <?php foreach ($competencesUtilisateur as $competence): ?>
@@ -725,14 +725,14 @@ colorInput01.addEventListener('input', function () {
                                     <?php endforeach; ?>
                                 <?php else: ?>
 
-                                    <h4>Aucune donnée trouver</h4>
+                                    <h4>Aucune donnée trouvée</h4>
                                 <?php endif ?>
                             </div>
 
                         </div>
 
                         <div class="experiences">
-                            <h1>outils informatique</h1>
+                            <h1>Outils informatiques</h1>
                             <?php if ($afficheOutil): ?>
                                 <div class="outils">
                                     <?php foreach ($afficheOutil as $outils): ?>

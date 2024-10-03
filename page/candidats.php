@@ -7,13 +7,13 @@ if (isset($_GET['id'])) {
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
     $users_id = $_GET['id'];
-  
+
 
     $erreurs = '';
 
     $message = '';
 
-    
+
 
     include_once('../controller/controller_users.php');
     include_once('../controller/controller_description_users.php');
@@ -46,21 +46,25 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5JBWCPV7');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <!-- End Google Tag Manager -->
 
     <title>Profil</title>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-   
+
 
 
     <link rel="stylesheet" href="/css/user_profil.css">
@@ -71,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <style>
-        #none{
+        #none {
             display: none;
         }
     </style>
@@ -80,17 +84,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body>
 
- <!-- Google Tag Manager (noscript) -->
- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <?php include('../navbare.php') ?>
-   
 
 
-    <section class="section2 ste" id="ste" >
-    <img src="../image/croix.png" alt="" class="img111" id="img24">
+
+    <section class="section2 ste" id="ste">
+        <img src="../image/croix.png" alt="" class="img111" id="img24">
         <div class="container">
             <div class="box1">
 
@@ -99,10 +103,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     let div_statut = document.querySelector('.div_statut')
                     let imag = document.querySelector('.imag')
                     statut.addEventListener('click', () => {
-                            div_statut.style.left = '0'
+                        div_statut.style.left = '0'
                     })
                     imag.addEventListener('click', () => {
-                            div_statut.style.left = '-200%'
+                        div_statut.style.left = '-200%'
                     })
 
                     // Ajouter un gestionnaire au clic n'importe où sur la page
@@ -130,154 +134,160 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="box3">
-            <ul>
-               <a href="../page/candidats.php?id=<?php echo $userss['id'];  ?>"> <li class="tr pcr"><img src="../image/mpc.png" alt=""> <span class="td">Mon parcour</span></li></a>
-            
-            </ul>
-               
+                <ul>
+                    <a href="../page/candidats.php?id=<?php echo $userss['id']; ?>">
+                        <li class="tr pcr"><img src="../image/mpc.png" alt=""> <span class="td">Mon parcour</span></li>
+                    </a>
+
+                </ul>
+
             </div>
-           
+
         </div>
 
-       
+
     </section>
 
 
 
-    <section class="section2 menu" id="menu" >
-    <img class="img23" id="img23" src="../image/menu n.png" alt="">
+    <section class="section2 menu" id="menu">
+        <img class="img23" id="img23" src="../image/menu n.png" alt="">
         <div class="container">
             <div class="box1">
 
                 <img class="affiche" src="/upload/<?= $userss['images'] ?>" alt="">
                 <span></span>
-                
+
             </div>
-            
+
 
             <div class="box3">
-            <ul>
+                <ul>
 
-               <a href="../page/user_profil.php"> <li class="tr pcr"><img src="../image/mpc.png" alt=""> </li></a>
-              
-            </ul>
-               
+                    <a href="../page/user_profil.php">
+                        <li class="tr pcr"><img src="../image/mpc.png" alt=""> </li>
+                    </a>
+
+                </ul>
+
             </div>
         </div>
 
 
-      
+
     </section>
 
     <script>
-    // Sélectionne l'élément avec la classe 'img' et l'assigne à img222
-    let cache = document.getElementById('img23');
+        // Sélectionne l'élément avec la classe 'img' et l'assigne à img222
+        let cache = document.getElementById('img23');
 
-    let section = document.querySelector('.section2')
-    // Sélectionne l'élément avec la classe 'ste' et l'assigne à section2
-    let section2 = document.getElementById('ste');
+        let section = document.querySelector('.section2')
+        // Sélectionne l'élément avec la classe 'ste' et l'assigne à section2
+        let section2 = document.getElementById('ste');
 
-    // Sélectionne l'élément avec la classe 'menu' et l'assigne à menu
-    let menu1 = document.getElementById('menu');
+        // Sélectionne l'élément avec la classe 'menu' et l'assigne à menu
+        let menu1 = document.getElementById('menu');
 
-    // Sélectionne l'élément avec la classe 'img111' et l'assigne à img111
-    let img111 = document.getElementById('img24');
+        // Sélectionne l'élément avec la classe 'img111' et l'assigne à img111
+        let img111 = document.getElementById('img24');
 
-    // Ajoute un événement de clic à img222
-    cache.addEventListener('click', () => {
-        // Lorsque img222 est cliqué, déplace section2 à gauche (visible) et cache menu
-        section2.style.left = '0';
-        menu1.style.left = '-400px';
-    });
+        // Ajoute un événement de clic à img222
+        cache.addEventListener('click', () => {
+            // Lorsque img222 est cliqué, déplace section2 à gauche (visible) et cache menu
+            section2.style.left = '0';
+            menu1.style.left = '-400px';
+        });
 
-    // Ajoute un événement de clic à img111
-    img111.addEventListener('click', () => {
-        // Lorsque img111 est cliqué, cache section2 et montre menu
-        section2.style.left = '-100%';
-        menu1.style.left = '0';
-    });
+        // Ajoute un événement de clic à img111
+        img111.addEventListener('click', () => {
+            // Lorsque img111 est cliqué, cache section2 et montre menu
+            section2.style.left = '-100%';
+            menu1.style.left = '0';
+        });
 
-</script>
+    </script>
 
 
     <section class="section3">
-   
+
 
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
-        <?php $contGetAllpostulation_users = count($getAllPostulation_users); ?>
-        <?php if ($contGetAllpostulation_users > 0): ?>
-        <button class="contactes"> <strong> Alerte!</strong> ce candidat a déjà postulé à une de vos offres d'emploi  </button>
-        <?php else: ?>
-            <?php if ($getappelOffre): ?>
-              <button class="contactes"> <strong> Alerte!</strong> Ce candidat a déjà été contacté  par votre entreprise </button>
-              </div>
+            <?php $contGetAllpostulation_users = count($getAllPostulation_users); ?>
+            <?php if ($contGetAllpostulation_users > 0): ?>
+                <button class="contactes"> <strong> Alerte!</strong> ce candidat a déjà postulé à une de vos offres d'emploi
+                </button>
             <?php else: ?>
-                <div class="contact">
-                <button class="contacte"><span></span> Contacter ce candidat</button>
-                </div>
-
-                <form action="" method="post" class="form_appel" enctype="multipart/form-data">
-                    <h1>Formulaire d'Appel d'Offres</h1>
-                    <img class="fermer" src="../image/croix.png" alt="">
-                    <div class="div" >
-                        <label for="titre">Poste Disponible:</label>
-                        <input class="input1" type="text" name="titre" id="titre" required>
+                <?php if ($getappelOffre): ?>
+                    <button class="contactes"> <strong> Alerte!</strong> Ce candidat a déjà été contacté par votre entreprise
+                    </button>
                     </div>
-                    <div class="div" >
-                        <label for="message">Description du poste:</label>
-                        <textarea  name="message" id="summernote" cols="30" rows="10" required></textarea>
+                <?php else: ?>
+                    <div class="contact">
+                        <button class="contacte"><span></span> Contacter ce candidat</button>
                     </div>
 
-                    <input class="input" type="submit" name="sende" value="Envoyer">
-                </form>
+                    <form action="" method="post" class="form_appel" enctype="multipart/form-data">
+                        <h1>Formulaire d'Appel d'Offres</h1>
+                        <img class="fermer" src="../image/croix.png" alt="">
+                        <div class="div">
+                            <label for="titre">Poste Disponible:</label>
+                            <input class="input1" type="text" name="titre" id="titre" required>
+                        </div>
+                        <div class="div">
+                            <label for="message">Description du poste:</label>
+                            <textarea name="message" id="summernote" cols="30" rows="10" required></textarea>
+                        </div>
 
-                <script>
-                    let contacte = document.querySelector('.contacte');
-                    let form_appel = document.querySelector('.form_appel');
-                    let fermer = document.querySelector('.fermer')
+                        <input class="input" type="submit" name="sende" value="Envoyer">
+                    </form>
 
-                    
+                    <script>
+                        let contacte = document.querySelector('.contacte');
+                        let form_appel = document.querySelector('.form_appel');
+                        let fermer = document.querySelector('.fermer')
 
-                    contacte.addEventListener('click', () => {
-                        if (form_appel.style.left = '260%') {
-                            form_appel.style.left = '60%'
-                        } else {
-                            form_appel.style.left = '260%'
-                        }
 
-                        contacte.style.opacity = '0';
-                    })
-                    fermer.addEventListener('click', () => {
-                        if (form_appel.style.left = '60%') {
-                            form_appel.style.left = '260%'
-                        } else {
-                            form_appel.style.left = '60%'
-                        }
 
-                        contacte.style.opacity = '1';
-                    })
+                        contacte.addEventListener('click', () => {
+                            if (form_appel.style.left = '260%') {
+                                form_appel.style.left = '60%'
+                            } else {
+                                form_appel.style.left = '260%'
+                            }
 
-                    
-                    $(document).ready(function () {
-            $('#summernote').summernote({
-                placeholder: 'ajoute une description!!',
-                tabsize: 6,
-                height: 120,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-                ]
-              
-            });
-        });
-                </script>
+                            contacte.style.opacity = '0';
+                        })
+                        fermer.addEventListener('click', () => {
+                            if (form_appel.style.left = '60%') {
+                                form_appel.style.left = '260%'
+                            } else {
+                                form_appel.style.left = '60%'
+                            }
+
+                            contacte.style.opacity = '1';
+                        })
+
+
+                        $(document).ready(function () {
+                            $('#summernote').summernote({
+                                placeholder: 'ajoute une description!!',
+                                tabsize: 6,
+                                height: 120,
+                                toolbar: [
+                                    ['style', ['style']],
+                                    ['font', ['bold', 'underline', 'clear']],
+                                    ['color', ['color']],
+                                    ['para', ['ul', 'ol', 'paragraph']],
+                                    ['table', ['table']],
+                                    ['insert', ['link', 'picture', 'video']],
+                                    ['view', ['fullscreen', 'codeview', 'help']]
+                                ]
+
+                            });
+                        });
+                    </script>
+                <?php endif; ?>
             <?php endif; ?>
-        <?php endif; ?>
         <?php endif; ?>
 
 
@@ -329,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <?php echo $metiers['metier']; ?>
                                     </p>
                                 </th>
-                               
+
                             </tr>
                         </table>
                         <table>
@@ -343,7 +353,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <td class="date">
                                     <em>
                                         au
-                                    <?php echo $metiers['moisFin']; ?>/<?php echo $metiers['anneeFin']; ?>
+                                        <?php echo $metiers['moisFin']; ?>/<?php echo $metiers['anneeFin']; ?>
                                     </em>
                                 </td>
 
@@ -399,24 +409,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             Aucun niveau d'etude ajouter a votre profil
                         </p>
                     <?php else: ?>
-                            
-                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                                data-aos-anchor-placement="top-bottom">
-                                <strong>Niveau D'etude:</strong> <?php echo $getNiveauEtude['etude'] ?>
-                            </p>
-                            <p  data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-                                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                                data-aos-anchor-placement="top-bottom">
-                                <strong>Niveau d'expérience :</strong> <?php echo $getNiveauEtude['experience'] ?>
-                            </p>
-                           
+
+                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                            <strong>Niveau D'etude:</strong> <?php echo $getNiveauEtude['etude'] ?>
+                        </p>
+                        <p data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
+                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
+                            <strong>Niveau d'expérience :</strong> <?php echo $getNiveauEtude['experience'] ?>
+                        </p>
+
                     <?php endif; ?>
 
                 </div>
 
-                
-               
+
+
 
             </div>
         </div>
@@ -483,7 +491,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <td class="grade">
                                 <?php echo $formations['niveau']; ?>
                             </td>
-                           
+
                         </tr>
                     </table>
                 <?php endforeach; ?>
@@ -647,15 +655,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="box2">
 
-               
+
                 <ul>
                     <?php foreach ($afficheCentreInteret as $centreInteret): ?>
                         <li>
-                            <?= $centreInteret['interet'] ?> 
+                            <?= $centreInteret['interet'] ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
-               
+
             </div>
 
 
@@ -700,7 +708,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script>
 
-      
+
 
 
         $(document).ready(function () {

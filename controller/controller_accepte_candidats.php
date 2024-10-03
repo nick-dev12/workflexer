@@ -22,6 +22,7 @@ if (isset($_GET['accepter'])) {
     // Créez l'instance PHPMailer
     $mail = new PHPMailer(true);
 
+
     try {
         $mail->isSMTP();
         $mail->Host = 'advantechgroup.online';
@@ -144,7 +145,7 @@ if (isset($_GET['accepter'])) {
               <body>
              
               <div class='box1'>
-   <img src='https://example.com/logo.png' alt='Logo de l'entreprise'>
+   <img src='https://work-flexer.com/image/logo 2.png' alt='Logo de l'entreprise'>
 </div>
               
               <div class='box2'>
@@ -153,7 +154,7 @@ if (isset($_GET['accepter'])) {
               <h3><strong>Poste :</strong> $poste</h3>
               <p>Nous sommes ravis de vous informer que votre candidature pour le poste de <strong>$poste</strong> a été retenue.</p>
               <p>Nous vous invitons à vous connecter à notre plateforme pour discuter des prochaines étapes et fixer un rendez-vous :</p>
-              <p><a href='https://work-flexer.com'>Connectez-vous ici</a> pour discuter des démarches à suivre.</p>
+              <p><a href='https://work-flexer.com/page/user_profil.php'>Connectez-vous ici</a> pour discuter des démarches à suivre.</p>
           </div>
               
               </body>
@@ -324,6 +325,9 @@ if (isset($_GET['recaler'])) {
                </style>
                </head>
                <body>
+               <div class='box1'>
+               <img src='https://work-flexer.com/image/logo 2.png' alt='Logo de l'entreprise'>
+</div>
                <div class='box2'>
                <h1>Bonjour $nom,</h1>
                <h2>Confirmation de réception de votre candidature</h2>
@@ -331,7 +335,7 @@ if (isset($_GET['recaler'])) {
                <p>Nous vous remercions d'avoir postulé au poste de <strong>$poste</strong>.</p>
                <p>Nous regrettons de vous informer que, après avoir examiné attentivement votre candidature, nous avons décidé de ne pas poursuivre avec votre profil pour ce poste.</p>
                <p>Nous vous encourageons à continuer à rechercher des opportunités d'emploi correspondant à votre profil. Connectez-vous à notre plateforme pour explorer d'autres offres disponibles :</p>
-               <p><a href='https://work-flexer.com'>Cliquez ici</a> pour découvrir d'autres offres d'emploi.</p>
+               <p><a href='https://work-flexer.com/page/user_profil.php'>Cliquez ici</a> pour découvrir d'autres offres d'emploi.</p>
            </div>
             
                </body>

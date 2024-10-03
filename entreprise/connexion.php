@@ -113,7 +113,7 @@ if (isset($_POST['valider'])) {
     })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
   <!-- End Google Tag Manager -->
 
-
+  <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
   <title>connexion_e</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="

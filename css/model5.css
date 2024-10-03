@@ -6,60 +6,61 @@
   Variables
 --------------------------------------------------------------*/
 :root {
-  --text-color-m5: #000000;
-  --font-color-m5 :#ebebeb ;
-  --text-color2-m5: #0089be;
+    --text-color-m5: #000000;
+    --font-color-m5: #ebebeb;
+    --text-color2-m5: #0089be;
 }
 
 /*--------------------------------------------------------------
   Styles globaux
 --------------------------------------------------------------*/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: "Nunito", sans-serif;
     background-color: #e1e2e275;
-  }
-  
-  .section2 .box3 table .tr4 {
+}
+
+.section2 .box3 table .tr4 {
     background-color: #636262;
-  }
-  .section2 .box3 table .tr4 td a {
+}
+
+.section2 .box3 table .tr4 td a {
     color: #ffffff;
-  }
-  
-  #box1{
+}
+
+#box1 {
     display: none;
-  }
-  
-  .section3{
+}
+
+.section3 {
     margin-left: 250px;
-    background-color: #d4f2f675;
+    background-color: #f2f2f275;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-   /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
-   
-   background-position: center;
-   background-attachment: fixed;
-   position: relative;
-   margin-top: 80px;
-  }
-  
-  @media screen and (max-width : 1050px){
-    .section3{
+    /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
+
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    margin-top: 10px;
+}
+
+@media screen and (max-width : 1050px) {
+    .section3 {
         width: 100%;
-       padding-left: 50px;
-       margin-left: 0;
+        padding-left: 50px;
+        margin-left: 0;
     }
-  }
-  
-  .section3 .button12 {
+}
+
+.section3 .button12 {
     padding: 10px;
     background-color: #346dc8;
     color: #ffffff;
@@ -69,760 +70,813 @@ body {
     cursor: pointer;
     transition: all 0.4s;
     margin-bottom: 10px;
-  }
-  
-  @media screen and (max-width: 1050px) {
+}
+
+@media screen and (max-width: 1050px) {
     .section3 {
-      width: 100%;
-      margin-left: 0;
+        width: 100%;
+        margin-left: 0;
     }
-    .section3 .button12{
-      
-    }
-  }
-  .section3 button:hover {
+
+}
+
+.section3 button:hover {
     background-color: #303030;
-  }
-  .section3 .personnalisation{
+}
+
+.section3 .personnalisation {
     width: 330px;
     padding: 20px;
     margin: 20px 0;
     background-color: #ffffff;
     border-radius: 10px;
-  }
-  
-  .section3 .personnalisation .box{
+}
+
+.section3 .personnalisation .box {
     display: flex;
     align-items: center;
     justify-content: center;
-    align-items: center;
     margin-top: 10px;
-  
-    p{
-      font-size: 12px;
-      color: #636262;
-      text-align: center;
-      margin-right: 20px;
-    }
-  }
-  .section3 .personnalisation .box input{
+}
+
+.section3 .personnalisation .box p {
+    font-size: 12px;
+    color: #636262;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.section3 .personnalisation .box input {
     width: 60px;
     height: 30px;
     max-width: 60px;
     max-height: 30px;
     min-height: 30px;
     min-width: 60px;
-  }
+}
 
-  @media screen and (max-width: 720px){
-    .personnalisation{
-      width: 330px;
-      padding: 10px;
-      margin: 10px 0;
+@media screen and (max-width: 720px) {
+    .personnalisation {
+        width: 330px;
+        padding: 10px;
+        margin: 10px 0;
     }
-    
-    .personnalisation .box{
-      margin-top: 4px;
-    }
-    .personnalisation .box input{
-      width: 50px;
-      height: 20px;
-    }
-    .personnalisation .box p{
-      font-size: 10px;
-    }
-  }
-  
-  .color-picker {
-      display: flex;
-      align-items: center;
-      margin: 10px 0;
-  }
-  
-  .color-picker label {
-      flex: 1;
-  }
-  
-  .color-picker input {
-      margin-left: 20px;
-      padding: 5px;
-  }
 
-.section3 .container{
-    width: 793px;
-    height: 1122px;
-  border: 1.5px solid #a3a3a3;
-  margin: 0px auto;
-  position: relative;
-  margin-bottom: 40px;
-  background-color: #ffffff;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    .personnalisation .box {
+        margin-top: 4px;
+    }
 
-  .box1{
-    height: 300px;
-    width: 100%;
-    
+    .personnalisation .box input {
+        width: 50px;
+        height: 20px;
+    }
+
+    .personnalisation .box p {
+        font-size: 10px;
+    }
+}
+
+.color-picker {
     display: flex;
     align-items: center;
+    margin: 10px 0;
+}
 
-    .item1{
-        width: 70%;
-        background-color: var(--font-color-m5);
-        padding: 20px 10px;
-        ul{
-            margin-left: 30px;
-            margin-bottom: 20px;
-            li{
-                list-style: none;
-                margin: 7px 0;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                font-size: 14px;
-                img{
-                    width: 25px;
-                    margin-right: 10px;
-                }
-            }
-        }
+.color-picker label {
+    flex: 1;
+}
 
-        h3{
-            margin-left: 30px;
-            font-size: 18px;
-            margin-bottom: 5px;
-           color: var(--text-color-m5);
-        }
+.color-picker input {
+    margin-left: 20px;
+    padding: 5px;
+}
 
-        h1{
-            margin-left: 30px;
-            font-size: 25px;
-           color: var(--text-color-m5);
-        }
-    }
-    .item2{
-        width: 30%;
-        height: 200px;
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-  }
+.section3 .container {
+    width: 793px;
+    height: 1122px;
+    border: 1.5px solid #a3a3a3;
+    margin: 0px auto;
+    position: relative;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
+.section3 .container .box1 {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-  .box2{
+.section3 .container .box1 .item1 {
+    width: 70%;
+    background-color: var(--font-color-m5);
+    padding: 20px 10px;
+}
+
+.section3 .container .box1 .item1 ul {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.section3 .container .box1 .item1 ul li {
+    list-style: none;
+    margin: 7px 0;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+    font-size: 14px;
+}
+
+.section3 .container .box1 .item1 ul li img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.section3 .container .box1 .item1 h3 {
+    margin-left: 30px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--text-color-m5);
+}
+
+.section3 .container .box1 .item1 h1 {
+    margin-left: 30px;
+    font-size: 25px;
+    color: var(--text-color-m5);
+}
+
+.section3 .container .box1 .item2 {
+    width: 30%;
+    height: 200px;
+}
+
+.section3 .container .box1 .item2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section3 .container .box2 {
     display: flex;
     width: 100%;
+}
 
-    .item1{
-        width: 50%;
-        height: 600px;
+.section3 .container .box2 .item1 {
+    width: 50%;
+    height: 600px;
+}
 
-        .box{
-            margin-bottom: 20px;
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+.section3 .container .box2 .item1 .box {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
-            p{
-                font-size: 13px;
-                padding: 0px 30px;
-                width: 100%;
-                text-align: justify;
-            }
-        }
+.section3 .container .box2 .item1 .box h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-        .exp{
-            width: 100%;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+.section3 .container .box2 .item1 .box h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
 
-            div{
-                margin-bottom: 15px;
-                h3{
-                    font-size: 16px;
-                    margin-left: 30px;
-                    color: #434343;
-                }
+.section3 .container .box2 .item1 .box p {
+    font-size: 13px;
+    padding: 0px 30px;
+    width: 100%;
+    text-align: justify;
+}
 
-                span{
-                    font-size: 12px;
-                    color: #a3a3a3;
-                    margin-left: 30px;
-                }
+.section3 .container .box2 .item1 .exp {
+    width: 100%;
+}
 
-                p{
-                    font-size: 13px;
-                    padding: 5px 30px 5px 30px;
-                    text-align: justify;
-                }
-            }
-        }
-    }
+.section3 .container .box2 .item1 .exp h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-    .item2{
-        width: 50%;
-        height: 850px;
-        background-color: var(--font-color-m5);
+.section3 .container .box2 .item1 .exp h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
 
-        .exp{
-            width: 100%;
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+.section3 .container .box2 .item1 .exp div {
+    margin-bottom: 15px;
+}
 
-            div{
-                margin-bottom: 10px;
-                h3{
-                    font-size: 16px;
-                    margin-left: 30px;
-                    color: var(--text-color2-m5);
-                }
+.section3 .container .box2 .item1 .exp div h3 {
+    font-size: 16px;
+    margin-left: 30px;
+    color: #434343;
+}
 
-                span{
-                    font-size: 12px;
-                    color: var(--text-color-m5);
-                    margin-left: 30px;
-                }
+.section3 .container .box2 .item1 .exp div span {
+    font-size: 12px;
+    color: #a3a3a3;
+    margin-left: 30px;
+}
 
-                p{
-                    font-size: 14px;
-                    color: var(--text-color-m5);
-                    padding: 5px 10px 5px 30px;
-                    text-align: justify;
-                }
-            }
-        }
+.section3 .container .box2 .item1 .exp div p {
+    font-size: 13px;
+    padding: 5px 30px 5px 30px;
+    text-align: justify;
+}
 
-        .comp{
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+.section3 .container .box2 .item2 {
+    width: 50%;
+    height: 850px;
+    background-color: var(--font-color-m5);
+}
 
-            ul{
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                padding: 5px 20px 5px 20px;
-                li{
-                    padding: 4px 9px;
-                    background-color: #c3c1c1;
-                    font-size: 13px;
-                    margin: 10px 20px;
-                    border-radius: 5px;
-                }
-            }
-        }
+.section3 .container .box2 .item2 .exp {
+    width: 100%;
+    margin-top: 20px;
+}
 
-        .outils{
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+.section3 .container .box2 .item2 .exp h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+}
 
-            ul{
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                padding: 5px 20px 5px 20px;
-                li{
-                   list-style: square;
-                   margin: 10px 20px;
-                   color: var(--text-color-m5);
-                }
-            }
-        }
-    }
-  }
- }
+.section3 .container .box2 .item2 .exp h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
 
- .model5{
+.section3 .container .box2 .item2 .exp div {
+    margin-bottom: 10px;
+}
+
+.section3 .container .box2 .item2 .exp div h3 {
+    font-size: 16px;
+    margin-left: 30px;
+    color: var(--text-color2-m5);
+}
+
+.section3 .container .box2 .item2 .exp div span {
+    font-size: 12px;
+    color: var(--text-color-m5);
+    margin-left: 30px;
+}
+
+.section3 .container .box2 .item2 .exp div p {
+    font-size: 14px;
+    color: var(--text-color-m5);
+    padding: 5px 10px 5px 30px;
+    text-align: justify;
+}
+
+.section3 .container .box2 .item2 .comp {
+    margin-top: 20px;
+}
+
+.section3 .container .box2 .item2 .comp h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+}
+
+.section3 .container .box2 .item2 .comp h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
+
+.section3 .container .box2 .item2 .comp ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 20px 5px 20px;
+}
+
+.section3 .container .box2 .item2 .comp ul li {
+    padding: 4px 9px;
+    background-color: #c3c1c1;
+    font-size: 12px;
+    margin: 10px 15px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+.section3 .container .box2 .item2 .outils {
+    margin-top: 20px;
+}
+
+.section3 .container .box2 .item2 .outils h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+}
+
+.section3 .container .box2 .item2 .outils h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
+
+.section3 .container .box2 .item2 .outils ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 20px 5px 20px;
+}
+
+.section3 .container .box2 .item2 .outils ul li {
+    list-style: square;
+    margin: 10px 20px;
+    color: var(--text-color-m5);
+}
+
+.model5 {
     display: none;
- }
- #cv-content{
+}
+
+#cv-content {
     width: 793px;
     height: 1122px;
-  border: 1.5px solid #a3a3a3;
-  margin: 0px auto;
-  position: relative;
-  margin-bottom: 40px;
-  background-color: #ffffff;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  .box1{
-    height: 300px;
-    width: 100%;
-    
+    border: 1.5px solid #a3a3a3;
+    margin: 0px auto;
+    position: relative;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    overflow: hidden;
     display: flex;
     align-items: center;
+    flex-direction: column;
+}
 
-    .item1{
-        width: 70%;
-        background-color: var(--font-color-m5);
-        padding: 20px 10px;
-        ul{
-            margin-left: 30px;
-            margin-bottom: 20px;
-            li{
-                list-style: none;
-                margin: 7px 0;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                font-size: 14px;
-                img{
-                    width: 25px;
-                    margin-right: 10px;
-                }
-            }
-        }
+#cv-content .box1 {
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-        h3{
-            margin-left: 30px;
-            font-size: 18px;
-            margin-bottom: 5px;
-           color: var(--text-color-m5);
-        }
+#cv-content .box1 .item1 {
+    width: 70%;
+    background-color: var(--font-color-m5);
+    padding: 20px 10px;
+}
 
-        h1{
-            margin-left: 30px;
-            font-size: 25px;
-           color: var(--text-color-m5);
-        }
-    }
-    .item2{
-        width: 30%;
-        height: 200px;
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-  }
+#cv-content .box1 .item1 ul {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
 
+#cv-content .box1 .item1 ul li {
+    list-style: none;
+    margin: 7px 0;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+    font-size: 14px;
+}
 
-  .box2{
+#cv-content .box1 .item1 ul li img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+#cv-content .box1 .item1 h3 {
+    margin-left: 30px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--text-color-m5);
+}
+
+#cv-content .box1 .item1 h1 {
+    margin-left: 30px;
+    font-size: 25px;
+    color: var(--text-color-m5);
+}
+
+#cv-content .box1 .item2 {
+    width: 30%;
+    height: 200px;
+}
+
+#cv-content .box1 .item2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#cv-content .box2 {
     display: flex;
     width: 100%;
+}
 
-    .item1{
-        width: 50%;
-        height: 600px;
+#cv-content .box2 .item1 {
+    width: 50%;
+    height: 600px;
+}
 
-        .box{
-            margin-bottom: 20px;
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+#cv-content .box2 .item1 .box {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
-            p{
-                font-size: 13px;
-                padding: 0px 30px;
-                width: 100%;
-                text-align: justify;
-            }
-        }
+#cv-content .box2 .item1 .box h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-        .exp{
-            width: 100%;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+#cv-content .box2 .item1 .box h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
 
-            div{
-                margin-bottom: 15px;
-                h3{
-                    font-size: 16px;
-                    margin-left: 30px;
-                    color: #434343;
-                }
+#cv-content .box2 .item1 .box p {
+    font-size: 13px;
+    padding: 0px 30px;
+    width: 100%;
+    text-align: justify;
+}
 
-                span{
-                    font-size: 12px;
-                    color: #a3a3a3;
-                    margin-left: 30px;
-                }
+#cv-content .box2 .item1 .exp {
+    width: 100%;
+}
 
-                p{
-                    font-size: 13px;
-                    padding: 5px 30px 5px 30px;
-                    text-align: justify;
-                }
-            }
-        }
-    }
+#cv-content .box2 .item1 .exp h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-    .item2{
-        width: 50%;
-        height: 850px;
-        background-color: var(--font-color-m5);
+#cv-content .box2 .item1 .exp h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
 
-        .exp{
-            width: 100%;
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+#cv-content .box2 .item1 .exp div {
+    margin-bottom: 15px;
+}
 
-            div{
-                margin-bottom: 10px;
-                h3{
-                    font-size: 16px;
-                    margin-left: 30px;
-                    color: var(--text-color2-m5);
-                }
+#cv-content .box2 .item1 .exp div h3 {
+    font-size: 16px;
+    margin-left: 30px;
+    color: #434343;
+}
 
-                span{
-                    font-size: 12px;
-                    color: var(--text-color-m5);
-                    margin-left: 30px;
-                }
+#cv-content .box2 .item1 .exp div span {
+    font-size: 12px;
+    color: #a3a3a3;
+    margin-left: 30px;
+}
 
-                p{
-                    font-size: 14px;
-                    color: var(--text-color-m5);
-                    padding: 5px 10px 5px 30px;
-                    text-align: justify;
-                }
-            }
-        }
+#cv-content .box2 .item1 .exp div p {
+    font-size: 13px;
+    padding: 5px 30px 5px 30px;
+    text-align: justify;
+}
 
-        .comp{
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+#cv-content .box2 .item2 {
+    width: 50%;
+    height: 850px;
+    background-color: var(--font-color-m5);
+}
 
-            ul{
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                padding: 5px 20px 5px 20px;
-                li{
-                    padding: 4px 9px;
-                    background-color: #c3c1c1;
-                    font-size: 13px;
-                    margin: 10px 20px;
-                    border-radius: 5px;
-                }
-            }
-        }
+#cv-content .box2 .item2 .exp {
+    width: 100%;
+    margin-top: 20px;
+}
 
-        .outils{
-            margin-top: 20px;
-            h2{
-                font-size: 20px;
-                margin-bottom: 10px;
-                margin-left: 30px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                color: var(--text-color-m5);
-                img{
-                    margin-right: 20px;
-                    width: 25px;
-                }
-            }
+#cv-content .box2 .item2 .exp h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+}
 
-            ul{
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                padding: 5px 20px 5px 20px;
-                li{
-                   list-style: square;
-                   margin: 10px 20px;
-                   color: var(--text-color-m5);
-                }
-            }
-        }
-    }
-  }
- }
+#cv-content .box2 .item2 .exp h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
+
+#cv-content .box2 .item2 .exp div {
+    margin-bottom: 10px;
+}
+
+#cv-content .box2 .item2 .exp div h3 {
+    font-size: 14px;
+    margin-left: 30px;
+    color: var(--text-color2-m5);
+}
+
+#cv-content .box2 .item2 .exp div span {
+    font-size: 10px;
+    color: var(--text-color-m5);
+    margin-left: 30px;
+}
+
+#cv-content .box2 .item2 .exp div p {
+    font-size: 12px;
+    color: var(--text-color-m5);
+    padding: 5px 10px 5px 30px;
+    text-align: justify;
+}
+
+#cv-content .box2 .item2 .comp {
+    margin-top: 20px;
+}
+
+#cv-content .box2 .item2 .comp h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+}
+
+#cv-content .box2 .item2 .comp h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
+
+#cv-content .box2 .item2 .comp ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 20px 5px 20px;
+}
+
+#cv-content .box2 .item2 .comp ul li {
+    padding: 4px 9px;
+    background-color: #c3c1c1;
+    font-size: 1épx;
+    margin: 10px 15px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+#cv-content .box2 .item2 .outils {
+    margin-top: 20px;
+}
+
+#cv-content .box2 .item2 .outils h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--text-color-m5);
+}
+
+#cv-content .box2 .item2 .outils h2 img {
+    margin-right: 20px;
+    width: 25px;
+}
+
+#cv-content .box2 .item2 .outils ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 20px 5px 20px;
+}
+
+#cv-content .box2 .item2 .outils ul li {
+    list-style: square;
+    margin: 10px 20px;
+    color: var(--text-color-m5);
+}
 
 
 
 @media screen and (max-width: 1050px) {
 
-   .section3 .container{
+    .section3 .container {
         width: 550px;
         height: 850px;
         margin: 40px auto;
-      
-        .box1{
-          height: 230px;
-          .item1{
-              width: 60%;
-              padding: 20px 10px;
-              ul{
-                  margin-left: 30px;
-                  margin-bottom: 20px;
-                  li{
-                      margin: 7px 0;
-                      font-size: 12px;
-                      img{
-                          width: 23px;
-                          margin-right: 10px;
-                      }
-                          
-                      
-                  }
-              }
-      
-              h3{
-                  margin-left: 30px;
-                  font-size: 16px;
-              }
-      
-              h1{
-                  margin-left: 30px;
-                  font-size: 19px;
-              }
-          }
-          .item2{
-              width: 40%;
-          }
-        }
-      
-      
-        .box2{
-      
-          .item1{
-              width: 56%;
-              height: 700px;
-      
-              .box{
-                  margin-bottom: 20px;
-                  margin-top: 20px;
-                  h2{
-                      font-size: 18px;
-                      margin-bottom: 10px;
-                      margin-left: 30px;
-                      img{
-                          margin-right: 20px;
-                          width: 25px;
-                      }
-                  }
-      
-                  p{
-                      font-size: 10px;
-                      padding: 0px 15px;
-                  }
-              }
-      
-              .exp{
-                  width: 100%;
-                  h2{
-                      font-size: 18px;
-                      margin-bottom: 3px;
-                      margin-left: 30px;
-                      img{
-                          margin-right: 20px;
-                          width: 25px;
-                      }
-                  }
-      
-                  div{
-                      margin-bottom: 20px;
-                      h3{
-                          font-size: 14px;
-                          margin-left: 30px;
-                      }
-      
-                      span{
-                          font-size: 9px;
-                          margin-left: 30px;
-                      }
-      
-                      p{
-                          font-size: 10px;
-                          padding: 0px 15px 0px 15px;
-                      }
-                  }
-              }
-          }
-      
-          .item2{
-              width: 44%;
-              height: 700px;
-      
-              .exp{
-                  margin-top: 20px;
-                  h2{
-                      font-size: 18px;
-                      margin-bottom: 10px;
-                      margin-left: 20px;
-                      img{
-                          margin-right: 20px;
-                          width: 25px;
-                      }
-                  }
-      
-                  div{
-                      margin-bottom: 10px;
-                      h3{
-                          font-size: 14px;
-                          margin-left: 20px;
-                      }
-      
-                      span{
-                          font-size: 9px;
-                          margin-left: 20px;
-                      }
-      
-                      p{
-                          font-size: 11px;
-                          padding: 0px 20px 0px 20px;
-                      }
-                  }
-              }
-      
-              .comp{
-                  margin-top: 20px;
-                  h2{
-                      font-size: 18px;
-                      margin-bottom: 10px;
-                      margin-left: 20px;
-                      img{
-                          margin-right: 20px;
-                          width: 25px;
-                      }
-                  }
-      
-                  ul{
-                      padding: 5px 20px 5px 20px;
-                      li{
-                          padding: 4px 9px;
-                          font-size: 10px;
-                          margin: 5px 15px;
-                          border-radius: 5px;
-                      }
-                  }
-              }
-      
-              .outils{
-                  margin-top: 20px;
-                  h2{
-                      font-size: 18px;
-                      margin-bottom: 10px;
-                      margin-left: 20px;
-                      img{
-                          margin-right: 20px;
-                          width: 25px;
-                      }
-                  }
-      
-                  ul{
-                      padding: 5px 20px 5px 20px;
-                      li{
-                         list-style: square;
-                         margin: 6px 20px;
-                         font-size: 10px;
-                      }
-                  }
-              }
-          }
-        }
-       }
+    }
+
+    .section3 .container .box1 {
+        height: 230px;
+    }
+
+    .section3 .container .box1 .item1 {
+        width: 60%;
+        padding: 20px 10px;
+    }
+
+    .section3 .container .box1 .item1 ul {
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+
+    .section3 .container .box1 .item1 ul li {
+        margin: 7px 0;
+        font-size: 12px;
+    }
+
+    .section3 .container .box1 .item1 ul li img {
+        width: 23px;
+        margin-right: 10px;
+    }
+
+    .section3 .container .box1 .item1 h3 {
+        margin-left: 30px;
+        font-size: 16px;
+    }
+
+    .section3 .container .box1 .item1 h1 {
+        margin-left: 30px;
+        font-size: 19px;
+    }
+
+    .section3 .container .box1 .item2 {
+        width: 40%;
+    }
+
+    .section3 .container .box2 .item1 {
+        width: 56%;
+        height: 700px;
+    }
+
+    .section3 .container .box2 .item1 .box {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .section3 .container .box2 .item1 .box h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-left: 30px;
+    }
+
+    .section3 .container .box2 .item1 .box h2 img {
+        margin-right: 20px;
+        width: 20px;
+    }
+
+    .section3 .container .box2 .item1 .box p {
+        font-size: 10px;
+        padding: 0px 15px;
+    }
+
+    .section3 .container .box2 .item1 .exp {
+        width: 100%;
+    }
+
+    .section3 .container .box2 .item1 .exp h2 {
+        font-size: 16px;
+        margin-bottom: 3px;
+        margin-left: 30px;
+    }
+
+    .section3 .container .box2 .item1 .exp h2 img {
+        margin-right: 20px;
+        width: 20px;
+    }
+
+    .section3 .container .box2 .item1 .exp div {
+        margin-bottom: 20px;
+    }
+
+    .section3 .container .box2 .item1 .exp div h3 {
+        font-size: 12px;
+        margin-left: 30px;
+    }
+
+    .section3 .container .box2 .item1 .exp div span {
+        font-size: 8px;
+        margin-left: 20px;
+    }
+
+    .section3 .container .box2 .item1 .exp div p {
+        font-size: 10px;
+        padding: 0px 15px 0px 15px;
+    }
+
+    .section3 .container .box2 .item2 {
+        width: 44%;
+        height: 700px;
+    }
+
+    .section3 .container .box2 .item2 .exp {
+        margin-top: 10px;
+    }
+
+    .section3 .container .box2 .item2 .exp h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .section3 .container .box2 .item2 .exp h2 img {
+        margin-right: 20px;
+        width: 20px;
+    }
+
+    .section3 .container .box2 .item2 .exp div {
+        margin-bottom: 10px;
+    }
+
+    .section3 .container .box2 .item2 .exp div h3 {
+        font-size: 12px;
+        margin-left: 20px;
+    }
+
+    .section3 .container .box2 .item2 .exp div span {
+        font-size: 8px;
+        margin-left: 20px;
+    }
+
+    .section3 .container .box2 .item2 .exp div p {
+        font-size: 10px;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .section3 .container .box2 .item2 .comp {
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    .section3 .container .box2 .item2 .comp h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .section3 .container .box2 .item2 .comp h2 img {
+        margin-right: 20px;
+        width: 20px;
+    }
+
+    .section3 .container .box2 .item2 .comp ul {
+        padding: 5px 5px 5px 5px;
+    }
+
+    .section3 .container .box2 .item2 .comp ul li {
+        padding: 4px 9px;
+        font-size: 9px;
+        margin: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .section3 .container .box2 .item2 .outils {
+        margin-top: 10px;
+    }
+
+    .section3 .container .box2 .item2 .outils h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .section3 .container .box2 .item2 .outils h2 img {
+        margin-right: 20px;
+        width: 20px;
+    }
+
+    .section3 .container .box2 .item2 .outils ul {
+        padding: 5px 20px 5px 20px;
+    }
+
+    .section3 .container .box2 .item2 .outils ul li {
+        list-style: square;
+        margin: 6px 20px;
+        font-size: 10px;
+    }
 
 
 
@@ -831,192 +885,205 @@ body {
 
 @media screen and (max-width: 800px) {
 
-   .section3 .container{
+    .section3 .container {
         width: 340px;
         height: 622px;
         margin: 40px auto;
-      
-        .box1{
-          height: 180px;
-          .item1{
-              width: 60%;
-              padding: 10px 10px;
-              ul{
-                  margin-left: 10px;
-                  margin-bottom: 10px;
-                  li{
-                      margin: 3px 0;
-                      font-size: 9px;
-                      img{
-                          width: 18px;
-                          margin-right: 10px;
-                      }
-                          
-                      
-                  }
-              }
-      
-              h3{
-                  margin-left: 10px;
-                  font-size: 11px;
-              }
-      
-              h1{
-                  margin-left: 10px;
-                  font-size: 12px;
-              }
-          }
-          .item2{
-              width: 40%;
-              height: 80%;
-          }
-        }
-      
-      
-        .box2{
-      
-          .item1{
-              width: 50%;
-              height: 600px;
-      
-              .box{
-                  margin-bottom: 20px;
-                  margin-top: 10px;
-                  h2{
-                      font-size: 14px;
-                      margin-bottom: 10px;
-                      margin-left: 15px;
-                      img{
-                          margin-right: 10px;
-                          width: 18px;
-                      }
-                  }
-      
-                  p{
-                      font-size: 7px;
-                      padding: 0px 7px;
-                  }
-              }
-      
-              .exp{
-                  width: 100%;
-                  h2{
-                      font-size: 14px;
-                      margin-bottom: 3px;
-                      margin-left: 10px;
-                      img{
-                          margin-right: 10px;
-                          width: 18px;
-                      }
-                  }
-      
-                  div{
-                      margin-bottom: 10px;
-                      h3{
-                          font-size: 9px;
-                          margin-left: 10px;
-                      }
-      
-                      span{
-                        font-size: 6px;
-                        margin-top: 0px;
-                        margin-left: 10px;
-                        margin-bottom: 0px;
-                        display: block;
-                      }
-      
-                      p{
-                          font-size: 7px;
-                          padding: 0px 7px 0px 7px;
-                          text-align: left;
-                      }
-                  }
-              }
-          }
-      
-          .item2{
-              width: 50%;
-              height: 600px;
-      
-              .exp{
-                  margin-top: 20px;
-                  h2{
-                      font-size: 12px;
-                      margin-bottom: 10px;
-                      margin-left: 10px;
-                      img{
-                          margin-right: 10px;
-                          width: 18px;
-                      }
-                  }
-      
-                  div{
-                      margin-bottom: 10px;
-                      h3{
-                          font-size: 9px;
-                          margin-left: 10px;
-                      }
-      
-                      span{
-                          font-size: 6px;
-                          margin-top: 0px;
-                          margin-left: 10px;
-                          margin-bottom: 0px;
-                          display: block;
-                      }
-      
-                      p{
-                          font-size: 8px;
-                          padding: 0px 10px 0px 10px;
-                      }
-                  }
-              }
-      
-              .comp{
-                  margin-top: 20px;
-                  h2{
-                      font-size: 12px;
-                      margin-bottom: 10px;
-                      margin-left: 10px;
-                      img{
-                          margin-right: 10px;
-                          width: 18px;
-                      }
-                  }
-      
-                  ul{
-                      padding: 5px 10px 5px 10px;
-                      li{
-                          padding: 1px 6px;
-                          font-size: 7px;
-                          margin: 3px 7px;
-                          border-radius: 5px;
-                      }
-                  }
-              }
-      
-              .outils{
-                  margin-top: 20px;
-                  h2{
-                      font-size: 12px;
-                      margin-bottom: 10px;
-                      margin-left: 10px;
-                      img{
-                          margin-right: 10px;
-                          width: 18px;
-                      }
-                  }
-      
-                  ul{
-                      padding: 5px 10px 5px 10px;
-                      li{
-                         list-style: square;
-                         margin: 3px 7px;
-                         font-size: 7px;
-                      }
-                  }
-              }
-          }
-        }
-       }
+    }
+
+    .section3 .container .box1 {
+        height: 180px;
+    }
+
+    .section3 .container .box1 .item1 {
+        width: 60%;
+        padding: 10px 10px;
+    }
+
+    .section3 .container .box1 .item1 ul {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .section3 .container .box1 .item1 ul li {
+        margin: 3px 0;
+        font-size: 9px;
+    }
+
+    .section3 .container .box1 .item1 ul li img {
+        width: 18px;
+        margin-right: 10px;
+    }
+
+    .section3 .container .box1 .item1 h3 {
+        margin-left: 10px;
+        font-size: 11px;
+    }
+
+    .section3 .container .box1 .item1 h1 {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .section3 .container .box1 .item2 {
+        width: 40%;
+        height: 80%;
+    }
+
+    .section3 .container .box2 .item1 {
+        width: 50%;
+        height: 600px;
+    }
+
+    .section3 .container .box2 .item1 .box {
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .section3 .container .box2 .item1 .box h2 {
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-left: 15px;
+    }
+
+    .section3 .container .box2 .item1 .box h2 img {
+        margin-right: 10px;
+        width: 18px;
+    }
+
+    .section3 .container .box2 .item1 .box p {
+        font-size: 7px;
+        padding: 0px 7px;
+    }
+
+    .section3 .container .box2 .item1 .exp {
+        width: 100%;
+    }
+
+    .section3 .container .box2 .item1 .exp h2 {
+        font-size: 14px;
+        margin-bottom: 3px;
+        margin-left: 10px;
+    }
+
+    .section3 .container .box2 .item1 .exp h2 img {
+        margin-right: 10px;
+        width: 18px;
+    }
+
+    .section3 .container .box2 .item1 .exp div {
+        margin-bottom: 10px;
+    }
+
+    .section3 .container .box2 .item1 .exp div h3 {
+        font-size: 9px;
+        margin-left: 10px;
+    }
+
+    .section3 .container .box2 .item1 .exp div span {
+        font-size: 6px;
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-bottom: 0px;
+        display: block;
+    }
+
+    .section3 .container .box2 .item1 .exp div p {
+        font-size: 7px;
+        padding: 0px 7px 0px 7px;
+        text-align: left;
+    }
+
+    .section3 .container .box2 .item2 {
+        width: 50%;
+        height: 600px;
+    }
+
+    .section3 .container .box2 .item2 .exp {
+        margin-top: 10px;
+    }
+
+    .section3 .container .box2 .item2 .exp h2 {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .section3 .container .box2 .item2 .exp h2 img {
+        margin-right: 10px;
+        width: 18px;
+    }
+
+    .section3 .container .box2 .item2 .exp div {
+        margin-bottom: 10px;
+    }
+
+    .section3 .container .box2 .item2 .exp div h3 {
+        font-size: 9px;
+        margin-left: 10px;
+    }
+
+    .section3 .container .box2 .item2 .exp div span {
+        font-size: 6px;
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-bottom: 0px;
+        display: block;
+    }
+
+    .section3 .container .box2 .item2 .exp div p {
+        font-size: 8px;
+        padding: 0px 10px 0px 10px;
+    }
+
+    .section3 .container .box2 .item2 .comp {
+        margin-top: 10px;
+    }
+
+    .section3 .container .box2 .item2 .comp h2 {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .section3 .container .box2 .item2 .comp h2 img {
+        margin-right: 10px;
+        width: 18px;
+    }
+
+    .section3 .container .box2 .item2 .comp ul {
+        padding: 5px 0px 5px 0px;
+    }
+
+    .section3 .container .box2 .item2 .comp ul li {
+        padding: 1px 6px;
+        font-size: 7px;
+        margin: 3px 7px;
+        border-radius: 5px;
+    }
+
+    .section3 .container .box2 .item2 .outils {
+        margin-top: 10px;
+    }
+
+    .section3 .container .box2 .item2 .outils h2 {
+        font-size: 12px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .section3 .container .box2 .item2 .outils h2 img {
+        margin-right: 10px;
+        width: 18px;
+    }
+
+    .section3 .container .box2 .item2 .outils ul {
+        padding: 5px 5px 5px 5px;
+    }
+
+    .section3 .container .box2 .item2 .outils ul li {
+        list-style: square;
+        margin: 3px 15px;
+        font-size: 7px;
+    }
 }

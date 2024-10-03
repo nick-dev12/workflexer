@@ -15,10 +15,11 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-       Historique
+        Historique
     </title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -44,7 +45,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
             <div class="box2">
                 <?php foreach ($historique_users as $historiques): ?>
                     <?php $infosEntreprise = getEntreprise($db, $historiques['entreprise_id']);
-                    $infoOffre = getOffresEmploit($db,$historiques['offre_id']);
+                    $infoOffre = getOffresEmploit($db, $historiques['offre_id']);
                     ?>
 
                     <div class="carousel">

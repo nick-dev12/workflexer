@@ -156,7 +156,7 @@ if (isset($_GET['id'])) {
     <!-- End Google Tag Manager -->
 
     <title>Profil</title>
-    <link rel="icon" href="../image/logo.png" type="image/x-icon">
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
 
     <script src="../script/jquery-3.6.0.min.js"></script>
 
@@ -172,8 +172,7 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
 
-    <!-- Inclure la bibliothèque html5-qrcode -->
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script src="../js/html5Qrcode.js"></script>
 </head>
 
 <body>
@@ -271,36 +270,71 @@ if (isset($_GET['id'])) {
 
         <!-- Afficher le QR code -->
         <div class="qr-code">
-            <?php echo generateQRCode($_SESSION['users_id']); ?>
+            <button class="mon_qrcode">Mon QR Code <?php echo generateQRCode($_SESSION['users_id']); ?></button>
+            <span> ou </span>
+            <!-- Bouton pour ouvrir le scanner de QR code -->
+            <button id="open-scanner">Scanner un QR Code <img src="../image/scanner.png" alt=""></button>
+            <div class="qr_code">
+                <?php echo generateQRCode($_SESSION['users_id']); ?>
+                <a href="qrcodes/user_<?php echo $_SESSION['users_id']; ?>.png"> Telecharger mon code QR </a>
+            </div>
         </div>
-        <!-- Bouton pour ouvrir le scanner de QR code -->
-        <button id="open-scanner">Scanner un QR Code</button>
+
 
         <!-- Conteneur pour le scanner de QR code -->
-        <div id="qr-reader" style="width: 500px; height: 500px; display: none;"></div>
-        <script>
-            document.getElementById('open-scanner').addEventListener('click', function () {
-                document.getElementById('qr-reader').style.display = 'block';
-                const html5QrCode = new Html5Qrcode("qr-reader");
+        <div id="qr-reader"></div>
 
-                html5QrCode.start(
-                    { facingMode: "environment" }, // Utiliser la caméra arrière
-                    {
-                        fps: 10,    // Fréquence d'images par seconde
-                        qrbox: 250  // Taille de la boîte de scan
-                    },
-                    qrCodeMessage => {
-                        // Ouvrir le lien scanné
-                        window.location.href = qrCodeMessage;
-                    },
-                    errorMessage => {
-                        // Gérer les erreurs de scan
-                        console.log(`Erreur de scan: ${errorMessage}`);
-                    }
-                ).catch(err => {
-                    // Gérer les erreurs de démarrage du scanner
-                    console.log(`Erreur de démarrage du scanner: ${err}`);
-                });
+        <script>
+
+            let mon_qrcode = document.querySelector('.mon_qrcode')
+            let qr_code = document.querySelector('.qr_code')
+
+            mon_qrcode.addEventListener('click', () => {
+                qr_code.classList.toggle('active')
+            })
+
+
+
+            let scannerActive = false;
+            const html5QrCode = new Html5Qrcode("qr-reader");
+
+            document.getElementById('open-scanner').addEventListener('click', function () {
+                if (scannerActive) {
+                    html5QrCode.stop().then(ignore => {
+                        document.getElementById('qr-reader').style.display = 'none';
+                        scannerActive = false;
+                        console.log("Scanner arrêté.");
+                    }).catch(err => {
+                        console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                    });
+                } else {
+                    document.getElementById('qr-reader').style.display = 'block';
+                    html5QrCode.start(
+                        { facingMode: "environment" }, // Utiliser la caméra arrière
+                        {
+                            fps: 10,    // Fréquence d'images par seconde
+                            qrbox: 250  // Taille de la boîte de scan
+                        },
+                        qrCodeMessage => {
+                            // Ouvrir le lien scanné dans un nouvel onglet
+                            window.open(qrCodeMessage, '_blank');
+                            // Arrêter le scanner
+                            html5QrCode.stop().then(ignore => {
+                                document.getElementById('qr-reader').style.display = 'none';
+                                scannerActive = false;
+                                console.log("Scanner arrêté.");
+                            }).catch(err => {
+                                console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                            });
+                        },
+                        errorMessage => {
+                            console.log(`Erreur de scan: ${errorMessage}`);
+                        }
+                    ).catch(err => {
+                        console.log(`Erreur de démarrage du scanner: ${err}`);
+                    });
+                    scannerActive = true;
+                }
             });
         </script>
 
@@ -380,7 +414,7 @@ if (isset($_GET['id'])) {
                     // Vérifier si la description de l'utilisateur est vide
                     if (empty($descriptions['description'])):
                         ?>
-                        <p class="p">Veuillez Ajouté une description pour votre profil</p>
+                        <p class="p">Veuillez ajouter une description pour votre profil</p>
                     <?php else: ?>
                         <?php echo $descriptions['description']; ?>
                     <?php endif; ?>
@@ -405,10 +439,10 @@ if (isset($_GET['id'])) {
                                     <?php echo $erreurs; ?>
                                 </div>
                             <?php endif; ?>
-                            <textarea name="description" id="counte" placeholder="Ajoute une description ici"
+                            <textarea name="description" id="counte" placeholder="Ajoutez une description ici"
                                 maxlength="500"></textarea>
                             <p id="caracteres-restantes">500 caractères restants</p>
-                            <input type="submit" value="Enregister" name="ajouter" id="ajoute">
+                            <input type="submit" value="Enregistrer" name="ajouter" id="ajoute">
 
                         </form>
 
@@ -443,10 +477,10 @@ if (isset($_GET['id'])) {
                         <form method="post" action="" enctype="multipart/form-data">
                             <img class="imgs" src="../image/croix.png" alt="">
 
-                            <textarea name="nouvelleDescription" id="count" placeholder="Ajoute une description ici"
+                            <textarea name="nouvelleDescription" id="count" placeholder="Ajoutez une description ici"
                                 maxlength="500"> <?php echo $descriptions['description'] ?></textarea>
                             <p id="caracteres-restants">500 caractères restants</p>
-                            <input type="submit" value="Enregister" name="Modifier" id="ajoute">
+                            <input type="submit" value="Enregistrer" name="Modifier" id="ajoute">
 
                         </form>
                     </div>
@@ -509,7 +543,7 @@ if (isset($_GET['id'])) {
                 <h1>Expertise et compétences</h1>
             </div>
             <div class="box2">
-                <h2>Experience professionnel</h2>
+                <h2>Expérience professionnelle</h2>
 
                 <?php if (empty($afficheMetier)): ?>
                     <p class="p">Aucune expérience professionnelle enregistrée !</p>
@@ -585,14 +619,14 @@ if (isset($_GET['id'])) {
                     <img class="imgs1" src="../image/croix.png" alt="">
 
                     <div class="boxmetier">
-                        <label for="metier">Titre de l'experience professionnel</label>
+                        <label for="metier">Titre de l'expérience professionnelle</label>
                         <input type="text" name="metier" id="metier">
                     </div>
 
                     <div class="boxmetier" id="dat">
                         <div>
                             <div class=" date">
-                                <label for="date1">date de debut</label>
+                                <label for="date1">Date de début</label>
                                 <div class="mois">
                                     <span for="mois">Mois :</span>
                                     <select id="mois" name="moisDebut">
@@ -612,7 +646,7 @@ if (isset($_GET['id'])) {
                                 </div>
 
                                 <div class="annee">
-                                    <span>Annees</span>
+                                    <span>Année</span>
                                     <select id="annee" name="anneeDebut">
                                         <?php
                                         for ($annee = 1980; $annee <= 2030; $annee++) {
@@ -626,7 +660,7 @@ if (isset($_GET['id'])) {
                         <div>
 
                             <div class=" date">
-                                <label for="date2">date de fin</label>
+                                <label for="date2">Date de fin</label>
                                 <div class="mois">
                                     <span for="mois">Mois :</span>
                                     <select id="mois" name="moisFin">
@@ -646,7 +680,7 @@ if (isset($_GET['id'])) {
                                 </div>
 
                                 <div class="annee">
-                                    <span>Annees</span>
+                                    <span>Année</span>
                                     <select id="annee" name="anneeFin">
                                         <?php
                                         for ($annee = 1980; $annee <= 2030; $annee++) {
@@ -683,11 +717,11 @@ if (isset($_GET['id'])) {
                     </div>
 
                     <div class="boxmetier">
-                        <label for="metier">ajouter une courte description : Facultatif</label>
+                        <label for="metier">Ajouter une courte description : Facultatif</label>
                         <textarea name="Metierdescription" id="description" maxlength="300"></textarea>
-                        <p id="caractere">300 caracteres restants</p>
+                        <p id="caractere">300 caractères restants</p>
                     </div>
-                    <input type="submit" value="Enregister" name="Ajouter" id="Ajouter">
+                    <input type="submit" value="Enregistrer" name="Ajouter" id="Ajouter">
                 </form>
 
                 <script>
@@ -729,7 +763,7 @@ if (isset($_GET['id'])) {
 
                     <?php if (empty($competencesUtilisateur)): ?>
                         <p class="p">
-                            Aucune competence pour votre profil
+                            Aucune compétence pour votre profil
                         </p>
                     <?php else: ?>
                         <?php
@@ -758,7 +792,7 @@ if (isset($_GET['id'])) {
                 <form class="forms" action="" method="post">
                     <img class="imgs2" src="../image/croix.png" alt="">
                     <input type="text" name="competence" id="competence">
-                    <input type="submit" value="Enregister" name="Ajouter1" id="Ajouter">
+                    <input type="submit" value="Enregistrer" name="Ajouter1" id="Ajouter">
                 </form>
 
                 <script>
@@ -821,16 +855,16 @@ if (isset($_GET['id'])) {
                         <label for="etude">Niveau D'etude</label>
                         <select name="etude" id="etude">
                             <option value="">Choisissez un niveau d'études </option>
-                            <option value="Bac+1an">Bac+1an</option>
-                            <option value="Bac+2ans">Bac+2ans</option>
-                            <option value="Bac+3ans">Bac+3ans</option>
-                            <option value="Bac+4ans">Bac+4ans</option>
-                            <option value="Bac+5ans">Bac+5ans</option>
-                            <option value="Bac+6ans">Bac+6ans</option>
-                            <option value="Bac+7ans">Bac+7ans</option>
-                            <option value="Bac+8ans">Bac+8ans</option>
-                            <option value="Bac+9ans">Bac+9ans</option>
-                            <option value="Bac+10ans">Bac+10ans</option>
+                            <option value="Bac+1an">Bac+1 an</option>
+                            <option value="Bac+2ans">Bac+2 ans</option>
+                            <option value="Bac+3ans">Bac+3 ans</option>
+                            <option value="Bac+4ans">Bac+4 ans</option>
+                            <option value="Bac+5ans">Bac+5 ans</option>
+                            <option value="Bac+6ans">Bac+6 ans</option>
+                            <option value="Bac+7ans">Bac+7 ans</option>
+                            <option value="Bac+8ans">Bac+8 ans</option>
+                            <option value="Bac+9ans">Bac+9 ans</option>
+                            <option value="Bac+10ans">Bac+10 ans</option>
                             <option value="Aucun">Aucun</option>
                         </select>
                     </div>
@@ -838,23 +872,23 @@ if (isset($_GET['id'])) {
                         <label for="experience">Niveau d'expérience</label>
                         <select name="experience" id="experience">
                             <option value="">Choisissez un niveau d'expérience </option>
-                            <option value="1an">1an</option>
-                            <option value="2ans">2ans</option>
-                            <option value="3ans">3ans</option>
-                            <option value="4ans">4ans</option>
-                            <option value="5ans">5ans</option>
-                            <option value="6ans">6ans</option>
-                            <option value="7ans">7ans</option>
-                            <option value="8ans">8ans</option>
-                            <option value="9ans">9ans</option>
-                            <option value="10ans">10ans</option>
+                            <option value="1an">1 an</option>
+                            <option value="2ans">2 ans</option>
+                            <option value="3ans">3 ans</option>
+                            <option value="4ans">4 ans</option>
+                            <option value="5ans">5 ans</option>
+                            <option value="6ans">6 ans</option>
+                            <option value="7ans">7 ans</option>
+                            <option value="8ans">8 ans</option>
+                            <option value="9ans">9 ans</option>
+                            <option value="10ans">10 ans</option>
                             <option value="Aucun">Aucun</option>
                         </select>
                     </div>
                     <?php if (isset($getNiveauEtude['etude'])): ?>
-                        <input type="submit" value="Enregister" name="Ajouters1" id="Ajouter">
+                        <input type="submit" value="Enregistrer" name="Ajouters1" id="Ajouter">
                     <?php else: ?>
-                        <input type="submit" value="Enregister" name="Ajouters" id="Ajouter">
+                        <input type="submit" value="Enregistrer" name="Ajouters" id="Ajouter">
                     <?php endif; ?>
                 </form>
 
@@ -1058,7 +1092,7 @@ if (isset($_GET['id'])) {
                             </select>
                         </div>
                         <div class="box1">
-                            <input type="submit" value="Enregister" name="ajouter2" id="ajouter">
+                            <input type="submit" value="Enregistrer" name="ajouter2" id="ajouter">
                         </div>
                     </div>
 
@@ -1210,7 +1244,7 @@ if (isset($_GET['id'])) {
 
         <div class="container_box5">
             <div class="box1">
-                <h1>maîtrise des outils informatiques</h1>
+                <h1>Maîtrise des outils informatiques</h1>
             </div>
 
             <div class="box2">

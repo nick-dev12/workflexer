@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
-include_once ('../entreprise/app/controller/controllerEntreprise.php');
+include_once('../entreprise/app/controller/controllerOffre_emploi.php');
+include_once('../entreprise/app/controller/controllerEntreprise.php');
 
 
 // Vérifier si les résultats de la recherche sont disponibles dans la session
@@ -11,6 +11,8 @@ if (isset($_SESSION['resultats'])) {
     $resultats = $_SESSION['resultats'];
     // Effacer les résultats de la recherche de la session (facultatif)
     shuffle($resultats);
+    // Vider la session
+    unset($_SESSION['resultats']);
 } else {
 
 }
@@ -36,6 +38,7 @@ if (isset($_SESSION['resultats'])) {
     <!-- End Google Tag Manager -->
 
     <title>Recherche</title>
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -54,7 +57,7 @@ if (isset($_SESSION['resultats'])) {
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <?php include ('../navbare.php') ?>
+    <?php include('../navbare.php') ?>
 
 
     <section class="produit_vedete">
@@ -74,58 +77,58 @@ if (isset($_SESSION['resultats'])) {
 
             <?php else: ?>
                 <?php foreach ($resultats as $ingenieurs): ?>
-                <?php if($ingenieurs['statut'] === 'publiee' or $ingenieurs['statut'] === ''): ?>
-                    <div class="carousel">
-                        <?php $info_entreprise = getEntreprise($db, $ingenieurs['entreprise_id']) ?>
-                        <img src="../upload/<?php echo $info_entreprise['images'] ?>" alt="">
-                        <div class="info-box">
-                            <p class="p">
-                                <strong>
-                                    <?php echo $info_entreprise['entreprise']; ?>
-                                </strong>
-                            </p>
+                    <?php if ($ingenieurs['statut'] === 'publiee' or $ingenieurs['statut'] === ''): ?>
+                        <div class="carousel">
+                            <?php $info_entreprise = getEntreprise($db, $ingenieurs['entreprise_id']) ?>
+                            <img src="../upload/<?php echo $info_entreprise['images'] ?>" alt="">
+                            <div class="info-box">
+                                <p class="p">
+                                    <strong>
+                                        <?php echo $info_entreprise['entreprise']; ?>
+                                    </strong>
+                                </p>
 
-                            <p class="poste" >
-                                <strong>Nous recherchons un(une)</strong>
-                                <?php echo ($ingenieurs['poste']); ?>
-                            </p>
+                                <p class="poste">
+                                    <strong>Nous recherchons un(une)</strong>
+                                    <?php echo ($ingenieurs['poste']); ?>
+                                </p>
 
-                            <div class="box_vendu">
-                                <div class="vendu">
+                                <div class="box_vendu">
+                                    <div class="vendu">
 
-                                    <p>
-                                        <strong>Contrat :</strong>
-                                        <?php echo ($ingenieurs['contrat']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Niveau :</strong>
-                                        <?php echo ($ingenieurs['etudes']); ?>
-                                    </p>
-                                    <p>
-                                        <strong>Experience :</strong>
-                                        <?php echo ($ingenieurs['experience']); ?>
-                                    </p>
-                                    <p class="ville">
-                                        <strong>Ville :</strong>
-                                        <?php echo ($info_entreprise['ville']); ?>
-                                    </p>
+                                        <p>
+                                            <strong>Contrat :</strong>
+                                            <?php echo ($ingenieurs['contrat']); ?>
+                                        </p>
+                                        <p>
+                                            <strong>Niveau :</strong>
+                                            <?php echo ($ingenieurs['etudes']); ?>
+                                        </p>
+                                        <p>
+                                            <strong>Experience :</strong>
+                                            <?php echo ($ingenieurs['experience']); ?>
+                                        </p>
+                                        <p class="ville">
+                                            <strong>Ville :</strong>
+                                            <?php echo ($info_entreprise['ville']); ?>
+                                        </p>
+                                    </div>
+
                                 </div>
 
+
+
+                                <p id="nom">
+                                    <?php echo $ingenieurs['date']; ?>
+                                </p>
+                                <a
+                                    href="../entreprise/voir_offre.php?offres_id=<?= $ingenieurs['offre_id']; ?>&entreprise_id=<?= $ingenieurs['entreprise_id']; ?>">
+                                    <i class="fa-solid fa-eye"></i>Voir l'offre
+                                </a>
                             </div>
-
-
-
-                            <p id="nom">
-                                <?php echo $ingenieurs['date']; ?>
-                            </p>
-                            <a
-                                href="../entreprise/voir_offre.php?offres_id=<?= $ingenieurs['offre_id']; ?>&entreprise_id=<?= $ingenieurs['entreprise_id']; ?>">
-                                <i class="fa-solid fa-eye"></i>Voir l'offre
-                            </a>
                         </div>
-                    </div>
 
-                <?php endif; ?>
+                    <?php endif; ?>
                 <?php endforeach ?>
             <?php endif; ?>
         </article>

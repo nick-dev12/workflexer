@@ -14,7 +14,7 @@ if (isset($_GET['supp3'])) {
     exit();
 }
 
-if (isset ($_GET['id'])) {
+if (isset($_GET['id'])) {
     // Récupérez l'ID du commerçant à partir de la session
 // Récupérez l'ID de l'utilisateur depuis la variable de session
     $users_id = $_GET['id'];
@@ -32,18 +32,18 @@ if (isset ($_GET['id'])) {
     $message = '';
 
 
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
 } else {
 
-    if (isset ($_COOKIE['users_id'])) {
+    if (isset($_COOKIE['users_id'])) {
         $users_id = $_COOKIE['users_id'];
     } else {
         $users_id = '';
@@ -82,20 +82,20 @@ if (isset ($_GET['id'])) {
     // Récupérer l'id du métier à supprimer (via lien ou formulaire par exemple)
 
 
-    include_once ('../controller/controller_description_users.php');
-    include_once ('../controller/controller_metier_users.php');
-    include_once ('../controller/controller_competence_users.php');
-    include_once ('../controller/controller_formation_users.php');
-    include_once ('../controller/controller_diplome_users.php');
-    include_once ('../controller/controller_certificat_users.php');
-    include_once ('../controller/controller_outil_users.php');
-    include_once ('../controller/controller_langue_users.php');
-    include_once ('../controller/controller_projet_users.php');
-    include_once ('../controller/controller_postulation.php');
-    include_once ('../entreprise/app/controller/controllerEntreprise.php');
-    include_once ('../entreprise/app/controller/controllerOffre_emploi.php');
-    include_once ('../controller/controller_appel_offre.php');
-    include_once ('../controller/controller_users.php');
+    include_once('../controller/controller_description_users.php');
+    include_once('../controller/controller_metier_users.php');
+    include_once('../controller/controller_competence_users.php');
+    include_once('../controller/controller_formation_users.php');
+    include_once('../controller/controller_diplome_users.php');
+    include_once('../controller/controller_certificat_users.php');
+    include_once('../controller/controller_outil_users.php');
+    include_once('../controller/controller_langue_users.php');
+    include_once('../controller/controller_projet_users.php');
+    include_once('../controller/controller_postulation.php');
+    include_once('../entreprise/app/controller/controllerEntreprise.php');
+    include_once('../entreprise/app/controller/controllerOffre_emploi.php');
+    include_once('../controller/controller_appel_offre.php');
+    include_once('../controller/controller_users.php');
 }
 
 ?>
@@ -125,7 +125,7 @@ if (isset ($_GET['id'])) {
 
     <title>Profil</title>
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
-
+    <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <script src="../script/jquery-3.6.0.min.js"></script>
 
     <script src="../script/summernote@0.8.18.js"></script>
@@ -147,16 +147,16 @@ if (isset ($_GET['id'])) {
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <?php include ('../navbare.php') ?>
+    <?php include('../navbare.php') ?>
 
 
 
-    <?php include ('../include/header_users.php') ?>
+    <?php include('../include/header_users.php') ?>
 
 
     <section class="section3">
 
-        <?php if (isset ($_SESSION['success_message'])): ?>
+        <?php if (isset($_SESSION['success_message'])): ?>
             <div class="message">
                 <p>
                     <span></span>
@@ -165,7 +165,7 @@ if (isset ($_GET['id'])) {
                 </p>
             </div>
         <?php else: ?>
-            <?php if (isset ($_SESSION['error_message'])): ?>
+            <?php if (isset($_SESSION['error_message'])): ?>
                 <div class="erreurs" id="messageErreur">
                     <span></span>
                     <?php echo $_SESSION['error_message']; ?>
@@ -197,12 +197,12 @@ if (isset ($_GET['id'])) {
             }, 6000); // 6000 millisecondes équivalent à 6 secondes
         </script>
 
-       
+
         <div class="container_profil">
 
             <div class="box3">
                 <h2>Candidatures retenues</h2>
-                <?php if (empty ($getPostulationUsers)): ?>
+                <?php if (empty($getPostulationUsers)): ?>
                     <p><strong>Info :</strong> aucune Candidatures trouver !!</p>
                 <?php else: ?>
                     <?php foreach ($getPostulationUsers as $postulationUsers): ?>
@@ -210,7 +210,7 @@ if (isset ($_GET['id'])) {
                             <?php $infoEntreprise = getEntreprise($db, $postulationUsers['entreprise_id']); ?>
                             <?php $afficheOffre = getOffresEmploit($db, $postulationUsers['offre_id']);
 
-                            $afficheTMP1_Message1 = getTMP1_Message1($db, $postulationUsers['entreprise_id'],$postulationUsers['offre_id'], $postulationUsers['users_id']);
+                            $afficheTMP1_Message1 = getTMP1_Message1($db, $postulationUsers['entreprise_id'], $postulationUsers['offre_id'], $postulationUsers['users_id']);
 
                             $totalMessage = count($afficheTMP1_Message1);
 
@@ -227,14 +227,14 @@ if (isset ($_GET['id'])) {
                                             <?= $infoEntreprise['entreprise'] ?>
                                         </h4>
 
-                                        <?php if($totalMessage):?>
-                                        <strong class="tmp" >
-                                            <?= $totalMessage ?>
-                                        </strong>
+                                        <?php if ($totalMessage): ?>
+                                            <strong class="tmp">
+                                                <?= $totalMessage ?>
+                                            </strong>
                                         <?php endif; ?>
 
                                         <p><strong>Offre postuler:</strong>
-                                                <?= $afficheOffre['poste'] ?>
+                                            <?= $afficheOffre['poste'] ?>
                                         </p>
                                     </div>
                                 </div>
@@ -246,18 +246,18 @@ if (isset ($_GET['id'])) {
 
             <div class="box2">
                 <h2>Appelles d'offres</h2>
-                <?php if (empty ($getAllAppel_offre)): ?>
+                <?php if (empty($getAllAppel_offre)): ?>
                     <p><strong>Info :</strong> aucun Appelle d'offres !!</p>
                 <?php else: ?>
                     <?php foreach ($getAllAppel_offre as $appel_offre): ?>
 
                         <?php $infoEntreprise = getEntreprise($db, $appel_offre['entreprise_id']);
 
-                         $appel_offre = getAppelOffre($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
+                        $appel_offre = getAppelOffre($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
 
-                         $afficheTMP_message = getTMP2_Message3($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
-                         $countTMP_message = count($afficheTMP_message);
-                        
+                        $afficheTMP_message = getTMP2_Message3($db, $appel_offre['entreprise_id'], $appel_offre['users_id']);
+                        $countTMP_message = count($afficheTMP_message);
+
                         ?>
                         <a
                             href="get_message_users2.php?users_id=<?= $appel_offre['users_id'] ?>&entreprise_id=<?= $appel_offre['entreprise_id'] ?>">
@@ -271,11 +271,11 @@ if (isset ($_GET['id'])) {
                                         <?= $infoEntreprise['nom'] ?>
                                     </h4>
 
-                                    <?php if($countTMP_message): ?>
-                    <strong class="tmp" >
-                        <?= $countTMP_message ?>
-                    </strong>
-                    <?php endif; ?>
+                                    <?php if ($countTMP_message): ?>
+                                        <strong class="tmp">
+                                            <?= $countTMP_message ?>
+                                        </strong>
+                                    <?php endif; ?>
 
                                     <p> <strong>Competences:</strong>
                                         <?= $infoEntreprise['entreprise'] ?>

@@ -57,7 +57,7 @@ header h2 {
 
 .section3{
   margin-left: 250px;
-  background-color: #d4f2f675;
+  background-color: #f2f2f275;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +67,7 @@ header h2 {
  background-position: center;
  background-attachment: fixed;
  position: relative;
- margin-top: 80px;
+ margin-top: 10px;
 }
 
 @media screen and (max-width : 1050px){
@@ -95,9 +95,6 @@ header h2 {
     width: 100%;
     margin-left: 0;
   }
-  .section3 .button12{
-    
-  }
 }
 .section3 button:hover {
   background-color: #303030;
@@ -111,20 +108,20 @@ header h2 {
   border-radius: 10px;
 }
 
-.section3 .personnalisation .box{
+
+.section3 .personnalisation .box {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   margin-top: 6px;
+}
 
-  p{
-    color: #868686;
-    font-size: 13px;
-    text-align: center;
-    margin-bottom: 10px;
-  }
+.section3 .personnalisation .box p {
+  color: #868686;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 .section3 .personnalisation .box input{
   width: 60px;
@@ -202,11 +199,11 @@ header h2 {
   padding-top: 40px;
   background-color: var(--font-color_section);
 }
-#container .box1 .iff{
+#container .box1 .iff {
   margin-top: 30px;
-  p{
-    color: var(--texte-color_section);
-  }
+}
+#container .box1 .iff p {
+  color: var(--texte-color_section);
 }
 #container .bas{
   background-color: var(--font-color_section);

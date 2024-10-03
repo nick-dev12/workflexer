@@ -1,5 +1,5 @@
 <?php
-include ('conn/conn.php');
+include('conn/conn.php');
 
 include('entreprise/app/controller/controllerEntreprise.php');
 include('controller/controller_users.php');
@@ -47,11 +47,11 @@ if (isset($_SESSION['users_id'])) {
 
 
 if (isset($_SESSION['compte_entreprise'])) {
-    include_once ('controller/controller_message1.php');
+    include_once('controller/controller_message1.php');
 }
 
 if (isset($_SESSION['users_id'])) {
-    include ('controller/controller_message1.php');
+    include('controller/controller_message1.php');
 }
 
 
@@ -67,7 +67,7 @@ if (isset($_GET['offres_id']) and isset($_GET['statut'])) {
 
 }
 
-include (__DIR__ . '/controller/controller_statut_offre.php');
+include(__DIR__ . '/controller/controller_statut_offre.php');
 ?>
 
 <link rel="stylesheet" href="/css/navbare.css">
@@ -370,16 +370,24 @@ include (__DIR__ . '/controller/controller_statut_offre.php');
         let del = document.querySelector('.del');
 
         affiche.addEventListener('click', () => {
-            boxInfo.style.right = '10%';
+            boxInfo.style.transform = 'translateX(0%)';
+        });
+        del.addEventListener('click', () => {
+            boxInfo.style.transform = 'translateX(400%)';
         });
 
-        del.addEventListener('click', () => {
-            boxInfo.style.right = '-500%';
-        });
+
 
 
     </script>
 </nav>
+
+<div id="navigation">
+    <a href="../page/orientation.php">Orientation</a>
+    <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
+    <a href="/page/entreprise.php">Entreprise</a>
+    <a href="../page/voir_profil.php">Explorez les profils</a>
+</div>
 
 <section id="none" class="section1">
     <div class="div">
