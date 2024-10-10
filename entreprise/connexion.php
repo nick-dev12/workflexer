@@ -159,6 +159,14 @@ if (isset($_POST['valider'])) {
 
         <a href="mdp_oublier.php">Mot de passe oublié ?</a>
       </form>
+
+      <script>
+        window.addEventListener('resize', function () {
+          if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+            document.activeElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      </script>
     </div>
   </section>
 

@@ -156,10 +156,10 @@ include(__DIR__ . '/controller/controller_statut_offre.php');
                 let notification1 = document.querySelector('.box_notif')
 
                 not1.addEventListener('click', () => {
-                    notification1.style.display = 'block'
+                    notification1.style.top = '20px'
                 })
                 notif1.addEventListener('click', () => {
-                    notification1.style.display = 'none'
+                    notification1.style.top = '-300px'
                 })
             </script>
         </div>
@@ -370,10 +370,10 @@ include(__DIR__ . '/controller/controller_statut_offre.php');
         let del = document.querySelector('.del');
 
         affiche.addEventListener('click', () => {
-            boxInfo.style.transform = 'translateX(0%)';
+            boxInfo.style.top = '90px';
         });
         del.addEventListener('click', () => {
-            boxInfo.style.transform = 'translateX(400%)';
+            boxInfo.style.top = '-720px';
         });
 
 

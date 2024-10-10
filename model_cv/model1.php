@@ -80,9 +80,6 @@ if (isset($_SESSION['users_id'])) {
 
     <?php include('../navbare.php') ?>
 
-    <?php include('../include/header_users.php') ?>
-
-
 
 
     <section class="section3">
@@ -100,7 +97,7 @@ if (isset($_SESSION['users_id'])) {
                     const mergedOptions = {
                         filename: 'cv.pdf',
                         image: { type: 'jpeg', quality: 1.0 }, // Qualité JPEG maximale de l'image
-                        html2canvas: { scale: 3 }, // Échelle de rendu HTML2Canvas pour une meilleure résolution
+                        html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas pour une meilleure résolution
                     };
 
                     // Utiliser les options fusionnées pour la conversion HTML vers PDF
@@ -259,44 +256,6 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
 
-                        <div>
-                            <h1 class="text"><img src="../image/diplome.png" alt=""> Diplômes</h1>
-                            <?php if (empty($afficheDiplome)): ?>
-                                <ul>
-                                    <li>
-                                        Non renseigné
-                                    </li>
-                                </ul>
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheDiplome as $diplomes): ?>
-                                        <li>
-                                            <?= $diplomes['diplome'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
-
-                        <div>
-                            <h1 class="text"><img src="../image/diplome.png" alt=""> Certificats</h1>
-                            <?php if (empty($afficheCertificat)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée!</li>
-                                </ul>
-
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheCertificat as $certificat): ?>
-                                        <li>
-                                            <?= $certificat['certificat'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-
-
-                        </div>
 
                         <div>
                             <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
@@ -308,11 +267,29 @@ if (isset($_SESSION['users_id'])) {
                                 <?php foreach ($afficheLangue as $langues): ?>
                                     <ul>
                                         <li>
-                                            <?php echo $langues['langue']; ?>
+                                            <?php echo $langues['langue']; ?> <span>(<?php echo $langues['niveau']; ?>)</span>
                                         </li>
                                     </ul>
                                 <?php endforeach; ?>
                             <?php endif; ?>
+                        </div>
+
+                        <div>
+                            <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
+                            <div class="div-comp">
+                                <?php if ($competencesUtilisateur): ?>
+                                    <?php foreach ($competencesUtilisateur as $competence): ?>
+                                        <span class="comp">
+                                            <?php echo $competence['competence']; ?>
+                                        </span>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+
+                                    <h4>Aucune donnée trouvée</h4>
+                                <?php endif ?>
+
+                            </div>
+
                         </div>
 
                         <div>
@@ -332,15 +309,6 @@ if (isset($_SESSION['users_id'])) {
                             <?php endif; ?>
                         </div>
 
-                        <div>
-                            <h1 class="text"><img src="../image/social.png" alt=""> Réseaux </h1>
-                            <div class="reseaux">
-                                <img src="../image/facebook.png" alt="">
-                                <img src="../image/linkedin.png" alt="">
-                                <img src="../image/twitter.png" alt="">
-                                <img src="../image/whatsapp.png" alt="">
-                            </div>
-                        </div>
                     </div>
 
 
@@ -446,23 +414,6 @@ if (isset($_SESSION['users_id'])) {
 
                         </div>
 
-                        <div class="experiences">
-                            <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
-                            <div class="div-comp">
-                                <?php if ($competencesUtilisateur): ?>
-                                    <?php foreach ($competencesUtilisateur as $competence): ?>
-                                        <span class="comp">
-                                            <?php echo $competence['competence']; ?>
-                                        </span>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php endif ?>
-
-                            </div>
-
-                        </div>
 
                         <div class="experiences">
                             <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>
@@ -550,44 +501,6 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
 
-                        <div>
-                            <h1 class="text"><img src="../image/diplome.png" alt=""> Diplômes</h1>
-                            <?php if (empty($afficheDiplome)): ?>
-                                <ul>
-                                    <li>
-                                        Non renseigné
-                                    </li>
-                                </ul>
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheDiplome as $diplomes): ?>
-                                        <li>
-                                            <?= $diplomes['diplome'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
-
-                        <div>
-                            <h1 class="text"><img src="../image/diplome.png" alt=""> Certificats</h1>
-                            <?php if (empty($afficheCertificat)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée!</li>
-                                </ul>
-
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheCertificat as $certificat): ?>
-                                        <li>
-                                            <?= $certificat['certificat'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-
-
-                        </div>
 
                         <div>
                             <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
@@ -607,6 +520,24 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
                         <div>
+                            <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
+                            <div class="div-comp">
+                                <?php if ($competencesUtilisateur): ?>
+                                    <?php foreach ($competencesUtilisateur as $competence): ?>
+                                        <span class="comp">
+                                            <?php echo $competence['competence']; ?>
+                                        </span>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+
+                                    <h4>Aucune donnée trouvée</h4>
+                                <?php endif ?>
+
+                            </div>
+
+                        </div>
+
+                        <div>
                             <h1 class="text"><img src="../image/loisir.png" alt=""> Loisirs</h1>
                             <?php if (empty($afficheCentreInteret)): ?>
                                 <ul>
@@ -623,15 +554,7 @@ if (isset($_SESSION['users_id'])) {
                             <?php endif; ?>
                         </div>
 
-                        <div>
-                            <h1 class="text"><img src="../image/social.png" alt=""> Réseaux</h1>
-                            <div class="reseaux">
-                                <img src="../image/facebook.png" alt="">
-                                <img src="../image/linkedin.png" alt="">
-                                <img src="../image/twitter.png" alt="">
-                                <img src="../image/whatsapp.png" alt="">
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="box2">
@@ -735,23 +658,6 @@ if (isset($_SESSION['users_id'])) {
 
                         </div>
 
-                        <div class="experiences">
-                            <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
-                            <div class="div-comp">
-                                <?php if ($competencesUtilisateur): ?>
-                                    <?php foreach ($competencesUtilisateur as $competence): ?>
-                                        <span class="comp">
-                                            <?php echo $competence['competence']; ?>
-                                        </span>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php endif ?>
-
-                            </div>
-
-                        </div>
 
                         <div class="experiences">
                             <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>

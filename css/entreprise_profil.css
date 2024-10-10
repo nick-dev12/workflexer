@@ -368,20 +368,19 @@ body{
 .section3 .container_box1 .box2 {
     margin: 0;
 }
-.section3 .container_box1 .box2 button{
+.section3 .container_box1 .box2 button {
     padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 10px;
-  background-color: #666666;
-  margin-bottom: 30px;
-  margin-left: 70%;
-  img{
+    display: block; /* Changement de flex à block pour compatibilité */
+    border: none;
+    border-radius: 10px;
+    background-color: #666666;
+    margin-bottom: 30px;
+    margin-left: 70%;
+}
+
+.section3 .container_box1 .box2 button img {
     width: 30px;
     cursor: pointer;
-  }
 }
 .section3 .container_box1 .box2 button:hover{
     background-color: #F39C12;
@@ -485,15 +484,12 @@ body{
     background-color: #F39C12;
 }
 @media screen and (max-width : 1050px){
- .section3 .container_box1{
+ .section3 .container_box1 {
         width: 90%;
         margin-left: 0px;
-
-        .box1{
-            h1{
-                font-size: 20px;
-            }
-        }
+    }
+    .section3 .container_box1 .box1 h1 {
+        font-size: 20px;
     }
     
     .section3 .container_box1 .form_off form{
@@ -507,6 +503,10 @@ body{
         width: 98%;
         margin-left: 0px;
         padding: 20px 5px;
+    }
+    .section3 .container_box1 .box2 button img {
+        width: 25px;
+        cursor: pointer;
     }
     .section3 .container_box1 .form_off form{
         width: 100%;

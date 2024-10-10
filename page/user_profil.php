@@ -440,8 +440,8 @@ if (isset($_GET['id'])) {
                                 </div>
                             <?php endif; ?>
                             <textarea name="description" id="counte" placeholder="Ajoutez une description ici"
-                                maxlength="500"></textarea>
-                            <p id="caracteres-restantes">500 caractères restants</p>
+                                maxlength="400"></textarea>
+                            <p id="caracteres-restantes">400 caractères restants</p>
                             <input type="submit" value="Enregistrer" name="ajouter" id="ajoute">
 
                         </form>
@@ -453,14 +453,14 @@ if (isset($_GET['id'])) {
                             // Mise à jour du compteur de caractères en temps réel
                             textareas.addEventListener("keyup", () => {
                                 const nombreCaracteress = textareas.value.length;
-                                caracteresRestantes.textContent = `${500 - nombreCaracteress
+                                caracteresRestantes.textContent = `${400 - nombreCaracteress
                                     } caractères restants`;
 
                             });
                             // Limiter le nombre de caractères saisis en temps réel
                             textareas.addEventListener("input", () => {
-                                if (textareas.value.length > 500) {
-                                    textareas.value = textareas.value.substring(0, 500);
+                                if (textareas.value.length > 400) {
+                                    textareas.value = textareas.value.substring(0, 400);
                                 }
                             });
                         </script>
@@ -478,8 +478,8 @@ if (isset($_GET['id'])) {
                             <img class="imgs" src="../image/croix.png" alt="">
 
                             <textarea name="nouvelleDescription" id="count" placeholder="Ajoutez une description ici"
-                                maxlength="500"> <?php echo $descriptions['description'] ?></textarea>
-                            <p id="caracteres-restants">500 caractères restants</p>
+                                maxlength="400"> <?php echo $descriptions['description'] ?></textarea>
+                            <p id="caracteres-restants">400 caractères restants</p>
                             <input type="submit" value="Enregistrer" name="Modifier" id="ajoute">
 
                         </form>
@@ -519,14 +519,14 @@ if (isset($_GET['id'])) {
                     // Mise à jour du compteur de caractères en temps réel
                     textarea.addEventListener("keyup", () => {
                         const nombreCaracteres = textarea.value.length;
-                        caracteresRestants.textContent = `${500 - nombreCaracteres
+                        caracteresRestants.textContent = `${400 - nombreCaracteres
                             } caractères restants`;
 
                     });
                     // Limiter le nombre de caractères saisis en temps réel
                     textarea.addEventListener("input", () => {
-                        if (textarea.value.length > 500) {
-                            textarea.value = textarea.value.substring(0, 500);
+                        if (textarea.value.length > 400) {
+                            textarea.value = textarea.value.substring(0, 400);
                         }
                     });
 
@@ -718,8 +718,8 @@ if (isset($_GET['id'])) {
 
                     <div class="boxmetier">
                         <label for="metier">Ajouter une courte description : Facultatif</label>
-                        <textarea name="Metierdescription" id="description" maxlength="300"></textarea>
-                        <p id="caractere">300 caractères restants</p>
+                        <textarea name="Metierdescription" id="description" maxlength="200"></textarea>
+                        <p id="caractere">200 caractères restants</p>
                     </div>
                     <input type="submit" value="Enregistrer" name="Ajouter" id="Ajouter">
                 </form>
@@ -744,14 +744,14 @@ if (isset($_GET['id'])) {
                     // Mise à jour du compteur de caractères en temps réel
                     textee.addEventListener("keyup", () => {
                         const nombre = textee.value.length;
-                        caractere.textContent = `${300 - nombre
+                        caractere.textContent = `${200 - nombre
                             } caractères restants`;
 
                     });
                     // Limiter le nombre de caractères saisis en temps réel
                     textee.addEventListener("input", () => {
-                        if (textee.value.length > 300) {
-                            textee.value = textee.value.substring(0, 300);
+                        if (textee.value.length > 200) {
+                            textee.value = textee.value.substring(0, 200);
                         }
                     });
                 </script>

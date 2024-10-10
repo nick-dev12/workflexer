@@ -105,13 +105,13 @@ if (isset($_GET['id'])) {
     <section class="section3">
 
         <div class="model">
-            <a href="../model_cv/model1.php"><img src="../image/cv1.png" alt=""></a>
-            <a href="../model_cv/model7.php"><img src="../image/cv8.png" alt=""></a>
-            <a href="../model_cv/model3.php"><img src="../image/cv3.png" alt=""></a>
-            <a href="../model_cv/model5.php"><img src="../image/cv6.png" alt=""></a>
-            <a href="../model_cv/model2.php"><img src="../image/cv2.png" alt=""></a>
-            <a href="../model_cv/model6.php"><img src="../image/cv7.png" alt=""></a>
-            <a href="../model_cv/model4.php"><img src="../image/cv4.png" alt=""></a>
+            <a href="../model_cv/model1.php" target="_blank"><img src="../image/cv1.png" alt=""></a>
+            <a href="../model_cv/model7.php" target="_blank"><img src="../image/cv8.png" alt=""></a>
+            <a href="../model_cv/model3.php" target="_blank"><img src="../image/cv3.png" alt=""></a>
+            <a href="../model_cv/model5.php" target="_blank"><img src="../image/cv6.png" alt=""></a>
+            <a href="../model_cv/model2.php" target="_blank"><img src="../image/cv2.png" alt=""></a>
+            <a href="../model_cv/model6.php" target="_blank"><img src="../image/cv7.png" alt=""></a>
+            <a href="../model_cv/model4.php" target="_blank"><img src="../image/cv4.png" alt=""></a>
         </div>
 
     </section>

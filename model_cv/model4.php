@@ -78,8 +78,6 @@ if (isset($_SESSION['users_id'])) {
 
     <?php include('../navbare.php') ?>
 
-    <?php include('../include/header_users.php') ?>
-
 
 
 
