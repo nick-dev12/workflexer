@@ -463,23 +463,27 @@ if (isset($_POST['valider'])) {
                     <div class="container">
                         <div class="box1">
                             <label for="nom">Nom et Prénom</label>
-                            <input type="text" name="nom" id="nom" placeholder="Ex: John Doe">
+                            <input type="text" name="nom" id="nom" placeholder="Ex: John Doe"
+                                onfocus="scrollToInput(this)">
                         </div>
 
                         <div class="box1">
                             <label for="mail">Adresse e-mail</label>
-                            <input type="email" name="mail" id="mail" placeholder="Ex: john.doe@example.com">
+                            <input type="email" name="mail" id="mail" placeholder="Ex: john.doe@example.com"
+                                onfocus="scrollToInput(this)">
                         </div>
 
                         <div class="box1">
                             <label for="phone">Téléphone</label>
-                            <input type="texte" name="phone" id="phone" placeholder="Ex: 0123456789">
+                            <input type="texte" name="phone" id="phone" placeholder="Ex: 0123456789"
+                                onfocus="scrollToInput(this)">
                             <input type="hidden" id="full_phone" name="full_phone">
                         </div>
 
                         <div class="box1">
                             <label for="ville">Ville</label>
-                            <input type="text" name="ville" id="ville" placeholder="Ex: Paris">
+                            <input type="text" name="ville" id="ville" placeholder="Ex: Paris"
+                                onfocus="scrollToInput(this)">
                         </div>
 
                         <div class="box1">
@@ -488,7 +492,8 @@ if (isset($_POST['valider'])) {
                                 <div>
                                     <label class="label" for="images"> <img src="/image/caméra.png" alt=""></label>
                                     <input type="file" name="images" id="images"
-                                        accept="image/jpeg,image/jpg, image/png, image/gif">
+                                        accept="image/jpeg,image/jpg, image/png, image/gif"
+                                        onfocus="scrollToInput(this)">
                                 </div>
                                 <div>
                                     <img id="imagePreview" src="" alt="view">
@@ -519,13 +524,14 @@ if (isset($_POST['valider'])) {
                         <div class="box1">
                             <label for="competences">Domaine de compétences</label>
                             <input type="text" name="competences" id="competences"
-                                placeholder="Ex: Développement web, Marketing digital, Design graphique">
+                                placeholder="Ex: Développement web, Marketing digital, Design graphique"
+                                onfocus="scrollToInput(this)">
                         </div>
 
 
                         <div class="box1">
                             <label for="profession">Profession</label>
-                            <select name="profession" id="profession">
+                            <select name="profession" id="profession" onfocus="scrollToInput(this)">
                                 <option value="Etudiant">Étudiant</option>
                                 <option value="Professionnel">Professionnel</option>
                             </select>
@@ -533,7 +539,7 @@ if (isset($_POST['valider'])) {
 
                         <div class="box1">
                             <label for="categorie">Secteur d'activité</label>
-                            <select id="categorie" name="categorie">
+                            <select id="categorie" name="categorie" onfocus="scrollToInput(this)">
                                 <option value="">Sélectionnez une catégorie</option>
                                 <option value="Informatique et tech">Informatique et tech</option>
                                 <option value="Design et création">Design et création</option>
@@ -557,13 +563,15 @@ if (isset($_POST['valider'])) {
 
                         <div class="box1">
                             <label for="passe">Mot de passe</label>
-                            <input type="password" name="passe" id="passe" placeholder="Ex: ********">
+                            <input type="password" name="passe" id="passe" placeholder="Ex: ********"
+                                onfocus="scrollToInput(this)">
                             <div class="view">
                             </div>
                         </div>
                         <div class="box1">
                             <label for="cpasse">Confirmer le mot de passe</label>
-                            <input type="password" name="cpasse" id="cpasse" placeholder="Ex: ********">
+                            <input type="password" name="cpasse" id="cpasse" placeholder="Ex: ********"
+                                onfocus="scrollToInput(this)">
                             <div class="view">
                                 <p>Afficher le mot de passe</p>
                                 <input type="checkbox" id="voirCPasse" onclick="showPassword()">
@@ -586,6 +594,10 @@ if (isset($_POST['valider'])) {
                                 } else {
                                     y.type = "password";
                                 }
+                            }
+
+                            function scrollToInput(element) {
+                                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             }
                         </script>
 

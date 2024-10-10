@@ -588,7 +588,7 @@ textarea {
   height: 25px;
   width: 25px;
   position: absolute;
-  top: 30px;
+  top: 10px;
   right: 30px;
   cursor: pointer;
   transition: all 0.4s;
@@ -603,10 +603,10 @@ textarea {
   width: 100%;
   font-size: 15px;
   border-radius: 10px;
-  padding:15px 30px;
+  padding:15px 20px;
   color: #000000;
   font-family: "Nunito", sans-serif;
-
+  margin-top: 20px;
 }
 .section3 .container_box1 .form_box form textarea::placeholder {
   font-size: 16px;
@@ -740,7 +740,7 @@ textarea {
     padding: 20px 5px;
   }
   .section3 .container_box1 h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .section3 .container_box1 .box1 {
     width: 98%;
@@ -751,16 +751,21 @@ textarea {
     line-height: 20px;
     text-align: justify;
   }
+
+  .section3 .container_box1 .form_box form textarea {
+    font-size: 13px;
+    padding: 10px 10px;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .section3 .container_box1 .box1 {
     width: 100%;
     margin-left: 0px;
-    padding: 20px 10px;
+    padding: 20px 5px;
   }
   .section3 .container_box1 .box1 p {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 20px;
     padding: 10px;
   }
@@ -772,15 +777,15 @@ textarea {
   }
   .section3 .container_box1 .form_box {
     width: 100%;
-    padding: 10px;
+    padding: 10px 0;
   }
   .section3 .container_box1 .form_box form {
     width: 100%;
-    padding: 20px 0px;
+    padding: 40px 0px;
   }
 
   .section3 .container_box1 .form_box form textarea {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .section3 .container_box1 .form_box form #ajoute {
@@ -788,11 +793,11 @@ textarea {
   }
 
   .section3 .container_box1 .description {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .section3 .container_box1 .description .p {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .section3 .container_box1 .description img {
@@ -892,7 +897,7 @@ textarea {
   display: none;
   border: 2px solid #919191;
   border-radius: 10px;
-  padding: 20px;
+  padding: 40px 20px;
   position: relative;
 }
 
@@ -900,8 +905,8 @@ textarea {
   height: 25px;
   width: 25px;
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 10px;
+  right: 20px;
   cursor: pointer;
   transition: all 0.4s;
   z-index: 3;
@@ -1097,7 +1102,7 @@ textarea {
   font-size: 14px;
   transition: all 0.3s ease-out;
   margin-top: 20px;
-  background-color: #b1b1b1;
+  background-color: #2286ff;
   cursor: pointer;
   border: none;
 }
@@ -1260,7 +1265,11 @@ textarea {
   }
 
   .section3 .container_box2 .box2 form {
-    padding: 20px 10px;
+    padding: 30px 10px;
+  }
+
+  .section3 .container_box2 .box2 form textarea {
+    font-size: 13px;
   }
 
   .section3 .container_box2 .box2 form .boxmetier .date {
@@ -1287,7 +1296,7 @@ textarea {
   }
 
   .section3 .container_box2 .box2 .metier table tr span {
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .section3 .container_box2 .box2 .metier table th {
@@ -1295,12 +1304,12 @@ textarea {
   }
 
   .section3 .container_box2 .box2 .metier table th p {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .section3 .container_box2 .box2 .metier table #td {
     width: 100%;
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .section3 .container_box2 .box2 .metier table .date {
@@ -1400,6 +1409,7 @@ cursor: pointer;
 }
 .section3 .container_box3 .containne form .container_box {
   margin-right: 60px;
+  margin-top: 40px;
 }
 .section3 .container_box3 .containne form .container_box .date {
   display: flex;
@@ -1540,7 +1550,7 @@ cursor: pointer;
 }
 
 .section3 .container_box3 .fa-formation .Ajouters img {
-  width: 50px;
+  width: 40px;
 }
 .section3 .container_box3 .fa-formation .Ajouters:hover {
   background-color: #f39c12;
@@ -1564,10 +1574,11 @@ cursor: pointer;
 
   .section3 .container_box3 .containne .formee {
     width: 98%;
-    padding: 20px 10px;
+    padding: 40px 10px;
   }
   .section3 .container_box3 .containne form .container_box {
     margin-right: 60px;
+    margin-top: 30px;
   }
   .section3 .container_box3 .containne form .container_box .date {
     display: flex;

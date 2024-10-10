@@ -256,20 +256,21 @@ body{
 .section3 .container_box1 .box2 {
     margin: 0;
 }
-.section3 .container_box1 .box2 button{
+.section3 .container_box1 .box2 button {
     padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 10px;
-  background-color: #666666;
-  margin-bottom: 30px;
-  margin-left: 70%;
-  img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #666666;
+    margin-bottom: 30px;
+    margin-left: 70%;
+}
+
+.section3 .container_box1 .box2 button img {
     width: 30px;
     cursor: pointer;
-  }
 }
 .section3 .container_box1 .box2 button:hover{
     background-color: #F39C12;
@@ -605,13 +606,15 @@ body{
     transform: translate(-50%);
     border-radius: 7px;
 }
+ /* // Start of Selection */
 .section3 .container_box2 .box2  .carousel .restore {
     background-color: #0093dc;
-    img{
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-    }
+}
+
+.section3 .container_box2 .box2  .carousel .restore img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
 }
 
 .section3 .container_box2 .box2  .carousel a :nth-child(1){
@@ -785,17 +788,18 @@ body{
 
 .section3 .container_box3 .btn1 {
     padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 10px;
-  background-color: #666666;
-  margin-bottom: 30px;
-  img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #666666;
+    margin-bottom: 30px;
+}
+
+.section3 .container_box3 .btn1 img {
     width: 30px;
     cursor: pointer;
-  }
 }
 .section3 .container_box3 .btn1:hover{
     background-color: #F39C12;

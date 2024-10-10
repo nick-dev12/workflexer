@@ -56,7 +56,6 @@ header h2 {
 }
 
 .section3{
-  margin-left: 250px;
   background-color: #f2f2f275;
   display: flex;
   align-items: center;
@@ -73,7 +72,6 @@ header h2 {
 @media screen and (max-width : 1050px){
   .section3{
       width: 100%;
-     padding-left: 50px;
      margin-left: 0;
   }
 }
@@ -192,7 +190,7 @@ header h2 {
 }
 
 #container .box1 {
-  width: 270px;
+  width: 380px;
   height: 975px;
   position: relative;
   border-right: 3px solid #000000;
@@ -259,15 +257,72 @@ header h2 {
 #container .box1 ul {
   width: 80%;
   margin: 0 auto;
+  padding-left: 10px;
 }
 #container .box1 ul li {
-  font-size: 12px;
-  list-style-type: square;
+  font-size: 14px;
   width: 100%;
   margin: 2px auto;
-  margin-left: 10px;
+  list-style: none;
   color: var(--texte-color_section);
 }
+
+
+#container .formation{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#container .formation .div2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: 5px auto;
+}
+
+#container .formation .div2 .strong{
+  padding: 5px;
+  background-color: #303030;
+  border-radius: 50%;
+  margin-right: 20px;
+  font-weight: 400;
+}
+
+#container .formation .div2 .info{
+  width: 100%;
+}
+
+#container .formation .div2 .info h4{
+  font-size: 13px;
+  color: var(--texte-color_section);
+}
+
+#container .formation .div2 .info span{
+  font-size: 10px;
+  color: var(--texte-color_section);
+}
+
+#container .formation .div2 .info p{
+  font-size: 12px;
+  text-align: justify;
+  color: var(--texte-color_section);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 #container .box1 .reseaux {
   display: flex;
   align-items: center;
@@ -302,6 +357,7 @@ header h2 {
   font-size: 12px;
   width: 85%;
   margin: 15px auto;
+  text-align: justify;
 }
 
 #container .box2 .experiences .div {
@@ -421,7 +477,7 @@ header h2 {
   }
 
   #box #container .box1 {
-    width: 160px;
+    width: 280px;
     height: 660px;
     padding-top: 40px;
     border-width: 2px;
@@ -454,8 +510,39 @@ header h2 {
     margin: 0 auto;
   }
   #box #container .box1 ul li {
-    font-size: 9.5px;
+    font-size: 8px;
   }
+
+  #box #container .formation .div2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 5px auto;
+  }
+  
+  #box #container .formation .div2 .strong{
+    padding: 2px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 400;
+  }
+  
+  #box #container .formation .div2 .info h4{
+    font-size: 8px;
+  }
+  
+  #box #container .formation .div2 .info span{
+    font-size: 5px;
+    display: block;
+  }
+  
+  #box #container .formation .div2 .info p{
+    font-size: 8px;
+    text-align: justify;
+  }
+
+
   #box #container .box1 .reseaux {
     width: 80%;
   }
@@ -465,7 +552,7 @@ header h2 {
   }
 
   #box #container .box2 {
-    width: 330px;
+    width: 300px;
     height: 670px;
     padding: 10px 10px;
   }
@@ -602,6 +689,37 @@ header h2 {
  #box  #container .box1 ul li {
     font-size: 5.5px;
   }
+
+
+  #box #container .formation .div2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 4px auto;
+  }
+  
+  #box #container .formation .div2 .strong{
+    padding: 2px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: 400;
+  }
+  
+  #box #container .formation .div2 .info h4{
+    font-size: 6px;
+  }
+  
+  #box #container .formation .div2 .info span{
+    font-size: 4px;
+    display: block;
+  }
+  
+  #box #container .formation .div2 .info p{
+    font-size: 6px;
+    text-align: justify;
+  }
+
  #box  #container .box1 .reseaux {
     width: 80%;
   }
@@ -680,6 +798,188 @@ header h2 {
     margin-top: 2px;
   }
 }
+
+@media screen and (max-width: 420px) {
+  #box  #container .bas{
+     height: 20px;
+   }
+   #box header {
+     padding: 10px;
+     text-align: center;
+   }
+   #box header h1 {
+     width: 60%;
+     font-size: 11px;
+     padding: 0 10px;
+     margin-left: 120px;
+   }
+  #box  header h2 {
+     width: 60%;
+     margin-left: 120px;
+     font-size: 9.5px;
+   }
+  #box  #container {
+     width: 100%;
+     height: 550px;
+     margin-top: 50px;
+   }
+   #box #container .img {
+     width: 70px;
+     height: 70px;
+     top: 20px;
+     left: 20px;
+   }
+ 
+   #box #container .box1 {
+     width: 110px;
+     height: 480px;
+     padding-top: 20px;
+     border-width: 2px;
+   }
+  #box  #container .box1 h1 {
+     width: 80%;
+     font-size: 6px;
+     text-align: center;
+     align-items: start;
+   }
+  #box  #container .box1 h1 img {
+     height: 8px;
+     width: 8px;
+     margin-right: 5px;
+   }
+  #box  #container .box1 .bb {
+     width: 120px;
+     margin: 6px 10px;
+     text-align: left;
+     align-items: start;
+   }
+  #box  #container .box1 .bb img {
+     height: 10px;
+     width: 10px;
+     margin-right: 5px;
+   }
+  #box  #container .box1 .bb p {
+     font-size: 5px;
+     width: 100%;
+     align-items: start;
+     /* margin-left: 5px; */
+   }
+  #box  #container .box1 ul {
+     width: 80%;
+     margin: 0 auto;
+   }
+  #box  #container .box1 ul li {
+     font-size: 5.5px;
+   }
+ 
+ 
+   #box #container .formation .div2{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 95%;
+     margin: 3px auto;
+   }
+   
+    #box #container .formation .div2 .strong{
+     padding: 2px;
+     border-radius: 50%;
+     margin-right: 5px;
+     font-weight: 400;
+   }
+   
+   #box #container .formation .div2 .info h4{
+     font-size: 6px;
+   }
+   
+   #box #container .formation .div2 .info span{
+     font-size: 4px;
+     display: block;
+   }
+   
+   #box #container .formation .div2 .info p{
+     font-size: 6px;
+     text-align: justify;
+   }
+ 
+  #box  #container .box1 .reseaux {
+     width: 80%;
+   }
+  #box  #container .box1 .reseaux img {
+     height: 20px;
+     width: 20px;
+   }
+ 
+  #box  #container .box2 {
+     width: 230px;
+     height: 570px;
+     padding: 3px 10px;
+   }
+ 
+  #box  #container .box2 h1 {
+     font-size: 6px;
+     width: 80%;
+     margin: 5px 10px;
+     padding: 3px 20px;
+   }
+  #box  #container .box2 .info_users p{
+     font-size: 6px;
+     margin: 0 7px;
+     width: 185px;
+   }
+  #box  #container .box2 .p {
+     font-size: 5.5px;
+     width: 100%;
+     margin-left: 10px;
+     margin: 7px 9px;
+     font-size: 6px;
+   }
+  #box  #container .box2 .experiences .div1 {
+     width: 90%;
+     position: relative;
+   }
+  #box  #container .box2 .experiences .div1 .info p {
+     width: 180px;
+   }
+  #box  #container .box2 .experiences .div {
+     width: 100%;
+     margin-top: -2px;
+     margin-bottom: 2px;
+   }
+ 
+  #box  #container .box2 .div h4 {
+     font-size: 6px;
+   }
+  #box  #container .box2 .div p {
+     font-size: 5.5px;
+   }
+  #box  #container .box2 .div span {
+     font-size: 4px;
+     width: 100px;
+   }
+  #box  #container .box2 .div .strong {
+     padding: 1.5px;
+     margin-right: 5px;
+   }
+ 
+  #box  #container .box2 .experiences .outils {
+     width: 90%;
+     margin-top: -2px;
+   }
+  #box  #container .box2 .experiences .outils p {
+     font-size: 6px;
+   }
+  #box  #container .box2 .div-comp {
+     width: 90%;
+   }
+  #box  #container .box2 .comp {
+     font-size: 6px;
+     padding: 1px 5px;
+     margin: 5px;
+     margin-right: 1px;
+     margin-top: 2px;
+   }
+ }
  p{
   color: black;
 }

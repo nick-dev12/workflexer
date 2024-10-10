@@ -38,7 +38,6 @@ body {
 }
 
 .section3 {
-    margin-left: 250px;
     background-color: #f2f2f275;
     display: flex;
     align-items: center;
@@ -55,7 +54,6 @@ body {
 @media screen and (max-width : 1050px) {
     .section3 {
         width: 100%;
-        padding-left: 50px;
         margin-left: 0;
     }
 }
@@ -251,7 +249,7 @@ body {
 }
 
 .section3 .container .box2 .item1 .box p {
-    font-size: 13px;
+    font-size: 12px;
     padding: 0px 30px;
     width: 100%;
     text-align: justify;
@@ -280,19 +278,19 @@ body {
 }
 
 .section3 .container .box2 .item1 .exp div h3 {
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 30px;
     color: #434343;
 }
 
 .section3 .container .box2 .item1 .exp div span {
-    font-size: 12px;
+    font-size: 10px;
     color: #a3a3a3;
     margin-left: 30px;
 }
 
 .section3 .container .box2 .item1 .exp div p {
-    font-size: 13px;
+    font-size: 12px;
     padding: 5px 30px 5px 30px;
     text-align: justify;
 }
@@ -328,22 +326,24 @@ body {
 }
 
 .section3 .container .box2 .item2 .exp div h3 {
-    font-size: 16px;
+    font-size: 13px;
     margin-left: 30px;
     color: var(--text-color2-m5);
 }
 
 .section3 .container .box2 .item2 .exp div span {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-color-m5);
     margin-left: 30px;
+    display: block;
 }
 
 .section3 .container .box2 .item2 .exp div p {
-    font-size: 14px;
+    font-size: 11px;
     color: var(--text-color-m5);
-    padding: 5px 10px 5px 30px;
+    margin-left: 30px;
     text-align: justify;
+    padding-right: 20px;
 }
 
 .section3 .container .box2 .item2 .comp {
@@ -373,10 +373,10 @@ body {
 }
 
 .section3 .container .box2 .item2 .comp ul li {
-    padding: 4px 9px;
+    padding: 3px 7px;
     background-color: #c3c1c1;
-    font-size: 12px;
-    margin: 10px 15px;
+    font-size: 10px;
+    margin: 7px 10px;
     border-radius: 5px;
     list-style: none;
 }
@@ -409,8 +409,10 @@ body {
 
 .section3 .container .box2 .item2 .outils ul li {
     list-style: square;
-    margin: 10px 20px;
+    margin: 7px 10px;
     color: var(--text-color-m5);
+    font-size: 12px;
+    list-style: none;
 }
 
 .model5 {
@@ -517,7 +519,7 @@ body {
 }
 
 #cv-content .box2 .item1 .box p {
-    font-size: 13px;
+    font-size: 12px;
     padding: 0px 30px;
     width: 100%;
     text-align: justify;
@@ -546,19 +548,20 @@ body {
 }
 
 #cv-content .box2 .item1 .exp div h3 {
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 30px;
     color: #434343;
 }
 
 #cv-content .box2 .item1 .exp div span {
-    font-size: 12px;
+    font-size: 10px;
     color: #a3a3a3;
     margin-left: 30px;
+    display: block;
 }
 
 #cv-content .box2 .item1 .exp div p {
-    font-size: 13px;
+    font-size: 12px;
     padding: 5px 30px 5px 30px;
     text-align: justify;
 }
@@ -594,7 +597,7 @@ body {
 }
 
 #cv-content .box2 .item2 .exp div h3 {
-    font-size: 14px;
+    font-size: 13px;
     margin-left: 30px;
     color: var(--text-color2-m5);
 }
@@ -606,7 +609,7 @@ body {
 }
 
 #cv-content .box2 .item2 .exp div p {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-color-m5);
     padding: 5px 10px 5px 30px;
     text-align: justify;
@@ -635,14 +638,14 @@ body {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 5px 20px 5px 20px;
+    padding: 5px 15px 5px 15px;
 }
 
 #cv-content .box2 .item2 .comp ul li {
-    padding: 4px 9px;
+    padding: 3px 7px;
     background-color: #c3c1c1;
-    font-size: 1épx;
-    margin: 10px 15px;
+    font-size: 10px;
+    margin: 7px 10px;
     border-radius: 5px;
     list-style: none;
 }
@@ -670,13 +673,15 @@ body {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 5px 20px 5px 20px;
+    padding: 5px 15px 5px 15px;
 }
 
 #cv-content .box2 .item2 .outils ul li {
     list-style: square;
-    margin: 10px 20px;
+    margin: 7px 10px;
     color: var(--text-color-m5);
+    list-style: none;
+    font-size: 12px;
 }
 
 
@@ -715,12 +720,12 @@ body {
 
     .section3 .container .box1 .item1 h3 {
         margin-left: 30px;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .section3 .container .box1 .item1 h1 {
         margin-left: 30px;
-        font-size: 19px;
+        font-size: 16px;
     }
 
     .section3 .container .box1 .item2 {
@@ -749,7 +754,7 @@ body {
     }
 
     .section3 .container .box2 .item1 .box p {
-        font-size: 10px;
+        font-size: 9px;
         padding: 0px 15px;
     }
 
@@ -773,7 +778,7 @@ body {
     }
 
     .section3 .container .box2 .item1 .exp div h3 {
-        font-size: 12px;
+        font-size: 11px;
         margin-left: 30px;
     }
 
@@ -783,7 +788,7 @@ body {
     }
 
     .section3 .container .box2 .item1 .exp div p {
-        font-size: 10px;
+        font-size: 9px;
         padding: 0px 15px 0px 15px;
     }
 
@@ -812,7 +817,7 @@ body {
     }
 
     .section3 .container .box2 .item2 .exp div h3 {
-        font-size: 12px;
+        font-size: 11px;
         margin-left: 20px;
     }
 
@@ -823,7 +828,7 @@ body {
 
     .section3 .container .box2 .item2 .exp div p {
         font-size: 10px;
-        padding: 0px 20px 0px 20px;
+        margin-left: 20px;
     }
 
     .section3 .container .box2 .item2 .comp {
@@ -847,9 +852,9 @@ body {
     }
 
     .section3 .container .box2 .item2 .comp ul li {
-        padding: 4px 9px;
-        font-size: 9px;
-        margin: 5px 10px;
+        padding: 2px 5px;
+        font-size: 7px;
+        margin: 4px 6px;
         border-radius: 5px;
     }
 
@@ -917,12 +922,12 @@ body {
 
     .section3 .container .box1 .item1 h3 {
         margin-left: 10px;
-        font-size: 11px;
+        font-size: 9px;
     }
 
     .section3 .container .box1 .item1 h1 {
         margin-left: 10px;
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .section3 .container .box1 .item2 {
@@ -941,14 +946,14 @@ body {
     }
 
     .section3 .container .box2 .item1 .box h2 {
-        font-size: 14px;
+        font-size: 12px;
         margin-bottom: 10px;
         margin-left: 15px;
     }
 
     .section3 .container .box2 .item1 .box h2 img {
         margin-right: 10px;
-        width: 18px;
+        width: 15px;
     }
 
     .section3 .container .box2 .item1 .box p {
@@ -961,14 +966,14 @@ body {
     }
 
     .section3 .container .box2 .item1 .exp h2 {
-        font-size: 14px;
+        font-size: 12px;
         margin-bottom: 3px;
         margin-left: 10px;
     }
 
     .section3 .container .box2 .item1 .exp h2 img {
         margin-right: 10px;
-        width: 18px;
+        width: 15px;
     }
 
     .section3 .container .box2 .item1 .exp div {
@@ -1004,14 +1009,14 @@ body {
     }
 
     .section3 .container .box2 .item2 .exp h2 {
-        font-size: 12px;
+        font-size: 11px;
         margin-bottom: 10px;
         margin-left: 10px;
     }
 
     .section3 .container .box2 .item2 .exp h2 img {
         margin-right: 10px;
-        width: 18px;
+        width: 15px;
     }
 
     .section3 .container .box2 .item2 .exp div {
@@ -1019,12 +1024,12 @@ body {
     }
 
     .section3 .container .box2 .item2 .exp div h3 {
-        font-size: 9px;
+        font-size: 8px;
         margin-left: 10px;
     }
 
     .section3 .container .box2 .item2 .exp div span {
-        font-size: 6px;
+        font-size: 5px;
         margin-top: 0px;
         margin-left: 10px;
         margin-bottom: 0px;
@@ -1032,8 +1037,9 @@ body {
     }
 
     .section3 .container .box2 .item2 .exp div p {
-        font-size: 8px;
-        padding: 0px 10px 0px 10px;
+        font-size: 7px;
+        margin-left: 10px;
+        padding-right: 10px;
     }
 
     .section3 .container .box2 .item2 .comp {
@@ -1048,7 +1054,7 @@ body {
 
     .section3 .container .box2 .item2 .comp h2 img {
         margin-right: 10px;
-        width: 18px;
+        width: 15px;
     }
 
     .section3 .container .box2 .item2 .comp ul {
@@ -1057,9 +1063,9 @@ body {
 
     .section3 .container .box2 .item2 .comp ul li {
         padding: 1px 6px;
-        font-size: 7px;
-        margin: 3px 7px;
-        border-radius: 5px;
+        font-size: 6px;
+        margin: 3px 5px;
+        border-radius: 3px;
     }
 
     .section3 .container .box2 .item2 .outils {
@@ -1074,7 +1080,7 @@ body {
 
     .section3 .container .box2 .item2 .outils h2 img {
         margin-right: 10px;
-        width: 18px;
+        width: 15px;
     }
 
     .section3 .container .box2 .item2 .outils ul {
@@ -1084,6 +1090,6 @@ body {
     .section3 .container .box2 .item2 .outils ul li {
         list-style: square;
         margin: 3px 15px;
-        font-size: 7px;
+        font-size: 6px;
     }
 }

@@ -41,7 +41,7 @@ include_once('../controller/controller_users.php');
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-    <link rel="stylesheet" href="../css/modifier_users copy.css">
+    <link rel="stylesheet" href="../css/modifier_users.css">
     <link rel="stylesheet" href="../css/navbare.css">
 </head>
 
@@ -303,6 +303,13 @@ include_once('../controller/controller_users.php');
                                 form.style.transform = 'translateY(-100%)';
                             });
                         });
+
+                        // Ajout d'un écouteur d'événement pour détecter l'apparition du clavier
+                        window.addEventListener('resize', function () {
+                            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                                document.activeElement.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        });
                     </script>
                 </div>
 
@@ -312,3 +319,15 @@ include_once('../controller/controller_users.php');
         </section>
 
     </section>
+
+    <script>
+        window.addEventListener('resize', function () {
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                document.activeElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

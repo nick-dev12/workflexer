@@ -72,7 +72,6 @@ if (isset($_SESSION['users_id'])) {
 
     <?php include('../navbare.php') ?>
 
-    <?php include('../include/header_users.php') ?>
 
     <section class="section3">
 
@@ -86,7 +85,7 @@ if (isset($_SESSION['users_id'])) {
                     // vous pourriez les fusionner avec les options existantes de cette manière :
                     const mergedOptions = {
                         filename: 'cv.pdf',
-                        image: { type: 'jpeg', quality: 0.98 }, // Qualité JPEG de l'image
+                        image: { type: 'jpeg', quality: 1 }, // Qualité JPEG de l'image
                         html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas
                     };
 
@@ -237,16 +236,6 @@ if (isset($_SESSION['users_id'])) {
                             </ul>
                         </div>
 
-                        <div class="outils">
-                            <h2><img src="/image/outil.png" alt=""> Outils</h2>
-                            <ul>
-                                <?php if ($afficheOutil): ?>
-                                    <?php foreach ($afficheOutil as $outils): ?>
-                                        <li> <?= $outils['outil'] ?></li>
-                                    <?php endforeach; ?>
-                                <?php endif ?>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="item2">
@@ -286,6 +275,16 @@ if (isset($_SESSION['users_id'])) {
 
                         </div>
 
+                        <div class="outils">
+                            <h2><img src="/image/outil.png" alt=""> Maitrise des outils </h2>
+                            <ul>
+                                <?php if ($afficheOutil): ?>
+                                    <?php foreach ($afficheOutil as $outils): ?>
+                                        <li> <?= $outils['outil'] ?></li>
+                                    <?php endforeach; ?>
+                                <?php endif ?>
+                            </ul>
+                        </div>
 
                     </div>
 
@@ -370,16 +369,6 @@ if (isset($_SESSION['users_id'])) {
                         </ul>
                     </div>
 
-                    <div class="outils">
-                        <h2><img src="/image/outil.png" alt=""> Outils</h2>
-                        <ul>
-                            <?php if ($afficheOutil): ?>
-                                <?php foreach ($afficheOutil as $outils): ?>
-                                    <li> <?= $outils['outil'] ?></li>
-                                <?php endforeach; ?>
-                            <?php endif ?>
-                        </ul>
-                    </div>
                 </div>
 
                 <div class="item2">
@@ -420,6 +409,16 @@ if (isset($_SESSION['users_id'])) {
                     </div>
 
 
+                    <div class="outils">
+                        <h2><img src="/image/outil.png" alt=""> Maitrise des outils </h2>
+                        <ul>
+                            <?php if ($afficheOutil): ?>
+                                <?php foreach ($afficheOutil as $outils): ?>
+                                    <li> <?= $outils['outil'] ?></li>
+                                <?php endforeach; ?>
+                            <?php endif ?>
+                        </ul>
+                    </div>
                 </div>
 
             </div>

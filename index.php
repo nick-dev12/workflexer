@@ -102,17 +102,17 @@ include_once('controller/controller_users.php');
 
     <section class="partie-box">
         <div class="box1">
-            <h1 data-aos="fade-up">
+            <h1>
                 Trouvez le candidat idéal pour votre offre d'emploi
             </h1>
-            <p data-aos="fade-up">
+            <p>
                 Work-Flexer est une plateforme qui permet aux recruteurs de
                 trouver et de se connecter facilement avec des candidats qualifiés pour leurs offres d'emploi.
             </p>
             <a href="/inscription.php">Commencer dès maintenant!</a>
             <div class="div4"></div>
         </div>
-        <div class="box2" data-aos="fade-up">
+        <div class="box2">
             <img src="/image/rain_background.png" alt="" class="img1">
             <img src="/image/etudiant1.png" alt="" class="img2">
         </div>
@@ -138,10 +138,10 @@ include_once('controller/controller_users.php');
 
     <section class="reference">
         <div class="container">
-            <div class="box1" data-aos="fade-up">
+            <div class="box1">
                 <img src="/image/defi.png" alt="">
             </div>
-            <div class="box2" data-aos="fade-up">
+            <div class="box2">
                 <h1>Notre Vision : </h1>
                 <p>Permettre à chaque individu de construire un avenir professionnel prometteur et de devenir
                     l'architecte de sa propre réussite.</p>
@@ -149,10 +149,10 @@ include_once('controller/controller_users.php');
         </div>
 
         <div class="container">
-            <div class="box1" data-aos="fade-up">
+            <div class="box1">
                 <img src="/image/ambitio.png" alt="">
             </div>
-            <div class="box2" data-aos="fade-up">
+            <div class="box2">
                 <h1>Notre Engagement : </h1>
                 <p>Faire croître votre stature professionnelle et positionner votre entreprise comme un acteur de
                     premier plan dans votre secteur.</p>
@@ -237,10 +237,10 @@ include_once('controller/controller_users.php');
 
     <div class="div_section">
         <div class="box">
-            <img data-aos="fade-right" src="/image/image-2.png" alt="">
+            <img src="/image/image-2.png" alt="">
             <div class="item">
-                <h1 data-aos="fade-right">Adoptez un ton affirmatif et confiant</h1>
-                <p data-aos="fade-right">
+                <h1>Adoptez un ton affirmatif et confiant</h1>
+                <p>
                     Découvrez les meilleurs freelances avec Work-Flexer !
                     Trouvez rapidement le talent idéal pour vos projets,
                     que ce soit un développeur, un designer ou un expert en
@@ -266,16 +266,31 @@ include_once('controller/controller_users.php');
             <img data-aos="fade-left" src="/image/image3.png" alt="">
         </div>
     </div>
-
+    <div class="div_section">
+        <div class="box">
+            <img data-aos="fade-left" src="/image/yan.png" alt="">
+            <div class="item" data-aos="fade-left">
+                <h1>Pourquoi nous choisir ?</h1>
+                <p data-aos="fade-left">
+                    Nous offrons une plateforme intuitive et efficace qui connecte les professionnels et les recruteurs.
+                    Avec Work-Flexer, bénéficiez d'une visibilité accrue, d'outils de gestion avancés, et d'un support
+                    client dédié.
+                    Notre engagement est de vous fournir des solutions sur mesure qui répondent à vos besoins
+                    spécifiques,
+                    tout en garantissant une expérience utilisateur optimale.
+                </p>
+            </div>
+        </div>
+    </div>
 
 
 
     <section class="n_section2">
-        <div class="div" data-aos="zoom-in">
+        <div class="div">
             <h1>Application Android disponible</h1>
             <a href="/apk/work-flexer_2_2.0.apk">Telecharger</a>
         </div>
-        <div class="box" data-aos="zoom-in">
+        <div class="box">
             <img class="img1" src="/image/android.png" alt="">
             <img class="img2" src="/image/resp1.png" alt="">
         </div>
@@ -288,31 +303,21 @@ include_once('controller/controller_users.php');
             <h3>Services</h3>
             <div class="box">
                 <ul>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Publication d'offres illimitées</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Mise à jour des publications
+                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                    <li><img src="/image/valider.png" alt=""> Publication d'offres illimitées</li>
+                    <li><img src="/image/valider.png" alt=""> Mise à jour des publications
                         illimitées</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Appel d'offres intégré et illimité
+                    <li><img src="/image/valider.png" alt=""> Appel d'offres intégré et illimité
                     </li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de messagerie intégré</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de suivi de candidature
+                    <li><img src="/image/valider.png" alt=""> Système de messagerie intégré</li>
+                    <li><img src="/image/valider.png" alt=""> Système de suivi de candidature
                         intégré</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de gestion d'offres complet
+                    <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet
                     </li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Outils d'analyse des candidatures
+                    <li><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
+                    <li><img src="/image/valider.png" alt=""> Outils d'analyse des candidatures
                     </li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Notifications automatiques des
+                    <li><img src="/image/valider.png" alt=""> Notifications automatiques des
                         nouvelles candidatures.</li>
                 </ul>
                 <a class="a" href="/compte_entreprise.php">Inscription gratuite</a>
@@ -324,29 +329,20 @@ include_once('controller/controller_users.php');
             <h3>Services</h3>
             <div class="box">
                 <ul>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> CV virtuel intégré 100%
+                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
+                    <li><img src="/image/valider.png" alt=""> CV virtuel intégré 100%
                         personnalisable</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Profils connectés 24/24, 7/7 aux
+                    <li><img src="/image/valider.png" alt=""> Profils connectés 24/24, 7/7 aux
                         recruteurs</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Postulations simples et illimitées
+                    <li><img src="/image/valider.png" alt=""> Postulations simples et illimitées
                     </li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Création automatique de CV physiques
+                    <li><img src="/image/valider.png" alt=""> Création automatique de CV physiques
                         avec téléchargement gratuit</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Système de suivi de postulation
+                    <li><img src="/image/valider.png" alt=""> Système de suivi de postulation
                         intégré</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Portfolios en ligne</li>
-                    <li data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-in-out" data-aos-mirror="true"
-                        data-aos-once="false"><img src="/image/valider.png" alt=""> Recommandations et avis d'anciens
+                    <li><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
+                    <li><img src="/image/valider.png" alt=""> Portfolios en ligne</li>
+                    <li><img src="/image/valider.png" alt=""> Recommandations et avis d'anciens
                         employeurs</li>
                 </ul>
                 <a href="/compte_travailleur.php">Inscription gratuite</a>

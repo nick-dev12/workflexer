@@ -28,7 +28,6 @@ body {
   }
  
   .section3{
-    margin-left: 250px;
     background-color: #f2f2f275;
     display: flex;
     align-items: center;
@@ -53,7 +52,6 @@ body {
   @media screen and (max-width : 1050px){
     .section3{
         width: 100%;
-       padding-left: 50px;
     }
   }
 

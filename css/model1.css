@@ -253,12 +253,33 @@ body {
   margin: 0 auto;
 }
 #container .box1 ul li {
-  font-size: 13px;
+  font-size: 14px;
   list-style-type: square;
   width: 100%;
   margin: 2px auto;
   margin-left: 10px;
+  list-style: none;
 }
+
+
+#container .box1 .div-comp {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  flex-wrap: wrap;
+}
+#container .box1 .comp {
+  padding: 2px 5px;
+  font-size: 11px;
+  border-radius: 5px;
+  background-color: #e2e2e2;
+  margin: 5px 5px;
+}
+
+
+
 #container .box1 .reseaux {
   display: flex;
   align-items: center;
@@ -272,7 +293,7 @@ body {
 }
 
 #container .box2 {
-  width: 600px;
+  width: 500px;
   height: 1100px;
   position: relative;
   padding-top: 10px;
@@ -301,7 +322,7 @@ body {
 }
 #container .box2 .info_users p {
   font-size: 12px;
-  width: 85%;
+  width: 90%;
   margin: 15px auto;
   text-align: justify;
 }
@@ -324,7 +345,7 @@ body {
   display: flex;
   align-items: center;
   margin: 10px;
-  width: 80%;
+  width: 90%;
   position: relative;
 }
 
@@ -332,7 +353,7 @@ body {
   display: flex;
   align-items: center;
   margin: 7px 10px;
-  width: 80%;
+  width: 90%;
 }
 #container .box2 .div .info {
   display: flex;
@@ -341,7 +362,7 @@ body {
   width: 100%;
 }
 #container .box2 .div h4 {
-  width: 80%;
+  width: 90%;
   font-size: 13px;
   margin-top: 2px;
 }
@@ -349,6 +370,7 @@ body {
   font-size: 12px;
   width: 100%;
   margin: 0;
+  text-align: justify;
 }
 #container .box2 .div span {
   font-size: 10px;
@@ -392,6 +414,7 @@ body {
   padding: 3px;
   background-color: #000000;
   margin-right: 10px;
+  border-radius: 5px;
 }
 #container .box2 .div-comp {
   width: 80%;
@@ -473,6 +496,23 @@ body {
   #box #container .box1 ul li {
     font-size: 8px;
   }
+
+  #box #container .box1 .div-comp {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  #box #container .box1 .comp {
+    padding: 2px 5px;
+    font-size: 8px;
+    border-radius: 5px;
+    background-color: #e2e2e2;
+    margin: 2px 5px;
+  }
+
   #box #container .box1 .reseaux {
     width: 80%;
   }
@@ -515,17 +555,23 @@ body {
     width: 100%;
   }
 
+  #box #container .box2 .div .div2 #strong {
+    height: 15px;
+    padding: 2px;
+    margin-right: 10px;
+  }
+
   #box #container .box2 .div h4 {
     width: 90%;
     font-size: 9px;
   }
   #box #container .box2 .div p {
     font-size: 8px;
-    width: 260px;
+    width: 100%;
   }
   #box #container .box2 .div span {
     font-size: 6px;
-    width: 100px;
+    display: block;
   }
   #box #container .box2 .div .strong {
     padding: 1px;
@@ -533,13 +579,13 @@ body {
     height: 30px;
   }
   #box #container .box2 .experiences .outils {
-    width: 90%;
+    width: 95%;
     margin-top: -2px;
   }
   #box #container .box2 .outils p {
     font-size: 8px;
     margin-top: 2px;
-    margin-left: 10px;
+    margin-left: 6px;
   }
   #box #container .box2 .outils p span {
     padding: 2px;
@@ -560,7 +606,7 @@ body {
  
   #box #container {
     width: 340px;
-    height: 550px;
+    height: auto;
     margin-top: 10px;
   }
   #box #container .img {
@@ -571,10 +617,8 @@ body {
   }
 
   #box #container .box1 {
-    width: 120px;
+    width: 160px;
     height: 530px;
-    margin-top: 10px;
-    padding-top: 10px;
     border-width: 2px;
   }
   #box #container .box1 h1 {
@@ -624,6 +668,16 @@ body {
   #box #container .box1 ul li {
     font-size: 5.5px;
   }
+ #box #container .box1 .div-comp {
+    width: 95%;
+  }
+  #box #container .box1 .comp {
+    padding: 2px 5px;
+    font-size: 5px;
+    border-radius: 5px;
+    background-color: #e2e2e2;
+    margin: 2px 4px;
+  }
   #box #container .box1 .reseaux {
     width: 80%;
   }
@@ -633,34 +687,52 @@ body {
   }
 
   #box #container .box2 {
-    width: 215px;
-    height: 550px;
+    width: 220px;
+    height: auto;
     padding: 10px 10px;
   }
   #box #container .box2 .info_users{
-    margin-top: 20px;
+    margin-top: 10px;
   }
   #box #container .box2 .info_users p{
     font-size: 6px;
     margin: 0 7px;
-    width: 185px;
+    width: 95%;
   }
   #box #container .box2 h1 {
     font-size: 6px;
-    width: 80%;
-    margin: 5px 20px;
+    width: 100%;
+    margin: 5px 10px;
+  }
+  #box #container .box2 h1 img {
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
   }
   #box #container .box2 .p {
     font-size: 6px;
-    width: 90%;
+    width: 95%;
     margin-left: 10px;
   }
+  #box #container .box2 .div .div1 #strong {
+    height: 20px;
+    padding: 1px;
+    margin-right: 10px;
+  }
+  #box #container .box2 .div .div2 {
+    width: 100%;
+  }
+  #box #container .box2 .div .div2 #strong {
+    height: 10px;
+    padding: 1px;
+    margin-right: 10px;
+  }
   #box #container .box2 .experiences .div1 {
-    width: 90%;
+    width: 100%;
     position: relative;
   }
   #box #container .box2 .experiences .div1 .info p {
-    width: 180px;
+    width: 100%;
   }
   #box #container .box2 .experiences .div {
     width: 100%;
@@ -675,7 +747,6 @@ body {
   }
   #box #container .box2 .div span {
     font-size: 4.5px;
-    width: 100px;
   }
   #box #container .box2 .div .strong {
     padding: 1px;
@@ -684,18 +755,18 @@ body {
   }
 
   #box #container .box2 .experiences .outils {
-    width: 90%;
+    width: 100%;
     margin-top: -2px;
   }
   #box #container .box2 .experiences .outils p {
     font-size: 7px;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
   }
   #box #container .box2 .div-comp {
-    width: 90%;
+    width: 100%;
   }
   #box #container .box2 .comp {
-    font-size: 6px;
+    font-size: 5px;
     padding: 1px 5px;
     margin: 5px;
     margin-right: 1px;

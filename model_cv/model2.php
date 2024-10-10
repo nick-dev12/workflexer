@@ -76,8 +76,6 @@ if (isset($_SESSION['users_id'])) {
 
     <?php include('../navbare.php') ?>
 
-    <?php include('../include/header_cv.php') ?>
-
 
     <section class="section3">
 
@@ -255,43 +253,6 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
 
-                        <div>
-                            <h1><img src="../image/diplome.png" alt=""> Diplômes</h1>
-                            <?php if (empty($afficheDiplome)): ?>
-                                <ul>
-                                    <li>
-                                        Non renseigné
-                                    </li>
-                                </ul>
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheDiplome as $diplomes): ?>
-                                        <li>
-                                            <?= $diplomes['diplome'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
-
-                        <div>
-                            <h1><img src="../image/diplome.png" alt=""> Certificats</h1>
-                            <?php if (empty($afficheCertificat)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée!</li>
-                                </ul>
-
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheCertificat as $certificat): ?>
-                                        <li>
-                                            <?= $certificat['certificat'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-
-                        </div>
 
                         <div>
                             <h1><img src="../image/langue.png" alt=""> Langues</h1>
@@ -303,13 +264,60 @@ if (isset($_SESSION['users_id'])) {
                                 <?php foreach ($afficheLangue as $langues): ?>
                                     <ul>
                                         <li>
-                                            <?php echo $langues['langue']; ?>
+                                            <?php echo $langues['langue']; ?> <span>( <?php echo $langues['niveau']; ?> )</span>
                                         </li>
                                     </ul>
                                 <?php endforeach; ?>
                             <?php endif; ?>
 
                         </div>
+
+
+
+                        <div>
+                            <h1> <img src="../image/diplômé.png" alt=""> FORMATIONS</h1>
+
+                            <div class="formation">
+                                <?php if (empty($formationUsers)): ?>
+                                    <h4>Aucune donnée trouvée</h4>
+                                <?php else: ?>
+                                    <?php
+                                    shuffle($formationUsers);
+                                    $nombre_formation = 3;
+                                    ?>
+                                    <?php foreach ($formationUsers as $key => $formations): ?>
+                                        <?php if ($key < $nombre_formation): ?>
+                                            <div class="div2">
+                                                <strong class="strong"></strong>
+
+                                                <div class="info">
+                                                    <h4>
+                                                        <?= $formations['etablissement'] ?>
+                                                    </h4>
+                                                    <span><em>
+                                                            <?= $formations['moisDebut'] ?> /
+                                                            <?= $formations['anneeDebut'] ?>
+                                                        </em> à <em>
+                                                            <?= $formations['moisFin'] ?> /
+                                                            <?= $formations['anneeFin'] ?>
+                                                        </em>
+                                                    </span>
+                                                    <p>
+                                                        <?= $formations['Filiere'] ?> , <strong>
+                                                            <?= $formations['niveau'] ?></strong>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+
+                        </div>
+
+
+
 
                         <div>
                             <h1><img src="../image/loisir.png" alt=""> Loisirs</h1>
@@ -328,15 +336,6 @@ if (isset($_SESSION['users_id'])) {
                             <?php endif; ?>
                         </div>
 
-                        <div>
-                            <h1><img src="../image/social.png" alt=""> Réseaux</h1>
-                            <div class="reseaux">
-                                <img src="../image/facebook.png" alt="">
-                                <img src="../image/linkedin.png" alt="">
-                                <img src="../image/tweeter.png" alt="">
-                                <img src="../image/whatsapp.png" alt="">
-                            </div>
-                        </div>
                     </div>
 
                     <div class="box2">
@@ -391,48 +390,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
 
-                        <div class="experiences">
-                            <h1>FORMATIONS</h1>
 
-                            <div class="div formation">
-                                <?php if (empty($formationUsers)): ?>
-                                    <strong></strong>
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php else: ?>
-                                    <?php
-                                    shuffle($formationUsers);
-                                    $nombre_formation = 3;
-                                    ?>
-                                    <?php foreach ($formationUsers as $key => $formations): ?>
-                                        <?php if ($key < $nombre_formation): ?>
-                                            <div class="div1 div2">
-                                                <strong class="strong"></strong>
-
-                                                <div class="info">
-                                                    <h4>
-                                                        <?= $formations['etablissement'] ?>
-                                                    </h4>
-                                                    <span><em>
-                                                            <?= $formations['moisDebut'] ?> /
-                                                            <?= $formations['anneeDebut'] ?>
-                                                        </em> à <em>
-                                                            <?= $formations['moisFin'] ?> /
-                                                            <?= $formations['anneeFin'] ?>
-                                                        </em>
-                                                    </span>
-                                                    <p>
-                                                        <?= $formations['Filiere'] ?> , <strong>
-                                                            <?= $formations['niveau'] ?></strong>
-                                                    </p>
-
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
-
-                        </div>
 
                         <div class="experiences">
                             <h1>Compétences</h1>
@@ -468,6 +426,12 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
+
+
+
+
+
+
 
         <div id="box1">
             <div id="container" class="container cv1">
@@ -535,43 +499,6 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
 
-                        <div>
-                            <h1><img src="../image/diplome.png" alt=""> Diplômes</h1>
-                            <?php if (empty($afficheDiplome)): ?>
-                                <ul>
-                                    <li>
-                                        Non renseigné
-                                    </li>
-                                </ul>
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheDiplome as $diplomes): ?>
-                                        <li>
-                                            <?= $diplomes['diplome'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
-
-                        <div>
-                            <h1><img src="../image/diplome.png" alt=""> Certificats</h1>
-                            <?php if (empty($afficheCertificat)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée!</li>
-                                </ul>
-
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheCertificat as $certificat): ?>
-                                        <li>
-                                            <?= $certificat['certificat'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-
-                        </div>
 
                         <div>
                             <h1><img src="../image/langue.png" alt=""> Langues</h1>
@@ -588,6 +515,49 @@ if (isset($_SESSION['users_id'])) {
                                     </ul>
                                 <?php endforeach; ?>
                             <?php endif; ?>
+
+                        </div>
+
+
+                        <div>
+                            <h1> <img src="../image/diplômé.png" alt=""> FORMATIONS</h1>
+
+                            <div class="formation">
+                                <?php if (empty($formationUsers)): ?>
+                                    <h4>Aucune donnée trouvée</h4>
+                                <?php else: ?>
+                                    <?php
+                                    shuffle($formationUsers);
+                                    $nombre_formation = 3;
+                                    ?>
+                                    <?php foreach ($formationUsers as $key => $formations): ?>
+                                        <?php if ($key < $nombre_formation): ?>
+                                            <div class="div2">
+                                                <strong class="strong"></strong>
+
+                                                <div class="info">
+                                                    <h4>
+                                                        <?= $formations['etablissement'] ?>
+                                                    </h4>
+                                                    <span><em>
+                                                            <?= $formations['moisDebut'] ?> /
+                                                            <?= $formations['anneeDebut'] ?>
+                                                        </em> à <em>
+                                                            <?= $formations['moisFin'] ?> /
+                                                            <?= $formations['anneeFin'] ?>
+                                                        </em>
+                                                    </span>
+                                                    <p>
+                                                        <?= $formations['Filiere'] ?> , <strong>
+                                                            <?= $formations['niveau'] ?></strong>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
 
                         </div>
 
@@ -608,15 +578,6 @@ if (isset($_SESSION['users_id'])) {
                             <?php endif; ?>
                         </div>
 
-                        <div>
-                            <h1><img src="../image/social.png" alt=""> Réseaux</h1>
-                            <div class="reseaux">
-                                <img src="../image/facebook.png" alt="">
-                                <img src="../image/linkedin.png" alt="">
-                                <img src="../image/tweeter.png" alt="">
-                                <img src="../image/whatsapp.png" alt="">
-                            </div>
-                        </div>
                     </div>
 
                     <div class="box2">
@@ -671,48 +632,6 @@ if (isset($_SESSION['users_id'])) {
                         </div>
 
 
-                        <div class="experiences">
-                            <h1>FORMATIONS</h1>
-
-                            <div class="div formation">
-                                <?php if (empty($formationUsers)): ?>
-                                    <strong></strong>
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php else: ?>
-                                    <?php
-                                    shuffle($formationUsers);
-                                    $nombre_formation = 3;
-                                    ?>
-                                    <?php foreach ($formationUsers as $key => $formations): ?>
-                                        <?php if ($key < $nombre_formation): ?>
-                                            <div class="div1 div2">
-                                                <strong class="strong"></strong>
-
-                                                <div class="info">
-                                                    <h4>
-                                                        <?= $formations['etablissement'] ?>
-                                                    </h4>
-                                                    <span><em>
-                                                            <?= $formations['moisDebut'] ?> /
-                                                            <?= $formations['anneeDebut'] ?>
-                                                        </em> à <em>
-                                                            <?= $formations['moisFin'] ?> /
-                                                            <?= $formations['anneeFin'] ?>
-                                                        </em>
-                                                    </span>
-                                                    <p>
-                                                        <?= $formations['Filiere'] ?> , <strong>
-                                                            <?= $formations['niveau'] ?></strong>
-                                                    </p>
-
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
-
-                        </div>
 
                         <div class="experiences">
                             <h1>Compétences</h1>

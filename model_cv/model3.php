@@ -76,7 +76,6 @@ if (isset($_SESSION['users_id'])) {
 
     <?php include('../navbare.php') ?>
 
-    <?php include('../include/header_users.php') ?>
 
     <section class="section3">
 
@@ -184,18 +183,21 @@ if (isset($_SESSION['users_id'])) {
                         <div>
                             <img src="/image/icons8-gmail-48.png" alt="">
                             <span>E-mail</span>
-                            <?= $userss['mail'] ?>
+                            <p><?= $userss['mail'] ?></p>
                         </div>
                     </div>
 
                     <div class="itemss">
 
-                        <h1>Réseaux</h1>
+                        <h1>Langues</h1>
                         <div>
-                            <img src="/image/whatsapp.png" alt="">
-                            <img src="/image/facebook.png" alt="">
-                            <img src="/image/linkedin.png" alt="">
-                            <img src="/image/twitter.png" alt="">
+                            <?php if ($afficheLangue): ?>
+                                <?php foreach ($afficheLangue as $langues): ?>
+                                    <p> <?= $langues['langue'] ?> <span> (<?= $langues['niveau'] ?>)</span></p>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -340,12 +342,15 @@ if (isset($_SESSION['users_id'])) {
 
                     <div class="itemss">
 
-                        <h1>Réseaux</h1>
+                        <h1>Langues</h1>
                         <div>
-                            <img src="/image/whatsapp.png" alt="">
-                            <img src="/image/facebook.png" alt="">
-                            <img src="/image/linkedin.png" alt="">
-                            <img src="/image/twitter.png" alt="">
+                            <?php if ($afficheLangue): ?>
+                                <?php foreach ($afficheLangue as $langues): ?>
+                                    <p> <?= $langues['langue'] ?> <span> (<?= $langues['niveau'] ?>)</span></p>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

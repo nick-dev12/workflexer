@@ -46,7 +46,6 @@ body {
 }
 
 .section3{
-  margin-left: 250px;
   background-color: #f2f2f275;
   display: flex;
   align-items: center;
@@ -63,7 +62,6 @@ body {
 @media screen and (max-width : 1050px){
   .section3{
       width: 100%;
-     padding-left: 50px;
      margin-left: 0;
   }
 }
@@ -189,7 +187,7 @@ body {
 
 .containers .box1 .item p {
   text-align: justify;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--texte-color_section);
 }
 
@@ -226,6 +224,11 @@ body {
   color: #343434;
 }
 
+.containers .box1 .items div p {
+  font-size: 13px;
+  color: #343434;
+}
+
 .containers .box1 .itemss {
   display: flex;
   align-items: center;
@@ -234,19 +237,25 @@ body {
   width: 100%;
   padding: 20px;
   position: absolute;
-  bottom: 10px;
+  bottom: 100px;
 }
 
 .containers .box1 .itemss h1 {
   text-align: center;
   font-size: 16px;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.containers .box1 .itemss div img {
+.containers .box1 .itemss div p{
   margin: 10px;
-  width: 30px;
-  height: 30px;
+  font-size: 14px;
+}
+.containers .box1 .itemss div span{
+  font-size: 12px;
+  color: var(--font-color_section);
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .containers .box2 {
@@ -278,7 +287,7 @@ body {
 }
 
 .containers .box2 .item h1 {
-  font-size: 22px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -295,8 +304,8 @@ body {
 }
 
 .containers .box2 .item h1 strong img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .containers .box2 .item .exp {
@@ -318,16 +327,16 @@ body {
 }
 
 .containers .box2 .item .exp .exper h3 {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .containers .box2 .item .exp .exper h3 em {
   color: var(--font-color_section);
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .containers .box2 .item .exp .exper span {
-  font-size: 13px;
+  font-size: 12px;
   color: #636262;
 }
 
@@ -342,10 +351,10 @@ body {
 }
 
 .containers .box2 .items h1 {
-  font-size: 22px;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .containers .box2 .items h1 strong {
@@ -359,8 +368,8 @@ body {
 }
 
 .containers .box2 .items h1 strong img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .containers .box2 .items .containe-exp {
@@ -390,16 +399,16 @@ body {
 }
 
 .containers .box2 .items .containe-exp .exp .exper h3 {
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .containers .box2 .items .containe-exp .exp .exper h3 em {
   color: var(--font-color_section);
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .containers .box2 .items .containe-exp .exp .exper span {
-  font-size: 13px;
+  font-size: 12px;
   color: #636262;
 }
 
@@ -415,7 +424,7 @@ body {
 }
 
 .containers .box2 .itemss h1 {
-  font-size: 22px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -432,8 +441,8 @@ body {
 }
 
 .containers .box2 .itemss h1 strong img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .containers .box2 .itemss ul {
@@ -444,7 +453,7 @@ body {
 
 .containers .box2 .itemss ul li {
   list-style: none;
-  font-size: 14px;
+  font-size: 12px;
   padding: 3px 7px;
   background-color: #e6e6e6;
   color: #343434;
@@ -459,7 +468,7 @@ body {
 }
 
 .containers .box2 .itemsss h1 {
-  font-size: 22px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -476,8 +485,8 @@ body {
 }
 
 .containers .box2 .itemsss h1 strong img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .containers .box2 .itemsss ul {
@@ -489,8 +498,9 @@ body {
 .containers .box2 .itemsss ul li {
   font-size: 14px;
   color: #343434;
-  margin: 10px 30px;
+  margin: 7px 15px;
   border-radius: 5px;
+  list-style: none;
 }
 
 
@@ -534,7 +544,7 @@ body {
     }
     
     #containe1 .containers .box1 .item p {
-      font-size: 10px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box1 .items h1 {
@@ -549,35 +559,36 @@ body {
     }
     
     #containe1 .containers .box1 .items div p {
-      font-size: 11px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box1 .items div img {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
     
     #containe1 .containers .box1 .items div span {
+      font-size: 8px;
+    }
+    
+    .containers .box1 .itemss {
+      padding: 20px;
+      bottom: 100px;
+    }
+    
+    .containers .box1 .itemss h1 {
+      text-align: center;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    
+    .containers .box1 .itemss div p{
+      margin: 5px;
       font-size: 10px;
     }
-    
-    #containe1 .containers .box1 .itemss {
-      padding: 10px;
-      bottom: 0px;
-    }
-    
-    #containe1 .containers .box1 .itemss h1 {
-      font-size: 14px;
-    }
-    
-    #containe1 .containers .box1 .itemss div {
-      bottom: 5px;
-    }
-    
-    #containe1 .containers .box1 .itemss div img {
-      margin: 5px;
-      width: 20px;
-      height: 20px;
+    .containers .box1 .itemss div span{
+      font-size: 8px;
     }
     
     #containe1 .containers .box2 {
@@ -603,8 +614,8 @@ body {
     }
     
     #containe1 .containers .box2 .item h1 {
-      font-size: 16px;
-      margin-bottom: 15px;
+      font-size: 14px;
+      margin-bottom: 7px;
     }
     
     #containe1 .containers .box2 .item h1 strong {
@@ -613,8 +624,8 @@ body {
     }
     
     #containe1 .containers .box2 .item h1 strong img {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
     
     #containe1 .containers .box2 .item .exp {
@@ -624,7 +635,7 @@ body {
     
     #containe1 .containers .box2 .item .exp .part {
       width: 4px;
-      height: 80px;
+      height: 40px;
       margin-right: 20px;
     }
     
@@ -633,19 +644,19 @@ body {
     }
     
     #containe1 .containers .box2 .item .exp .exper h3 {
-      font-size: 11px;
+      font-size: 10px;
     }
     
     #containe1 .containers .box2 .item .exp .exper h3 em {
-      font-size: 9px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box2 .item .exp .exper span {
-      font-size: 9px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box2 .item .exp .exper p {
-      font-size: 9px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box2 .items {
@@ -653,18 +664,18 @@ body {
     }
     
     #containe1 .containers .box2 .items h1 {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 14px;
+      margin-bottom: 7px;
     }
     
     #containe1 .containers .box2 .items h1 strong {
       padding: 7px;
-      margin-right: 30px;
+      margin-right: 20px;
     }
     
     #containe1 .containers .box2 .items h1 strong img {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
     
     #containe1 .containers .box2 .items .containe-exp .exp {
@@ -676,7 +687,7 @@ body {
     
     #containe1 .containers .box2 .items .containe-exp .exp .part {
       width: 3px;
-      height: 60px;
+      height: 30px;
       margin-right: 10px;
     }
     
@@ -685,45 +696,45 @@ body {
     }
     
     #containe1 .containers .box2 .items .containe-exp .exp .exper h3 {
-      font-size: 11px;
+      font-size: 9px;
     }
     
     #containe1 .containers .box2 .items .containe-exp .exp .exper h3 em {
-      font-size: 9px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box2 .items .containe-exp .exp .exper span {
-      font-size: 9px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box2 .items .containe-exp .exp .exper p {
-      font-size: 10px;
+      font-size: 8px;
     }
     
     #containe1 .containers .box2 .itemss {
       padding-left: 20px;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     
     #containe1 .containers .box2 .itemss h1 {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 14px;
+      margin-bottom: 7px;
     }
     
     #containe1 .containers .box2 .itemss h1 strong {
       padding: 7px;
-      margin-right: 30px;
+      margin-right: 20px;
     }
     
     #containe1 .containers .box2 .itemss h1 strong img {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
     
     #containe1 .containers .box2 .itemss ul li {
-      font-size: 10px;
-      padding: 3px 7px;
-      margin: 7px;
+      font-size: 7px;
+      padding: 2px 5px;
+      margin: 5px;
     }
     
     #containe1 .containers .box2 .itemsss {
@@ -732,23 +743,23 @@ body {
     }
     
     #containe1 .containers .box2 .itemsss h1 {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 14px;
+      margin-bottom: 7px;
     }
     
     #containe1 .containers .box2 .itemsss h1 strong {
       padding: 7px;
-      margin-right: 30px;
+      margin-right: 20px;
     }
     
     #containe1 .containers .box2 .itemsss h1 strong img {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
     
     #containe1 .containers .box2 .itemsss ul li {
-      font-size: 10px;
-      margin: 5px 20px;
+      font-size: 8px;
+      margin: 5px 10px;
     }
   }
 
@@ -758,7 +769,7 @@ body {
   @media screen and (max-width: 680px) {
     #containe1 .containers {
       width: 380px;
-      height: 622px;
+      height: 680px;
     }
     
     #containe1 .containers .box1 {
@@ -775,7 +786,7 @@ body {
     }
     
     #containe1 .containers .box1 .item h1 {
-      font-size: 14px;
+      font-size: 12px;
       width: 140px;
       padding: 0 5px;
       line-height: 20px;
@@ -783,13 +794,13 @@ body {
     }
     
     #containe1 .containers .box1 .item img {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       margin: 10px 0;
     }
     
     #containe1 .containers .box1 .item h2 {
-      font-size: 12px;
+      font-size: 10px;
       margin-bottom: 10px;
       width: 130px;
     }
@@ -806,7 +817,7 @@ body {
     }
     
     #containe1 .containers .box1 .items div {
-      margin: 7px;
+      margin: 3px;
       font-size: 7px;
     }
     
@@ -823,24 +834,27 @@ body {
       font-size: 7px;
     }
     
-    #containe1 .containers .box1 .itemss {
-      padding: 5px;
-      bottom: 0px;
+    
+    .containers .box1 .itemss {
+      padding: 20px;
+      bottom: 40px;
     }
     
-    #containe1 .containers .box1 .itemss h1 {
+    .containers .box1 .itemss h1 {
       font-size: 12px;
+      margin-bottom: 5px;
     }
     
-    #containe1 .containers .box1 .itemss div {
-      bottom: 5px;
-    }
-    
-    #containe1 .containers .box1 .itemss div img {
+    .containers .box1 .itemss div p{
       margin: 5px;
-      width: 15px;
-      height: 15px;
+      font-size: 8px;
     }
+    .containers .box1 .itemss div span{
+      font-size: 8px;
+      margin-left: 7px;
+    }
+    
+    
     
     #containe1 .containers .box2 {
       width: 510px;
@@ -866,39 +880,39 @@ body {
     
     #containe1 .containers .box2 .item h1 {
       font-size: 12px;
-      margin-bottom: 7px;
+      margin-bottom: 5px;
     }
     
     #containe1 .containers .box2 .item h1 strong {
-      padding: 5px;
-      margin-right: 15px;
+      padding: 3px;
+      margin-right: 10px;
     }
     
     #containe1 .containers .box2 .item h1 strong img {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
     }
     
     #containe1 .containers .box2 .item .exp {
       padding-left: 5px;
-      margin-bottom: 7px;
+      margin-bottom: 5px;
       padding-right: 5px;
     }
     
     #containe1 .containers .box2 .item .exp .part {
       width: 3px;
       height: 40px;
-      margin-right: 20px;
+      margin-right: 10px;
     }
     
     #containe1 .containers .box2 .item .exp .exper {
       width: 97%;
-      margin-top: 10px;
+      margin-top: 5px;
     }
     
     #containe1 .containers .box2 .item .exp .exper h3 {
       font-size: 9px;
-      margin-bottom: -7px;
+      margin-bottom: -5px;
     }
     
     #containe1 .containers .box2 .item .exp .exper h3 em {
@@ -915,18 +929,18 @@ body {
     
     #containe1 .containers .box2 .items h1 {
       font-size: 12px;
-      margin-bottom: 7px;
+      margin-bottom: 5px;
       width: 100%;
     }
     
     #containe1 .containers .box2 .items h1 strong {
-      padding: 7px;
-      margin-right: 20px;
+      padding: 3px;
+      margin-right: 10px;
     }
     
     #containe1 .containers .box2 .items h1 strong img {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
     }
     
     #containe1 .containers .box2 .items .containe-exp {
@@ -937,12 +951,12 @@ body {
     #containe1 .containers .box2 .items .containe-exp .exp {
       padding-left: 0px;
       width: 40%;
-      margin: 5px 10px;
+      margin: 5px 5px;
     }
     
     #containe1 .containers .box2 .items .containe-exp .exp .part {
       width: 3px;
-      height: 30px;
+      height: 20px;
       margin-right: 10px;
     }
     
@@ -977,19 +991,19 @@ body {
     }
     
     #containe1 .containers .box2 .itemss h1 strong {
-      padding: 7px;
-      margin-right: 20px;
+      padding: 3px;
+      margin-right: 10px;
     }
     
     #containe1 .containers .box2 .itemss h1 strong img {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
     }
     
     #containe1 .containers .box2 .itemss ul li {
       font-size: 6px;
       padding: 2px 5px;
-      margin: 5px;
+      margin: 3px;
     }
     
     #containe1 .containers .box2 .itemsss {
@@ -1003,17 +1017,17 @@ body {
     }
     
     #containe1 .containers .box2 .itemsss h1 strong {
-      padding: 7px;
-      margin-right: 20px;
+      padding: 3px;
+      margin-right: 10px;
     }
     
     #containe1 .containers .box2 .itemsss h1 strong img {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
     }
     
     #containe1 .containers .box2 .itemsss ul li {
       font-size: 6px;
-      margin: 5px 20px;
+      margin: 5px 10px;
     }
   }

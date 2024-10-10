@@ -69,7 +69,6 @@ if (isset($_SESSION['users_id'])) {
 <body>
     <?php include('../navbare.php') ?>
 
-    <?php include('../include/header_users.php') ?>
 
     <section class="section3">
 
