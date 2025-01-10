@@ -163,75 +163,74 @@ include_once('controller/controller_users.php');
 
 
 
-    <!-- <div class="div-section">
-        <section class="section3 nth1">
-            <h1>Adoptez un ton affirmatif et confiant</h1>
-            <div class="box1">
+    <section class="section3 nth1">
+        <h1>Adoptez un ton affirmatif et confiant</h1>
+        <div class="box1">
 
-                <div class="container">
-                    <div class="texte">
-                        <h2>
-                            Boostez votre productivité avec les freelances qu'il vous faut
-                        </h2>
-                        <p>
-                            Découvrez les meilleurs freelances avec Work-Flexer !
-                            Trouvez rapidement le talent idéal pour vos projets,
-                            que ce soit un développeur, un designer ou un expert en
-                            marketing. Utilisez notre moteur de recherche intelligent pour des résultats précis.
-                            Boostez vos projets en recrutant simplement le freelance parfait.
-                        </p>
-                    </div>
-                    <img src="/image/SEO-1.png" alt="">
+            <div class="container">
+                <div class="texte">
+                    <h2>
+                        Boostez votre productivité avec les freelances qu'il vous faut
+                    </h2>
+                    <p>
+                        Découvrez les meilleurs freelances avec Work-Flexer !
+                        Trouvez rapidement le talent idéal pour vos projets,
+                        que ce soit un développeur, un designer ou un expert en
+                        marketing. Utilisez notre moteur de recherche intelligent pour des résultats précis.
+                        Boostez vos projets en recrutant simplement le freelance parfait.
+                    </p>
                 </div>
-
+                <img src="/image/SEO-1.png" alt="">
             </div>
-        </section>
+
+        </div>
+    </section>
 
 
-        <section class="section3 nth2">
-            <div class="box1">
+    <section class="section3 nth2">
+        <div class="box1">
 
-                <div class="container">
-                    <div class="texte">
-                        <h2>
-                            Recrutez en Toute Confiance avec Notre Plateforme de Recrutement
-                        </h2>
-                        <p>
-                            Simplifiez votre recrutement avec Work-Flexer ! Publiez vos offres
-                            d'emploi en quelques clics, découvrez des candidats qualifiés qui
-                            correspondent à votre entreprise et aux exigences du marché. Trouvez
-                            les meilleurs talents rapidement et efficacement.
-                            La recherche de candidats exceptionnels n'a jamais été aussi simple.
-                        </p>
-                    </div>
-                    <img src="/image/creation-site-1-600x511.png" alt="">
+            <div class="container">
+                <div class="texte">
+                    <h2>
+                        Recrutez en Toute Confiance avec Notre Plateforme de Recrutement
+                    </h2>
+                    <p>
+                        Simplifiez votre recrutement avec Work-Flexer ! Publiez vos offres
+                        d'emploi en quelques clics, découvrez des candidats qualifiés qui
+                        correspondent à votre entreprise et aux exigences du marché. Trouvez
+                        les meilleurs talents rapidement et efficacement.
+                        La recherche de candidats exceptionnels n'a jamais été aussi simple.
+                    </p>
                 </div>
-
+                <img src="/image/creation-site-1-600x511.png" alt="">
             </div>
-        </section>
+
+        </div>
+    </section>
 
 
-        <section class="section3 nth3">
-            <div class="box1">
+    <section class="section3 nth3">
+        <div class="box1">
 
-                <div class="container">
-                    <div class="texte">
-                        <h2>
-                            Boostez Votre Carrière avec Notre Plateforme de Profils Professionnels
-                        </h2>
-                        <p>
-                            Élevez votre carrière avec Work-Flexer ! Créez votre profil pro,
-                            connectez-vous avec des recruteurs, et explorez
-                            un monde d'opportunités uniques. Transformez votre avenir dès maintenant !
-                        </p>
+            <div class="container">
+                <div class="texte">
+                    <h2>
+                        Boostez Votre Carrière avec Notre Plateforme de Profils Professionnels
+                    </h2>
+                    <p>
+                        Élevez votre carrière avec Work-Flexer ! Créez votre profil pro,
+                        connectez-vous avec des recruteurs, et explorez
+                        un monde d'opportunités uniques. Transformez votre avenir dès maintenant !
+                    </p>
 
-                        <a href="/inscription.php">Commencer</a>
-                    </div>
-                    <img src="/image/image-2.png" alt="">
+                    <a href="/inscription.php">Commencer</a>
                 </div>
-
+                <img src="/image/image-2.png" alt="">
             </div>
-        </section>
+
+        </div>
+    </section>
 
     </div> -->
 
