@@ -23,18 +23,17 @@ body {
 }
 .emploi .box {
   width: 300px;
-  height: 330px;
   position: relative;
-  border: 2px solid #4f4f4f73;
+  border: 1px solid #d6d6d6;
   border-radius: 7px;
   overflow: hidden;
-  box-shadow: 7px 10px 10px 0px #1c1c1c69;
-  margin: 30px;
+  box-shadow: 2px 2px 7px 1px #a8a8a8;
+  margin: 10px 30px;
   background-color: #ffffff;
 }
 .emploi .box img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-bottom: 2.5px solid #2c2c2c77;
   display: block;
@@ -54,13 +53,6 @@ body {
   color: #ffffff;
   backdrop-filter: blur(2px);
 }
-.emploi .box p {
-  width: 100%;
-  margin: 10px 0;
-  font-size: 12px;
-  padding: 0 15px;
-  line-height: 22px;
-}
 
 .emploi .box a {
   width: 70%;
@@ -72,13 +64,54 @@ body {
   border-radius: 7px;
   background-color: #005499;
   color: white;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translate(-50%);
   transition: all 0.4s;
 }
-.emploi .box a:hover{
+.emploi .box a:hover {
   background-color: #000a13;
 }
 
+.tous_profil {
+  width: 100%;
+  padding: 30px 10px;
+  background-color: #f2f2f275;
+}
+.tous_profil .container_box1 {
+  width: 90%;
+  padding: 30px 10px;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+.tous_profil .container_box1 .texte {
+  width: 100%;
+  padding: 30px 10px;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+.tous_profil .container_box1 .texte h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  background-color: #f2f2f2;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: px px 5px 1px #d4d4d4;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .tous_profil .container_box1 .texte h1 {
+    width: 100%;
+  }
+
+  .tous_profil {
+    padding: 0%;
+  }
+
+  .tous_profil .container_box1 {
+    padding: 0%;
+    width: 100%;
+  }
+}

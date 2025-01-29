@@ -126,9 +126,9 @@ if (isset($_GET['id'])) {
     <title>Profil</title>
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-    <script src="../script/jquery-3.6.0.min.js"></script>
+    <script src defer="../script/jquery-3.6.0.min.js"></script>
 
-    <script src="../script/summernote@0.8.18.js"></script>
+    <script src defer="../script/summernote@0.8.18.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
 
 

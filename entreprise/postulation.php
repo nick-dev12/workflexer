@@ -169,7 +169,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
 
                                                 <img src="../upload/<?= $postulant['images'] ?>" alt="">
 
-                                                <h5> <?= $postulant['competences'] ?></h5>
+                                                <h5> <?= substr($postulant['competences'], 0, 25) . '...' ?></h5>
                                                 <ul>
                                                     <li>
                                                         <strong>Nom : </strong> <?= $nom ?>

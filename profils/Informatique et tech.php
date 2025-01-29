@@ -74,6 +74,8 @@ if (isset($_POST['recherche'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvrez les profils IT et tech sur Work-Flexer. Développeurs, administrateurs systèmes, experts en cybersécurité et plus encore. Recrutez les meilleurs talents du numérique pour vos projets technologiques.">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -93,12 +95,7 @@ if (isset($_POST['recherche'])) {
     <link rel="stylesheet" href="../css/aos.css" />
     <script src="../js/aos.js"></script>
     <link rel="stylesheet" href="../css/voir_profil.css">
-    <link rel="stylesheet" href="/css/owl.theme.default.css">
-    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/css/owl.carousel.css">
-    <link rel="stylesheet" href="/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/animate.min.css">
+
 </head>
 
 <body>
@@ -249,7 +246,7 @@ if (isset($_POST['recherche'])) {
 
                                     <div class="info-box">
                                         <h4>
-                                            <?php echo $Informatique['competences']; ?>
+                                            <?php echo substr($Informatique['competences'], 0, 40) . '...' ?>
                                         </h4>
 
                                         <div class="vendu">
@@ -270,7 +267,7 @@ if (isset($_POST['recherche'])) {
                                                     if ($competencesAffichees < 4):
                                                         ?>
                                                         <span>
-                                                            <?= $compe['competence'] ?>
+                                                            <?= substr($compe['competence'], 0, 20) . '...' ?>
                                                         </span>
                                                         <?php
                                                         $competencesAffichees++;
@@ -331,11 +328,6 @@ if (isset($_POST['recherche'])) {
 
 
 
-
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
     <script src="/js/silder_offres.js"></script>
 
     <script>
@@ -345,49 +337,6 @@ if (isset($_POST['recherche'])) {
 
 
 
-    <script>
-
-        $(document).ready(function () {
-
-
-            $('.boot').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 6000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 450,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-            var carousel2 = $('.carousel2').owlCarousel();
-            $('.owl-next2').click(function () {
-                carousel2.trigger('next.owl.carousel');
-            })
-            $('.owl-prev2').click(function () {
-                carousel2.trigger('prev.owl.carousel');
-            })
-
-        });
-
-
-        $('.container_slider').owlCarousel({
-            items: 1,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            animateOut: 'slideOutDown',
-            animateIn: 'flipInX',
-            stagePadding: 1,
-            smartSpeed: 1000,
-            margin: 0,
-            nav: true,
-            navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-        });
-    </script>
 
 </body>
 

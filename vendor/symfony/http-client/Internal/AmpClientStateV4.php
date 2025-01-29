@@ -39,7 +39,7 @@ use Psr\Log\LoggerInterface;
  *
  * @internal
  */
-final class AmpClientState extends ClientState
+final class AmpClientStateV4 extends ClientState
 {
     public array $dnsCache = [];
     public int $responseCount = 0;
@@ -90,7 +90,7 @@ final class AmpClientState extends ClientState
             $info['peer_certificate_chain'] = [];
         }
 
-        $request->addEventListener(new AmpListener($info, $options['peer_fingerprint']['pin-sha256'] ?? [], $onProgress, $handle));
+        $request->addEventListener(new AmpListenerV4($info, $options['peer_fingerprint']['pin-sha256'] ?? [], $onProgress, $handle));
         $request->setPushHandler(fn ($request, $response): Promise => $this->handlePush($request, $response, $options));
 
         ($request->hasHeader('content-length') ? new Success((int) $request->getHeader('content-length')) : $request->getBody()->getBodyLength())
@@ -141,7 +141,7 @@ final class AmpClientState extends ClientState
         $options['capture_peer_cert_chain'] && $context = $context->withPeerCapturing();
         $options['crypto_method'] && $context = $context->withMinimumVersion($options['crypto_method']);
 
-        $connector = $handleConnector = new class() implements Connector {
+        $connector = $handleConnector = new class implements Connector {
             public DnsConnector $connector;
             public string $uri;
             /** @var resource|null */
@@ -157,7 +157,7 @@ final class AmpClientState extends ClientState
                 return $result;
             }
         };
-        $connector->connector = new DnsConnector(new AmpResolver($this->dnsCache));
+        $connector->connector = new DnsConnector(new AmpResolverV4($this->dnsCache));
 
         $context = (new ConnectContext())
             ->withTcpNoDelay()
@@ -198,11 +198,11 @@ final class AmpClientState extends ClientState
         if ($this->maxPendingPushes <= \count($this->pushedResponses[$authority] ?? [])) {
             $fifoUrl = key($this->pushedResponses[$authority]);
             unset($this->pushedResponses[$authority][$fifoUrl]);
-            $this->logger?->debug(sprintf('Evicting oldest pushed response: "%s"', $fifoUrl));
+            $this->logger?->debug(\sprintf('Evicting oldest pushed response: "%s"', $fifoUrl));
         }
 
         $url = (string) $request->getUri();
-        $this->logger?->debug(sprintf('Queueing pushed response: "%s"', $url));
+        $this->logger?->debug(\sprintf('Queueing pushed response: "%s"', $url));
         $this->pushedResponses[$authority][] = [$url, $deferred, $request, $response, [
             'proxy' => $options['proxy'],
             'bindto' => $options['bindto'],

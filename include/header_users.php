@@ -5,6 +5,32 @@
     <img src="../image/croix.png" alt="" class="img111" id="img24">
     <div class="container">
         <div class="box1">
+
+            <script>
+                // Gestionnaire d'événements pour le bouton de statut
+                const statutButton = document.querySelector('.statut');
+                const divStatut = document.querySelector('.div_statut');
+                const closeImg = document.querySelector('.imag');
+
+                statutButton.addEventListener('click', () => {
+                    divStatut.style.left = '0';
+                });
+
+                closeImg.addEventListener('click', () => {
+                    divStatut.style.left = '-200%';
+                });
+
+                // Fermer la div au clic en dehors
+                document.addEventListener('click', (e) => {
+                    if (!divStatut.contains(e.target) && e.target !== statutButton) {
+                        divStatut.style.left = '-200%';
+                    }
+                });
+            </script>
+
+
+            <img class="affiche" src="/upload/<?= $users['images'] ?>" alt="">
+
             <?php if ($users['statut'] == 'Disponible'): ?>
                 <button class="statut occ">
                     <?= $users['statut'] ?>
@@ -23,30 +49,6 @@
                 <a class="disp" href="?occuper=<?= $users['id'] ?>">Occuper</a>
                 <a class=" occ" href="?disponible=<?= $users['id'] ?>">Disponible</a>
             </div>
-
-            <script>
-                let statut = document.querySelector('.statut')
-                let div_statut = document.querySelector('.div_statut')
-                let imag = document.querySelector('.imag')
-                statut.addEventListener('click', () => {
-                    div_statut.style.left = '0'
-                })
-                imag.addEventListener('click', () => {
-                    div_statut.style.left = '-200%'
-                })
-
-                // Ajouter un gestionnaire au clic n'importe où sur la page
-                document.addEventListener('click', (e) => {
-                    // Vérifier que le clic ne vient pas du bouton
-                    if (e.target !== statut) {
-                        // Masquer la div
-                        div_statut.style.left = '-200%'
-                    }
-                });
-            </script>
-
-
-            <img class="affiche" src="/upload/<?= $users['images'] ?>" alt="">
             <span></span>
             <h2>
                 <?php echo $users['nom']; ?>
@@ -74,7 +76,7 @@
                 </a>
 
                 <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>">
-                    <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d’emplois</span>
+                    <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d'emplois</span>
                         <?php if (empty($notif_suivi) or empty($notif_suiviRecaler)): ?>
                         <?php else: ?>
                             <?php if (isset($notif_suivi) or isset($notif_suiviRecaler)): ?>
@@ -214,7 +216,7 @@
     // Ajoute un événement de clic à img111
     img111.addEventListener('click', () => {
         // Lorsque img111 est cliqué, cache section2 et montre menu
-        section2.style.left = '-100%';
+        section2.style.left = '-250px';
         menu1.style.left = '0';
     });
 

@@ -10,9 +10,30 @@
 
 body {
   font-family: "Nunito", sans-serif;
-  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
 }
 
+.titre_emploi {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0a062d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 1000px;
+  min-width: 300px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 .emploi {
   width: 100%;
   padding: 30px 10px;
@@ -20,22 +41,22 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #f2f2f275;
+  margin-top: -10px;
 }
 .emploi .box {
-  width: 310px;
-  height: 350px;
+  width: 160px;
+  height: 160px;
   position: relative;
   border: 2px solid #4f4f4f73;
-  border-radius: 7px;
+  border-radius: 50%;
   overflow: hidden;
   box-shadow: 7px 10px 10px 0px #1c1c1c69;
-  margin: 30px;
+  margin: 20px;
   background-color: #ffffff;
 }
 .emploi .box img {
-  width: 150px;
-  height: 150px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-bottom: 2.5px solid #2c2c2c77;
   display: block;
@@ -61,6 +82,7 @@ body {
   font-size: 12px;
   padding: 0 15px;
   line-height: 22px;
+  display: none;
 }
 
 .emploi .box a {
@@ -68,37 +90,376 @@ body {
   display: block;
   text-align: center;
   margin: 10px auto;
-  font-size: 14px;
-  padding: 6px 10px;
+  font-size: 12px;
+  padding: 3px 7px;
   border-radius: 7px;
   background-color: #005499;
   color: white;
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
   left: 50%;
   transform: translate(-50%);
   transition: all 0.4s;
 }
-.emploi .box a:hover{
+
+.emploi .box a:hover {
   background-color: #000a13;
 }
-@media screen and (max-width: 600px) {
-  .emploi {
+
+/* Variables de couleurs */
+:root {
+  --primary: #484847;
+  --secondary: #2bb8ff;
+  --background: #ecf0f1;
+  --text-dark: #3a3a3a;
+  --background-dark: #ebebebc7;
+  --text-light: #f5f5f5;
+  --text-gray: #4e4e4e;
+  --accent: #353535;
+  --gray: #7f8c8d;
+  --background-light: #ffffff;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.tous_les_offres {
+  padding: 20px 20px;
+  background: var(--background);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.tous_les_offres .articles {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tous_les_offres .carousel {
+  background: var(--background-light);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: auto;
+  width: 380px;
+  margin: 10px;
+}
+
+.tous_les_offres .carousel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tous_les_offres .info-box {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tous_les_offres .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background-dark);
+  color: var(--text-light);
+  padding: 10px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 0 5px 1px #c5c5c5;
+}
+
+.tous_les_offres .contrat {
+  background: var(--accent);
+  color: var(--text-light);
+  padding: 4px 7px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.tous_les_offres .date {
+  color: var(--text-gray);
+  font-size: 0.8rem;
+  margin-left: 10px;
+  min-width: 100px;
+}
+
+.tous_les_offres .poste {
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 5px 0;
+}
+
+.tous_les_offres .poste strong {
+  font-weight: bold;
+}
+
+.tous_les_offres .entreprise,
+.tous_les_offres .localite {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.tous_les_offres .entreprise img,
+.tous_les_offres .localite img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.tous_les_offres .details-btn {
+  background: var(--secondary);
+  color: var(--text-light);
+  padding: 10px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tous_les_offres .details-btn:hover {
+  background: var(--primary);
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tous_les_offres .carousel {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .tous_les_offres {
+    padding: 30px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tous_les_offres {
     padding: 20px 5px;
-  }
-  .emploi .box {
-    height: 400px;
-  }
-  .emploi .box p {
-    font-size: 12px;
-  }
-  .emploi .box a {
-    width: 70%;
-  }
-  .emploi .box img {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-bottom: 2.5px solid #2c2c2c77;
   }
+
+  .tous_les_offres .articles {
+    grid-template-columns: 1fr;
+    padding: 10px 5px;
+    width: 100%;
+  }
+
+  .tous_les_offres .info-box {
+    padding: 15px;
+  }
+
+  .tous_les_offres .poste {
+    font-size: 1.1rem;
+  }
+
+  .tous_les_offres .entreprise,
+  .tous_les_offres .localite {
+    font-size: 0.85rem;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.page-link:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+.page-link.active {
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+/* Style spécial pour Précédent/Suivant */
+.page-link:first-child,
+.page-link:last-child {
+  padding: 0 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Animation au survol */
+.page-link:not(.active):hover {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Style pour mobile */
+@media (max-width: 768px) {
+  .pagination {
+    gap: 5px;
+  }
+
+  .page-link {
+    min-width: 35px;
+    height: 35px;
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  .page-link:first-child,
+  .page-link:last-child {
+    padding: 0 15px;
+  }
+}
+
+.container_resultat {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px 10px;
+  border-radius: 5px;
+  width: 60%;
+  min-width: 300px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.titre_resultat {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0a062d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 60%;
+  min-width: 300px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
+
+.no-results {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.table-title {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+  font-weight: 800;
+  border-bottom: 2px solid #333333;
+  padding-bottom: 10px;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 60%;
+  min-width: 300px;
+  max-width: 1000px;
+  margin: 0 auto;
 }

@@ -116,10 +116,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
 
         <div class="div-section3">
             <div class="box6">
-                <h2>Suivi des candidatures</h2>
-                <h3>Candidatures non traitées.</h3>
+                <h2 class="h21">Suivi des candidatures</h2>
+                <h3 class="h31">Candidatures non traitées.</h3>
                 <div class="box6">
-                    <p>Ici apparaîtront les candidatures.</p>
+                    <p class="p1">Ici apparaîtront les candidatures.</p>
                     <div class="container_accept">
                         <?php if (empty($getPostulationUsers)): ?>
                             <p><strong>Info :</strong> Aucune candidature trouvée !</p>
