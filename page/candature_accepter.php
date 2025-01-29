@@ -74,17 +74,15 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
-    <script src="../script/jquery-3.6.0.min.js"></script>
+    <script defer src="../script/jquery-3.6.0.min.js"></script>
 
-    <script src="../script/summernote@0.8.18.js"></script>
+    <script defer src="../script/summernote@0.8.18.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/candidature_accepter.css">
-    <link rel="stylesheet" href="/css/owl.carousel.css">
-    <link rel="stylesheet" href="/css/owl.carousel.min.css">
 </head>
 
 <body>
@@ -105,7 +103,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
 
         <div class="box6">
             <h3 class="h31">Candidatures acceptées</h3>
-            <p>Ici apparaîtront les candidatures acceptées</p>
+            <p class="p1">Ici apparaîtront les candidatures acceptées</p>
             <div class="container_accept">
                 <?php if (empty($getPostulationUsers)): ?>
                     <p><strong>Info :</strong> aucune Candidatures trouver !!</p>
@@ -115,7 +113,7 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
                         $infoEntreprises = getEntreprise($db, $postulationUsers['entreprise_id'])
                             ?>
                         <?php if ($postulationUsers['statut'] == 'accepter'): ?>
-                            <div class="accept">
+                            <div class="accept" data-aos="fade-up">
                                 <?php if ($postulationUsers['statut'] == 'accepter'): ?>
                                     <!-- <h5 class="h51">accepter</h5> -->
                                 <?php endif; ?>
@@ -172,6 +170,10 @@ include_once('../entreprise/app/controller/controllerEntreprise.php');
 
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 

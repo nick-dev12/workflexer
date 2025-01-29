@@ -205,14 +205,14 @@ include_once('app/controller/controllerOffre_emploi.php');
                 <?php endif; ?>
             </div>
             <?php if (isset($afficheDescriptionentreprise['descriptions'])): ?>
-                <button class="btn1"><img src="../image/edite.png" alt=""></button>
+                <button class="btn1"><img src="../image/ajouters.png" alt=""></button>
 
                 <div class="form_desc">
                     <form method="post" action="">
                         <div>
                             <textarea name="descriptions" id="summernote" cols="30" rows="10">
-                                                                                                                                                                            <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
-                                                                                                                                                                        </textarea>
+                                                                                                                                                                                            <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
+                                                                                                                                                                                        </textarea>
                         </div>
                         <div class="div">
                             <label for="site">Avez vous un site web ?(facultatif*)</label>
@@ -222,7 +222,7 @@ include_once('app/controller/controllerOffre_emploi.php');
                     </form>
                 </div>
             <?php else: ?>
-                <button class="btn1"><img src="../image/edite.png" alt=""></button>
+                <button class="btn1"><img src="../image/ajouter2.png" alt=""></button>
 
                 <div class="form_desc">
                     <form method="post" action="">
@@ -261,7 +261,7 @@ include_once('app/controller/controllerOffre_emploi.php');
             </div>
 
             <div class="box2">
-                <button class="btn2"><img src="../image/edite.png" alt=""></button>
+                <button class="btn2"><img src="../image/ajouter2.png" alt=""></button>
             </div>
             <div class="form_off">
                 <form method="post" action="">

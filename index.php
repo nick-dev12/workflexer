@@ -14,6 +14,8 @@ include_once('controller/controller_users.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Work-Flexer, la plateforme de mise en relation professionnelle qui connecte entreprises et talents. Recrutement simplifié, CV virtuels, offres d'emploi dans tous les domaines : informatique, marketing, finance, ingénierie. Inscription gratuite pour recruter ou trouver votre prochain emploi.">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -48,7 +50,7 @@ include_once('controller/controller_users.php');
     <!-- menu carousel slider -->
     <div class="slider-area owl-carousel">
         <div class="slider-item">
-            <img src="/image/image1.png" alt="">
+            <img src="/image/image1.webp" alt="">
             <div class="box">
                 <h1> <span>Work</span><span>-Flexer</span> une plateforme de mise en relation </h1>
                 <p>La plateforme de professionnalisation qui relie entreprises, entrepreneurs,
@@ -60,7 +62,7 @@ include_once('controller/controller_users.php');
             </div>
         </div>
         <div class="slider-item">
-            <img src="/image/mission.png" alt="">
+            <img src="/image/mission.webp" alt="">
             <div class="box">
                 <h1>Nos Services</h1>
                 <p>Découvrez notre gamme complète de services spécialisés, conçus pour répondre à vos besoins uniques et
@@ -70,7 +72,7 @@ include_once('controller/controller_users.php');
             </div>
         </div>
         <div class="slider-item">
-            <img src="/image/Backgroudn-domaines-epita.jpg" alt="">
+            <img src="/image/Backgroudn-domaines-epita.webp" alt="">
             <div class="box">
                 <h1>Domaines d'expertise</h1>
                 <p>Découvrez nos compétences spécialisées dans l'informatique,
@@ -80,7 +82,7 @@ include_once('controller/controller_users.php');
             </div>
         </div>
         <div class="slider-item">
-            <img src="/image/duré.jpg" alt="">
+            <img src="/image/duré.webp" alt="">
             <div class="box">
                 <h1>Flexibilité des missions</h1>
                 <p>Profitez de notre flexibilité pour trouver des missions qui correspondent à vos
@@ -89,7 +91,7 @@ include_once('controller/controller_users.php');
             </div>
         </div>
         <div class="slider-item">
-            <img src="/image/Quand-la-participation.jpg" alt="">
+            <img src="/image/Quand-la-participation.webp" alt="">
             <div class="box">
                 <h1>Boostez votre flexibilité</h1>
                 <p>Optimisez votre productivité et augmentez vos bénéfices en devenant une source incontournable grâce à
@@ -101,7 +103,7 @@ include_once('controller/controller_users.php');
 
 
     <section class="partie-box">
-        <div class="box1">
+        <div class="box1 scroll-fade-bottom">
             <h1>
                 Trouvez le candidat idéal pour votre offre d'emploi
             </h1>
@@ -112,7 +114,7 @@ include_once('controller/controller_users.php');
             <a href="/inscription.php">Commencer dès maintenant!</a>
             <div class="div4"></div>
         </div>
-        <div class="box2">
+        <div class="box2 scroll-fade-top">
             <img src="/image/rain_background.png" alt="" class="img1">
             <img src="/image/etudiant1.png" alt="" class="img2">
         </div>
@@ -120,24 +122,8 @@ include_once('controller/controller_users.php');
 
 
 
-    <!-- <section class="box-section">
-
-        <section class="partie-box1">
-            <div class="box2">
-                <img src="/image/etudiant2.png" alt="">
-            </div>
-            <div class="box1">
-                <h2>Je construis mon histoire </h2>
-            </div>
-
-        </section>
-
-    </section> -->
-
-
-
     <section class="reference">
-        <div class="container">
+        <div class="container scroll-fade-left">
             <div class="box1">
                 <img src="/image/defi.png" alt="">
             </div>
@@ -148,7 +134,7 @@ include_once('controller/controller_users.php');
             </div>
         </div>
 
-        <div class="container">
+        <div class="container scroll-fade-right">
             <div class="box1">
                 <img src="/image/ambitio.png" alt="">
             </div>
@@ -162,81 +148,9 @@ include_once('controller/controller_users.php');
 
 
 
-
-    <section class="section3 nth1">
-        <h1>Adoptez un ton affirmatif et confiant</h1>
-        <div class="box1">
-
-            <div class="container">
-                <div class="texte">
-                    <h2>
-                        Boostez votre productivité avec les freelances qu'il vous faut
-                    </h2>
-                    <p>
-                        Découvrez les meilleurs freelances avec Work-Flexer !
-                        Trouvez rapidement le talent idéal pour vos projets,
-                        que ce soit un développeur, un designer ou un expert en
-                        marketing. Utilisez notre moteur de recherche intelligent pour des résultats précis.
-                        Boostez vos projets en recrutant simplement le freelance parfait.
-                    </p>
-                </div>
-                <img src="/image/SEO-1.png" alt="">
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section3 nth2">
-        <div class="box1">
-
-            <div class="container">
-                <div class="texte">
-                    <h2>
-                        Recrutez en Toute Confiance avec Notre Plateforme de Recrutement
-                    </h2>
-                    <p>
-                        Simplifiez votre recrutement avec Work-Flexer ! Publiez vos offres
-                        d'emploi en quelques clics, découvrez des candidats qualifiés qui
-                        correspondent à votre entreprise et aux exigences du marché. Trouvez
-                        les meilleurs talents rapidement et efficacement.
-                        La recherche de candidats exceptionnels n'a jamais été aussi simple.
-                    </p>
-                </div>
-                <img src="/image/creation-site-1-600x511.png" alt="">
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section3 nth3">
-        <div class="box1">
-
-            <div class="container">
-                <div class="texte">
-                    <h2>
-                        Boostez Votre Carrière avec Notre Plateforme de Profils Professionnels
-                    </h2>
-                    <p>
-                        Élevez votre carrière avec Work-Flexer ! Créez votre profil pro,
-                        connectez-vous avec des recruteurs, et explorez
-                        un monde d'opportunités uniques. Transformez votre avenir dès maintenant !
-                    </p>
-
-                    <a href="/inscription.php">Commencer</a>
-                </div>
-                <img src="/image/image-2.png" alt="">
-            </div>
-
-        </div>
-    </section>
-
-    </div> -->
-
     <div class="div_section">
-        <div class="box">
-            <img src="/image/image-2.png" alt="">
+        <div class="box scroll-fade-left">
+            <img src="/image/image-2.webp" alt="">
             <div class="item">
                 <h1>Adoptez un ton affirmatif et confiant</h1>
                 <p>
@@ -251,10 +165,10 @@ include_once('controller/controller_users.php');
     </div>
 
     <div class="div_section">
-        <div class="box">
-            <div class="item" data-aos="fade-left">
+        <div class="box scroll-fade-right">
+            <div class="item">
                 <h1>Recrutez en Toute Confiance avec Notre Plateforme de Recrutement</h1>
-                <p data-aos="fade-left">
+                <p>
                     Simplifiez votre recrutement avec Work-Flexer ! Publiez vos offres
                     d'emploi en quelques clics, découvrez des candidats qualifiés qui
                     correspondent à votre entreprise et aux exigences du marché. Trouvez
@@ -262,15 +176,15 @@ include_once('controller/controller_users.php');
                     La recherche de candidats exceptionnels n'a jamais été aussi simple.
                 </p>
             </div>
-            <img data-aos="fade-left" src="/image/image3.png" alt="">
+            <img src="/image/image3.webp" alt="">
         </div>
     </div>
     <div class="div_section">
-        <div class="box">
-            <img data-aos="fade-left" src="/image/yan.png" alt="">
-            <div class="item" data-aos="fade-left">
+        <div class="box scroll-fade-right">
+            <img src="/image/yan.webp" alt="">
+            <div class="item">
                 <h1>Pourquoi nous choisir ?</h1>
-                <p data-aos="fade-left">
+                <p>
                     Nous offrons une plateforme intuitive et efficace qui connecte les professionnels et les recruteurs.
                     Avec Work-Flexer, bénéficiez d'une visibilité accrue, d'outils de gestion avancés, et d'un support
                     client dédié.
@@ -300,7 +214,7 @@ include_once('controller/controller_users.php');
         <div class="container">
             <h1>Entreprise</h1>
             <h3>Services</h3>
-            <div class="box">
+            <div class="box scroll-fade-left">
                 <ul>
                     <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
                     <li><img src="/image/valider.png" alt=""> Publication d'offres illimitées</li>
@@ -326,7 +240,7 @@ include_once('controller/controller_users.php');
         <div class="container container1">
             <h1>Professionnel</h1>
             <h3>Services</h3>
-            <div class="box">
+            <div class="box scroll-fade-right">
                 <ul>
                     <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
                     <li><img src="/image/valider.png" alt=""> CV virtuel intégré 100%
@@ -348,17 +262,6 @@ include_once('controller/controller_users.php');
             </div>
         </div>
     </section>
-
-
-
-
-    <!-- <section class="n_section">
-        <h1>Adapté à tous vos écrans</h1>
-        <div class="box">
-            <img class="img1" src="/image/resp2.png" alt=""><img class="img2" src="/image/resp4.png" alt=""><img
-                class="img3" src="/image/resp3.png" alt="">
-        </div>
-    </section> -->
 
 
     <section class="temoin">
@@ -410,7 +313,7 @@ include_once('controller/controller_users.php');
         <div class=" slider1  owl-carousel">
 
             <div class="item">
-                <img src="/image/bouste.jpeg" alt="">
+                <img src="/image/bouste.webp" alt="">
                 <div class="effect">
 
                 </div>
@@ -716,6 +619,36 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
 
     <script>
         AOS.init();
+
+
+        // Animation au scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.scroll-fade-left, .scroll-fade-right, .scroll-fade-top, .scroll-fade-bottom, .scroll-fade-center');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    } else {
+                        entry.target.classList.remove('animate');
+                    }
+                });
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Animation au survol
+        document.querySelectorAll('.hover-animation').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.classList.add('hovered');
+            });
+            item.addEventListener('mouseout', () => {
+                item.classList.remove('hovered');
+            });
+        });
+
 
     </script>
 </body>

@@ -81,7 +81,7 @@ include(__DIR__ . '/controller/controller_statut_offre.php');
             <a href="../page/orientation.php">Orientation</a>
             <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
             <a href="/page/entreprise.php">Entreprise</a>
-            <a href="../page/voir_profil.php">Explorez les profils</a>
+            <a href="../page/voir_profil.php">Espace Candidat</a>
         </div>
         <script>
             let menu = document.querySelector(".menu");

@@ -298,7 +298,7 @@ body {
     width: 100%;
     object-fit: cover;
   }
-  
+
   .slider-area .slider-item a {
     color: #ffff;
     padding: 5px 20px;
@@ -329,11 +329,10 @@ body {
     transition-delay: 1.6s;
   }
 }
-@media screen and (max-width: 650px){
+@media screen and (max-width: 650px) {
   .slider-area {
     margin-top: 10px;
   }
-  
 }
 @media screen and (max-width: 500px) {
   .slider-area {
@@ -702,7 +701,7 @@ body {
   flex-direction: column;
   height: 100%;
   width: 60%;
-  padding:20px 10px;
+  padding: 20px 10px;
 }
 .reference .container .box2 h1 {
   text-align: left;
@@ -726,7 +725,6 @@ body {
   border-radius: 5px;
 }
 
-
 @media screen and (max-width: 1000px) {
   .reference .container {
     width: 45%;
@@ -748,7 +746,6 @@ body {
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
   }
-  
 }
 
 @media screen and (max-width: 900px) {
@@ -1169,8 +1166,6 @@ body {
   }
 }
 
-
-
 .div_section {
   width: 100%;
   margin-top: 30px;
@@ -1236,7 +1231,6 @@ body {
     margin-left: 0;
   }
 }
-
 
 .section3 h1 {
   font-size: 40px;
@@ -2079,7 +2073,7 @@ body {
   }
 }
 
-.service{
+.service {
   width: 100%;
   padding: 40px 10px;
   display: flex;
@@ -2087,7 +2081,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-.service .container{
+.service .container {
   width: 400px;
   height: auto;
   padding: 20px;
@@ -2101,18 +2095,18 @@ body {
   /* background-color: rgba(210, 238, 255, 0.127); */
   box-shadow: 7px 7px 5px 0 #a2a2a2;
 }
-.service .container1{
+.service .container1 {
   background-color: rgba(200, 200, 200, 0.127);
 }
 
-.service .container h1{
+.service .container h1 {
   text-align: center;
   text-transform: uppercase;
   padding: 10px;
   width: 100%;
   font-size: 25px;
 }
-.service .container h3{
+.service .container h3 {
   text-align: center;
   text-transform: uppercase;
   padding: 10px;
@@ -2122,38 +2116,118 @@ body {
   border-radius: 10px;
   font-size: 18px;
 }
-.service .container ul{
- width: 100%;
- margin-top: 20px;
+.service .container ul {
+  width: 100%;
+  margin-top: 20px;
 }
-.service .container li{
+.service .container li {
   width: 100%;
   display: flex;
   align-items: center;
   font-size: 15px;
   margin-top: 15px;
-
- }
- .service .container li img{
+}
+.service .container li img {
   width: 25px;
   height: 25px;
   border: none;
   margin-right: 30px;
- }
- .service .container .box{
+}
+.service .container .box {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
- }
- .service .container .box a{
+}
+.service .container .box a {
   padding: 5px 20px;
   font-size: 14px;
   color: #ffffff;
   background-color: #0066ff;
   margin-top: 20px;
   border-radius: 5px;
- }
- .service .container .box .a{
+}
+.service .container .box .a {
   background-color: #ffc400;
- }
+}
+
+/* Styles pour l'animation au scroll */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animation.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Styles pour l'animation au survol */
+.hover-animation {
+  transition: transform 0.4s ease;
+}
+
+.hover-animation.hovered {
+  transform: scale(1.05);
+}
+
+/* Animation de fondu depuis la gauche */
+.scroll-fade-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animation de fondu depuis la droite */
+.scroll-fade-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animation de fondu depuis le haut */
+.scroll-fade-top {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-top.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation de fondu depuis le bas */
+.scroll-fade-bottom {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-bottom.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation de fondu depuis le centre */
+.scroll-fade-center {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-center.animate {
+  opacity: 1;
+  transform: scale(1);
+}

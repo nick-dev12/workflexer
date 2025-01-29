@@ -15,6 +15,8 @@ include_once('app/controller/controllerEntreprise.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Espace entreprise Work-Flexer : personnalisez votre profil recruteur. Gérez vos offres d'emploi, suivez les candidatures et optimisez votre présence. Interface complète pour un recrutement efficace.">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -104,9 +106,9 @@ include_once('app/controller/controllerEntreprise.php');
 
             <div class="container2">
                 <div class="commande">
-                    <h1>Paranètres et option </h1>
+                    <h1>Paramètres et options </h1>
 
-                    <h2>Informations Personnelles</h2>
+                    <h2>Informations personnelles</h2>
 
                     <div class="param param1">
                         <img id="photo" src="../upload/<?= $getEntreprise['images']; ?>" alt="">
@@ -246,7 +248,7 @@ include_once('app/controller/controllerEntreprise.php');
                     </div>
 
                     <div class="param">
-                        <p><strong>Secteur d’activité:</strong> <?= $getEntreprise['categorie']; ?> <span
+                        <p><strong>Secteur d'activité:</strong> <?= $getEntreprise['categorie']; ?> <span
                                 class="edite"><img src="../image/edite.png" alt="">
                                 Modifier</span> </p>
                         <form class="form" action="" method="post">

@@ -11,6 +11,21 @@ include_once('../controller/controller_competence_users.php');
 include_once('../controller/controller_niveau_etude_experience.php');
 
 
+$totalUsers = getTotalUsers($db);
+
+// Pagination
+$profils_par_page = 20;
+$page_courante = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+$offset = ($page_courante - 1) * $profils_par_page;
+
+// Récupérer le nombre total de profils
+$total_profils = getTotalUsersCount($db);
+$total_pages = ceil($total_profils / $profils_par_page);
+
+// Récupérer les profils pour la page courante
+$totalUsers = getTotalUsers($db, $offset, $profils_par_page);
+
+
 if (isset($_POST['recherche'])) {
 
     // Récupération des données du formulaire
@@ -75,6 +90,8 @@ if (isset($_POST['recherche'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvrez les profils de professionnels qualifiés sur Work-Flexer. Des experts en informatique, design, marketing, ingénierie et bien d'autres domaines. Trouvez le talent idéal pour vos projets avec notre système de recherche avancé. Recrutement simplifié et profils vérifiés.">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -92,6 +109,8 @@ if (isset($_POST['recherche'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="../css/voir_profil.css">
     <link rel="stylesheet" href="../css/profil.css">
 </head>
@@ -193,126 +212,83 @@ if (isset($_POST['recherche'])) {
 
 
     <section class="emploi">
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/ingenieur.jpeg" alt="">
-            <p>
-                Vous cherchez des professionnels qualifiés en ingénierie et architecture pour mener à bien vos projets
-                de construction ?
-            </p>
             <a href="../profils/Ingénierie et architecture.php">Ingénierie et architecture</a>
         </div>
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/webdesign.jpg" alt="">
-            <p>
-                Vous avez besoin de professionnels créatifs pour donner vie à vos projets de design ?
-            </p>
             <a href="../profils/Design et création.php">Design et création</a>
         </div>
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/Redaction.jpg" alt="">
-            <p>
-                Vous cherchez des rédacteurs et traducteurs qualifiés pour vos projets de communication ?
-            </p>
             <a href="../profils/Rédaction et traduction.php">Rédaction et traduction</a>
         </div>
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/marketing.jpg" alt="">
-            <p>
-                Vous cherchez des professionnels du marketing et de la communication pour promouvoir votre entreprise et
-                votre marque ?
-            </p>
-
             <a href="../profils/Marketing et communication.php">Marketing et communication</a>
         </div>
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/gestion.png" alt="">
-            <p>
-                Vous cherchez des professionnels du conseil et de la gestion d'entreprise pour optimiser vos
-                performances et votre rentabilité ?
-            </p>
-
             <a href="../profils/Conseil et gestion d'entreprise.php">Conseil et gestion d'entreprise</a>
         </div>
 
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/juridique.jpg" alt="">
-            <p>
-                Vous cherchez des professionnels du droit pour vous conseiller et vous accompagner dans vos démarches
-                juridiques ?
-            </p>
-
             <a href="../profils/Juridique.php">Juridique</a>
         </div>
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/info.jpg" alt="">
-            <p>
-                Vous cherchez des professionnels de l'informatique et de la tech pour développer vos projets numériques
-                ?
-            </p>
             <a href="../profils/Informatique et tech.php">Informatique et tech</a>
         </div>
 
 
-
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/finance.png" alt="">
-            <p>
-                Vous cherchez des professionnels de la finance et de la comptabilité pour gérer vos finances et votre
-                comptabilité ?
-            </p>
-
             <a href="../profils/Finance et comptabilité.php">Finance et comptabilité</a>
         </div>
 
 
-
-
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/santé.png" alt="">
-            <p>
-                Vous cherchez des professionnels de la santé et du bien-être pour prendre soin de vos employés et de vos
-                clients ?
-            </p>
-
             <a href="../profils/Santé et bien-être.php">Santé et bien-être</a>
         </div>
 
 
-
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/education.png" alt="">
-            <p>
-                Vous cherchez des professionnels de l'éducation et de la formation pour former et développer les
-                compétences de vos employés ?
-            </p>
-
             <a href="../profils/Éducation et formation.php">Éducation et formation</a>
         </div>
 
 
-
-
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/tourisme.png" alt="">
-            <p>
-                Vous cherchez des professionnels du tourisme et de l'hôtellerie pour offrir des expériences inoubliables
-                à vos clients ?
-            </p>
 
             <a href="../profils/Tourisme et hôtellerie.php">Tourisme et hôtellerie</a>
         </div>
@@ -320,51 +296,176 @@ if (isset($_POST['recherche'])) {
 
 
 
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/vente.png" alt="">
-            <p>
-                Vous cherchez des professionnels du commerce et de la vente pour développer vos ventes et votre chiffre
-                d'affaires ?
-            </p>
-
             <a href="../profils/Commerce et vente.php">Commerce et vente</a>
         </div>
 
 
-
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/transport.png" alt="">
-            <p>
-                ous cherchez des professionnels du transport et de la logistique pour optimiser vos chaînes
-                d'approvisionnement et vos livraisons ?
-            </p>
-
             <a href="../profils/Transport et logistique.php">Transport et logistique</a>
         </div>
 
 
-
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/agriculture.png" alt="">
-            <p>
-                ous cherchez des professionnels de l'agriculture et de l'agroalimentaire pour améliorer votre production
-                et votre qualité ?
-            </p>
-
             <a href="../profils/Agriculture et agroalimentaire.php">Agriculture et agroalimentaire</a>
         </div>
 
 
-
-
-        <div class="box">
+        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
             <img src="/image/autre.png" alt="">
-            <h1>Autre</h1>
-            <p>
-                Vous cherchez des profils professionnels pour répondre à des besoins spécifiques ?
-            </p>
-
             <a href="../profils/Autre.php">Autre</a>
+        </div>
+    </section>
+
+
+    <section class="tous_profil">
+        <div class="container_box1">
+            <div class="texte">
+                <h1>
+                    Tous les profils
+                </h1>
+            </div>
+
+
+            <div class="produit_vedete">
+
+                <article data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
+                    data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom"
+                    class="articles ">
+                    <?php if (empty($totalUsers)): ?>
+
+                        <h1 class="message">Aucun profil disponible pour cette catégorie</h1>
+
+                    <?php else: ?>
+                        <?php foreach ($totalUsers as $users): ?>
+                            <?php
+                            $nombreCompetences = countCompetences($db, $users['id']);
+                            $niveauEtude = gettNiveau($db, $users['id']);
+                            ?>
+                            <?php if ($nombreCompetences < 4): ?>
+                            <?php else: ?>
+                                <?php if ($users['statut'] == 'Occuper'): ?>
+
+                                <?php else: ?>
+
+                                    <div class="carousel">
+                                        <?php if ($users['statut'] == 'Disponible'): ?>
+                                            <p class="statut"><span></span>
+                                                <?= $users['statut'] ?>
+                                            </p>
+                                        <?php else: ?>
+                                            <?php if ($users['statut'] == 'Occuper'): ?>
+                                                <p class="statut2"><span></span>
+                                                    <?= $users['statut'] ?>
+                                                </p>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+
+                                        <img src="../upload/<?php echo $users['images'] ?>" alt="">
+
+                                        <div class="info-box">
+                                            <h4>
+                                                <?php echo substr($users['competences'], 0, 40) . '...' ?>
+                                            </h4>
+
+                                            <div class="vendu">
+                                                <?php
+                                                $afficheCompetences = getCompetences($db, $users['id']);
+                                                // Garder seulement les 4 premières 
+                                                $afficheCompetences = array_slice($afficheCompetences, 0, 4);
+
+                                                ?>
+
+                                                <?php if (empty($afficheCompetences)): ?>
+                                                    <span>Competences indisponibles</span>
+                                                <?php else: ?>
+                                                    <?php
+                                                    $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
+                                
+                                                    foreach ($afficheCompetences as $compe):
+                                                        if ($competencesAffichees < 4):
+                                                            ?>
+                                                            <span>
+                                                                <?= substr($compe['competence'], 0, 20) . '...' ?>
+                                                            </span>
+                                                            <?php
+                                                            $competencesAffichees++;
+                                                        endif;
+                                                    endforeach;
+                                                    ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <p class="nom">
+                                                <?php
+                                                $fullName = $users['nom'];
+                                                // Utilisez la fonction explode pour diviser le nom en mots
+                                                $words = explode(' ', $fullName);
+                                                // $words[0] contient le premier mot, $words[1] contient le deuxième mot
+                                                $nameUsers = $words[0] . ' ' . $words[1];
+                                                ?>
+                                                <?php echo $nameUsers; ?>
+                                            </p>
+
+                                            <p class="ville">
+                                                <?php echo $users['ville']; ?>
+                                            </p>
+
+                                            <div class="divpp"></div>
+                                            <p class="pp"><strong>Niveau :</strong>
+                                                <?php if (empty($niveauEtude['etude'])): ?>
+                                                    indisponibles
+                                                <?php else: ?>
+                                                    <?php echo $niveauEtude['etude'] ?>
+                                                <?php endif; ?>
+                                            </p>
+                                            <p class="pp"><strong>Experience :</strong>
+                                                <?php if (empty($niveauEtude['etude'])): ?>
+                                                    indisponibles
+                                                <?php else: ?>
+                                                    <?php echo $niveauEtude['experience'] ?>
+                                                <?php endif; ?>
+                                            </p>
+                                        </div>
+
+                                        <a href="/page/candidats.php?id=<?php echo $users['id']; ?>">
+                                            <i class="fa-solid fa-eye"></i>Profil
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php endforeach ?>
+
+                    <?php endif; ?>
+                </article>
+
+                <!-- Ajout de la pagination -->
+                <div class="pagination">
+                    <?php if ($total_pages > 1): ?>
+                        <?php if ($page_courante > 1): ?>
+                            <a href="?page=<?php echo $page_courante - 1; ?>" class="page-link">&laquo; Précédent</a>
+                        <?php endif; ?>
+
+                        <?php for ($i = max(1, $page_courante - 2); $i <= min($total_pages, $page_courante + 2); $i++): ?>
+                            <?php if ($i == $page_courante): ?>
+                                <span class="page-link active"><?php echo $i; ?></span>
+                            <?php else: ?>
+                                <a href="?page=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+
+                        <?php if ($page_courante < $total_pages): ?>
+                            <a href="?page=<?php echo $page_courante + 1; ?>" class="page-link">Suivant &raquo;</a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -378,58 +479,15 @@ if (isset($_POST['recherche'])) {
 
 
 
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
     <script src="/js/silder_offres.js"></script>
 
-
-
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-
-        $(document).ready(function () {
-
-
-            $('.boot').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 6000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 450,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-            var carousel2 = $('.carousel2').owlCarousel();
-            $('.owl-next2').click(function () {
-                carousel2.trigger('next.owl.carousel');
-            })
-            $('.owl-prev2').click(function () {
-                carousel2.trigger('prev.owl.carousel');
-            })
-
-        });
-
-
-        $('.container_slider').owlCarousel({
-            items: 1,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            animateOut: 'slideOutDown',
-            animateIn: 'flipInX',
-            stagePadding: 1,
-            smartSpeed: 1000,
-            margin: 0,
-            nav: true,
-            navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-        });
+        AOS.init();
     </script>
+
+
+
 
 </body>
 

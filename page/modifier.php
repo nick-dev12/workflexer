@@ -15,6 +15,8 @@ include_once('../controller/controller_users.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Personnalisez votre profil Work-Flexer. Mettez à jour vos informations professionnelles, compétences et expériences. Interface intuitive pour une modification simple et rapide de votre CV en ligne.">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -104,9 +106,9 @@ include_once('../controller/controller_users.php');
 
             <div class="container2">
                 <div class="commande">
-                    <h1>Paranètres et option </h1>
+                    <h1>Paramètres et options</h1>
 
-                    <h2>Informations Personnelles</h2>
+                    <h2>Informations personnelles</h2>
 
                     <div class="param param1">
                         <img id="photo" src="../upload/<?= $users['images']; ?>" alt="">
@@ -231,7 +233,7 @@ include_once('../controller/controller_users.php');
                     </div>
 
                     <div class="param">
-                        <p><strong>Secteur d’activité:</strong> <?= $users['categorie']; ?> <span class="edite"><img
+                        <p><strong>Secteur d'activité:</strong> <?= $users['categorie']; ?> <span class="edite"><img
                                     src="../image/edite.png" alt="">
                                 Modifier</span> </p>
                         <form class="form" action="" method="post">

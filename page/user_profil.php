@@ -135,6 +135,8 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Gérez votre profil professionnel sur Work-Flexer. Mettez en valeur vos compétences, expériences et réalisations. CV virtuel personnalisable, portfolio en ligne et suivi des candidatures. Augmentez votre visibilité auprès des recruteurs.">
 
     <!-- Google Tag Manager -->
     <script>
@@ -167,10 +169,8 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="../css/navbare.css">
 
     <link rel="stylesheet" href="../css/aos.css" />
-    <script src="../js/aos.js"></script>
+    <script defer src="../js/aos.js"></script>
 
-    <link rel="stylesheet" href="/css/owl.carousel.css">
-    <link rel="stylesheet" href="/css/owl.carousel.min.css">
 
     <script src="../js/html5Qrcode.js"></script>
 </head>
@@ -425,7 +425,7 @@ if (isset($_GET['id'])) {
                 if (empty($descriptions['description'])):
                     ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <img class="buton" src="../image/edite.png" alt="">
+                        <span class="buton"><img src="../image/edite.png" alt="">Ajouter</span>
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -468,7 +468,7 @@ if (isset($_GET['id'])) {
 
                 <?php else: ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <img class="buton buttons" src="../image/edite.png" alt="">
+                        <span class="buton buttons"><img src="../image/ajouter2.png" alt="">Modifier</span>
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -592,7 +592,7 @@ if (isset($_GET['id'])) {
                             </table>
 
                             <table>
-                                <tr>
+                                <tr class="description">
                                     <td id="td">
                                         <span>
                                             <?php echo $metiers['description']; ?>
@@ -610,7 +610,7 @@ if (isset($_GET['id'])) {
 
 
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="affiche_form"><img src="../image/edite.png" alt=""></button>
+                    <button class="affiche_form"><img src="../image/ajouter2.png" alt="">Ajouter</button>
                 <?php else: ?>
                 <?php endif; ?>
 
@@ -785,7 +785,7 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="affiche_forms"><img src="../image/edite.png" alt=""></button>
+                    <button class="affiche_forms"><img src="../image/ajouter2.png" alt="">Ajouter</button>
                 <?php else: ?>
                 <?php endif; ?>
 
@@ -837,9 +837,9 @@ if (isset($_GET['id'])) {
 
                 <?php if (isset($_SESSION['users_id'])): ?>
                     <?php if (isset($getNiveauEtude['etude'])): ?>
-                        <button class="affiche_formss">Modifier</button>
+                        <button class="affiche_formss"><img src="../image/ajouter2.png" alt="">Modifier</button>
                     <?php else: ?>
-                        <button class="affiche_formss"><img src="../image/edite.png" alt=""></button>
+                        <button class="affiche_formss"><img src="../image/ajouter2.png" alt="">Ajouter</button>
                     <?php endif; ?>
                 <?php endif; ?>
 
@@ -987,7 +987,7 @@ if (isset($_GET['id'])) {
 
             <div class="fa-formation">
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="Ajouters"><img src="../image/edite.png" alt=""></button>
+                    <button class="Ajouters"><img src="../image/ajouter2.png" alt="">Ajouter</button>
                 <?php else: ?>
                 <?php endif; ?>
 
@@ -1273,7 +1273,7 @@ if (isset($_GET['id'])) {
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn3"> <img src="../image/edite.png" alt=""></button>
+                        <button class="btn3"> <img src="../image/ajouter2.png" alt=""> Ajouter</button>
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -1353,7 +1353,7 @@ if (isset($_GET['id'])) {
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn4"> <img src="../image/edite.png" alt=""></button>
+                        <button class="btn4"> <img src="../image/ajouter2.png" alt=""> Ajouter</button>
                     <?php else: ?>
                     <?php endif; ?>
 
@@ -1405,7 +1405,7 @@ if (isset($_GET['id'])) {
                 <h1>Projets et réalisations</h1>
             </div>
             <?php if (isset($_SESSION['users_id'])): ?>
-                <button class="ajout"><img src="../image/edite.png" alt=""></button>
+                <button class="ajout"><img src="../image/ajouter2.png" alt=""> Ajouter</button>
             <?php else: ?>
             <?php endif; ?>
             <div class="form_projet">
@@ -1454,7 +1454,7 @@ if (isset($_GET['id'])) {
                         </div>
 
                     </div>
-                    <input type="submit" name="valider" value="Enregister" id="ajouter">
+                    <button type="submit" name="valider" value="Enregister" id="ajouters">Enregister</button>
                 </form>
 
             </div>
@@ -1514,7 +1514,7 @@ if (isset($_GET['id'])) {
 
         <div class="container_box8">
             <div class="box1">
-                <h1>Centre d’intérêt</h1>
+                <h1>Centre d'intérêt</h1>
             </div>
 
             <div class="box2">
@@ -1533,7 +1533,7 @@ if (isset($_GET['id'])) {
                 </form>
 
                 <?php if (empty($afficheCentreInteret)): ?>
-                    <p class="p">Aucun centre d’intérêt ajouter a votre profil</p>
+                    <p class="p">Aucun centre d'intérêt ajouter a votre profil</p>
                 <?php else: ?>
 
                     <ul>

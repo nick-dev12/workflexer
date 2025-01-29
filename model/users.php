@@ -6,12 +6,22 @@ include(__DIR__ . '/../conn/conn.php');
  * @param mixed $db
  * @return mixed
  */
-function getTotalUsers($db)
+function getTotalUsers($db, $offset = 0, $limit = 20)
 {
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users LIMIT :limit OFFSET :offset";
     $stmt = $db->prepare($sql);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getTotalUsersCount($db)
+{
+    $sql = "SELECT COUNT(*) as total FROM users";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
 }
 
 /**

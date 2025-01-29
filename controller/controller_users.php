@@ -29,7 +29,6 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
 
 }
 
-$totalUsers = getTotalUsers($db);
 
 
 
