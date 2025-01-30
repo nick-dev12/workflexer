@@ -1,5 +1,6 @@
 <?php
-include '../entreprise/app/model/offre_emploi.php';
+include __DIR__ . '/../entreprise/app/model/offre_emploi.php';
+include __DIR__ . '/../conn/conn.php';
 
 if (isset($_GET['id'])) {
     $offre_id = $_GET['id'];

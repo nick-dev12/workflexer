@@ -12,11 +12,7 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
   exit();
 }
 
-if (isset($_COOKIE['users_id'])) {
-  $users_id = $_COOKIE['users_id'];
-} else {
-  $users_id = '';
-}
+
 
 $erreurs = '';
 
