@@ -1,12 +1,12 @@
 <?php
 
 // Paramètres de connexion 
-$db_host = "180.149.197.146";
-$db_name = "jomas_work_flexer";
+$db_host = "localhost";
+$db_name = "work_flexer";
 
 // Identifiants fournis par CPanel
-$db_user = "jomas_jomas";
-$db_pass = "Ludvanne12@gmail.com";
+$db_user = "root";
+$db_pass = "";
 
 try {
   // Connexion à la base avec PDO
