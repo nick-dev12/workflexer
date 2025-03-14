@@ -245,9 +245,9 @@ if (isset($_GET['id'])) {
             </div>
 
             <div class="box2">
-                <h2>Appelles d'offres</h2>
+                <h2>Appels d'offres</h2>
                 <?php if (empty($getAllAppel_offre)): ?>
-                    <p><strong>Info :</strong> aucun Appelle d'offres !!</p>
+                    <p><strong>Info :</strong> aucun Appel d'offres !!</p>
                 <?php else: ?>
                     <?php foreach ($getAllAppel_offre as $appel_offre): ?>
 

@@ -85,14 +85,6 @@ if (isset($_POST['valider'])) {
 
 ?>
 
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -112,7 +104,7 @@ if (isset($_POST['valider'])) {
   <!-- End Google Tag Manager -->
 
 
-  <title>connexion</title>
+  <title>Connexion - Compte Professionnel</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -132,46 +124,87 @@ if (isset($_POST['valider'])) {
 
   <?php include('navbare.php') ?>
 
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-image">
+        <img src="/image/undraw_secure_login_pdn4.svg" alt="Illustration de connexion sécurisée">
+      </div>
 
-  <section class="section2">
+      <div class="login-form-container">
+        <div class="login-header">
+          <h2>Connexion</h2>
+          <p>Accédez à votre espace professionnel pour gérer vos opportunités</p>
+        </div>
 
-    <div class="formulaire1  ">
-      <img src="/image/undraw_secure_login_pdn4.svg" alt="">
-      <form method="post" action="">
-        <h3>Connexion</h3>
-
-
-        <?php if (isset($erreurs)): ?>
-          <div class="erreur"><?php echo $erreurs; ?></div>
+        <?php if (!empty($erreurs)): ?>
+          <div class="error-message" id="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <span><?php echo $erreurs; ?></span>
+          </div>
         <?php endif; ?>
 
+        <form method="post" action="" class="login-form">
+          <div class="form-group">
+            <label for="mail">Adresse e-mail ou numéro de téléphone</label>
+            <input type="text" name="mail" id="mail" class="form-input" placeholder="Entrez votre email ou téléphone">
+          </div>
 
-        <div class="box1">
-          <label for="mail">address-mail/n-telephone</label>
-          <input type="text" name="mail" id="mail">
-        </div>
+          <div class="form-group">
+            <label for="passe">Mot de passe</label>
+            <input type="password" name="passe" id="passe" class="form-input" placeholder="Entrez votre mot de passe">
+            <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+          </div>
 
-        <div class="box1">
-          <label for="passe">Mot de passe</label>
-          <input type="password" name="passe" id="passe">
-        </div>
+          <div class="forgot-password">
+            <a href="/page/mdp_oublier.php">Mot de passe oublié ?</a>
+          </div>
 
-        <input type="submit" name="valider" value="valider" id="valider">
+          <div class="form-actions">
+            <button type="submit" name="valider" class="submit-button">
+              <i class="fas fa-sign-in-alt"></i>Se connecter
+            </button>
 
-        <a href="/page/mdp_oublier.php">Mot de passe oublié ?</a>
-      </form>
+            <div class="separator">ou</div>
 
-      <script>
-        window.addEventListener('resize', function () {
-          if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-            document.activeElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      </script>
+            <a href="/compte_travailleur.php" class="register-button">
+              <i class="fas fa-user-plus"></i>Créer un compte professionnel
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
+  <script>
+    // Affichage/masquage du mot de passe
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('passe');
 
+    togglePassword.addEventListener('click', function () {
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+
+    // Animation pour les messages d'erreur
+    const errorMessage = document.getElementById('error-message');
+    if (errorMessage) {
+      errorMessage.classList.add('shake');
+
+      // Supprimer la classe après l'animation
+      errorMessage.addEventListener('animationend', function () {
+        this.classList.remove('shake');
+      });
+    }
+
+    // Ajustement pour les appareils mobiles
+    window.addEventListener('resize', function () {
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        document.activeElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
 </body>
 
 </html>

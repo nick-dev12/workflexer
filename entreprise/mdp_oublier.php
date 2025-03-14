@@ -65,16 +65,8 @@ if (isset($_POST['valider'])) {
 
 ?>
 
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -91,7 +83,7 @@ if (isset($_POST['valider'])) {
     })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
   <!-- End Google Tag Manager -->
 
-  <title>Recuperation</title>
+  <title>Récupération de mot de passe - Entreprise</title>
   <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -109,36 +101,76 @@ if (isset($_POST['valider'])) {
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  <?php include('../navbare.php') ?>
 
-  <section class="section2">
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-image" style="background-color: var(--secondary-color);">
+        <img src="/image/undraw_secure_login_pdn4.svg" alt="Illustration de récupération de mot de passe">
+      </div>
 
-    <div class="formulaire1  ">
-      <img src="/image/undraw_secure_login_pdn4.svg" alt="">
-      <form method="post" action="">
-        <h3>Verification</h3>
+      <div class="login-form-container">
+        <div class="login-header">
+          <h2>Récupération de mot de passe</h2>
+          <p>Veuillez entrer vos informations pour retrouver votre compte entreprise</p>
+        </div>
 
-
-        <?php if (isset($erreurs)): ?>
-          <div class="erreur"><?php echo $erreurs; ?></div>
+        <?php if (!empty($erreurs)): ?>
+          <div class="error-message" id="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <span><?php echo $erreurs; ?></span>
+          </div>
         <?php endif; ?>
 
+        <form method="post" action="" class="login-form">
+          <div class="form-group">
+            <label for="nom">Nom et Prénom du responsable</label>
+            <input type="text" name="nom" id="nom" class="form-input" placeholder="Entrez votre nom et prénom">
+          </div>
 
-        <div class="box1">
-          <label for="nom">Nom et Prénom</label>
-          <input type="text" name="nom" id="nom">
-        </div>
+          <div class="form-group">
+            <label for="mail">Adresse e-mail professionnelle</label>
+            <input type="email" name="mail" id="mail" class="form-input"
+              placeholder="Entrez votre adresse e-mail professionnelle">
+          </div>
 
-        <div class="box1">
-          <label for="mail">E-mail</label>
-          <input type="text" name="mail" id="mail">
-        </div>
+          <div class="form-actions">
+            <button type="submit" name="valider" class="submit-button"
+              style="background-color: var(--secondary-color);">
+              <i class="fas fa-search"></i>Trouver mon compte
+            </button>
 
-        <input type="submit" name="valider" value="Trouver mon compte" id="valider">
+            <div class="separator">ou</div>
 
-      </form>
+            <a href="/entreprise/connexion.php" class="register-button"
+              style="color: var(--secondary-color); border-color: var(--secondary-color);">
+              <i class="fas fa-arrow-left"></i>Retour à la connexion
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
+  <script>
+    // Animation pour les messages d'erreur
+    const errorMessage = document.getElementById('error-message');
+    if (errorMessage) {
+      errorMessage.classList.add('shake');
+
+      // Supprimer la classe après l'animation
+      errorMessage.addEventListener('animationend', function () {
+        this.classList.remove('shake');
+      });
+    }
+
+    // Ajustement pour les appareils mobiles
+    window.addEventListener('resize', function () {
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        document.activeElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
 </body>
 
 </html>
