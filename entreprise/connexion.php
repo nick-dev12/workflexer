@@ -87,14 +87,6 @@ if (isset($_POST['valider'])) {
 
 ?>
 
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -114,7 +106,7 @@ if (isset($_POST['valider'])) {
   <!-- End Google Tag Manager -->
 
   <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-  <title>connexion_e</title>
+  <title>Connexion - Compte Entreprise</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -132,45 +124,89 @@ if (isset($_POST['valider'])) {
 
   <?php include('../navbare.php') ?>
 
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-image" style="background-color: var(--secondary-color);">
+        <img src="/image/undraw_secure_login_pdn4.svg" alt="Illustration de connexion sécurisée">
+      </div>
 
-  <section class="section2">
-
-    <div class="formulaire1  ">
-      <img src="/image/undraw_secure_login_pdn4.svg" alt="">
-      <form method="post" action="">
-        <h3>Connexion</h3>
-
+      <div class="login-form-container">
+        <div class="login-header">
+          <h2>Connexion Entreprise</h2>
+          <p>Accédez à votre espace entreprise pour gérer vos offres d'emploi</p>
+        </div>
 
         <?php if (isset($erreurs)): ?>
-          <div class="erreur"><?php echo $erreurs; ?></div>
+          <div class="error-message" id="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <span><?php echo $erreurs; ?></span>
+          </div>
         <?php endif; ?>
 
+        <form method="post" action="" class="login-form">
+          <div class="form-group">
+            <label for="mail">Adresse e-mail ou numéro de téléphone</label>
+            <input type="text" name="mail" id="mail" class="form-input" placeholder="Entrez votre email ou téléphone">
+          </div>
 
-        <div class="box1">
-          <label for="mail">adresse e-mail / n° de téléphone</label>
-          <input type="text" name="mail" id="mail">
-        </div>
+          <div class="form-group">
+            <label for="passe">Mot de passe</label>
+            <input type="password" name="passe" id="passe" class="form-input" placeholder="Entrez votre mot de passe">
+            <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+          </div>
 
-        <div class="box1">
-          <label for="passe">Mot de passe</label>
-          <input type="password" name="passe" id="passe">
-        </div>
-        <input type="submit" name="valider" value="valider" id="valider">
+          <div class="forgot-password">
+            <a href="mdp_oublier.php">Mot de passe oublié ?</a>
+          </div>
 
-        <a href="mdp_oublier.php">Mot de passe oublié ?</a>
-      </form>
+          <div class="form-actions">
+            <button type="submit" name="valider" class="submit-button"
+              style="background-color: var(--secondary-color);">
+              <i class="fas fa-sign-in-alt"></i>Se connecter
+            </button>
 
-      <script>
-        window.addEventListener('resize', function () {
-          if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-            document.activeElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      </script>
+            <div class="separator">ou</div>
+
+            <a href="/compte_entreprise.php" class="register-button"
+              style="color: var(--secondary-color); border-color: var(--secondary-color);">
+              <i class="fas fa-building"></i>Créer un compte entreprise
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
+  <script>
+    // Affichage/masquage du mot de passe
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('passe');
 
+    togglePassword.addEventListener('click', function () {
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+
+    // Animation pour les messages d'erreur
+    const errorMessage = document.getElementById('error-message');
+    if (errorMessage) {
+      errorMessage.classList.add('shake');
+
+      // Supprimer la classe après l'animation
+      errorMessage.addEventListener('animationend', function () {
+        this.classList.remove('shake');
+      });
+    }
+
+    // Ajustement pour les appareils mobiles
+    window.addEventListener('resize', function () {
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        document.activeElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
 </body>
 
 </html>

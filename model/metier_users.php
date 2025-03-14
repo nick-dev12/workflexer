@@ -27,7 +27,21 @@ function insertMetier($db, $users_id, $metier, $moisDebut, $anneeDebut, $moisFin
     // Exécution de la requête
     return $stmt->execute();
 }
-;
+
+function updateMetier($db, $id, $metier, $moisDebut, $anneeDebut, $encours, $moisFin, $anneeFin, $description)
+{
+    $sql = "UPDATE metier_users SET metier = :metier, moisDebut = :moisDebut, anneeDebut = :anneeDebut,en_cours = :en_cours, moisFin = :moisFin, anneeFin = :anneeFin, description = :description WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':metier', $metier);
+    $stmt->bindParam(':moisDebut', $moisDebut);
+    $stmt->bindParam(':anneeDebut', $anneeDebut);
+    $stmt->bindParam(':en_cours', $encours);
+    $stmt->bindParam(':moisFin', $moisFin);
+    $stmt->bindParam(':anneeFin', $anneeFin);
+    $stmt->bindParam(':description', $description);
+    return $stmt->execute();
+}
 
 /**
  * Summary of getMetier

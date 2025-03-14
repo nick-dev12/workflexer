@@ -49,7 +49,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>Candidatures</title>
+    <title>Candidature | WorkFlexer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -60,6 +60,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
     <link rel="stylesheet" href="../css/candidature.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/categories.css">
 </head>
 
 <body>
@@ -141,12 +142,19 @@ include_once('../controller/controller_niveau_etude_experience.php');
         </div>
 
 
-        <div class="categorie">
-            <h2>Liste des categories</h2>
+        <div class="categories-section">
+            <div class="categories-header">
+                <h2>Liste des catégories</h2>
+                <p class="categories-subtitle">Explorez vos offres d'emploi par catégorie</p>
+            </div>
+
             <?php if (empty($getAllcategorie)): ?>
-                <p>Aucune categorie d'offres trouvée</p>
+                <div class="categories-empty">
+                    <i class="fas fa-folder-open"></i>
+                    <p>Aucune catégorie d'offres trouvée</p>
+                </div>
             <?php else: ?>
-                <ul>
+                <div class="categories-grid">
                     <?php foreach ($getAllcategorie as $categories): ?>
                         <?php
                         $categorie = $categories['categori'];
@@ -156,294 +164,58 @@ include_once('../controller/controller_niveau_etude_experience.php');
                         $stmt_o->bindValue(':categorie', $categorie, PDO::PARAM_STR);
                         $stmt_o->execute();
                         $offre = $stmt_o->fetchAll(PDO::FETCH_ASSOC);
-                        $countOffre = count($offre)
-                            ?>
-                        <li> <a href="../entreprise/postulation.php?categorie=<?= $categories['categori'] ?>"><?= $categories['categori'] ?>
-                                <span><?= $countOffre ?></span></a></li>
+                        $countOffre = count($offre);
 
+                        // Définir une icône par défaut ou selon la catégorie
+                        $categoryIcon = 'fa-briefcase'; // icône par défaut
+                        switch (strtolower($categorie)) {
+                            case 'informatique':
+                                $categoryIcon = 'fa-laptop-code';
+                                break;
+                            case 'marketing':
+                                $categoryIcon = 'fa-chart-line';
+                                break;
+                            case 'finance':
+                                $categoryIcon = 'fa-coins';
+                                break;
+                            case 'ressources humaines':
+                                $categoryIcon = 'fa-users';
+                                break;
+                            case 'vente':
+                                $categoryIcon = 'fa-shopping-cart';
+                                break;
+                            case 'administration':
+                                $categoryIcon = 'fa-building';
+                                break;
+                            case 'design':
+                                $categoryIcon = 'fa-palette';
+                                break;
+                            case 'education':
+                                $categoryIcon = 'fa-graduation-cap';
+                                break;
+                        }
+                        ?>
+                        <a href="../entreprise/postulation.php?categorie=<?= $categories['categori'] ?>" class="category-card">
+                            <div class="category-icon">
+                                <i class="fas <?= $categoryIcon ?>"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3><?= $categories['categori'] ?></h3>
+                                <div class="category-count">
+                                    <span class="count"><?= $countOffre ?></span>
+                                    <span class="label"><?= $countOffre > 1 ? 'offres' : 'offre' ?></span>
+                                </div>
+                            </div>
+                            <div class="category-arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </a>
                     <?php endforeach; ?>
-                </ul>
+                </div>
             <?php endif; ?>
         </div>
 
 
-        <div class="div-section2">
-            <h2>Liste des candidatures</h2>
-            <div class="box22">
-                <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-                <span class="count"><?= $countAllPostulation ?></span>
-                <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-            </div>
-            <div class="container owl-carousel teste">
-                <?php if (empty($getALLpostulation)): ?>
-                    <p class="info"><strong>Info!</strong> Aucune candidature a vos offres d'emplois pour le moment.</p>
-                <?php else: ?>
-                    <?php foreach ($getALLpostulation as $postulant): ?>
-                        <?php
-                        $niveau = gettNiveau($db, $postulant['users_id']);
-                        $explode_nom = explode(' ', $postulant['nom']);
-                        $nom = $explode_nom[0] . ' , ' . $explode_nom[1];
-                        $competencesUsers = getCompetences($db, $postulant['users_id']);
-                        $nombreCompetencesAffichees = 2;
-                        ?>
-                        <?php if ($postulant['statut'] == 'accepter'): ?>
-                        <?php else: ?>
-                            <?php if ($postulant['statut'] == 'recaler'): ?>
-
-                            <?php else: ?>
-
-                                <?php if (empty($postulant['statut'] == '')): ?>
-
-                                    <h6>accune candidature a traiter pour le moment!</h6>
-
-                                <?php else: ?>
-                                    <div class="items">
-                                        <?php if ($postulant['statut'] == 'accepter'): ?>
-                                            <h5 class="h51">accepter</h5>
-                                        <?php else: ?>
-                                            <?php if ($postulant['statut'] == 'recaler'): ?>
-                                                <h5 class="h52">recaler</h5>
-                                            <?php else: ?>
-                                                <h5 class="h53">non traiter</h5>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-                                        <h3> <strong>POSTE :</strong>
-                                            <?= $postulant['poste'] ?>
-                                        </h3>
-                                        <img src="../upload/<?= $postulant['images'] ?>" alt="">
-                                        <ul>
-                                            <li>
-                                                <strong>Nom : </strong> <?= $nom ?>
-                                            </li>
-                                            <?php if ($niveau): ?>
-                                                <li>
-                                                    <strong>Niveau : </strong> <?= $niveau['etude'] ?>
-                                                </li>
-                                                <li>
-                                                    <strong>expérience : </strong> <?= $niveau['experience'] ?>
-                                                </li>
-                                            <?php else: ?>
-                                                <li>
-                                                    <strong>Niveau : </strong> Non renseigner
-                                                </li>
-                                                <li>
-                                                    <strong>expérience : </strong> Non renseigner
-                                                </li>
-                                            <?php endif; ?>
-
-                                            <?php foreach ($competencesUsers as $key => $compe):
-                                                if ($key < $nombreCompetencesAffichees):
-                                                    ?>
-                                                    <span>
-                                                        <?= $compe['competence'] ?>
-                                                    </span>
-                                                    <?php
-                                                endif;
-                                            endforeach;
-                                            ?>
-                                            <li><strong>Domaine :</strong> <?= $postulant['competences'] ?></li>
-                                        </ul>
-
-                                        <div class="container-box_btn">
-                                            <button class="btn1"><img src="../image/vue2.png" alt=""> <a
-                                                    href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
-                                                    profil</a></button>
-                                            <div class="box-btn">
-
-
-                                                <a class="btn2"
-                                                    href="?accepter=<?= $postulant['poste_id'] ?>&offrees_id=<?= $postulant['offre_id'] ?> ">
-                                                    Accepter</a>
-
-
-                                                <a class="btn3"
-                                                    href="?recaler=<?= $postulant['poste_id'] ?>&offrees_id=<?= $postulant['offre_id'] ?>">Recaler</a>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <?php endif; ?>
-
-                            <?php endif; ?>
-
-                        <?php endif; ?>
-
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-        </div>
-
-
-        <div class="div-section2">
-            <h4>Candidatures accepter</h4>
-            <div class="box22">
-                <span class="owl-prev1"><i class="fa-solid fa-chevron-left"></i></span>
-                <span class="count"><?= $countPostulationAccepte ?></span>
-                <span class="owl-next1"><i class="fa-solid fa-chevron-right"></i></span>
-            </div>
-            <div class="container owl-carousel teste1">
-
-                <?php foreach ($getALLpostulation as $postulant): ?>
-                    <?php
-                    $niveau = gettNiveau($db, $postulant['users_id']);
-                    $explode_nom = explode(' ', $postulant['nom']);
-                    $nom = $explode_nom[0] . ' , ' . $explode_nom[1];
-                    $competencesUsers = getCompetences($db, $postulant['users_id']);
-                    $nombreCompetencesAffichees = 2;
-                    ?>
-
-
-                    <?php if ($postulant['statut'] == 'accepter'): ?>
-
-                        <div class="items">
-                            <h5 class="h51">accepter</h5>
-
-                            <h3> <strong>POSTE :</strong>
-                                <?= $postulant['poste'] ?>
-                            </h3>
-                            <img src="../upload/<?= $postulant['images'] ?>" alt="">
-
-                            <ul>
-                                <li>
-                                    <strong>Nom : </strong> <?= $nom ?>
-                                </li>
-                                <?php if ($niveau): ?>
-                                    <li>
-                                        <strong>Niveau : </strong> <?= $niveau['etude'] ?>
-                                    </li>
-                                    <li>
-                                        <strong>expérience : </strong> <?= $niveau['experience'] ?>
-                                    </li>
-                                <?php else: ?>
-                                    <li>
-                                        <strong>Niveau : </strong> Non renseigner
-                                    </li>
-                                    <li>
-                                        <strong>expérience : </strong> Non renseigner
-                                    </li>
-                                <?php endif; ?>
-
-                                <?php foreach ($competencesUsers as $key => $compe):
-                                    if ($key < $nombreCompetencesAffichees):
-                                        ?>
-                                        <span>
-                                            <?= $compe['competence'] ?>
-                                        </span>
-                                        <?php
-                                    endif;
-                                endforeach;
-                                ?>
-                                <li><strong>Domaine :</strong> <?= $postulant['competences'] ?> et reseaux comunication</li>
-                            </ul>
-
-
-                            <div class="container-box_btn">
-                                <button class="btn1"><img src="../image/vue2.png" alt=""> <a
-                                        href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
-                                        profil</a></button>
-                                <button class="btn11"><img src="../image/send.png" alt=""> <a
-                                        href="../entreprise/message.php">Message</a></button>
-                                <div class="box-btn">
-                                    <div class="box-btn">
-
-
-                                        <?php if ($postulant['statut'] == 'accepter'): ?>
-
-                                        <?php endif; ?>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        <?php endif; ?>
-
-                    <?php endforeach; ?>
-
-                </div>
-            </div>
-
-            <div class="div-section2">
-
-                <h4 class="h4">Candidatures recaler</h4>
-                <div class="box22">
-                    <span class="owl-prev2"><i class="fa-solid fa-chevron-left"></i></span>
-                    <span class="count">
-                        <?= $countPostulationRecqler ?>
-                    </span>
-                    <span class="owl-next2"><i class="fa-solid fa-chevron-right"></i></span>
-                </div>
-                <div class="container owl-carousel teste2">
-                    <?php foreach ($getALLpostulation as $postulant): ?>
-                        <?php
-                        $niveau = gettNiveau($db, $postulant['users_id']);
-                        $explode_nom = explode(' ', $postulant['nom']);
-                        $nom = $explode_nom[0] . ' , ' . $explode_nom[1];
-                        $competencesUsers = getCompetences($db, $postulant['users_id']);
-                        $nombreCompetencesAffichees = 2;
-                        ?>
-                        <?php if ($postulant['statut'] == 'recaler'): ?>
-
-                            <div class="items">
-                                <h5 class="h52">recaler</h5>
-
-                                <h3> <strong>POSTE :</strong>
-                                    <?= $postulant['poste'] ?>
-                                </h3>
-                                <img src="../upload/<?= $postulant['images'] ?>" alt="">
-                                <ul>
-                                    <li>
-                                        <strong>Nom : </strong> <?= $nom ?>
-                                    </li>
-                                    <?php if ($niveau): ?>
-                                        <li>
-                                            <strong>Niveau : </strong> <?= $niveau['etude'] ?>
-                                        </li>
-                                        <li>
-                                            <strong>expérience : </strong> <?= $niveau['experience'] ?>
-                                        </li>
-                                    <?php else: ?>
-                                        <li>
-                                            <strong>Niveau : </strong> Non renseigner
-                                        </li>
-                                        <li>
-                                            <strong>expérience : </strong> Non renseigner
-                                        </li>
-                                    <?php endif; ?>
-
-                                    <?php foreach ($competencesUsers as $key => $compe):
-                                        if ($key < $nombreCompetencesAffichees):
-                                            ?>
-                                            <span>
-                                                <?= $compe['competence'] ?>
-                                            </span>
-                                            <?php
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                    <li><strong>Domaine :</strong> <?= $postulant['competences'] ?> et reseaux comunication</li>
-                                </ul>
-
-
-                                <div class="container-box_btn">
-                                    <button class="btn1"><img src="../image/vue2.png" alt=""> <a
-                                            href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
-                                            profil</a></button>
-                                    <div class="box-btn">
-
-                                        <?php if ($postulant['statut'] == 'recaler'): ?>
-
-                                        <?php endif; ?>
-
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-
-                </div>
-            </div>
 
     </section>
 
@@ -459,226 +231,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
     <script src="/js/owl.carousel.js"></script>
     <script src="/js/owl.animate.js"></script>
     <script src="/js/owl.autoplay.js"></script>
-    <script>
-        $(document).ready(function () {
 
-            $('.container_slider').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 1000,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-
-
-        });
-
-
-
-
-
-        $(document).ready(function () {
-
-            // Sélectionnez la section avec la classe "temoin"
-
-            var owlSlider = document.querySelector('.teste');
-
-            // Vérifiez si la section existe
-            if (owlSlider) {
-                // Obtenez la liste des éléments enfants de la section
-                var enfantSection = owlSlider.children;
-
-                // Vérifiez la condition du nombre d'éléments enfants
-                if (enfantSection.length > 2) {
-                    // Code à exécuter si le nombre d'éléments enfants est supérieur à 3
-                    $('.teste').addClass('owl-carousel').owlCarousel({
-                        items: 3,
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        animateOut: 'slideOutDown',
-                        animateIn: 'flipInX',
-                        stagePadding: 10,
-                        smartSpeed: 450,
-                        margin: 100,
-                        nav: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-
-                            },
-                            610: {
-                                items: 2,
-
-                            },
-                            1200: {
-                                items: 3
-                            },
-                            1400: {
-                                items: 3
-                            }
-                        }
-                    });
-
-                    // Code pour gérer la navigation du carousel
-                    var carousel1 = $('.teste').owlCarousel();
-                    $('.owl-next').click(function () {
-                        carousel1.trigger('next.owl.carousel');
-                    })
-                    $('.owl-prev').click(function () {
-                        carousel1.trigger('prev.owl.carousel');
-                    });
-                } else {
-                    // Code à exécuter si le nombre d'éléments enfants est inférieur ou égal à 3
-                    console.log("Le nombre d'éléments enfants est inférieur ou égal à 3. Ne faites rien.");
-                }
-            } else {
-                console.error("La section avec la classe 'temoin' n'a pas été trouvée.");
-            }
-
-        });
-
-
-
-
-
-
-
-        $(document).ready(function () {
-
-            // Sélectionnez la section avec la classe "temoin"
-
-            var owlSlider = document.querySelector('.teste1');
-
-            // Vérifiez si la section existe
-            if (owlSlider) {
-                // Obtenez la liste des éléments enfants de la section
-                var enfantSection = owlSlider.children;
-
-                // Vérifiez la condition du nombre d'éléments enfants
-                if (enfantSection.length > 2) {
-                    // Code à exécuter si le nombre d'éléments enfants est supérieur à 3
-                    $('.teste1').addClass('owl-carousel').owlCarousel({
-                        items: 3,
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        animateOut: 'slideOutDown',
-                        animateIn: 'flipInX',
-                        stagePadding: 10,
-                        smartSpeed: 650,
-                        margin: 30,
-                        nav: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-
-                            },
-                            610: {
-                                items: 2,
-
-                            },
-                            1200: {
-                                items: 3
-                            },
-                            1400: {
-                                items: 3
-                            }
-                        }
-                    });
-
-                    // Code pour gérer la navigation du carousel
-                    var carousel1 = $('.owl-carousel').owlCarousel();
-                    $('.owl-next1').click(function () {
-                        carousel1.trigger('next.owl.carousel');
-                    })
-                    $('.owl-prev1').click(function () {
-                        carousel1.trigger('prev.owl.carousel');
-                    });
-                } else {
-                    // Code à exécuter si le nombre d'éléments enfants est inférieur ou égal à 3
-                    console.log("Le nombre d'éléments enfants est inférieur ou égal à 3. Ne faites rien.");
-                }
-            } else {
-                console.error("La section avec la classe 'temoin' n'a pas été trouvée.");
-            }
-
-        });
-
-
-
-
-
-
-
-
-        $(document).ready(function () {
-
-            // Sélectionnez la section avec la classe "temoin"
-
-            var owlSlider = document.querySelector('.teste2');
-
-            // Vérifiez si la section existe
-            if (owlSlider) {
-                // Obtenez la liste des éléments enfants de la section
-                var enfantSection = owlSlider.children;
-
-                // Vérifiez la condition du nombre d'éléments enfants
-                if (enfantSection.length > 2) {
-                    // Code à exécuter si le nombre d'éléments enfants est supérieur à 3
-                    $('.teste1').addClass('owl-carousel').owlCarousel({
-                        items: 3,
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        animateOut: 'slideOutDown',
-                        animateIn: 'flipInX',
-                        stagePadding: 10,
-                        smartSpeed: 450,
-                        margin: 100,
-                        nav: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-
-                            },
-                            610: {
-                                items: 2,
-
-                            },
-                            1200: {
-                                items: 3
-                            },
-                            1400: {
-                                items: 3
-                            }
-                        }
-                    });
-
-                    // Code pour gérer la navigation du carousel
-                    var carousel1 = $('.owl-carousel').owlCarousel();
-                    $('.owl-next2').click(function () {
-                        carousel1.trigger('next.owl.carousel');
-                    })
-                    $('.owl-prev2').click(function () {
-                        carousel1.trigger('prev.owl.carousel');
-                    });
-                } else {
-                    // Code à exécuter si le nombre d'éléments enfants est inférieur ou égal à 3
-                    console.log("Le nombre d'éléments enfants est inférieur ou égal à 3. Ne faites rien.");
-                }
-            } else {
-                console.error("La section avec la classe 'temoin' n'a pas été trouvée.");
-            }
-
-        });
-    </script>
 </body>
 
 </html>

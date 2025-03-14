@@ -122,6 +122,9 @@ if (isset($_GET['id'])) {
     include_once('../controller/controller_niveau_etude_experience.php');
 }
 
+// Traitement de la modification de formation
+
+
 ?>
 
 
@@ -454,7 +457,7 @@ if (isset($_GET['id'])) {
                             textareas.addEventListener("keyup", () => {
                                 const nombreCaracteress = textareas.value.length;
                                 caracteresRestantes.textContent = `${400 - nombreCaracteress
-                                    } caractères restants`;
+                                } caractères restants`;
 
                             });
                             // Limiter le nombre de caractères saisis en temps réel
@@ -542,187 +545,313 @@ if (isset($_GET['id'])) {
             <div class="box1">
                 <h1>Expertise et compétences</h1>
             </div>
-            <div class="box2">
+            <dsiv class="box2">
                 <h2>Expérience professionnelle</h2>
 
                 <?php if (empty($afficheMetier)): ?>
                     <p class="p">Aucune expérience professionnelle enregistrée !</p>
-
                 <?php else: ?>
-                    <?php
-                    foreach ($afficheMetier as $metiers):
-
-                        ?>
-                        <div class="metier">
-                            <table>
-                                <tr>
-                                    <th>
-                                        <p>
-                                            <?php echo $metiers['metier']; ?>
-                                        </p>
-                                    </th>
-                                    <td class="sup">
-                                        <?php if (isset($_SESSION['users_id'])): ?>
-                                            <!-- Ajouter un lien de suppression -->
-                                            <a class="delete" href="?supprimer=<?php echo $metiers['id']; ?>"><img
-                                                    src="../image/croix.png" alt=""></a>
-                                        <?php else: ?>
-                                        <?php endif; ?>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table>
-                                <tr>
-                                    <td class="date">
-                                        <em>
-                                            <?php echo $metiers['moisDebut']; ?>/
-                                            <?php echo $metiers['anneeDebut']; ?>
-                                        </em>
-                                    </td>
-
-                                    <td class="date">
-                                        <em>
-                                            <?php echo $metiers['moisFin']; ?>/
-                                            <?php echo $metiers['anneeFin']; ?>
-                                        </em>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                            <table>
-                                <tr class="description">
-                                    <td id="td">
-                                        <span>
-                                            <?php echo $metiers['description']; ?>
-                                        </span>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                        </div>
-                        <?php
-                    endforeach;
-                    ?>
-                <?php endif; ?>
-
-
-                <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="affiche_form"><img src="../image/ajouter2.png" alt="">Ajouter</button>
-                <?php else: ?>
-                <?php endif; ?>
-
-
-                <form class="form" action="" method="post">
-                    <img class="imgs1" src="../image/croix.png" alt="">
-
-                    <div class="boxmetier">
-                        <label for="metier">Titre de l'expérience professionnelle</label>
-                        <input type="text" name="metier" id="metier">
-                    </div>
-
-                    <div class="boxmetier" id="dat">
-                        <div>
-                            <div class=" date">
-                                <label for="date1">Date de début</label>
-                                <div class="mois">
-                                    <span for="mois">Mois :</span>
-                                    <select id="mois" name="moisDebut">
-                                        <option value="janvier">Janvier</option>
-                                        <option value="février">Février</option>
-                                        <option value="mars">Mars</option>
-                                        <option value="avril">Avril</option>
-                                        <option value="mai">Mai</option>
-                                        <option value="juin">Juin</option>
-                                        <option value="juillet">Juillet</option>
-                                        <option value="août">Août</option>
-                                        <option value="septembre">Septembre</option>
-                                        <option value="octobre">Octobre</option>
-                                        <option value="novembre">Novembre</option>
-                                        <option value="décembre">Décembre</option>
-                                    </select>
+                    <div class="experiences-list">
+                        <?php foreach ($afficheMetier as $metiers): ?>
+                            <div class="experience-card">
+                                <div class="experience-header">
+                                    <div class="experience-title">
+                                        <h3><?php echo $metiers['metier']; ?></h3>
+                                    </div>
+                                    <?php if (isset($_SESSION['users_id'])): ?>
+                                        <div class="experience-actions">
+                                            <img class="img2-btn" id="imgs2-<?php echo $metiers['id']; ?>"
+                                                data-id="<?php echo $metiers['id']; ?>" src="../image/edite.png" alt="">
+                                            <a class="delete-btn" href="?supprimer=<?php echo $metiers['id']; ?>">
+                                                <img src="../image/croix.png" alt="Supprimer" title="Supprimer">
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
 
-                                <div class="annee">
-                                    <span>Année</span>
-                                    <select id="annee" name="anneeDebut">
-                                        <?php
-                                        for ($annee = 1980; $annee <= 2030; $annee++) {
-                                            echo "<option value='$annee'>$annee</option>";
-                                        }
-                                        ?>
-                                    </select>
+                                <div class="experience-period">
+                                    <div class="period-start">
+                                        <span><?php echo $metiers['moisDebut']; ?>
+                                            <?php echo $metiers['anneeDebut']; ?></span>
+                                    </div>
+                                    <div class="period-separator">
+                                        <span>-</span>
+                                    </div>
+                                    <?php if ($metiers['en_cours'] == 'En cours'): ?>
+                                        <div class="period-end">
+                                            <span>En cours</span>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="period-end">
+                                            <span><?php echo $metiers['moisFin']; ?>
+                                                <?php echo $metiers['anneeFin']; ?></span>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
+
+                                <?php if (!empty($metiers['description'])): ?>
+                                    <div class="experience-description">
+                                        <p><?php echo $metiers['description']; ?></p>
+                                    </div>
+                                <?php endif; ?>
                             </div>
-                        </div>
-                        <div>
 
-                            <div class=" date">
-                                <label for="date2">Date de fin</label>
-                                <div class="mois">
-                                    <span for="mois">Mois :</span>
-                                    <select id="mois" name="moisFin">
-                                        <option value="janvier">Janvier</option>
-                                        <option value="février">Février</option>
-                                        <option value="mars">Mars</option>
-                                        <option value="avril">Avril</option>
-                                        <option value="mai">Mai</option>
-                                        <option value="juin">Juin</option>
-                                        <option value="juillet">Juillet</option>
-                                        <option value="août">Août</option>
-                                        <option value="septembre">Septembre</option>
-                                        <option value="octobre">Octobre</option>
-                                        <option value="novembre">Novembre</option>
-                                        <option value="décembre">Décembre</option>
-                                    </select>
-                                </div>
+                            <div class="form-modif" id="form-modif-<?php echo $metiers['id']; ?>">
+                                <form action="" method="post">
+                                    <img id="imgs1-<?php echo $metiers['id']; ?>" src="../image/croix.png" alt="">
 
-                                <div class="annee">
-                                    <span>Année</span>
-                                    <select id="annee" name="anneeFin">
-                                        <?php
-                                        for ($annee = 1980; $annee <= 2030; $annee++) {
-                                            echo "<option value='$annee'>$annee</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                                    <div class="boxmetier">
+                                        <label for="metier">Titre de l'expérience professionnelle</label>
+                                        <input type="text" name="metier" id="metier" value="<?php echo $metiers['metier']; ?>">
+                                    </div>
+
+                                    <div class="box_date">
+                                        <div class="boxmetier" id="dat">
+
+                                            <div class="date">
+                                                <label for="date1">Date de début</label>
+                                                <div class="mois">
+                                                    <span for="mois">Mois :</span>
+                                                    <select id="moisDebut" name="moisDebut1">
+                                                        <?php
+                                                        $mois = array(
+                                                            "janvier" => "Janvier",
+                                                            "février" => "Février",
+                                                            "mars" => "Mars",
+                                                            "avril" => "Avril",
+                                                            "mai" => "Mai",
+                                                            "juin" => "Juin",
+                                                            "juillet" => "Juillet",
+                                                            "août" => "Août",
+                                                            "septembre" => "Septembre",
+                                                            "octobre" => "Octobre",
+                                                            "novembre" => "Novembre",
+                                                            "décembre" => "Décembre"
+                                                        );
+                                                        foreach ($mois as $key => $value) {
+                                                            $mois_select = ($metiers['moisDebut'] == $key) ? 'selected' : '';
+                                                            echo "<option value='$key' $mois_select>$value</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+
+                                                <div class="annee">
+                                                    <span>Année</span>
+                                                    <select id="anneeDebut" name="anneeDebut1">
+                                                        <?php
+                                                        for ($annee = 1980; $annee <= 2030; $annee++) {
+                                                            $annee_select = ($metiers['anneeDebut'] == $annee) ? 'selected' : '';
+                                                            echo "<option value='$annee' $annee_select>$annee</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="encours">
+                                            <span>En cours</span>
+                                            <input <?php if ($metiers['en_cours'] == 'En cours')
+                                                echo 'checked'; ?>
+                                                type="checkbox" name="encours" id="encours">
+                                        </div>
+
+                                        <div class="boxmetier">
+                                            <div class="date">
+                                                <label for="date2">Date de fin</label>
+                                                <div class="mois">
+                                                    <span for="mois">Mois :</span>
+                                                    <select id="moisFin" name="moisFin1">
+                                                        <?php
+                                                        foreach ($mois as $key => $value) {
+                                                            $mois_select = ($metiers['moisFin'] == $key) ? 'selected' : '';
+                                                            echo "<option value='$key' $mois_select>$value</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+
+                                                <div class="annee">
+                                                    <span>Année</span>
+                                                    <select id="anneeFin" name="anneeFin1">
+                                                        <?php
+                                                        for ($annee = 1980; $annee <= 2030; $annee++) {
+                                                            $annee_select = ($metiers['anneeFin'] == $annee) ? 'selected' : '';
+                                                            echo "<option value='$annee' $annee_select>$annee</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <script>
+                                            $(document).ready(function () {
+                                                $('#encours').change(function () {
+                                                    if ($(this).is(':checked')) {
+                                                        $('#moisFin, #anneeFin').prop('disabled', true);
+                                                    } else {
+                                                        $('#moisFin, #anneeFin').prop('disabled', false);
+                                                    }
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+
+
+                                    <div class="boxmetier">
+                                        <label for="metier">Ajouter une courte description : Facultatif</label>
+                                        <textarea name="Metierdescription1" id="description-<?php echo $metiers['id']; ?>"
+                                            maxlength="300"><?php echo $metiers['description']; ?></textarea>
+                                        <p id="caractere-<?php echo $metiers['id']; ?>">300 caractères restants</p>
+                                    </div>
+                                    <input type="hidden" name="id_metier" value="<?php echo $metiers['id']; ?>">
+                                    <input type="submit" value="Enregistrer" name="Modifier_metier" id="Ajouter">
+                                </form>
                             </div>
-                        </div>
-
+                        <?php endforeach; ?>
                         <script>
-                            $(document).ready(function () {
-                                $('#datee').datepicker({
-                                    format: 'dd/mm/yyyy', // Format de la date
-                                    autoclose: true, // Fermer automatiquement le sélecteur après la sélection
-                                    todayHighlight: true, // Mettre en surbrillance la date actuelle
-                                    startDate: '01/01/2000', // Date de début
-                                    endDate: '31/12/2030', // Date de fin
-                                    language: 'fr' // Langue (français)
+                            document.addEventListener("DOMContentLoaded", function () {
+                                // Sélectionne tous les boutons "Modifier"
+                                document.querySelectorAll("[id^='imgs2-']").forEach(button => {
+                                    button.addEventListener("click", function () {
+                                        let id = this.dataset.id;
+                                        let form_modif = document.getElementById("form-modif-" + id);
+                                        form_modif.style.display = (form_modif.style.display === "none" || form_modif.style.display === "") ? "block" : "none";
+                                    });
                                 });
-                            });
-                            $(document).ready(function () {
-                                $('#datees').datepicker({
-                                    format: 'dd/mm/yyyy', // Format de la date
-                                    autoclose: true, // Fermer automatiquement le sélecteur après la sélection
-                                    todayHighlight: true, // Mettre en surbrillance la date actuelle
-                                    startDate: '01/01/2000', // Date de début
-                                    endDate: '31/12/2030', // Date de fin
-                                    language: 'fr' // Langue (français)
+
+                                // Sélectionne tous les boutons "Fermer"
+                                document.querySelectorAll("[id^='imgs1-']").forEach(button => {
+                                    button.addEventListener("click", function () {
+                                        let id = this.id.split('-')[1];
+                                        let form_modif = document.getElementById("form-modif-" + id);
+                                        form_modif.style.display = "none";
+                                    });
+                                });
+
+                                // Mise à jour du compteur de caractères pour chaque textarea généré dynamiquement
+                                document.querySelectorAll("textarea[id^='description-']").forEach(textarea => {
+                                    const caractere_id = document.getElementById("caractere-" + textarea.id.split('-')[1]);
+                                    textarea.addEventListener("input", () => {
+                                        const nombre = textarea.value.length;
+                                        caractere_id.textContent = `${300 - nombre} caractères restants`;
+                                        if (nombre > 300) {
+                                            textarea.value = textarea.value.substring(0, 300);
+                                        }
+                                    });
                                 });
                             });
                         </script>
                     </div>
+                <?php endif; ?>
 
-                    <div class="boxmetier">
-                        <label for="metier">Ajouter une courte description : Facultatif</label>
-                        <textarea name="Metierdescription" id="description" maxlength="200"></textarea>
-                        <p id="caractere">200 caractères restants</p>
+                <?php if (isset($_SESSION['users_id'])): ?>
+                    <button class="add-experience-btn affiche_form">
+                        <img src="../image/ajouter2.png" alt="">
+                        <span>Ajouter une expérience</span>
+                    </button>
+                <?php endif; ?>
+
+
+                <div class="form">
+                    <div class="form-header">
+                        <h3>Ajouter une expérience professionnelle</h3>
                     </div>
-                    <input type="submit" value="Enregistrer" name="Ajouter" id="Ajouter">
-                </form>
+
+                    <form action="" method="post">
+                        <img class="imgs1" src="../image/croix.png" alt="">
+
+                        <div class="boxmetier">
+                            <label for="metier">Titre de l'expérience professionnelle</label>
+                            <input type="text" name="metier" id="metier">
+                        </div>
+
+                        <div class="box_date">
+                            <div class="boxmetier" id="dat">
+
+                                <div class="date">
+                                    <label for="date1">Date de début</label>
+                                    <div class="mois">
+                                        <span for="mois">Mois :</span>
+                                        <select id="moisDebut" name="moisDebut">
+                                            <?php
+                                            foreach ($mois as $key => $value) {
+                                                echo "<option value='$key'>$value</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="annee">
+                                        <span>Année</span>
+                                        <select id="anneeDebut" name="anneeDebut">
+                                            <?php
+                                            for ($annee = 1980; $annee <= 2030; $annee++) {
+                                                echo "<option value='$annee'>$annee</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="encours">
+                                <span>En cours</span>
+                                <input type="checkbox" name="encours" id="encours">
+                            </div>
+
+                            <div class="boxmetier">
+                                <div class="date">
+                                    <label for="date2">Date de fin</label>
+                                    <div class="mois">
+                                        <span for="mois">Mois :</span>
+                                        <select id="moisFin" name="moisFin">
+                                            <?php
+                                            foreach ($mois as $key => $value) {
+                                                echo "<option value='$key'>$value</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="annee">
+                                        <span>Année</span>
+                                        <select id="anneeFin" name="anneeFin">
+                                            <?php
+                                            for ($annee = 1980; $annee <= 2030; $annee++) {
+                                                echo "<option value='$annee'>$annee</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script>
+                                $(document).ready(function () {
+                                    $('#encours').change(function () {
+                                        if ($(this).is(':checked')) {
+                                            $('#moisFin, #anneeFin').prop('disabled', true);
+                                        } else {
+                                            $('#moisFin, #anneeFin').prop('disabled', false);
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+
+
+                        <div class="boxmetier">
+                            <label for="metier">Ajouter une courte description : Facultatif</label>
+                            <textarea name="Metierdescription" id="description" maxlength="300"></textarea>
+                            <p id="caractere">300 caractères restants</p>
+                        </div>
+                        <input type="submit" value="Enregistrer" name="Ajouter" id="Ajouter">
+                    </form>
+                </div>
+
 
                 <script>
                     let affiche_form = document.querySelector('.affiche_form')
@@ -744,18 +873,20 @@ if (isset($_GET['id'])) {
                     // Mise à jour du compteur de caractères en temps réel
                     textee.addEventListener("keyup", () => {
                         const nombre = textee.value.length;
-                        caractere.textContent = `${200 - nombre
+                        caractere.textContent = `${300 - nombre
                             } caractères restants`;
 
                     });
                     // Limiter le nombre de caractères saisis en temps réel
                     textee.addEventListener("input", () => {
-                        if (textee.value.length > 200) {
-                            textee.value = textee.value.substring(0, 200);
+                        if (textee.value.length > 300) {
+                            textee.value = textee.value.substring(0, 300);
                         }
                     });
                 </script>
-            </div>
+            </dsiv>
+
+
 
             <div class="box3">
                 <h2>Compétences</h2>
@@ -813,7 +944,7 @@ if (isset($_GET['id'])) {
             </div>
 
             <div class="box3">
-                <h2>Niveau d'expérience et d'étude </h2>
+                <h2>Niveau d'Expérience et d'Etude </h2>
                 <div class="container_comp b2">
 
                     <?php if (empty($getNiveauEtude)): ?>
@@ -823,11 +954,13 @@ if (isset($_GET['id'])) {
                     <?php else: ?>
 
                         <p>
-                            <strong>Niveau D'etude:</strong>
+                            <span class="cercl"></span>
+                            <strong>Niveau D'etude</strong>
                             <?php echo $getNiveauEtude['etude'] ?>
                         </p>
                         <p>
-                            <strong>Niveau d'expérience :</strong>
+                            <span class="cercl"></span>
+                            <strong>Niveau d'expérience</strong>
                             <?php echo $getNiveauEtude['experience'] ?>
                         </p>
 
@@ -912,7 +1045,7 @@ if (isset($_GET['id'])) {
 
 
 
-        </div>
+
 
 
 
@@ -922,67 +1055,192 @@ if (isset($_GET['id'])) {
                 <h1>formation</h1>
             </div>
             <div class="box5">
-                <table>
+                <?php if (empty($formationUsers)): ?>
+                    <p class="p">Aucune formation enregistrée pour votre profil!</p>
+                <?php else: ?>
+                    <div class="formations-list">
+                        <?php foreach ($formationUsers as $formations): ?>
+                            <div class="formation-card">
+                                <div class="formation-content">
+                                    <div class="formation-header">
+                                        <div class="formation-period">
+                                            <?php if ($formations['en_cours'] == 'En cours'): ?>
+                                                <span class="date">
+                                                    <?php echo $formations['moisDebut']; ?>             <?php echo $formations['anneeDebut']; ?>
+                                                    -
+                                                    En cours
+                                                </span>
+                                            <?php else: ?>
+                                                <span class="date">
+                                                    <?php echo $formations['moisDebut']; ?>             <?php echo $formations['anneeDebut']; ?>
+                                                    -
+                                                    <?php echo $formations['moisFin']; ?>             <?php echo $formations['anneeFin']; ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php if (isset($_SESSION['users_id'])): ?>
+                                            <div class="formation-actions">
+                                                <button class="edit-btn" data-formation-id="<?php echo $formations['id']; ?>">
+                                                    <img src="../image/edite.png" alt="Modifier" title="Modifier">
+                                                </button>
+                                                <a href="?supprimes=<?php echo $formations['id']; ?>" class="delete-btn">
+                                                    <img src="../image/croix.png" alt="Supprimer" title="Supprimer">
+                                                </a>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
 
-                    <tr>
-                        <th>
-                            Date
-                        </th>
-                        <th>
-                            Filière / Classe
-                        </th>
-                        <th>
-                            Établissement
-                        </th>
+                                    <div class="formation-details">
+                                        <div class="formation-main-info">
+                                            <h3 class="formation-title"><?php echo htmlspecialchars($formations['Filiere']); ?>
+                                            </h3>
+                                            <p class="formation-school">
+                                                <?php echo htmlspecialchars($formations['etablissement']); ?>
+                                            </p>
+                                        </div>
+                                        <div class="formation-level">
+                                            <span
+                                                class="level-badge"><?php echo htmlspecialchars($formations['niveau']); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <th class="grade">Niveau</th>
-                        <th class="supr">supr</th>
-                    </tr>
+                                <!-- Formulaire de modification (caché par défaut) -->
+                                <div class="edit-form" id="edit-form-<?php echo $formations['id']; ?>">
+                                    <form class="formation-edit-form" method="post" action="">
+                                        <img class="imgFormee close-edit-form" src="../image/croix.png" alt="Fermer">
 
-                    <?php if (empty($formationUsers)): ?>
-                        <p class="p">Aucune formation enregistrer pour votre profil!</p>
-                    <?php else: ?>
+                                        <div class="container_box">
+                                            <div class="box1">
+                                                <label for="moisDebut-<?php echo $formations['id']; ?>">Année du début</label>
+                                                <div id="dates">
+                                                    <div class="mois">
+                                                        <span>Mois :</span>
+                                                        <select id="moisDebut-<?php echo $formations['id']; ?>"
+                                                            name="moisDebut2">
+                                                            <?php
+                                                            $mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+                                                            foreach ($mois as $m) {
+                                                                $selected = ($formations['moisDebut'] == $m) ? 'selected' : '';
+                                                                echo "<option value='$m' $selected>$m</option>";
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="annee">
+                                                        <span>Année :</span>
+                                                        <select id="anneeDebut-<?php echo $formations['id']; ?>"
+                                                            name="anneeDebut2">
+                                                            <?php
+                                                            for ($annee = 1980; $annee <= 2030; $annee++) {
+                                                                $selected = ($formations['anneeDebut'] == $annee) ? 'selected' : '';
+                                                                echo "<option value='$annee' $selected>$annee</option>";
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                    <?php endif ?>
-                    <?php foreach ($formationUsers as $formations): ?>
+                                            <div class="box1">
+                                                <label for="encours-<?php echo $formations['id']; ?>">Cette formation est-elle
+                                                    en cours ?</label>
+                                                <div class="encours">
+                                                    <span>En cours</span>
+                                                    <input type="checkbox" name="encours2"
+                                                        id="encours-<?php echo $formations['id']; ?>"
+                                                        onclick="toggleEndDateFields('<?php echo $formations['id']; ?>')">
+                                                </div>
+                                            </div>
 
+                                            <div class="box1">
+                                                <label for="moisFin-<?php echo $formations['id']; ?>">Année de la fin</label>
+                                                <div id="dates">
+                                                    <div class="mois">
+                                                        <span>Mois :</span>
+                                                        <select id="moisFin-<?php echo $formations['id']; ?>" name="moisFin2">
+                                                            <?php
+                                                            foreach ($mois as $m) {
+                                                                $selected = ($formations['moisFin'] == $m) ? 'selected' : '';
+                                                                echo "<option value='$m' $selected>$m</option>";
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="annee">
+                                                        <span>Année :</span>
+                                                        <select id="anneeFin-<?php echo $formations['id']; ?>" name="anneeFin2">
+                                                            <?php
+                                                            for ($annee = 1980; $annee <= 2030; $annee++) {
+                                                                $selected = ($formations['anneeFin'] == $annee) ? 'selected' : '';
+                                                                echo "<option value='$annee' $selected>$annee</option>";
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                        <tr>
-                            <td class="pt">
-                                <?php echo $formations['moisDebut']; ?>/
-                                <?php echo $formations['anneeDebut']; ?><br>
-                                à <br>
-                                <?php echo $formations['moisFin']; ?>/
-                                <?php echo $formations['anneeFin']; ?>
+                                            <script>
+                                                function toggleEndDateFields(id) {
+                                                    const isChecked = document.getElementById('encours-' + id).checked;
+                                                    document.getElementById('moisFin-' + id).disabled = isChecked;
+                                                    document.getElementById('anneeFin-' + id).disabled = isChecked;
+                                                }
+                                            </script>
+                                        </div>
 
-                            </td>
+                                        <div class="container_box">
+                                            <div class="box1">
+                                                <label for="Filiere-<?php echo $formations['id']; ?>">Filière/classe</label>
+                                                <input type="text" name="Filiere2" id="Filiere-<?php echo $formations['id']; ?>"
+                                                    value="<?php echo htmlspecialchars($formations['Filiere']); ?>">
+                                            </div>
+                                            <div class="box1">
+                                                <label
+                                                    for="etablissement-<?php echo $formations['id']; ?>">Établissement</label>
+                                                <input type="text" name="etablissement2"
+                                                    id="etablissement-<?php echo $formations['id']; ?>"
+                                                    value="<?php echo htmlspecialchars($formations['etablissement']); ?>">
+                                            </div>
+                                        </div>
 
-                            <td>
-                                <?php echo $formations['Filiere']; ?>
-                            </td>
+                                        <div class="container_box">
+                                            <div class="box1">
+                                                <label for="niveau-<?php echo $formations['id']; ?>">Niveau</label>
+                                                <select name="niveau2" id="niveau-<?php echo $formations['id']; ?>">
+                                                    <?php
+                                                    $niveaux = ["Secondaire", "Licence1", "Licence2", "Licence3", "Master1", "Master2", "Doctorat"];
+                                                    foreach ($niveaux as $niveau) {
+                                                        $selected = ($formations['niveau'] == $niveau) ? 'selected' : '';
+                                                        echo "<option value='$niveau' $selected>$niveau</option>";
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="box1">
+                                                <input type="hidden" name="id_formation"
+                                                    value="<?php echo $formations['id']; ?>">
+                                                <input type="submit" value="Enregistrer" name="Modifier_formation"
+                                                    id="ajouter-<?php echo $formations['id']; ?>">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
 
-                            <td>
-                                <?php echo $formations['etablissement']; ?>
-                            </td>
+                                <script>
+                                    document.querySelector('.edit-btn[data-formation-id="<?php echo $formations['id']; ?>"]').addEventListener('click', function () {
+                                        document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'block';
+                                    });
 
-                            <td class="grade">
-                                <?php echo $formations['niveau']; ?>
-                            </td>
-                            <td class="supr">
-                                <?php if (isset($_SESSION['users_id'])): ?>
-                                    <a href="?supprimes=<?php echo $formations['id']; ?>"><img src="../image/croix.png"
-                                            alt=""></a>
-                                <?php else: ?>
-                                <?php endif; ?>
-
-                            </td>
-                        </tr>
-
-                    <?php endforeach; ?>
-
-                </table>
-
-
+                                    document.querySelector('#edit-form-<?php echo $formations['id']; ?> .close-edit-form').addEventListener('click', function () {
+                                        document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'none';
+                                    });
+                                </script>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="fa-formation">
@@ -996,7 +1254,7 @@ if (isset($_GET['id'])) {
             <div class="containne">
                 <form class="formee" action="" method="post">
 
-                    <img class="imgFormee" src="../image/croix.png" alt="">
+                    <img class="imgForme" src="../image/croix.png" alt="">
 
                     <div class="container_box">
 
@@ -1033,13 +1291,21 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
+
                         <div class="box1">
+                            <label for="encours">cette formation est elle en cours ?</label>
+                            <div class="encours">
+                                <span>En cours</span>
+                                <input type="checkbox" name="encours" id="encours" onchange="toggleEndDate(this)">
+                            </div>
+                        </div>
+                        <div class="box1" id="endDateFields">
                             <label for="annees">Année de la fin </label>
                             <div class="date">
 
                                 <div class="mois">
                                     <span for="mois">Mois :</span>
-                                    <select id="mois" name="moisFin">
+                                    <select id="moisFin" name="moisFin">
                                         <option value="janvier">Janvier</option>
                                         <option value="février">Février</option>
                                         <option value="mars">Mars</option>
@@ -1057,7 +1323,7 @@ if (isset($_GET['id'])) {
 
                                 <div class="annee">
                                     <span>Annees</span>
-                                    <select id="annee" name="anneeFin">
+                                    <select id="anneeFin" name="anneeFin">
                                         <?php
                                         for ($annee = 1980; $annee <= 2030; $annee++) {
                                             echo "<option value='$annee'>$annee</option>";
@@ -1067,6 +1333,38 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                         </div>
+
+
+                        <script>
+                            let Ajoutes = document.querySelector('.Ajouters')
+                            let formee = document.querySelector('.containne')
+                            let imgFormee = document.querySelector('.imgForme')
+
+                            Ajoutes.addEventListener('click', function () {
+                                formee.style.display = 'block';
+                                Ajoutes.style.display = 'none'
+                            });
+                            imgFormee.addEventListener('click', function () {
+                                formee.style.display = 'none';
+                                Ajoutes.style.display = 'block'
+
+                            });
+                        </script>
+                        <script>
+                            function toggleEndDate(checkbox) {
+                                const endDateFields = document.getElementById('endDateFields');
+                                const moisFin = document.getElementById('moisFin');
+                                const anneeFin = document.getElementById('anneeFin');
+
+                                if (checkbox.checked) {
+                                    moisFin.disabled = true;
+                                    anneeFin.disabled = true;
+                                } else {
+                                    moisFin.disabled = false;
+                                    anneeFin.disabled = false;
+                                }
+                            }
+                        </script>
                     </div>
                     <div class="container_box">
                         <div class="box1">
@@ -1121,166 +1419,48 @@ if (isset($_GET['id'])) {
                 });
             </script>
 
-            <script>
-                let Ajoutes = document.querySelector('.Ajouters')
-                let formee = document.querySelector('.containne')
-                let imgFormee = document.querySelector('.imgFormee')
-
-                Ajoutes.addEventListener('click', function () {
-                    formee.style.display = 'block';
-                    Ajoutes.style.display = 'none'
-                });
-                imgFormee.addEventListener('click', function () {
-                    formee.style.display = 'none';
-                    Ajoutes.style.display = 'block'
-
-                });
-            </script>
         </div>
 
 
-        <!-- <div class="container_box4">
-            <div class="box1">
-                <div class="div">
-                    <table>
-                        <tr>
-                            <th>Diplomes</th>
-                        </tr>
-                    </table>
-                    <div>
-                        <?php foreach ($afficheDiplome as $diplomes): ?>
 
-                            <table>
-                                <tr>
-                                    <td>
-                                        <?php echo $diplomes['diplome']; ?>
-                                        <a href="?diplomes=<?= $diplomes['id']; ?>"><img src="../image/croix.png"
-                                                alt=""></a>
-                                    </td>
-                                </tr>
-                            </table>
-                        <?php endforeach; ?>
-                    </div>
-
-                </div>
-
-                <div class="div">
-                    <table>
-                        <tr>
-                            <th>Certificats</th>
-                        </tr>
-                    </table>
-                    <div>
-                        <?php foreach ($afficheCertificat as $certificats): ?>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <?php echo $certificats['certificat'] ?>
-                                        <a href="?certificats=<?= $certificats['id']; ?>"><img src="../image/croix.png"
-                                                alt=""></a>
-                                    </td>
-                                </tr>
-                            </table>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box2">
-                <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="btn btn1"> <img src="../image/edite.png" alt=""> Diplôme</button>
-                    <button class="btn btn2"> <img src="../image/edite.png" alt=""> Certificat</button>
-                <?php else: ?>
-                <?php endif; ?>
-
-            </div>
-
-
-            <div class="box3 box31">
-                <form action="" method="post">
-                    <img src="../image/croix.png" alt="">
-                    <input class="input" type="text" name="diplome" id="diplome">
-                    <input type="submit" value="ajouter" name="ajouteer1" id="ajouteer">
-                </form>
-            </div>
-            <div class="box3 box32">
-                <form action="" method="post">
-                <img src="../image/croix.png" alt="">
-                    <input class="input" type="text" name="certificat" id="diplome">
-                    <input type="submit" value="ajouter" name="ajouteer2" id="ajouteer">
-                </form>
-            </div>
-
-
-            <script>
-                let btn1 = document.querySelector('.btn1')
-                let box31 = document.querySelector('.box31')
-
-                btn1.addEventListener('click', function () {
-                    if (box31.style.display === 'none' || box31.style.display === '') {
-                        box31.style.display = 'block';
-                    } else {
-                        box31.style.display = 'none';
-                    }
-                });
-
-                let btn2 = document.querySelector('.btn2')
-                let box32 = document.querySelector('.box32')
-
-                btn2.addEventListener('click', function () {
-                    if (box32.style.display === 'none' || box32.style.display === '') {
-                        box32.style.display = 'block';
-                    } else {
-                        box32.style.display = 'none';
-                    }
-                });
-            </script>
-
-        </div> -->
-
-
-
-
-
-        <div class="container_box5">
+        <div class="container_box5 tools-section">
             <div class="box1">
                 <h1>Maîtrise des outils informatiques</h1>
             </div>
 
             <div class="box2">
-
                 <?php if (empty($afficheOutil)): ?>
-                    <p class="p">Aucun outils informatique ajouter a votre profil</p>
+                    <p class="p">Aucun outil informatique ajouté à votre profil</p>
                 <?php else: ?>
-                    <table>
+                    <div class="tools-list">
                         <?php foreach ($afficheOutil as $outils): ?>
-                            <tr>
-                                <td>
-                                    <?php echo $outils['outil'] ?>
-                                </td>
-                                <td class="niveau">
-                                    <?php echo $outils['niveau'] ?>
-                                </td>
-                                <td class="sup">
-                                    <a href="?suprimerOutils=<?= $outils['id'] ?>"> <img src="../image/croix.png" alt=""></a>
-                                </td>
-                            </tr>
+                            <div class="tool-item">
+                                <div class="tool-info">
+                                    <span class="tool-name"><?php echo $outils['outil'] ?></span>
+                                    <span
+                                        class="tool-level <?php echo strtolower($outils['niveau']) ?>"><?php echo $outils['niveau'] ?></span>
+                                </div>
+                                <div class="tool-actions">
+                                    <a href="?suprimerOutils=<?= $outils['id'] ?>" class="delete-tool">
+                                        <img src="../image/croix.png" alt="Supprimer" title="Supprimer">
+                                    </a>
+                                </div>
+                            </div>
                         <?php endforeach; ?>
-                    </table>
+                    </div>
                 <?php endif; ?>
-
-
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn3"> <img src="../image/ajouter2.png" alt=""> Ajouter</button>
-                    <?php else: ?>
+                        <button class="btn3 add-button">
+                            <img src="../image/ajouter2.png" alt="">
+                            <span>Ajouter un outil</span>
+                        </button>
                     <?php endif; ?>
-
                 </div>
             </div>
 
-            <div class="box3 box34">
+            <div class="box3 box34 add-form">
                 <form action="" method="post" enctype="multipart/form-data">
                     <img class="croixx" src="../image/croix.png" alt="">
                     <div class="tcp">
@@ -1294,7 +1474,7 @@ if (isset($_GET['id'])) {
                             <option value="Debutant">Debutant</option>
                             <option value="Intermediaire">Intermédiaire</option>
                             <option value="professionel">Professionnel</option>
-                            <option value="Avencer">Avancer</option>
+                            <option value="Avencer">Avancé</option>
                         </select>
                         <input type="submit" value="Enregister" name="ajouts" id="ajout">
                     </div>
@@ -1318,45 +1498,40 @@ if (isset($_GET['id'])) {
             </script>
         </div>
 
-
-
-
-
-
-
-
-        <div class="container_box5">
+        <div class="container_box5 languages-section">
             <div class="box1">
-                <h1>maitrise des langues</h1>
+                <h1>Maîtrise des langues</h1>
             </div>
 
             <div class="box2">
                 <?php if (empty($afficheLangue)): ?>
-                    <p class="p">Aucune langue ajouter a votre profil</p>
+                    <p class="p">Aucune langue ajoutée à votre profil</p>
                 <?php else: ?>
-                    <table>
+                    <div class="languages-list">
                         <?php foreach ($afficheLangue as $langues): ?>
-                            <tr>
-                                <td>
-                                    <?php echo $langues['langue']; ?>
-                                </td>
-                                <td class="niveau">
-                                    <?php echo $langues['niveau']; ?>
-                                </td>
-                                <td class="sup">
-                                    <a href="?suprimer=<?= $langues['id'] ?>"> <img src="../image/croix.png" alt=""></a>
-                                </td>
-                            </tr>
+                            <div class="language-item">
+                                <div class="language-info">
+                                    <span class="language-name"><?php echo $langues['langue']; ?></span>
+                                    <span
+                                        class="language-level <?php echo strtolower($langues['niveau']) ?>"><?php echo $langues['niveau']; ?></span>
+                                </div>
+                                <div class="language-actions">
+                                    <a href="?suprimer=<?= $langues['id'] ?>" class="delete-language">
+                                        <img src="../image/croix.png" alt="Supprimer" title="Supprimer">
+                                    </a>
+                                </div>
+                            </div>
                         <?php endforeach; ?>
-                    </table>
+                    </div>
                 <?php endif; ?>
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn4"> <img src="../image/ajouter2.png" alt=""> Ajouter</button>
-                    <?php else: ?>
+                        <button class="btn4 add-button">
+                            <img src="../image/ajouter2.png" alt="">
+                            <span>Ajouter une langue</span>
+                        </button>
                     <?php endif; ?>
-
                 </div>
             </div>
 
@@ -1374,7 +1549,7 @@ if (isset($_GET['id'])) {
                             <option value="Debutant">Debutant</option>
                             <option value="Intermediaire">Intermédiaire</option>
                             <option value="professionel">Professionnel</option>
-                            <option value="Avencer">Avancer</option>
+                            <option value="Avencer">Avancé</option>
                         </select>
                         <input type="submit" value="Enregister" name="ajoutss" id="ajout">
                     </div>
@@ -1685,6 +1860,7 @@ if (isset($_GET['id'])) {
             container_box6.style.transform = 'translateX(0px)';
         });
     </script>
+
 
 </body>
 

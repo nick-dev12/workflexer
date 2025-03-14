@@ -6,7 +6,7 @@ require_once('../model/metier_users.php');
 if (isset($_POST['Ajouter'])) {
     // Récupération des données du formulaire
     $users_id = $_SESSION['users_id'];
-   
+
     // Déclaration des variables 
 
     $description = $_POST['Metierdescription'];
@@ -57,14 +57,45 @@ if (isset($_POST['Ajouter'])) {
     }
 }
 
-if(isset($_SESSION['users_id'])){
-    $users_id=$_SESSION['users_id'];
-    $afficheMetier = getMetier($db, $users_id);
-}else{
-    if(isset($_GET['id'])){
-    $users_id = $_GET['id'];
-    $afficheMetier = getMetier($db, $users_id);
+if (isset($_POST['Modifier_metier'])) {
+    // Validate and sanitize input
+    $users_id = $_SESSION['users_id'];
+    $id = $_POST['id_metier'];
+    $metier1 = htmlspecialchars(trim($_POST['metier']), ENT_QUOTES, 'UTF-8');
+    $moisDebut1 = htmlspecialchars(trim($_POST['moisDebut1']), ENT_QUOTES, 'UTF-8');
+    $anneeDebut1 = filter_input(INPUT_POST, 'anneeDebut1', FILTER_VALIDATE_INT);
+    $description1 = htmlspecialchars(trim($_POST['Metierdescription1']), ENT_QUOTES, 'UTF-8');
+    $encours = isset($_POST['encours']) ? 'En cours' : null;
+
+    // Check if 'encours' is set and handle accordingly
+    if ($encours) {
+        $moisFin1 = null;
+        $anneeFin1 = null;
+    } else {
+        $moisFin1 = htmlspecialchars(trim($_POST['moisFin1']), ENT_QUOTES, 'UTF-8');
+        $anneeFin1 = filter_input(INPUT_POST, 'anneeFin1', FILTER_VALIDATE_INT);
+    }
+
+    // Update the metier without requiring all fields
+    if (updateMetier($db, $id, $metier1, $moisDebut1, $anneeDebut1, $encours, $moisFin1, $anneeFin1, $description1)) {
+        $_SESSION['success_message'] = "Operation réussie";
+    } else {
+        $_SESSION['error_message'] = "Erreur lors de la mise à jour du métier.";
+    }
+
+    // Redirect to the user profile page
+    header('Location: user_profil.php');
+    exit;
 }
+
+if (isset($_SESSION['users_id'])) {
+    $users_id = $_SESSION['users_id'];
+    $afficheMetier = getMetier($db, $users_id);
+} else {
+    if (isset($_GET['id'])) {
+        $users_id = $_GET['id'];
+        $afficheMetier = getMetier($db, $users_id);
+    }
 }
 
 // Récupération des compétences de l'utilisateur

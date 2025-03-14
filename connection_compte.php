@@ -41,12 +41,12 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>connexion</title>
+    <title>Connexion - Choisissez votre type de compte</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/inscription.css">
+    <link rel="stylesheet" href="/css/connexion_compte.css">
     <link rel="stylesheet" href="../css/navbare.css">
 
 </head>
@@ -60,28 +60,75 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
 
     <?php include('navbare.php') ?>
 
-    <section class="section3">
-        <h2>Connexion</h2>
-        <div class="box">
-            <div>
-                <a href="/entreprise/connexion.php">
-                    <button>Compte d'entreprise</button>
+    <section class="login-section">
+        <h1>Choisissez votre type de compte</h1>
+        <p class="login-description">
+            Sélectionnez le type de compte qui correspond à votre profil pour vous connecter à notre plateforme.
+            Chaque type de compte offre des fonctionnalités spécifiques adaptées à vos besoins.
+        </p>
+
+        <div class="account-options">
+            <!-- Carte pour le compte entreprise -->
+            <div class="account-card">
+                <span class="account-badge enterprise-badge">Entreprise</span>
+                <div class="account-image">
                     <img src="/image/entreprise.jpg" alt="Compte d'entreprise">
-                </a>
+                </div>
+                <div class="account-info">
+                    <h2 class="account-title">Compte Entreprise</h2>
+                    <p class="account-description">
+                        Idéal pour les recruteurs, employeurs et entreprises cherchant à publier des offres d'emploi et
+                        à trouver des talents.
+                    </p>
+                    <div class="account-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Publication d'offres d'emploi</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Recherche de candidats</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Gestion des candidatures</span>
+                        </div>
+                    </div>
+                    <a href="/entreprise/connexion.php" class="account-button">Se connecter</a>
+                </div>
             </div>
 
-            <div>
-                <a href="/connexion.php">
-                    <button>Compte professionnel</button>
+            <!-- Carte pour le compte professionnel -->
+            <div class="account-card">
+                <span class="account-badge">Professionnel</span>
+                <div class="account-image">
                     <img src="/image/travail.png" alt="Compte professionnel">
-                </a>
+                </div>
+                <div class="account-info">
+                    <h2 class="account-title">Compte Professionnel</h2>
+                    <p class="account-description">
+                        Pour les candidats, étudiants et professionnels à la recherche d'opportunités d'emploi et de
+                        stages.
+                    </p>
+                    <div class="account-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Recherche d'emploi</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Création de CV</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Candidature simplifiée</span>
+                        </div>
+                    </div>
+                    <a href="/connexion.php" class="account-button">Se connecter</a>
+                </div>
             </div>
-
         </div>
-
     </section>
-
-
 
 </body>
 

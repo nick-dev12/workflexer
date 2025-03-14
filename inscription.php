@@ -33,12 +33,12 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>Inscription</title>
+    <title>Inscription - Créez votre compte</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/inscription.css">
+    <link rel="stylesheet" href="/css/inscription_compte.css">
     <link rel="stylesheet" href="../css/navbare.css">
 
 </head>
@@ -52,25 +52,89 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
 
     <?php include('navbare.php') ?>
 
-    <section class="section3">
-        <h2>Inscription</h2>
-        <div class="box">
-            <div>
-                <a href="/compte_entreprise.php">
-                    <button>Compte d'Entreprise</button>
-                    <img src="/image/entreprise.jpg" alt="">
-                </a>
+    <section class="signup-section">
+        <h1>Créez votre compte</h1>
+        <p class="signup-description">
+            Rejoignez notre plateforme en créant un compte adapté à vos besoins. Choisissez le type de compte qui
+            correspond à votre profil pour accéder à des fonctionnalités personnalisées.
+        </p>
+
+        <div class="account-options">
+            <!-- Carte pour le compte entreprise -->
+            <div class="account-card enterprise">
+                <span class="account-badge enterprise-badge">Entreprise</span>
+                <div class="account-image">
+                    <img src="/image/entreprise.jpg" alt="Compte d'entreprise">
+                </div>
+                <div class="account-info">
+                    <h2 class="account-title">Compte Entreprise</h2>
+                    <p class="account-description">
+                        Créez un compte entreprise pour publier des offres d'emploi, rechercher des candidats qualifiés
+                        et gérer vos recrutements efficacement.
+                    </p>
+                    <div class="account-features">
+                        <div class="feature-item">
+                            <i class="fas fa-building"></i>
+                            <span>Profil d'entreprise personnalisé</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Publication d'offres illimitées</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Accès à notre base de talents</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Statistiques de recrutement</span>
+                        </div>
+                    </div>
+                    <a href="/compte_entreprise.php" class="account-button">Créer un compte</a>
+                </div>
             </div>
 
-            <div>
-                <a href="/compte_travailleur.php">
-                    <button> Compte Professionnel</button>
-                    <img src="/image/travail.png" alt="">
-                </a>
+            <!-- Carte pour le compte professionnel -->
+            <div class="account-card">
+                <span class="account-badge">Professionnel</span>
+                <span class="new-tag">Gratuit</span>
+                <div class="account-image">
+                    <img src="/image/travail.png" alt="Compte professionnel">
+                </div>
+                <div class="account-info">
+                    <h2 class="account-title">Compte Professionnel</h2>
+                    <p class="account-description">
+                        Créez votre profil professionnel pour postuler aux offres d'emploi, mettre en valeur vos
+                        compétences et développer votre carrière.
+                    </p>
+                    <div class="account-features">
+                        <div class="feature-item">
+                            <i class="fas fa-id-card"></i>
+                            <span>CV en ligne personnalisable</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-search"></i>
+                            <span>Recherche d'emploi avancée</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Alertes emploi personnalisées</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Suivi de candidatures</span>
+                        </div>
+                    </div>
+                    <a href="/compte_travailleur.php" class="account-button">Créer un compte</a>
+                </div>
             </div>
         </div>
-    </section>
 
+        <p class="signup-description" style="margin-top: 40px;">
+            Vous avez déjà un compte ? <a href="/connection_compte.php"
+                style="color: var(--primary-color); font-weight: 600;">Connectez-vous ici</a>
+        </p>
+    </section>
 
 </body>
 

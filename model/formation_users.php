@@ -38,6 +38,22 @@ function insertFormation($db, $users_id, $moisDebut, $anneeDebut, $moisFin, $ann
     return $stmt->execute();
 }
 
+function updateFormation($db, $id, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $Filiere, $etablissement, $niveau, $encours)
+{
+    $sql = "UPDATE formation_users SET moisDebut = :moisDebut, anneeDebut = :anneeDebut, moisFin = :moisFin, anneeFin = :anneeFin, Filiere = :Filiere, etablissement = :etablissement, niveau = :niveau, en_cours = :en_cours WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':moisDebut', $moisDebut);
+    $stmt->bindParam(':anneeDebut', $anneeDebut);
+    $stmt->bindParam(':moisFin', $moisFin);
+    $stmt->bindParam(':anneeFin', $anneeFin);
+    $stmt->bindParam(':Filiere', $Filiere);
+    $stmt->bindParam(':etablissement', $etablissement);
+    $stmt->bindParam(':niveau', $niveau);
+    $stmt->bindParam(':en_cours', $encours);
+    return $stmt->execute();
+}
+
 /**
  * Summary of getFormation
  * @param mixed $db

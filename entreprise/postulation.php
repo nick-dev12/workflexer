@@ -41,7 +41,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>Postulation</title>
+    <title>Gestion des candidatures | WorkFlexer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -49,9 +49,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
     <script src="../script/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
     <link rel="stylesheet" href="../css/navbare.css">
-    <link rel="stylesheet" href="../css/candidature.css">
-    <link rel="stylesheet" href="/css/owl.carousel.css">
-    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/postulation.css">
 </head>
 
 <body>
@@ -69,8 +67,6 @@ include_once('../controller/controller_niveau_etude_experience.php');
 
 
     <section class="section3">
-
-
         <?php if (isset($_SESSION['success_message'])): ?>
             <div class="message">
                 <p>
@@ -89,271 +85,111 @@ include_once('../controller/controller_niveau_etude_experience.php');
             <?php endif; ?>
         <?php endif; ?>
 
-        <script>
-            let success = document.querySelector('.message')
+        <div class="postulation">
+            <h1>Gestion des candidatures</h1>
+
+            <div class="postes-container">
+                <?php foreach ($OffresEmplois as $poste): ?>
+                    <?php
+                    $getALLpostulation = getALLPostulation($db, $_SESSION['compte_entreprise'], $poste['poste']);
+                    $countAllposte = count($getALLpostulation);
+
+                    // Compter les candidats non traités
+                    $untreatedCount = 0;
+                    foreach ($getALLpostulation as $postulant) {
+                        if (empty($postulant['statut'])) {
+                            $untreatedCount++;
+                        }
+                    }
+                    ?>
+                    <div class="poste-card">
+                        <div class="poste-info">
+                            <h3 class="poste-title"><?= htmlspecialchars($poste['poste']) ?></h3>
+                            <div class="poste-stats">
+                                <div class="stat">
+                                    <span class="stat-value"><?= $countAllposte ?></span>
+                                    <span class="stat-label">Total</span>
+                                </div>
+                                <?php if ($untreatedCount > 0): ?>
+                                    <div class="stat new">
+                                        <span class="stat-value"><?= $untreatedCount ?></span>
+                                        <span class="stat-label">Nouveaux</span>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="poste-actions">
+                            <a href="candidatures_poste.php?poste=<?= urlencode($poste['poste']) ?> & poste_id=<?= urlencode($poste['offre_id']) ?>"
+                                class="view-btn">
+                                <i class="fas fa-eye"></i>
+                                <span>Voir les candidatures</span>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+                <?php if (empty($OffresEmplois)): ?>
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Aucun poste disponible</h3>
+                        <p>Vous n'avez pas encore créé d'offres d'emploi.</p>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <!-- Bouton pour remonter en haut de la page -->
+        <div class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        // Gestion des messages
+        let success = document.querySelector('.message');
+        let messageErreur = document.getElementById('messageErreur');
+
+        if (success) {
             setTimeout(() => {
                 success.classList.add('visible');
             }, 200);
             setTimeout(() => {
                 success.classList.remove('visible');
             }, 6000);
+        }
 
-            // Sélectionnez l'élément contenant le message d'erreur
-            var messageErreur = document.getElementById('messageErreur');
-
-            // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function () {
+        if (messageErreur) {
+            setTimeout(() => {
                 messageErreur.classList.add('visible');
-            }, 200); // 1000 millisecondes équivalent à 1 seconde
-
-            // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function () {
+            }, 200);
+            setTimeout(() => {
                 messageErreur.classList.remove('visible');
-            }, 6000); // 6000 millisecondes équivalent à 6 secondes
-        </script>
+            }, 6000);
+        }
 
-        <div class="postulation">
-            <h1>Candidats</h1>
-            <?php foreach ($OffresEmplois as $poste): ?>
-                <?php
-                $getALLpostulation = getALLPostulation($db, $_SESSION['compte_entreprise'], $poste['poste']);
-                $countAllposte = count($getALLpostulation);
-                ?>
-                <ul>
-                    <li class="li"><strong>Poste :</strong> <?= $poste['poste'] ?> <span><?= $countAllposte ?></span> <img
-                            src="../image/droit.png" alt=""></li>
-                </ul>
+        // Bouton pour remonter en haut de la page
+        const backToTopButton = document.querySelector('.back-to-top');
 
-                <div class="div-section2">
-
-                    <img class="fermer" src="../image/croix.png" alt="" id="img">
-                    <!-- <div class="box22">
-                        <span class="owl-prev"><i class="fa-solid fa-chevron-left"></i></span>
-                        <span class="owl-next"><i class="fa-solid fa-chevron-right"></i></span>
-                    </div> -->
-                    <div class="container owl-carousel teste">
-                        <?php if (empty($getALLpostulation)): ?>
-                            <p class="info">
-                                <strong>Info!</strong> Aucune candidatures trouvées pour ce poste.
-                            </p>
-                        <?php else: ?>
-                            <?php foreach ($getALLpostulation as $postulant): ?>
-                                <?php
-                                $niveau = gettNiveau($db, $postulant['users_id']);
-                                $explode_nom = explode(' ', $postulant['nom']);
-                                $nom = $explode_nom[0] . ' , ' . $explode_nom[1];
-                                $competencesUsers = getCompetences($db, $postulant['users_id']);
-                                $nombreCompetencesAffichees = 2;
-                                ?>
-                                <?php if ($postulant['statut'] == 'accepter'): ?>
-                                <?php else: ?>
-                                    <?php if ($postulant['statut'] == 'recaler'): ?>
-
-                                    <?php else: ?>
-
-                                        <?php if (empty($postulant['statut'] == '')): ?>
-
-                                            <h6>accune candidatures a traitées pour le moment!</h6>
-
-                                        <?php else: ?>
-                                            <div class="items">
-                                                <?php if ($postulant['statut'] == 'accepter'): ?>
-                                                    <h5 class="h51">accepter</h5>
-                                                <?php else: ?>
-                                                    <?php if ($postulant['statut'] == 'recaler'): ?>
-                                                        <h5 class="h52">recaler</h5>
-                                                    <?php else: ?>
-                                                        <h5 class="h53">non traitée</h5>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
-
-                                                <img src="../upload/<?= $postulant['images'] ?>" alt="">
-
-                                                <h5> <?= substr($postulant['competences'], 0, 25) . '...' ?></h5>
-                                                <ul>
-                                                    <li>
-                                                        <strong>Nom : </strong> <?= $nom ?>
-                                                    </li>
-                                                    <li>
-                                                        <strong>Tell : </strong> <?= $postulant['phone'] ?>
-                                                    </li>
-                                                    <?php if ($niveau): ?>
-                                                        <li>
-                                                            <strong>Niveau : </strong> <?= $niveau['etude'] ?>
-                                                        </li>
-                                                        <li>
-                                                            <strong>expérience : </strong> <?= $niveau['experience'] ?>
-                                                        </li>
-                                                    <?php else: ?>
-                                                        <li>
-                                                            <strong>Niveau : </strong> Non renseigner
-                                                        </li>
-                                                        <li>
-                                                            <strong>expérience : </strong> Non renseigner
-                                                        </li>
-                                                    <?php endif; ?>
-
-                                                </ul>
-
-                                                <div class="container-box_btn">
-                                                    <button class="btn1"><img src="../image/vue2.png" alt=""> <a
-                                                            href="../page/candidats.php?id=<?= $postulant['users_id'] ?>">Voir le
-                                                            profil</a></button>
-                                                    <div class="box-btn">
-
-
-                                                        <a class="btn2"
-                                                            href="?accepter=<?= $postulant['poste_id'] ?>&offrees_id=<?= $postulant['offre_id'] ?> ">
-                                                            Accepter</a>
-
-
-                                                        <a class="btn3"
-                                                            href="?recaler=<?= $postulant['poste_id'] ?>&offrees_id=<?= $postulant['offre_id'] ?>">Recaler</a>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        <?php endif; ?>
-
-                                    <?php endif; ?>
-
-                                <?php endif; ?>
-
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-
-
-
-
-            <script>
-                let poste = document.querySelectorAll('.li')
-                let profil = document.querySelectorAll('.div-section2')
-                let fermer = document.querySelectorAll('.fermer')
-
-                poste.forEach((post, index) => {
-                    post.addEventListener('click', () => {
-                        profil[index].style.display = 'block';
-                    });
-                });
-
-                fermer.forEach((ferme, index) => {
-                    ferme.addEventListener('click', () => {
-                        profil[index].style.display = 'none';
-                    });
-                });
-            </script>
-        </div>
-
-
-
-    </section>
-
-
-
-
-
-
-
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
-    <script>
-        $(document).ready(function () {
-
-            $('.container_slider').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 1,
-                smartSpeed: 1000,
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-
-
-        });
-
-
-
-
-
-        $(document).ready(function () {
-
-            // Sélectionnez la section avec la classe "temoin"
-
-            var owlSlider = document.querySelector('.teste');
-
-            // Vérifiez si la section existe
-            if (owlSlider) {
-                // Obtenez la liste des éléments enfants de la section
-                var enfantSection = owlSlider.children;
-
-                // Vérifiez la condition du nombre d'éléments enfants
-                if (enfantSection.length > 2) {
-                    // Code à exécuter si le nombre d'éléments enfants est supérieur à 3
-                    $('.teste').addClass('owl-carousel').owlCarousel({
-                        items: 3,
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 6000,
-                        animateOut: 'slideOutDown',
-                        animateIn: 'flipInX',
-                        stagePadding: 10,
-                        smartSpeed: 450,
-                        margin: 100,
-                        nav: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-
-                            },
-                            610: {
-                                items: 2,
-
-                            },
-                            1200: {
-                                items: 3
-                            },
-                            1400: {
-                                items: 3
-                            }
-                        }
-                    });
-
-                    // Code pour gérer la navigation du carousel
-                    var carousel1 = $('.teste').owlCarousel();
-                    $('.owl-next').click(function () {
-                        carousel1.trigger('next.owl.carousel');
-                    })
-                    $('.owl-prev').click(function () {
-                        carousel1.trigger('prev.owl.carousel');
-                    });
-                } else {
-                    // Code à exécuter si le nombre d'éléments enfants est inférieur ou égal à 3
-                    console.log("Le nombre d'éléments enfants est inférieur ou égal à 3. Ne faites rien.");
-                }
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
             } else {
-                console.error("La section avec la classe 'temoin' n'a pas été trouvée.");
+                backToTopButton.classList.remove('visible');
             }
-
         });
 
-
-
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
+
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-include ('../conn/conn.php');
+include('../conn/conn.php');
 
 
 /**
@@ -18,7 +18,7 @@ include ('../conn/conn.php');
  * @param mixed $categorie
  * @return mixed
  */
-function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images ,$categorie)
+function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images, $categorie)
 {
     $sql = "INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,images,categorie) 
     VALUES (:entreprise_id,:poste,:offre_id,:users_id,:nom,:mail,:phone,:competences,:profession,:images,:categorie)";
@@ -64,7 +64,7 @@ function getPostulation($db, $users_id, $offre_id)
  * @param mixed $entreprise_id
  * @return mixed
  */
-function getALLPostulation($db, $entreprise_id , $poste)
+function getALLPostulation($db, $entreprise_id, $poste)
 {
     $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id AND poste=:poste AND statut = ''  ORDER BY date DESC";
     $stmt = $db->prepare($sql);
@@ -81,10 +81,10 @@ function getALLPostulation_users($db, $entreprise_id, $users_id)
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
     $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getALLPostulations($db, $entreprise_id )
+function getALLPostulations($db, $entreprise_id)
 {
     $sql = "SELECT * FROM postulation WHERE entreprise_id=:entreprise_id ORDER BY date DESC";
     $stmt = $db->prepare($sql);
@@ -93,7 +93,7 @@ function getALLPostulations($db, $entreprise_id )
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getALLcategorie($db )
+function getALLcategorie($db)
 {
     $sql = "SELECT * FROM categorie ";
     $stmt = $db->prepare($sql);
@@ -166,19 +166,42 @@ function getPostulation_categorie($db, $entreprise_id, $categorie)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function notification_postulation($db,$entreprise_id,$users_id) {
+function notification_postulation($db, $entreprise_id, $users_id)
+{
     $sql = "INSERT INTO notification_postulation (entreprise_id,users_id)
     VALUES (:entreprise_id,:users_id)";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":entreprise_id", $entreprise_id, );
-        $stmt->bindParam(":users_id", $users_id, );
-        $stmt->execute();
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":entreprise_id", $entreprise_id, );
+    $stmt->bindParam(":users_id", $users_id, );
+    $stmt->execute();
 }
 
 
-function delete_notif_suiviAccepter($db,$users_id) {
+function delete_notif_suiviAccepter($db, $users_id)
+{
     $sql = "DELETE from notification_suivi WHERE users_id = :users_id  AND statut = 'accepter' ";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":users_id", $users_id, );
-        $stmt->execute();
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":users_id", $users_id, );
+    $stmt->execute();
+}
+
+
+function getPostulationRejeterEntreprise($db, $offre_id, $entreprise_id)
+{
+    $sql = "SELECT * FROM postulation WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id AND statut = 'recaler' ";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_STR);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getPostulationAccepterEntreprise($db, $offre_id, $entreprise_id)
+{
+    $sql = "SELECT * FROM postulation WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id AND statut = 'accepter' ";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_STR);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
