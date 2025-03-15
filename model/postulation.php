@@ -18,10 +18,10 @@ include('../conn/conn.php');
  * @param mixed $categorie
  * @return mixed
  */
-function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $images, $categorie)
+function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $statut, $images, $categorie)
 {
-    $sql = "INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,images,categorie) 
-    VALUES (:entreprise_id,:poste,:offre_id,:users_id,:nom,:mail,:phone,:competences,:profession,:images,:categorie)";
+    $sql = "INSERT INTO postulation (entreprise_id,poste,offre_id,users_id,nom,mail,phone,competences,profession,statut,images,categorie) 
+    VALUES (:entreprise_id,:poste,:offre_id,:users_id,:nom,:mail,:phone,:competences,:profession,:statut,:images,:categorie)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':entreprise_id', $entreprise_id);
     $stmt->bindParam(':poste', $poste);
@@ -32,6 +32,7 @@ function postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom
     $stmt->bindParam(':phone', $phone);
     $stmt->bindParam(':competences', $competences);
     $stmt->bindParam(':profession', $profession);
+    $stmt->bindParam(':statut', $statut);
     $stmt->bindParam(':images', $images);
     $stmt->bindParam(':categorie', $categorie);
     return $stmt->execute();

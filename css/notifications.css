@@ -1,0 +1,127 @@
+/* Conteneur principal des notifications */
+.notifications-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  width: calc(100% - 40px);
+}
+
+/* Style de base pour les notifications */
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: white;
+  margin-bottom: 10px;
+  animation: slideIn 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animation d'entrée */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation de sortie */
+.notification-hiding {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Icône de la notification */
+.notification-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenu de la notification */
+.notification-content {
+  flex-grow: 1;
+  margin-right: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Bouton de fermeture */
+.notification-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  color: inherit;
+}
+
+.notification-close:hover {
+  opacity: 1;
+}
+
+/* Styles spécifiques pour les types de notifications */
+.notification.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border-left: 4px solid #059669;
+}
+
+.notification.success .notification-icon i {
+  color: #059669;
+}
+
+.notification.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border-left: 4px solid #dc2626;
+}
+
+.notification.error .notification-icon i {
+  color: #dc2626;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .notifications-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+
+  .notification {
+    padding: 12px;
+  }
+
+  .notification-content {
+    font-size: 13px;
+  }
+}

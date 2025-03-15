@@ -37,14 +37,15 @@ include_once('app/controller/controllerEntreprise.php');
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
     <link rel="stylesheet" href="../css/modifier_users.css">
     <link rel="stylesheet" href="../css/navbare.css">
+    <link rel="stylesheet" href="../css/notifications.css">
 </head>
 
 <body>
@@ -58,49 +59,10 @@ include_once('app/controller/controllerEntreprise.php');
 
 
     <?php include('../include/header_entreprise.php') ?>
+    <?php include('../include/notifications.php') ?>
 
     <section class="section3">
 
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="message">
-                <p>
-                    <span></span>
-                    <?php echo $_SESSION['success_message']; ?>
-                    <?php unset($_SESSION['success_message']); ?>
-                </p>
-            </div>
-        <?php else: ?>
-            <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="erreurs" id="messageErreur">
-                    <span></span>
-                    <?php echo $_SESSION['error_message']; ?>
-                    <?php unset($_SESSION['error_message']); ?>
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
-
-        <script>
-            let success = document.querySelector('.message')
-            setTimeout(() => {
-                success.classList.add('visible');
-            }, 200);
-            setTimeout(() => {
-                success.classList.remove('visible');
-            }, 6000);
-
-            // Sélectionnez l'élément contenant le message d'erreur
-            var messageErreur = document.getElementById('messageErreur');
-
-            // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.add('visible');
-            }, 200); // 1000 millisecondes équivalent à 1 seconde
-
-            // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.remove('visible');
-            }, 6000); // 6000 millisecondes équivalent à 6 secondes
-        </script>
 
         <section class="section">
 

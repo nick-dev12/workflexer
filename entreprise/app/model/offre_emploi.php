@@ -55,11 +55,11 @@ function updatOffre($db, $poste, $mission, $profil, $contrat, $etudes, $experien
     return $stmt->execute();
 }
 
-function post_suprime_offre($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)
+function post_suprime_offre($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $statut, $categorie, $date)
 {
 
-    $sql = "INSERT INTO offre_suprimer (entreprise_id,poste,mission,profil,contrat,etudes,experience,n_etudes,n_experience,localite,langues, places, date_expiration,categorie,date)
-    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:n_etudes,:n_experience,:localite,:langues, :places, :date_expiration,:categorie,:date)";
+    $sql = "INSERT INTO offre_suprimer (entreprise_id,poste,mission,profil,contrat,etudes,experience,n_etudes,n_experience,localite,langues, places, date_expiration,statut,categorie,date)
+    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:n_etudes,:n_experience,:localite,:langues, :places, :date_expiration,:statut,:categorie,:date)";
     $stmt = $db->prepare($sql);
     // Bind de chaque paramètre
     $stmt->bindParam(':entreprise_id', $entreprise_id);
@@ -75,11 +75,43 @@ function post_suprime_offre($db, $entreprise_id, $poste, $mission, $profil, $con
     $stmt->bindParam(':langues', $langues);
     $stmt->bindParam(':places', $places);
     $stmt->bindParam(':date_expiration', $date_expiration);
+    $stmt->bindParam(':statut', $statut);
     $stmt->bindParam(':categorie', $categorie);
     $stmt->bindParam(':date', $date);
     return $stmt->execute();
 }
 
+
+
+function post_vue_offre($db, $users_id, $offres_id, $entreprise_id)
+{
+    $sql = "INSERT INTO vue_des_offres(id_users, id_offre, id_entreprise) VALUES(:id_users, :id_offre, :id_entreprise)";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':id_users', $users_id);
+    $stmt->bindValue(':id_offre', $offres_id);
+    $stmt->bindValue(':id_entreprise', $entreprise_id);
+    return $stmt->execute();
+}
+
+function get_vue_offre_users($db, $users_id, $offres_id)
+{
+    $sql = "SELECT * FROM vue_des_offres WHERE id_users = :id_users AND id_offre = :id_offre";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':id_users', $users_id);
+    $stmt->bindValue(':id_offre', $offres_id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function get_vue_offre_entreprise($db, $entreprise_id, $offres_id)
+{
+    $sql = "SELECT * FROM vue_des_offres WHERE id_entreprise = :id_entreprise AND id_offre = :id_offre";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':id_entreprise', $entreprise_id);
+    $stmt->bindValue(':id_offre', $offres_id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 // function getTotalOffres($db){
 //     $sql = " SELECT * FROM offre_emploi WHERE";
@@ -183,6 +215,17 @@ function getOffresEmploit($db, $offre_id)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+
+function updateOffreEmploit($db, $statut, $date_expiration, $offre_id)
+{
+    $sql = "UPDATE offre_emploi SET statut = :statut, date_expiration = :date_expiration WHERE offre_id = :offre_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
+    $stmt->bindValue(':statut', $statut, PDO::PARAM_STR);
+    $stmt->bindValue(':date_expiration', $date_expiration, PDO::PARAM_STR);
+    return $stmt->execute();
+}
+
 function getOffresEmploitId($db)
 {
     $sql = "SELECT * FROM offre_emploi WHERE offre_id=24";
@@ -261,6 +304,44 @@ function get_categorieOffre($db, $entreprise_id)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function countOffreExpirees($db, $entreprise_id)
+{
+    $sql = " SELECT COUNT(*) FROM offre_emploi WHERE entreprise_id = :entreprise_id AND statut = 'expirée'";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+function getOffreExpiree($db, $entreprise_id, $categorie)
+{
+    $sql = " SELECT * FROM offre_emploi WHERE entreprise_id = :entreprise_id AND statut = 'expirée' AND categorie = :categorie";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function getOffre_categorie($db, $categorie, $entreprise_id)
+{
+    $sql = " SELECT * FROM offre_emploi WHERE categorie = :categorie AND entreprise_id = :entreprise_id AND (statut = 'publier' OR statut = '')";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getALLcategorieEntreprise($db, $entreprise_id)
+{
+    $sql = " SELECT * FROM categorie WHERE entreprise_id = :entreprise_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 function get_poste($db, $entreprise_id, $categorie)
 {
     $sql = " SELECT * FROM offre_emploi WHERE entreprise_id = :entreprise_id AND categorie = :categorie";
@@ -273,7 +354,7 @@ function get_poste($db, $entreprise_id, $categorie)
 
 function restoreOffre($db, $offre_id, $entreprise_id, $new_date_expiration)
 {
-    $sql = "UPDATE offre_emploi SET statut = 'publiee' , date_expiration = :date_expiration WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id";
+    $sql = "UPDATE offre_emploi SET statut = 'publier' , date_expiration = :date_expiration WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
@@ -284,7 +365,7 @@ function restoreOffre($db, $offre_id, $entreprise_id, $new_date_expiration)
 
 function restorerOffre($db, $offre_id, $entreprise_id, $new_date_expiration)
 {
-    $sql = "UPDATE offre_suprimer SET statut = 'publiee' , date_expiration = :date_expiration WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id";
+    $sql = "UPDATE offre_suprimer SET statut = 'publier' , date_expiration = :date_expiration WHERE offre_id = :offre_id AND entreprise_id = :entreprise_id";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
@@ -320,4 +401,52 @@ function getDetails_emploi3($db, $offre_id)
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+/**
+ * Fonction pour restaurer une offre supprimée dans la table des offres actives
+ * @param mixed $db
+ * @param mixed $entreprise_id
+ * @param mixed $poste
+ * @param mixed $mission
+ * @param mixed $profil
+ * @param mixed $contrat
+ * @param mixed $etudes
+ * @param mixed $experience
+ * @param mixed $n_etudes
+ * @param mixed $n_experience
+ * @param mixed $localite
+ * @param mixed $langues
+ * @param mixed $places
+ * @param mixed $date_expiration
+ * @param mixed $categorie
+ * @param mixed $date
+ * @param mixed $ville
+ * @param mixed $images
+ * @return mixed
+ */
+function post_offre($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date, $ville, $images)
+{
+    $sql = "INSERT INTO offre_emploi (entreprise_id, poste, mission, profil, contrat, etudes, experience, n_etudes, n_experience, localite, langues, places, date_expiration, categorie, date, ville, images)
+    VALUES (:entreprise_id, :poste, :mission, :profil, :contrat, :etudes, :experience, :n_etudes, :n_experience, :localite, :langues, :places, :date_expiration, :categorie, :date, :ville, :images)";
+    $stmt = $db->prepare($sql);
+    // Bind de chaque paramètre
+    $stmt->bindParam(':entreprise_id', $entreprise_id);
+    $stmt->bindParam(':poste', $poste);
+    $stmt->bindParam(':mission', $mission);
+    $stmt->bindParam(':profil', $profil);
+    $stmt->bindParam(':contrat', $contrat);
+    $stmt->bindParam(':etudes', $etudes);
+    $stmt->bindParam(':experience', $experience);
+    $stmt->bindParam(':n_etudes', $n_etudes);
+    $stmt->bindParam(':n_experience', $n_experience);
+    $stmt->bindParam(':localite', $localite);
+    $stmt->bindParam(':langues', $langues);
+    $stmt->bindParam(':places', $places);
+    $stmt->bindParam(':date_expiration', $date_expiration);
+    $stmt->bindParam(':categorie', $categorie);
+    $stmt->bindParam(':date', $date);
+    $stmt->bindParam(':ville', $ville);
+    $stmt->bindParam(':images', $images);
+    return $stmt->execute();
 }

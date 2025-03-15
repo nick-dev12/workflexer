@@ -2,9 +2,11 @@
 session_start();
 include('../conn/conn.php');
 
-include_once('app/controller/controllerEntreprise.php');
-include_once('app/controller/controllerDescription.php');
-include_once('app/controller/controllerOffre_emploi.php');
+include('app/controller/controllerEntreprise.php');
+include('app/controller/controllerDescription.php');
+include('app/controller/controllerOffre_emploi.php');
+
+$afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_entreprise']);
 ?>
 
 
@@ -43,15 +45,33 @@ include_once('app/controller/controllerOffre_emploi.php');
         <?= $getEntreprise['entreprise']; ?>
     </title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-    <script src="../script/jquery-3.6.0.min.js"></script>
+    <!-- Charger une seule version de jQuery (version complète) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Summernote CSS et JS (version plus récente) -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="/css/owl.carousel.css">
-    <link rel="stylesheet" href="/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/css/entreprise_profil.css">
+
+    <!-- Owl Carousel CSS avec chemins corrects -->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="../css/entreprise_profil.css">
+    <link rel="stylesheet" href="../css/statistiques.css">
     <link rel="stylesheet" href="../css/navbare.css">
-    <script src="../js/html5Qrcode.js"></script>
+    <link rel="stylesheet" href="../css/notifications.css">
+    <!-- Utiliser la bibliothèque HTML5-QRCode depuis CDN au lieu du fichier local -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/dist/html5-qrcode.min.js"></script>
+
+    <!-- Chart.js pour les graphiques -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Script pour les fonctionnalités avancées des statistiques -->
+    <script defer src="../js/statistiques.js"></script>
+    <!-- Bibliothèques pour l'exportation des données -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 
 <body>
@@ -65,10 +85,12 @@ include_once('app/controller/controllerOffre_emploi.php');
 
 
     <?php include('../include/header_entreprise.php') ?>
+    <?php include('../include/notifications.php') ?>
+
 
     <section class="section3">
 
-        <div class="section2-div ">
+        <!-- <div class="section2-div ">
             <div class="slider1 owl-carousel">
 
                 <img src="../image/cc1.webp" alt="">
@@ -95,48 +117,93 @@ include_once('app/controller/controllerOffre_emploi.php');
                 </p>
 
             </div>
-        </div>
+        </div> -->
 
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="message">
-                <p>
-                    <span></span>
-                    <?php echo $_SESSION['success_message']; ?>
-                    <?php unset($_SESSION['success_message']); ?>
-                </p>
-            </div>
-        <?php else: ?>
-            <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="erreurs" id="messageErreur">
-                    <span></span>
-                    <?php echo $_SESSION['error_message']; ?>
-                    <?php unset($_SESSION['error_message']); ?>
+
+
+        <!-- Section des statistiques -->
+        <?php
+        // Inclure le fichier des fonctions de statistiques
+        include_once('app/model/statistiques.php');
+
+        // Récupérer toutes les statistiques
+        $stats = getAllStatistiques($db, $_SESSION['compte_entreprise']);
+
+        // Calculer le taux d'acceptation
+        $tauxAcceptation = 0;
+        if ($stats['candidatures_total'] > 0) {
+            $tauxAcceptation = round(($stats['candidats_acceptes'] / $stats['candidatures_total']) * 100);
+        }
+
+        // Calculer le taux de refus
+        $tauxRefus = 0;
+        if ($stats['candidatures_total'] > 0) {
+            $tauxRefus = round(($stats['candidats_refuses'] / $stats['candidatures_total']) * 100);
+        }
+        ?>
+
+        <div class="stats-section stats-summary">
+            <div class="stats-section-header">
+                <h2>Aperçu des statistiques</h2>
+                <div class="stats-actions">
+                    <a href="donnee_statistique.php" class="btn-view-stats">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Voir les statistiques détaillées</span>
+                    </a>
                 </div>
-            <?php endif; ?>
-        <?php endif; ?>
+            </div>
 
-        <script>
-            let success = document.querySelector('.message')
-            setTimeout(() => {
-                success.classList.add('visible');
-            }, 200);
-            setTimeout(() => {
-                success.classList.remove('visible');
-            }, 6000);
+            <div class="stats-cards">
+                <div class="stats-card">
+                    <div class="box-card">
+                        <div class="stats-card-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stats-card-title">Offres publiées</div>
+                    </div>
+                    <div class="stats-card-value"><?= $stats['offres_publiees'] ?></div>
+                </div>
 
-            // Sélectionnez l'élément contenant le message d'erreur
-            var messageErreur = document.getElementById('messageErreur');
+                <div class="stats-card success">
+                    <div class="box-card">
+                        <div class="stats-card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stats-card-title">Candidatures reçues</div>
+                    </div>
+                    <div class="stats-card-value"><?= $stats['candidatures_total'] ?></div>
+                </div>
 
-            // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.add('visible');
-            }, 200); // 1000 millisecondes équivalent à 1 seconde
+                <div class="stats-card info">
+                    <div class="box-card">
+                        <div class="stats-card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stats-card-title">Vues des offres</div>
+                    </div>
+                    <div class="stats-card-value"><?= $stats['vues_total'] ?></div>
+                </div>
 
-            // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.remove('visible');
-            }, 6000); // 6000 millisecondes équivalent à 6 secondes
-        </script>
+                <div class="stats-card success">
+                    <div class="box-card">
+                        <div class="stats-card-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stats-card-title">Candidats acceptés</div>
+                    </div>
+                    <div class="stats-card-value"><?= $stats['candidats_acceptes'] ?></div>
+                    <div class="stats-card-trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span><?= $tauxAcceptation ?>% de taux d'acceptation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-footer">
+                <p>Pour accéder à toutes les statistiques et analyses détaillées, cliquez sur le bouton "Voir les
+                    statistiques détaillées".</p>
+            </div>
+        </div>
 
         <!-- Afficher le QR code -->
         <div class="qr-code">
@@ -211,8 +278,7 @@ include_once('app/controller/controllerOffre_emploi.php');
                     <form method="post" action="">
                         <div>
                             <textarea name="descriptions" id="summernote" cols="30" rows="10">
-                                                                                                                                                                                            <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>
-                                                                                                                                                                                        </textarea>
+                                                                        <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </textarea>
                         </div>
                         <div class="div">
                             <label for="site">Avez vous un site web ?(facultatif*)</label>
@@ -255,7 +321,9 @@ include_once('app/controller/controllerOffre_emploi.php');
             </script>
         </div>
 
-        <div class="container_box1">
+
+        <!-- Publication d'une offre -->
+        <div class="container_box1 publication-offre">
             <div class="box1">
                 <h1>Publier une offre!!</h1>
             </div>
@@ -390,79 +458,117 @@ include_once('app/controller/controllerOffre_emploi.php');
             </script>
         </div>
 
-
+        <!-- Mes offres publiées -->
         <div class="container_box2">
             <div class="box1">
-                <h1>Mes offres</h1>
+                <h1>Catégories d'offres</h1>
                 <span>
-                    <?php $countOffre = count($afficheOffreEmplois);
-                    echo $countOffre
-                        ?>
+                    <?php
+                    $countOffre = count($afficheOffreEmplois);
+                    echo $countOffre;
+
+                    // Récupérer les catégories uniques
+                    $categories = [];
+                    foreach ($afficheOffreEmplois as $offre) {
+                        if (!empty($offre['categorie']) && !in_array($offre['categorie'], $categories)) {
+                            $categories[] = $offre['categorie'];
+                        }
+                    }
+                    ?>
                 </span>
             </div>
 
-            <div class="box2">
+            <div class="categories-grid">
                 <?php
-                if (empty($afficheOffreEmplois)):
+                if (empty($afficheCategorie_entreprise)):
                     ?>
-                    <p class="info"><strong>Info!</strong> Aucune offre d'emploi publiée ! veuillez ajouter une offre</p>
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <h3>Aucune catégorie</h3>
+                        <p>Vous n'avez pas encore publié d'offres d'emploi. Veuillez ajouter une offre pour créer des
+                            catégories.</p>
+                    </div>
                 <?php else: ?>
+                    <?php foreach ($afficheCategorie_entreprise as $categorieentreprise):
+                        // Compter les offres dans cette catégorie
+                        $countOffreCategorie = 0;
+                        $offres_categorie = getOffre_categorie($db, $categorieentreprise['categori'], $_SESSION['compte_entreprise']);
+                        foreach ($offres_categorie as $offre) {
+                            if ($offre['categorie'] === $categorieentreprise['categori']) {
+                                $countOffreCategorie++;
+                            }
+                        }
 
-                    <?php
-                    foreach ($afficheOffreEmplois as $offres):
-                        ?>
-                        <?php if ($offres['statut'] === 'publiee' or $offres['statut'] === ''): ?>
-                            <?php $countOffre = countOffre($db, $offres['entreprise_id'], $offres['offre_id']); ?>
-                            <div class="carousel">
-                                <a class="suprimer" href="?offre_id=<?= $offres['offre_id']; ?>"> Supprimer</a>
-                                <div class="vue">
-                                    <img src="../image/vue.png" alt="">
-                                    <span>
-                                        <?= $countOffre ?>
-                                    </span>
+                        // Définir une icône par défaut ou selon la catégorie
+                        $categoryIcon = 'fa-briefcase'; // icône par défaut
+                        switch (strtolower($categorieentreprise['categori'])) {
+                            case 'informatique et tech':
+                                $categoryIcon = 'fa-laptop-code';
+                                break;
+                            case 'design et création':
+                                $categoryIcon = 'fa-palette';
+                                break;
+                            case 'rédaction et traduction':
+                                $categoryIcon = 'fa-language';
+                                break;
+                            case 'marketing et communication':
+                                $categoryIcon = 'fa-bullhorn';
+                                break;
+                            case 'conseil et gestion d\'entreprise':
+                                $categoryIcon = 'fa-chart-line';
+                                break;
+                            case 'juridique':
+                                $categoryIcon = 'fa-balance-scale';
+                                break;
+                            case 'ingénierie et architecture':
+                                $categoryIcon = 'fa-drafting-compass';
+                                break;
+                            case 'finance et comptabilité':
+                                $categoryIcon = 'fa-coins';
+                                break;
+                            case 'santé et bien-être':
+                                $categoryIcon = 'fa-heartbeat';
+                                break;
+                            case 'éducation et formation':
+                                $categoryIcon = 'fa-graduation-cap';
+                                break;
+                            case 'tourisme et hôtellerie':
+                                $categoryIcon = 'fa-hotel';
+                                break;
+                            case 'commerce et vente':
+                                $categoryIcon = 'fa-shopping-cart';
+                                break;
+                            case 'transport et logistique':
+                                $categoryIcon = 'fa-truck';
+                                break;
+                            case 'agriculture et agroalimentaire':
+                                $categoryIcon = 'fa-seedling';
+                                break;
+                        }
+
+                        if ($countOffreCategorie > 0):
+                            ?>
+                            <a href="../entreprise/offres_categorie.php?pageoffecategorie=<?= urlencode($categorieentreprise['categori']) ?>"
+                                class="category-card">
+                                <div class="category-icon">
+                                    <i class="fas <?= $categoryIcon ?>"></i>
                                 </div>
-
-                                <div class="boximg">
-                                    <img src="../upload/<?= $offres['images'] ?> " alt="">
-                                </div>
-
-
-                                <div class="box_vendu">
-
-                                    <p class="p"><strong>Nous recherchons un(une)</strong>
-                                        <?= $offres['poste'] ?>
-                                    </p>
-                                    <div class="vendu">
-                                        <p><strong>Niveau :</strong>
-                                            <?= $offres['etudes'] ?>
-                                        </p>
-                                        <p><strong>Experience :</strong>
-                                            <?= $offres['experience'] ?>
-                                        </p>
-                                        <p><strong>Contrat :</strong>
-                                            <?= $offres['contrat'] ?>
-                                        </p>
-                                        <p><strong>Localite :</strong>
-                                            <?= $offres['ville'] ?>
-                                        </p>
+                                <div class="category-info">
+                                    <h3><?= htmlspecialchars($categorieentreprise['categori']) ?></h3>
+                                    <div class="category-count">
+                                        <span class="count"><?= $countOffreCategorie ?></span>
+                                        <span class="label"><?= $countOffreCategorie > 1 ? 'offres' : 'offre' ?></span>
                                     </div>
                                 </div>
-
-                                <p id="nom">
-                                    <?= $offres['date'] ?>
-                                </p>
-
-                                <div class="liens">
-                                    <a class="liens" href="../entreprise/updat_offre.php?id=<?= $offres['offre_id'] ?>"><i
-                                            class="fa-solid fa-eye"></i></span>Voir l'offre</a>
+                                <div class="category-arrow">
+                                    <i class="fas fa-chevron-right"></i>
                                 </div>
-
-                            </div>
-
-                        <?php endif ?>
+                            </a>
+                        <?php endif; ?>
                     <?php endforeach; ?>
-                <?php endif ?>
-
+                <?php endif; ?>
             </div>
         </div>
 
@@ -494,10 +600,10 @@ include_once('app/controller/controllerOffre_emploi.php');
     </section>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/owl.carousel.js"></script>
+    <script src="../js/owl.animate.js"></script>
+    <script src="../js/owl.autoplay.js"></script>
 
 
 
@@ -578,7 +684,40 @@ include_once('app/controller/controllerOffre_emploi.php');
         });
     </script>
 
+    <!-- Script pour l'exportation des statistiques -->
+    <script src="../js/statistiques-export.js"></script>
 
+    <script>
+        // Ajouter les attributs data aux cartes de statistiques pour l'exportation
+        document.addEventListener('DOMContentLoaded', function () {
+            // Récupérer les cartes de statistiques
+            const statsCards = document.querySelectorAll('.stats-card');
+
+            // Ajouter les attributs data
+            statsCards.forEach(card => {
+                const title = card.querySelector('.stats-card-title').textContent.trim().toLowerCase();
+                const value = card.querySelector('.stats-card-value').textContent.trim();
+
+                // Déterminer le type de statistique
+                let type = '';
+                if (title.includes('offres publiées')) {
+                    type = 'offres_publiees';
+                } else if (title.includes('candidatures')) {
+                    type = 'candidatures_total';
+                } else if (title.includes('candidats acceptés')) {
+                    type = 'candidats_acceptes';
+                } else if (title.includes('vues')) {
+                    type = 'vues_total';
+                }
+
+                // Ajouter les attributs data
+                if (type) {
+                    card.setAttribute('data-type', type);
+                    card.setAttribute('data-value', value.replace(/\D/g, ''));
+                }
+            });
+        });
+    </script>
 
 </body>
 

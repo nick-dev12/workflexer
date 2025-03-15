@@ -185,15 +185,6 @@ function update00($db, $images, $users_id)
 
 
 
-function PostVueProfil($db, $id, $profil_id)
-{
-    $sql = "INSERT INTO vue_profil(id_users,profil_id) VALUES(:id_users,:profil_id)";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(':id_users', $id);
-    $stmt->bindParam(':profil_id', $profil_id);
-    return $stmt->execute();
-}
-
 function PostHistorique($db, $entreprise_id, $users_id)
 {
     $sql = "INSERT INTO historique(entreprise_id,users_id) VALUES(:entreprise_id,:users_id)";

@@ -2,6 +2,7 @@
 include(__DIR__ . '../../../../model/vue_offre.php');
 require_once(__DIR__ . '/../model/offre_emploi.php');
 include('controllerEntreprise.php');
+
 if (isset($_SESSION['compte_entreprise'])) {
     include('../controller/controller_users.php');
 
@@ -33,7 +34,7 @@ if (isset($_get['offres_id'])) {
     $offre_id = $_GET['offres_id'];
 }
 
-
+// Modifier une offre d'emploi
 if (isset($_POST['modifier'])) {
 
     $poste = $_POST['poste'];
@@ -137,67 +138,6 @@ if (isset($_GET['offres_id']) and isset($_GET['entreprise_id'])) {
 
 }
 
-if (isset($_SESSION['compte_entreprise'])) {
-    if (isset($_GET['offre_id'])) {
-
-        $offre_id = $_GET['offre_id'];
-
-        $get_info_offre = getOffres($db, $offre_id);
-
-
-        $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
-
-        $entreprise_id = $_SESSION['compte_entreprise'];
-
-        $poste = $get_info_offre['poste'];
-
-        $mission = $get_info_offre['mission'];
-
-        $profil = $get_info_offre['profil'];
-
-        $contrat = $get_info_offre['contrat'];
-
-        $etudes = $get_info_offre['etudes'];
-
-        $n_etudes = $get_info_offre['n_etudes'];
-
-        $experience = $get_info_offre['experience'];
-
-        $n_experience = $get_info_offre['n_experience'];
-
-        $localite = $get_info_offre['localite'];
-
-        $langues = $get_info_offre['langues'];
-
-        $places = $get_info_offre['places'];
-
-        $date_expiration = $get_info_offre['date_expiration'];
-
-        $categorie = $get_info_offre['categorie'];
-
-        $date = $get_info_offre['date'];
-
-
-
-        if (post_suprime_offre($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)) {
-
-        }
-        if (deleteOffresEmploit($db, $offre_id)) {
-            if (deletePostulation($db, $offre_id)) {
-                $sql = "DELETE FROM historique_users WHERE offre_id= :offre_id";
-                $stmt = $db->prepare($sql);
-                $stmt->bindValue(":offre_id", $offre_id, PDO::PARAM_STR);
-                $stmt->execute();
-                $_SESSION['success_message'] = 'Offre suprimé';
-                header('Location: ../entreprise/entreprise_profil.php');
-                exit();
-            }
-
-        }
-
-    }
-}
-
 
 $afficheAllOffre = getAllOffres($db);
 shuffle($afficheAllOffre);
@@ -232,8 +172,7 @@ if (isset($_GET['restorer'])) {
 
     $get_info_offre = getOffres_suprimer($db, $offre_id);
 
-
-    $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
+    $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $statut = $langues = '';
 
     $entreprise_id = $_SESSION['compte_entreprise'];
 
@@ -261,11 +200,13 @@ if (isset($_GET['restorer'])) {
 
     $date_expiration = $get_info_offre['date_expiration'];
 
+    $statut = 'publier';
+
     $categorie = $get_info_offre['categorie'];
 
     $date = $get_info_offre['date'];
 
-    if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)) {
+    if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $statut, $categorie, $date)) {
 
     }
 

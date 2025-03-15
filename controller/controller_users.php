@@ -30,57 +30,12 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
 }
 
 
-
-
-
 if (isset($_SESSION['users_id'])) {
     $users = infoUsers($db, $_SESSION['users_id']);
     $getVueProfil = GetVueProfil($db, $_SESSION['users_id']);
     $userss = infoUsers($db, $_SESSION['users_id']);
 }
 
-if (isset($_GET['id'])) {
-
-    $userss = infoUsers($db, $_GET['id']);
-
-    if (isset($_SESSION['users_id'])) {
-        // Préparer la requête SQL pour vérifier si l'e-mail est déjà utilisé
-        $query = $db->prepare("SELECT * FROM vue_profil WHERE id_users = :id_users AND profil_id=:profil_id");
-        $query->bindParam(':id_users', $_SESSION['users_id']);
-        $query->bindParam(':profil_id', $_GET['id']);
-        $query->execute();
-        if ($query->rowCount() > 0) {
-
-        } else {
-            if (PostVueProfil($db, $_SESSION['users_id'], $_GET['id'])) {
-
-            }
-        }
-    }
-
-    if (isset($_SESSION['compte_entreprise'])) {
-
-
-        // Préparer la requête SQL pour vérifier si l'e-mail est déjà utilisé
-        $query = $db->prepare("SELECT * FROM vue_profil WHERE id_users = :id_users AND profil_id=:profil_id");
-        $query->bindParam(':id_users', $_SESSION['compte_entreprise']);
-        $query->bindParam(':profil_id', $_GET['id']);
-        $query->execute();
-        if ($query->rowCount() > 0) {
-
-        } else {
-
-            if (PostVueProfil($db, $_SESSION['compte_entreprise'], $_GET['id'])) {
-
-            }
-
-            if (PostHistorique($db, $_SESSION['compte_entreprise'], $_GET['id'])) {
-
-            }
-        }
-    }
-
-}
 
 // if (isset($totalUsers)){
 //     $categorieUsers = $totalUsers['categorie'];

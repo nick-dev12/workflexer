@@ -43,44 +43,44 @@ if (isset($_SESSION['compte_entreprise'])) {
 
 
 if (isset($_POST['publier'])) {
-
-
-    $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $langues = '';
-
+    // Initialisation des variables
+    $poste = $mission = $profil = $metier = $contrat = $etudes = $regions = $experience = $statut = $langues = '';
     $entreprise_id = $getEntreprise['id'];
 
-
-
+    // Validation du poste
     if (empty($_POST['poste'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter le poste disponible !';
     } else {
-        $poste = $_POST['poste'];
+        $poste = htmlspecialchars(trim($_POST['poste']));
     }
 
+    // Validation de la mission
     if (empty($_POST['mission'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter les missions correspondant au profil !';
     } else {
-        $mission = $_POST['mission'];
+        $mission = htmlspecialchars(trim($_POST['mission']));
     }
 
+    // Validation du profil recherché
     if (empty($_POST['profil'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter les critères du profil recherché !';
     } else {
-        $profil = $_POST['profil'];
+        $profil = htmlspecialchars(trim($_POST['profil']));
     }
 
-
+    // Validation du type de contrat
     if (empty($_POST['contrat'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter le type de contrat !';
     } else {
-        $contrat = $_POST['contrat'];
+        $contrat = htmlspecialchars(trim($_POST['contrat']));
     }
 
+    // Validation et conversion du niveau d'étude
     if (empty($_POST['etude'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter le niveau d\'étude !';
     } else {
-        $etudes = $_POST['etude'];
-        // Convertir les niveaux d'étude et d'expérience en valeurs numériques
+        $etudes = htmlspecialchars(trim($_POST['etude']));
+        // Tableau de correspondance pour convertir les niveaux d'étude en valeurs numériques
         $etude_valeurs = array(
             "Bac+1an" => 1,
             "Bac+2ans" => 2,
@@ -94,14 +94,16 @@ if (isset($_POST['publier'])) {
             "Bac+10ans" => 10,
             "Aucun" => 0
         );
-        $n_etudes = $etude_valeurs[$etudes];
+        // Vérifier si la valeur existe dans le tableau avant de l'assigner
+        $n_etudes = isset($etude_valeurs[$etudes]) ? $etude_valeurs[$etudes] : 0;
     }
 
+    // Validation et conversion du niveau d'expérience
     if (empty($_POST['experience'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter un niveau d\'expérience !';
     } else {
-        $experience = $_POST['experience'];
-        // Convertir les niveaux d'étude et d'expérience en valeurs numériques
+        $experience = htmlspecialchars(trim($_POST['experience']));
+        // Tableau de correspondance pour convertir les niveaux d'expérience en valeurs numériques
         $experience_valeurs = array(
             "1an" => 1,
             "2ans" => 2,
@@ -115,51 +117,63 @@ if (isset($_POST['publier'])) {
             "10ans" => 10,
             "Aucun" => 0
         );
-        $n_experience = $experience_valeurs[$experience];
+        // Vérifier si la valeur existe dans le tableau avant de l'assigner
+        $n_experience = isset($experience_valeurs[$experience]) ? $experience_valeurs[$experience] : 0;
     }
 
+    // Validation de la localité
     if (empty($_POST['localite'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter une localité !';
     } else {
-        $localite = $_POST['localite'];
+        $localite = htmlspecialchars(trim($_POST['localite']));
     }
 
+    // Validation des langues exigées
     if (empty($_POST['langues'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter la ou les langues exigées !';
     } else {
-        $langues = $_POST['langues'];
+        $langues = htmlspecialchars(trim($_POST['langues']));
     }
 
+    // Validation du nombre de places disponibles
     if (empty($_POST['places'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter le nombre de places disponibles !';
     } else {
-        $places = $_POST['places'];
-    }
-
-    if (empty($_POST['duree'])) {
-        $_SESSION['error_message'] = 'Veuillez ajouter la durée de l\'offre avant expiration !';
-    } else {
-        $duree = $_POST['duree'];
-        // Calculer la date d'expiration
-        $date_expiration = date('Y-m-d', strtotime("+$duree days"));
-    }
-
-
-    if (empty($_POST['categorie'])) {
-        $_SESSION['error_message'] = 'Veuillez sélectionner une catégorie !';
-    } else {
-        $categorie = $_POST['categorie'];
-
-        $T_categorie = Categorie($db, $categorie);
-
-        if ($T_categorie > 0) {
-
-        } else {
-            PostCategorie($db, $categorie);
+        $places = filter_var($_POST['places'], FILTER_VALIDATE_INT);
+        if ($places === false || $places < 1) {
+            $_SESSION['error_message'] = 'Le nombre de places doit être un entier positif !';
         }
     }
 
+    // Validation et calcul de la date d'expiration
+    if (empty($_POST['duree'])) {
+        $_SESSION['error_message'] = 'Veuillez ajouter la durée de l\'offre avant expiration !';
+    } else {
+        $duree = filter_var($_POST['duree'], FILTER_VALIDATE_INT);
+        if ($duree === false || $duree < 1) {
+            $_SESSION['error_message'] = 'La durée doit être un entier positif !';
+        } else {
+            // Calculer la date d'expiration de manière sécurisée
+            $date_expiration = date('Y-m-d', strtotime("+$duree days"));
+        }
+    }
 
+    // Validation et traitement de la catégorie
+    if (empty($_POST['categorie'])) {
+        $_SESSION['error_message'] = 'Veuillez sélectionner une catégorie !';
+    } else {
+        $categorie = htmlspecialchars(trim($_POST['categorie']));
+
+        // Vérifier si la catégorie existe déjà
+        $T_categorie = Categorie($db, $entreprise_id, $categorie);
+
+        if ($T_categorie <= 0) {
+            // Créer la catégorie si elle n'existe pas
+            PostCategorie($db, $entreprise_id, $categorie);
+        }
+    }
+
+    // Formatage de la date de publication
     $date_publication = new DateTime();
     $date_formatter = new IntlDateFormatter(
         'fr_FR',
@@ -171,36 +185,39 @@ if (isset($_POST['publier'])) {
     );
     $date = $date_formatter->format($date_publication);
 
-
-
+    // Si aucune erreur n'a été détectée, procéder à l'enregistrement et à l'envoi des notifications
     if (empty($_SESSION['error_message'])) {
-
-        // Créez l'instance PHPMailer
-        $mail = new PHPMailer(true);
-
         try {
-            // Paramètres SMTP
+            // Configuration de PHPMailer pour l'envoi des notifications
+            $mail = new PHPMailer(true);
             $mail->isSMTP();
             $mail->Host = 'advantech-group.space';
             $mail->SMTPAuth = true;
             $mail->Username = 'info@advantech-group.space';
-            $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
+            $mail->Password = 'Ludvanne12@gmail.com'; // À stocker de manière sécurisée dans un fichier de configuration
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
+            $mail->setFrom('info@advantech-group.space', 'Work-Flexer');
+            $mail->isHTML(true);
 
-            // Obtenez la liste des candidats (remplacez le champ 'mail' par le champ approprié dans votre base de données)
-
+            // Récupération des candidats correspondant à la catégorie
             $sql = "SELECT * FROM users WHERE categorie = :categorie";
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(":categorie", $categorie);
+            $stmt->bindValue(":categorie", $categorie, PDO::PARAM_STR);
             $stmt->execute();
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+            // Envoi d'un email à chaque candidat concerné
             foreach ($users as $candidate) {
-                $destinataire = $candidate['mail'];
-                $nom = $candidate['nom'];
-                // Contenu de l'e-mail
+                $destinataire = filter_var($candidate['mail'], FILTER_VALIDATE_EMAIL);
+                if (!$destinataire) {
+                    continue; // Ignorer les adresses email invalides
+                }
+
+                $nom = htmlspecialchars($candidate['nom']);
                 $sujet = 'Nouvelle offre d\'emploi correspondant à vos critères';
+
+                // Construction du template d'email
                 $message = "
                 <!DOCTYPE html>
                 <html>
@@ -376,270 +393,280 @@ if (isset($_POST['publier'])) {
                 </body>
                 </html> ";
 
-                $mail->setFrom('info@advantech-group.space', 'Work-Flexer');
-                $mail->isHTML(true);
                 $mail->Subject = $sujet;
                 $mail->Body = $message;
 
-
+                // Réinitialiser les destinataires pour chaque envoi
                 $mail->clearAddresses();
                 $mail->addAddress($destinataire);
                 $mail->send();
             }
 
-            if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)) {
+            // Enregistrement de l'offre dans la base de données
+            if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $statut, $categorie, $date)) {
 
+                // Notification de succès et redirection
                 $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';
                 header('Location: entreprise_profil.php');
                 exit();
+            } else {
+                // En cas d'échec de l'enregistrement
+                $_SESSION['error_message'] = 'Erreur lors de l\'enregistrement de l\'offre';
+                header('Location: entreprise_profil.php');
+                exit();
             }
-
         } catch (Exception $e) {
-            $_SESSION['error_message'] = 'Une erreur s\'est produite';
+            // Gestion des erreurs
+            error_log('Erreur lors de la publication d\'offre: ' . $e->getMessage());
+            $_SESSION['error_message'] = 'Une erreur s\'est produite lors de la publication de l\'offre';
             header('Location: entreprise_profil.php');
             exit();
         }
-    }
-}
-
-
-
-if (isset($_SESSION['users_id'])) {
-
-}
-
-
-
-
-if (isset($_POST['valider1'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $nom = '';
-    if (empty($_POST['nom'])) {
-        $_SESSION['error_message'] = 'votre nom obligatoire';
     } else {
-        $nom = $_POST['nom'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update1($db, $nom, $entreprise_id)) {
-
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
+        // Redirection en cas d'erreur de validation
+        header('Location: entreprise_profil.php');
         exit();
     }
 }
 
-if (isset($_POST['valider2'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $entreprise = '';
-    if (empty($_POST['entreprise'])) {
-        $_SESSION['error_message'] = 'le nom de l\'entreprise obligatoire';
-    } else {
-        $entreprise = $_POST['entreprise'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update2($db, $entreprise, $entreprise_id)) {
 
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
-    }
-}
 
-if (isset($_POST['valider3'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $mail = '';
-    if (empty($_POST['mail'])) {
-        $_SESSION['error_message'] = 'l\'adresse mail obligatoire';
-    } else {
-        $mail = $_POST['mail'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update3($db, $mail, $entreprise_id)) {
 
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
-    }
-}
+if (isset($_SESSION['compte_entreprise'])) {
 
-if (isset($_POST['valider4'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $phone = '';
-    if (empty($_POST['phone'])) {
-        $_SESSION['error_message'] = 'numéro de téléphone obligatoire';
-    } else {
-        $phone = $_POST['phone'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update4($db, $phone, $entreprise_id)) {
-
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
-    }
-}
-
-if (isset($_POST['valider5'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $types = '';
-    if (empty($_POST['types'])) {
-        $_SESSION['error_message'] = 'type d\'entreprise obligatoire';
-    } else {
-        $types = $_POST['types'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update5($db, $types, $entreprise_id)) {
-
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
-    }
-}
-
-if (isset($_POST['valider6'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $ville = '';
-    if (empty($_POST['ville'])) {
-        $_SESSION['error_message'] = 'ville obligatoire';
-    } else {
-        $ville = $_POST['ville'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update6($db, $ville, $entreprise_id)) {
-
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
-    }
-}
-
-if (isset($_POST['valider7'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $taille = '';
-    if (empty($_POST['taille'])) {
-        $_SESSION['error_message'] = 'taille de l\'entreprise obligatoire';
-    } else {
-        $taille = $_POST['taille'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update7($db, $taille, $entreprise_id)) {
-
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
-    }
-}
-
-if (isset($_POST['valider8'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $categorie = '';
-    if (empty($_POST['categorie'])) {
-        $_SESSION['error_message'] = 'secteur d\'activité obligatoire';
-    } else {
-        $categorie = $_POST['categorie'];
-    }
-    if (empty($_SESSION['error_message'])) {
-        if (update8($db, $categorie, $entreprise_id)) {
-
-        }
-        $_SESSION['success_message'] = 'Modifier avec succès';
-        header('Location: modifier.php');
-        exit();
-    }
-}
-
-if (isset($_POST['valider9'])) {
-    $entreprise_id = $_SESSION['compte_entreprise'];
-    $pass = '';
-    $pass1 = '';
-    if (empty($_POST['pass'])) {
-        $_SESSION['error_message'] = 'Mot de passe actuel obligatoire';
-    } else {
-        $pass = $_POST['pass'];
-    }
-    if (empty($_POST['pass1'])) {
-        $_SESSION['error_message'] = 'Nouveau mot de passe obligatoire';
-    } else {
-        $pass1 = $_POST['pass1'];
-    }
-
-    if (empty($_SESSION['error_message'])) {
-        // Vérifier le mot de passe actuel
-        $sql = "SELECT passe FROM compte_entreprise WHERE id = :entreprise_id";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($result && password_verify($pass, $result['passe'])) {
-            // Hacher le nouveau mot de passe
-            $hashedPass1 = password_hash($pass1, PASSWORD_DEFAULT);
-
-            // Mettre à jour le mot de passe dans la base de données
-            if (update9($db, $hashedPass1, $entreprise_id)) {
-            }
-
-            $_SESSION['success_message'] = 'Mot de passe modifié avec succès';
-            header('Location: modifier.php');
-            exit();
+    if (isset($_POST['valider1'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $nom = '';
+        if (empty($_POST['nom'])) {
+            $_SESSION['error_message'] = 'votre nom obligatoire';
         } else {
-            $_SESSION['error_message'] = 'Mot de passe actuel incorrect';
-            header('Location: modifier.php');
-            exit();
+            $nom = $_POST['nom'];
         }
-    }
-}
-
-if (isset($_POST['valider0'])) {
-
-    $entreprise_id = $_SESSION['compte_entreprise'];
-
-    $images = '';
-
-    // Vérification de la ville
-    if (empty($_FILES['images'])) {
-        $_SESSION['error_message'] = 'erreur choisissez une autre image .';
-    } else {
-        // Récupérer les données du formulaire
-        $images = $_FILES['images'];
-        // Vérifier qu'un fichier est uploadé
         if (empty($_SESSION['error_message'])) {
+            if (update1($db, $nom, $entreprise_id)) {
 
-            // Récupérer le nom et le chemin temporaire
-            $fileName = $images['name'];
-            $tmpName = $images['tmp_name'];
-
-            // Ajouter l'identifiant unique au nom du fichier
-            $uniqueFileName = $id . '_' . $fileName;
-
-            // Déplacer le fichier dans le répertoire audio
-            $targetFile = '../upload/' . $uniqueFileName;
-            move_uploaded_file($tmpName, $targetFile);
-
-
-            if (update0($db, $uniqueFileName, $entreprise_id)) {
             }
-
             $_SESSION['success_message'] = 'Modifier avec succès';
             header('Location: modifier.php');
             exit();
         }
-
-
-
     }
-}
 
-if (isset($_SESSION['compte_entreprise'])) {
+    if (isset($_POST['valider2'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $entreprise = '';
+        if (empty($_POST['entreprise'])) {
+            $_SESSION['error_message'] = 'le nom de l\'entreprise obligatoire';
+        } else {
+            $entreprise = $_POST['entreprise'];
+        }
+        if (empty($_SESSION['error_message'])) {
+            if (update2($db, $entreprise, $entreprise_id)) {
+
+            }
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+
+    if (isset($_POST['valider3'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $mail = '';
+        if (empty($_POST['mail'])) {
+            $_SESSION['error_message'] = 'l\'adresse mail obligatoire';
+        } else {
+            $mail = $_POST['mail'];
+        }
+        if (empty($_SESSION['error_message'])) {
+            if (update3($db, $mail, $entreprise_id)) {
+
+            }
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+
+    if (isset($_POST['valider4'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $phone = '';
+        if (empty($_POST['phone'])) {
+            $_SESSION['error_message'] = 'numéro de téléphone obligatoire';
+        } else {
+            $phone = $_POST['phone'];
+        }
+        if (empty($_SESSION['error_message'])) {
+            if (update4($db, $phone, $entreprise_id)) {
+
+            }
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+
+    if (isset($_POST['valider5'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $types = '';
+        if (empty($_POST['types'])) {
+            $_SESSION['error_message'] = 'type d\'entreprise obligatoire';
+        } else {
+            $types = $_POST['types'];
+        }
+        if (empty($_SESSION['error_message'])) {
+            if (update5($db, $types, $entreprise_id)) {
+
+            }
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+
+    if (isset($_POST['valider6'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $ville = '';
+        if (empty($_POST['ville'])) {
+            $_SESSION['error_message'] = 'ville obligatoire';
+        } else {
+            $ville = $_POST['ville'];
+        }
+        if (empty($_SESSION['error_message'])) {
+            if (update6($db, $ville, $entreprise_id)) {
+
+            }
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+
+    if (isset($_POST['valider7'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $taille = '';
+        if (empty($_POST['taille'])) {
+            $_SESSION['error_message'] = 'taille de l\'entreprise obligatoire';
+        } else {
+            $taille = $_POST['taille'];
+        }
+        if (empty($_SESSION['error_message'])) {
+            if (update7($db, $taille, $entreprise_id)) {
+
+            }
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+
+    if (isset($_POST['valider8'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $categorie = '';
+        if (empty($_POST['categorie'])) {
+            $_SESSION['error_message'] = 'secteur d\'activité obligatoire';
+        } else {
+            $categorie = $_POST['categorie'];
+        }
+        if (empty($_SESSION['error_message'])) {
+            if (update8($db, $categorie, $entreprise_id)) {
+
+            }
+            $_SESSION['success_message'] = 'Modifier avec succès';
+            header('Location: modifier.php');
+            exit();
+        }
+    }
+
+    if (isset($_POST['valider9'])) {
+        $entreprise_id = $_SESSION['compte_entreprise'];
+        $pass = '';
+        $pass1 = '';
+        if (empty($_POST['pass'])) {
+            $_SESSION['error_message'] = 'Mot de passe actuel obligatoire';
+        } else {
+            $pass = $_POST['pass'];
+        }
+        if (empty($_POST['pass1'])) {
+            $_SESSION['error_message'] = 'Nouveau mot de passe obligatoire';
+        } else {
+            $pass1 = $_POST['pass1'];
+        }
+
+        if (empty($_SESSION['error_message'])) {
+            // Vérifier le mot de passe actuel
+            $sql = "SELECT passe FROM compte_entreprise WHERE id = :entreprise_id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($result && password_verify($pass, $result['passe'])) {
+                // Hacher le nouveau mot de passe
+                $hashedPass1 = password_hash($pass1, PASSWORD_DEFAULT);
+
+                // Mettre à jour le mot de passe dans la base de données
+                if (update9($db, $hashedPass1, $entreprise_id)) {
+                }
+
+                $_SESSION['success_message'] = 'Mot de passe modifié avec succès';
+                header('Location: modifier.php');
+                exit();
+            } else {
+                $_SESSION['error_message'] = 'Mot de passe actuel incorrect';
+                header('Location: modifier.php');
+                exit();
+            }
+        }
+    }
+
+    if (isset($_POST['valider0'])) {
+
+        $entreprise_id = $_SESSION['compte_entreprise'];
+
+        $images = '';
+
+        // Vérification de la ville
+        if (empty($_FILES['images'])) {
+            $_SESSION['error_message'] = 'erreur choisissez une autre image .';
+        } else {
+            // Récupérer les données du formulaire
+            $images = $_FILES['images'];
+            // Vérifier qu'un fichier est uploadé
+            if (empty($_SESSION['error_message'])) {
+
+                // Récupérer le nom et le chemin temporaire
+                $fileName = $images['name'];
+                $tmpName = $images['tmp_name'];
+
+                // Ajouter l'identifiant unique au nom du fichier
+                $uniqueFileName = $id . '_' . $fileName;
+
+                // Déplacer le fichier dans le répertoire audio
+                $targetFile = '../upload/' . $uniqueFileName;
+                move_uploaded_file($tmpName, $targetFile);
+
+
+                if (update0($db, $uniqueFileName, $entreprise_id)) {
+                }
+
+                $_SESSION['success_message'] = 'Modifier avec succès';
+                header('Location: modifier.php');
+                exit();
+            }
+
+
+
+        }
+    }
+
+
+
     $historiques = getHistorique($db, $_SESSION['compte_entreprise']);
 }
+
+
+
 
 
 if (isset($_POST['send'])) {
@@ -689,4 +716,3 @@ if (isset($_POST['send'])) {
 $getAllentreprise = geAlltEntreprise($db);
 
 
-?>

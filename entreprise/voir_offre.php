@@ -1,10 +1,18 @@
 <?php
 session_start();
-if (isset($_GET['offres_id']) || isset($_GET['entreprise_id'])) {
-    $offre_id = $_GET['offres_id'];
-} else {
-    header('Location: ../page/Offres_d\'emploi.php');
+
+include_once('../conn/conn.php');
+
+if (!isset($_SESSION['users_id'])) {
+    // Rediriger si l'utilisateur n'est pas connecté
+    header('Location: ../page/connexion.php');
+    exit();
 }
+
+if (isset($_GET['offres_id']) or isset($_GET['entreprise_id'])) {
+    $offre_id = $_GET['offres_id'];
+}
+
 
 include_once('app/controller/controllerOffre_emploi.php');
 include_once('app/controller/controllerEntreprise.php');
@@ -16,6 +24,14 @@ $Offres = getOffres($db, $offre_id);
 $entreprise_id = $Offres['entreprise_id'];
 $getEntreprise = getEntreprise($db, $entreprise_id);
 $afficheDescriptionentreprise = getDescriptionEntreprise($db, $entreprise_id);
+
+
+if (isset($_SESSION['users_id'])) {
+    $get_vue_offre = get_vue_offre_users($db, $_SESSION['users_id'], $offre_id);
+    if (empty($get_vue_offre)) {
+        post_vue_offre($db, $_SESSION['users_id'], $offre_id, $entreprise_id);
+    }
+}
 
 ?>
 

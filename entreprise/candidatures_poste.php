@@ -120,35 +120,7 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
 
     <section class="section3">
         <!-- Notifications -->
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="notification success">
-                <div class="notification-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <div class="notification-content">
-                    <p><?= $_SESSION['success_message'] ?></p>
-                </div>
-                <button class="notification-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <?php unset($_SESSION['success_message']); ?>
-        <?php endif; ?>
 
-        <?php if (isset($_SESSION['error_message'])): ?>
-            <div class="notification error">
-                <div class="notification-icon">
-                    <i class="fas fa-exclamation-circle"></i>
-                </div>
-                <div class="notification-content">
-                    <p><?= $_SESSION['error_message'] ?></p>
-                </div>
-                <button class="notification-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <?php unset($_SESSION['error_message']); ?>
-        <?php endif; ?>
 
         <!-- En-tête de la page -->
         <div class="page-header">
@@ -480,25 +452,6 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
 
     <script>
         // Gestion des notifications
-        document.querySelectorAll('.notification-close').forEach(button => {
-            button.addEventListener('click', () => {
-                const notification = button.closest('.notification');
-                notification.classList.add('closing');
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            });
-        });
-
-        // Auto-fermeture des notifications après 6 secondes
-        document.querySelectorAll('.notification').forEach(notification => {
-            setTimeout(() => {
-                notification.classList.add('closing');
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            }, 6000);
-        });
 
         // Filtrage des candidats
         const filterTabs = document.querySelectorAll('.filter-tab');

@@ -43,11 +43,11 @@ function geAlltEntreprise($db)
  * @param mixed $date
  * @return mixed
  */
-function postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date)
+function postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $statut, $categorie, $date)
 {
 
-    $sql = "INSERT INTO offre_emploi (entreprise_id,poste,mission,profil,contrat,etudes,experience,n_etudes,n_experience,localite,langues, places, date_expiration,categorie,date)
-    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:n_etudes,:n_experience,:localite,:langues, :places, :date_expiration,:categorie,:date)";
+    $sql = "INSERT INTO offre_emploi (entreprise_id,poste,mission,profil,contrat,etudes,experience,n_etudes,n_experience,localite,langues, places, date_expiration,statut,categorie,date)
+    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:n_etudes,:n_experience,:localite,:langues, :places, :date_expiration,:statut,:categorie,:date)";
     $stmt = $db->prepare($sql);
     // Bind de chaque paramètre
     $stmt->bindParam(':entreprise_id', $entreprise_id);
@@ -63,25 +63,38 @@ function postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $e
     $stmt->bindParam(':langues', $langues);
     $stmt->bindParam(':places', $places);
     $stmt->bindParam(':date_expiration', $date_expiration);
+    $stmt->bindParam(':statut', $statut);
     $stmt->bindParam(':categorie', $categorie);
     $stmt->bindParam(':date', $date);
     return $stmt->execute();
 }
 
-function Categorie($db, $categorie)
+function posteCategorie($db, $categorie, $entreprise_id)
 {
-    $sql_c = "SELECT categori FROM categorie WHERE categori = :categori";
+    $sql = "INSERT INTO categorie (categori, entreprise_id) VALUES (:categori, :entreprise_id)";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':categori', $categorie);
+    $stmt->bindParam(':entreprise_id', $entreprise_id);
+    return $stmt->execute();
+}
+
+
+function Categorie($db, $entreprise_id, $categorie)
+{
+    $sql_c = "SELECT categori FROM categorie WHERE categori = :categori AND entreprise_id = :entreprise_id";
     $stmt_c = $db->prepare($sql_c);
     $stmt_c->bindParam(':categori', $categorie);
+    $stmt_c->bindParam(':entreprise_id', $entreprise_id);
     $stmt_c->execute();
     return $stmt_c->fetch(PDO::FETCH_ASSOC);
 }
 
-function PostCategorie($db, $categorie)
+function PostCategorie($db, $entreprise_id, $categorie)
 {
-    $sql_c = "INSERT INTO categorie (categori) VALUES (:categori)";
+    $sql_c = "INSERT INTO categorie (categori, entreprise_id) VALUES (:categori, :entreprise_id)";
     $stmt_c = $db->prepare($sql_c);
     $stmt_c->bindParam(':categori', $categorie);
+    $stmt_c->bindParam(':entreprise_id', $entreprise_id);
     return $stmt_c->execute();
 
 }
@@ -110,6 +123,16 @@ function getOffresEmplois_suprimer($db, $entreprise_id)
      WHERE entreprise_id = :entreprise_id";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchALL(PDO::FETCH_ASSOC);
+}
+
+function getOffresEmplois_suprimer_categorie($db, $entreprise_id, $categorie)
+{
+    $sql = "SELECT * FROM offre_suprimer WHERE entreprise_id = :entreprise_id AND categorie = :categorie";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_INT);
+    $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetchALL(PDO::FETCH_ASSOC);
 }

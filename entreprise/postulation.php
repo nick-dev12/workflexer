@@ -46,10 +46,11 @@ include_once('../controller/controller_niveau_etude_experience.php');
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-    <script src="../script/jquery-3.6.0.min.js"></script>
+    <script defer src="../script/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/postulation.css">
+    <link rel="stylesheet" href="../css/notifications.css">
 </head>
 
 <body>
@@ -64,26 +65,11 @@ include_once('../controller/controller_niveau_etude_experience.php');
         ?>
 
     <?php include('../include/header_entreprise.php') ?>
+    <?php include('../include/notifications.php') ?>
 
 
     <section class="section3">
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="message">
-                <p>
-                    <span></span>
-                    <?php echo $_SESSION['success_message']; ?>
-                    <?php unset($_SESSION['success_message']); ?>
-                </p>
-            </div>
-        <?php else: ?>
-            <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="erreurs" id="messageErreur">
-                    <span></span>
-                    <?php echo $_SESSION['error_message']; ?>
-                    <?php unset($_SESSION['error_message']); ?>
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
+
 
         <div class="postulation">
             <h1>Gestion des candidatures</h1>
@@ -146,7 +132,7 @@ include_once('../controller/controller_niveau_etude_experience.php');
         </div>
     </section>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script>
         // Gestion des messages
