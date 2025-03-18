@@ -159,9 +159,9 @@ function getCandidaturesParCategorie($db, $entreprise_id)
  */
 function getVuesParOffre($db, $entreprise_id)
 {
-    $sql = "SELECT o.poste, COUNT(v.vue_id) as nombre 
-            FROM vue_offre v 
-            JOIN offre_emploi o ON v.offre_id = o.offre_id 
+    $sql = "SELECT o.poste, COUNT(v.id_vue_offre) as nombre 
+            FROM vue_des_offres v 
+            JOIN offre_emploi o ON v.id_offre = o.offre_id 
             WHERE o.entreprise_id = :entreprise_id 
             GROUP BY o.offre_id 
             ORDER BY nombre DESC 
@@ -379,18 +379,11 @@ function getFilteredStatistiques($db, $entreprise_id, $startDate = null, $endDat
 
     // Récupération du nombre total de vues
     $stmt = $db->prepare("
-        SELECT SUM(vues) as total 
-        FROM offre_emploi 
-        WHERE entreprise_id = :entreprise_id" . $dateCondition
+        SELECT COUNT(*) as total 
+        FROM vue_des_offres 
+        WHERE id_entreprise = :entreprise_id"
     );
     $stmt->bindParam(':entreprise_id', $entreprise_id);
-
-    if ($startDate) {
-        $stmt->bindParam(':start_date', $startDate);
-    }
-    if ($endDate) {
-        $stmt->bindParam(':end_date', $endDate);
-    }
 
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -419,10 +412,14 @@ function getFilteredStatistiques($db, $entreprise_id, $startDate = null, $endDat
 
     // Récupération des vues par offre (top 5)
     $stmt = $db->prepare("
-        SELECT poste, vues as nombre
-        FROM offre_emploi
-        WHERE entreprise_id = :entreprise_id" . $dateCondition . "
-        ORDER BY vues DESC
+        SELECT o.poste, COUNT(v.id_vue_offre) as nombre
+        FROM vue_des_offres v
+        JOIN offre_emploi o ON v.id_offre = o.offre_id
+        WHERE o.entreprise_id = :entreprise_id" .
+        ($startDate ? " AND DATE(v.date) >= :start_date" : "") .
+        ($endDate ? " AND DATE(v.date) <= :end_date" : "") . "
+        GROUP BY o.offre_id, o.poste
+        ORDER BY nombre DESC
         LIMIT 5
     ");
     $stmt->bindParam(':entreprise_id', $entreprise_id);

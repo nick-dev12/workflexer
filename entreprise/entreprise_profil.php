@@ -62,6 +62,7 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
     <link rel="stylesheet" href="../css/statistiques.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="../css/forms_entreprise.css">
     <!-- Utiliser la bibliothèque HTML5-QRCode depuis CDN au lieu du fichier local -->
     <script src="https://unpkg.com/html5-qrcode@2.3.8/dist/html5-qrcode.min.js"></script>
 
@@ -275,31 +276,53 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
                 <button class="btn1"><img src="../image/ajouters.png" alt=""></button>
 
                 <div class="form_desc">
-                    <form method="post" action="">
-                        <div>
-                            <textarea name="descriptions" id="summernote" cols="30" rows="10">
-                                                                        <?php echo htmlspecialchars($afficheDescriptionentreprise['descriptions'], ENT_QUOTES, 'UTF-8') ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </textarea>
+                    <form method="post" action="" class="enterprise-form form-animate-in">
+                        <button type="button" class="form-close-btn close-desc-form">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="form-header">
+                            <h2>Description de l'entreprise</h2>
+                            <p>Présentez votre entreprise de manière attractive et professionnelle</p>
                         </div>
-                        <div class="div">
-                            <label for="site">Avez vous un site web ?(facultatif*)</label>
-                            <input type="text" name="liens" id="site" value="<?= $afficheDescriptionentreprise['liens'] ?>">
+                        <div class="form-group">
+                            <textarea name="descriptions" id="summernote" class="form-control"
+                                placeholder="Décrivez votre entreprise, sa culture, ses valeurs et sa mission..."></textarea>
                         </div>
-                        <input type="submit" name="modifiers" value="Modifier" id="ajouter">
+                        <div class="form-group">
+                            <label for="site" class="form-label">Site web de l'entreprise (facultatif)</label>
+                            <input type="text" name="liens" id="site" class="form-control"
+                                placeholder="https://www.votre-entreprise.com">
+                        </div>
+                        <button type="submit" name="modifiers" class="form-button">
+                            Modifier
+                        </button>
                     </form>
                 </div>
             <?php else: ?>
                 <button class="btn1"><img src="../image/ajouter2.png" alt=""></button>
 
                 <div class="form_desc">
-                    <form method="post" action="">
-                        <div>
-                            <textarea name="descriptions" id="summernote" cols="30" rows="10"></textarea>
+
+                    <form method="post" action="" class="enterprise-form form-animate-in">
+                        <button type="button" class="form-close-btn close-desc-form">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="form-header">
+                            <h2>Description de l'entreprise</h2>
+                            <p>Présentez votre entreprise de manière attractive et professionnelle</p>
                         </div>
-                        <div class="div">
-                            <label for="site">Avez vous un site web ?</label>
-                            <input type="text" name="liens" id="site">
+                        <div class="form-group">
+                            <textarea name="descriptions" id="summernote" class="form-control"
+                                placeholder="Décrivez votre entreprise, sa culture, ses valeurs et sa mission..."></textarea>
                         </div>
-                        <input type="submit" name="ajouter" value="ajouter" id="ajouter">
+                        <div class="form-group">
+                            <label for="site" class="form-label">Site web de l'entreprise (facultatif)</label>
+                            <input type="text" name="liens" id="site" class="form-control"
+                                placeholder="https://www.votre-entreprise.com">
+                        </div>
+                        <button type="submit" name="ajouter" class="form-button">
+                            Ajouter
+                        </button>
                     </form>
                 </div>
             <?php endif; ?>
@@ -307,17 +330,59 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
 
 
             <script>
-                let btn1 = document.querySelector('.btn1');
-                let form_desc = document.querySelector('.form_desc');
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Gestion du formulaire de description
+                    const btn1 = document.querySelector('.btn1');
+                    const formDesc = document.querySelector('.form_desc');
+                    const closeDescBtn = document.querySelector('.close-desc-form');
 
-                btn1.addEventListener('click', () => {
+                    if (btn1 && formDesc && closeDescBtn) {
+                        btn1.addEventListener('click', () => {
+                            formDesc.classList.toggle('active');
+                            if (formDesc.classList.contains('active')) {
+                                // Ajuster la hauteur automatiquement
+                                const formHeight = formDesc.querySelector('.enterprise-form').offsetHeight;
+                                formDesc.style.height = formHeight + 40 + 'px'; // Ajouter un peu d'espace
+                            } else {
+                                formDesc.style.height = '0';
+                            }
+                        });
 
-                    if (form_desc.style.height === '0px') {
-                        form_desc.style.height = '350px'
-                    } else {
-                        form_desc.style.height = '0px'
+                        closeDescBtn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            formDesc.querySelector('.enterprise-form').classList.add('form-animate-out');
+                            setTimeout(() => {
+                                formDesc.classList.remove('active');
+                                formDesc.style.height = '0';
+                                formDesc.querySelector('.enterprise-form').classList.remove('form-animate-out');
+                            }, 300);
+                        });
                     }
-                })
+
+                    // Initialisation de Summernote
+                    $('#summernote').summernote({
+                        placeholder: 'Décrivez votre entreprise de manière détaillée...',
+                        tabsize: 2,
+                        height: 200, // Augmenter la hauteur par défaut
+                        toolbar: [
+                            ['style', ['style']],
+                            ['font', ['bold', 'underline', 'clear']],
+                            ['color', ['color']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['table', ['table']],
+                            ['view', ['fullscreen', 'codeview', 'help']]
+                        ],
+                        callbacks: {
+                            onChange: function (contents, $editable) {
+                                // Réajuster la hauteur du conteneur quand l'éditeur change
+                                if (formDesc.classList.contains('active')) {
+                                    const formHeight = formDesc.querySelector('.enterprise-form').offsetHeight;
+                                    formDesc.style.height = formHeight + 40 + 'px';
+                                }
+                            }
+                        }
+                    });
+                });
             </script>
         </div>
 
@@ -332,114 +397,135 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
                 <button class="btn2"><img src="../image/ajouter2.png" alt=""></button>
             </div>
             <div class="form_off">
-                <form method="post" action="">
-                    <img src="../image/croix.png" alt="" class="img1">
-
-                    <div class="box">
-                        <label for="poste">Poste disponible :</label>
-                        <input type="text" name="poste" id="poste" required placeholder="Exemple : Développeur web">
-                    </div>
-                    <div class="box">
-                        <label for="mission">Décrivez les missions et responsabilités :</label>
-                        <textarea name="mission" id="mission" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="box">
-                        <label for="profil">Décrivez le profil recherché (qualités et compétences) :</label>
-                        <textarea name="profil" id="profil" cols="30" rows="10" required
-                            placeholder="Décrivez le profil recherché, les qualités et compétences requises"></textarea>
+                <form method="post" action="" class="enterprise-form form-animate-in">
+                    <button type="button" class="form-close-btn close-off-form">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="form-header">
+                        <h2>Publication d'une nouvelle offre</h2>
+                        <p>Créez une offre d'emploi attractive pour trouver les meilleurs talents</p>
                     </div>
 
-                    <div class="box">
-                        <select name="contrat" id="contrat">
-                            <option value="">-- Type de contrat --</option>
-                            <option value="CDI">CDI</option>
-                            <option value="CDD">CDD</option>
-                            <option value="INTERIM">Intérim</option>
-                            <option value="FREELANCE">Freelance</option>
-                            <option value="APPRENTISSAGE">Apprentissage</option>
-                            <option value="STAGE">Stage</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="poste" class="form-label">Poste disponible</label>
+                            <input type="text" name="poste" id="poste" class="form-control" required
+                                placeholder="Ex: Développeur Full-Stack">
+                        </div>
+                        <div class="form-group">
+                            <label for="places" class="form-label">Nombre de postes</label>
+                            <input type="number" name="places" id="places" class="form-control" required
+                                placeholder="Ex: 2">
+                        </div>
                     </div>
 
-                    <div class="box">
-                        <select name="etude" id="etude">
-                            <option value="">-- Niveau d'étude requis --</option>
-                            <option value="Bac+1an">Bac+1an</option>
-                            <option value="Bac+2ans">Bac+2ans</option>
-                            <option value="Bac+3ans">Bac+3ans</option>
-                            <option value="Bac+4ans">Bac+4ans</option>
-                            <option value="Bac+5ans">Bac+5ans</option>
-                            <option value="Bac+6ans">Bac+6ans</option>
-                            <option value="Bac+7ans">Bac+7ans</option>
-                            <option value="Bac+8ans">Bac+8ans</option>
-                            <option value="Bac+9ans">Bac+9ans</option>
-                            <option value="Bac+10ans">Bac+10ans</option>
-                            <option value="Aucun">Aucun</option>
-                        </select>
+                    <div class="form-group">
+                        <label for="mission" class="form-label">Missions et responsabilités</label>
+                        <textarea name="mission" id="mission" class="form-control" required
+                            placeholder="Décrivez les principales missions et responsabilités du poste..."></textarea>
                     </div>
 
-                    <div class="box">
-                        <select name="experience" id="experience">
-                            <option value="">-- Niveau d'expérience requis --</option>
-                            <option value="1an">1an</option>
-                            <option value="2ans">2ans</option>
-                            <option value="3ans">3ans</option>
-                            <option value="4ans">4ans</option>
-                            <option value="5ans">5ans</option>
-                            <option value="6ans">6ans</option>
-                            <option value="7ans">7ans</option>
-                            <option value="8ans">8ans</option>
-                            <option value="9ans">9ans</option>
-                            <option value="10ans">10ans</option>
-                            <option value="Aucun">Aucun</option>
-                        </select>
+                    <div class="form-group">
+                        <label for="profil" class="form-label">Profil recherché</label>
+                        <textarea name="profil" id="profil" class="form-control" required
+                            placeholder="Décrivez les compétences et qualités requises pour le poste..."></textarea>
                     </div>
 
-                    <div class="box">
-                        <label for="places">Nombre de places disponibles :</label>
-                        <input type="number" name="places" id="places" required placeholder="Exemple : 5">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contrat" class="form-label">Type de contrat</label>
+                            <select name="contrat" id="contrat" class="form-control" required>
+                                <option value="">Sélectionnez un type de contrat</option>
+                                <option value="CDI">CDI</option>
+                                <option value="CDD">CDD</option>
+                                <option value="INTERIM">Intérim</option>
+                                <option value="FREELANCE">Freelance</option>
+                                <option value="APPRENTISSAGE">Apprentissage</option>
+                                <option value="STAGE">Stage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="etude" class="form-label">Niveau d'études requis</label>
+                            <select name="etude" id="etude" class="form-control" required>
+                                <option value="">Sélectionnez un niveau d'études</option>
+                                <option value="Bac+1an">Bac+1</option>
+                                <option value="Bac+2ans">Bac+2</option>
+                                <option value="Bac+3ans">Bac+3</option>
+                                <option value="Bac+4ans">Bac+4</option>
+                                <option value="Bac+5ans">Bac+5</option>
+                                <option value="Bac+6ans">Bac+6</option>
+                                <option value="Bac+7ans">Bac+7</option>
+                                <option value="Bac+8ans">Bac+8</option>
+                                <option value="Bac+9ans">Bac+9</option>
+                                <option value="Bac+10ans">Bac+10</option>
+                                <option value="Aucun">Aucun diplôme requis</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="box">
-                        <label for="duree">Durée de l'offre avant expiration (en jours) :</label>
-                        <input type="number" name="duree" id="duree" required placeholder="Exemple : 30">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience" class="form-label">Expérience requise</label>
+                            <select name="experience" id="experience" class="form-control" required>
+                                <option value="">Sélectionnez le niveau d'expérience</option>
+                                <option value="Debutant">Débutant</option>
+                                <option value="1an">1 an</option>
+                                <option value="2ans">2 ans</option>
+                                <option value="3ans">3 ans</option>
+                                <option value="4ans">4 ans</option>
+                                <option value="5ans">5 ans</option>
+                                <option value="6ans">6 ans</option>
+                                <option value="7ans">7 ans</option>
+                                <option value="8ans">8 ans</option>
+                                <option value="9ans">9 ans</option>
+                                <option value="10ans">10 ans</option>
+                                <option value="Aucun">Aucune expérience requise</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duree" class="form-label">Durée de publication</label>
+                            <input type="number" name="duree" id="duree" class="form-control" required
+                                placeholder="Nombre de jours">
+                        </div>
                     </div>
 
-                    <div class="box">
-                        <label for="localite">Localité :</label>
-                        <input type="text" name="localite" id="localite" required
-                            placeholder="Exemple : Paris, Lyon, etc.">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="localite" class="form-label">Localisation</label>
+                            <input type="text" name="localite" id="localite" class="form-control" required
+                                placeholder="Ex: Paris, Lyon, Remote">
+                        </div>
+                        <div class="form-group">
+                            <label for="Langues" class="form-label">Langues requises</label>
+                            <input type="text" name="langues" id="Langues" class="form-control" required
+                                placeholder="Ex: Français, Anglais">
+                        </div>
                     </div>
 
-                    <div class="box">
-                        <label for="Langues">Langues exigées :</label>
-                        <input type="text" name="langues" id="Langues" required
-                            placeholder="Exemple : Français, Anglais, Espagnol">
-                    </div>
-
-                    <div class="box">
-                        <label for="categorie">Secteur d'activité</label>
-                        <select id="categorie" name="categorie">
-                            <option value="">Sélectionnez une catégorie</option>
+                    <div class="form-group">
+                        <label for="categorie" class="form-label">Secteur d'activité</label>
+                        <select name="categorie" id="categorie" class="form-control" required>
+                            <option value="">Sélectionnez un secteur</option>
                             <option value="Informatique et tech">Informatique et tech</option>
                             <option value="Design et création">Design et création</option>
                             <option value="Rédaction et traduction">Rédaction et traduction</option>
                             <option value="Marketing et communication">Marketing et communication</option>
-                            <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
+                            <option value="Finance et comptabilité">Finance et comptabilité</option>
                             <option value="Juridique">Juridique</option>
                             <option value="Ingénierie et architecture">Ingénierie et architecture</option>
-                            <option value="Finance et comptabilité">Finance et comptabilité</option>
                             <option value="Santé et bien-être">Santé et bien-être</option>
                             <option value="Éducation et formation">Éducation et formation</option>
                             <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
                             <option value="Commerce et vente">Commerce et vente</option>
                             <option value="Transport et logistique">Transport et logistique</option>
                             <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
+                            <option value="Ressources humaines">Ressources humaines</option>
+                            <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
                             <option value="Autre">Autre</option>
                         </select>
                     </div>
 
-                    <input type="submit" name="publier" value="Publier" id="valider">
+                    <button type="submit" name="publier" class="form-button">Publier l'offre</button>
                 </form>
 
             </div>
@@ -556,7 +642,7 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
                                     <i class="fas <?= $categoryIcon ?>"></i>
                                 </div>
                                 <div class="category-info">
-                                    <h3><?= htmlspecialchars($categorieentreprise['categori']) ?></h3>
+                                    <h3><?= $categorieentreprise['categori'] ?></h3>
                                     <div class="category-count">
                                         <span class="count"><?= $countOffreCategorie ?></span>
                                         <span class="label"><?= $countOffreCategorie > 1 ? 'offres' : 'offre' ?></span>
@@ -583,19 +669,22 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
         </div>
 
         <div class="container_box6" id="container_box6">
+            <form action="" method="post" class="enterprise-form form-animate-in">
+                <button type="button" class="form-close-btn close-assistance-form">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="form-header">
+                    <h2>Besoin d'assistance ?</h2>
+                    <p>Notre équipe est là pour vous aider. Écrivez-nous !</p>
+                </div>
 
-            <div class="box1">
-                <h1>Assistance</h1>
-                <br>
-                <p>Ou écrivez-nous ici !</p>
-            </div>
+                <div class="form-group">
+                    <textarea name="message" id="message" class="form-control" required
+                        placeholder="Décrivez votre question ou problème..."></textarea>
+                </div>
 
-            <div class="box2">
-                <form action="" method="post">
-                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
-                    <button name="send" type="submit"> Envoyer</button>
-                </form>
-            </div>
+                <button type="submit" name="send" class="form-button">Envoyer</button>
+            </form>
         </div>
     </section>
 
@@ -716,6 +805,78 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
                     card.setAttribute('data-value', value.replace(/\D/g, ''));
                 }
             });
+        });
+    </script>
+
+    <script>
+        // Gestion des formulaires
+        document.addEventListener('DOMContentLoaded', function () {
+            // Formulaire de description
+            const formDesc = document.querySelector('.form_desc');
+            const closeDescBtn = document.querySelector('.close-desc-form');
+            const btn1 = document.querySelector('.btn1');
+
+            if (closeDescBtn && formDesc && btn1) {
+                closeDescBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    formDesc.querySelector('form').classList.add('form-animate-out');
+                    setTimeout(() => {
+                        formDesc.style.height = '0px';
+                        formDesc.querySelector('form').classList.remove('form-animate-out');
+                    }, 300);
+                });
+
+                btn1.addEventListener('click', () => {
+                    if (formDesc.style.height === '0px' || !formDesc.style.height) {
+                        formDesc.style.height = 'auto';
+                        formDesc.querySelector('form').classList.add('form-animate-in');
+                    }
+                });
+            }
+
+            // Formulaire d'offre
+            const formOff = document.querySelector('.form_off');
+            const closeOffBtn = document.querySelector('.close-off-form');
+            const btn2 = document.querySelector('.btn2');
+
+            if (closeOffBtn && formOff && btn2) {
+                closeOffBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    formOff.querySelector('form').classList.add('form-animate-out');
+                    setTimeout(() => {
+                        formOff.style.height = '0px';
+                        formOff.querySelector('form').classList.remove('form-animate-out');
+                    }, 300);
+                });
+
+                btn2.addEventListener('click', () => {
+                    if (formOff.style.height === '0px' || !formOff.style.height) {
+                        formOff.style.height = 'auto';
+                        formOff.querySelector('form').classList.add('form-animate-in');
+                    }
+                });
+            }
+
+            // Formulaire d'assistance
+            const formAssistance = document.querySelector('#container_box6');
+            const closeAssistanceBtn = document.querySelector('.close-assistance-form');
+            const contactBtn = document.querySelector('#contacte');
+
+            if (closeAssistanceBtn && formAssistance && contactBtn) {
+                closeAssistanceBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    formAssistance.querySelector('form').classList.add('form-animate-out');
+                    setTimeout(() => {
+                        formAssistance.style.display = 'none';
+                        formAssistance.querySelector('form').classList.remove('form-animate-out');
+                    }, 300);
+                });
+
+                contactBtn.addEventListener('click', () => {
+                    formAssistance.style.display = 'block';
+                    formAssistance.querySelector('form').classList.add('form-animate-in');
+                });
+            }
         });
     </script>
 

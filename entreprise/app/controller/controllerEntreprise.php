@@ -2,6 +2,7 @@
 // require_once('..//entreprise/app/model/entreprise.php');
 require_once(__DIR__ . '/../model/entreprise.php');
 include(__DIR__ . '../../../../controller/controller_competence_users.php');
+require_once(__DIR__ . '/../model/email_queue.php');
 
 // include('../model/vue_offre.php');
 use PHPMailer\PHPMailer\PHPMailer;
@@ -58,14 +59,14 @@ if (isset($_POST['publier'])) {
     if (empty($_POST['mission'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter les missions correspondant au profil !';
     } else {
-        $mission = htmlspecialchars(trim($_POST['mission']));
+        $mission = ($_POST['mission']);
     }
 
     // Validation du profil recherché
     if (empty($_POST['profil'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter les critères du profil recherché !';
     } else {
-        $profil = htmlspecialchars(trim($_POST['profil']));
+        $profil = ($_POST['profil']);
     }
 
     // Validation du type de contrat
@@ -162,7 +163,7 @@ if (isset($_POST['publier'])) {
     if (empty($_POST['categorie'])) {
         $_SESSION['error_message'] = 'Veuillez sélectionner une catégorie !';
     } else {
-        $categorie = htmlspecialchars(trim($_POST['categorie']));
+        $categorie = ($_POST['categorie']);
 
         // Vérifier si la catégorie existe déjà
         $T_categorie = Categorie($db, $entreprise_id, $categorie);
@@ -188,222 +189,205 @@ if (isset($_POST['publier'])) {
     // Si aucune erreur n'a été détectée, procéder à l'enregistrement et à l'envoi des notifications
     if (empty($_SESSION['error_message'])) {
         try {
-            // Configuration de PHPMailer pour l'envoi des notifications
-            $mail = new PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Host = 'advantech-group.space';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'info@advantech-group.space';
-            $mail->Password = 'Ludvanne12@gmail.com'; // À stocker de manière sécurisée dans un fichier de configuration
-            $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
-            $mail->setFrom('info@advantech-group.space', 'Work-Flexer');
-            $mail->isHTML(true);
-
-            // Récupération des candidats correspondant à la catégorie
-            $sql = "SELECT * FROM users WHERE categorie = :categorie";
-            $stmt = $db->prepare($sql);
-            $stmt->bindValue(":categorie", $categorie, PDO::PARAM_STR);
-            $stmt->execute();
-            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            // Envoi d'un email à chaque candidat concerné
-            foreach ($users as $candidate) {
-                $destinataire = filter_var($candidate['mail'], FILTER_VALIDATE_EMAIL);
-                if (!$destinataire) {
-                    continue; // Ignorer les adresses email invalides
-                }
-
-                $nom = htmlspecialchars($candidate['nom']);
-                $sujet = 'Nouvelle offre d\'emploi correspondant à vos critères';
-
-                // Construction du template d'email
-                $message = "
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset='utf-8'>
-                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                    <title>Nouvelle offre d'emploi</title>
-                    <style>
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        }
-                        body {
-                            background-color: #f5f5f5;
-                            color: #333333;
-                            line-height: 1.6;
-                        }
-                        .email-container {
-                            max-width: 600px;
-                            margin: 0 auto;
-                            background-color: #ffffff;
-                            border-radius: 8px;
-                            overflow: hidden;
-                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-                        }
-                        .email-header {
-                            background-color: #0671dc;
-                            padding: 30px 20px;
-                            text-align: center;
-                        }
-                        .email-header img {
-                            max-width: 180px;
-                            height: auto;
-                        }
-                        .email-body {
-                            padding: 40px 30px;
-                        }
-                        .greeting {
-                            font-size: 22px;
-                            font-weight: 600;
-                            color: #0671dc;
-                            margin-bottom: 20px;
-                        }
-                        .email-title {
-                            font-size: 18px;
-                            font-weight: 600;
-                            margin-bottom: 20px;
-                            color: #333333;
-                        }
-                        .email-text {
-                            font-size: 15px;
-                            margin-bottom: 20px;
-                            color: #555555;
-                        }
-                        .highlight-box {
-                            background-color: #f0f7ff;
-                            border-left: 4px solid #0671dc;
-                            padding: 15px 20px;
-                            margin: 25px 0;
-                            color: #333333;
-                        }
-                        .highlight-box h3 {
-                            font-size: 16px;
-                            margin-bottom: 10px;
-                            color: #0671dc;
-                        }
-                        .button {
-                            display: inline-block;
-                            background-color: #0671dc;
-                            color: #ffffff !important;
-                            text-decoration: none;
-                            padding: 12px 30px;
-                            border-radius: 4px;
-                            font-weight: 500;
-                            margin: 20px 0;
-                            text-align: center;
-                        }
-                        .note {
-                            font-size: 14px;
-                            color: #777777;
-                            margin-top: 30px;
-                            font-style: italic;
-                        }
-                        .email-footer {
-                            background-color: #f9f9f9;
-                            padding: 30px;
-                            text-align: center;
-                            border-top: 1px solid #eeeeee;
-                        }
-                        .social-links {
-                            margin-bottom: 20px;
-                        }
-                        .social-links a {
-                            display: inline-block;
-                            margin: 0 10px;
-                            color: #0671dc;
-                            text-decoration: none;
-                        }
-                        .footer-text {
-                            font-size: 13px;
-                            color: #999999;
-                            margin-bottom: 10px;
-                        }
-                        .signature {
-                            margin-top: 30px;
-                            padding-top: 20px;
-                            border-top: 1px solid #eeeeee;
-                        }
-                        .signature-name {
-                            font-weight: 600;
-                            color: #333333;
-                            margin-bottom: 5px;
-                        }
-                        .signature-title {
-                            font-size: 14px;
-                            color: #777777;
-                        }
-                        @media only screen and (max-width: 600px) {
-                            .email-body {
-                                padding: 30px 20px;
-                            }
-                            .greeting {
-                                font-size: 20px;
-                            }
-                            .email-title {
-                                font-size: 16px;
-                            }
-                            .email-text {
-                                font-size: 14px;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class='email-container'>
-                        <div class='email-header'>
-                            <img src='https://work-flexer.com/image/logo 2.png' alt='Work-Flexer Logo'>
-                        </div>
-                        <div class='email-body'>
-                            <div class='greeting'>Bonjour $nom,</div>
-                            <div class='email-title'>Nouvelle offre d'emploi disponible !</div>
-                            
-                            <div class='highlight-box'>
-                                <h3>Poste : $poste</h3>
-                            </div>
-                            
-                            <p class='email-text'>Nous sommes ravis de vous informer qu'une nouvelle offre d'emploi correspondant à vos critères est disponible sur Work-Flexer.</p>
-                            
-                            <p class='email-text'>Cette offre présente une opportunité passionnante pour vous. Nous vous encourageons à vous connecter dès que possible, à consulter les détails de l'offre et à postuler pour saisir cette chance.</p>
-                            
-                            <a href='https://work-flexer.com/page/user_profil.php' class='button'>Découvrir l'offre</a>
-                            
-                            <p class='note'>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
-                            
-                            <div class='signature'>
-                                <p class='email-text'>Cordialement,</p>
-                                <p class='signature-name'>L'équipe Work-Flexer</p>
-                                <p class='signature-title'>Service recrutement</p>
-                            </div>
-                        </div>
-                        <div class='email-footer'>
-                            <div class='social-links'>
-                                <a href='#'>Facebook</a>
-                                <a href='#'>Twitter</a>
-                                <a href='#'>LinkedIn</a>
-                            </div>
-                            <p class='footer-text'>© 2023 Work-Flexer. Tous droits réservés.</p>
-                            <p class='footer-text'>Pour toute question, contactez-nous à <a href='mailto:info@advantech-group.space'>info@advantech-group.space</a></p>
-                        </div>
-                    </div>
-                </body>
-                </html> ";
-
-                $mail->Subject = $sujet;
-                $mail->Body = $message;
-
-                // Réinitialiser les destinataires pour chaque envoi
-                $mail->clearAddresses();
-                $mail->addAddress($destinataire);
-                $mail->send();
-            }
-
             // Enregistrement de l'offre dans la base de données
             if (postOffres($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $statut, $categorie, $date)) {
+
+                // Récupération des candidats correspondant à la catégorie
+                $sql = "SELECT * FROM users WHERE categorie = :categorie";
+                $stmt = $db->prepare($sql);
+                $stmt->bindValue(":categorie", $categorie, PDO::PARAM_STR);
+                $stmt->execute();
+                $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                // Ajouter les emails à la file d'attente
+                foreach ($users as $candidate) {
+                    $destinataire = filter_var($candidate['mail'], FILTER_VALIDATE_EMAIL);
+                    if (!$destinataire) {
+                        continue; // Ignorer les adresses email invalides
+                    }
+
+                    $nom = htmlspecialchars($candidate['nom']);
+                    $sujet = 'Nouvelle offre d\'emploi correspondant à vos critères';
+
+                    // Construction du template d'email
+                    $message = "
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <meta charset='utf-8'>
+                        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                        <title>Nouvelle offre d'emploi</title>
+                        <style>
+                            * {
+                                margin: 0;
+                                padding: 0;
+                                box-sizing: border-box;
+                                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            }
+                            body {
+                                background-color: #f5f5f5;
+                                color: #333333;
+                                line-height: 1.6;
+                            }
+                            .email-container {
+                                max-width: 600px;
+                                margin: 0 auto;
+                                background-color: #ffffff;
+                                border-radius: 8px;
+                                overflow: hidden;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                            }
+                            .email-header {
+                                background-color: #0671dc;
+                                padding: 30px 20px;
+                                text-align: center;
+                            }
+                            .email-header img {
+                                max-width: 180px;
+                                height: auto;
+                            }
+                            .email-body {
+                                padding: 40px 30px;
+                            }
+                            .greeting {
+                                font-size: 22px;
+                                font-weight: 600;
+                                color: #0671dc;
+                                margin-bottom: 20px;
+                            }
+                            .email-title {
+                                font-size: 18px;
+                                font-weight: 600;
+                                margin-bottom: 20px;
+                                color: #333333;
+                            }
+                            .email-text {
+                                font-size: 15px;
+                                margin-bottom: 20px;
+                                color: #555555;
+                            }
+                            .highlight-box {
+                                background-color: #f0f7ff;
+                                border-left: 4px solid #0671dc;
+                                padding: 15px 20px;
+                                margin: 25px 0;
+                                color: #333333;
+                            }
+                            .highlight-box h3 {
+                                font-size: 16px;
+                                margin-bottom: 10px;
+                                color: #0671dc;
+                            }
+                            .button {
+                                display: inline-block;
+                                background-color: #0671dc;
+                                color: #ffffff !important;
+                                text-decoration: none;
+                                padding: 12px 30px;
+                                border-radius: 4px;
+                                font-weight: 500;
+                                margin: 20px 0;
+                                text-align: center;
+                            }
+                            .note {
+                                font-size: 14px;
+                                color: #777777;
+                                margin-top: 30px;
+                                font-style: italic;
+                            }
+                            .email-footer {
+                                background-color: #f9f9f9;
+                                padding: 30px;
+                                text-align: center;
+                                border-top: 1px solid #eeeeee;
+                            }
+                            .social-links {
+                                margin-bottom: 20px;
+                            }
+                            .social-links a {
+                                display: inline-block;
+                                margin: 0 10px;
+                                color: #0671dc;
+                                text-decoration: none;
+                            }
+                            .footer-text {
+                                font-size: 13px;
+                                color: #999999;
+                                margin-bottom: 10px;
+                            }
+                            .signature {
+                                margin-top: 30px;
+                                padding-top: 20px;
+                                border-top: 1px solid #eeeeee;
+                            }
+                            .signature-name {
+                                font-weight: 600;
+                                color: #333333;
+                                margin-bottom: 5px;
+                            }
+                            .signature-title {
+                                font-size: 14px;
+                                color: #777777;
+                            }
+                            @media only screen and (max-width: 600px) {
+                                .email-body {
+                                    padding: 30px 20px;
+                                }
+                                .greeting {
+                                    font-size: 20px;
+                                }
+                                .email-title {
+                                    font-size: 16px;
+                                }
+                                .email-text {
+                                    font-size: 14px;
+                                }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class='email-container'>
+                            <div class='email-header'>
+                                <img src='https://work-flexer.com/image/logo 2.png' alt='Work-Flexer Logo'>
+                            </div>
+                            <div class='email-body'>
+                                <div class='greeting'>Bonjour $nom,</div>
+                                <div class='email-title'>Nouvelle offre d'emploi disponible !</div>
+                                
+                                <div class='highlight-box'>
+                                    <h3>Poste : $poste</h3>
+                                </div>
+                                
+                                <p class='email-text'>Nous sommes ravis de vous informer qu'une nouvelle offre d'emploi correspondant à vos critères est disponible sur Work-Flexer.</p>
+                                
+                                <p class='email-text'>Cette offre présente une opportunité passionnante pour vous. Nous vous encourageons à vous connecter dès que possible, à consulter les détails de l'offre et à postuler pour saisir cette chance.</p>
+                                
+                                <a href='https://work-flexer.com/page/user_profil.php' class='button'>Découvrir l'offre</a>
+                                
+                                <p class='note'>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider dans votre recherche d'emploi.</p>
+                                
+                                <div class='signature'>
+                                    <p class='email-text'>Cordialement,</p>
+                                    <p class='signature-name'>L'équipe Work-Flexer</p>
+                                    <p class='signature-title'>Service recrutement</p>
+                                </div>
+                            </div>
+                            <div class='email-footer'>
+                                <div class='social-links'>
+                                    <a href='#'>Facebook</a>
+                                    <a href='#'>Twitter</a>
+                                    <a href='#'>LinkedIn</a>
+                                </div>
+                                <p class='footer-text'>© 2023 Work-Flexer. Tous droits réservés.</p>
+                                <p class='footer-text'>Pour toute question, contactez-nous à <a href='mailto:info@advantech-group.space'>info@advantech-group.space</a></p>
+                            </div>
+                        </div>
+                    </body>
+                    </html> ";
+
+                    // Ajouter l'email à la file d'attente
+                    ajouterEmailQueue($db, $destinataire, $nom, $sujet, $message);
+                }
 
                 // Notification de succès et redirection
                 $_SESSION['success_message'] = 'Offre d\'emploi publiée avec succès';

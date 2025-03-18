@@ -3,11 +3,6 @@ session_start();
 
 include_once('../conn/conn.php');
 
-if (!isset($_SESSION['users_id'])) {
-    // Rediriger si l'utilisateur n'est pas connecté
-    header('Location: ../page/connexion.php');
-    exit();
-}
 
 if (isset($_GET['offres_id']) or isset($_GET['entreprise_id'])) {
     $offre_id = $_GET['offres_id'];
@@ -77,104 +72,75 @@ if (isset($_SESSION['users_id'])) {
     <section class="section3">
 
 
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="message">
-                <p>
-                    <span></span>
-                    <?php echo $_SESSION['success_message']; ?>
-                    <?php unset($_SESSION['success_message']); ?>
-                </p>
-            </div>
-        <?php else: ?>
-            <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="erreurs" id="messageErreur">
-                    <span></span>
-                    <?php echo $_SESSION['error_message']; ?>
-                    <?php unset($_SESSION['error_message']); ?>
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
-
-        <script>
-            let success = document.querySelector('.message')
-            setTimeout(() => {
-                success.classList.add('visible');
-            }, 200);
-            setTimeout(() => {
-                success.classList.remove('visible');
-            }, 6000);
-
-            // Sélectionnez l'élément contenant le message d'erreur
-            var messageErreur = document.getElementById('messageErreur');
-
-            // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.add('visible');
-            }, 200); // 1000 millisecondes équivalent à 1 seconde
-
-            // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.remove('visible');
-            }, 6000); // 6000 millisecondes équivalent à 6 secondes
-        </script>
-
-
         <div class="job-offer">
 
             <div class="box11">
-                <img src="../upload/<?= $getEntreprise['images'] ?>" alt="">
+                <img src="../upload/<?= $getEntreprise['images'] ?>" alt="Logo <?= $getEntreprise['entreprise'] ?>">
                 <h2>Offre d'emploi</h2>
                 <p class="company">
                     <?= $getEntreprise['entreprise'] ?>
                 </p>
 
-                <?php if ($afficheDescriptionentreprise): ?>
-                    <p class="lien"><a href="<?= $afficheDescriptionentreprise['liens'] ?>">
-                            <?= $afficheDescriptionentreprise['liens'] ?>
-                        </a></p>
-                <?php else: ?>
-                    <p class="lien">Aucun lien pour cette entreprise</p>
-                <?php endif; ?>
+                <button class="toggle-company-info">
+                    <i class="fas fa-chevron-down"></i> Afficher les informations de l'entreprise
+                </button>
 
-                <h4>Type d'entreprise</h4>
-                <p>
-                    <?= $getEntreprise['types'] ?>
-                </p>
+                <div class="company-info-container">
+                    <?php if ($afficheDescriptionentreprise): ?>
+                        <p class="lien"><a href="<?= $afficheDescriptionentreprise['liens'] ?>" target="_blank">
+                                <i class="fas fa-globe"></i> <?= $afficheDescriptionentreprise['liens'] ?>
+                            </a></p>
+                    <?php else: ?>
+                        <p class="lien"><i class="fas fa-info-circle"></i> Aucun lien pour cette entreprise</p>
+                    <?php endif; ?>
 
-                <h4>Description de l'Entreprise</h4>
-                <?php if ($afficheDescriptionentreprise): ?>
-                    <p class="description">
-                        <?= $afficheDescriptionentreprise['descriptions'] ?>
+                    <h4><i class="fas fa-building"></i> Type d'entreprise</h4>
+                    <p>
+                        <?= $getEntreprise['types'] ?>
                     </p>
-                <?php else: ?>
-                    <p class="description">
-                        Description indisponible
-                    </p>
-                <?php endif; ?>
+
+                    <h4><i class="fas fa-align-left"></i> Description de l'Entreprise</h4>
+                    <?php if ($afficheDescriptionentreprise): ?>
+                        <p class="description">
+                            <?= $afficheDescriptionentreprise['descriptions'] ?>
+                        </p>
+                    <?php else: ?>
+                        <p class="description">
+                            <i class="fas fa-exclamation-circle"></i> Description indisponible
+                        </p>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <?php if ($Offres): ?>
                 <div class="box3">
-                    <h1>Detaille de l'offre</h1>
-                    <h2>Poste disponible : <span>
-                            <?= $Offres['poste'] ?>
-                        </span></h2>
+                    <h1>Détails de l'offre</h1>
+                    <div class="poste-container">
+                        <h2><i class="fas fa-briefcase"></i> Poste disponible : <span>
+                                <?= $Offres['poste'] ?>
+                            </span></h2>
+                        <div class="nombre-poste-disponible">
+                            <i class="fas fa-users"></i>
+                            <span class="nombre"><?= isset($Offres['place']) ? $Offres['place'] : '1' ?></span>
+                            <span class="texte">poste(s) à pourvoir</span>
+                        </div>
+                    </div>
                 </div>
 
 
                 <div class="box2">
-                    <h3>Missions et responsabilités</h3>
+                    <h3><i class="fas fa-tasks"></i> Missions et responsabilités</h3>
                     <p><?= $Offres['mission'] ?></p>
                 </div>
 
                 <div class="box2">
-                    <h3>Profil recherché</h3>
+                    <h3><i class="fas fa-user-graduate"></i> Profil recherché</h3>
                     <p>Qualités et compétences requises:</p>
-                    <p> <?= $Offres['profil'] ?></p>
+                    <p><?= $Offres['profil'] ?></p>
                 </div>
 
                 <div class="box2">
-                    <h3>Informations supplémentaires</h3>
+                    <h3><i class="fas fa-info-circle"></i> Informations supplémentaires</h3>
                     <div class="box_info">
                         <p class="info"> <strong> Type de contrat :</strong>
                             <?= $Offres['contrat'] ?>
@@ -190,7 +156,7 @@ if (isset($_SESSION['users_id'])) {
                             <?= $Offres['experience'] ?>
                         </p>
 
-                        <p class="info"> <strong>Niveau d'etude minimum: </strong>
+                        <p class="info"> <strong>Niveau d'étude minimum: </strong>
                             <?= $Offres['etudes'] ?>
                         </p>
 
@@ -220,14 +186,17 @@ if (isset($_SESSION['users_id'])) {
                         <input type="hidden" name="images_users" id="" value="<?= $getInfo['images'] ?>">
 
                         <?php if (isset($getPostulation['offre_id'])): ?>
-                            <p class="msg001">Vous avez déjà envoyer votre candidature merci de patienter une réponse favorable.</p>
+                            <p class="msg001"><i class="fas fa-info-circle"></i> Vous avez déjà envoyé votre candidature. Merci de
+                                patienter pour une réponse favorable.</p>
                         <?php else: ?>
-                            <button class="btn001" type="submit" name="postuler">Postuler maintenant</button>
+                            <button class="btn001" type="submit" name="postuler"><i class="fas fa-paper-plane"></i> Postuler
+                                maintenant</button>
                         <?php endif; ?>
                     </form>
                 <?php else: ?>
                     <form action="">
-                        <p class="msg001">Vous devez avoir un compte professionel pour pouvoir postuler</p>
+                        <p class="msg001"><i class="fas fa-exclamation-triangle"></i> Vous devez avoir un compte professionnel
+                            pour pouvoir postuler</p>
                     </form>
                 <?php endif; ?>
 
@@ -241,7 +210,7 @@ if (isset($_SESSION['users_id'])) {
     </section>
 
     <div class="container_box10">
-        <h2>Offres Simillaires</h2>
+        <h2>Offres Similaires</h2>
 
         <div class="slider owl-carousel carousel3">
             <?php if (isset($afficheAllOffre)): ?>
@@ -253,7 +222,8 @@ if (isset($_SESSION['users_id'])) {
 
                             <div class="carousel" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="0"
                                 data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false">
-                                <img src="../upload/<?php echo $infoEntreprise['images'] ?>" alt="">
+                                <img src="../upload/<?php echo $infoEntreprise['images'] ?>"
+                                    alt="Logo <?php echo $infoEntreprise['entreprise']; ?>">
                                 <div class="info-box">
                                     <p class="p">
                                         <strong>
@@ -315,6 +285,26 @@ if (isset($_SESSION['users_id'])) {
     <script src="../js/owl.animate.js"></script>
     <script src="../js/owl.autoplay.js"></script>
 
+    <script>
+        // Script pour afficher/masquer les informations de l'entreprise
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.querySelector('.toggle-company-info');
+            const companyInfo = document.querySelector('.company-info-container');
+
+            if (toggleBtn && companyInfo) {
+                toggleBtn.addEventListener('click', function () {
+                    companyInfo.classList.toggle('active');
+                    toggleBtn.classList.toggle('active');
+
+                    if (companyInfo.classList.contains('active')) {
+                        toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Masquer les informations de l\'entreprise';
+                    } else {
+                        toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Afficher les informations de l\'entreprise';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

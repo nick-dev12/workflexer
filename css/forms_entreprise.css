@@ -1,0 +1,312 @@
+/* Forms Enterprise - Styles modernes et responsifs */
+
+/* Variables globales */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --error-color: #ef4444;
+  --success-color: #22c55e;
+  --text-color: #1f2937;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --background-light: #f9fafb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Style général des formulaires */
+.enterprise-form {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  width: 95%;
+  position: relative;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-header h2 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+/* Style des champs de formulaire */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-control::placeholder {
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+/* Style des textarea */
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Style des select */
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* Style des boutons */
+.form-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  width: auto;
+  min-width: 120px;
+}
+
+.form-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.form-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* Style pour les messages d'erreur */
+.form-error {
+  color: var(--error-color);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Style pour les messages de succès */
+.form-success {
+  color: var(--success-color);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Style pour les groupes de champs en ligne */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Style pour le formulaire de description */
+.form_desc {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form_desc.active {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  padding: 2rem 0;
+}
+
+/* Ajustement pour le conteneur du formulaire de description */
+.container_box3 {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.container_box3 .form_desc .enterprise-form {
+  margin-top: 1rem;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.container_box3 .form_desc.active .enterprise-form {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Style pour le formulaire d'offre */
+.form_off {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.form_off.active {
+  height: auto;
+  padding: 2rem;
+}
+
+/* Style pour Summernote */
+.note-editor {
+  border-radius: 0.5rem;
+  border-color: var(--border-color) !important;
+}
+
+.note-editor .note-toolbar {
+  background-color: var(--background-light);
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.5rem;
+}
+
+.note-editor .note-editing-area {
+  background-color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enterprise-form {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row .form-group {
+    width: 100%;
+  }
+
+  .form-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .enterprise-form {
+    padding: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-control {
+    font-size: 0.875rem;
+    padding: 0.625rem 0.875rem;
+  }
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-animate-in {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Style pour le bouton de fermeture */
+.form-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.form-close-btn:hover {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.form-close-btn:hover i {
+  color: #ef4444;
+}
+
+.form-close-btn i {
+  font-size: 16px;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+/* Animation pour la fermeture */
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.form-animate-out {
+  animation: slideUp 0.3s ease-out forwards;
+}

@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['compte_entreprise'])) {
+    header('Location: ../connection_compte.php');
+    exit();
+}
+
 if (isset($_GET['id'])) {
     $offre_id = $_GET['id'];
 } else {
@@ -42,9 +47,9 @@ $Offres = getOffres($db, $offre_id);
     <script src="../script/jquery-3.6.0.min.js"></script>
     <link href="../style/bootstrap.3.4.1.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/summernote@0.8.18.css">
-    <title>offre d'emploi</title>
+    <title>Modification de l'offre d'emploi</title>
     <link rel="stylesheet" href="../css/navbare.css">
-    <link rel="stylesheet" href="../css/voir_offre.css">
+    <link rel="stylesheet" href="../css/update_offre.css">
 
 </head>
 
@@ -64,58 +69,70 @@ $Offres = getOffres($db, $offre_id);
         <div class="job-offer">
 
             <div class="box11">
-                <img src="../upload/<?= $getEntreprise['images'] ?>" alt="">
+                <img src="../upload/<?= $getEntreprise['images'] ?>" alt="Logo <?= $getEntreprise['entreprise'] ?>">
                 <h2>Offre d'emploi</h2>
                 <p class="company">
                     <?= $getEntreprise['entreprise'] ?>
                 </p>
 
-                <?php if ($afficheDescriptionentreprise): ?>
-                    <p class="lien"><a href="<?= $afficheDescriptionentreprise['liens'] ?>">
-                            <?= $afficheDescriptionentreprise['liens'] ?>
-                        </a></p>
-                <?php else: ?>
-                    <p class="lien">Aucun lien pour cette entreprise</p>
-                <?php endif; ?>
+                <button class="toggle-company-info">
+                    <i class="fas fa-chevron-down"></i> Informations sur l'entreprise
+                </button>
 
-                <h4>Type d'entreprise</h4>
-                <p>
-                    <?= $getEntreprise['types'] ?>
-                </p>
+                <div class="company-info-container">
+                    <?php if ($afficheDescriptionentreprise): ?>
+                        <p class="lien"><a href="<?= $afficheDescriptionentreprise['liens'] ?>" target="_blank">
+                                <i class="fas fa-globe"></i> <?= $afficheDescriptionentreprise['liens'] ?>
+                            </a></p>
+                    <?php else: ?>
+                        <p class="lien"><i class="fas fa-info-circle"></i> Aucun lien pour cette entreprise</p>
+                    <?php endif; ?>
 
-                <h4>Description de l'Entreprise</h4>
-                <?php if ($afficheDescriptionentreprise): ?>
-                    <p class="description">
-                        <?= $afficheDescriptionentreprise['descriptions'] ?>
+                    <h4><i class="fas fa-building"></i> Type d'entreprise</h4>
+                    <p>
+                        <?= $getEntreprise['types'] ?>
                     </p>
-                <?php else: ?>
-                    <p class="lien">Description indisponible !</p>
-                <?php endif; ?>
 
+                    <h4><i class="fas fa-align-left"></i> Description de l'Entreprise</h4>
+                    <?php if ($afficheDescriptionentreprise): ?>
+                        <p class="description">
+                            <?= $afficheDescriptionentreprise['descriptions'] ?>
+                        </p>
+                    <?php else: ?>
+                        <p class="lien"><i class="fas fa-exclamation-circle"></i> Description indisponible !</p>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <?php if ($Offres): ?>
                 <div class="box3">
-                    <h1>Detaille de l'offre</h1>
-                    <h2>Poste disponible : <span>
-                            <?= $Offres['poste'] ?>
-                        </span></h2>
+                    <h1>Détails de l'offre</h1>
+                    <div class="poste-container">
+                        <h2><i class="fas fa-briefcase"></i> Poste disponible : <span>
+                                <?= $Offres['poste'] ?>
+                            </span></h2>
+
+                        <div class="nombre-poste-disponible">
+                            <i class="fas fa-users"></i> Nombre de postes disponibles :
+                            <span class="count"><?= isset($Offres['place']) ? $Offres['place'] : '1' ?></span>
+                        </div>
+                    </div>
                 </div>
 
 
                 <div class="box2">
-                    <h3>Missions et responsabilités</h3>
+                    <h3><i class="fas fa-tasks"></i> Missions et responsabilités</h3>
                     <?= $Offres['mission'] ?>
                 </div>
 
                 <div class="box2">
-                    <h3>Profil recherché</h3>
+                    <h3><i class="fas fa-user-graduate"></i> Profil recherché</h3>
                     <p>Qualités et compétences requises:</p>
                     <?= $Offres['profil'] ?>
                 </div>
 
                 <div class="box2">
-                    <h3>Informations supplémentaires</h3>
+                    <h3><i class="fas fa-info-circle"></i> Informations supplémentaires</h3>
                     <div class="box_info">
                         <p class="info"> <strong>Métier : </strong>
                             <?= $Offres['metier'] ?>
@@ -139,7 +156,7 @@ $Offres = getOffres($db, $offre_id);
 
                 </div>
 
-                <button class="btn2"> Modifier l'offre </button>
+                <button class="btn2"><i class="fas fa-edit"></i> Modifier l'offre</button>
 
             </div>
         <?php endif; ?>
@@ -148,25 +165,27 @@ $Offres = getOffres($db, $offre_id);
         <div class="container-b">
             <div class="form_off">
                 <form method="post" action="">
-                    <img class="img1" src="../image/croix.png" alt="">
+                    <img class="img1" src="../image/croix.png" alt="Fermer">
                     <div class="box">
                         <label for="poste">Poste disponible</label>
-                        <input type="text" name="poste" id="poste" value="<?= $Offres['poste'] ?>">
+                        <input type="text" name="poste" id="poste" value="<?= $Offres['poste'] ?>"
+                            placeholder="Titre du poste">
                     </div>
                     <div class="box">
-                        <label for="mission">décrivez les missions et responsabilités</label>
+                        <label for="mission">Décrivez les missions et responsabilités</label>
                         <textarea name="mission" id="mission" cols="30"
                             rows="10"><?= htmlspecialchars_decode($Offres['mission']) ?></textarea>
                     </div>
                     <div class="box">
-                        <label for="profil">décrivez le profil rechercher (qualités et competence)</label>
+                        <label for="profil">Décrivez le profil recherché (qualités et compétences)</label>
                         <textarea name="profil" id="profil" cols="30"
                             rows="10"><?= htmlspecialchars_decode($Offres['profil']) ?></textarea>
                     </div>
 
                     <div class="box">
+                        <label for="contrat">Type de contrat</label>
                         <select name="contrat" id="contrat">
-                            <option value="<?= $Offres['contrat'] ?>">-- Type de contrat --</option>
+                            <option value="<?= $Offres['contrat'] ?>"><?= ucfirst($Offres['contrat']) ?></option>
                             <option value="cdi">CDI</option>
                             <option value="cdd">CDD</option>
                             <option value="interim">Intérim</option>
@@ -177,8 +196,9 @@ $Offres = getOffres($db, $offre_id);
                     </div>
 
                     <div class="box">
+                        <label for="etude">Niveau d'étude requis</label>
                         <select name="etude" id="etude">
-                            <option value="<?= $Offres['etudes'] ?>">-- Niveau d'étude requis --</option>
+                            <option value="<?= $Offres['etudes'] ?>"><?= $Offres['etudes'] ?></option>
                             <option value="Bac+1an">Bac+1an</option>
                             <option value="Bac+2ans">Bac+2ans</option>
                             <option value="Bac+3ans">Bac+3ans</option>
@@ -189,14 +209,13 @@ $Offres = getOffres($db, $offre_id);
                             <option value="Bac+8ans">Bac+8ans</option>
                             <option value="Bac+9ans">Bac+9ans</option>
                             <option value="Bac+10ans">Bac+10ans</option>
-
                         </select>
-
                     </div>
 
                     <div class="box">
+                        <label for="experience">Niveau d'expérience requis</label>
                         <select name="experience" id="experience">
-                            <option value="<?= $Offres['experience'] ?>">-- Niveau d'expérience requis --</option>
+                            <option value="<?= $Offres['experience'] ?>"><?= $Offres['experience'] ?></option>
                             <option value="1an">1an</option>
                             <option value="2ans">2ans</option>
                             <option value="3ans">3ans</option>
@@ -207,22 +226,23 @@ $Offres = getOffres($db, $offre_id);
                             <option value="8ans">8ans</option>
                             <option value="9ans">9ans</option>
                             <option value="10ans">10ans</option>
-
                         </select>
                     </div>
                     <div class="box">
-                        <label for="localite">region </label>
-                        <input type="text" name="localite" id="localite" value="<?= $Offres['localite'] ?>">
+                        <label for="localite">Région</label>
+                        <input type="text" name="localite" id="localite" value="<?= $Offres['localite'] ?>"
+                            placeholder="Ex: Île-de-France">
                     </div>
                     <div class="box">
                         <label for="Langues">Langues exigées</label>
-                        <input type="text" name="langues" id="Langues" value="<?= $Offres['langues'] ?>">
+                        <input type="text" name="langues" id="Langues" value="<?= $Offres['langues'] ?>"
+                            placeholder="Ex: Français, Anglais">
                     </div>
 
                     <div class="box">
                         <label for="categorie">Secteur d'activité</label>
                         <select id="categorie" name="categorie">
-                            <option value="<?= $Offres['categorie'] ?>">Sélectionnez une catégorie</option>
+                            <option value="<?= $Offres['categorie'] ?>"><?= $Offres['categorie'] ?></option>
                             <option value="Informatique et tech">Informatique et tech</option>
                             <option value="Design et création">Design et création</option>
                             <option value="Rédaction et traduction">Rédaction et traduction</option>
@@ -241,268 +261,19 @@ $Offres = getOffres($db, $offre_id);
                         </select>
                     </div>
 
-                    <input type="submit" name="modifier" value="modifier" id="valider">
+                    <input type="submit" name="modifier" value="Enregistrer les modifications" id="valider">
                 </form>
             </div>
         </div>
 
-
-
-
-
     </section>
-
-
-    <!-- <section class="section4">
-        <div class="box1">
-            <h1>voir plus d'offre de cette categorie</h1>
-
-
-            <div class="box2">
-                <span><i class="fa-solid fa-chevron-left"></i></span>
-                <span><i class="fa-solid fa-chevron-right"></i></span>
-            </div>
-    
-            <article class="articles owl-carousel carousel1">
-                <div class="carousel">
-                    <img src="/profils/preview_B0eCXi7.jpeg" alt="">
-                    <p>informaticien de getion des affaires applique <span>1</span></p>
-                    <div class="vendu">
-                        <p>nous recherchons un personnels califier pour povoir nous aider dans </p>
-                    </div>
-                    <p id="nom">12 juillet 2023</p>
-                    <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-                </div>
-    
-                <div class="carousel">
-                    <img src="/profils/p1.jpeg" alt="">
-                    <p>logistique<span>0</span></p>
-                    <div class="vendu">
-                        <span>html</span>
-                        <span>css</span>
-                        <span>java script</span>
-                        <span>html</span>
-                        <span>css</span>
-                        <span>java script</span>
-                    </div>
-                    <p id="nom">t-shirt hummel</p>
-                    <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-                </div>
-    
-                <div class="carousel">
-                    <img src="/profils/p2.jpg" alt="">
-                    <p>agronome<span>o</span></p>
-                    <div class="vendu">
-                        <span>css</span>
-                        <span>java script</span>
-                        <span>html</span>
-                        <span>css</span>
-                        <span>java script</span>
-                    </div>
-                    <p id="nom">Nom: Sylivin</p>
-                    <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-                </div>
-    
-                <div class="carousel">
-                    <img src="/profils/p3.jpeg" alt="">
-                    <p>proffesseur de mathematique<span>0</span></p>
-                    <div class="vendu">
-                        <span>html</span>
-                        <span>css</span>
-                        <span>html</span>
-                        <span>css</span>
-                        <span>java script</span>
-                    </div>
-                    <p id="nom">Nom: pricil</p>
-                    <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-                </div>
-    
-                <div class="carousel">
-                    <img src="/profils/p4.jpeg" alt="">
-                    <p>architecture<span>0</span></p>
-                    <div class="vendu">
-                        <span>html</span>
-                        <span>css</span>
-                        <span>java script</span>
-                        <span>html</span>
-                    </div>
-                    <p id="nom">Nom: Sylivin</p>
-                    <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-                </div>
-    
-                <div class="carousel">
-                    <img src="/profils/p5.avif " alt="">
-                    <p>disiner<span>0</span></p>
-                    <div class="vendu">
-                        <span>html</span>
-                        <span>css</span>
-                        <span>java script</span>
-                        <span>html</span>
-                        <span>css</span>
-                        <span>java script</span>
-                    </div>
-                    <p id="nom">Nom: nike</p>
-                    <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-                </div>
-            </article>
-        </div>
-    </section> -->
-
-
-    <!-- <section class="produit_vedete">
-        <div class="box1">
-            <span></span>
-            <h1>voir plus d'offre de cette categorie</h1>
-            <span></span>
-        </div>
-
-        <div class="box2">
-            <span><i class="fa-solid fa-chevron-left"></i></span>
-            <span><i class="fa-solid fa-chevron-right"></i></span>
-        </div>
-
-        <article class="articles owl-carousel carousel1">
-            <div class="carousel">
-                <img src="/profils/preview_B0eCXi7.jpeg" alt="">
-                <p>informaticien de getion des affaires applique <span>1</span></p>
-                <div class="vendu">
-                    <p>nous recherchons un personnels califier pour povoir nous aider dans </p>
-                </div>
-                <p id="nom">12 juillet 2023</p>
-                <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-            </div>
-
-            <div class="carousel">
-                <img src="/profils/p1.jpeg" alt="">
-                <p>logistique<span>0</span></p>
-                <div class="vendu">
-                    <span>html</span>
-                    <span>css</span>
-                    <span>java script</span>
-                    <span>html</span>
-                    <span>css</span>
-                    <span>java script</span>
-                </div>
-                <p id="nom">t-shirt hummel</p>
-                <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-            </div>
-
-            <div class="carousel">
-                <img src="/profils/p2.jpg" alt="">
-                <p>agronome<span>o</span></p>
-                <div class="vendu">
-                    <span>css</span>
-                    <span>java script</span>
-                    <span>html</span>
-                    <span>css</span>
-                    <span>java script</span>
-                </div>
-                <p id="nom">Nom: Sylivin</p>
-                <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-            </div>
-
-            <div class="carousel">
-                <img src="/profils/p3.jpeg" alt="">
-                <p>proffesseur de mathematique<span>0</span></p>
-                <div class="vendu">
-                    <span>html</span>
-                    <span>css</span>
-                    <span>html</span>
-                    <span>css</span>
-                    <span>java script</span>
-                </div>
-                <p id="nom">Nom: pricil</p>
-                <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-            </div>
-
-            <div class="carousel">
-                <img src="/profils/p4.jpeg" alt="">
-                <p>architecture<span>0</span></p>
-                <div class="vendu">
-                    <span>html</span>
-                    <span>css</span>
-                    <span>java script</span>
-                    <span>html</span>
-                </div>
-                <p id="nom">Nom: Sylivin</p>
-                <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-            </div>
-
-            <div class="carousel">
-                <img src="/profils/p5.avif " alt="">
-                <p>disiner<span>0</span></p>
-                <div class="vendu">
-                    <span>html</span>
-                    <span>css</span>
-                    <span>java script</span>
-                    <span>html</span>
-                    <span>css</span>
-                    <span>java script</span>
-                </div>
-                <p id="nom">Nom: nike</p>
-                <a href="#"><i class="fa-solid fa-eye"></i></span>Profil</a>
-            </div>
-        </article>
-    </section>
-
-    
-
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/owl.carousel.js"></script>
-    <script src="../js/owl.animate.js"></script>
-    <script src="../js/owl.autoplay.js"></script>
-    
-    <script>
-        $(document).ready(function(){
-    // Initialiser le carrousel 1 avec la portée appropriée
-    $('.carousel1').owlCarousel({
-      items: 4,
-      loop: true,
-      autoplay: true,
-      animateOut: 'slideOutDown',
-      animateIn: 'flipInX',
-      stagePadding:1,
-      smartSpeed:450,
-      margin:0,
-      nav: true,
-      navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-    });
-    var carousel1 = $('.carousel1').owlCarousel();
-    $('.owl-next').click(function() {
-      carousel1.trigger('next.owl.carousel');
-    })
-    $('.owl-prev').click(function() {
-      carousel1.trigger('prev.owl.carousel');
-    })
-
-
-    $('.boot').owlCarousel({
-      items: 1,
-      loop: true,
-      autoplay: false,
-      autoplayTimeout: 5000,
-      nav: true,
-      navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-    });
-    var carousel2 = $('.carousel2').owlCarousel();
-    $('.owl-next2').click(function() {
-      carousel2.trigger('next.owl.carousel');
-    })
-    $('.owl-prev2').click(function() {
-      carousel2.trigger('prev.owl.carousel');
-    })
-
-
-        });
-      </script> -->
-
 
     <script src="../script/bootstrap3.4.1.js"></script>
     <script src="../script/summernote@0.8.18.js"></script>
     <script>
         $(document).ready(function () {
             $('#mission').summernote({
-                placeholder: 'ajoute une description!!',
+                placeholder: 'Décrivez les missions et responsabilités du poste...',
                 tabsize: 6,
                 height: 120,
                 toolbar: [
@@ -519,7 +290,7 @@ $Offres = getOffres($db, $offre_id);
 
         $(document).ready(function () {
             $('#profil').summernote({
-                placeholder: 'ajoute une description!!',
+                placeholder: 'Décrivez le profil idéal pour ce poste...',
                 tabsize: 6,
                 height: 120,
                 toolbar: [
@@ -534,21 +305,72 @@ $Offres = getOffres($db, $offre_id);
             });
         });
 
+        // Gestion de l'affichage du formulaire
+        const img1 = document.querySelector('.img1');
+        const containe = document.querySelector('.container-b');
+        const btn2 = document.querySelector('.btn2');
+        const formOff = document.querySelector('.form_off');
 
-    </script>
-
-    <script>
-        let img1 = document.querySelector('.img1')
-        let containe = document.querySelector('.container-b')
-        let btn2 = document.querySelector('.btn2')
-
+        // Fermeture du formulaire
         img1.addEventListener('click', () => {
-            containe.classList.remove('active')
-        })
-        btn2.addEventListener('click', () => {
-            containe.classList.add('active')
-        })
+            containe.classList.remove('active');
+        });
 
+        // Ouverture du formulaire
+        btn2.addEventListener('click', () => {
+            containe.classList.add('active');
+        });
+
+        // Fermeture du formulaire en cliquant à l'extérieur
+        containe.addEventListener('click', (e) => {
+            if (e.target === containe) {
+                containe.classList.remove('active');
+            }
+        });
+
+        // Empêcher la fermeture lorsqu'on clique sur le formulaire
+        formOff.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Gestion du bouton pour afficher/masquer les informations de l'entreprise
+        const toggleCompanyInfoBtn = document.querySelector('.toggle-company-info');
+        const companyInfoContainer = document.querySelector('.company-info-container');
+
+        toggleCompanyInfoBtn.addEventListener('click', () => {
+            companyInfoContainer.classList.toggle('active');
+            toggleCompanyInfoBtn.classList.toggle('active');
+        });
+
+        // Animation au défilement pour les éléments de la page
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.box2, .box3, .box11');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Ajouter des styles pour l'animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .box2, .box3, .box11 {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Déclencher l'animation au chargement et au défilement
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
     </script>
 
 </body>

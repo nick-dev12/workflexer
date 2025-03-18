@@ -19,10 +19,10 @@ abstract class ECDSA implements SignatureAlgorithm
 {
     public function __construct()
     {
-        if (! extension_loaded('openssl')) {
+        if (!extension_loaded('openssl')) {
             throw new RuntimeException('Please install the OpenSSL extension');
         }
-        if (! defined('OPENSSL_KEYTYPE_EC')) {
+        if (!defined('OPENSSL_KEYTYPE_EC')) {
             throw new LogicException('Elliptic Curve key type not supported by your environment.');
         }
     }
@@ -35,7 +35,7 @@ abstract class ECDSA implements SignatureAlgorithm
     public function sign(JWK $key, string $input): string
     {
         $this->checkKey($key);
-        if (! $key->has('d')) {
+        if (!$key->has('d')) {
             throw new InvalidArgumentException('The EC key is not private');
         }
         $pem = ECKey::convertPrivateKeyToPEM($key);
@@ -64,11 +64,11 @@ abstract class ECDSA implements SignatureAlgorithm
 
     private function checkKey(JWK $key): void
     {
-        if (! in_array($key->get('kty'), $this->allowedKeyTypes(), true)) {
+        if (!in_array($key->get('kty'), $this->allowedKeyTypes(), true)) {
             throw new InvalidArgumentException('Wrong key type.');
         }
         foreach (['x', 'y', 'crv'] as $k) {
-            if (! $key->has($k)) {
+            if (!$key->has($k)) {
                 throw new InvalidArgumentException(sprintf('The key parameter "%s" is missing.', $k));
             }
         }
