@@ -8,7 +8,7 @@
 
 // Paramètres de connexion 
 $db_host = "localhost";
-$db_name = "workflexer";
+$db_name = "projet1";
 
 // Identifiants fournis par CPanel
 $db_user = "root";
