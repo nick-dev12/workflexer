@@ -1,8 +1,8 @@
 <?php
 session_start();
 // Inclusion du fichier de connexion à la BDD
-include 'conn/conn.php';
 
+require_once 'conn/conn.php';
 
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {

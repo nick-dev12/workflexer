@@ -120,7 +120,23 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
 
     <section class="section3">
         <!-- Notifications -->
+        <?php if (isset($_SESSION['success_message'])): ?>
+            <div class="notification success">
+                <i class="fas fa-check-circle"></i>
+                <span><?= $_SESSION['success_message'] ?></span>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <?php unset($_SESSION['success_message']); ?>
+        <?php endif; ?>
 
+        <?php if (isset($_SESSION['error_message'])): ?>
+            <div class="notification error">
+                <i class="fas fa-exclamation-circle"></i>
+                <span><?= $_SESSION['error_message'] ?></span>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <?php unset($_SESSION['error_message']); ?>
+        <?php endif; ?>
 
         <!-- En-tête de la page -->
         <div class="page-header">
@@ -159,10 +175,7 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
                 <input type="text" id="search-input" placeholder="Rechercher par nom ou compétences...">
             </div>
             <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="all">
-                    Tous <span class="count"><?= $countAllposte ?></span>
-                </button>
-                <button class="filter-tab" data-filter="untreated">
+                <button class="filter-tab active" data-filter="untreated">
                     Non traités <span class="count"><?= $untreatedCount ?></span>
                 </button>
                 <button class="filter-tab" data-filter="accepted">
@@ -181,6 +194,32 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
                 </button>
             </div>
         </div>
+
+        <!-- Boutons d'action en masse -->
+        <div class="bulk-actions-container" id="bulk-actions-container" style="display: block;">
+            <div class="select-actions">
+                <button id="select-all-btn" class="action-btn select-btn">
+                    <i class="fas fa-check-square"></i> Sélectionner tous les non traités
+                </button>
+                <span id="selected-count" class="selected-count">0 candidat(s) sélectionné(s)</span>
+            </div>
+            <div class="bulk-buttons">
+                <button id="bulk-accept-btn" class="action-btn bulk-btn accept-btn" disabled>
+                    <i class="fas fa-check"></i> Accepter la sélection
+                </button>
+                <button id="bulk-reject-btn" class="action-btn bulk-btn reject-btn" disabled>
+                    <i class="fas fa-times"></i> Refuser la sélection
+                </button>
+            </div>
+        </div>
+
+        <!-- Formulaire pour les actions en masse -->
+        <form id="bulk-action-form" method="post" action="traiter_candidatures.php">
+            <input type="hidden" name="poste" value="<?= htmlspecialchars($poste) ?>">
+            <input type="hidden" name="poste_id" value="<?= htmlspecialchars($poste_id) ?>">
+            <input type="hidden" name="action" id="bulk-action-type" value="">
+            <input type="hidden" name="selected_candidates" id="selected-candidates-input" value="">
+        </form>
 
         <!-- Liste des candidats -->
         <div class="candidates-container grid-view">
@@ -204,6 +243,12 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
                         <div class="candidate-card untreated" data-nom="<?= strtolower($postulant['nom']) ?>"
                             data-competences="<?= strtolower($postulant['competences']) ?>">
                             <div class="card-header">
+                                <div class="candidate-checkbox">
+                                    <input type="checkbox" class="candidate-select" data-posteid="<?= $postulant['poste_id'] ?>"
+                                        data-offreid="<?= $postulant['offre_id'] ?>"
+                                        data-nom="<?= htmlspecialchars($postulant['nom']) ?>"
+                                        data-email="<?= htmlspecialchars($postulant['mail']) ?>">
+                                </div>
                                 <div class="candidate-status untreated">
                                     Non traité
                                 </div>
@@ -452,10 +497,40 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
 
     <script>
         // Gestion des notifications
+        const closeButtons = document.querySelectorAll('.notification .close-btn');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const notification = button.parentElement;
+                notification.classList.add('closing');
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 300);
+            });
+        });
+
+        // Masquer automatiquement les notifications après 5 secondes
+        setTimeout(() => {
+            document.querySelectorAll('.notification').forEach(notification => {
+                notification.classList.add('closing');
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 300);
+            });
+        }, 5000);
 
         // Filtrage des candidats
         const filterTabs = document.querySelectorAll('.filter-tab');
         const candidateCards = document.querySelectorAll('.candidate-card');
+        const bulkActionsContainer = document.getElementById('bulk-actions-container');
+
+        // Filtrer par défaut pour montrer uniquement les candidats non traités au chargement
+        candidateCards.forEach(card => {
+            if (card.classList.contains('untreated')) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
 
         filterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -466,10 +541,20 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
                 // Filtrer les candidats
                 const filter = tab.getAttribute('data-filter');
 
+                // Afficher/masquer les options de sélection multiple selon l'onglet actif
+                if (filter === 'untreated') {
+                    bulkActionsContainer.style.display = 'flex';
+                } else {
+                    bulkActionsContainer.style.display = 'none';
+                    // Décocher toutes les cases à cocher si on change d'onglet
+                    document.querySelectorAll('.candidate-select:checked').forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    updateSelectedCount();
+                }
+
                 candidateCards.forEach(card => {
-                    if (filter === 'all') {
-                        card.style.display = '';
-                    } else if (filter === 'untreated' && card.classList.contains('untreated')) {
+                    if (filter === 'untreated' && card.classList.contains('untreated')) {
                         card.style.display = '';
                     } else if (filter === 'accepted' && card.classList.contains('accepted')) {
                         card.style.display = '';
@@ -537,6 +622,125 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+
+        // Gestion de la sélection multiple
+        const selectAllBtn = document.getElementById('select-all-btn');
+        const bulkAcceptBtn = document.getElementById('bulk-accept-btn');
+        const bulkRejectBtn = document.getElementById('bulk-reject-btn');
+        const selectedCountSpan = document.getElementById('selected-count');
+        const bulkActionForm = document.getElementById('bulk-action-form');
+        const bulkActionTypeInput = document.getElementById('bulk-action-type');
+        const selectedCandidatesInput = document.getElementById('selected-candidates-input');
+
+        // Fonction pour mettre à jour le compteur de sélection
+        function updateSelectedCount() {
+            const checkboxes = document.querySelectorAll('.candidate-select:checked');
+            const count = checkboxes.length;
+
+            selectedCountSpan.textContent = `${count} candidat(s) sélectionné(s)`;
+
+            // Activer/désactiver les boutons d'action en masse
+            if (count > 0) {
+                bulkAcceptBtn.disabled = false;
+                bulkRejectBtn.disabled = false;
+            } else {
+                bulkAcceptBtn.disabled = true;
+                bulkRejectBtn.disabled = true;
+            }
+        }
+
+        // Sélectionner/désélectionner tous les candidats non traités
+        selectAllBtn.addEventListener('click', () => {
+            const untreatedCheckboxes = document.querySelectorAll('.candidate-card.untreated .candidate-select');
+            const allChecked = [...untreatedCheckboxes].every(checkbox => checkbox.checked);
+
+            untreatedCheckboxes.forEach(checkbox => {
+                checkbox.checked = !allChecked;
+            });
+
+            updateSelectedCount();
+
+            // Changer le texte du bouton en fonction de l'état
+            if (allChecked) {
+                selectAllBtn.innerHTML = '<i class="fas fa-check-square"></i> Sélectionner tous les non traités';
+            } else {
+                selectAllBtn.innerHTML = '<i class="fas fa-square"></i> Désélectionner tous les non traités';
+            }
+        });
+
+        // Écouter les changements sur les cases à cocher individuelles
+        document.addEventListener('change', function (e) {
+            if (e.target.classList.contains('candidate-select')) {
+                updateSelectedCount();
+
+                // Vérifier si tous les candidats non traités visibles sont sélectionnés
+                const untreatedCheckboxes = document.querySelectorAll('.candidate-card.untreated:not([style*="display: none"]) .candidate-select');
+                const allChecked = [...untreatedCheckboxes].every(checkbox => checkbox.checked);
+
+                if (allChecked) {
+                    selectAllBtn.innerHTML = '<i class="fas fa-square"></i> Désélectionner tous les non traités';
+                } else {
+                    selectAllBtn.innerHTML = '<i class="fas fa-check-square"></i> Sélectionner tous les non traités';
+                }
+            }
+        });
+
+        // Traitement des actions en masse
+        bulkAcceptBtn.addEventListener('click', () => {
+            processBulkAction('accepter');
+        });
+
+        bulkRejectBtn.addEventListener('click', () => {
+            processBulkAction('recaler');
+        });
+
+        function processBulkAction(action) {
+            // Collecter les ID des candidats sélectionnés
+            const selectedCheckboxes = document.querySelectorAll('.candidate-select:checked');
+            if (selectedCheckboxes.length === 0) return;
+
+            const selectedData = [];
+            selectedCheckboxes.forEach(checkbox => {
+                selectedData.push({
+                    poste_id: checkbox.dataset.posteid,
+                    offre_id: checkbox.dataset.offreid,
+                    nom: checkbox.dataset.nom,
+                    email: checkbox.dataset.email
+                });
+            });
+
+            // Confirmer l'action
+            const actionText = action === 'accepter' ? 'accepter' : 'refuser';
+            const confirmMessage = `Êtes-vous sûr de vouloir ${actionText} les ${selectedData.length} candidats sélectionnés ?`;
+
+            if (confirm(confirmMessage)) {
+                // Remplir le formulaire et le soumettre
+                bulkActionTypeInput.value = action;
+                selectedCandidatesInput.value = JSON.stringify(selectedData);
+                bulkActionForm.submit();
+            }
+        }
+
+        // Masquer les checkboxes dans les onglets acceptés et refusés
+        function updateCheckboxVisibility() {
+            const activeFilter = document.querySelector('.filter-tab.active').getAttribute('data-filter');
+
+            document.querySelectorAll('.candidate-checkbox').forEach(checkbox => {
+                if (activeFilter === 'untreated') {
+                    checkbox.style.display = 'flex';
+                } else {
+                    checkbox.style.display = 'none';
+                }
+            });
+        }
+
+        // Mettre à jour la visibilité des checkboxes au chargement
+        updateCheckboxVisibility();
+
+        // Mettre à jour la visibilité des checkboxes lors du changement d'onglet
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', updateCheckboxVisibility);
         });
     </script>
 </body>

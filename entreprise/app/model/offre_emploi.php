@@ -1,6 +1,6 @@
 <?php
 
-include(__DIR__ . '/../../conn/conn.php');
+require_once(__DIR__ . '/../../../conn/conn.php');
 
 /**
  * Summary of getOffres

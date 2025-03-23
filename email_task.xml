@@ -40,9 +40,9 @@
   </Settings> 
   <Actions Context="Author"> 
     <Exec> 
-      <Command>C:\wamp64\bin\php\php8.3.14\php.exe</Command> 
-      <Arguments>"c:\wamp64\www\workflexer\entreprise\app\cron\send_emails.php"</Arguments> 
-      <WorkingDirectory>c:\wamp64\www\workflexer\entreprise\app\cron\</WorkingDirectory> 
+      <Command>C:\wamp64\bin\php\php8.2.26\php.exe</Command> 
+      <Arguments>"C:\wamp64\www\workflexer\entreprise\app\cron\send_emails.php"</Arguments> 
+      <WorkingDirectory>C:\wamp64\www\workflexer\entreprise\app\cron\</WorkingDirectory> 
     </Exec> 
   </Actions> 
 </Task> 

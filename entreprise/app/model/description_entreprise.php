@@ -1,5 +1,5 @@
 <?php
-include(__DIR__. '/conn/conn.php');
+require_once(__DIR__ . '/../../../conn/conn.php');
 
 
 /**
@@ -10,13 +10,14 @@ include(__DIR__. '/conn/conn.php');
  * @param mixed $liens
  * @return mixed
  */
-function postDescription ($db,$entreprise_id , $descriptions, $liens){
-$sql = " INSERT INTO description_entreprise (entreprise_id, descriptions, liens) VALUES ( :entreprise_id, :descriptions, :liens) ";
-$stmt = $db->prepare($sql);
-$stmt->bindParam(':entreprise_id', $entreprise_id);
-$stmt->bindParam(':descriptions', $descriptions);
-$stmt->bindParam(':liens', $liens);
-return $stmt->execute();
+function postDescription($db, $entreprise_id, $descriptions, $liens)
+{
+    $sql = " INSERT INTO description_entreprise (entreprise_id, descriptions, liens) VALUES ( :entreprise_id, :descriptions, :liens) ";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':entreprise_id', $entreprise_id);
+    $stmt->bindParam(':descriptions', $descriptions);
+    $stmt->bindParam(':liens', $liens);
+    return $stmt->execute();
 }
 
 /**
@@ -25,10 +26,11 @@ return $stmt->execute();
  * @param mixed $entreprise_id
  * @return mixed
  */
-function getDescriptionEntreprise ($db,$entreprise_id){
+function getDescriptionEntreprise($db, $entreprise_id)
+{
     $sql = " SELECT * FROM description_entreprise WHERE entreprise_id=:entreprise_id";
     $stmt = $db->prepare($sql);
-    $stmt-> bindValue(':entreprise_id',$entreprise_id, PDO::PARAM_STR);
+    $stmt->bindValue(':entreprise_id', $entreprise_id, PDO::PARAM_STR);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
@@ -40,11 +42,12 @@ function getDescriptionEntreprise ($db,$entreprise_id){
  * @param mixed $liens
  * @return mixed
  */
-function updatDescristion($db,$descriptions,$liens){
+function updatDescristion($db, $descriptions, $liens)
+{
     $sql = " UPDATE description_entreprise SET descriptions=:descriptions, liens=:liens";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':descriptions',$descriptions,PDO::PARAM_STR);
-    $stmt->bindValue(':liens',$liens,PDO::PARAM_STR);
+    $stmt->bindValue(':descriptions', $descriptions, PDO::PARAM_STR);
+    $stmt->bindValue(':liens', $liens, PDO::PARAM_STR);
     return $stmt->execute();
 }
- ?>
+?>

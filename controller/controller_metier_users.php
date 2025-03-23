@@ -1,6 +1,6 @@
 <?php
 
-require_once('../model/metier_users.php');
+require_once(__DIR__ . '/../model/metier_users.php');
 
 // Vérification si le bouton valider est cliqué
 if (isset($_POST['Ajouter'])) {

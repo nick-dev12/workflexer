@@ -40,10 +40,12 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 $mail->setFrom('info@advantech-group.space', 'Work-Flexer');
 $mail->isHTML(true);
+$mail->CharSet = 'UTF-8'; // Important pour l'affichage correct des caractères accentués
 
 // Compteurs pour les statistiques
 $emailsEnvoyes = 0;
 $emailsEchoues = 0;
+$maxTentativeParExecution = 5; // Nombre de tentatives maximum par email dans une même exécution
 
 // Traiter chaque email
 foreach ($emailsEnAttente as $email) {
@@ -51,10 +53,34 @@ foreach ($emailsEnAttente as $email) {
         // Réinitialiser les destinataires pour chaque envoi
         $mail->clearAddresses();
 
+        // Vérifier le nombre de tentatives pour cet email dans cette exécution
+        if (isset($tentatives[$email['id']]) && $tentatives[$email['id']] >= $maxTentativeParExecution) {
+            echo "Email ID {$email['id']} : nombre maximum de tentatives atteint pour cette exécution.\n";
+            continue;
+        }
+
+        // Incrémenter le compteur de tentatives pour cet email
+        if (!isset($tentatives[$email['id']])) {
+            $tentatives[$email['id']] = 1;
+        } else {
+            $tentatives[$email['id']]++;
+        }
+
+        // Personnaliser l'email si c'est une notification de candidature
+        $sujet = $email['sujet'];
+        $message = $email['message'];
+
         // Configurer l'email
         $mail->addAddress($email['destinataire']);
-        $mail->Subject = $email['sujet'];
-        $mail->Body = $email['message'];
+        $mail->Subject = $sujet;
+        $mail->Body = $message;
+
+        // Ajouter le nom du destinataire si disponible
+        if (!empty($email['nom_destinataire'])) {
+            $mail->addAddress($email['destinataire'], $email['nom_destinataire']);
+        } else {
+            $mail->addAddress($email['destinataire']);
+        }
 
         // Envoyer l'email
         if ($mail->send()) {
@@ -62,6 +88,10 @@ foreach ($emailsEnAttente as $email) {
             updateEmailStatus($db, $email['id'], 'sent');
             $emailsEnvoyes++;
             echo "Email ID {$email['id']} envoyé à {$email['destinataire']}.\n";
+
+            // Mettre à jour les statistiques d'envoi dans la base de données
+            // Cette fonction pourrait être implémentée pour suivre les performances d'envoi
+            logEmailSuccess($db, $email['id']);
         } else {
             // En cas d'échec, mettre à jour le statut avec l'erreur
             updateEmailStatus($db, $email['id'], 'failed', $mail->ErrorInfo);
@@ -70,7 +100,7 @@ foreach ($emailsEnAttente as $email) {
         }
 
         // Petite pause pour éviter de surcharger le serveur SMTP
-        usleep(500000); // 500ms
+        usleep(750000); // 750ms pour respecter les limites de débit du serveur SMTP
 
     } catch (Exception $e) {
         // En cas d'exception, mettre à jour le statut avec l'erreur
@@ -85,4 +115,16 @@ nettoyerEmailsAnciens($db);
 
 // Afficher les statistiques
 echo "Traitement terminé. Emails envoyés: $emailsEnvoyes, Échecs: $emailsEchoues\n";
+
+/**
+ * Enregistre les statistiques de succès d'envoi d'email
+ * Cette fonction est un exemple et devrait être implémentée dans email_queue.php
+ */
+function logEmailSuccess($db, $email_id)
+{
+    // Cette fonction pourrait être développée pour enregistrer des statistiques d'envoi
+    // Par exemple, temps d'envoi, type d'email, etc.
+    return true;
+}
+
 exit(0);

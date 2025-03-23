@@ -31,25 +31,34 @@ function generateQRCode($userId)
         mkdir($qrCodeDir, 0777, true);
     }
 
-    // Générer le QR code
-    $result = Builder::create()
-        ->writer(new PngWriter())  // Choisir le format PNG
-        ->data($url)               // Les données à inclure dans le QR code
-        ->size(300)                // Taille du QR code
-        ->margin(10)               // Marge autour du QR code
-        ->build();                 // Construire le QR code
+    try {
+        // Créer une instance Builder avec la bonne syntaxe pour la version 6.0.6
+        $builder = new Builder(
+            writer: new PngWriter(),
+            writerOptions: [],
+            validateResult: false,
+            data: $url,
+            size: 300,
+            margin: 10
+        );
 
-    // Enregistrer le QR code en tant qu'image
-    $qrCodePath = $qrCodeDir . '/user_' . $userId . '.png';
-    $result->saveToFile($qrCodePath);
+        // Construire le QR code
+        $result = $builder->build();
 
-    // Vérifier si le fichier a été créé
-    if (!file_exists($qrCodePath)) {
-        return '<p>Erreur : le QR code n\'a pas pu être généré.</p>';
+        // Enregistrer le QR code en tant qu'image
+        $qrCodePath = $qrCodeDir . '/user_' . $userId . '.png';
+        $result->saveToFile($qrCodePath);
+
+        // Vérifier si le fichier a été créé
+        if (!file_exists($qrCodePath)) {
+            return '<p>Erreur : le QR code n\'a pas pu être généré.</p>';
+        }
+
+        // Retourner l'image du QR code dans un <img> HTML
+        return '<img src="qrcodes/user_' . $userId . '.png" alt="QR Code" />';
+    } catch (Exception $e) {
+        return '<p>Erreur : ' . $e->getMessage() . '</p>';
     }
-
-    // Retourner l'image du QR code dans un <img> HTML
-    return '<img src="qrcodes/user_' . $userId . '.png" alt="QR Code" />';
 }
 
 // Vérifier si l'utilisateur est connecté
@@ -776,11 +785,18 @@ if (isset($_GET['id'])) {
                                     <div class="mois">
                                         <span for="mois">Mois :</span>
                                         <select id="moisDebut" name="moisDebut">
-                                            <?php
-                                            foreach ($mois as $key => $value) {
-                                                echo "<option value='$key'>$value</option>";
-                                            }
-                                            ?>
+                                            <option value="janvier">Janvier</option>
+                                            <option value="février">Février</option>
+                                            <option value="mars">Mars</option>
+                                            <option value="avril">Avril</option>
+                                            <option value="mai">Mai</option>
+                                            <option value="juin">Juin</option>
+                                            <option value="juillet">Juillet</option>
+                                            <option value="août">Août</option>
+                                            <option value="septembre">Septembre</option>
+                                            <option value="octobre">Octobre</option>
+                                            <option value="novembre">Novembre</option>
+                                            <option value="décembre">Décembre</option>
                                         </select>
                                     </div>
 
@@ -808,11 +824,18 @@ if (isset($_GET['id'])) {
                                     <div class="mois">
                                         <span for="mois">Mois :</span>
                                         <select id="moisFin" name="moisFin">
-                                            <?php
-                                            foreach ($mois as $key => $value) {
-                                                echo "<option value='$key'>$value</option>";
-                                            }
-                                            ?>
+                                            <option value="janvier">Janvier</option>
+                                            <option value="février">Février</option>
+                                            <option value="mars">Mars</option>
+                                            <option value="avril">Avril</option>
+                                            <option value="mai">Mai</option>
+                                            <option value="juin">Juin</option>
+                                            <option value="juillet">Juillet</option>
+                                            <option value="août">Août</option>
+                                            <option value="septembre">Septembre</option>
+                                            <option value="octobre">Octobre</option>
+                                            <option value="novembre">Novembre</option>
+                                            <option value="décembre">Décembre</option>
                                         </select>
                                     </div>
 

@@ -6,10 +6,10 @@
   Variables
 --------------------------------------------------------------*/
 :root {
-  --texte-color_titre:#ededed ;
-  --font-color_titre :#00587b ;
-  --font-color_section :#e6e6e6 ;
-  --texte-color_section : #000000;
+  --texte-color_titre: #ededed;
+  --font-color_titre: #00587b;
+  --font-color_section: #e6e6e6;
+  --texte-color_section: #000000;
 }
 
 /*--------------------------------------------------------------
@@ -32,11 +32,11 @@ body {
 .section2 .box3 table .tr4 td a {
   color: #ffffff;
 }
-#box1{
+#box1 {
   display: none;
 }
 header {
-  background-color:  var(--font-color_section);
+  background-color: var(--font-color_section);
   padding: 40px;
   text-align: center;
   /* background-color: #d7d7d7; */
@@ -55,24 +55,23 @@ header h2 {
   color: #346dc8;
 }
 
-.section3{
+.section3 {
   background-color: #f2f2f275;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
- /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
- 
- background-position: center;
- background-attachment: fixed;
- position: relative;
- margin-top: 10px;
+  /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
+
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  margin-top: 10px;
 }
 
-@media screen and (max-width : 1050px){
-  .section3{
-      width: 100%;
-     margin-left: 0;
+@media screen and (max-width: 1050px) {
+  .section3 {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -98,14 +97,18 @@ header h2 {
   background-color: #303030;
 }
 
-.section3 .personnalisation{
+.section3 .personnalisation {
   width: 350px;
   padding: 20px;
   margin: 20px 0;
   background-color: #ffffff;
   border-radius: 10px;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  overflow-y: auto;
+  max-height: 80vh;
 }
-
 
 .section3 .personnalisation .box {
   display: flex;
@@ -121,7 +124,7 @@ header h2 {
   text-align: center;
   margin-bottom: 10px;
 }
-.section3 .personnalisation .box input{
+.section3 .personnalisation .box input {
   width: 60px;
   height: 30px;
   max-width: 60px;
@@ -130,27 +133,27 @@ header h2 {
   min-width: 60px;
 }
 
-@media screen and (max-width: 720px){
-  .section3 .personnalisation{
+@media screen and (max-width: 720px) {
+  .section3 .personnalisation {
     width: 330px;
     padding: 10px;
     margin: 10px 0;
   }
-  
-  .section3 .personnalisation .box{
+
+  .section3 .personnalisation .box {
     margin-top: 4px;
   }
-  .section3 .personnalisation .box input{
+  .section3 .personnalisation .box input {
     width: 50px;
     height: 20px;
   }
-  .section3 .personnalisation .box p{
+  .section3 .personnalisation .box p {
     font-size: 13px;
   }
 }
 
-@media screen and (max-width: 640px){
-  .section3{
+@media screen and (max-width: 640px) {
+  .section3 {
     margin-top: 100px;
   }
 }
@@ -163,13 +166,13 @@ header h2 {
   margin-bottom: 40px;
   background-color: #ffffff;
 }
-#container .box1 p{
+#container .box1 p {
   color: var(--texte-color_section);
 }
-#container .box1 p span{
+#container .box1 p span {
   color: var(--texte-color_section);
 }
-#container .box1 ul li{
+#container .box1 ul li {
   color: var(--texte-color_section);
 }
 #container .img {
@@ -203,7 +206,7 @@ header h2 {
 #container .box1 .iff p {
   color: var(--texte-color_section);
 }
-#container .bas{
+#container .bas {
   background-color: var(--font-color_section);
   height: 30px;
   width: 100%;
@@ -249,7 +252,7 @@ header h2 {
   width: 100%;
   align-items: start;
 }
-#container .box1 .bb p span{
+#container .box1 .bb p span {
   overflow: hidden;
   width: 140px;
 }
@@ -267,15 +270,14 @@ header h2 {
   color: var(--texte-color_section);
 }
 
-
-#container .formation{
+#container .formation {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-#container .formation .div2{
+#container .formation .div2 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,7 +285,7 @@ header h2 {
   margin: 5px auto;
 }
 
-#container .formation .div2 .strong{
+#container .formation .div2 .strong {
   padding: 5px;
   background-color: #303030;
   border-radius: 50%;
@@ -291,37 +293,25 @@ header h2 {
   font-weight: 400;
 }
 
-#container .formation .div2 .info{
+#container .formation .div2 .info {
   width: 100%;
 }
 
-#container .formation .div2 .info h4{
+#container .formation .div2 .info h4 {
   font-size: 13px;
   color: var(--texte-color_section);
 }
 
-#container .formation .div2 .info span{
+#container .formation .div2 .info span {
   font-size: 10px;
   color: var(--texte-color_section);
 }
 
-#container .formation .div2 .info p{
+#container .formation .div2 .info p {
   font-size: 12px;
   text-align: justify;
   color: var(--texte-color_section);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 #container .box1 .reseaux {
   display: flex;
@@ -513,40 +503,39 @@ header h2 {
     font-size: 8px;
   }
 
-  #box #container .formation .div2{
+  #box #container .formation .div2 {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 90%;
     margin: 5px auto;
   }
-  
-  #box #container .formation .div2 .strong{
+
+  #box #container .formation .div2 .strong {
     padding: 2px;
     border-radius: 50%;
     margin-right: 10px;
     font-weight: 400;
   }
-  
-  #box #container .formation .div2 .info h4{
+
+  #box #container .formation .div2 .info h4 {
     font-size: 8px;
   }
-  
-  #box #container .formation .div2 .info span{
+
+  #box #container .formation .div2 .info span {
     font-size: 5px;
     display: block;
   }
-  
-  #box #container .formation .div2 .info p{
+
+  #box #container .formation .div2 .info p {
     font-size: 8px;
     text-align: justify;
   }
 
-
   #box #container .box1 .reseaux {
     width: 80%;
   }
- #box  #container .box1 .reseaux img {
+  #box #container .box1 .reseaux img {
     height: 20px;
     width: 20px;
   }
@@ -618,7 +607,7 @@ header h2 {
 }
 
 @media screen and (max-width: 520px) {
- #box  #container .bas{
+  #box #container .bas {
     height: 20px;
   }
   #box header {
@@ -631,12 +620,12 @@ header h2 {
     padding: 0 10px;
     margin-left: 120px;
   }
- #box  header h2 {
+  #box header h2 {
     width: 60%;
     margin-left: 120px;
     font-size: 9.5px;
   }
- #box  #container {
+  #box #container {
     width: 350px;
     height: 550px;
     margin-top: 50px;
@@ -654,143 +643,142 @@ header h2 {
     padding-top: 20px;
     border-width: 2px;
   }
- #box  #container .box1 h1 {
+  #box #container .box1 h1 {
     width: 80%;
     font-size: 6px;
     text-align: center;
     align-items: start;
   }
- #box  #container .box1 h1 img {
+  #box #container .box1 h1 img {
     height: 8px;
     width: 8px;
     margin-right: 5px;
   }
- #box  #container .box1 .bb {
+  #box #container .box1 .bb {
     width: 120px;
     margin: 6px 10px;
     text-align: left;
     align-items: start;
   }
- #box  #container .box1 .bb img {
+  #box #container .box1 .bb img {
     height: 10px;
     width: 10px;
     margin-right: 5px;
   }
- #box  #container .box1 .bb p {
+  #box #container .box1 .bb p {
     font-size: 5px;
     width: 100%;
     align-items: start;
     /* margin-left: 5px; */
   }
- #box  #container .box1 ul {
+  #box #container .box1 ul {
     width: 80%;
     margin: 0 auto;
   }
- #box  #container .box1 ul li {
+  #box #container .box1 ul li {
     font-size: 5.5px;
   }
 
-
-  #box #container .formation .div2{
+  #box #container .formation .div2 {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 90%;
     margin: 4px auto;
   }
-  
-  #box #container .formation .div2 .strong{
+
+  #box #container .formation .div2 .strong {
     padding: 2px;
     border-radius: 50%;
     margin-right: 10px;
     font-weight: 400;
   }
-  
-  #box #container .formation .div2 .info h4{
+
+  #box #container .formation .div2 .info h4 {
     font-size: 6px;
   }
-  
-  #box #container .formation .div2 .info span{
+
+  #box #container .formation .div2 .info span {
     font-size: 4px;
     display: block;
   }
-  
-  #box #container .formation .div2 .info p{
+
+  #box #container .formation .div2 .info p {
     font-size: 6px;
     text-align: justify;
   }
 
- #box  #container .box1 .reseaux {
+  #box #container .box1 .reseaux {
     width: 80%;
   }
- #box  #container .box1 .reseaux img {
+  #box #container .box1 .reseaux img {
     height: 20px;
     width: 20px;
   }
 
- #box  #container .box2 {
+  #box #container .box2 {
     width: 230px;
     height: 570px;
     padding: 3px 10px;
   }
 
- #box  #container .box2 h1 {
+  #box #container .box2 h1 {
     font-size: 6px;
     width: 80%;
     margin: 5px 10px;
     padding: 3px 20px;
   }
- #box  #container .box2 .info_users p{
+  #box #container .box2 .info_users p {
     font-size: 6px;
     margin: 0 7px;
     width: 185px;
   }
- #box  #container .box2 .p {
+  #box #container .box2 .p {
     font-size: 5.5px;
     width: 100%;
     margin-left: 10px;
     margin: 7px 9px;
     font-size: 6px;
   }
- #box  #container .box2 .experiences .div1 {
+  #box #container .box2 .experiences .div1 {
     width: 90%;
     position: relative;
   }
- #box  #container .box2 .experiences .div1 .info p {
+  #box #container .box2 .experiences .div1 .info p {
     width: 180px;
   }
- #box  #container .box2 .experiences .div {
+  #box #container .box2 .experiences .div {
     width: 100%;
     margin-top: -2px;
     margin-bottom: 2px;
   }
 
- #box  #container .box2 .div h4 {
+  #box #container .box2 .div h4 {
     font-size: 6px;
   }
- #box  #container .box2 .div p {
+  #box #container .box2 .div p {
     font-size: 5.5px;
   }
- #box  #container .box2 .div span {
+  #box #container .box2 .div span {
     font-size: 4px;
     width: 100px;
   }
- #box  #container .box2 .div .strong {
+  #box #container .box2 .div .strong {
     padding: 1.5px;
     margin-right: 5px;
   }
 
- #box  #container .box2 .experiences .outils {
+  #box #container .box2 .experiences .outils {
     width: 90%;
     margin-top: -2px;
   }
- #box  #container .box2 .experiences .outils p {
+  #box #container .box2 .experiences .outils p {
     font-size: 6px;
   }
- #box  #container .box2 .div-comp {
+  #box #container .box2 .div-comp {
     width: 90%;
   }
- #box  #container .box2 .comp {
+  #box #container .box2 .comp {
     font-size: 6px;
     padding: 1px 5px;
     margin: 5px;
@@ -800,195 +788,194 @@ header h2 {
 }
 
 @media screen and (max-width: 420px) {
-  #box  #container .bas{
-     height: 20px;
-   }
-   #box header {
-     padding: 10px;
-     text-align: center;
-   }
-   #box header h1 {
-     width: 60%;
-     font-size: 11px;
-     padding: 0 10px;
-     margin-left: 120px;
-   }
-  #box  header h2 {
-     width: 60%;
-     margin-left: 120px;
-     font-size: 9.5px;
-   }
-  #box  #container {
-     width: 100%;
-     height: 550px;
-     margin-top: 50px;
-   }
-   #box #container .img {
-     width: 70px;
-     height: 70px;
-     top: 20px;
-     left: 20px;
-   }
- 
-   #box #container .box1 {
-     width: 110px;
-     height: 480px;
-     padding-top: 20px;
-     border-width: 2px;
-   }
-  #box  #container .box1 h1 {
-     width: 80%;
-     font-size: 6px;
-     text-align: center;
-     align-items: start;
-   }
-  #box  #container .box1 h1 img {
-     height: 8px;
-     width: 8px;
-     margin-right: 5px;
-   }
-  #box  #container .box1 .bb {
-     width: 120px;
-     margin: 6px 10px;
-     text-align: left;
-     align-items: start;
-   }
-  #box  #container .box1 .bb img {
-     height: 10px;
-     width: 10px;
-     margin-right: 5px;
-   }
-  #box  #container .box1 .bb p {
-     font-size: 5px;
-     width: 100%;
-     align-items: start;
-     /* margin-left: 5px; */
-   }
-  #box  #container .box1 ul {
-     width: 80%;
-     margin: 0 auto;
-   }
-  #box  #container .box1 ul li {
-     font-size: 5.5px;
-   }
- 
- 
-   #box #container .formation .div2{
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 95%;
-     margin: 3px auto;
-   }
-   
-    #box #container .formation .div2 .strong{
-     padding: 2px;
-     border-radius: 50%;
-     margin-right: 5px;
-     font-weight: 400;
-   }
-   
-   #box #container .formation .div2 .info h4{
-     font-size: 6px;
-   }
-   
-   #box #container .formation .div2 .info span{
-     font-size: 4px;
-     display: block;
-   }
-   
-   #box #container .formation .div2 .info p{
-     font-size: 6px;
-     text-align: justify;
-   }
- 
-  #box  #container .box1 .reseaux {
-     width: 80%;
-   }
-  #box  #container .box1 .reseaux img {
-     height: 20px;
-     width: 20px;
-   }
- 
-  #box  #container .box2 {
-     width: 230px;
-     height: 570px;
-     padding: 3px 10px;
-   }
- 
-  #box  #container .box2 h1 {
-     font-size: 6px;
-     width: 80%;
-     margin: 5px 10px;
-     padding: 3px 20px;
-   }
-  #box  #container .box2 .info_users p{
-     font-size: 6px;
-     margin: 0 7px;
-     width: 185px;
-   }
-  #box  #container .box2 .p {
-     font-size: 5.5px;
-     width: 100%;
-     margin-left: 10px;
-     margin: 7px 9px;
-     font-size: 6px;
-   }
-  #box  #container .box2 .experiences .div1 {
-     width: 90%;
-     position: relative;
-   }
-  #box  #container .box2 .experiences .div1 .info p {
-     width: 180px;
-   }
-  #box  #container .box2 .experiences .div {
-     width: 100%;
-     margin-top: -2px;
-     margin-bottom: 2px;
-   }
- 
-  #box  #container .box2 .div h4 {
-     font-size: 6px;
-   }
-  #box  #container .box2 .div p {
-     font-size: 5.5px;
-   }
-  #box  #container .box2 .div span {
-     font-size: 4px;
-     width: 100px;
-   }
-  #box  #container .box2 .div .strong {
-     padding: 1.5px;
-     margin-right: 5px;
-   }
- 
-  #box  #container .box2 .experiences .outils {
-     width: 90%;
-     margin-top: -2px;
-   }
-  #box  #container .box2 .experiences .outils p {
-     font-size: 6px;
-   }
-  #box  #container .box2 .div-comp {
-     width: 90%;
-   }
-  #box  #container .box2 .comp {
-     font-size: 6px;
-     padding: 1px 5px;
-     margin: 5px;
-     margin-right: 1px;
-     margin-top: 2px;
-   }
- }
- p{
+  #box #container .bas {
+    height: 20px;
+  }
+  #box header {
+    padding: 10px;
+    text-align: center;
+  }
+  #box header h1 {
+    width: 60%;
+    font-size: 11px;
+    padding: 0 10px;
+    margin-left: 120px;
+  }
+  #box header h2 {
+    width: 60%;
+    margin-left: 120px;
+    font-size: 9.5px;
+  }
+  #box #container {
+    width: 100%;
+    height: 550px;
+    margin-top: 50px;
+  }
+  #box #container .img {
+    width: 70px;
+    height: 70px;
+    top: 20px;
+    left: 20px;
+  }
+
+  #box #container .box1 {
+    width: 110px;
+    height: 480px;
+    padding-top: 20px;
+    border-width: 2px;
+  }
+  #box #container .box1 h1 {
+    width: 80%;
+    font-size: 6px;
+    text-align: center;
+    align-items: start;
+  }
+  #box #container .box1 h1 img {
+    height: 8px;
+    width: 8px;
+    margin-right: 5px;
+  }
+  #box #container .box1 .bb {
+    width: 120px;
+    margin: 6px 10px;
+    text-align: left;
+    align-items: start;
+  }
+  #box #container .box1 .bb img {
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
+  }
+  #box #container .box1 .bb p {
+    font-size: 5px;
+    width: 100%;
+    align-items: start;
+    /* margin-left: 5px; */
+  }
+  #box #container .box1 ul {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #box #container .box1 ul li {
+    font-size: 5.5px;
+  }
+
+  #box #container .formation .div2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin: 3px auto;
+  }
+
+  #box #container .formation .div2 .strong {
+    padding: 2px;
+    border-radius: 50%;
+    margin-right: 5px;
+    font-weight: 400;
+  }
+
+  #box #container .formation .div2 .info h4 {
+    font-size: 6px;
+  }
+
+  #box #container .formation .div2 .info span {
+    font-size: 4px;
+    display: block;
+  }
+
+  #box #container .formation .div2 .info p {
+    font-size: 6px;
+    text-align: justify;
+  }
+
+  #box #container .box1 .reseaux {
+    width: 80%;
+  }
+  #box #container .box1 .reseaux img {
+    height: 20px;
+    width: 20px;
+  }
+
+  #box #container .box2 {
+    width: 230px;
+    height: 570px;
+    padding: 3px 10px;
+  }
+
+  #box #container .box2 h1 {
+    font-size: 6px;
+    width: 80%;
+    margin: 5px 10px;
+    padding: 3px 20px;
+  }
+  #box #container .box2 .info_users p {
+    font-size: 6px;
+    margin: 0 7px;
+    width: 185px;
+  }
+  #box #container .box2 .p {
+    font-size: 5.5px;
+    width: 100%;
+    margin-left: 10px;
+    margin: 7px 9px;
+    font-size: 6px;
+  }
+  #box #container .box2 .experiences .div1 {
+    width: 90%;
+    position: relative;
+  }
+  #box #container .box2 .experiences .div1 .info p {
+    width: 180px;
+  }
+  #box #container .box2 .experiences .div {
+    width: 100%;
+    margin-top: -2px;
+    margin-bottom: 2px;
+  }
+
+  #box #container .box2 .div h4 {
+    font-size: 6px;
+  }
+  #box #container .box2 .div p {
+    font-size: 5.5px;
+  }
+  #box #container .box2 .div span {
+    font-size: 4px;
+    width: 100px;
+  }
+  #box #container .box2 .div .strong {
+    padding: 1.5px;
+    margin-right: 5px;
+  }
+
+  #box #container .box2 .experiences .outils {
+    width: 90%;
+    margin-top: -2px;
+  }
+  #box #container .box2 .experiences .outils p {
+    font-size: 6px;
+  }
+  #box #container .box2 .div-comp {
+    width: 90%;
+  }
+  #box #container .box2 .comp {
+    font-size: 6px;
+    padding: 1px 5px;
+    margin: 5px;
+    margin-right: 1px;
+    margin-top: 2px;
+  }
+}
+p {
   color: black;
 }
-li{
+li {
   color: black;
 }
-span{
+span {
   color: black;
 }
-h4{
+h4 {
   color: black;
 }

@@ -68,6 +68,7 @@ if (isset($_SESSION['users_id'])) {
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <?php include('../include/notifications.php'); ?>
 
     <section class="section3">
 
@@ -176,6 +177,30 @@ if (isset($_SESSION['users_id'])) {
                 ?>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
+                    <?php if (isset($_SESSION['match_result'])): ?>
+                        <div class="match-result">
+                            <h3><i class="fas fa-chart-bar"></i> Compatibilité de votre profil</h3>
+
+                            <div class="compatibility-details">
+                                <?php if ($_SESSION['match_result']['niveauEtudeMatch']): ?>
+                                    <p class="match-item success"><i class="fas fa-check-circle"></i> Votre niveau d'études correspond
+                                        aux exigences</p>
+                                <?php else: ?>
+                                    <p class="match-item error"><i class="fas fa-times-circle"></i> Votre niveau d'études ne correspond
+                                        pas aux exigences</p>
+                                <?php endif; ?>
+
+                                <?php if ($_SESSION['match_result']['niveauExperienceMatch']): ?>
+                                    <p class="match-item success"><i class="fas fa-check-circle"></i> Votre expérience correspond aux
+                                        exigences</p>
+                                <?php else: ?>
+                                    <p class="match-item error"><i class="fas fa-times-circle"></i> Votre expérience ne correspond pas
+                                        aux exigences</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
                     <form action="" method="post">
                         <input type="hidden" name="id_users" id="" value="<?= $getInfo['id'] ?>">
                         <input type="hidden" name="nom_users" id="" value="<?= $getInfo['nom'] ?>">
@@ -189,8 +214,14 @@ if (isset($_SESSION['users_id'])) {
                             <p class="msg001"><i class="fas fa-info-circle"></i> Vous avez déjà envoyé votre candidature. Merci de
                                 patienter pour une réponse favorable.</p>
                         <?php else: ?>
-                            <button class="btn001" type="submit" name="postuler"><i class="fas fa-paper-plane"></i> Postuler
-                                maintenant</button>
+                            <?php if (isset($_SESSION['match_result']) && $_SESSION['match_result']['niveauEtudeMatch'] && $_SESSION['match_result']['niveauExperienceMatch']): ?>
+                                <button class="btn001" type="submit" name="postuler"><i class="fas fa-paper-plane"></i> Postuler
+                                    maintenant</button>
+                            <?php else: ?>
+                                <p class="msg001"><i class="fas fa-exclamation-triangle"></i> Votre niveau d'études ou d'expérience ne
+                                    correspond pas
+                                    aux exigences de cette offre</p>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </form>
                 <?php else: ?>

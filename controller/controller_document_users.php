@@ -1,5 +1,5 @@
 <?php
-require_once('../model/document_users.php');
+require_once(__DIR__ . '/../model/document_users.php');
 
 
 if (isset($_POST['téléverser'])) {

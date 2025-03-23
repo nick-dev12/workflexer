@@ -754,3 +754,124 @@ body {
     margin-top: 10px;
   }
 }
+
+/* Styles pour l'affichage du taux de correspondance */
+.match-result {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.match-result h3 {
+  margin-top: 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.compatibility-container {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.compatibility-bar {
+  flex-grow: 1;
+  height: 24px;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.compatibility-fill {
+  height: 100%;
+  background: linear-gradient(to right, #ff6b6b, #ffa502, #2ed573);
+  border-radius: 12px;
+  transition: width 0.5s ease;
+}
+
+.compatibility-percentage {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  min-width: 60px;
+  text-align: right;
+}
+
+.compatibility-details {
+  margin-top: 15px;
+}
+
+.match-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.match-item.success {
+  color: #2ed573;
+}
+
+.match-item.success i {
+  color: #2ed573;
+}
+
+.match-item.error {
+  color: #ff6b6b;
+}
+
+.match-item.error i {
+  color: #ff6b6b;
+}
+
+.matching-terms {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #e0e0e0;
+}
+
+.matching-terms-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.matching-terms-title i {
+  color: #ffa502;
+}
+
+.term-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.term-tag {
+  display: inline-block;
+  background-color: #e9f7fe;
+  color: #3498db;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 15px;
+  border: 1px solid #bce0fd;
+  transition: all 0.2s ease;
+}
+
+.term-tag:hover {
+  background-color: #3498db;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}

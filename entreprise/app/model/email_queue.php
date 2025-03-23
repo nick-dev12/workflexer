@@ -1,4 +1,6 @@
 <?php
+
+require_once(__DIR__ . '/../../../conn/conn.php');
 /**
  * Fonctions pour gérer la file d'attente des emails
  */

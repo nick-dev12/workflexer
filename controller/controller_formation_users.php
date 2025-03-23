@@ -1,6 +1,6 @@
 <?php
 // Inclusion du fichier de configuration de la base de données
-require_once('../model/formation_users.php');
+require_once(__DIR__ . '/../model/formation_users.php');
 
 
 // Vérification si le bouton valider est cliqué

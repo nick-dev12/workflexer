@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../model/postulation.php');
+require_once(__DIR__ . '/../model/profile_matching.php');
 
 require '../vendor/autoload.php';
 
@@ -54,61 +55,48 @@ if (isset($_SESSION['users_id'])) {
 
         $images = $_POST['images_users'];
 
-        if (isset($db)) {
+        // Vérifier la correspondance entre le profil du candidat et l'offre
+        $matchResult = checkProfileJobMatch($db, $users_id, $offre_id);
 
-            $sql = "SELECT * FROM offre_emploi WHERE offre_id = :offre_id";
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam(':offre_id', $offre_id);
-            $stmt->execute();
-            $info_offre = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            // recuperer les informations du candidat
-            $sql = "SELECT * FROM niveau_etude WHERE users_id = :users_id";
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam(':users_id', $users_id);
-            $stmt->execute();
-            $info_users = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            // recuperer la catégorie du candidat
-            // Récupérer la catégorie du candidat
-            $sql = "SELECT * FROM users WHERE id = :users_id";
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam(':users_id', $users_id, PDO::PARAM_INT);
-            $stmt->execute();
-            $infoUsers = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        }
-
-
-        // Vérifie si le candidat est dans la même catégorie que l'offre
-        $categorieUsers = $infoUsers['categorie'];
-
-
-
-        if ($info_users['n_etude'] >= $info_offre['n_etudes'] && $info_users['n_experience'] >= $info_offre['n_experience']) {
-            if (notification_postulation($db, $entreprise_id, $users_id)) {
-
-            }
-
-
-            if (postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $statut, $images, $categorie)) {
-                $_SESSION['success_message'] = 'Postulation réussi !!';
-
-                header('Location: ../page/user_profil.php');
-                exit();
-            }
-        } else {
-            $_SESSION['error_message'] = 'Vous devez avoir au moins ' . $info_offre['n_etudes'] . ' années d\'études et ' . $info_offre['n_experience'] . ' années d\'expérience pour postuler';
+        // Vérifier si le niveau d'étude et d'expérience est suffisant
+        if (!$matchResult['niveauEtudeMatch'] || !$matchResult['niveauExperienceMatch']) {
+            $_SESSION['error_message'] = 'Vous devez avoir au moins ' . $Offres['n_etudes'] . ' années d\'études et ' . $Offres['n_experience'] . ' années d\'expérience pour postuler';
             header('Location: voir_offre.php?offres_id=' . $offre_id);
             exit();
         }
 
+        // Si tout est OK, envoyer la candidature
+        if (notification_postulation($db, $entreprise_id, $users_id)) {
+            // Notification envoyée
+        }
+
+        if (postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $statut, $images, $categorie)) {
+            $_SESSION['success_message'] = 'Postulation réussie !';
+            header('Location: ../page/user_profil.php');
+            exit();
+        }
     }
 
-
-
     $getPostulationUsers = getPostulationUsers($db, $_SESSION['users_id']);
+}
 
+// Si l'utilisateur consulte une offre, calculer le taux de correspondance
+if (isset($_GET['offres_id']) && isset($_SESSION['users_id'])) {
+    $offre_id = $_GET['offres_id'];
+    $users_id = $_SESSION['users_id'];
+
+    // Vérifier si le candidat a déjà postulé
+    $getPostulation = getPostulation($db, $users_id, $offre_id);
+
+    // Si non, calculer le taux de correspondance pour les niveau d'études et d'expérience seulement
+    if (!$getPostulation) {
+        $matchResult = checkProfileJobMatch($db, $users_id, $offre_id);
+        // Stocker le résultat dans une variable de session pour l'afficher dans la vue
+        $_SESSION['match_result'] = [
+            'niveauEtudeMatch' => $matchResult['niveauEtudeMatch'],
+            'niveauExperienceMatch' => $matchResult['niveauExperienceMatch']
+        ];
+    }
 }
 
 

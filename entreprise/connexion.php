@@ -4,6 +4,7 @@ session_start();
 include '../conn/conn.php';
 
 
+
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
 

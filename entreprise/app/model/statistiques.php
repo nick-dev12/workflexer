@@ -1,5 +1,8 @@
 <?php
 
+require_once(__DIR__ . '/../../../conn/conn.php');
+
+
 /**
  * Fichier contenant les fonctions pour récupérer les statistiques de l'entreprise
  */

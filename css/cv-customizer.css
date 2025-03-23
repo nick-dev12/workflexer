@@ -1,0 +1,484 @@
+/* CV Customizer - Core System Styles
+-------------------------------------------------- */
+:root {
+  --customizer-primary: #3498db;
+  --customizer-secondary: #2ecc71;
+  --customizer-accent: #e74c3c;
+  --customizer-text: #2c3e50;
+  --customizer-bg: #ffffff;
+  --customizer-border: #eaeaea;
+  --customizer-shadow: rgba(0, 0, 0, 0.1);
+  --customizer-radius: 12px;
+  --customizer-transition: all 0.3s ease;
+}
+
+/* Customizable Elements
+-------------------------------------------------- */
+.cv-editable {
+  position: relative;
+  transition: var(--customizer-transition);
+}
+
+.cv-editable:hover {
+  outline: 2px dashed var(--customizer-primary);
+  cursor: pointer;
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.cv-editable.editing {
+  outline: 2px solid var(--customizer-primary);
+  background-color: rgba(52, 152, 219, 0.1);
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+/* Edit Indicator */
+.cv-edit-indicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--customizer-primary);
+  color: white;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: var(--customizer-transition);
+  z-index: 10;
+  box-shadow: 0 2px 4px var(--customizer-shadow);
+}
+
+.cv-editable:hover .cv-edit-indicator {
+  opacity: 1;
+}
+
+/* Customizer Interface
+-------------------------------------------------- */
+.cv-customizer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 90%;
+  max-width: 800px;
+  background-color: var(--customizer-bg);
+  box-shadow: 0 -2px 15px var(--customizer-shadow);
+  z-index: 9998;
+  transition: var(--customizer-transition);
+  border-radius: var(--customizer-radius) var(--customizer-radius) 0 0;
+  border: 1px solid var(--customizer-border);
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.cv-customizer.active {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Element Info Bar */
+.cv-element-info {
+  background-color: #f8f9fa;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--customizer-border);
+}
+
+.cv-element-type {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--customizer-text);
+}
+
+.cv-element-type span {
+  color: var(--customizer-primary);
+  margin-left: 5px;
+}
+
+.cv-close-customizer {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+  transition: var(--customizer-transition);
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.cv-close-customizer:hover {
+  color: var(--customizer-text);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Customizer Tabs */
+.cv-customizer-tabs {
+  display: flex;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid var(--customizer-border);
+  padding: 0 10px;
+}
+
+.cv-tab {
+  padding: 15px 20px;
+  font-size: 14px;
+  color: var(--customizer-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--customizer-transition);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cv-tab i {
+  font-size: 16px;
+}
+
+.cv-tab::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--customizer-primary);
+  transform: scaleX(0);
+  transition: var(--customizer-transition);
+}
+
+.cv-tab:hover {
+  color: var(--customizer-primary);
+}
+
+.cv-tab.active {
+  color: var(--customizer-primary);
+}
+
+.cv-tab.active::after {
+  transform: scaleX(1);
+}
+
+/* Customizer Content */
+.cv-customizer-content {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.cv-tab-panel {
+  display: none;
+}
+
+.cv-tab-panel.active {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Option Groups */
+.cv-option-group {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px var(--customizer-shadow);
+}
+
+.cv-option-group h3 {
+  font-size: 14px;
+  color: var(--customizer-text);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+/* Controls */
+.cv-control {
+  margin-bottom: 12px;
+}
+
+.cv-control label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+/* Select Control */
+.cv-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--customizer-border);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--customizer-text);
+  background-color: white;
+  transition: var(--customizer-transition);
+}
+
+.cv-select:hover {
+  border-color: var(--customizer-primary);
+}
+
+/* Color Picker */
+.cv-color-picker {
+  width: 100%;
+  height: 40px;
+  padding: 4px;
+  border: 1px solid var(--customizer-border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Range Slider */
+.cv-slider {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-slider input[type="range"] {
+  flex: 1;
+  height: 4px;
+  background-color: var(--customizer-border);
+  border-radius: 2px;
+  -webkit-appearance: none;
+}
+
+.cv-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: var(--customizer-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--customizer-transition);
+}
+
+.cv-slider input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.cv-slider-value {
+  font-size: 12px;
+  color: #666;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Button Group */
+.cv-button-group {
+  display: flex;
+  gap: 5px;
+  background-color: white;
+  padding: 3px;
+  border: 1px solid var(--customizer-border);
+  border-radius: 6px;
+}
+
+.cv-button-group button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: none;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: var(--customizer-transition);
+}
+
+.cv-button-group button:hover {
+  background-color: #f0f0f0;
+  color: var(--customizer-primary);
+}
+
+.cv-button-group button.active {
+  background-color: var(--customizer-primary);
+  color: white;
+}
+
+/* Theme Presets */
+.cv-theme-presets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 10px;
+}
+
+.cv-theme-preset {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--customizer-transition);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.cv-theme-preset:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px var(--customizer-shadow);
+}
+
+.cv-theme-preset.active {
+  border-color: var(--customizer-primary);
+}
+
+.cv-theme-preset.active::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Action Bar */
+.cv-action-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-top: 1px solid var(--customizer-border);
+}
+
+.cv-action-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--customizer-transition);
+}
+
+.cv-action-btn i {
+  margin-right: 8px;
+}
+
+.cv-save-btn {
+  background-color: var(--customizer-primary);
+  color: white;
+}
+
+.cv-save-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.cv-reset-btn {
+  background-color: var(--customizer-accent);
+  color: white;
+}
+
+.cv-reset-btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-1px);
+}
+
+/* Floating Preview Button */
+.cv-preview-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid var(--customizer-border);
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px var(--customizer-shadow);
+  transition: var(--customizer-transition);
+  z-index: 9997;
+}
+
+.cv-preview-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--customizer-shadow);
+}
+
+.cv-preview-btn i {
+  font-size: 18px;
+  color: var(--customizer-primary);
+}
+
+.cv-preview-btn span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--customizer-text);
+}
+
+/* Responsive Design
+-------------------------------------------------- */
+@media screen and (max-width: 992px) {
+  .cv-customizer {
+    width: 95%;
+  }
+
+  .cv-tab-panel.active {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cv-customizer {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .cv-element-info {
+    padding: 10px 15px;
+  }
+
+  .cv-tab {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+
+  .cv-customizer-content {
+    padding: 15px;
+    max-height: 320px;
+  }
+
+  .cv-option-group {
+    padding: 12px;
+  }
+
+  .cv-preview-btn {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cv-customizer-tabs {
+    overflow-x: auto;
+    padding: 0 5px;
+  }
+
+  .cv-tab {
+    padding: 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .cv-action-bar {
+    padding: 10px 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cv-action-btn {
+    flex: 1;
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+}

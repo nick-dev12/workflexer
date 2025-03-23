@@ -641,12 +641,14 @@ body {
   text-align: center;
 }
 
+/* Style des boutons d'action dans les cartes de candidats */
 .candidate-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
   padding: var(--spacing-md);
   border-top: 1px solid var(--gray-200);
-  display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
 }
 
 .candidates-container.list-view .candidate-actions {
@@ -662,33 +664,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
+  gap: 6px;
+  padding: 8px 15px;
+  border: none;
   border-radius: var(--border-radius-md);
-  font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
   transition: var(--transition-fast);
   text-decoration: none;
-  border: none;
-}
-
-.view-btn {
-  background-color: var(--primary-color);
   color: white;
 }
 
-.view-btn:hover {
+.action-btn.view-btn {
+  background-color: var(--primary-color);
+}
+
+.action-btn.view-btn:hover {
   background-color: var(--primary-dark);
 }
 
-.message-btn {
+.action-btn.message-btn {
   background-color: var(--accent-color);
-  color: white;
 }
 
-.message-btn:hover {
+.action-btn.message-btn:hover {
   background-color: var(--primary-light);
 }
 
@@ -765,6 +765,16 @@ body {
 
   .stat-item {
     min-width: 100px;
+  }
+
+  .bulk-actions-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select-actions,
+  .bulk-buttons {
+    justify-content: center;
   }
 }
 
@@ -846,4 +856,119 @@ body {
   .action-btn i {
     margin: 0;
   }
+
+  .bulk-actions-container {
+    padding: var(--spacing-sm);
+  }
+
+  .select-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-btn.select-btn,
+  .action-btn.bulk-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Styles pour la sélection multiple */
+.bulk-actions-container {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  position: relative;
+}
+
+.select-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.selected-count {
+  font-weight: 600;
+  color: var(--gray-700);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--gray-100);
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+}
+
+.bulk-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.action-btn.select-btn {
+  background-color: var(--primary-light);
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 14px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.action-btn.select-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.action-btn.bulk-btn {
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 14px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.action-btn.bulk-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.action-btn.bulk-btn.accept-btn {
+  background-color: var(--success-color);
+}
+
+.action-btn.bulk-btn.accept-btn:hover:not(:disabled) {
+  background-color: var(--success-dark);
+}
+
+.action-btn.bulk-btn.reject-btn {
+  background-color: var(--danger-color);
+}
+
+.action-btn.bulk-btn.reject-btn:hover:not(:disabled) {
+  background-color: var(--danger-dark);
+}
+
+/* Case à cocher dans les cartes de candidats */
+.candidate-checkbox {
+  margin-right: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+}
+
+.candidate-select {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.candidates-container.list-view .candidate-checkbox {
+  margin-right: var(--spacing-md);
 }

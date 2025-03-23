@@ -1,5 +1,5 @@
 <?Php
-include('../conn/conn.php');
+include(__DIR__ . '/../conn/conn.php');
 
 function PostDocumentUsers($db, $users_id, $document)
 {

@@ -103,17 +103,71 @@ if (isset($_GET['id'])) {
 
 
     <section class="section3">
-
-        <div class="model">
-            <a href="../model_cv/model1.php" target="_blank"><img src="../image/cv1.png" alt=""></a>
-            <a href="../model_cv/model7.php" target="_blank"><img src="../image/cv8.png" alt=""></a>
-            <a href="../model_cv/model3.php" target="_blank"><img src="../image/cv3.png" alt=""></a>
-            <a href="../model_cv/model5.php" target="_blank"><img src="../image/cv6.png" alt=""></a>
-            <a href="../model_cv/model2.php" target="_blank"><img src="../image/cv2.png" alt=""></a>
-            <a href="../model_cv/model6.php" target="_blank"><img src="../image/cv7.png" alt=""></a>
-            <a href="../model_cv/model4.php" target="_blank"><img src="../image/cv4.png" alt=""></a>
+        <div class="page-intro">
+            <h2>Modèles de CV Professionnels</h2>
+            <p>Choisissez parmi notre collection de modèles de CV élégants et professionnels pour mettre en valeur vos
+                compétences et votre expérience.</p>
+            <p>Cliquez sur un modèle pour le visualiser et l'utiliser pour créer votre CV personnalisé.</p>
         </div>
 
+        <div class="model">
+            <a href="../model_cv/model1.php" target="_blank">
+                <img src="../image/cv1.png" alt="CV Modèle Classique">
+                <div class="model-info">
+                    <h3>Modèle Classique</h3>
+                    <p>Design épuré et professionnel</p>
+                </div>
+            </a>
+            <a href="../model_cv/model7.php" target="_blank">
+                <img src="../image/cv8.png" alt="CV Modèle Moderne">
+                <div class="model-info">
+                    <h3>Modèle Moderne</h3>
+                    <p>Style contemporain avec accents de couleur</p>
+                </div>
+            </a>
+            <a href="../model_cv/model3.php" target="_blank">
+                <img src="../image/cv3.png" alt="CV Modèle Créatif">
+                <div class="model-info">
+                    <h3>Modèle Créatif</h3>
+                    <p>Mise en page originale pour se démarquer</p>
+                </div>
+            </a>
+            <a href="../model_cv/model5.php" target="_blank">
+                <img src="../image/cv6.png" alt="CV Modèle Exécutif">
+                <div class="model-info">
+                    <h3>Modèle Exécutif</h3>
+                    <p>Style sobre et élégant pour cadres</p>
+                </div>
+            </a>
+            <a href="../model_cv/model2.php" target="_blank">
+                <img src="../image/cv2.png" alt="CV Modèle Minimaliste">
+                <div class="model-info">
+                    <h3>Modèle Minimaliste</h3>
+                    <p>Design simple et efficace</p>
+                </div>
+            </a>
+            <a href="../model_cv/model6.php" target="_blank">
+                <img src="../image/cv7.png" alt="CV Modèle Chronologique">
+                <div class="model-info">
+                    <h3>Modèle Chronologique</h3>
+                    <p>Parfait pour mettre en avant votre parcours</p>
+                </div>
+            </a>
+            <a href="../model_cv/model4.php" target="_blank">
+                <img src="../image/cv4.png" alt="CV Modèle Technique">
+                <div class="model-info">
+                    <h3>Modèle Technique</h3>
+                    <p>Idéal pour les profils IT et ingénierie</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="cta-section">
+            <h3>Besoin d'aide pour créer votre CV?</h3>
+            <p>Nos modèles sont conçus pour vous aider à mettre en valeur vos compétences et votre expérience de la
+                meilleure façon possible.</p>
+            <a href="#" class="cta-button">Commencer mon CV</a>
+        </div>
     </section>
 
 </body>

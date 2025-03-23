@@ -67,6 +67,8 @@ if (isset($_SESSION['users_id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/model5.css" />
     <link rel="stylesheet" href="../css/navbare.css">
+    <script src="cv_customizer.js"></script>
+    <script src="image_customizer.js" defer></script>
 </head>
 
 <body>
@@ -97,6 +99,361 @@ if (isset($_SESSION['users_id'])) {
                 }
             </script>
 
+            <div class="theme-selector">
+                <h3>Thèmes de couleurs</h3>
+                <div class="themes-section">
+                    <h4>Classiques</h4>
+                    <div class="themes-container">
+                        <div class="theme-card" data-theme="classic">
+                            <div class="theme-preview">
+                                <div style="background-color: #4A4A4A; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #333333; height: 20px;"></div>
+                            </div>
+                            <span>Classique</span>
+                        </div>
+                        <div class="theme-card" data-theme="professional">
+                            <div class="theme-preview">
+                                <div style="background-color: #1D3557; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #457B9D; height: 20px;"></div>
+                            </div>
+                            <span>Marine</span>
+                        </div>
+                        <div class="theme-card" data-theme="corporate">
+                            <div class="theme-preview">
+                                <div style="background-color: #1A237E; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #5C6BC0; height: 20px;"></div>
+                            </div>
+                            <span>Corporate</span>
+                        </div>
+                        <div class="theme-card" data-theme="slate">
+                            <div class="theme-preview">
+                                <div style="background-color: #2F4F4F; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #708090; height: 20px;"></div>
+                            </div>
+                            <span>Ardoise</span>
+                        </div>
+                    </div>
+
+                    <h4>Couleurs vives</h4>
+                    <div class="themes-container">
+                        <div class="theme-card" data-theme="elegant">
+                            <div class="theme-preview">
+                                <div style="background-color: #0E3B43; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #328590; height: 20px;"></div>
+                            </div>
+                            <span>Émeraude</span>
+                        </div>
+                        <div class="theme-card" data-theme="creative">
+                            <div class="theme-preview">
+                                <div style="background-color: #845EC2; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #B39CD0; height: 20px;"></div>
+                            </div>
+                            <span>Violet</span>
+                        </div>
+                        <div class="theme-card" data-theme="modern">
+                            <div class="theme-preview">
+                                <div style="background-color: #3D5A80; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #98C1D9; height: 20px;"></div>
+                            </div>
+                            <span>Océan</span>
+                        </div>
+                        <div class="theme-card" data-theme="mint">
+                            <div class="theme-preview">
+                                <div style="background-color: #21897E; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #69B7A8; height: 20px;"></div>
+                            </div>
+                            <span>Menthe</span>
+                        </div>
+                    </div>
+
+                    <h4>Tons chauds</h4>
+                    <div class="themes-container">
+                        <div class="theme-card" data-theme="earthy">
+                            <div class="theme-preview">
+                                <div style="background-color: #5F4B32; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #A1887F; height: 20px;"></div>
+                            </div>
+                            <span>Terracotta</span>
+                        </div>
+                        <div class="theme-card" data-theme="burgundy">
+                            <div class="theme-preview">
+                                <div style="background-color: #800020; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #AD8A8E; height: 20px;"></div>
+                            </div>
+                            <span>Bordeaux</span>
+                        </div>
+                        <div class="theme-card" data-theme="amber">
+                            <div class="theme-preview">
+                                <div style="background-color: #B86E00; height: 20px;"></div>
+                                <div style="background-color: #000000; height: 20px;"></div>
+                                <div style="background-color: #F0A858; height: 20px;"></div>
+                            </div>
+                            <span>Ambre</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .theme-selector {
+                    margin-top: 20px;
+                    padding: 15px;
+                    background-color: #f9f9f9;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+
+                .theme-selector h3 {
+                    text-align: center;
+                    margin-bottom: 15px;
+                    color: #333;
+                    font-size: 18px;
+                }
+
+                .theme-selector h4 {
+                    border-bottom: 1px solid #e0e0e0;
+                    padding-bottom: 8px;
+                    margin: 15px 0 10px;
+                    color: #555;
+                    font-size: 16px;
+                }
+
+                .themes-section {
+                    max-height: 400px;
+                    overflow-y: auto;
+                    padding-right: 5px;
+                }
+
+                .themes-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    gap: 12px;
+                    margin-bottom: 15px;
+                }
+
+                .theme-card {
+                    width: calc(25% - 12px);
+                    min-width: 85px;
+                    border-radius: 6px;
+                    overflow: hidden;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                    transition: transform 0.2s, box-shadow 0.2s;
+                }
+
+                .theme-card:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+
+                .theme-card.active {
+                    border: 2px solid #0089be;
+                    transform: translateY(-2px);
+                }
+
+                .theme-preview {
+                    width: 100%;
+                }
+
+                .theme-card span {
+                    display: block;
+                    text-align: center;
+                    padding: 6px 0;
+                    font-size: 12px;
+                    background-color: white;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                /* Styles pour tablette */
+                @media (max-width: 768px) {
+                    .theme-card {
+                        width: calc(33.33% - 12px);
+                    }
+
+                    .themes-section {
+                        max-height: 350px;
+                    }
+                }
+
+                /* Styles pour mobile */
+                @media (max-width: 480px) {
+                    .theme-card {
+                        width: calc(50% - 8px);
+                        min-width: 60px;
+                    }
+
+                    .themes-container {
+                        gap: 8px;
+                    }
+
+                    .theme-selector {
+                        padding: 10px;
+                    }
+
+                    .theme-selector h3 {
+                        font-size: 16px;
+                    }
+
+                    .theme-selector h4 {
+                        font-size: 14px;
+                    }
+
+                    .theme-card span {
+                        font-size: 11px;
+                        padding: 4px 0;
+                    }
+
+                    .themes-section {
+                        max-height: 250px;
+                    }
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Définition des thèmes
+                    const themes = {
+                        elegant: {
+                            fontColorSection: '#0E3B43',
+                            texteColor: '#000000',
+                            texteColor2: '#328590'
+                        },
+                        professional: {
+                            fontColorSection: '#1D3557',
+                            texteColor: '#000000',
+                            texteColor2: '#457B9D'
+                        },
+                        creative: {
+                            fontColorSection: '#845EC2',
+                            texteColor: '#000000',
+                            texteColor2: '#B39CD0'
+                        },
+                        classic: {
+                            fontColorSection: '#4A4A4A',
+                            texteColor: '#000000',
+                            texteColor2: '#333333'
+                        },
+                        modern: {
+                            fontColorSection: '#3D5A80',
+                            texteColor: '#000000',
+                            texteColor2: '#98C1D9'
+                        },
+                        earthy: {
+                            fontColorSection: '#5F4B32',
+                            texteColor: '#000000',
+                            texteColor2: '#A1887F'
+                        },
+                        // Nouveaux thèmes
+                        corporate: {
+                            fontColorSection: '#1A237E',
+                            texteColor: '#000000',
+                            texteColor2: '#5C6BC0'
+                        },
+                        burgundy: {
+                            fontColorSection: '#800020',
+                            texteColor: '#000000',
+                            texteColor2: '#AD8A8E'
+                        },
+                        mint: {
+                            fontColorSection: '#21897E',
+                            texteColor: '#000000',
+                            texteColor2: '#69B7A8'
+                        },
+                        slate: {
+                            fontColorSection: '#2F4F4F',
+                            texteColor: '#000000',
+                            texteColor2: '#708090'
+                        },
+                        amber: {
+                            fontColorSection: '#B86E00',
+                            texteColor: '#000000',
+                            texteColor2: '#F0A858'
+                        }
+                    };
+
+                    // Récupérer le numéro du modèle à partir de l'URL
+                    const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?.[1] || '5';
+                    const storagePrefix = `model${modelNumber}-`;
+
+                    // Ajouter les écouteurs d'événements aux cartes de thème
+                    const themeCards = document.querySelectorAll('.theme-card');
+                    themeCards.forEach(card => {
+                        card.addEventListener('click', function () {
+                            // Retirer la classe active de toutes les cartes
+                            themeCards.forEach(c => c.classList.remove('active'));
+
+                            // Ajouter la classe active à la carte cliquée
+                            this.classList.add('active');
+
+                            // Appliquer le thème
+                            const themeName = this.getAttribute('data-theme');
+                            applyTheme(themes[themeName]);
+                        });
+                    });
+
+                    // Fonction pour appliquer un thème
+                    function applyTheme(theme) {
+                        // Appliquer les couleurs CSS
+                        document.documentElement.style.setProperty('--font-color-m5', theme.fontColorSection);
+                        document.documentElement.style.setProperty('--text-color-m5', theme.texteColor);
+                        document.documentElement.style.setProperty('--text-color2-m5', theme.texteColor2);
+
+                        // Mettre à jour les valeurs des inputs de couleur
+                        document.getElementById('fontColor_m52').value = theme.fontColorSection;
+                        document.getElementById('fontColor_m53').value = theme.texteColor;
+                        document.getElementById('fontColor_m54').value = theme.texteColor2;
+
+                        // Sauvegarder dans localStorage avec préfixe spécifique au modèle
+                        localStorage.setItem(`${storagePrefix}font_color_section_m5`, theme.fontColorSection);
+                        localStorage.setItem(`${storagePrefix}texte_color_m5`, theme.texteColor);
+                        localStorage.setItem(`${storagePrefix}texte_color2_m5`, theme.texteColor2);
+                    }
+
+                    // Vérifier s'il y a un thème sauvegardé et l'appliquer
+                    const savedTheme = {
+                        fontColorSection: localStorage.getItem(`${storagePrefix}font_color_section_m5`),
+                        texteColor: localStorage.getItem(`${storagePrefix}texte_color_m5`),
+                        texteColor2: localStorage.getItem(`${storagePrefix}texte_color2_m5`)
+                    };
+
+                    if (savedTheme.fontColorSection) {
+                        // Appliquer le thème sauvegardé
+                        document.documentElement.style.setProperty('--font-color-m5', savedTheme.fontColorSection);
+                        document.documentElement.style.setProperty('--text-color-m5', savedTheme.texteColor);
+                        document.documentElement.style.setProperty('--text-color2-m5', savedTheme.texteColor2);
+
+                        // Mettre à jour les valeurs des inputs
+                        document.getElementById('fontColor_m52').value = savedTheme.fontColorSection;
+                        document.getElementById('fontColor_m53').value = savedTheme.texteColor;
+                        document.getElementById('fontColor_m54').value = savedTheme.texteColor2;
+
+                        // Retrouver quel thème correspond aux couleurs sauvegardées
+                        for (const [themeName, theme] of Object.entries(themes)) {
+                            if (theme.fontColorSection === savedTheme.fontColorSection &&
+                                theme.texteColor === savedTheme.texteColor &&
+                                theme.texteColor2 === savedTheme.texteColor2) {
+                                // Marquer le thème comme actif
+                                const themeCard = document.querySelector(`.theme-card[data-theme="${themeName}"]`);
+                                if (themeCard) themeCard.classList.add('active');
+                                break;
+                            }
+                        }
+                    }
+                });
+            </script>
 
             <div class="box">
                 <p>Couleur de de fond </p>
