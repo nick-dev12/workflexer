@@ -9,7 +9,10 @@
   --text-color6: #000000;
   --date-color6: #019fcf;
   --font-color6: #e3e3e3;
-  --font-color6: #e6e6e6;
+  --texte-color_titre: #ffffff;
+  --font-color_titre: #0e3b43;
+  --texte-color_section: #ffffff;
+  --font-color_section: #328590;
 }
 
 /*--------------------------------------------------------------
@@ -19,6 +22,64 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Règles globales pour les textes du modèle 6 */
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6,
+.container p,
+.container li,
+.container span,
+.container div,
+#model6 h1,
+#model6 h2,
+#model6 h3,
+#model6 h4,
+#model6 h5,
+#model6 h6,
+#model6 p,
+#model6 li,
+#model6 span,
+#model6 div {
+  color: var(--text-color6);
+}
+
+/* Règle spécifique pour les sections sur fond coloré */
+.container .box1,
+.container .box3 .item1,
+#model6 .box1,
+#model6 .box3 .item1 {
+  background-color: var(--font-color_section);
+}
+
+/* Règle pour adapter le texte sur fond coloré */
+.container .box1 h1,
+.container .box1 h2,
+.container .box1 p,
+.container .box1 li,
+.container .box1 span,
+.container .box3 .item1 h1,
+.container .box3 .item1 h2,
+.container .box3 .item1 h3,
+.container .box3 .item1 p,
+.container .box3 .item1 li,
+.container .box3 .item1 span,
+#model6 .box1 h1,
+#model6 .box1 h2,
+#model6 .box1 p,
+#model6 .box1 li,
+#model6 .box1 span,
+#model6 .box3 .item1 h1,
+#model6 .box3 .item1 h2,
+#model6 .box3 .item1 h3,
+#model6 .box3 .item1 p,
+#model6 .box3 .item1 li,
+#model6 .box3 .item1 span {
+  color: var(--texte-color_section) !important;
 }
 
 body {
@@ -78,10 +139,10 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   position: fixed;
-  top: 100px;
+  top: 20px;
   left: 0;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 90vh;
 }
 
 .section3 .personnalisation .box {
@@ -106,7 +167,7 @@ body {
   min-width: 60px;
 }
 
-.section3 .container {
+.container {
   width: 793px;
   height: 1122px;
   border: 1.5px solid #a3a3a3;
@@ -120,7 +181,7 @@ body {
   flex-direction: column;
 }
 
-.section3 .container .box1 {
+.container .box1 {
   width: 100%;
   height: 250px;
   display: flex;
@@ -128,32 +189,32 @@ body {
   background-color: var(--font-color6);
 }
 
-.section3 .container .box1 .item1 {
+.container .box1 .item1 {
   width: 30%;
   height: 250px;
   color: var(--text-color6);
 }
 
-.section3 .container .box1 .item1 img {
+.container .box1 .item1 img {
   width: 250px;
   height: 220px;
   border-bottom-right-radius: 20px;
   object-fit: cover;
 }
 
-.section3 .container .box1 .item2 {
+.container .box1 .item2 {
   width: 70%;
   height: 250px;
   padding: 30px;
 }
 
-.section3 .container .box1 .item2 h1 {
+.container .box1 .item2 h1 {
   margin-left: 20px;
   font-size: 25px;
   color: var(--text-color6);
 }
 
-.section3 .container .box1 .item2 h2 {
+.container .box1 .item2 h2 {
   margin-left: 20px;
   font-size: 18px;
   margin-top: 10px;
@@ -161,19 +222,19 @@ body {
   color: var(--text-color6);
 }
 
-.section3 .container .box1 .item2 div {
+.container .box1 .item2 div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-/* .section3 .container .box1 .item2 div ul{
+/*  .container .box1 .item2 div ul{
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 } */
-.section3 .container .box1 .item2 div ul li {
+.container .box1 .item2 div ul li {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -183,17 +244,17 @@ body {
   color: var(--text-color6);
 }
 
-.section3 .container .box1 .item2 div ul li span {
+.container .box1 .item2 div ul li span {
   margin-left: 10px;
   font-size: 11px;
 }
 
-.section3 .container .box1 .item2 div ul li img {
+.container .box1 .item2 div ul li img {
   margin-right: 20px;
   width: 25px;
 }
 
-.section3 .container .box1 .item2 #langue {
+.container .box1 .item2 #langue {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -201,29 +262,29 @@ body {
   justify-content: center;
 }
 
-.section3 .container .box2 {
+.container .box2 {
   height: 30px;
   background-color: var(--font-color6);
   width: 100%;
 }
 
-.section3 .container .box3 {
+.container .box3 {
   display: flex;
   width: 100%;
 }
 
-.section3 .container .box3 .item1 {
+.container .box3 .item1 {
   width: 40%;
   height: 840px;
   background-color: var(--font-color6);
 }
 
-.section3 .container .box3 .item1 .edu {
+.container .box3 .item1 .edu {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.section3 .container .box3 .item1 .edu h2 {
+.container .box3 .item1 .edu h2 {
   font-size: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -232,38 +293,38 @@ body {
   color: var(--text-color6);
 }
 
-.section3 .container .box3 .item1 .edu h2 img {
+.container .box3 .item1 .edu h2 img {
   width: 25px;
   margin-right: 20px;
 }
 
-.section3 .container .box3 .item1 .edu div {
+.container .box3 .item1 .edu div {
   margin-bottom: 20px;
 }
 
-.section3 .container .box3 .item1 .edu div h3 {
+.container .box3 .item1 .edu div h3 {
   font-size: 16px;
   margin-left: 20px;
   color: var(--text-color6);
 }
 
-.section3 .container .box3 .item1 .edu div span {
+.container .box3 .item1 .edu div span {
   font-size: 12px;
   color: var(--date-color6);
   margin-left: 20px;
 }
 
-.section3 .container .box3 .item1 .edu div p {
+.container .box3 .item1 .edu div p {
   font-size: 14px;
   padding: 0 20px;
   color: var(--text-color6);
 }
 
-.section3 .container .box3 .item1 .comp {
+.container .box3 .item1 .comp {
   margin-top: 20px;
 }
 
-.section3 .container .box3 .item1 .comp h2 {
+.container .box3 .item1 .comp h2 {
   font-size: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -272,19 +333,19 @@ body {
   color: var(--text-color6);
 }
 
-.section3 .container .box3 .item1 .comp h2 img {
+.container .box3 .item1 .comp h2 img {
   width: 25px;
   margin-right: 20px;
 }
 
-.section3 .container .box3 .item1 .comp ul {
+.container .box3 .item1 .comp ul {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding: 5px 10px;
 }
 
-.section3 .container .box3 .item1 .comp ul li {
+.container .box3 .item1 .comp ul li {
   margin: 5px 10px;
   font-size: 12px;
   padding: 3px 10px;
@@ -294,11 +355,11 @@ body {
   border-radius: 4px;
 }
 
-.section3 .container .box3 .item2 .outils {
+.container .box3 .item2 .outils {
   margin-top: 20px;
 }
 
-.section3 .container .box3 .item2 .outils h2 {
+.container .box3 .item2 .outils h2 {
   font-size: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -307,35 +368,35 @@ body {
   color: var(--text-color6);
 }
 
-.section3 .container .box3 .item2 .outils h2 img {
+.container .box3 .item2 .outils h2 img {
   width: 25px;
   margin-right: 20px;
 }
 
-.section3 .container .box3 .item2 .outils ul {
+.container .box3 .item2 .outils ul {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding: 5px 20px;
 }
 
-.section3 .container .box3 .item2 .outils ul li {
+.container .box3 .item2 .outils ul li {
   margin: 7px 12px;
   font-size: 14px;
   color: var(--text-color6);
   list-style: none;
 }
 
-.section3 .container .box3 .item2 {
+.container .box3 .item2 {
   width: 60%;
 }
 
-.section3 .container .box3 .item2 .moi {
+.container .box3 .item2 .moi {
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
-.section3 .container .box3 .item2 .moi h2 {
+.container .box3 .item2 .moi h2 {
   margin-left: 30px;
   font-size: 20px;
   margin-bottom: 15px;
@@ -343,18 +404,18 @@ body {
   align-items: center;
 }
 
-.section3 .container .box3 .item2 .moi h2 img {
+.container .box3 .item2 .moi h2 img {
   width: 25px;
   margin-right: 20px;
 }
 
-.section3 .container .box3 .item2 .moi p {
+.container .box3 .item2 .moi p {
   padding: 0px 30px;
   text-align: justify;
   font-size: 13px;
 }
 
-.section3 .container .box3 .item2 .exp h2 {
+.container .box3 .item2 .exp h2 {
   margin-left: 30px;
   font-size: 20px;
   margin-bottom: 15px;
@@ -362,32 +423,32 @@ body {
   align-items: center;
 }
 
-.section3 .container .box3 .item2 .exp h2 img {
+.container .box3 .item2 .exp h2 img {
   width: 25px;
   margin-right: 20px;
 }
 
-.section3 .container .box3 .item2 .exp div {
+.container .box3 .item2 .exp div {
   margin-left: 30px;
   margin-bottom: 20px;
 }
 
-.section3 .container .box3 .item2 .exp div h3 {
+.container .box3 .item2 .exp div h3 {
   font-size: 16px;
 }
 
-.section3 .container .box3 .item2 .exp div p {
+.container .box3 .item2 .exp div p {
   font-size: 13px;
   padding-right: 30px;
   text-align: justify;
 }
 
-.section3 .container .box3 .item2 .exp div span {
+.container .box3 .item2 .exp div span {
   padding: 4px 15px;
   font-size: 12px;
   background-color: var(--font-color6);
   border-radius: 4px;
-  color: var(--text-color6);
+  color: var(--texte-color_titre);
 }
 
 .model6 {
@@ -668,7 +729,7 @@ body {
 }
 
 @media screen and (max-width: 1050px) {
-  .section3 .container {
+  .container {
     width: 550px;
     height: 850px;
     margin-bottom: 40px;
@@ -1557,4 +1618,12 @@ body {
   display: inline;
   list-style: square;
   color: var(--text-color7);
+}
+
+.exp .date {
+  background-color: var(--font-color6);
+  color: var(--texte-color_titre);
+  padding: 4px 15px;
+  border-radius: 4px;
+  font-size: 12px;
 }

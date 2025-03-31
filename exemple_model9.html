@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemple CV Modèle 9</title>
+    <style>
+      /* Insérer ici le contenu du fichier css/model9.css */
+      body {
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        background-color: #fff;
+      }
+
+      .cv-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .cv-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+        background-color: #14396e;
+        color: #fff;
+      }
+
+      .header-content {
+        flex: 1;
+      }
+
+      .name-title {
+        font-size: 36px;
+        margin: 0;
+      }
+
+      .job-title {
+        font-size: 24px;
+        margin: 5px 0 15px;
+      }
+
+      .header-text {
+        margin: 0;
+      }
+
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-left: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .cv-body {
+        display: flex;
+      }
+
+      .left-column {
+        flex: 0 0 35%;
+        padding: 30px;
+        background-color: #f5f5f5;
+      }
+
+      .right-column {
+        flex: 1;
+        padding: 30px;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #14396e;
+        color: #14396e;
+      }
+
+      .contact-info p {
+        margin: 5px 0;
+      }
+
+      .contact-info img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+
+      .languages-list,
+      .skills-list,
+      .activities-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .languages-list li,
+      .skills-list li {
+        margin-bottom: 10px;
+      }
+
+      .language-level,
+      .skill-level {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+      }
+
+      .level-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #14396e;
+        margin-right: 5px;
+      }
+
+      .level-dot.empty {
+        background-color: transparent;
+        border: 2px solid #14396e;
+      }
+
+      .activities-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+      }
+
+      .activities-list img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      .experience-item,
+      .education-item {
+        margin-bottom: 30px;
+      }
+
+      .experience-item h4,
+      .education-item h4 {
+        font-size: 20px;
+        margin: 0 0 5px;
+      }
+
+      .experience-item .date,
+      .education-item .date {
+        font-style: italic;
+        margin: 5px 0;
+      }
+
+      .experience-item .date img,
+      .education-item .date img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+
+      .experience-item ul {
+        margin: 10px 0 0;
+        padding-left: 20px;
+      }
+
+      .experience-item li {
+        margin-bottom: 5px;
+      }
+
+      .school {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-container">
+      <div class="cv-header">
+        <div class="header-content">
+          <h1 class="name-title">Sophie Dubois</h1>
+          <p class="job-title">Chargée de communication</p>
+          <p class="header-text">
+            Chargée de communication passionnée et créative avec 5 ans
+            d'expérience. Spécialisée dans la création de contenus engageants et
+            la gestion des réseaux sociaux. Toujours à la recherche de nouvelles
+            façons innovantes de connecter les marques avec leur public cible.
+          </p>
+        </div>
+        <img
+          src="https://randomuser.me/api/portraits/women/72.jpg"
+          alt="Photo de profil"
+          class="profile-photo"
+        />
+      </div>
+
+      <div class="cv-body">
+        <div class="left-column">
+          <div class="section contact-section">
+            <h3 class="section-title">CONTACT</h3>
+            <div class="contact-info">
+              <p>
+                <img src="../image/address.png" alt="Adresse" />Paris, France
+              </p>
+              <p>
+                <img
+                  src="../image/icons8-gmail-48.png"
+                  alt="Email"
+                />sophie.dubois@gmail.com
+              </p>
+              <p>
+                <img src="../image/phone.png" alt="Téléphone" />+33 6 12 34 56
+                78
+              </p>
+              <p>
+                <img
+                  src="../image/linkedin.png"
+                  alt="LinkedIn"
+                />www.linkedin.com/in/sophiedubois
+              </p>
+            </div>
+          </div>
+
+          <div class="section languages-section">
+            <h3 class="section-title">LANGUES</h3>
+            <ul class="languages-list">
+              <li>
+                <span>FRANÇAIS</span>
+                <div class="language-level">
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                </div>
+              </li>
+              <li>
+                <span>ANGLAIS</span>
+                <div class="language-level">
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot empty"></span>
+                </div>
+              </li>
+              <li>
+                <span>ESPAGNOL</span>
+                <div class="language-level">
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot empty"></span>
+                  <span class="level-dot empty"></span>
+                  <span class="level-dot empty"></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3 class="section-title">INFORMATIQUE</h3>
+            <ul class="skills-list">
+              <li>
+                <span>PHOTOSHOP</span>
+                <div class="language-level">
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot empty"></span>
+                </div>
+              </li>
+              <li>
+                <span>INDESIGN</span>
+                <div class="language-level">
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot empty"></span>
+                </div>
+              </li>
+              <li>
+                <span>ILLUSTRATOR</span>
+                <div class="language-level">
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot empty"></span>
+                  <span class="level-dot empty"></span>
+                </div>
+              </li>
+              <li>
+                <span>WORDPRESS</span>
+                <div class="language-level">
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                  <span class="level-dot"></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3 class="section-title">ACTIVITÉS SOCIALES</h3>
+            <ul class="activities-list"></ul>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="section experiences-section">
+            <h3 class="section-title">EXPÉRIENCES</h3>
+
+            <div class="experience-item">
+              <h4>Chargée de communication</h4>
+              <p class="date">
+                <img src="../image/position.png" alt="Date" />09/2018 - Présent
+              </p>
+              <ul>
+                <li>
+                  Gestion des réseaux sociaux et création de contenus engageants
+                </li>
+                <li>
+                  Rédaction d'articles de blog et de communiqués de presse
+                </li>
+                <li>
+                  Organisation d'événements et de campagnes promotionnelles
+                </li>
+                <li>Analyse des performances et reporting</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section education-section">
+            <h3 class="section-title">FORMATIONS</h3>
+
+            <div class="education-item">
+              <h4>Master Communication &amp; Marketing Digital</h4>
+              <p class="school">Université Paris Dauphine - BAC+5</p>
+              <p class="date">
+                <img src="../image/position.png" alt="Date" />09/2014 - 06/2016
+              </p>
+            </div>
+
+            <div class="education-item">
+              <h4>Licence Information-Communication</h4>
+              <p class="school">Université Sorbonne Nouvelle - BAC+3</p>
+              <p class="date">
+                <img src="../image/position.png" alt="Date" />09/2011 - 06/2014
+              </p>
+            </div>
+          </div>
+
+          <div class="section skills-section">
+            <h3 class="section-title">COMPÉTENCES</h3>
+            <ul class="skills-list">
+              <li>Stratégie de communication digitale</li>
+              <li>Gestion de communauté</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

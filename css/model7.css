@@ -83,10 +83,10 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   position: fixed;
-  top: 100px;
+  top: 20px;
   left: 0;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 90vh;
 }
 
 .section3 .personnalisation .box {
@@ -139,7 +139,7 @@ body {
     display: none;
   } */
 
-.section3 .container {
+.container {
   width: 793px;
   height: 1122px;
   border: 1.5px solid #a3a3a3;
@@ -153,7 +153,7 @@ body {
   background-color: #ffffff;
 }
 
-.section3 .container .box-float {
+.container .box-float {
   width: 50%;
   height: 100%;
   position: absolute;
@@ -162,7 +162,7 @@ body {
   z-index: 1;
 }
 
-.section3 .container .header {
+.container .header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,14 +171,14 @@ body {
   z-index: 2;
 }
 
-.section3 .container .header h1 {
+.container .header h1 {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 10px;
   margin-top: 30px;
 }
 
-.section3 .container .header h2 {
+.container .header h2 {
   margin-top: 10px;
   font-size: 16px;
   color: #666;
@@ -188,7 +188,7 @@ body {
   margin-bottom: 10px;
 }
 
-.section3 .container .header img {
+.container .header img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -196,93 +196,93 @@ body {
   object-fit: cover;
 }
 
-.section3 .container .content {
+.container .content {
   display: flex;
   flex: 1;
 }
 
-.section3 .container .left-column {
+.container .left-column {
   width: 50%;
   padding: 10px;
   z-index: 2;
 }
 
-.section3 .container .right-column {
+.container .right-column {
   width: 50%;
   padding: 10px;
   z-index: 2;
 }
 
-.section3 .container .left-column {
+.container .left-column {
   background-color: #ffffff;
   padding: 10px;
 }
 
-.section3 .container .right-column {
+.container .right-column {
   background-color: var(--font-color7);
   padding: 10px;
 }
 
-.section3 .container section {
+.container section {
   margin-bottom: 10mm;
   padding: 10px;
 }
 
-.section3 .container h3 {
+.container h3 {
   font-size: 17px;
   margin-bottom: 4mm;
   display: flex;
   align-items: center;
 }
 
-.section3 .container h3 img {
+.container h3 img {
   width: 25px;
   height: 25px;
   margin-right: 20px;
 }
 
-.section3 .container .about {
+.container .about {
   margin-bottom: 10px;
 }
 
-.section3 .container .about p {
+.container .about p {
   font-size: 12.5px;
   text-align: justify;
 }
 
-.section3 .container .contact-info {
+.container .contact-info {
   list-style: none;
   padding: 0px 30px;
   margin-top: 20px;
 }
 
-.section3 .container .contact-info li {
+.container .contact-info li {
   margin-bottom: 5mm;
   font-size: 13px;
   display: flex;
   align-items: center;
 }
 
-.section3 .container .contact-info li img {
+.container .contact-info li img {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
-.section3 .container .skills {
+.container .skills {
   margin-bottom: 10px;
 }
 
-.section3 .container .skills-columns {
+.container .skills-columns {
   display: flex;
   justify-content: space-between;
 }
 
-.section3 .container .skills-columns div {
+.container .skills-columns div {
   width: 100%;
 }
 
-.section3 .container .skills-columns ul {
+.container .skills-columns ul {
   list-style: none;
   padding: 0;
   display: flex;
@@ -291,7 +291,7 @@ body {
   width: 100%;
 }
 
-.section3 .container .skills-columns li {
+.container .skills-columns li {
   margin-bottom: 3mm;
   font-size: 11px;
   background-color: var(--font-color7);
@@ -302,86 +302,86 @@ body {
   display: inline;
 }
 
-.section3 .container .experience ul {
+.container .experience ul {
   list-style: none;
   padding: 0;
 }
 
-.section3 .container .education span {
+.container .education span {
   font-size: 12px;
   text-emphasis: none;
   text-align: justify;
 }
 
-.section3 .container .education strong {
+.container .education strong {
   font-size: 12px;
   text-emphasis: none;
   text-align: justify;
 }
 
-.section3 .container .education {
+.container .education {
   padding: 0px 10px;
   margin-bottom: 10px;
 }
 
-.section3 .container .education ul {
+.container .education ul {
   padding: 0px 10px;
 }
 
-.section3 .container .education li {
+.container .education li {
   margin-bottom: 2mm;
 }
 
-.section3 .container .date {
+.container .date {
   font-size: 10px;
   font-weight: bold;
   color: var(--font-color7);
 }
 
-.section3 .container .date1 {
+.container .date1 {
   font-size: 10px;
   font-weight: bold;
   color: var(--text-color7);
 }
 
-.section3 .container .experience {
+.container .experience {
   color: var(--text-color7);
 }
 
-.section3 .container .experience li {
+.container .experience li {
   margin-bottom: 7mm;
   padding: 0px 10px;
   border-left: 3px solid var(--text-color7);
   color: var(--text-color7);
 }
 
-.section3 .container .experience span {
+.container .experience span {
   display: block;
   font-weight: bold;
   font-size: 13px;
 }
 
-.section3 .container .experience .date {
+.container .experience .date {
   font-size: 10px;
   font-weight: bold;
 }
 
-.section3 .container .experience p {
+.container .experience p {
   margin: 0;
   font-size: 12.5px;
   text-align: justify;
 }
 
-.section3 .container .outils {
+.container .outils {
   color: var(--text-color7);
 }
 
-.section3 .container .outils-columns {
+.container .outils-columns {
   display: flex;
   align-items: center;
 }
 
-.section3 .container .outils-columns ul {
+.container .outils-columns ul {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -390,7 +390,7 @@ body {
   list-style: none;
 }
 
-.section3 .container .outils-columns ul li {
+.container .outils-columns ul li {
   margin-bottom: 3mm;
   font-size: 13px;
   color: #000;
@@ -682,7 +682,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .section3 .container {
+  .container {
     width: 600px;
     height: auto;
     min-height: 1122px;

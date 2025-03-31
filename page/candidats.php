@@ -292,9 +292,7 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box1" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box1" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
                 <h2>A propos de moi !</h2>
 
@@ -302,14 +300,12 @@ if (isset($_GET['id'])) {
                     <?php
                     // Vérifier si la description de l'utilisateur est vide
                     if (empty($descriptions['description'])):
-
                         ?>
+                        <p class="p">Ce profil n'a pas encore de description.</p>
                     <?php else: ?>
                         <?php echo $descriptions['description']; ?>
                     <?php endif; ?>
-
                 </div>
-
             </div>
         </div>
 
@@ -317,66 +313,53 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box2" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box2" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
                 <h1>Expertise et compétences</h1>
             </div>
             <div class="box2">
                 <h2>Experience professionnel</h2>
-                <?php
-                foreach ($afficheMetier as $metiers):
+                <?php if (empty($afficheMetier)): ?>
+                    <p class="p">Aucune expérience professionnelle enregistrée !</p>
+                <?php else: ?>
+                    <div class="experiences-list">
+                        <?php foreach ($afficheMetier as $metiers): ?>
+                            <div class="experience-card">
+                                <div class="experience-header">
+                                    <div class="experience-title">
+                                        <h3><?php echo $metiers['metier']; ?></h3>
+                                    </div>
+                                </div>
 
-                    ?>
-                    <div class="metier" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-                        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-                        data-aos-anchor-placement="top-bottom">
-                        <table>
-                            <tr>
-                                <th>
-                                    <p>
-                                        <?php echo $metiers['metier']; ?>
-                                    </p>
-                                </th>
+                                <div class="experience-period">
+                                    <div class="period-start">
+                                        <span><?php echo $metiers['moisDebut']; ?>
+                                            <?php echo $metiers['anneeDebut']; ?></span>
+                                    </div>
+                                    <div class="period-separator">
+                                        <span>-</span>
+                                    </div>
+                                    <?php if (isset($metiers['en_cours']) && $metiers['en_cours'] == 'En cours'): ?>
+                                        <div class="period-end">
+                                            <span>En cours</span>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="period-end">
+                                            <span><?php echo $metiers['moisFin']; ?>
+                                                <?php echo $metiers['anneeFin']; ?></span>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
 
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="date">
-                                    <em>
-                                        <?php echo $metiers['moisDebut']; ?>/<?php echo $metiers['anneeDebut']; ?>
-                                    </em>
-                                </td>
-
-                                <td class="date">
-                                    <em>
-                                        au
-                                        <?php echo $metiers['moisFin']; ?>/<?php echo $metiers['anneeFin']; ?>
-                                    </em>
-                                </td>
-
-                            </tr>
-                        </table>
-
-                        <table>
-                            <tr>
-                                <td id="td">
-                                    <span>
-                                        <?php echo $metiers['description']; ?>
-                                    </span>
-                                </td>
-
-                            </tr>
-                        </table>
-
+                                <?php if (!empty($metiers['description'])): ?>
+                                    <div class="experience-description">
+                                        <p><?php echo $metiers['description']; ?></p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                    <?php
-                endforeach;
-                ?>
-
-
+                <?php endif; ?>
             </div>
 
 
@@ -384,19 +367,18 @@ if (isset($_GET['id'])) {
             <div class="box3">
                 <h2>Compétences</h2>
                 <div class="container_comp">
-
-
-                    <?php
-                    foreach ($competencesUtilisateur as $competence):
-                        ?>
-                        <p class="comp">
-                            <?php echo $competence['competence']; ?>
+                    <?php if (empty($competencesUtilisateur)): ?>
+                        <p class="p">
+                            Aucune compétence pour votre profil
                         </p>
-                        <?php
-                    endforeach;
-                    ?>
+                    <?php else: ?>
+                        <?php foreach ($competencesUtilisateur as $competence): ?>
+                            <p class="comp">
+                                <?php echo $competence['competence']; ?>
+                            </p>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
-
             </div>
 
 
@@ -442,67 +424,61 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box3" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box3" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
 
             <div class="box4">
                 <h1>formation</h1>
             </div>
             <div class="box5">
-                <table>
+                <?php if (empty($formationUsers)): ?>
+                    <p class="p">Aucune formation enregistrée pour votre profil!</p>
+                <?php else: ?>
+                    <div class="formations-list">
+                        <?php foreach ($formationUsers as $formations): ?>
+                            <div class="formation-card">
+                                <div class="formation-content">
+                                    <div class="formation-header">
+                                        <div class="formation-period">
+                                            <?php if (isset($formations['en_cours']) && $formations['en_cours'] == 'En cours'): ?>
+                                                <span class="date">
+                                                    <?php echo $formations['moisDebut']; ?>             <?php echo $formations['anneeDebut']; ?>
+                                                    -
+                                                    En cours
+                                                </span>
+                                            <?php else: ?>
+                                                <span class="date">
+                                                    <?php echo $formations['moisDebut']; ?>             <?php echo $formations['anneeDebut']; ?>
+                                                    -
+                                                    <?php echo $formations['moisFin']; ?>             <?php echo $formations['anneeFin']; ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
 
-                    <tr>
-                        <th>
-                            Dates
-                        </th>
-                        <th>
-                            filières
-                        </th>
-                        <th>
-                            établissements
-                        </th>
-
-                        <th class="grade">Niveau</th>
-                    </tr>
-
-                </table>
-
-                <?php foreach ($formationUsers as $formations): ?>
-                    <table>
-
-                        <tr data-aos="fade-up" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out"
-                            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-                            <td class="pt">
-                                <?php echo $formations['moisDebut']; ?>/<?php echo $formations['anneeDebut']; ?><br>
-                                à <br>
-                                <?php echo $formations['moisFin']; ?>/<?php echo $formations['anneeFin']; ?>
-
-                            </td>
-
-                            <td>
-                                <?php echo $formations['Filiere']; ?>
-                            </td>
-
-                            <td>
-                                <?php echo $formations['etablissement']; ?>
-                            </td>
-
-                            <td class="grade">
-                                <?php echo $formations['niveau']; ?>
-                            </td>
-
-                        </tr>
-                    </table>
-                <?php endforeach; ?>
+                                    <div class="formation-details">
+                                        <div class="formation-main-info">
+                                            <h3 class="formation-title"><?php echo htmlspecialchars($formations['Filiere']); ?>
+                                            </h3>
+                                            <p class="formation-school">
+                                                <?php echo htmlspecialchars($formations['etablissement']); ?>
+                                            </p>
+                                        </div>
+                                        <div class="formation-level">
+                                            <span
+                                                class="level-badge"><?php echo htmlspecialchars($formations['niveau']); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
         </div>
 
 
-        <div class="container_box4" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box4" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
                 <div class="div">
                     <table>
@@ -548,68 +524,59 @@ if (isset($_GET['id'])) {
         </div>
 
 
-        <div class="container_box7" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box7" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
 
             <div class="box1">
                 <h1>Projets et réalisations</h1>
-
-
             </div>
 
             <div class="box2">
+                <?php if (empty($affichePojetUsers)): ?>
+                    <p class="p">Aucun projet ajouté pour votre profil !</p>
+                <?php else: ?>
+                    <?php foreach ($affichePojetUsers as $projets): ?>
+                        <div class="info_projet">
+                            <h2>
+                                <?php echo $projets['titre'] ?>
+                            </h2>
+                            <p>
+                                <?php echo $projets['projetdescription'] ?>
+                            </p>
 
-                <?php foreach ($affichePojetUsers as $projets): ?>
+                            <a href="<?php echo $projets['liens'] ?>">Click sur ce lien</a>
 
-                    <div class="info_projet">
-                        <h2>
-                            <?php echo $projets['titre'] ?>
-                        </h2>
-                        <p>
-                            <?php echo $projets['projetdescription'] ?>
-                        </p>
-
-                        <a href="<?php echo $projets['liens'] ?>">Click sur ce lien</a>
-
-                        <img src="../upload/<?php echo $projets['images'] ?>" alt="">
-                    </div>
-
-                <?php endforeach; ?>
-
-
+                            <img src="../upload/<?php echo $projets['images'] ?>" alt="">
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
 
 
 
 
-        <div class="container_box5" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box5" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
                 <h1>maîtrise des outils informatiques</h1>
             </div>
 
             <div class="box2">
-
-                <table>
-                    <?php foreach ($afficheOutil as $outils): ?>
-                        <tr>
-                            <td>
-                                <?php echo $outils['outil'] ?>
-                            </td>
-                            <td class="niveau">
-                                <?php echo $outils['niveau'] ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
-
-
+                <?php if (empty($afficheOutil)): ?>
+                    <p class="p">Aucun outil informatique ajouté à votre profil</p>
+                <?php else: ?>
+                    <div class="tools-list">
+                        <?php foreach ($afficheOutil as $outils): ?>
+                            <div class="tool-item">
+                                <div class="tool-info">
+                                    <span class="tool-name"><?php echo $outils['outil'] ?></span>
+                                    <span
+                                        class="tool-level <?php echo strtolower($outils['niveau']) ?>"><?php echo $outils['niveau'] ?></span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
-
-
         </div>
 
 
@@ -619,27 +586,27 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box5" data-aos="fade-up" data-aos-delay="0" data-aos-duration="500"
-            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
-            data-aos-anchor-placement="top-bottom">
+        <div class="container_box5" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
                 <h1>maîtrise des langues</h1>
             </div>
 
             <div class="box2">
-                <table>
-                    <?php foreach ($afficheLangues as $langues): ?>
-                        <tr>
-                            <td>
-                                <?php echo $langues['langue']; ?>
-                            </td>
-                            <td class="niveau">
-                                <?php echo $langues['niveau']; ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
-
+                <?php if (empty($afficheLangues)): ?>
+                    <p class="p">Aucune langue ajoutée à votre profil</p>
+                <?php else: ?>
+                    <div class="languages-list">
+                        <?php foreach ($afficheLangues as $langues): ?>
+                            <div class="language-item">
+                                <div class="language-info">
+                                    <span class="language-name"><?php echo $langues['langue']; ?></span>
+                                    <span
+                                        class="language-level <?php echo strtolower($langues['niveau']) ?>"><?php echo $langues['niveau']; ?></span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
 
@@ -650,24 +617,22 @@ if (isset($_GET['id'])) {
 
         <div class="container_box8">
             <div class="box1">
-                <h1>Centre d’intérêt</h1>
+                <h1>Centre d'intérêt</h1>
             </div>
 
             <div class="box2">
-
-
-                <ul>
-                    <?php foreach ($afficheCentreInteret as $centreInteret): ?>
-                        <li>
-                            <?= $centreInteret['interet'] ?>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-
+                <?php if (empty($afficheCentreInteret)): ?>
+                    <p class="p">Aucun centre d'intérêt ajouté à votre profil</p>
+                <?php else: ?>
+                    <ul>
+                        <?php foreach ($afficheCentreInteret as $centreInteret): ?>
+                            <li>
+                                <?= $centreInteret['interet'] ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
-
-
-
         </div>
 
 

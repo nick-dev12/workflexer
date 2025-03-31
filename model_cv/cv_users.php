@@ -118,6 +118,13 @@ if (isset($_GET['id'])) {
                     <p>Design épuré et professionnel</p>
                 </div>
             </a>
+            <a href="../model_cv/model10.php" target="_blank">
+                <img src="../image/cv11.png" alt="CV Modèle Turquoise">
+                <div class="model-info">
+                    <h3>Modèle Turquoise</h3>
+                    <p>Design moderne avec accents turquoise</p>
+                </div>
+            </a>
             <a href="../model_cv/model7.php" target="_blank">
                 <img src="../image/cv8.png" alt="CV Modèle Moderne">
                 <div class="model-info">
@@ -137,6 +144,13 @@ if (isset($_GET['id'])) {
                 <div class="model-info">
                     <h3>Modèle Exécutif</h3>
                     <p>Style sobre et élégant pour cadres</p>
+                </div>
+            </a>
+            <a href="../model_cv/model8.php" target="_blank">
+                <img src="../image/cv9.png" alt="CV Modèle Moderne professionnel">
+                <div class="model-info">
+                    <h3>Modèle Moderne professionnel</h3>
+                    <p>Design épuré et moderne avec des touches de vert</p>
                 </div>
             </a>
             <a href="../model_cv/model2.php" target="_blank">
@@ -160,6 +174,15 @@ if (isset($_GET['id'])) {
                     <p>Idéal pour les profils IT et ingénierie</p>
                 </div>
             </a>
+
+            <a href="../model_cv/model9.php" target="_blank">
+                <img src="../image/cv10.png" alt="CV Modèle Blue Header">
+                <div class="model-info">
+                    <h3>Modèle Blue Header</h3>
+                    <p>Style professionnel avec bannière bleue</p>
+                </div>
+            </a>
+
         </div>
 
         <div class="cta-section">

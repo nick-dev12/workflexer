@@ -8,6 +8,7 @@ session_start();
 
 include_once('../controller/controller_users.php');
 include_once('../controller/controller_competence_users.php');
+include_once('../controller/controller_categorie_users.php');
 include_once('../controller/controller_niveau_etude_experience.php');
 
 
@@ -22,6 +23,9 @@ $offset = ($page_courante - 1) * $profils_par_page;
 $total_profils = getTotalUsersCount($db);
 $total_pages = ceil($total_profils / $profils_par_page);
 
+// Récupérer les catégories
+$categories = getAllCategories($db);
+
 // Récupérer les profils pour la page courante
 $totalUsers = getTotalUsers($db, $offset, $profils_par_page);
 
@@ -29,52 +33,53 @@ $totalUsers = getTotalUsers($db, $offset, $profils_par_page);
 if (isset($_POST['recherche'])) {
 
     // Récupération des données du formulaire
-    $recherche = htmlspecialchars($_POST['search']);
-    $categorie = htmlspecialchars($_POST['categorie']);
-    $experience = htmlspecialchars($_POST['experience']);
-    $etude = htmlspecialchars($_POST['etude']);
+    $recherche = isset($_POST['search']) ? htmlspecialchars($_POST['search']) : '';
+    $categorie = isset($_POST['categorie']) ? htmlspecialchars($_POST['categorie']) : '';
+    $experience = isset($_POST['experience']) ? htmlspecialchars($_POST['experience']) : '';
+    $etude = isset($_POST['etude']) ? htmlspecialchars($_POST['etude']) : '';
 
-    // Requête SQL pour rechercher dans la base de données en fonction des critères
+    // Construction de la requête SQL de base
     $sql = "SELECT u.* FROM users u LEFT JOIN niveau_etude e ON u.id = e.users_id WHERE 1=1";
+    $conditions = [];
+    $params = [];
+
+    // Ajout des conditions selon les paramètres fournis
     if (!empty($recherche)) {
-        $sql .= " AND (u.competences LIKE :recherche OR u.nom LIKE :recherche)";
-    } else {
-        $erreurs = ' Ce champ ne doit pas etre vide !';
-    }
-    if (!empty($categorie)) {
-        $sql .= " AND u.categorie = :categorie";
-    }
-    if (!empty($experience)) {
-        $sql .= " AND e.experience = :experience";
-    }
-    if (!empty($etude)) {
-        $sql .= " AND e.etude = :etude";
+        $conditions[] = "(u.competences LIKE ? OR u.nom LIKE ?)";
+        $params[] = "%$recherche%";
+        $params[] = "%$recherche%";
     }
 
+    if (!empty($categorie)) {
+        $conditions[] = "u.categorie = ?";
+        $params[] = $categorie;
+    }
+
+    if (!empty($experience)) {
+        $conditions[] = "e.experience = ?";
+        $params[] = $experience;
+    }
+
+    if (!empty($etude)) {
+        $conditions[] = "e.etude = ?";
+        $params[] = $etude;
+    }
+
+    // Ajouter les conditions à la requête si nécessaire
+    if (!empty($conditions)) {
+        $sql .= " AND " . implode(" AND ", $conditions);
+    }
+
+    // Préparer et exécuter la requête
     $stmt = $db->prepare($sql);
-    if (!empty($recherche)) {
-        $stmt->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
-    }
-    if (!empty($categorie)) {
-        $stmt->bindValue(':categorie', $categorie, PDO::PARAM_STR);
-    }
-    if (!empty($experience)) {
-        $stmt->bindValue(':experience', $experience, PDO::PARAM_STR);
-    }
-    if (!empty($etude)) {
-        $stmt->bindValue(':etude', $etude, PDO::PARAM_STR);
-    }
-    $stmt->execute();
-
+    $stmt->execute($params);
     $resulte = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Stocker les résultats de la recherche dans une session
     $_SESSION['resultats_recherche'] = $resulte;
 
     header('Location: search.php');
-
     exit();
-
 }
 
 ?>
@@ -143,34 +148,39 @@ if (isset($_POST['recherche'])) {
                         moindre de vos besoins en main-d'œuvre et bien plus encore.
                     </p>
 
-                    <form action="" method="post">
-                        <div class="search">
-                            <input type="search" name="search" id="search">
-                            <label for="recherche"><i class="fa-solid fa-magnifying-glass fa-xs"></i></label>
-                            <input type="submit" name="recherche" value="recherche" id="recherche">
+                    <form action="" method="post" id="search-form">
+                        <div class="search-container">
+                            <div class="search">
+                                <input type="search" name="search" id="search"
+                                    placeholder="Rechercher un profil, une compétence..." autocomplete="off">
+                                <label for="recherche"><i class="fa-solid fa-magnifying-glass"></i></label>
+                                <input type="submit" name="recherche" value="recherche" id="recherche">
+                            </div>
+                            <!-- Conteneur pour les suggestions -->
+                            <div class="search-suggestions" id="search-suggestions">
+                                <!-- Les suggestions seront injectées ici via JavaScript -->
+                            </div>
                         </div>
 
                         <div class="filtre">
-                            <select id="categorie" name="categorie">
+                            <select id="categorie" name="categorie" class="custom-select">
                                 <option value="">Sélectionnez une catégorie</option>
-                                <option value="Informatique et tech">Informatique et tech</option>
-                                <option value="Design et création">Design et création</option>
-                                <option value="Rédaction et traduction">Rédaction et traduction</option>
-                                <option value="Marketing et communication">Marketing et communication</option>
-                                <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
-                                <option value="Juridique">Juridique</option>
-                                <option value="Ingénierie et architecture">Ingénierie et architecture</option>
-                                <option value="Finance et comptabilité">Finance et comptabilité</option>
-                                <option value="Santé et bien-être">Santé et bien-être</option>
-                                <option value="Éducation et formation">Éducation et formation</option>
-                                <option value="Tourisme et hôtellerie">Tourisme et hôtellerie</option>
-                                <option value="Commerce et vente">Commerce et vente</option>
-                                <option value="Transport et logistique">Transport et logistique</option>
-                                <option value="Agriculture et agroalimentaire">Agriculture et agroalimentaire</option>
-                                <option value="Autre">Autre</option>
+                                <?php
+                                // Compteur pour alterner les couleurs
+                                $colorIndex = 1;
+                                $totalColors = 15; // Nombre total de couleurs définies
+                                
+                                foreach ($categories as $cat):
+                                    $colorClass = "cat-color-" . $colorIndex;
+                                    $colorIndex = ($colorIndex % $totalColors) + 1;
+                                    ?>
+                                    <option value="<?= $cat['categorie'] ?>" data-color-class="<?= $colorClass ?>">
+                                        <?= $cat['categorie'] ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
 
-                            <select name="experience" id="experience">
+                            <select name="experience" id="experience" class="custom-select">
                                 <option value="">-- Niveau d'expérience --</option>
                                 <option value="1an">1an</option>
                                 <option value="2ans">2ans</option>
@@ -182,11 +192,9 @@ if (isset($_POST['recherche'])) {
                                 <option value="8ans">8ans</option>
                                 <option value="9ans">9ans</option>
                                 <option value="10ans">10ans</option>
-
                             </select>
 
-
-                            <select name="etude" id="etude">
+                            <select name="etude" id="etude" class="custom-select">
                                 <option value="">-- Niveau d'étude --</option>
                                 <option value="Bac+1an">Bac+1an</option>
                                 <option value="Bac+2ans">Bac+2ans</option>
@@ -198,7 +206,6 @@ if (isset($_POST['recherche'])) {
                                 <option value="Bac+8ans">Bac+8ans</option>
                                 <option value="Bac+9ans">Bac+9ans</option>
                                 <option value="Bac+10ans">Bac+10ans</option>
-
                             </select>
                         </div>
                     </form>
@@ -212,265 +219,66 @@ if (isset($_POST['recherche'])) {
 
 
     <section class="emploi">
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/ingenieur.jpeg" alt="">
-            <a href="../profils/Ingénierie et architecture.php">Ingénierie et architecture</a>
-        </div>
+        <?php
+        // Tableau associatif d'icônes pour chaque catégorie
+        $category_icons = [
+            'Informatique et tech' => 'fa-laptop-code',
+            'Design et création' => 'fa-paint-brush',
+            'Rédaction et traduction' => 'fa-pen-fancy',
+            'Marketing et communication' => 'fa-bullhorn',
+            'Conseil et gestion d\'entreprise' => 'fa-briefcase',
+            'Juridique' => 'fa-balance-scale',
+            'Ingénierie et architecture' => 'fa-drafting-compass',
+            'Finance et comptabilité' => 'fa-chart-line',
+            'Santé et bien-être' => 'fa-heartbeat',
+            'Éducation et formation' => 'fa-graduation-cap',
+            'Tourisme et hôtellerie' => 'fa-hotel',
+            'Commerce et vente' => 'fa-shopping-cart',
+            'Transport et logistique' => 'fa-truck',
+            'Agriculture et agroalimentaire' => 'fa-leaf',
+            'Autre' => 'fa-star'
+        ];
 
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/webdesign.jpg" alt="">
-            <a href="../profils/Design et création.php">Design et création</a>
-        </div>
-
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/Redaction.jpg" alt="">
-            <a href="../profils/Rédaction et traduction.php">Rédaction et traduction</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/marketing.jpg" alt="">
-            <a href="../profils/Marketing et communication.php">Marketing et communication</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/gestion.png" alt="">
-            <a href="../profils/Conseil et gestion d'entreprise.php">Conseil et gestion d'entreprise</a>
-        </div>
-
-
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/juridique.jpg" alt="">
-            <a href="../profils/Juridique.php">Juridique</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/info.jpg" alt="">
-            <a href="../profils/Informatique et tech.php">Informatique et tech</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/finance.png" alt="">
-            <a href="../profils/Finance et comptabilité.php">Finance et comptabilité</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/santé.png" alt="">
-            <a href="../profils/Santé et bien-être.php">Santé et bien-être</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/education.png" alt="">
-            <a href="../profils/Éducation et formation.php">Éducation et formation</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/tourisme.png" alt="">
-
-            <a href="../profils/Tourisme et hôtellerie.php">Tourisme et hôtellerie</a>
-        </div>
-
-
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/vente.png" alt="">
-            <a href="../profils/Commerce et vente.php">Commerce et vente</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/transport.png" alt="">
-            <a href="../profils/Transport et logistique.php">Transport et logistique</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/agriculture.png" alt="">
-            <a href="../profils/Agriculture et agroalimentaire.php">Agriculture et agroalimentaire</a>
-        </div>
-
-
-        <div class="box" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-            data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom">
-            <img src="/image/autre.png" alt="">
-            <a href="../profils/Autre.php">Autre</a>
-        </div>
-    </section>
-
-
-    <section class="tous_profil">
-        <div class="container_box1">
-            <div class="texte">
-                <h1>
-                    Tous les profils
-                </h1>
-            </div>
-
-
-            <div class="produit_vedete">
-
-                <article data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-                    data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom"
-                    class="articles ">
-                    <?php if (empty($totalUsers)): ?>
-
-                        <h1 class="message">Aucun profil disponible pour cette catégorie</h1>
-
-                    <?php else: ?>
-                        <?php foreach ($totalUsers as $users): ?>
-                            <?php
-                            $nombreCompetences = countCompetences($db, $users['id']);
-                            $niveauEtude = gettNiveau($db, $users['id']);
-                            ?>
-                            <?php if ($nombreCompetences < 4): ?>
-                            <?php else: ?>
-                                <?php if ($users['statut'] == 'Occuper'): ?>
-
-                                <?php else: ?>
-
-                                    <div class="carousel">
-                                        <?php if ($users['statut'] == 'Disponible'): ?>
-                                            <p class="statut"><span></span>
-                                                <?= $users['statut'] ?>
-                                            </p>
-                                        <?php else: ?>
-                                            <?php if ($users['statut'] == 'Occuper'): ?>
-                                                <p class="statut2"><span></span>
-                                                    <?= $users['statut'] ?>
-                                                </p>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-
-                                        <img src="../upload/<?php echo $users['images'] ?>" alt="">
-
-                                        <div class="info-box">
-                                            <h4>
-                                                <?php echo substr($users['competences'], 0, 40) . '...' ?>
-                                            </h4>
-
-                                            <div class="vendu">
-                                                <?php
-                                                $afficheCompetences = getCompetences($db, $users['id']);
-                                                // Garder seulement les 4 premières 
-                                                $afficheCompetences = array_slice($afficheCompetences, 0, 4);
-
-                                                ?>
-
-                                                <?php if (empty($afficheCompetences)): ?>
-                                                    <span>Competences indisponibles</span>
-                                                <?php else: ?>
-                                                    <?php
-                                                    $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
-                                
-                                                    foreach ($afficheCompetences as $compe):
-                                                        if ($competencesAffichees < 4):
-                                                            ?>
-                                                            <span>
-                                                                <?= substr($compe['competence'], 0, 20) . '...' ?>
-                                                            </span>
-                                                            <?php
-                                                            $competencesAffichees++;
-                                                        endif;
-                                                    endforeach;
-                                                    ?>
-                                                <?php endif; ?>
-                                            </div>
-                                            <p class="nom">
-                                                <?php
-                                                $fullName = $users['nom'];
-                                                // Utilisez la fonction explode pour diviser le nom en mots
-                                                $words = explode(' ', $fullName);
-                                                // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                                $nameUsers = $words[0] . ' ' . $words[1];
-                                                ?>
-                                                <?php echo $nameUsers; ?>
-                                            </p>
-
-                                            <p class="ville">
-                                                <?php echo $users['ville']; ?>
-                                            </p>
-
-                                            <div class="divpp"></div>
-                                            <p class="pp"><strong>Niveau :</strong>
-                                                <?php if (empty($niveauEtude['etude'])): ?>
-                                                    indisponibles
-                                                <?php else: ?>
-                                                    <?php echo $niveauEtude['etude'] ?>
-                                                <?php endif; ?>
-                                            </p>
-                                            <p class="pp"><strong>Experience :</strong>
-                                                <?php if (empty($niveauEtude['etude'])): ?>
-                                                    indisponibles
-                                                <?php else: ?>
-                                                    <?php echo $niveauEtude['experience'] ?>
-                                                <?php endif; ?>
-                                            </p>
-                                        </div>
-
-                                        <a href="/page/candidats.php?id=<?php echo $users['id']; ?>">
-                                            <i class="fa-solid fa-eye"></i>Profil
-                                        </a>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endif; ?>
-                        <?php endforeach ?>
-
-                    <?php endif; ?>
-                </article>
-
-                <!-- Ajout de la pagination -->
-                <div class="pagination">
-                    <?php if ($total_pages > 1): ?>
-                        <?php if ($page_courante > 1): ?>
-                            <a href="?page=<?php echo $page_courante - 1; ?>" class="page-link">&laquo; Précédent</a>
-                        <?php endif; ?>
-
-                        <?php for ($i = max(1, $page_courante - 2); $i <= min($total_pages, $page_courante + 2); $i++): ?>
-                            <?php if ($i == $page_courante): ?>
-                                <span class="page-link active"><?php echo $i; ?></span>
-                            <?php else: ?>
-                                <a href="?page=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a>
-                            <?php endif; ?>
-                        <?php endfor; ?>
-
-                        <?php if ($page_courante < $total_pages): ?>
-                            <a href="?page=<?php echo $page_courante + 1; ?>" class="page-link">Suivant &raquo;</a>
-                        <?php endif; ?>
-                    <?php endif; ?>
+        // Compteur pour alterner les couleurs
+        $colorIndex = 1;
+        $totalColors = 15; // Nombre total de couleurs définies
+        
+        foreach ($categories as $category):
+            // Déterminer l'icône à utiliser
+            $icon_class = isset($category_icons[$category['categorie']])
+                ? $category_icons[$category['categorie']]
+                : 'fa-briefcase'; // Icône par défaut
+        
+            // Attribuer une classe de couleur
+            $colorClass = "cat-color-" . $colorIndex;
+            $colorIndex = ($colorIndex % $totalColors) + 1; // Passer à la couleur suivante, revenir à 1 quand on atteint la fin
+            ?>
+            <div class="category-box <?= $colorClass ?>" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400"
+                data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+                data-aos-anchor-placement="top-bottom">
+                <div class="category-content">
+                    <div class="category-icon">
+                        <i class="fas <?= $icon_class ?>"></i>
+                    </div>
+                    <h3><?= $category['categorie'] ?></h3>
+                    <p>Découvrez des professionnels qualifiés dans ce domaine</p>
                 </div>
+                <a href="categorie.php?categorie=<?= urlencode($category['categorie']) ?>" class="category-link">
+                    <span>Explorer</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-        </div>
+        <?php endforeach; ?>
     </section>
 
 
-
+    <section class="call-to-action">
+        <div class="cta-container">
+            <h2>Prêt à découvrir tous nos talents?</h2>
+            <p>Nous avons des profils qualifiés dans de nombreux domaines professionnels</p>
+            <a href="candidats.php" class="cta-button">Explorer tous les profils</a>
+        </div>
+    </section>
 
     <?php include('../footer.php') ?>
 
@@ -486,8 +294,28 @@ if (isset($_POST['recherche'])) {
         AOS.init();
     </script>
 
+    <!-- Script pour ajouter une animation de scroll fluide aux liens de pagination -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animation de scroll fluide pour les liens de pagination
+            document.querySelectorAll('.pagination a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // On laisse le comportement normal du lien mais on ajoute une animation
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 5);
+                });
+            });
+        });
+    </script>
 
-
+    <!-- Intégration de Font Awesome pour les icônes -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Ajout du script pour les suggestions de recherche -->
+    <script src="../js/search-suggestions.js"></script>
 
 </body>
 

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemple Modèle CV 8</title>
+    <style>
+      /* Styles pour le CV modèle 8 */
+      @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .cv-container {
+        display: flex;
+        width: 210mm;
+        height: 297mm;
+        margin: auto;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+      }
+
+      .left-column {
+        width: 35%;
+        background-color: #e3f1e2; /* Vert très pâle */
+        padding: 30px 20px;
+        color: #333333;
+      }
+
+      .right-column {
+        width: 65%;
+        padding: 30px;
+        background-color: white;
+      }
+
+      /* Styles pour le nom et titre */
+      .name-title {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 26px;
+        margin-bottom: 0;
+        letter-spacing: 1px;
+        color: #333333;
+      }
+
+      .subtitle {
+        text-transform: uppercase;
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 0;
+        color: #333333;
+        font-weight: normal;
+        letter-spacing: 0.5px;
+        font-style: italic;
+      }
+
+      /* Style pour la photo de profil */
+      .profile-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin: 15px auto 25px;
+        display: block;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Contact info */
+      .contact {
+        margin-top: 40px;
+      }
+
+      .contact h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333333;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #333333;
+        padding-bottom: 5px;
+      }
+
+      .contact p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0 0 8px 0;
+      }
+
+      /* Langues */
+      .languages {
+        margin-top: 30px;
+      }
+
+      .languages h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333333;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #333333;
+        padding-bottom: 5px;
+      }
+
+      .languages p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0 0 8px 0;
+      }
+
+      /* Compétences */
+      .skills {
+        margin-top: 30px;
+      }
+
+      .skills h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333333;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #333333;
+        padding-bottom: 5px;
+      }
+
+      .skills ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .skills ul li {
+        font-size: 14px;
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .skills ul li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #333;
+      }
+
+      /* Profil */
+      .profile {
+        margin-bottom: 30px;
+      }
+
+      .profile h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333333;
+        border-bottom: 1px solid #333333;
+        padding-bottom: 5px;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .profile p {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: justify;
+      }
+
+      /* Sections générales */
+      .section {
+        margin-bottom: 25px;
+      }
+
+      .section h3 {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #333333;
+        border-bottom: 1px solid #333333;
+        padding-bottom: 5px;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      /* Expérience et Éducation */
+      .experience-item,
+      .education-item {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 0;
+      }
+
+      .experience-item h4,
+      .education-item h4 {
+        font-size: 16px;
+        margin: 0 0 5px 0;
+        color: #333333;
+        font-weight: bold;
+      }
+
+      .experience-item p,
+      .education-item p {
+        font-size: 14px;
+        margin: 5px 0;
+        line-height: 1.5;
+      }
+
+      .date {
+        font-style: italic;
+        font-size: 13px;
+        color: #666666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-container">
+      <div class="left-column">
+        <h1 class="name-title">MARIE<br />DUPONT</h1>
+        <p class="subtitle">CHARGÉE DE COMMUNICATION</p>
+        <img
+          src="https://randomuser.me/api/portraits/women/65.jpg"
+          alt="Photo de profil"
+          class="profile-image"
+        />
+
+        <div class="contact">
+          <h3>CONTACT</h3>
+          <p>+33 6 12 34 56 78</p>
+          <p>Paris, France</p>
+          <p>marie.dupont@email.com</p>
+          <p>linkedin.com/marie-dupont</p>
+        </div>
+
+        <div class="languages">
+          <h3>LANGUES</h3>
+          <p>Français : Langue maternelle</p>
+          <p>Anglais : Niveau C1</p>
+          <p>Espagnol : Niveau B2</p>
+        </div>
+
+        <div class="skills">
+          <h3>COMPÉTENCES</h3>
+          <ul>
+            <li>Communication digitale</li>
+            <li>Gestion de projet</li>
+            <li>Suite Adobe</li>
+            <li>Rédaction web</li>
+            <li>Réseaux sociaux</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="profile">
+          <h3>PROFIL</h3>
+          <p>
+            Chargée de communication avec 5 ans d'expérience dans le secteur
+            digital. Passionnée par la création de contenu et la stratégie de
+            marque, je suis reconnue pour ma créativité et mon sens de
+            l'organisation. Mon parcours m'a permis de développer une solide
+            expertise en gestion de communauté et en communication corporate.
+          </p>
+        </div>
+
+        <div class="section">
+          <h3>FORMATION</h3>
+          <div class="education-item">
+            <h4>Master en Communication | Université Paris-Sorbonne</h4>
+            <p class="date">Sept 2015 - Juin 2017 | Paris</p>
+            <p>• Spécialisation en stratégie digitale et relations presse</p>
+            <p>
+              • Mémoire sur l'impact des réseaux sociaux dans la stratégie de
+              marque
+            </p>
+            <p>• Projet tutoré avec l'agence Publicis</p>
+          </div>
+          <div class="education-item">
+            <h4>Licence en Information-Communication | Université Lyon 2</h4>
+            <p class="date">Sept 2012 - Juin 2015 | Lyon</p>
+            <p>
+              • Formation pluridisciplinaire en communication, journalisme et
+              médias
+            </p>
+            <p>
+              • Projet de fin d'études : création d'une campagne de
+              communication
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>EXPÉRIENCES PROFESSIONNELLES</h3>
+          <div class="experience-item">
+            <h4>CHARGÉE DE COMMUNICATION DIGITALE | Agence MediaPlus</h4>
+            <p class="date">Janvier 2020 - Présent | Paris</p>
+            <p>
+              • Élaboration et mise en œuvre de stratégies de communication pour
+              des clients B2B et B2C
+            </p>
+            <p>
+              • Gestion de campagnes sur les réseaux sociaux et analyse des
+              performances
+            </p>
+            <p>
+              • Création de contenus visuels et éditoriaux pour différentes
+              plateformes
+            </p>
+            <p>• Coordination avec les équipes créatives et les clients</p>
+          </div>
+          <div class="experience-item">
+            <h4>ASSISTANTE COMMUNICATION | L'Oréal</h4>
+            <p class="date">Juin 2018 - Décembre 2019 | Paris</p>
+            <p>
+              • Soutien à la mise en place des plans de communication pour les
+              lancements produits
+            </p>
+            <p>
+              • Rédaction de communiqués de presse et de contenus pour le web
+            </p>
+            <p>
+              • Organisation d'événements pour la presse et les influenceurs
+            </p>
+          </div>
+          <div class="experience-item">
+            <h4>COMMUNITY MANAGER (STAGE) | BNP Paribas</h4>
+            <p class="date">Février 2017 - Août 2017 | Paris</p>
+            <p>• Animation des comptes sociaux de la banque</p>
+            <p>• Veille concurrentielle et reporting des performances</p>
+            <p>
+              • Participation à la refonte de la stratégie de contenu digital
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

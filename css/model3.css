@@ -10,6 +10,7 @@
   --font-color_titre: #5b4f4f;
   --font-color_section: #ffe600;
   --texte-color_section: #000000;
+  --text-color-m3: #000000;
 }
 
 /*--------------------------------------------------------------
@@ -19,6 +20,82 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Règles globales pour les textes du modèle 3 */
+.containers h1,
+.containers h2,
+.containers h3,
+.containers h4,
+.containers h5,
+.containers h6,
+.containers p,
+.containers li,
+.containers span,
+.containers div,
+#containe1 .containers h1,
+#containe1 .containers h2,
+#containe1 .containers h3,
+#containe1 .containers h4,
+#containe1 .containers h5,
+#containe1 .containers h6,
+#containe1 .containers p,
+#containe1 .containers li,
+#containe1 .containers span,
+#containe1 .containers div {
+  color: var(--text-color-m3);
+}
+
+/* Règle spécifique pour les éléments sur fond coloré */
+.containers .box1 .item,
+.containers .box2 .item h1 strong,
+.containers .box2 .items h1 strong,
+.containers .box2 .itemss h1 strong,
+.containers .box2 .itemsss h1 strong,
+#containe1 .containers .box1 .item,
+#containe1 .containers .box2 .item h1 strong,
+#containe1 .containers .box2 .items h1 strong,
+#containe1 .containers .box2 .itemss h1 strong,
+#containe1 .containers .box2 .itemsss h1 strong {
+  background-color: var(--font-color_section);
+}
+
+/* Règle pour adapter le texte sur fond coloré jaune */
+.containers .box1 .item h1,
+.containers .box1 .item h2,
+.containers .box1 .item p,
+.containers .box1 .item span,
+.containers .box2 .item h1 strong,
+.containers .box2 .items h1 strong,
+.containers .box2 .itemss h1 strong,
+.containers .box2 .itemsss h1 strong,
+#containe1 .containers .box1 .item h1,
+#containe1 .containers .box1 .item h2,
+#containe1 .containers .box1 .item p,
+#containe1 .containers .box1 .item span,
+#containe1 .containers .box2 .item h1 strong,
+#containe1 .containers .box2 .items h1 strong,
+#containe1 .containers .box2 .itemss h1 strong,
+#containe1 .containers .box2 .itemsss h1 strong,
+#CV .containers .box1 .item h1,
+#CV .containers .box1 .item h2,
+#CV .containers .box1 .item p,
+#CV .containers .box1 .item span,
+#CV .containers .box2 .item h1 strong,
+#CV .containers .box2 .items h1 strong,
+#CV .containers .box2 .itemss h1 strong,
+#CV .containers .box2 .itemsss h1 strong {
+  color: var(--texte-color_section) !important;
+}
+
+/* Règle spéciale pour les éléments colorés */
+.containers .box1 .itemss div span,
+.containers .box2 .item .exp .exper h3 em,
+.containers .box2 .items .containe-exp .exp .exper h3 em,
+#containe1 .containers .box1 .itemss div span,
+#containe1 .containers .box2 .item .exp .exper h3 em,
+#containe1 .containers .box2 .items .containe-exp .exp .exper h3 em {
+  color: var(--font-color_section) !important;
 }
 
 body {
@@ -72,10 +149,10 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   position: fixed;
-  top: 100px;
+  top: 20px;
   left: 0;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 90vh;
 }
 
 .section3 .personnalisation .box {

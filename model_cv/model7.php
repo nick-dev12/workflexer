@@ -69,7 +69,7 @@ if (isset($_SESSION['users_id'])) {
 </head>
 
 <body>
-    <?php include('../navbare.php') ?>
+
 
 
     <section class="section3">
@@ -79,7 +79,7 @@ if (isset($_SESSION['users_id'])) {
             <script>
                 // Importez la bibliothèque jsPDF
                 function generatePDF() {
-                    const element = document.querySelector("#model7");
+                    const element = document.querySelector(".container");
 
                     // Hypothétiquement, si resolution et imageMode étaient des options valides
                     // vous pourriez les fusionner avec les options existantes de cette manière :
@@ -418,6 +418,10 @@ if (isset($_SESSION['users_id'])) {
                         document.documentElement.style.setProperty('--font-color_section', theme.fontColorSection);
                         document.documentElement.style.setProperty('--texte-color_section', theme.texteColorSection);
 
+                        // Appliquer aussi aux variables du modèle 7
+                        document.documentElement.style.setProperty('--font-color7', theme.fontColorSection);
+                        document.documentElement.style.setProperty('--text-color7', theme.texteColorSection);
+
                         // Mettre à jour les valeurs des inputs de couleur (si existants)
                         if (document.getElementById('fontColor')) {
                             document.getElementById('fontColor').value = theme.fontColorTitre;
@@ -427,9 +431,20 @@ if (isset($_SESSION['users_id'])) {
                         }
                         if (document.getElementById('fontColor2')) {
                             document.getElementById('fontColor2').value = theme.fontColorSection;
+                            // Mettre à jour la prévisualisation
+                            if (document.getElementById('color-preview2')) {
+                                document.getElementById('color-preview2').style.backgroundColor = theme.fontColorSection;
+                            }
                         }
                         if (document.getElementById('fontColor3')) {
                             document.getElementById('fontColor3').value = theme.texteColorSection;
+                            // Mettre à jour la prévisualisation
+                            if (document.getElementById('color-preview3')) {
+                                const preview = document.getElementById('color-preview3').querySelector('span');
+                                if (preview) {
+                                    preview.style.color = theme.texteColorSection;
+                                }
+                            }
                         }
 
                         // Sauvegarder dans localStorage avec préfixe spécifique au modèle
@@ -454,6 +469,10 @@ if (isset($_SESSION['users_id'])) {
                         document.documentElement.style.setProperty('--font-color_section', savedTheme.fontColorSection);
                         document.documentElement.style.setProperty('--texte-color_section', savedTheme.texteColorSection);
 
+                        // Appliquer aussi aux variables du modèle 7
+                        document.documentElement.style.setProperty('--font-color7', savedTheme.fontColorSection);
+                        document.documentElement.style.setProperty('--text-color7', savedTheme.texteColorSection);
+
                         // Mettre à jour les valeurs des inputs (si existants)
                         if (document.getElementById('fontColor')) {
                             document.getElementById('fontColor').value = savedTheme.fontColorTitre;
@@ -463,9 +482,20 @@ if (isset($_SESSION['users_id'])) {
                         }
                         if (document.getElementById('fontColor2')) {
                             document.getElementById('fontColor2').value = savedTheme.fontColorSection;
+                            // Mettre à jour la prévisualisation
+                            if (document.getElementById('color-preview2')) {
+                                document.getElementById('color-preview2').style.backgroundColor = savedTheme.fontColorSection;
+                            }
                         }
                         if (document.getElementById('fontColor3')) {
                             document.getElementById('fontColor3').value = savedTheme.texteColorSection;
+                            // Mettre à jour la prévisualisation
+                            if (document.getElementById('color-preview3')) {
+                                const preview = document.getElementById('color-preview3').querySelector('span');
+                                if (preview) {
+                                    preview.style.color = savedTheme.texteColorSection;
+                                }
+                            }
                         }
 
                         // Retrouver quel thème correspond aux couleurs sauvegardées
@@ -485,128 +515,23 @@ if (isset($_SESSION['users_id'])) {
             <div class="box">
                 <p>Couleur de fond</p>
                 <input type="color" name="" id="fontColor2">
+                <div id="color-preview2" class="color-preview"
+                    style="display: inline-block; margin-left: 10px; width: 30px; height: 20px; border: 1px solid #ccc;">
+                </div>
             </div>
 
             <div class="box">
                 <p>Couleur du texte</p>
                 <input type="color" name="" id="fontColor3">
+                <div id="color-preview3" class="color-preview"
+                    style="display: inline-block; margin-left: 10px; width: 30px; height: 20px; border: 1px solid #ccc; position: relative;">
+                    <span
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px;">Aa</span>
+                </div>
             </div>
 
         </div>
 
-        <div id="container">
-            <div id="model7">
-                <div class="box-float">
-                </div>
-                <div class="header">
-                    <h1><?= $userss['nom'] ?></h1>
-                    <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
-                    <h2><?= $userss['competences'] ?></h2>
-                </div>
-                <div class="content">
-                    <div class="left-column">
-                        <section class="about">
-                            <h3><img src="../image/a propos.png" alt=""> À PROPOS DE MOI</h3>
-                            <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouvée</p>
-                            <?php else: ?>
-                                <p class="p">
-                                    <?= $descriptions['description'] ?>
-                                </p>
-                            <?php endif; ?>
-                            <ul class="contact-info">
-                                <li><img src="../image/phone.png" alt="phone"> <?= $userss['phone'] ?></li>
-                                <li> <img src="../image/icons8-gmail-48.png" alt=""> <?= $userss['mail'] ?></li>
-                                <li> <img src="../image/address.png" alt=""> <?= $userss['ville'] ?></li>
-                                <li><img src="../image/nationaliet.png" alt="">*********</li>
-                            </ul>
-                        </section>
-                        <section class="education">
-                            <h3><img src="../image/etude.png" alt=""> FORMATION</h3>
-                            <ul>
-                                <?php if (empty($formationUsers)): ?>
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php else: ?>
-                                    <?php
-                                    shuffle($formationUsers);
-                                    $nombre_formation = 3;
-                                    ?>
-                                    <?php foreach ($formationUsers as $key => $formation): ?>
-                                        <?php if ($key < $nombre_formation): ?>
-                                            <li>
-                                                <span class="date"><?= $formation['moisDebut'] ?> /
-                                                    <?= $formation['anneeDebut'] ?> , <?= $formation['moisFin'] ?> /
-                                                    <?= $formation['anneeFin'] ?></span>
-                                                <span><?= $formation['Filiere'] ?></span>
-                                                <span><?= $formation['etablissement'] ?></span>
-                                            </li>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </ul>
-                        </section>
-                        <section class="skills">
-                            <h3><img src="../image/compétences.png" alt=""> COMPÉTENCES</h3>
-                            <div class="skills-columns">
-                                <div>
-                                    <ul>
-                                        <?php if ($competencesUtilisateur): ?>
-                                            <?php foreach ($competencesUtilisateur as $competence): ?>
-                                                <li> <?php echo $competence['competence']; ?></li>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
-                                            <h4>Aucune donnée trouvée</h4>
-                                        <?php endif ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="right-column">
-                        <section class="experience">
-                            <h3><img src="../image/experience.png" alt=""> EXPÉRIENCE</h3>
-                            <ul>
-                                <?php if (empty($afficheMetier)): ?>
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php else: ?>
-                                    <?php
-                                    shuffle($afficheMetier);
-                                    $nombre_metier = 3
-                                        ?>
-                                    <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                        <?php if ($key < $nombre_metier): ?>
-                                            <li>
-                                                <span class="date1"><?= $Metiers['moisDebut'] ?> /
-                                                    <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
-                                                    <?= $Metiers['anneeFin'] ?></span>
-                                                <span><?= $Metiers['metier'] ?></span>
-                                                <p><?= $Metiers['description'] ?></p>
-                                            </li>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
-                            </ul>
-                        </section>
-
-                        <section class="outils">
-                            <h3><img src="../image/outil.png" alt=""> OUTILS</h3>
-                            <div class="outils-columns">
-                                <div>
-                                    <ul>
-                                        <?php if ($afficheOutil): ?>
-                                            <?php foreach ($afficheOutil as $outils): ?>
-                                                <li> <?= $outils['outil'] ?></li>
-                                            <?php endforeach; ?>
-                                        <?php endif ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <div class="container">
@@ -724,32 +649,49 @@ if (isset($_SESSION['users_id'])) {
     </section>
 
     <script>
-        const color_de_fond7 = document.getElementById('fontColor2');
-        const color_de_fond_7 = localStorage.getItem('color_de_fond_7');
+        // Récupérer le numéro du modèle à partir de l'URL
+        const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?.[1] || '7';
+        const storagePrefix = `model${modelNumber}-`;
 
-        document.documentElement.style.setProperty('--font-color7', color_de_fond_7 || '#c0faf9');
-        color_de_fond7.value = color_de_fond_7 || '#c0faf9'; // Mettre à jour la valeur du champ input
+        // Sélecteurs d'éléments
+        const colorInput2 = document.getElementById('fontColor2');
+        const colorPreview2 = document.getElementById('color-preview2');
+        const colorInput3 = document.getElementById('fontColor3');
+        const colorPreview3 = document.getElementById('color-preview3');
 
-        color_de_fond7.addEventListener('input', function () {
-            const select_font_color7 = color_de_fond7.value;
-            document.documentElement.style.setProperty('--font-color7', select_font_color7);
-            localStorage.setItem('color_de_fond_7', select_font_color7);
+        // Récupération des couleurs sauvegardées
+        const fontColor = localStorage.getItem(`${storagePrefix}font_color_section`) || '#c0faf9';
+        const textColor = localStorage.getItem(`${storagePrefix}texte_color_section`) || '#000000';
+
+        // Appliquer les couleurs
+        document.documentElement.style.setProperty('--font-color7', fontColor);
+        document.documentElement.style.setProperty('--text-color7', textColor);
+
+        // Initialiser les valeurs des inputs et prévisualisations
+        colorInput2.value = fontColor;
+        colorPreview2.style.backgroundColor = fontColor;
+        colorInput3.value = textColor;
+        if (colorPreview3.querySelector('span')) {
+            colorPreview3.querySelector('span').style.color = textColor;
+        }
+
+        // Événement pour la couleur de fond
+        colorInput2.addEventListener('input', function () {
+            const selectedColor = this.value;
+            document.documentElement.style.setProperty('--font-color7', selectedColor);
+            colorPreview2.style.backgroundColor = selectedColor;
+            localStorage.setItem(`${storagePrefix}font_color_section`, selectedColor);
         });
 
-
-
-        const texte_inpute3 = document.getElementById('fontColor3');
-        const texte_color7 = localStorage.getItem('texte_color7');
-
-        document.documentElement.style.setProperty('--text-color7', texte_color7 || '#000000');
-        texte_inpute3.value = texte_color7 || '#000000'; // Mettre à jour la valeur du champ input
-
-        texte_inpute3.addEventListener('input', function () {
-            const selecte_texte_color7 = texte_inpute3.value;
-            document.documentElement.style.setProperty('--text-color7', selecte_texte_color7);
-            localStorage.setItem('texte_color7', selecte_texte_color7);
+        // Événement pour la couleur de texte
+        colorInput3.addEventListener('input', function () {
+            const selectedColor = this.value;
+            document.documentElement.style.setProperty('--text-color7', selectedColor);
+            if (colorPreview3.querySelector('span')) {
+                colorPreview3.querySelector('span').style.color = selectedColor;
+            }
+            localStorage.setItem(`${storagePrefix}texte_color_section`, selectedColor);
         });
-
     </script>
 
 </body>

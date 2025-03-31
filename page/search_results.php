@@ -5,178 +5,54 @@ include_once('../entreprise/app/controller/controllerOffre_emploi.php');
 include_once('../entreprise/app/controller/controllerEntreprise.php');
 
 // Vérifier si des critères de recherche existent
-if (!isset($_SESSION['criteres_recherche'])) {
+if (!isset($_SESSION['recherche_offre_emploi'])) {
     header('Location: Offres_d\'emploi.php');
     exit();
 }
 
 // Configuration de la pagination
-$offresParTable = 6; // Nombre d'offres par table
+$offresParPage = 12;
 $pageActuelle = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-$offset = ($pageActuelle - 1) * $offresParTable;
+$offset = ($pageActuelle - 1) * $offresParPage;
 
 // Récupération des critères de recherche
-$recherche = $_SESSION['criteres_recherche']['search'];
-$categorie = $_SESSION['criteres_recherche']['categorie'];
-$experience = $_SESSION['criteres_recherche']['experience'];
-$etude = $_SESSION['criteres_recherche']['etude'];
+$rechercheData = $_SESSION['recherche_offre_emploi'];
+$sql = $rechercheData['sql'];
+$bindParams = $rechercheData['params']; // Maintenant les paramètres sont déjà dans un tableau indexé
+$criteres = $rechercheData['criteres'];
 
-// Initialisation du tableau de résultats
-$resultats = [
-    'offre_emploi' => [],
-    'emploi_emploi' => [],
-    'emploi_dakar' => [],
-    'senjob' => []
-];
+// Ajout de la pagination à la requête
+$sql .= " ORDER BY u.date DESC LIMIT ?, ?";
+$bindParams[] = $offset;
+$bindParams[] = $offresParPage;
 
-// Requête pour offre_emploi avec pagination
-$sqlOffresEmploi = "
-    SELECT 'offre_emploi' as source, u.offre_id, u.poste, u.contrat, u.date, 
-           u.experience, u.etudes, u.mission, u.localite, e.entreprise 
-    FROM offre_emploi u 
-    LEFT JOIN compte_entreprise e ON u.entreprise_id = e.id 
-    WHERE 1=1
-";
+// Exécution de la requête
+$stmt = $db->prepare($sql);
 
-if (!empty($recherche)) {
-    $sqlOffresEmploi .= " AND (u.poste LIKE :recherche OR e.entreprise LIKE :recherche)";
-}
-if (!empty($categorie)) {
-    $sqlOffresEmploi .= " AND u.categorie = :categorie";
-}
-if (!empty($experience)) {
-    $sqlOffresEmploi .= " AND u.experience = :experience";
-}
-if (!empty($etude)) {
-    $sqlOffresEmploi .= " AND u.etudes = :etude";
+// Liaison des paramètres (positionnels)
+for ($i = 0; $i < count($bindParams); $i++) {
+    $paramType = is_int($bindParams[$i]) ? PDO::PARAM_INT : PDO::PARAM_STR;
+    $stmt->bindParam($i + 1, $bindParams[$i], $paramType);
 }
 
-$sqlOffresEmploi .= " ORDER BY u.date DESC LIMIT :offset, :limit";
+$stmt->execute();
+$offres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$stmtOffresEmploi = $db->prepare($sqlOffresEmploi);
+// Requête pour compter le nombre total de résultats
+$countSql = str_replace("u.*, e.entreprise", "COUNT(*) as total", $rechercheData['sql']);
 
-if (!empty($recherche)) {
-    $stmtOffresEmploi->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
-}
-if (!empty($categorie)) {
-    $stmtOffresEmploi->bindValue(':categorie', $categorie, PDO::PARAM_STR);
-}
-if (!empty($experience)) {
-    $stmtOffresEmploi->bindValue(':experience', $experience, PDO::PARAM_STR);
-}
-if (!empty($etude)) {
-    $stmtOffresEmploi->bindValue(':etude', $etude, PDO::PARAM_STR);
+$countStmt = $db->prepare($countSql);
+
+// Liaison des paramètres pour le comptage (uniquement les paramètres de recherche, pas de pagination)
+$countParams = array_slice($bindParams, 0, count($bindParams) - 2);
+for ($i = 0; $i < count($countParams); $i++) {
+    $paramType = is_int($countParams[$i]) ? PDO::PARAM_INT : PDO::PARAM_STR;
+    $countStmt->bindParam($i + 1, $countParams[$i], $paramType);
 }
 
-$stmtOffresEmploi->bindValue(':offset', $offset, PDO::PARAM_INT);
-$stmtOffresEmploi->bindValue(':limit', $offresParTable, PDO::PARAM_INT);
-$stmtOffresEmploi->execute();
-$resultats['offre_emploi'] = $stmtOffresEmploi->fetchAll(PDO::FETCH_ASSOC);
-
-// Requête pour emploi_emploi avec pagination
-$sqlEmploiEmploi = "
-    SELECT 'emploi_emploi' as source, offre_id, titre, type_contrat, 
-           date_publication, entreprise, localisation 
-    FROM scrap_emploi_emploisenegal 
-    WHERE 1=1
-";
-
-if (!empty($recherche)) {
-    $sqlEmploiEmploi .= " AND (titre LIKE :recherche OR entreprise LIKE :recherche)";
-}
-
-$sqlEmploiEmploi .= " ORDER BY date_publication DESC LIMIT :offset, :limit";
-
-$stmtEmploiEmploi = $db->prepare($sqlEmploiEmploi);
-
-if (!empty($recherche)) {
-    $stmtEmploiEmploi->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
-}
-
-$stmtEmploiEmploi->bindValue(':offset', $offset, PDO::PARAM_INT);
-$stmtEmploiEmploi->bindValue(':limit', $offresParTable, PDO::PARAM_INT);
-$stmtEmploiEmploi->execute();
-$resultats['emploi_emploi'] = $stmtEmploiEmploi->fetchAll(PDO::FETCH_ASSOC);
-
-// Requête pour emploi_dakar avec pagination
-$sqlEmploiDakar = "
-    SELECT 'emploi_dakar' as source, offre_id, titre, type_contrat, 
-           date_publication, entreprise, localisation 
-    FROM scrap_emploi_emploidakar 
-    WHERE 1=1
-";
-
-if (!empty($recherche)) {
-    $sqlEmploiDakar .= " AND (titre LIKE :recherche OR entreprise LIKE :recherche)";
-}
-
-$sqlEmploiDakar .= " ORDER BY date_publication DESC LIMIT :offset, :limit";
-
-$stmtEmploiDakar = $db->prepare($sqlEmploiDakar);
-
-if (!empty($recherche)) {
-    $stmtEmploiDakar->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
-}
-
-$stmtEmploiDakar->bindValue(':offset', $offset, PDO::PARAM_INT);
-$stmtEmploiDakar->bindValue(':limit', $offresParTable, PDO::PARAM_INT);
-$stmtEmploiDakar->execute();
-$resultats['emploi_dakar'] = $stmtEmploiDakar->fetchAll(PDO::FETCH_ASSOC);
-
-// Requête pour senjob avec pagination
-$sqlSenjob = "
-    SELECT 'senjob' as source, offre_id, titre, type_contrat, 
-           date_publication, entreprise, localisation 
-    FROM senjob 
-    WHERE 1=1
-";
-
-if (!empty($recherche)) {
-    $sqlSenjob .= " AND (titre LIKE :recherche OR entreprise LIKE :recherche)";
-}
-
-$sqlSenjob .= " ORDER BY date_publication DESC LIMIT :offset, :limit";
-
-$stmtSenjob = $db->prepare($sqlSenjob);
-
-if (!empty($recherche)) {
-    $stmtSenjob->bindValue(':recherche', "%$recherche%", PDO::PARAM_STR);
-}
-
-$stmtSenjob->bindValue(':offset', $offset, PDO::PARAM_INT);
-$stmtSenjob->bindValue(':limit', $offresParTable, PDO::PARAM_INT);
-$stmtSenjob->execute();
-$resultats['senjob'] = $stmtSenjob->fetchAll(PDO::FETCH_ASSOC);
-
-// Calculer le nombre total d'offres pour la pagination
-$sqlCount = "
-    SELECT 
-    (SELECT COUNT(*) FROM offre_emploi u LEFT JOIN compte_entreprise e ON u.entreprise_id = e.id WHERE 1=1 
-    " . (!empty($recherche) ? "AND (u.poste LIKE :recherche1 OR e.entreprise LIKE :recherche1)" : "") . ") as count1,
-    (SELECT COUNT(*) FROM scrap_emploi_emploisenegal WHERE 1=1 
-    " . (!empty($recherche) ? "AND (titre LIKE :recherche2 OR entreprise LIKE :recherche2)" : "") . ") as count2,
-    (SELECT COUNT(*) FROM scrap_emploi_emploidakar WHERE 1=1 
-    " . (!empty($recherche) ? "AND (titre LIKE :recherche3 OR entreprise LIKE :recherche3)" : "") . ") as count3,
-    (SELECT COUNT(*) FROM senjob WHERE 1=1 
-    " . (!empty($recherche) ? "AND (titre LIKE :recherche4 OR entreprise LIKE :recherche4)" : "") . ") as count4
-";
-
-$stmtCount = $db->prepare($sqlCount);
-
-if (!empty($recherche)) {
-    $stmtCount->bindValue(':recherche1', "%$recherche%", PDO::PARAM_STR);
-    $stmtCount->bindValue(':recherche2', "%$recherche%", PDO::PARAM_STR);
-    $stmtCount->bindValue(':recherche3', "%$recherche%", PDO::PARAM_STR);
-    $stmtCount->bindValue(':recherche4', "%$recherche%", PDO::PARAM_STR);
-}
-
-$stmtCount->execute();
-$counts = $stmtCount->fetch(PDO::FETCH_ASSOC);
-
-$totalOffres = array_sum($counts);
-$totalPages = ceil($totalOffres / ($offresParTable * 4)); // 4 tables * 6 offres
-
-// Affichage de la pagination
+$countStmt->execute();
+$totalOffres = $countStmt->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
+$totalPages = ceil($totalOffres / $offresParPage);
 ?>
 
 <!DOCTYPE html>
@@ -185,7 +61,7 @@ $totalPages = ceil($totalOffres / ($offresParTable * 4)); // 4 tables * 6 offres
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Résultats de recherche</title>
+    <title>Résultats de recherche | WorkFlexer</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/offre_d'emploit.css">
@@ -199,61 +75,116 @@ $totalPages = ceil($totalOffres / ($offresParTable * 4)); // 4 tables * 6 offres
     <div class="container_resultat">
         <h1 class="titre_resultat">Résultats de la recherche</h1>
 
-        <?php
-        $total_resultats = 0;
-        foreach ($resultats as $table => $offres) {
-            $total_resultats += count($offres);
-        }
-        ?>
-
-        <?php if ($total_resultats === 0): ?>
+        <?php if ($totalOffres === 0): ?>
             <div class="no-results">
                 <p>Aucun résultat ne correspond à votre recherche.</p>
                 <a href="Offres_d'emploi.php" class="back-btn">Retour aux offres</a>
             </div>
         <?php else: ?>
             <div class="search-info">
-                <p>Nombre de résultats trouvés : <?php echo $total_resultats; ?></p>
+                <p>Nombre de résultats trouvés : <?php echo $totalOffres; ?></p>
                 <a href="Offres_d'emploi.php" class="back-btn">Nouvelle recherche</a>
             </div>
 
-            <?php foreach ($resultats as $table => $offres): ?>
-                <?php if (!empty($offres)): ?>
-                    <h2 class="table-title">
-                        <?php
-                        switch ($table) {
-                            case 'offre_emploi':
-                                echo 'Offres de notre plateforme';
-                                break;
-                            case 'emploi_emploi':
-                                echo 'Offres de Emploi Sénégal';
-                                break;
-                            case 'emploi_dakar':
-                                echo 'Offres de Emploi Dakar';
-                                break;
-                            case 'senjob':
-                                echo 'Offres de Senjob';
-                                break;
-                        }
-                        ?>
-                    </h2>
-                    <section class="tous_les_offres">
-                        <?php foreach ($offres as $offre): ?>
-                            <div class="carousel">
-                                <div class="info-box">
-                                    <?php include 'includes/offre_template.php'; ?>
+            <div class="source-navigation">
+                <a href="Offres_d'emploi.php" class="source-btn active">WorkFlexer</a>
+                <a href="offres_emploi_senegal.php" class="source-btn">EmploiSenegal</a>
+                <a href="offres_emploi_dakar.php" class="source-btn">EmploiDakar</a>
+                <a href="offres_senjob.php" class="source-btn">SenJob</a>
+            </div>
+
+            <h2 class="table-title">Offres de notre plateforme</h2>
+
+            <div class="search-criteria">
+                <p><strong>Vous avez recherché:</strong>
+                    <?php if (!empty($criteres['search'])): ?>
+                        <span class="criteria-tag">Termes: <?php echo htmlspecialchars($criteres['search']); ?></span>
+                    <?php endif; ?>
+
+                    <?php if (!empty($criteres['categorie'])): ?>
+                        <span class="criteria-tag">Catégorie: <?php echo htmlspecialchars($criteres['categorie']); ?></span>
+                    <?php endif; ?>
+
+                    <?php if (!empty($criteres['experience'])): ?>
+                        <span class="criteria-tag">Expérience: <?php echo htmlspecialchars($criteres['experience']); ?></span>
+                    <?php endif; ?>
+
+                    <?php if (!empty($criteres['etude'])): ?>
+                        <span class="criteria-tag">Niveau d'étude: <?php echo htmlspecialchars($criteres['etude']); ?></span>
+                    <?php endif; ?>
+
+                    <?php if (empty($criteres['search']) && empty($criteres['categorie']) && empty($criteres['experience']) && empty($criteres['etude'])): ?>
+                        <span class="criteria-tag">Tous les postes</span>
+                    <?php endif; ?>
+                </p>
+            </div>
+
+            <section class="tous_les_offres">
+                <div class="job-categories">
+                    <button class="cat-btn active" data-category="all">Tous</button>
+                    <button class="cat-btn" data-category="cdi">CDI</button>
+                    <button class="cat-btn" data-category="cdd">CDD</button>
+                    <button class="cat-btn" data-category="stage">Stage</button>
+                    <button class="cat-btn" data-category="freelance">Freelance</button>
+                </div>
+
+                <article class="articles">
+                    <?php foreach ($offres as $offre): ?>
+                        <div class="carousel job-card" data-type="<?php echo strtolower($offre['contrat']); ?>">
+                            <div class="info-box">
+                                <div class="header">
+                                    <span class="contrat"><?php echo $offre['contrat']; ?></span>
+                                    <span class="date"><i class="far fa-calendar-alt"></i> <?php echo $offre['date']; ?></span>
                                 </div>
+                                <h2 class="poste">
+                                    <?php echo substr($offre['poste'], 0, 100) . (strlen($offre['poste']) > 100 ? '...' : ''); ?>
+                                </h2>
+                                <div class="entreprise">
+                                    <img src="../image/immeuble.png" alt="Entreprise">
+                                    <span><?php echo $offre['entreprise']; ?></span>
+                                </div>
+                                <div class="localite">
+                                    <img src="../image/position.png" alt="Localisation">
+                                    <span><?php echo $offre['localite']; ?></span>
+                                </div>
+                                <div class="tags">
+                                    <?php
+                                    $tags = ['Expérience', 'Télétravail', 'Temps plein'];
+                                    $randomTag = $tags[array_rand($tags)];
+                                    ?>
+                                    <span class="tag"><?php echo $randomTag; ?></span>
+                                </div>
+                                <a href="../entreprise/voir_offre.php?offres_id=<?= $offre['offre_id']; ?>"
+                                    class="details-btn">Voir
+                                    les détails</a>
                             </div>
-                        <?php endforeach; ?>
-                    </section>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                        </div>
+                    <?php endforeach ?>
+                </article>
+
+                <div class="search-other-sources">
+                    <h3>Vous cherchez plus d'offres?</h3>
+                    <p>Consultez nos autres sources d'offres d'emploi pour trouver la meilleure opportunité:</p>
+                    <div class="other-sources-buttons">
+                        <a href="offres_emploi_senegal.php" class="source-link">
+                            <i class="fas fa-briefcase"></i> EmploiSenegal
+                        </a>
+                        <a href="offres_emploi_dakar.php" class="source-link">
+                            <i class="fas fa-briefcase"></i> EmploiDakar
+                        </a>
+                        <a href="offres_senjob.php" class="source-link">
+                            <i class="fas fa-briefcase"></i> SenJob
+                        </a>
+                    </div>
+                </div>
+            </section>
         <?php endif; ?>
     </div>
 
     <div class="pagination">
         <?php if ($pageActuelle > 1): ?>
-            <a href="?page=<?= $pageActuelle - 1 ?>" class="page-link">Précédent</a>
+            <a href="?page=<?= $pageActuelle - 1 ?>" class="page-link prev-link"><i class="fas fa-chevron-left"></i>
+                Précédent</a>
         <?php endif; ?>
 
         <?php
@@ -267,11 +198,299 @@ $totalPages = ceil($totalOffres / ($offresParTable * 4)); // 4 tables * 6 offres
         <?php endfor; ?>
 
         <?php if ($pageActuelle < $totalPages): ?>
-            <a href="?page=<?= $pageActuelle + 1 ?>" class="page-link">Suivant</a>
+            <a href="?page=<?= $pageActuelle + 1 ?>" class="page-link next-link">Suivant <i
+                    class="fas fa-chevron-right"></i></a>
         <?php endif; ?>
     </div>
 
+    <script>
+        // Filtrage des offres par type de contrat
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.cat-btn');
+            const jobCards = document.querySelectorAll('.job-card');
 
+            // Système pour marquer les offres déjà visitées
+            function markVisitedOffers() {
+                // Récupérer les offres visitées du localStorage
+                const visitedOffers = JSON.parse(localStorage.getItem('visitedOffers')) || [];
+
+                // Marquer chaque carte visitée
+                jobCards.forEach(card => {
+                    const offerLink = card.querySelector('.details-btn');
+                    const offerId = offerLink.href.split('?')[1]; // Récupérer l'ID de l'offre depuis l'URL
+
+                    // Si l'offre est dans la liste des offres visitées
+                    if (visitedOffers.includes(offerId)) {
+                        card.classList.add('visited');
+                    }
+
+                    // Ajouter un écouteur d'événements pour marquer comme visité lors du clic
+                    offerLink.addEventListener('click', function () {
+                        const newOfferId = this.href.split('?')[1];
+
+                        // Ajouter l'ID de l'offre aux offres visitées si pas déjà présent
+                        if (!visitedOffers.includes(newOfferId)) {
+                            visitedOffers.push(newOfferId);
+                            localStorage.setItem('visitedOffers', JSON.stringify(visitedOffers));
+                        }
+
+                        // Marquer la carte comme visitée
+                        card.classList.add('visited');
+                    });
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Supprimer la classe active de tous les boutons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Ajouter la classe active au bouton cliqué
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+
+                    // Filtrer les offres
+                    jobCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-type').includes(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Animation d'apparition des offres
+            jobCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                }, 100 * index);
+            });
+
+            // Marquer les offres déjà visitées
+            markVisitedOffers();
+        });
+    </script>
+
+    <style>
+        /* Style pour les résultats */
+        .container_resultat {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .titre_resultat {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+            color: #333;
+        }
+
+        .search-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .search-criteria {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .criteria-tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .no-results p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .table-title {
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007BFF;
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Style pour les offres déjà visitées */
+        .job-card.visited {
+            background-color: #f5f5f5 !important;
+            border-top-color: #9e9e9e !important;
+            position: relative;
+        }
+
+        .job-card.visited::after {
+            content: "Déjà consulté";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(120, 120, 120, 0.8);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            z-index: 10;
+        }
+
+        .job-card.visited .info-box {
+            opacity: 0.8;
+        }
+
+        .job-card.visited .poste {
+            color: #666;
+        }
+
+        .job-card.visited .header {
+            opacity: 0.85;
+        }
+
+        .job-card.visited .details-btn {
+            background-color: #878787;
+        }
+
+        .job-card.visited .details-btn:hover {
+            background-color: #6d6d6d;
+        }
+
+        /* Style pour la navigation entre sources */
+        .source-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .source-btn {
+            padding: 10px 15px;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+
+        .source-btn:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .source-btn.active {
+            background-color: #007BFF;
+            color: white;
+            border-color: #0056b3;
+        }
+
+        /* Section pour les autres sources */
+        .search-other-sources {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-other-sources h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .search-other-sources p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .other-sources-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .source-link:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .source-navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .source-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .other-sources-buttons {
+                flex-direction: column;
+            }
+
+            .source-link {
+                width: 100%;
+            }
+        }
+    </style>
 </body>
 
 </html>

@@ -79,8 +79,6 @@ if (isset($_SESSION['users_id'])) {
 <body>
 
 
-    <?php include('../navbare.php') ?>
-
 
 
 
@@ -92,7 +90,7 @@ if (isset($_SESSION['users_id'])) {
             <script>
                 // Importez la bibliothèque jsPDF
                 function generatePDF() {
-                    const element = document.querySelector("#containe");
+                    const element = document.querySelector(".containers");
 
                     // Hypothétiquement, si resolution et imageMode étaient des options valides
                     // vous pourriez les fusionner avec les options existantes de cette manière :
@@ -438,6 +436,17 @@ if (isset($_SESSION['users_id'])) {
                         document.getElementById('fontColor2').value = theme.fontColorSection;
                         document.getElementById('fontColor3').value = theme.texteColorSection;
 
+                        // Mettre à jour les prévisualisations
+                        if (document.getElementById('color-preview2')) {
+                            document.getElementById('color-preview2').style.backgroundColor = theme.fontColorSection;
+                        }
+                        if (document.getElementById('color-preview3')) {
+                            const preview = document.getElementById('color-preview3').querySelector('span');
+                            if (preview) {
+                                preview.style.color = theme.texteColorSection;
+                            }
+                        }
+
                         // Sauvegarder dans localStorage avec préfixe spécifique au modèle
                         localStorage.setItem(`${storagePrefix}font_color_section4`, theme.fontColorSection);
                         localStorage.setItem(`${storagePrefix}texte_color_section4`, theme.texteColorSection);
@@ -458,6 +467,17 @@ if (isset($_SESSION['users_id'])) {
                         document.getElementById('fontColor2').value = savedTheme.fontColorSection;
                         document.getElementById('fontColor3').value = savedTheme.texteColorSection;
 
+                        // Mettre à jour les prévisualisations
+                        if (document.getElementById('color-preview2')) {
+                            document.getElementById('color-preview2').style.backgroundColor = savedTheme.fontColorSection;
+                        }
+                        if (document.getElementById('color-preview3')) {
+                            const preview = document.getElementById('color-preview3').querySelector('span');
+                            if (preview) {
+                                preview.style.color = savedTheme.texteColorSection;
+                            }
+                        }
+
                         // Retrouver quel thème correspond aux couleurs sauvegardées
                         for (const [themeName, theme] of Object.entries(themes)) {
                             if (theme.fontColorSection === savedTheme.fontColorSection &&
@@ -473,39 +493,66 @@ if (isset($_SESSION['users_id'])) {
             </script>
 
             <div class="box">
-                <p>Couleur de de fond (section informations personnel)</p>
+                <p>Couleur de fond (section informations personnel)</p>
                 <input type="color" name="" id="fontColor2">
+                <div id="color-preview2" class="color-preview"
+                    style="display: inline-block; margin-left: 10px; width: 30px; height: 20px; border: 1px solid #ccc;">
+                </div>
             </div>
 
             <div class="box">
                 <p>Couleur du texte (section informations personnel)</p>
                 <input type="color" name="" id="fontColor3">
+                <div id="color-preview3" class="color-preview"
+                    style="display: inline-block; margin-left: 10px; width: 30px; height: 20px; border: 1px solid #ccc; position: relative;">
+                    <span
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px;">Aa</span>
+                </div>
             </div>
 
             <script>
-                const colorInput1 = document.getElementById('fontColor2');
-                const font_color_section4 = localStorage.getItem('font_color_section4');
+                // Récupérer le numéro du modèle à partir de l'URL
+                const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?.[1] || '4';
+                const storagePrefix = `model${modelNumber}-`;
 
-                document.documentElement.style.setProperty('--font-color_section', font_color_section4 || '#e6e6e6');
-                colorInput1.value = font_color_section4 || '#e6e6e6'; // Mettre à jour la valeur du champ input
+                // Sélecteurs d'éléments
+                const colorInput2 = document.getElementById('fontColor2');
+                const colorPreview2 = document.getElementById('color-preview2');
+                const colorInput3 = document.getElementById('fontColor3');
+                const colorPreview3 = document.getElementById('color-preview3');
 
-                colorInput1.addEventListener('input', function () {
-                    const selectedColor = colorInput1.value;
+                // Récupération des couleurs sauvegardées
+                const fontColor = localStorage.getItem(`${storagePrefix}font_color_section4`) || '#e6e6e6';
+                const textColor = localStorage.getItem(`${storagePrefix}texte_color_section4`) || '#000000';
+
+                // Appliquer les couleurs
+                document.documentElement.style.setProperty('--font-color_section', fontColor);
+                document.documentElement.style.setProperty('--texte-color_section', textColor);
+
+                // Initialiser les valeurs des inputs et prévisualisations
+                colorInput2.value = fontColor;
+                colorPreview2.style.backgroundColor = fontColor;
+                colorInput3.value = textColor;
+                if (colorPreview3.querySelector('span')) {
+                    colorPreview3.querySelector('span').style.color = textColor;
+                }
+
+                // Événement pour la couleur de fond
+                colorInput2.addEventListener('input', function () {
+                    const selectedColor = this.value;
                     document.documentElement.style.setProperty('--font-color_section', selectedColor);
-                    localStorage.setItem('font_color_section4', selectedColor);
+                    colorPreview2.style.backgroundColor = selectedColor;
+                    localStorage.setItem(`${storagePrefix}font_color_section4`, selectedColor);
                 });
 
-
-                const colorInput2 = document.getElementById('fontColor3');
-                const texte_color_section4 = localStorage.getItem('texte_color_section4');
-
-                document.documentElement.style.setProperty('--texte-color_section', texte_color_section4 || '#000000');
-                colorInput2.value = texte_color_section4 || '#000000'; // Mettre à jour la valeur du champ input
-
-                colorInput2.addEventListener('input', function () {
-                    const selectedColor = colorInput2.value;
+                // Événement pour la couleur de texte
+                colorInput3.addEventListener('input', function () {
+                    const selectedColor = this.value;
                     document.documentElement.style.setProperty('--texte-color_section', selectedColor);
-                    localStorage.setItem('texte_color_section4', selectedColor);
+                    if (colorPreview3.querySelector('span')) {
+                        colorPreview3.querySelector('span').style.color = selectedColor;
+                    }
+                    localStorage.setItem(`${storagePrefix}texte_color_section4`, selectedColor);
                 });
             </script>
         </div>
@@ -700,209 +747,19 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
-        <div class="cv">
-            <div class="containers" id="containe">
-                <div class="decor"></div>
-
-                <div class="box1">
-                    <div class="item1">
-                        <img src="../upload/<?= $userss['images'] ?>" alt="">
-                        <div>
-                            <h1> <?= $userss['nom'] ?></h1>
-                            <h2> <?= $userss['competences'] ?></h2>
-                        </div>
-                    </div>
-
-                    <div class="item2">
-                        <?php if (empty($descriptions)): ?>
-                            <p class="a_propos">Aucune donnée trouvée</p>
-                        <?php else: ?>
-                            <p class="a_propos">
-                                <?= $descriptions['description'] ?>
-                            </p>
-                        <?php endif; ?>
-
-                        <div>
-                            <h2>Contacts</h2>
-                            <p> <img src="/image/address.png" alt=""> <?= $userss['ville'] ?></p>
-                            <p><img src="/image/phone.png" alt=""> <?= $userss['phone'] ?></p>
-                            <p><img src="/image/icons8-gmail-48.png" alt=""> <?= $userss['mail'] ?></p>
-                        </div>
-                    </div>
 
 
-                    <div class="div item3">
-                        <div>
-                            <h2>Langues</h2>
-                            <?php if (empty($afficheLangue)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée</li>
-                                </ul>
-                            <?php else: ?>
+        <script>
+            // scripts.js
+            const colorPickers = document.querySelectorAll('.color-picker input');
 
-                                <ul>
-                                    <?php foreach ($afficheLangue as $langues): ?>
-                                        <li>
-                                            <?php echo $langues['langue']; ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-
-                            <?php endif; ?>
-                        </div>
-
-                        <div>
-                            <h2>Centres d'intérêts</h2>
-                            <?php if (empty($afficheCentreInteret)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée</li>
-                                </ul>
-                            <?php else: ?>
-                                <ul>
-                                    <?php foreach ($afficheCentreInteret as $interet): ?>
-                                        <li>
-                                            <?= $interet['interet'] ?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-
-                            <?php endif; ?>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-                <div class="box2">
-                    <div class="item1">
-
-                        <div class="exp">
-                            <h2>Expériences Professionnelles <img src="/image/experience.png" alt=""></h2>
-
-                            <?php if (empty($afficheMetier)): ?>
-                                <h3>Aucune donnée trouvée</h3>
-                            <?php else: ?>
-                                <?php
-                                shuffle($afficheMetier);
-                                $nombre_metier = 2
-                                    ?>
-                                <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                    <?php if ($key < $nombre_metier): ?>
-                                        <div class="box">
-
-                                            <div>
-                                                <span> <?= $Metiers['moisDebut'] ?> /<?= $Metiers['anneeDebut'] ?> au
-                                                    <?= $Metiers['moisFin'] ?> /<?= $Metiers['anneeFin'] ?> </span>
-                                                <h3> <?= $Metiers['metier'] ?></h3>
-                                            </div>
-                                            <p class="desc">
-                                                <?= $Metiers['description'] ?>
-                                            </p>
-
-
-                                        </div>
-
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-
-                        </div>
-
-
-                        <div class="educ">
-                            <h2>Éducation <img src="/image/etude.png" alt=""></h2>
-                            <div class="box">
-                                <?php if (empty($formationUsers)): ?>
-                                    <strong></strong>
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php else: ?>
-                                    <?php
-                                    shuffle($formationUsers);
-                                    $nombre_formation = 3;
-                                    ?>
-                                    <?php foreach ($formationUsers as $key => $formations): ?>
-                                        <?php if ($key < $nombre_formation): ?>
-                                            <div>
-                                                <span> <?= $formations['moisDebut'] ?> /<?= $formations['anneeDebut'] ?> au
-                                                    <?= $formations['moisFin'] ?> /<?= $formations['anneeFin'] ?> </span>
-                                                <h3> <?= $formations['etablissement'] ?></h3>
-                                                <p> <?= $formations['Filiere'] ?> , <strong> <?= $formations['niveau'] ?></strong>
-                                                </p>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
-
-                            </div>
-                        </div>
-
-                        <!-- <div class="logiciel">
-                   <div>
-                    <h2>Outils</h2>
-                    <ul>
-                        <li>je savais ce que je voulais</li>
-                        <li>je savais ce que je voulais</li>
-                        <li>je savais ce que je voulais</li>
-                        <li>je savais ce que je voulais</li>
-                    </ul>
-                   </div>
-                   <div id="compe">
-                    <h2>Compétences</h2>
-                    <ul>
-                        <li>je savais ce que je voulais</li>
-                        <li>je savais ce que je voulais</li>
-                        <li>je savais ce que je voulais</li>
-                        <li>je savais ce que je voulais</li>
-                    </ul>
-                   </div>
-                </div> -->
-
-                    </div>
-
-                    <div class="item2">
-                        <div class="logiciel">
-                            <div>
-                                <h2>Outils <img src="/image/outil.png" alt=""></h2>
-                                <ul>
-                                    <?php if ($afficheOutil): ?>
-                                        <?php foreach ($afficheOutil as $outils): ?>
-                                            <li> <?= $outils['outil'] ?></li>
-                                        <?php endforeach; ?>
-                                    <?php endif ?>
-                                </ul>
-                            </div>
-                            <div id="compe">
-                                <h2>Compétences <img src="/image/compétences.png" alt=""></h2>
-                                <ul>
-                                    <?php if ($competencesUtilisateur): ?>
-                                        <?php foreach ($competencesUtilisateur as $competence): ?>
-                                            <li> <?php echo $competence['competence']; ?></li>
-                                        <?php endforeach; ?>
-                                    <?php else: ?>
-
-                                        <h4>Aucune donnée trouvée</h4>
-                                    <?php endif ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <script>
-                // scripts.js
-                const colorPickers = document.querySelectorAll('.color-picker input');
-
-                colorPickers.forEach(picker => {
-                    picker.addEventListener('input', (e) => {
-                        const propertyName = `--${e.target.id}`;
-                        document.documentElement.style.setProperty(propertyName, e.target.value);
-                    });
+            colorPickers.forEach(picker => {
+                picker.addEventListener('input', (e) => {
+                    const propertyName = `--${e.target.id}`;
+                    document.documentElement.style.setProperty(propertyName, e.target.value);
                 });
-            </script>
+            });
+        </script>
 </body>
 
 </html>

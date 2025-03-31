@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemple CV - Modèle 10</title>
+    <style>
+      /* Reset et styles globaux */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e1e2e275;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      /* Main CV container */
+      .cv10 {
+        width: 210mm;
+        min-height: 297mm;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Header section */
+      .cv-header {
+        display: flex;
+        background-color: #008080;
+        padding: 20px;
+        color: white;
+      }
+
+      .profile-photo-container {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid white;
+        margin-right: 20px;
+      }
+
+      .profile-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .header-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .prenom,
+      .nom {
+        font-size: 28px;
+        margin: 0;
+      }
+
+      .nom {
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .post {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      /* CV body */
+      .cv-body {
+        display: flex;
+        flex: 1;
+      }
+
+      /* Left sidebar */
+      .left-sidebar {
+        width: 33%;
+        background-color: #ebf5f7;
+        padding: 20px;
+      }
+
+      /* Main content */
+      .main-content {
+        width: 67%;
+        padding: 20px;
+        background-color: white;
+      }
+
+      /* Common styles */
+      h2 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 8px;
+        margin: 20px 0 15px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .left-sidebar h2:first-child {
+        margin-top: 0;
+      }
+
+      /* Contact section */
+      .contact-info p {
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .icon {
+        margin-right: 10px;
+        width: 20px;
+        display: inline-block;
+        text-align: center;
+      }
+
+      /* Skills and languages */
+      .skills-section ul,
+      .languages-section ul {
+        list-style: none;
+      }
+
+      .skills-section li,
+      .languages-section li {
+        margin: 10px 0;
+        font-size: 14px;
+      }
+
+      .checkmark {
+        margin-right: 10px;
+        color: #008080;
+      }
+
+      /* Experience and education */
+      .experience-item,
+      .education-item {
+        margin-bottom: 20px;
+      }
+
+      .experience-item h3,
+      .education-item h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .job-location,
+      .education-location {
+        font-style: italic;
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .job-description {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .job-description li {
+        margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      /* Compétences section */
+      .competences-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .competence-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .competence-level {
+        display: flex;
+        gap: 4px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        border: 1px solid #ccc;
+      }
+
+      .dot.filled {
+        background-color: #008080;
+        border-color: #008080;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv10">
+      <!-- Header with photo and name -->
+      <div class="cv-header">
+        <div class="profile-photo-container">
+          <img
+            src="../image/image-2.png"
+            alt="Photo de profil"
+            class="profile-photo"
+          />
+        </div>
+        <div class="header-text">
+          <h1 class="prenom">Marie</h1>
+          <h1 class="nom">Dubois</h1>
+          <p class="post">Développeuse Full Stack</p>
+        </div>
+      </div>
+
+      <!-- CV body with two columns -->
+      <div class="cv-body">
+        <!-- Left sidebar -->
+        <div class="left-sidebar">
+          <div class="contact-section">
+            <h2>CONTACT</h2>
+            <div class="contact-info">
+              <p><span class="icon">✉</span> marie.dubois@email.com</p>
+              <p><span class="icon">✆</span> +33 6 12 34 56 78</p>
+              <p><span class="icon">⚲</span> Paris, France</p>
+              <p><span class="icon">in</span> linkedin.com/in/mariedubois</p>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h2>MON PROFIL</h2>
+            <p class="profile-text">
+              Développeuse Full Stack passionnée avec 5 ans d'expérience dans le
+              développement web. Spécialisée dans les technologies JavaScript
+              modernes et le développement d'applications performantes.
+            </p>
+          </div>
+
+          <div class="skills-section">
+            <h2>LOGICIELS</h2>
+            <ul>
+              <li><span class="checkmark">✓</span> Visual Studio Code</li>
+              <li><span class="checkmark">✓</span> Git</li>
+              <li><span class="checkmark">✓</span> Docker</li>
+              <li><span class="checkmark">✓</span> Figma</li>
+              <li><span class="checkmark">✓</span> Jira</li>
+            </ul>
+          </div>
+
+          <div class="languages-section">
+            <h2>LANGUES</h2>
+            <ul>
+              <li>
+                <span class="checkmark">✓</span> Français : Langue maternelle
+              </li>
+              <li><span class="checkmark">✓</span> Anglais : Courant (C1)</li>
+              <li>
+                <span class="checkmark">✓</span> Espagnol : Intermédiaire (B1)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+          <div class="experiences-section">
+            <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
+            <div class="experience-item">
+              <h3>DÉVELOPPEUSE FULL STACK SENIOR</h3>
+              <p class="job-location">01/2020 - Présent</p>
+              <ul class="job-description">
+                <li>
+                  Développement et maintenance d'applications web complexes
+                </li>
+                <li>Lead technique sur plusieurs projets majeurs</li>
+                <li>Formation et mentorat des développeurs juniors</li>
+                <li>Mise en place de bonnes pratiques de développement</li>
+              </ul>
+            </div>
+
+            <div class="experience-item">
+              <h3>DÉVELOPPEUSE FRONT-END</h3>
+              <p class="job-location">06/2018 - 12/2019</p>
+              <ul class="job-description">
+                <li>Développement d'interfaces utilisateur responsive</li>
+                <li>Optimisation des performances front-end</li>
+                <li>Intégration avec les APIs REST</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="education-section">
+            <h2>FORMATION</h2>
+            <div class="education-item">
+              <h3>MASTER EN INFORMATIQUE</h3>
+              <p class="education-location">09/2016 - 06/2018</p>
+              <p class="education-school">Université Paris-Saclay (Bac+5)</p>
+            </div>
+            <div class="education-item">
+              <h3>LICENCE EN INFORMATIQUE</h3>
+              <p class="education-location">09/2013 - 06/2016</p>
+              <p class="education-school">
+                Université Claude Bernard Lyon 1 (Bac+3)
+              </p>
+            </div>
+          </div>
+
+          <div class="competences-section">
+            <h2>COMPÉTENCES</h2>
+            <div class="competences-grid">
+              <div class="competence-item">
+                <span class="competence-name">JavaScript/TypeScript</span>
+                <div class="competence-level">
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                </div>
+              </div>
+              <div class="competence-item">
+                <span class="competence-name">React/Vue.js</span>
+                <div class="competence-level">
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+              <div class="competence-item">
+                <span class="competence-name">Node.js</span>
+                <div class="competence-level">
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+              <div class="competence-item">
+                <span class="competence-name">SQL/NoSQL</span>
+                <div class="competence-level">
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

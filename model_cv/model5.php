@@ -74,7 +74,6 @@ if (isset($_SESSION['users_id'])) {
 <body>
 
 
-    <?php include('../navbare.php') ?>
 
 
     <section class="section3">
@@ -84,7 +83,7 @@ if (isset($_SESSION['users_id'])) {
             <script>
                 // Importez la bibliothèque jsPDF
                 function generatePDF() {
-                    const element = document.querySelector("#cv-content");
+                    const element = document.querySelector(".container");
 
                     // Hypothétiquement, si resolution et imageMode étaient des options valides
                     // vous pourriez les fusionner avec les options existantes de cette manière :
@@ -328,59 +327,81 @@ if (isset($_SESSION['users_id'])) {
                     const themes = {
                         elegant: {
                             fontColorSection: '#0E3B43',
-                            texteColor: '#000000',
-                            texteColor2: '#328590'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#90D7E0',  // Bleu clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(50, 133, 144, 0.4)'
                         },
                         professional: {
                             fontColorSection: '#1D3557',
-                            texteColor: '#000000',
-                            texteColor2: '#457B9D'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#A8DADC',  // Bleu clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(69, 123, 157, 0.4)'
                         },
                         creative: {
                             fontColorSection: '#845EC2',
-                            texteColor: '#000000',
-                            texteColor2: '#B39CD0'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#D7BDF8',  // Violet clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(179, 156, 208, 0.4)'
                         },
                         classic: {
                             fontColorSection: '#4A4A4A',
-                            texteColor: '#000000',
-                            texteColor2: '#333333'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#CCCCCC',  // Gris clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(51, 51, 51, 0.3)'
                         },
                         modern: {
                             fontColorSection: '#3D5A80',
-                            texteColor: '#000000',
-                            texteColor2: '#98C1D9'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#E0FBFC',  // Bleu très clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(152, 193, 217, 0.4)'
                         },
                         earthy: {
                             fontColorSection: '#5F4B32',
-                            texteColor: '#000000',
-                            texteColor2: '#A1887F'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#E6CCB2',  // Beige clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(161, 136, 127, 0.4)'
                         },
                         // Nouveaux thèmes
                         corporate: {
                             fontColorSection: '#1A237E',
-                            texteColor: '#000000',
-                            texteColor2: '#5C6BC0'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#C5CAE9',  // Bleu clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(92, 107, 192, 0.4)'
                         },
                         burgundy: {
                             fontColorSection: '#800020',
-                            texteColor: '#000000',
-                            texteColor2: '#AD8A8E'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#F8C3CB',  // Rose clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(173, 138, 142, 0.4)'
                         },
                         mint: {
                             fontColorSection: '#21897E',
-                            texteColor: '#000000',
-                            texteColor2: '#69B7A8'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#A8E6CF',  // Vert menthe clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(105, 183, 168, 0.4)'
                         },
                         slate: {
                             fontColorSection: '#2F4F4F',
-                            texteColor: '#000000',
-                            texteColor2: '#708090'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#A9BEC9',  // Gris bleuté clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(112, 128, 144, 0.4)'
                         },
                         amber: {
                             fontColorSection: '#B86E00',
-                            texteColor: '#000000',
-                            texteColor2: '#F0A858'
+                            texteColor: '#FFFFFF',  // Blanc pour un bon contraste avec le fond foncé
+                            texteColor2: '#FFD699',  // Ambre clair pour l'accentuation sur fond foncé
+                            lightText: 'rgba(255, 255, 255, 0.7)',
+                            itemBg: 'rgba(240, 168, 88, 0.4)'
                         }
                     };
 
@@ -410,6 +431,8 @@ if (isset($_SESSION['users_id'])) {
                         document.documentElement.style.setProperty('--font-color-m5', theme.fontColorSection);
                         document.documentElement.style.setProperty('--text-color-m5', theme.texteColor);
                         document.documentElement.style.setProperty('--text-color2-m5', theme.texteColor2);
+                        document.documentElement.style.setProperty('--light-text-m5', theme.lightText);
+                        document.documentElement.style.setProperty('--item-bg-m5', theme.itemBg);
 
                         // Mettre à jour les valeurs des inputs de couleur
                         document.getElementById('fontColor_m52').value = theme.fontColorSection;
@@ -420,13 +443,17 @@ if (isset($_SESSION['users_id'])) {
                         localStorage.setItem(`${storagePrefix}font_color_section_m5`, theme.fontColorSection);
                         localStorage.setItem(`${storagePrefix}texte_color_m5`, theme.texteColor);
                         localStorage.setItem(`${storagePrefix}texte_color2_m5`, theme.texteColor2);
+                        localStorage.setItem(`${storagePrefix}light_text_m5`, theme.lightText);
+                        localStorage.setItem(`${storagePrefix}item_bg_m5`, theme.itemBg);
                     }
 
                     // Vérifier s'il y a un thème sauvegardé et l'appliquer
                     const savedTheme = {
                         fontColorSection: localStorage.getItem(`${storagePrefix}font_color_section_m5`),
                         texteColor: localStorage.getItem(`${storagePrefix}texte_color_m5`),
-                        texteColor2: localStorage.getItem(`${storagePrefix}texte_color2_m5`)
+                        texteColor2: localStorage.getItem(`${storagePrefix}texte_color2_m5`),
+                        lightText: localStorage.getItem(`${storagePrefix}light_text_m5`),
+                        itemBg: localStorage.getItem(`${storagePrefix}item_bg_m5`)
                     };
 
                     if (savedTheme.fontColorSection) {
@@ -434,6 +461,8 @@ if (isset($_SESSION['users_id'])) {
                         document.documentElement.style.setProperty('--font-color-m5', savedTheme.fontColorSection);
                         document.documentElement.style.setProperty('--text-color-m5', savedTheme.texteColor);
                         document.documentElement.style.setProperty('--text-color2-m5', savedTheme.texteColor2);
+                        document.documentElement.style.setProperty('--light-text-m5', savedTheme.lightText || 'rgba(0, 0, 0, 0.6)');
+                        document.documentElement.style.setProperty('--item-bg-m5', savedTheme.itemBg || 'rgba(195, 193, 193, 0.5)');
 
                         // Mettre à jour les valeurs des inputs
                         document.getElementById('fontColor_m52').value = savedTheme.fontColorSection;
@@ -455,62 +484,200 @@ if (isset($_SESSION['users_id'])) {
                 });
             </script>
 
-            <div class="box">
-                <p>Couleur de de fond </p>
-                <input type="color" name="" id="fontColor_m52">
+            <div class="color-control-section">
+                <h4>Personnalisation manuelle des couleurs</h4>
+                <div class="color-box">
+                    <label for="fontColor_m52">
+                        <span class="color-label">Couleur de fond</span>
+                        <span class="color-desc">(Arrière-plan de la barre latérale)</span>
+                    </label>
+                    <div class="color-preview-wrapper">
+                        <div class="color-preview bg-preview" id="preview-bg"></div>
+                        <input type="color" name="fontColor_m52" id="fontColor_m52">
+                    </div>
+                </div>
+
+                <div class="color-box">
+                    <label for="fontColor_m53">
+                        <span class="color-label">Couleur du texte principal</span>
+                        <span class="color-desc">(Texte sur fond coloré)</span>
+                    </label>
+                    <div class="color-preview-wrapper">
+                        <div class="color-preview text-preview" id="preview-text">Aa</div>
+                        <input type="color" name="fontColor_m53" id="fontColor_m53">
+                    </div>
+                </div>
+
+                <div class="color-box">
+                    <label for="fontColor_m54">
+                        <span class="color-label">Couleur d'accentuation</span>
+                        <span class="color-desc">(Titres et éléments importants)</span>
+                    </label>
+                    <div class="color-preview-wrapper">
+                        <div class="color-preview accent-preview" id="preview-accent">Aa</div>
+                        <input type="color" name="fontColor_m54" id="fontColor_m54">
+                    </div>
+                </div>
             </div>
 
-            <div class="box">
-                <p>Couleur du texte 1</p>
-                <input type="color" name="" id="fontColor_m53">
-            </div>
+            <style>
+                .color-control-section {
+                    margin-top: 20px;
+                    background-color: #f5f5f5;
+                    padding: 15px;
+                    border-radius: 8px;
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                }
 
-            <div class="box">
-                <p>Couleur du texte 2</p>
-                <input type="color" name="" id="fontColor_m54">
-            </div>
+                .color-control-section h4 {
+                    margin-top: 0;
+                    margin-bottom: 15px;
+                    color: #333;
+                    font-size: 16px;
+                    text-align: center;
+                    border-bottom: 1px solid #ddd;
+                    padding-bottom: 8px;
+                }
+
+                .color-box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 12px;
+                    background-color: white;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+                }
+
+                .color-box label {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .color-label {
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: #333;
+                }
+
+                .color-desc {
+                    font-size: 12px;
+                    color: #777;
+                    margin-top: 2px;
+                }
+
+                .color-preview-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .color-preview {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 4px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+
+                .bg-preview {
+                    background-color: var(--font-color-m5);
+                }
+
+                .text-preview {
+                    color: var(--text-color-m5);
+                    border: 1px solid #ddd;
+                    background-color: white;
+                }
+
+                .accent-preview {
+                    color: var(--text-color2-m5);
+                    border: 1px solid #ddd;
+                    background-color: white;
+                }
+
+                .color-box input[type="color"] {
+                    width: 40px;
+                    height: 40px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+            </style>
 
             <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Récupérer le numéro du modèle à partir de l'URL
+                    const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?.[1] || '5';
+                    const storagePrefix = `model${modelNumber}-`;
 
-                const colorInput_m5 = document.getElementById('fontColor_m52');
-                const font_color_section_m5 = localStorage.getItem('font_color_section_m5');
+                    // Fonction pour initialiser un contrôle de couleur
+                    function initColorControl(inputId, cssVar, storageKey, defaultColor, previewId) {
+                        const input = document.getElementById(inputId);
+                        const preview = document.getElementById(previewId);
+                        const fullStorageKey = `${storagePrefix}${storageKey}`;
+                        const savedColor = localStorage.getItem(fullStorageKey);
 
-                document.documentElement.style.setProperty('--font-color-m5', font_color_section_m5 || '#ebebeb');
-                colorInput_m5.value = font_color_section_m5 || '#ebebeb'; // Mettre à jour la valeur du champ input
+                        // Appliquer la couleur sauvegardée ou la couleur par défaut
+                        const color = savedColor || defaultColor;
+                        document.documentElement.style.setProperty(cssVar, color);
+                        input.value = color;
 
-                colorInput_m5.addEventListener('input', function () {
-                    const selectedColor = colorInput_m5.value;
-                    document.documentElement.style.setProperty('--font-color-m5', selectedColor);
-                    localStorage.setItem('font_color_section_m5', selectedColor);
+                        // Mettre à jour la prévisualisation
+                        if (previewId === 'preview-bg') {
+                            preview.style.backgroundColor = color;
+                        } else {
+                            preview.style.color = color;
+                        }
+
+                        // Ajouter l'écouteur d'événements
+                        input.addEventListener('input', function () {
+                            const selectedColor = this.value;
+                            document.documentElement.style.setProperty(cssVar, selectedColor);
+                            localStorage.setItem(fullStorageKey, selectedColor);
+
+                            // Mettre à jour la prévisualisation
+                            if (previewId === 'preview-bg') {
+                                preview.style.backgroundColor = selectedColor;
+                            } else {
+                                preview.style.color = selectedColor;
+                            }
+
+                            // Mettre à jour les couleurs dérivées si nécessaire
+                            if (cssVar === '--text-color2-m5') {
+                                // Créer une couleur d'arrière-plan semi-transparente basée sur la couleur d'accentuation
+                                const rgba = hexToRgba(selectedColor, 0.2);
+                                document.documentElement.style.setProperty('--item-bg-m5', rgba);
+                                localStorage.setItem(`${storagePrefix}item_bg_m5`, rgba);
+                            }
+                        });
+                    }
+
+                    // Fonction pour convertir une couleur hex en rgba
+                    function hexToRgba(hex, alpha = 1) {
+                        const r = parseInt(hex.slice(1, 3), 16);
+                        const g = parseInt(hex.slice(3, 5), 16);
+                        const b = parseInt(hex.slice(5, 7), 16);
+                        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                    }
+
+                    // Initialiser les contrôles de couleur
+                    initColorControl('fontColor_m52', '--font-color-m5', 'font_color_section_m5', '#ebebeb', 'preview-bg');
+                    initColorControl('fontColor_m53', '--text-color-m5', 'texte_color_m5', '#000000', 'preview-text');
+                    initColorControl('fontColor_m54', '--text-color2-m5', 'texte_color2_m5', '#0089be', 'preview-accent');
+
+                    // Initialiser les variables dérivées si elles ne sont pas déjà définies
+                    const lightText = localStorage.getItem(`${storagePrefix}light_text_m5`) || 'rgba(0, 0, 0, 0.6)';
+                    const itemBg = localStorage.getItem(`${storagePrefix}item_bg_m5`) || 'rgba(195, 193, 193, 0.5)';
+
+                    document.documentElement.style.setProperty('--light-text-m5', lightText);
+                    document.documentElement.style.setProperty('--item-bg-m5', itemBg);
                 });
-
-
-                const colorInput2 = document.getElementById('fontColor_m53');
-                const texte_color_m5 = localStorage.getItem('texte_color_m5');
-
-                document.documentElement.style.setProperty('--text-color-m5', texte_color_m5 || '#000000');
-                colorInput2.value = texte_color_m5 || '#000000'; // Mettre à jour la valeur du champ input
-
-                colorInput2.addEventListener('input', function () {
-                    const selectedColor = colorInput2.value;
-                    document.documentElement.style.setProperty('--text-color-m5', selectedColor);
-                    localStorage.setItem('texte_color_m5', selectedColor);
-                });
-
-
-                const colorInput4 = document.getElementById('fontColor_m54');
-                const texte_color2_m5 = localStorage.getItem('texte_color2_m5');
-
-                document.documentElement.style.setProperty('--text-color2-m5', texte_color2_m5 || '#0089be');
-                colorInput4.value = texte_color2_m5 || '#0089be'; // Mettre à jour la valeur du champ input
-
-                colorInput4.addEventListener('input', function () {
-                    const selectedColor = colorInput4.value;
-                    document.documentElement.style.setProperty('--text-color2-m5', selectedColor);
-                    localStorage.setItem('texte_color2_m5', selectedColor);
-                });
-
-
             </script>
         </div>
 
@@ -626,119 +793,7 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
-        <div class="model5">
-            <div id="cv-content">
-                <div class="box1">
-                    <div class="item1">
-                        <ul>
-                            <li><img src="/image/address.png" alt=""> <?= $userss['ville'] ?></li>
-                            <li><img src="/image/phone.png" alt=""><?= $userss['phone'] ?></li>
-                            <li><img src="/image/icons8-gmail-48.png" alt=""><?= $userss['mail'] ?></li>
-                        </ul>
 
-                        <h3><?= $userss['competences'] ?></h3>
-                        <h1> <?= $userss['nom'] ?></h1>
-                    </div>
-                    <div class="item2">
-                        <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
-                    </div>
-                </div>
-
-                <div class="box2">
-                    <div class="item1">
-                        <div class="box">
-                            <h2> <img src="/image/a_propos.png" alt=""> À propos</h2>
-                            <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouvée</p>
-                            <?php else: ?>
-                                <p class="p">
-                                    <?= $descriptions['description'] ?>
-                                </p>
-                            <?php endif; ?>
-                        </div>
-
-                        <div class="exp">
-                            <h2><img src="/image/experience.png" alt=""> Expériences</h2>
-                            <?php if (empty($afficheMetier)): ?>
-                                <h4>Aucune donnée trouvée</h4>
-                            <?php else: ?>
-                                <?php
-                                shuffle($afficheMetier);
-                                $nombre_metier = 3
-                                    ?>
-                                <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                    <?php if ($key < $nombre_metier): ?>
-                                        <div>
-                                            <h3> <?= $Metiers['metier'] ?></h3>
-                                            <span><?= $Metiers['moisDebut'] ?> /
-                                                <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
-                                                <?= $Metiers['anneeFin'] ?></span>
-                                            <p> <?= $Metiers['description'] ?></p>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
-                    <div class="item2">
-
-                        <div class="exp">
-                            <h2><img src="/image/etude.png" alt=""> Éducation</h2>
-
-                            <?php if (empty($formationUsers)): ?>
-                                <strong></strong>
-                                <h4>Aucune donnée trouvée</h4>
-                            <?php else: ?>
-                                <?php
-                                shuffle($formationUsers);
-                                $nombre_formation = 3;
-                                ?>
-                                <?php foreach ($formationUsers as $key => $formations): ?>
-                                    <?php if ($key < $nombre_formation): ?>
-                                        <div>
-                                            <h3><?= $formations['etablissement'] ?></h3>
-                                            <span> <?= $formations['moisDebut'] ?> /
-                                                <?= $formations['anneeDebut'] ?> , <?= $formations['moisFin'] ?> /
-                                                <?= $formations['anneeFin'] ?></span>
-                                            <p><?= $formations['Filiere'] ?> , <strong>
-                                                    <?= $formations['niveau'] ?></strong> </p>
-                                        </div>
-
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-
-                        <div class="comp">
-                            <h2><img src="/image/compétences.png" alt=""> Compétences</h2>
-
-                            <ul>
-                                <?php if ($competencesUtilisateur): ?>
-                                    <?php foreach ($competencesUtilisateur as $competence): ?>
-                                        <li> <?php echo $competence['competence']; ?></li>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php endif ?>
-                            </ul>
-                        </div>
-
-                        <div class="outils">
-                            <h2><img src="/image/outil.png" alt=""> Outils</h2>
-                            <ul>
-                                <?php if ($afficheOutil): ?>
-                                    <?php foreach ($afficheOutil as $outils): ?>
-                                        <li> <?= $outils['outil'] ?></li>
-                                    <?php endforeach; ?>
-                                <?php endif ?>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 </body>
 

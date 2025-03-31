@@ -9,6 +9,8 @@
   --text-color-m5: #000000;
   --font-color-m5: #ebebeb;
   --text-color2-m5: #0089be;
+  --light-text-m5: rgba(0, 0, 0, 0.6);
+  --item-bg-m5: rgba(195, 193, 193, 0.5);
 }
 
 /*--------------------------------------------------------------
@@ -87,10 +89,10 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   position: fixed;
-  top: 100px;
+  top: 20px;
   left: 0;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 90vh;
 }
 
 .section3 .personnalisation .box {
@@ -152,7 +154,7 @@ body {
   padding: 5px;
 }
 
-.section3 .container {
+.container {
   width: 793px;
   height: 1122px;
   border: 1.5px solid #a3a3a3;
@@ -166,25 +168,25 @@ body {
   flex-direction: column;
 }
 
-.section3 .container .box1 {
+.container .box1 {
   height: 300px;
   width: 100%;
   display: flex;
   align-items: center;
 }
 
-.section3 .container .box1 .item1 {
+.container .box1 .item1 {
   width: 70%;
   background-color: var(--font-color-m5);
   padding: 20px 10px;
 }
 
-.section3 .container .box1 .item1 ul {
+.container .box1 .item1 ul {
   margin-left: 30px;
   margin-bottom: 20px;
 }
 
-.section3 .container .box1 .item1 ul li {
+.container .box1 .item1 ul li {
   list-style: none;
   margin: 7px 0;
   display: flex;
@@ -193,123 +195,127 @@ body {
   font-size: 14px;
 }
 
-.section3 .container .box1 .item1 ul li img {
+.container .box1 .item1 ul li img {
   width: 25px;
   margin-right: 10px;
 }
 
-.section3 .container .box1 .item1 h3 {
+.container .box1 .item1 h3 {
   margin-left: 30px;
   font-size: 18px;
   margin-bottom: 5px;
   color: var(--text-color-m5);
 }
 
-.section3 .container .box1 .item1 h1 {
+.container .box1 .item1 h1 {
   margin-left: 30px;
   font-size: 25px;
   color: var(--text-color-m5);
 }
 
-.section3 .container .box1 .item2 {
+.container .box1 .item2 {
   width: 30%;
   height: 200px;
 }
 
-.section3 .container .box1 .item2 img {
+.container .box1 .item2 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.section3 .container .box2 {
+.container .box2 {
   display: flex;
   width: 100%;
 }
 
-.section3 .container .box2 .item1 {
+.container .box2 .item1 {
   width: 50%;
   height: 600px;
 }
 
-.section3 .container .box2 .item1 .box {
+.container .box2 .item1 .box {
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
-.section3 .container .box2 .item1 .box h2 {
+.container .box2 .item1 .box h2 {
   font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
   display: flex;
   align-items: center;
+  color: var(--text-color2-m5);
 }
 
-.section3 .container .box2 .item1 .box h2 img {
+.container .box2 .item1 .box h2 img {
   margin-right: 20px;
   width: 25px;
 }
 
-.section3 .container .box2 .item1 .box p {
+.container .box2 .item1 .box p {
   font-size: 12px;
   padding: 0px 30px;
   width: 100%;
   text-align: justify;
+  color: var(--text-color-m5);
 }
 
-.section3 .container .box2 .item1 .exp {
+.container .box2 .item1 .exp {
   width: 100%;
 }
 
-.section3 .container .box2 .item1 .exp h2 {
+.container .box2 .item1 .exp h2 {
   font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
   display: flex;
   align-items: center;
+  color: var(--text-color2-m5);
 }
 
-.section3 .container .box2 .item1 .exp h2 img {
+.container .box2 .item1 .exp h2 img {
   margin-right: 20px;
   width: 25px;
 }
 
-.section3 .container .box2 .item1 .exp div {
+.container .box2 .item1 .exp div {
   margin-bottom: 15px;
 }
 
-.section3 .container .box2 .item1 .exp div h3 {
+.container .box2 .item1 .exp div h3 {
   font-size: 14px;
   margin-left: 30px;
-  color: #434343;
+  color: var(--text-color2-m5);
 }
 
-.section3 .container .box2 .item1 .exp div span {
+.container .box2 .item1 .exp div span {
   font-size: 10px;
-  color: #a3a3a3;
+  color: var(--light-text-m5);
   margin-left: 30px;
 }
 
-.section3 .container .box2 .item1 .exp div p {
+.container .box2 .item1 .exp div p {
   font-size: 12px;
   padding: 5px 30px 5px 30px;
   text-align: justify;
+  color: var(--text-color-m5);
 }
 
-.section3 .container .box2 .item2 {
+.container .box2 .item2 {
   width: 50%;
   height: 850px;
   background-color: var(--font-color-m5);
 }
 
-.section3 .container .box2 .item2 .exp {
+.container .box2 .item2 .exp {
   width: 100%;
   margin-top: 20px;
 }
 
-.section3 .container .box2 .item2 .exp h2 {
+.container .box2 .item2 .exp h2 {
   font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
@@ -319,29 +325,29 @@ body {
   color: var(--text-color-m5);
 }
 
-.section3 .container .box2 .item2 .exp h2 img {
+.container .box2 .item2 .exp h2 img {
   margin-right: 20px;
   width: 25px;
 }
 
-.section3 .container .box2 .item2 .exp div {
+.container .box2 .item2 .exp div {
   margin-bottom: 10px;
 }
 
-.section3 .container .box2 .item2 .exp div h3 {
+.container .box2 .item2 .exp div h3 {
   font-size: 13px;
   margin-left: 30px;
   color: var(--text-color2-m5);
 }
 
-.section3 .container .box2 .item2 .exp div span {
+.container .box2 .item2 .exp div span {
   font-size: 10px;
   color: var(--text-color-m5);
   margin-left: 30px;
   display: block;
 }
 
-.section3 .container .box2 .item2 .exp div p {
+.container .box2 .item2 .exp div p {
   font-size: 11px;
   color: var(--text-color-m5);
   margin-left: 30px;
@@ -349,11 +355,11 @@ body {
   padding-right: 20px;
 }
 
-.section3 .container .box2 .item2 .comp {
+.container .box2 .item2 .comp {
   margin-top: 20px;
 }
 
-.section3 .container .box2 .item2 .comp h2 {
+.container .box2 .item2 .comp h2 {
   font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
@@ -363,32 +369,33 @@ body {
   color: var(--text-color-m5);
 }
 
-.section3 .container .box2 .item2 .comp h2 img {
+.container .box2 .item2 .comp h2 img {
   margin-right: 20px;
   width: 25px;
 }
 
-.section3 .container .box2 .item2 .comp ul {
+.container .box2 .item2 .comp ul {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding: 5px 20px 5px 20px;
 }
 
-.section3 .container .box2 .item2 .comp ul li {
+.container .box2 .item2 .comp ul li {
   padding: 3px 7px;
-  background-color: #c3c1c1;
+  background-color: var(--item-bg-m5);
   font-size: 10px;
   margin: 7px 10px;
   border-radius: 5px;
   list-style: none;
+  color: var(--text-color-m5);
 }
 
-.section3 .container .box2 .item2 .outils {
+.container .box2 .item2 .outils {
   margin-top: 20px;
 }
 
-.section3 .container .box2 .item2 .outils h2 {
+.container .box2 .item2 .outils h2 {
   font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
@@ -398,19 +405,19 @@ body {
   color: var(--text-color-m5);
 }
 
-.section3 .container .box2 .item2 .outils h2 img {
+.container .box2 .item2 .outils h2 img {
   margin-right: 20px;
   width: 25px;
 }
 
-.section3 .container .box2 .item2 .outils ul {
+.container .box2 .item2 .outils ul {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding: 5px 20px 5px 20px;
 }
 
-.section3 .container .box2 .item2 .outils ul li {
+.container .box2 .item2 .outils ul li {
   list-style: square;
   margin: 7px 10px;
   color: var(--text-color-m5);
@@ -514,6 +521,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
+  color: var(--text-color2-m5);
 }
 
 #cv-content .box2 .item1 .box h2 img {
@@ -526,6 +534,7 @@ body {
   padding: 0px 30px;
   width: 100%;
   text-align: justify;
+  color: var(--text-color-m5);
 }
 
 #cv-content .box2 .item1 .exp {
@@ -539,6 +548,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
+  color: var(--text-color2-m5);
 }
 
 #cv-content .box2 .item1 .exp h2 img {
@@ -553,12 +563,12 @@ body {
 #cv-content .box2 .item1 .exp div h3 {
   font-size: 14px;
   margin-left: 30px;
-  color: #434343;
+  color: var(--text-color2-m5);
 }
 
 #cv-content .box2 .item1 .exp div span {
   font-size: 10px;
-  color: #a3a3a3;
+  color: var(--light-text-m5);
   margin-left: 30px;
   display: block;
 }
@@ -567,6 +577,7 @@ body {
   font-size: 12px;
   padding: 5px 30px 5px 30px;
   text-align: justify;
+  color: var(--text-color-m5);
 }
 
 #cv-content .box2 .item2 {
@@ -646,11 +657,12 @@ body {
 
 #cv-content .box2 .item2 .comp ul li {
   padding: 3px 7px;
-  background-color: #c3c1c1;
+  background-color: var(--item-bg-m5);
   font-size: 10px;
   margin: 7px 10px;
   border-radius: 5px;
   list-style: none;
+  color: var(--text-color-m5);
 }
 
 #cv-content .box2 .item2 .outils {
@@ -1087,4 +1099,142 @@ body {
     margin: 3px 15px;
     font-size: 6px;
   }
+}
+
+.container .box2 .item1 h2 {
+  color: var(--text-color2-m5);
+}
+
+#cv-content .box2 .item1 h2 {
+  color: var(--text-color2-m5);
+}
+
+/* Styles génériques pour tous les textes */
+.container h1,
+.container h2,
+.container h3,
+.container h4 {
+  color: var(--text-color2-m5);
+}
+
+.container p,
+.container span,
+.container strong {
+  color: var(--text-color-m5);
+}
+
+/* Exceptions pour le fond coloré */
+.container .box1 .item1 h1,
+.container .box1 .item1 h2,
+.container .box1 .item1 h3,
+.container .box1 .item1 h4,
+.container .box1 .item1 p,
+.container .box1 .item1 span,
+.container .box1 .item1 strong,
+.container .box2 .item2 h1,
+.container .box2 .item2 h2,
+.container .box2 .item2 h3,
+.container .box2 .item2 h4,
+.container .box2 .item2 p,
+.container .box2 .item2 span,
+.container .box2 .item2 strong {
+  color: var(--text-color-m5);
+}
+
+/* Mêmes règles pour le contenu PDF */
+#cv-content h1,
+#cv-content h2,
+#cv-content h3,
+#cv-content h4 {
+  color: var(--text-color2-m5);
+}
+
+#cv-content p,
+#cv-content span,
+#cv-content strong {
+  color: var(--text-color-m5);
+}
+
+/* Exceptions pour le fond coloré dans le PDF */
+#cv-content .box1 .item1 h1,
+#cv-content .box1 .item1 h2,
+#cv-content .box1 .item1 h3,
+#cv-content .box1 .item1 h4,
+#cv-content .box1 .item1 p,
+#cv-content .box1 .item1 span,
+#cv-content .box1 .item1 strong,
+#cv-content .box2 .item2 h1,
+#cv-content .box2 .item2 h2,
+#cv-content .box2 .item2 h3,
+#cv-content .box2 .item2 h4,
+#cv-content .box2 .item2 p,
+#cv-content .box2 .item2 span,
+#cv-content .box2 .item2 strong {
+  color: var(--text-color-m5);
+}
+
+/* Règles globales pour toutes les couleurs de texte */
+.container p,
+.container li,
+.container span,
+.container a,
+.container em,
+.container strong,
+.container div,
+#cv-content p,
+#cv-content li,
+#cv-content span,
+#cv-content a,
+#cv-content em,
+#cv-content strong,
+#cv-content div {
+  color: var(--text-color-m5);
+}
+
+/* Règle pour tous les titres */
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6,
+#cv-content h1,
+#cv-content h2,
+#cv-content h3,
+#cv-content h4,
+#cv-content h5,
+#cv-content h6 {
+  color: var(--text-color2-m5);
+}
+
+/* Exception pour les éléments sur fond coloré */
+.container .box1 .item1 *,
+.container .box2 .item2 *,
+#cv-content .box1 .item1 *,
+#cv-content .box2 .item2 * {
+  color: var(--text-color-m5) !important;
+}
+
+/* Règle spécifique pour le contenu de la colonne gauche sur fond blanc */
+.container .box2 .item1 p,
+.container .box2 .item1 span,
+.container .box2 .item1 h4,
+.container .box2 .item1 li,
+.container .box2 .item1 strong,
+#cv-content .box2 .item1 p,
+#cv-content .box2 .item1 span,
+#cv-content .box2 .item1 h4,
+#cv-content .box2 .item1 li,
+#cv-content .box2 .item1 strong {
+  color: #333333 !important; /* Couleur foncée pour le texte sur fond blanc */
+}
+
+/* Styles pour les titres dans la colonne gauche */
+.container .box2 .item1 h2,
+.container .box2 .item1 h3,
+#cv-content .box2 .item1 h2,
+#cv-content .box2 .item1 h3 {
+  color: var(
+    --text-color2-m5
+  ) !important; /* Couleur d'accentuation pour les titres */
 }
