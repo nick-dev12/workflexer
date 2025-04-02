@@ -28,56 +28,57 @@ if (isset($_GET['offres_id'])) {
 
 if (isset($_SESSION['users_id'])) {
 
-    if (isset($_POST['postuler'])) {
-        $entreprise_id = $offre_id = $users_id = $nom = $maile = $phone = $competances = $statut = $profession = '';
+    $getPostulationUsers = getPostulationUsers($db, $_SESSION['users_id']);
+}
 
-        $offre_id = $_GET['offres_id'];
+if (isset($_POST['postuler'])) {
+    $entreprise_id = $offre_id = $users_id = $nom = $maile = $phone = $competances = $statut = $profession = '';
 
-        $Offres = getOffres($db, $offre_id);
+    $offre_id = $_GET['offres_id'];
 
-        $poste = $Offres['poste'];
+    $Offres = getOffres($db, $offre_id);
 
-        $categorie = $Offres['categorie'];
+    $poste = $Offres['poste'];
 
-        $entreprise_id = $Offres['entreprise_id'];
+    $categorie = $Offres['categorie'];
 
-        $users_id = $_POST['id_users'];
+    $entreprise_id = $Offres['entreprise_id'];
 
-        $nom = $_POST['nom_users'];
+    $users_id = $_POST['id_users'];
 
-        $maile = $_POST['mail_users'];
+    $nom = $_POST['nom_users'];
 
-        $phone = $_POST['phone_users'];
+    $maile = $_POST['mail_users'];
 
-        $competences = $_POST['competence_users'];
+    $phone = $_POST['phone_users'];
 
-        $profession = $_POST['profession_users'];
+    $competences = $_POST['competence_users'];
 
-        $images = $_POST['images_users'];
+    $profession = $_POST['profession_users'];
 
-        // Vérifier la correspondance entre le profil du candidat et l'offre
-        $matchResult = checkProfileJobMatch($db, $users_id, $offre_id);
+    $images = $_POST['images_users'];
 
-        // Vérifier si le niveau d'étude et d'expérience est suffisant
-        if (!$matchResult['niveauEtudeMatch'] || !$matchResult['niveauExperienceMatch']) {
-            $_SESSION['error_message'] = 'Vous devez avoir au moins ' . $Offres['n_etudes'] . ' années d\'études et ' . $Offres['n_experience'] . ' années d\'expérience pour postuler';
-            header('Location: voir_offre.php?offres_id=' . $offre_id);
-            exit();
-        }
+    // Vérifier la correspondance entre le profil du candidat et l'offre
+    $matchResult = checkProfileJobMatch($db, $users_id, $offre_id);
 
-        // Si tout est OK, envoyer la candidature
-        if (notification_postulation($db, $entreprise_id, $users_id)) {
-            // Notification envoyée
-        }
-
-        if (postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $statut, $images, $categorie)) {
-            $_SESSION['success_message'] = 'Postulation réussie !';
-            header('Location: ../page/user_profil.php');
-            exit();
-        }
+    // Vérifier si le niveau d'étude et d'expérience est suffisant
+    if (!$matchResult['niveauEtudeMatch'] || !$matchResult['niveauExperienceMatch']) {
+        $_SESSION['error_message'] = 'Vous devez avoir au moins ' . $Offres['n_etudes'] . ' années d\'études et ' . $Offres['n_experience'] . ' années d\'expérience pour postuler';
+        header('Location: voir_offre.php?offres_id=' . $offre_id);
+        exit();
     }
 
-    $getPostulationUsers = getPostulationUsers($db, $_SESSION['users_id']);
+    // Si tout est OK, envoyer la candidature
+    if (notification_postulation($db, $entreprise_id, $users_id, $offre_id, $poste)) {
+        error_log("Notification envoyée avec succès pour la candidature de l'utilisateur $users_id à l'offre $offre_id");
+        // Notification envoyée
+    }
+
+    if (postCandidature($db, $entreprise_id, $poste, $offre_id, $users_id, $nom, $maile, $phone, $competences, $profession, $statut, $images, $categorie)) {
+        $_SESSION['success_message'] = 'Postulation réussie !';
+        header('Location: ../page/user_profil.php');
+        exit();
+    }
 }
 
 // Si l'utilisateur consulte une offre, calculer le taux de correspondance

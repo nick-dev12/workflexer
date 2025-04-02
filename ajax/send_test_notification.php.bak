@@ -1,0 +1,103 @@
+<?php
+session_start();
+require_once(__DIR__ . '/../conn/conn.php');
+require_once(__DIR__ . '/../model/fcm_tokens.php');
+require_once(__DIR__ . '/../model/fcm_notification.php');
+require_once(__DIR__ . '/../model/fcm_logs.php');
+
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// Set headers
+header('Content-Type: application/json');
+
+// Vérifier que l'utilisateur est connecté
+if (!isset($_SESSION['compte_entreprise'])) {
+    echo json_encode(['success' => false, 'message' => 'Vous devez être connecté en tant qu\'entreprise']);
+    exit;
+}
+
+// Get enterprise ID from session
+$entreprise_id = $_SESSION['compte_entreprise'];
+error_log("Entreprise ID: " . $entreprise_id);
+
+// Get token from database
+$token = getEnterpriseToken($db, $entreprise_id);
+
+if (!$token) {
+    echo json_encode(['success' => false, 'message' => 'Token FCM non trouvé. Veuillez activer les notifications d\'abord.']);
+    exit;
+}
+
+error_log("Token FCM trouvé pour l'entreprise: " . substr($token, 0, 20) . "...");
+
+// Create test notification
+$notification = [
+    'title' => 'Test de notification 🔔',
+    'body' => 'Ceci est une notification de test de WorkFlexer. Si vous voyez ceci, vos notifications fonctionnent correctement!'
+];
+
+// Additional data
+$data = [
+    'type' => 'test',
+    'timestamp' => (string) time(),
+    'entreprise_id' => (string) $entreprise_id
+];
+
+try {
+    // Log notification attempt
+    $log_id = logNotificationAttempt($db, $entreprise_id, 'test_user', '', '', 'test', $notification);
+    error_log("Tentative de notification test enregistrée avec l'ID $log_id");
+
+    // Send notification
+    $result = sendFCMNotification($db, $entreprise_id, $notification, $data);
+
+    // Determine status based on result
+    $status = 'error';
+    $error_message = null;
+
+    if (is_array($result) && isset($result['name'])) {
+        $status = 'success';
+        error_log("Notification FCM de test envoyée avec succès: " . json_encode($result));
+
+        // Return success
+        echo json_encode([
+            'success' => true,
+            'message' => 'Notification envoyée avec succès',
+            'details' => $result
+        ]);
+    } else {
+        // Extract error message
+        if (is_array($result) && isset($result['error']) && $result['error'] === true) {
+            $error_message = json_encode($result);
+            error_log("Erreur d'envoi FCM: " . $error_message);
+        } else {
+            $error_message = is_string($result) ? $result : json_encode($result);
+            error_log("Échec d'envoi de la notification FCM: " . $error_message);
+        }
+
+        // Return error
+        echo json_encode([
+            'success' => false,
+            'message' => 'Erreur lors de l\'envoi de la notification',
+            'details' => $error_message
+        ]);
+    }
+
+    // Update log with result
+    updateNotificationLog($db, $log_id, $result, $status, $error_message);
+
+} catch (Exception $e) {
+    error_log("Exception dans send_test_notification.php: " . $e->getMessage());
+
+    // If log_id exists, update the log with error
+    if (isset($log_id)) {
+        updateNotificationLog($db, $log_id, null, 'error', $e->getMessage());
+    }
+
+    echo json_encode([
+        'success' => false,
+        'message' => 'Exception lors de l\'envoi: ' . $e->getMessage()
+    ]);
+}

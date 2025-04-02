@@ -167,14 +167,37 @@ function getPostulation_categorie($db, $entreprise_id, $categorie)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function notification_postulation($db, $entreprise_id, $users_id)
+function notification_postulation($db, $entreprise_id, $users_id, $offre_id = null, $poste = null)
 {
-    $sql = "INSERT INTO notification_postulation (entreprise_id,users_id)
-    VALUES (:entreprise_id,:users_id)";
+    // Insert notification record in the database
+    $sql = "INSERT INTO notification_postulation (entreprise_id, users_id)
+    VALUES (:entreprise_id, :users_id)";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(":entreprise_id", $entreprise_id, );
-    $stmt->bindParam(":users_id", $users_id, );
-    $stmt->execute();
+    $stmt->bindParam(":entreprise_id", $entreprise_id);
+    $stmt->bindParam(":users_id", $users_id);
+    $result = $stmt->execute();
+
+    // If FCM notification module is available, send push notification
+    if (file_exists(__DIR__ . '/fcm_notification.php')) {
+        require_once(__DIR__ . '/fcm_notification.php');
+
+        // Get job details if not provided
+        if (!$poste && $offre_id) {
+            $sql = "SELECT poste FROM offre_emploi WHERE id = :offre_id LIMIT 1";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(":offre_id", $offre_id);
+            $stmt->execute();
+            $offreDetails = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($offreDetails) {
+                $poste = $offreDetails['poste'];
+            }
+        }
+
+        // Send push notification
+        sendApplicationNotification($db, $entreprise_id, $users_id, $offre_id, $poste);
+    }
+
+    return $result;
 }
 
 

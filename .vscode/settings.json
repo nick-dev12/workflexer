@@ -26,4 +26,5 @@
     "workbench.editor.wrapTabs": true,
     "workbench.editor.highlightModifiedTabs": false,
     "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "git.ignoreLimitWarning": true,
 }

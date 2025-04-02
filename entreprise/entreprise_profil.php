@@ -18,6 +18,9 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Manifest pour PWA -->
+    <link rel="manifest" href="../manifest.json">
+
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -73,6 +76,57 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
     <!-- Bibliothèques pour l'exportation des données -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+
+    <!-- Firebase Messaging -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js"></script>
+
+    <!-- Custom Firebase initialization -->
+    <script src="../js/firebase-init.js"></script>
+
+    <!-- Firebase notification styles -->
+    <style>
+        #enable-notifications {
+            position: fixed;
+            right: 20px;
+            bottom: 150px;
+            z-index: 1000;
+            padding: 12px 18px;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        #enable-notifications:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+        }
+
+        #enable-notifications.notifications-enabled {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #enable-notifications.notifications-disabled {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #enable-notifications i {
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
@@ -151,6 +205,11 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
                         <i class="fas fa-chart-line"></i>
                         <span>Voir les statistiques détaillées</span>
                     </a>
+                    <a href="test_notifications.php" class="btn-view-stats"
+                        style="margin-left: 10px; background-color: #4CAF50;">
+                        <i class="fas fa-bell"></i>
+                        <span>Tester les notifications</span>
+                    </a>
                 </div>
             </div>
 
@@ -215,6 +274,12 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
 
         <!-- Conteneur pour le scanner de QR code -->
         <div id="qr-reader"></div>
+
+        <!-- Add notification button with a clear data-entreprise-id attribute -->
+        <button id="enable-notifications"
+            data-entreprise-id="<?php echo htmlspecialchars($_SESSION['compte_entreprise']); ?>">
+            <i class="fas fa-bell"></i> Activer les notifications
+        </button>
 
         <script>
 
