@@ -13,6 +13,16 @@ use Endroid\QrCode\Label;
 use Endroid\QrCode\Logo;
 use Endroid\QrCode\RoundBlockSizeMode;
 
+// Ajouter ce code après les inclusions de contrôleurs
+require_once(__DIR__ . '/../model/fcm_tokens_users.php');
+
+// Vérifier si l'utilisateur a déjà activé les notifications
+$hasNotificationsEnabled = false;
+if (isset($_SESSION['users_id'])) {
+    $token = getUserToken($db, $_SESSION['users_id']);
+    $hasNotificationsEnabled = !empty($token);
+}
+
 function generateQRCode($userId)
 {
     // Vérifier si l'ID utilisateur est défini
@@ -185,6 +195,7 @@ if (isset($_GET['id'])) {
 
 
     <script src="../js/html5Qrcode.js"></script>
+
 </head>
 
 <body>
@@ -417,6 +428,32 @@ if (isset($_GET['id'])) {
 
         <div class="container_box1">
             <div class="box1">
+                <div class="container-fluid mt-4" id="notifications-section">
+                    <div class="row">
+                        <div class="card-body">
+                            <p id="p">Activez les notifications push pour être informé en temps réel des mises à jour de
+                                vos
+                                candidatures (acceptation, refus, etc.)</p>
+                            <div class="mt-3">
+                                <?php if ($hasNotificationsEnabled): ?>
+                                    <button id="notification-button-user" class="btn btn-success" disabled>
+                                        <i class="fas fa-bell"></i> Notifications activées
+                                    </button>
+                                <?php else: ?>
+                                    <button id="notification-button-user" class="btn btn-primary">
+                                        <i class="fas fa-bell"></i> Activer les notifications
+                                    </button>
+                                <?php endif; ?>
+                            </div>
+                            <div id="notification-status" class="mt-3">
+                                <?php if ($hasNotificationsEnabled): ?>
+                                    <div class="alert alert-success">
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h2>A propos de moi ! <strong>
                         <?php echo $getVueProfil; ?><img src="../image/vue2.png" alt="">
                     </strong></h2>
@@ -544,10 +581,11 @@ if (isset($_GET['id'])) {
 
                 </script>
             </div>
+
+
+
+
         </div>
-
-
-
 
 
         <div class="container_box2">
@@ -1884,6 +1922,131 @@ if (isset($_GET['id'])) {
         });
     </script>
 
+
+    <!-- Supprimer la version existante de la carte de notifications à la fin du fichier -->
+
+    <!-- Ajouter ce script à la fin du fichier, avant la fermeture de la balise body -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const notificationButton = document.getElementById('notification-button-user');
+            const notificationStatus = document.getElementById('notification-status');
+
+            // Si l'utilisateur n'a pas encore activé les notifications
+            if (!notificationButton.disabled) {
+                // Vérifier si les notifications sont prises en charge
+                if (!('Notification' in window)) {
+                    notificationStatus.innerHTML = '<div class="alert alert-warning">Votre navigateur ne prend pas en charge les notifications.</div>';
+                    notificationButton.disabled = true;
+                    return;
+                }
+
+                // Vérifier si le service worker est pris en charge
+                if (!('serviceWorker' in navigator)) {
+                    notificationStatus.innerHTML = '<div class="alert alert-warning">Votre navigateur ne prend pas en charge les Service Workers, nécessaires pour les notifications.</div>';
+                    notificationButton.disabled = true;
+                    return;
+                }
+
+                // Configuration Firebase
+                const firebaseConfig = {
+                    apiKey: "AIzaSyBV9jAeyVG2RvKRr6l0d1mk6c_O_2hScGg",
+                    authDomain: "send-notification-257c0.firebaseapp.com",
+                    projectId: "send-notification-257c0",
+                    storageBucket: "send-notification-257c0.firebasestorage.app",
+                    messagingSenderId: "276851238884",
+                    appId: "1:276851238884:web:03262cc0ea23a80154c9f1",
+                    measurementId: "G-N4TGHGX008"
+                };
+
+                // Initialisation de Firebase
+                if (!window.firebase || !firebase.apps.length) {
+                    firebase.initializeApp(firebaseConfig);
+                }
+
+                const messaging = firebase.messaging();
+
+                // Gérer le clic sur le bouton d'activation des notifications
+                notificationButton.addEventListener('click', async function () {
+                    try {
+                        // Demander la permission pour les notifications
+                        const permission = await Notification.requestPermission();
+
+                        if (permission === 'granted') {
+                            notificationStatus.innerHTML = '<div class="alert alert-info">Obtention du token FCM...</div>';
+
+                            // Enregistrer le service worker
+                            const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
+                            messaging.useServiceWorker(registration);
+
+                            // Obtenir le token FCM
+                            const token = await messaging.getToken();
+
+                            if (token) {
+                                // Envoyer le token au serveur
+                                const response = await fetch('../ajax/save_fcm_token_user.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({
+                                        token: token,
+                                        device_info: navigator.userAgent
+                                    }),
+                                });
+
+                                const data = await response.json();
+
+                                if (data.success) {
+                                    notificationStatus.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Notifications activées avec succès! Vous recevrez des notifications lorsque le statut de vos candidatures changera.</div>';
+                                    notificationButton.innerHTML = '<i class="fas fa-bell"></i> Notifications activées';
+                                    notificationButton.classList.replace('btn-primary', 'btn-success');
+                                    notificationButton.disabled = true;
+                                } else {
+                                    throw new Error(data.message || 'Erreur lors de l\'enregistrement du token');
+                                }
+                            } else {
+                                throw new Error('Impossible d\'obtenir le token FCM');
+                            }
+                        } else {
+                            notificationStatus.innerHTML = '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Vous avez refusé les notifications. Veuillez les autoriser dans les paramètres de votre navigateur.</div>';
+                        }
+                    } catch (error) {
+                        console.error('Erreur:', error);
+                        notificationStatus.innerHTML = `<div class="alert alert-danger"><i class="fas fa-times-circle"></i> Erreur lors de l'activation des notifications: ${error.message}</div>`;
+                    }
+                });
+
+                // Écouteur pour les messages reçus en premier plan
+                messaging.onMessage((payload) => {
+                    console.log('Message reçu:', payload);
+
+                    // Limiter la taille du titre à 50 caractères
+                    let notificationTitle = payload.notification.title;
+                    if (notificationTitle && notificationTitle.length > 50) {
+                        notificationTitle = notificationTitle.substring(0, 47) + '...';
+                    }
+
+                    const notificationOptions = {
+                        body: payload.notification.body,
+                        icon: '/image/logo 2.png',
+                        data: { url: '/page/user_profil.php' } // URL pour la redirection
+                    };
+
+                    // Créer et afficher la notification
+                    const notification = new Notification(notificationTitle, notificationOptions);
+
+                    // Gérer le clic sur la notification
+                    notification.onclick = function () {
+                        window.focus();
+                        window.location.href = '/page/user_profil.php'; // Redirection vers le profil utilisateur
+                        notification.close();
+                    };
+                });
+            }
+        });
+    </script>
 
 </body>
 

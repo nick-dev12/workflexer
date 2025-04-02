@@ -18,6 +18,7 @@ include_once('../controller/controller_postulation.php');
 include_once('../controller/controller_accepte_candidats.php');
 include_once('../controller/controller_competence_users.php');
 include_once('../controller/controller_niveau_etude_experience.php');
+include_once('../model/fcm_notification.php');
 
 // Récupérer les informations du poste
 $poste = $_GET['poste'];
@@ -47,6 +48,14 @@ $acceptedCount = count($getALLpostulationAccepter);
 $rejectedCount = count($getALLpostulationRejeter);
 $countAllposte = $untreatedCount + $acceptedCount + $rejectedCount;
 
+// Récupérer le nom de l'entreprise pour les notifications
+$entrepriseQuery = "SELECT entreprise FROM compte_entreprise WHERE id = :entreprise_id";
+$stmtEntreprise = $db->prepare($entrepriseQuery);
+$stmtEntreprise->bindValue(':entreprise_id', $_SESSION['compte_entreprise'], PDO::PARAM_STR);
+$stmtEntreprise->execute();
+$entrepriseInfo = $stmtEntreprise->fetch(PDO::FETCH_ASSOC);
+$nomEntreprise = $entrepriseInfo ? $entrepriseInfo['entreprise'] : 'Entreprise';
+
 // Traitement des actions (accepter/refuser)
 if (isset($_GET['accepter']) && isset($_GET['offrees_id'])) {
     $accepter = $_GET['accepter'];
@@ -55,7 +64,33 @@ if (isset($_GET['accepter']) && isset($_GET['offrees_id'])) {
     $accepte = accepteCandidats($db, $accepter, $offre_id);
 
     if ($accepte) {
-        $_SESSION['success_message'] = "Candidature acceptée avec succès";
+        // Récupérer les informations du candidat pour la notification
+        $candidatQuery = "SELECT users_id FROM postulation WHERE poste_id = :poste_id";
+        $stmtCandidat = $db->prepare($candidatQuery);
+        $stmtCandidat->bindValue(':poste_id', $accepter, PDO::PARAM_STR);
+        $stmtCandidat->execute();
+        $candidatInfo = $stmtCandidat->fetch(PDO::FETCH_ASSOC);
+
+        if ($candidatInfo) {
+            // Envoyer notification FCM au candidat
+            $fcmResult = sendApplicationStatusNotification(
+                $db,
+                $candidatInfo['users_id'],
+                'accepter',
+                $poste,
+                $nomEntreprise
+            );
+
+            if ($fcmResult) {
+                error_log("Notification FCM envoyée avec succès pour l'utilisateur " . $candidatInfo['users_id'] . " (Candidature acceptée)");
+                $_SESSION['success_message'] = "Candidature acceptée avec succès. Notification envoyée au candidat.";
+            } else {
+                error_log("Échec de l'envoi de notification FCM pour l'utilisateur " . $candidatInfo['users_id'] . " (Candidature acceptée)");
+                $_SESSION['success_message'] = "Candidature acceptée avec succès.";
+            }
+        } else {
+            $_SESSION['success_message'] = "Candidature acceptée avec succès.";
+        }
     } else {
         $_SESSION['error_message'] = "Erreur lors de l'acceptation de la candidature";
     }
@@ -71,7 +106,33 @@ if (isset($_GET['recaler']) && isset($_GET['offrees_id'])) {
     $recale = recalerCandidats($db, $recaler, $offre_id);
 
     if ($recale) {
-        $_SESSION['success_message'] = "Candidature refusée avec succès";
+        // Récupérer les informations du candidat pour la notification
+        $candidatQuery = "SELECT users_id FROM postulation WHERE poste_id = :poste_id";
+        $stmtCandidat = $db->prepare($candidatQuery);
+        $stmtCandidat->bindValue(':poste_id', $recaler, PDO::PARAM_STR);
+        $stmtCandidat->execute();
+        $candidatInfo = $stmtCandidat->fetch(PDO::FETCH_ASSOC);
+
+        if ($candidatInfo) {
+            // Envoyer notification FCM au candidat
+            $fcmResult = sendApplicationStatusNotification(
+                $db,
+                $candidatInfo['users_id'],
+                'recaler',
+                $poste,
+                $nomEntreprise
+            );
+
+            if ($fcmResult) {
+                error_log("Notification FCM envoyée avec succès pour l'utilisateur " . $candidatInfo['users_id'] . " (Candidature refusée)");
+                $_SESSION['success_message'] = "Candidature refusée avec succès. Notification envoyée au candidat.";
+            } else {
+                error_log("Échec de l'envoi de notification FCM pour l'utilisateur " . $candidatInfo['users_id'] . " (Candidature refusée)");
+                $_SESSION['success_message'] = "Candidature refusée avec succès.";
+            }
+        } else {
+            $_SESSION['success_message'] = "Candidature refusée avec succès.";
+        }
     } else {
         $_SESSION['error_message'] = "Erreur lors du refus de la candidature";
     }

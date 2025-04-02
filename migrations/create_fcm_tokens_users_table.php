@@ -1,0 +1,114 @@
+<?php
+// Enable error reporting
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+error_log("Starting FCM tokens users table migration");
+
+try {
+    require_once(__DIR__ . '/../conn/conn.php');
+
+    // Check if we have a valid database connection
+    if (!isset($db) || !($db instanceof PDO)) {
+        throw new Exception("Database connection not available");
+    }
+
+    error_log("Database connection successful");
+
+    // Check if table already exists
+    $stmt = $db->query("SHOW TABLES LIKE 'fcm_tokens_users'");
+    $tableExists = $stmt->rowCount() > 0;
+
+    error_log("FCM tokens users table exists: " . ($tableExists ? 'yes' : 'no'));
+
+    if (!$tableExists) {
+        // Table doesn't exist, create it
+        $sql = "CREATE TABLE fcm_tokens_users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            users_id VARCHAR(255) NOT NULL,
+            token TEXT NOT NULL,
+            device_info VARCHAR(255),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            UNIQUE KEY unique_user (users_id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+        $result = $db->exec($sql);
+        error_log("FCM tokens users table creation result: " . ($result !== false ? 'success' : 'failed'));
+        echo "FCM tokens users table created successfully!";
+    } else {
+        // Verify table structure
+        $sql = "DESCRIBE fcm_tokens_users";
+        $result = $db->query($sql);
+        $columns = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        $expectedColumns = [
+            'id',
+            'users_id',
+            'token',
+            'device_info',
+            'created_at',
+            'updated_at'
+        ];
+
+        $missingColumns = [];
+        $foundColumns = array_column($columns, 'Field');
+
+        foreach ($expectedColumns as $column) {
+            if (!in_array($column, $foundColumns)) {
+                $missingColumns[] = $column;
+            }
+        }
+
+        if (!empty($missingColumns)) {
+            error_log("FCM tokens users table missing columns: " . implode(', ', $missingColumns));
+            echo "FCM tokens users table exists but is missing columns: " . implode(', ', $missingColumns);
+
+            // Add missing columns
+            foreach ($missingColumns as $column) {
+                switch ($column) {
+                    case 'id':
+                        $db->exec("ALTER TABLE fcm_tokens_users ADD id INT AUTO_INCREMENT PRIMARY KEY");
+                        break;
+                    case 'users_id':
+                        $db->exec("ALTER TABLE fcm_tokens_users ADD users_id VARCHAR(255) NOT NULL");
+                        break;
+                    case 'token':
+                        $db->exec("ALTER TABLE fcm_tokens_users ADD token TEXT NOT NULL");
+                        break;
+                    case 'device_info':
+                        $db->exec("ALTER TABLE fcm_tokens_users ADD device_info VARCHAR(255)");
+                        break;
+                    case 'created_at':
+                        $db->exec("ALTER TABLE fcm_tokens_users ADD created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
+                        break;
+                    case 'updated_at':
+                        $db->exec("ALTER TABLE fcm_tokens_users ADD updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+                        break;
+                }
+            }
+
+            // Check for unique key
+            $uniqueKeyMissing = true;
+            foreach ($columns as $column) {
+                if ($column['Field'] === 'users_id' && $column['Key'] === 'UNI') {
+                    $uniqueKeyMissing = false;
+                    break;
+                }
+            }
+
+            if ($uniqueKeyMissing) {
+                $db->exec("ALTER TABLE fcm_tokens_users ADD UNIQUE KEY unique_user (users_id)");
+                error_log("Added unique key for users_id");
+            }
+
+            echo " - Missing columns added.";
+        } else {
+            echo "FCM tokens users table already exists and has the correct structure.";
+        }
+    }
+} catch (Exception $e) {
+    $errorMsg = "Error in FCM tokens users migration: " . $e->getMessage();
+    error_log($errorMsg);
+    echo $errorMsg;
+}

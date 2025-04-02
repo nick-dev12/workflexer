@@ -2,6 +2,7 @@
 require_once(__DIR__ . '/../model/fcm_tokens.php');
 require_once(__DIR__ . '/../vendor/autoload.php');
 require_once(__DIR__ . '/../model/notification_logs.php');
+require_once(__DIR__ . '/../model/fcm_tokens_users.php');
 
 use Google\Client;
 
@@ -370,4 +371,189 @@ function getUserInfo($db, $users_id)
     $stmt->execute();
 
     return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+/**
+ * Send a notification to a user/candidate
+ * @param PDO $db Database connection
+ * @param string $users_id User ID
+ * @param array $notification Notification title and body
+ * @param array $data Additional data to send
+ * @return bool Success status
+ */
+function sendUserFCMNotification($db, $users_id, $notification, $data = [])
+{
+    error_log("Sending FCM notification to user $users_id");
+
+    // Get user token
+    $token = getUserToken($db, $users_id);
+
+    if (!$token) {
+        $error_message = "No FCM token found for user $users_id";
+        error_log($error_message);
+
+        // Log notification attempt with error
+        logNotification(
+            $db,
+            '', // No enterprise ID for user notifications
+            $users_id,
+            'status_update',
+            $notification,
+            $data,
+            'failed',
+            null,
+            null,
+            null,
+            $error_message
+        );
+
+        return false;
+    }
+
+    error_log("FCM token found for user $users_id");
+
+    // Get access token for FCM
+    $accessToken = getAccessTokenWithCurl();
+    if (!$accessToken) {
+        $error_message = "Failed to get access token for FCM notification";
+        error_log($error_message);
+
+        // Log notification attempt with error
+        logNotification(
+            $db,
+            '',
+            $users_id,
+            'status_update',
+            $notification,
+            $data,
+            'failed',
+            null,
+            null,
+            $token,
+            $error_message
+        );
+
+        return false;
+    }
+
+    // Limiter la taille du titre si nécessaire
+    if (isset($notification['title']) && strlen($notification['title']) > 50) {
+        $notification['title'] = substr($notification['title'], 0, 47) . '...';
+    }
+
+    // Ensure all data values are strings
+    foreach ($data as $key => $value) {
+        $data[$key] = (string) $value;
+    }
+
+    // Ajouter le type de notification pour le service worker
+    $data['notification_type'] = 'candidat';
+
+    // Prepare FCM message
+    $message = [
+        'message' => [
+            'token' => $token,
+            'notification' => $notification,
+            'data' => $data
+        ]
+    ];
+
+    // API endpoint
+    $url = 'https://fcm.googleapis.com/v1/projects/send-notification-257c0/messages:send';
+
+    // Initialize cURL
+    $ch = curl_init($url);
+
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $accessToken,
+        'Content-Type: application/json'
+    ]);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($message));
+
+    // Log detailed request info for debugging
+    error_log("FCM User Request URL: $url");
+    error_log("FCM User Request Headers: Bearer " . substr($accessToken, 0, 15) . "...");
+    error_log("FCM User Request Body: " . json_encode($message));
+
+    // Execute request
+    $response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curl_error = curl_error($ch);
+
+    error_log("FCM User Response Code: $http_code");
+    error_log("FCM User Response: $response");
+    if ($curl_error) {
+        error_log("FCM User cURL Error: $curl_error");
+    }
+
+    // Close cURL
+    curl_close($ch);
+
+    // Process response
+    $success = ($http_code >= 200 && $http_code < 300);
+    $status = $success ? 'sent' : 'failed';
+    $error_message = !$success ? ($curl_error ?: $response) : null;
+
+    // Log the notification
+    logNotification(
+        $db,
+        '',
+        $users_id,
+        'status_update',
+        $notification,
+        $data,
+        $status,
+        $http_code,
+        $response,
+        $token,
+        $error_message
+    );
+
+    return $success;
+}
+
+/**
+ * Send notification when application status changes (accepted/rejected)
+ * @param PDO $db Database connection
+ * @param string $users_id User ID
+ * @param string $statut Status (accepter/recaler)
+ * @param string $poste Job title
+ * @param string $entreprise Enterprise name
+ * @return bool Success status
+ */
+function sendApplicationStatusNotification($db, $users_id, $statut, $poste, $entreprise = '')
+{
+    // Limiter la taille du titre du poste pour éviter les titres trop longs
+    $poste_court = (strlen($poste) > 30) ? substr($poste, 0, 27) . '...' : $poste;
+
+    // Create notification based on status
+    if ($statut == 'accepter') {
+        $notification = [
+            'title' => 'Bonne nouvelle!',
+            'body' => "Votre candidature pour le poste \"$poste_court\" a été acceptée!"
+        ];
+    } else {
+        $notification = [
+            'title' => 'Mise à jour candidature',
+            'body' => "Votre candidature pour le poste \"$poste_court\" n'a pas été retenue."
+        ];
+    }
+
+    // Add additional data
+    $data = [
+        'type' => 'application_status',
+        'statut' => $statut,
+        'poste' => $poste,
+        'entreprise' => $entreprise,
+        'notification_type' => 'candidat',
+        'url' => '/page/user_profil.php'
+    ];
+
+    // Send notification
+    return sendUserFCMNotification($db, $users_id, $notification, $data);
 }

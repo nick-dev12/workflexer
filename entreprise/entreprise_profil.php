@@ -205,11 +205,6 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
                         <i class="fas fa-chart-line"></i>
                         <span>Voir les statistiques détaillées</span>
                     </a>
-                    <a href="test_notifications.php" class="btn-view-stats"
-                        style="margin-left: 10px; background-color: #4CAF50;">
-                        <i class="fas fa-bell"></i>
-                        <span>Tester les notifications</span>
-                    </a>
                 </div>
             </div>
 

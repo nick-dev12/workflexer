@@ -477,6 +477,61 @@ textarea {
   }
 }
 
+.section3 .card-body {
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.section3 .card-body .mt-3 {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section3 .card-body #p {
+  font-size: 11px;
+  color: #00c3ff;
+  text-align: center;
+}
+
+.section3 .card-body #notification-button-user {
+  padding: 8px 20px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #c0c0c0;
+  cursor: pointer;
+  font-size: 12px;
+  outline: none;
+  transition: all 0.4s;
+  margin: 5px auto;
+}
+.section3 .card-body #notification-button-user:hover {
+  background-color: #919191;
+  color: #000000;
+  border: 1px solid #c0c0c0;
+}
+
+.section3 .card-body .btn-success {
+  background-color: #21c401;
+  color: #ffffff;
+  border: 1px solid #c0c0c0;
+  transition: all 0.4s;
+}
+.section3 .card-body .btn-success:hover {
+  background-color: #202020;
+  color: #ffffff;
+  border: 1px solid #c0c0c0;
+}
+
+.section3 .card-body .btn-primary {
+  background-color: #c01600;
+  color: #ffffff;
+  border: 1px solid #c0c0c0;
+  transition: all 0.4s;
+}
+
 .section3 .container_box0 {
   width: 80%;
   padding: 10px;

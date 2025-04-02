@@ -1,5 +1,5 @@
 // Version définie pour forcer la mise à jour du service worker
-const VERSION = '1.0.1';
+const VERSION = '1.0.2';
 console.log(`Firebase Messaging Service Worker Version ${VERSION}`);
 
 // Firebase app config from the FCM console
@@ -27,18 +27,22 @@ console.log('Firebase Messaging SW initialized!');
 messaging.onBackgroundMessage((payload) => {
     console.log('[firebase-messaging-sw.js] Received background message ', payload);
 
-    // Customize notification here
-    const notificationTitle = payload.notification.title;
+    // Limiter la taille du titre à 50 caractères
+    let notificationTitle = payload.notification.title;
+    if (notificationTitle && notificationTitle.length > 50) {
+        notificationTitle = notificationTitle.substring(0, 47) + '...';
+    }
+
     const notificationOptions = {
         body: payload.notification.body,
         icon: '/image/logo.png',
         badge: '/image/logo.png',
-        data: payload.data,
+        data: payload.data || {},
         // Add actions if needed
         actions: [
             {
                 action: 'view',
-                title: 'Voir candidature'
+                title: 'Voir détails'
             }
         ]
     };
@@ -58,10 +62,16 @@ self.addEventListener('notificationclick', (event) => {
     // Define page URL to open on notification click
     let pageUrl = '/';
 
-    // If we have candidate data, direct to the candidate profile
-    if (data && data.candidat_id) {
+    // Si c'est une notification pour un utilisateur (candidat), rediriger vers user_profil.php
+    if (data && data.notification_type === 'candidat') {
+        pageUrl = '/page/user_profil.php';
+    }
+    // Si c'est une notification pour une entreprise concernant un candidat
+    else if (data && data.candidat_id) {
         pageUrl = '/entreprise/candidature.php?id=' + data.candidat_id;
-    } else if (data && data.offre_id) {
+    }
+    // Si c'est une notification concernant une offre
+    else if (data && data.offre_id) {
         pageUrl = '/entreprise/offre.php?offre_id=' + data.offre_id;
     }
 

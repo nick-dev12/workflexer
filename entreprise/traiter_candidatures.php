@@ -12,6 +12,7 @@ include_once('../entreprise/app/model/email_templates.php');
 include_once('../model/postulation.php');
 require_once('../model/accepte_candidats.php');
 include_once('../conn/conn.php');
+require_once('../model/fcm_notification.php');
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_POST['selected_candidates'])) {
@@ -30,6 +31,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
 
     $successCount = 0;
     $errorCount = 0;
+    $fcmSuccessCount = 0;
+
+    // Récupérer le nom de l'entreprise
+    $entrepriseQuery = "SELECT entreprise FROM compte_entreprise WHERE id = :entreprise_id";
+    $stmtEntreprise = $db->prepare($entrepriseQuery);
+    $stmtEntreprise->bindValue(':entreprise_id', $_SESSION['compte_entreprise'], PDO::PARAM_STR);
+    $stmtEntreprise->execute();
+    $entrepriseInfo = $stmtEntreprise->fetch(PDO::FETCH_ASSOC);
+    $nomEntreprise = $entrepriseInfo ? $entrepriseInfo['entreprise'] : 'Entreprise';
 
     // Traiter chaque candidat
     foreach ($selectedCandidates as $candidate) {
@@ -58,6 +68,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
                 // Ajouter une notification de suivi si l'utilisateur et l'entreprise sont définis
                 if (isset($postulation['entreprise_id']) && isset($postulation['users_id'])) {
                     notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut);
+
+                    // Envoyer notification FCM au candidat accepté
+                    $fcmResult = sendApplicationStatusNotification(
+                        $db,
+                        $postulation['users_id'],
+                        'accepter',
+                        $poste,
+                        $nomEntreprise
+                    );
+
+                    if ($fcmResult) {
+                        $fcmSuccessCount++;
+                        error_log("Notification FCM envoyée avec succès pour l'utilisateur " . $postulation['users_id'] . " (Candidature acceptée)");
+                    } else {
+                        error_log("Échec de l'envoi de notification FCM pour l'utilisateur " . $postulation['users_id'] . " (Candidature acceptée)");
+                    }
                 }
 
                 // Ajouter l'email à la file d'attente
@@ -83,6 +109,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
                 // Ajouter une notification de suivi si l'utilisateur et l'entreprise sont définis
                 if (isset($postulation['entreprise_id']) && isset($postulation['users_id'])) {
                     notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut);
+
+                    // Envoyer notification FCM au candidat refusé
+                    $fcmResult = sendApplicationStatusNotification(
+                        $db,
+                        $postulation['users_id'],
+                        'recaler',
+                        $poste,
+                        $nomEntreprise
+                    );
+
+                    if ($fcmResult) {
+                        $fcmSuccessCount++;
+                        error_log("Notification FCM envoyée avec succès pour l'utilisateur " . $postulation['users_id'] . " (Candidature refusée)");
+                    } else {
+                        error_log("Échec de l'envoi de notification FCM pour l'utilisateur " . $postulation['users_id'] . " (Candidature refusée)");
+                    }
                 }
 
                 // Ajouter l'email à la file d'attente
@@ -103,7 +145,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
     // Définir le message de succès ou d'erreur
     if ($successCount > 0) {
         $actionText = ($action === 'accepter') ? 'accepté' : 'refusé';
-        $_SESSION['success_message'] = "$successCount candidat(s) $actionText(s) avec succès. Les emails seront envoyés en arrière-plan.";
+        $_SESSION['success_message'] = "$successCount candidat(s) $actionText(s) avec succès. ";
+
+        if ($fcmSuccessCount > 0) {
+            $_SESSION['success_message'] .= "$fcmSuccessCount notification(s) push envoyée(s). ";
+        }
+
+        $_SESSION['success_message'] .= "Les emails seront envoyés en arrière-plan.";
     }
 
     if ($errorCount > 0) {

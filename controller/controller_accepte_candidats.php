@@ -1,5 +1,7 @@
 <?php
 require_once(__DIR__ . '/../model/accepte_candidats.php');
+require_once(__DIR__ . '/../model/fcm_notification.php');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -18,6 +20,19 @@ if (isset($_GET['accepter'])) {
     $nom = $postulation['nom'];
     $poste = $postulation['poste'];
 
+    // Récupération du nom de l'entreprise si disponible
+    $entreprise_name = '';
+    try {
+        $stmt = $db->prepare("SELECT entreprise FROM compte_entreprise WHERE id = :id LIMIT 1");
+        $stmt->bindParam(":id", $entreprise_id);
+        $stmt->execute();
+        $ent = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($ent) {
+            $entreprise_name = $ent['entreprise'];
+        }
+    } catch (Exception $e) {
+        error_log("Erreur lors de la récupération du nom de l'entreprise: " . $e->getMessage());
+    }
 
     // Créez l'instance PHPMailer
     $mail = new PHPMailer(true);
@@ -229,7 +244,9 @@ if (isset($_GET['accepter'])) {
         $mail->addAddress($destinataire);
         $mail->send();
 
-
+        // Envoyer notification push si le candidat a un token FCM
+        sendApplicationStatusNotification($db, $user_id, $statut, $poste, $entreprise_name);
+        error_log("Notification push envoyée au candidat $user_id pour le poste $poste (accepté)");
 
         if (AccepteCandidats($db, $statut, $poste_id)) {
             if (notification_suivi($db, $postulation['entreprise_id'], $postulation['users_id'], $statut)) {
@@ -240,6 +257,7 @@ if (isset($_GET['accepter'])) {
         }
 
     } catch (Exception $e) {
+        error_log("Erreur lors de l'envoi de l'email/notification: " . $e->getMessage());
         $_SESSION['error_message'] = 'Erreur !';
         header('Location: ../page/candidature.php');
         exit();
@@ -258,6 +276,21 @@ if (isset($_GET['recaler'])) {
 
     $nom = $postulation['nom'];
     $poste = $postulation['poste'];
+
+    // Récupération du nom de l'entreprise si disponible
+    $entreprise_name = '';
+    try {
+        $stmt = $db->prepare("SELECT entreprise FROM compte_entreprise WHERE id = :id LIMIT 1");
+        $stmt->bindParam(":id", $entreprise_id);
+        $stmt->execute();
+        $ent = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($ent) {
+            $entreprise_name = $ent['entreprise'];
+        }
+    } catch (Exception $e) {
+        error_log("Erreur lors de la récupération du nom de l'entreprise: " . $e->getMessage());
+    }
+
     // Créez l'instance PHPMailer
 
     $mail = new PHPMailer(true);
@@ -466,6 +499,9 @@ if (isset($_GET['recaler'])) {
         $mail->addAddress($destinataire);
         $mail->send();
 
+        // Envoyer notification push si le candidat a un token FCM
+        sendApplicationStatusNotification($db, $user_id, $statut, $poste, $entreprise_name);
+        error_log("Notification push envoyée au candidat $user_id pour le poste $poste (refusé)");
 
         if (recalerCandidats($db, $statut, $poste_id)) {
 
@@ -477,9 +513,8 @@ if (isset($_GET['recaler'])) {
 
         }
 
-
-
     } catch (Exception $e) {
+        error_log("Erreur lors de l'envoi de l'email/notification: " . $e->getMessage());
         $_SESSION['error_message'] = 'Une erreur s\'est produite !'; // Correction de l'orthographe
         header('Location: ../page/candidature.php');
         exit();
