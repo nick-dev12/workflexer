@@ -29,6 +29,9 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
 
 }
 
+$afficheUsersLimit20 = getUserslimit20($db);
+shuffle($afficheUsersLimit20);
+
 
 if (isset($_SESSION['users_id'])) {
     $users = infoUsers($db, $_SESSION['users_id']);

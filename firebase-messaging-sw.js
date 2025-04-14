@@ -1,5 +1,5 @@
 // Version définie pour forcer la mise à jour du service worker
-const VERSION = '1.0.2';
+const VERSION = '1.0.3';
 console.log(`Firebase Messaging Service Worker Version ${VERSION}`);
 
 // Firebase app config from the FCM console
@@ -20,25 +20,26 @@ firebase.initializeApp({
 // Retrieve Firebase Messaging instance
 const messaging = firebase.messaging();
 
-// Affiche le numéro de version dans la console
+// Log initialization
 console.log('Firebase Messaging SW initialized!');
 
 // Handle background messages
 messaging.onBackgroundMessage((payload) => {
     console.log('[firebase-messaging-sw.js] Received background message ', payload);
 
-    // Limiter la taille du titre à 50 caractères
-    let notificationTitle = payload.notification.title;
-    if (notificationTitle && notificationTitle.length > 50) {
-        notificationTitle = notificationTitle.substring(0, 47) + '...';
+    // Ensure notification data exists
+    if (!payload.notification) {
+        console.log('No notification in payload');
+        return;
     }
 
+    // Create notification options
     const notificationOptions = {
-        body: payload.notification.body,
+        body: payload.notification.body || '',
         icon: '/image/logo.png',
         badge: '/image/logo.png',
         data: payload.data || {},
-        // Add actions if needed
+        requireInteraction: true,
         actions: [
             {
                 action: 'view',
@@ -47,36 +48,50 @@ messaging.onBackgroundMessage((payload) => {
         ]
     };
 
-    self.registration.showNotification(notificationTitle, notificationOptions);
+    // Show notification
+    self.registration.showNotification(
+        payload.notification.title || 'Nouvelle notification',
+        notificationOptions
+    );
 });
 
 // Handle notification click
 self.addEventListener('notificationclick', (event) => {
     console.log('[Service Worker] Notification click received.');
 
+    // Close the notification
     event.notification.close();
 
     // Get notification data
-    const data = event.notification.data;
+    const data = event.notification.data || {};
 
-    // Define page URL to open on notification click
+    // Define default page URL
     let pageUrl = '/';
 
-    // Si c'est une notification pour un utilisateur (candidat), rediriger vers user_profil.php
-    if (data && data.notification_type === 'candidat') {
+    // Determine the correct URL based on notification type
+    if (data.notification_type === 'candidat') {
         pageUrl = '/page/user_profil.php';
-    }
-    // Si c'est une notification pour une entreprise concernant un candidat
-    else if (data && data.candidat_id) {
+    } else if (data.candidat_id) {
         pageUrl = '/entreprise/candidature.php?id=' + data.candidat_id;
-    }
-    // Si c'est une notification concernant une offre
-    else if (data && data.offre_id) {
+    } else if (data.offre_id) {
         pageUrl = '/entreprise/offre.php?offre_id=' + data.offre_id;
     }
 
     // Open the page
     event.waitUntil(
-        clients.openWindow(pageUrl)
+        clients.matchAll({
+            type: 'window',
+            includeUncontrolled: true
+        })
+            .then((clientList) => {
+                // Check if there's already a window/tab open with the target URL
+                for (const client of clientList) {
+                    if (client.url === pageUrl && 'focus' in client) {
+                        return client.focus();
+                    }
+                }
+                // If no existing window found, open a new one
+                return clients.openWindow(pageUrl);
+            })
     );
 }); 

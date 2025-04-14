@@ -41,42 +41,18 @@ $sql .= " ORDER BY date_publication DESC LIMIT ?, ?";
 $bindParams[] = $offset;
 $bindParams[] = $offresParPage;
 
-// Debug - Afficher la requête et les paramètres
-echo "<div style='background-color: #f8f9fa; padding: 10px; margin: 10px; border: 1px solid #ddd;'>";
-echo "<h3>Débogage de la requête:</h3>";
-echo "<p><strong>Recherche:</strong> " . htmlspecialchars($recherche) . "</p>";
-echo "<p><strong>SQL:</strong> " . htmlspecialchars($sql) . "</p>";
-echo "<p><strong>Paramètres:</strong> ";
 foreach ($params as $key => $value) {
-    echo htmlspecialchars($key) . " => " . htmlspecialchars($value) . ", ";
+
 }
 
 // Vérifier le nombre total d'entrées dans la table
 try {
     $total = $db->query("SELECT COUNT(*) FROM scrap_emploi_emploidakar")->fetchColumn();
-    echo "<p><strong>Nombre total d'offres dans la table:</strong> " . $total . "</p>";
-
-    // Afficher quelques exemples de données pour vérifier
-    echo "<p><strong>Exemples de données (5 premières lignes):</strong></p>";
-    echo "<table border='1' cellpadding='3' style='font-size: 12px;'>";
-    echo "<tr><th>ID</th><th>Titre</th><th>Entreprise</th><th>Description</th></tr>";
 
     $sample = $db->query("SELECT offre_id, titre, entreprise, SUBSTRING(description_poste, 1, 100) as desc_sample FROM scrap_emploi_emploidakar LIMIT 5");
-    while ($row = $sample->fetch(PDO::FETCH_ASSOC)) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['offre_id']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['titre']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['entreprise']) . "</td>";
-        echo "<td>" . htmlspecialchars($row['desc_sample']) . "...</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
 
     // Test d'une recherche directe avec le terme recherché
     if (!empty($recherche)) {
-        echo "<p><strong>Test de recherche directe avec le terme '" . htmlspecialchars($recherche) . "':</strong></p>";
-        echo "<table border='1' cellpadding='3' style='font-size: 12px;'>";
-        echo "<tr><th>ID</th><th>Titre</th><th>Entreprise</th><th>Description</th></tr>";
 
         try {
             $testQuery = "SELECT offre_id, titre, entreprise, SUBSTRING(description_poste, 1, 100) as desc_sample 
@@ -90,23 +66,8 @@ try {
             $testStmt->execute();
 
             $foundResults = false;
-            while ($row = $testStmt->fetch(PDO::FETCH_ASSOC)) {
-                $foundResults = true;
-                echo "<tr>";
-                echo "<td>" . htmlspecialchars($row['offre_id']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['titre']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['entreprise']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['desc_sample']) . "...</td>";
-                echo "</tr>";
-            }
 
             if (!$foundResults) {
-                echo "<tr><td colspan='4'>Aucun résultat trouvé avec ce terme</td></tr>";
-
-                // Test avec quelques mots-clés génériques pour vérifier si la recherche fonctionne
-                echo "</table><p><strong>Essai avec d'autres termes génériques:</strong></p>";
-                echo "<table border='1' cellpadding='3' style='font-size: 12px;'>";
-                echo "<tr><th>Terme testé</th><th>Résultats trouvés</th></tr>";
 
                 $testTerms = ['emploi', 'poste', 'recrutement', 'stage', 'travail', 'job'];
                 foreach ($testTerms as $term) {
@@ -118,21 +79,13 @@ try {
                     $genericStmt->execute();
                     $count = $genericStmt->fetchColumn();
 
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($term) . "</td>";
-                    echo "<td>" . $count . "</td>";
-                    echo "</tr>";
                 }
             }
         } catch (PDOException $e) {
-            echo "<tr><td colspan='4'>Erreur lors du test de recherche: " . $e->getMessage() . "</td></tr>";
         }
-        echo "</table>";
     }
 } catch (PDOException $e) {
-    echo "<p><strong>Erreur lors du comptage:</strong> " . $e->getMessage() . "</p>";
 }
-echo "</div>";
 
 // Exécution de la requête
 $stmt = $db->prepare($sql);
@@ -149,8 +102,6 @@ try {
     $stmt->execute();
     $offres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    error_log("Erreur lors de l'exécution de la requête EmploiDakar: " . $e->getMessage());
-    echo "<p style='color:red'><strong>Erreur de requête principale:</strong> " . $e->getMessage() . "</p>";
     $offres = [];
 }
 
@@ -177,8 +128,6 @@ try {
     $stmtCount->execute();
     $totalOffres = $stmtCount->fetchColumn();
 } catch (PDOException $e) {
-    error_log("Erreur lors du comptage des résultats EmploiDakar: " . $e->getMessage());
-    echo "<p style='color:red'><strong>Erreur de comptage:</strong> " . $e->getMessage() . "</p>";
     $totalOffres = 0;
 }
 

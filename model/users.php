@@ -38,6 +38,14 @@ function getUsers($db)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getUserslimit20($db)
+{
+    $sql = "SELECT * FROM users LIMIT 20";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function infoUsers($db, $users_id)
 {
     $sql = "SELECT * FROM users WHERE id = :id ";

@@ -43,13 +43,12 @@ if (!isset($input['token']) || empty($input['token'])) {
 // Use the token from input and user ID from session
 $token = $input['token'];
 $users_id = $_SESSION['users_id'];
-$device_info = isset($input['device_info']) ? $input['device_info'] : '';
 
 error_log("FCM Token User Processing: About to save token for user $users_id");
 
 // Save token to database
 try {
-    $result = saveUserToken($db, $users_id, $token, $device_info);
+    $result = saveUserToken($db, $users_id, $token);
 
     if ($result) {
         error_log("FCM Token User Success: Token saved for user $users_id");

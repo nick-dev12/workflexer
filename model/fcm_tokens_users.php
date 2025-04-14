@@ -8,10 +8,9 @@
  * @param PDO $db Database connection
  * @param string $users_id User ID
  * @param string $token FCM token
- * @param string $device_info Optional device information
  * @return bool Success status
  */
-function saveUserToken($db, $users_id, $token, $device_info = '')
+function saveUserToken($db, $users_id, $token)
 {
     if (empty($users_id) || empty($token)) {
         error_log("FCM Token Error: Empty users_id or token passed to saveUserToken");
@@ -20,7 +19,7 @@ function saveUserToken($db, $users_id, $token, $device_info = '')
 
     try {
         // First check if token already exists
-        $sql = "SELECT * FROM fcm_tokens_users WHERE users_id = :users_id LIMIT 1";
+        $sql = "SELECT token FROM fcm_tokens_users WHERE users_id = :users_id LIMIT 1";
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
         $stmt->execute();
@@ -30,22 +29,20 @@ function saveUserToken($db, $users_id, $token, $device_info = '')
 
         if ($exists) {
             // Update existing token
-            $sql = "UPDATE fcm_tokens_users SET token = :token, device_info = :device_info, updated_at = NOW() WHERE users_id = :users_id";
+            $sql = "UPDATE fcm_tokens_users SET token = :token, updated_at = NOW() WHERE users_id = :users_id";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':token', $token, PDO::PARAM_STR);
-            $stmt->bindValue(':device_info', $device_info, PDO::PARAM_STR);
             $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
             $result = $stmt->execute();
             error_log("FCM Token Update: Result for user $users_id: " . ($result ? 'success' : 'failed'));
             return $result;
         } else {
             // Insert new token
-            $sql = "INSERT INTO fcm_tokens_users (users_id, token, device_info, created_at, updated_at) 
-                    VALUES (:users_id, :token, :device_info, NOW(), NOW())";
+            $sql = "INSERT INTO fcm_tokens_users (users_id, token, created_at, updated_at) 
+                    VALUES (:users_id, :token, NOW(), NOW())";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
             $stmt->bindValue(':token', $token, PDO::PARAM_STR);
-            $stmt->bindValue(':device_info', $device_info, PDO::PARAM_STR);
             $result = $stmt->execute();
             error_log("FCM Token Insert: Result for user $users_id: " . ($result ? 'success' : 'failed'));
             return $result;

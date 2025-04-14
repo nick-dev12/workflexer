@@ -383,6 +383,14 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .hero-search-section .slider .box .img img,
+  .hero-search-section,
+  .hero-search-section .slider,
+  .hero-search-section .slider .box,
+  .hero-search-section .slider .box .text {
+    height: 700px;
+  }
+
   .hero-search-section .slider .box .text h1 {
     font-size: 28px;
   }
@@ -442,7 +450,7 @@ body {
   .hero-search-section .slider .box,
   .hero-search-section .slider .box .text,
   .hero-search-section .slider .box .img img {
-    height: 450px;
+    height: 750px;
   }
 
   .job-stats-container {

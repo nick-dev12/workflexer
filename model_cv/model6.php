@@ -2,6 +2,16 @@
 // Démarre la session
 session_start();
 
+// Include device detection functionality
+include_once('check_device.php');
+
+// Check if user is on desktop
+$isDesktop = isDesktop();
+if (!$isDesktop) {
+    // If not on desktop, redirect to mobile message page
+    header("Location: mobile_message.php");
+    exit;
+}
 
 if (isset($_GET['id'])) {
     include '../conn/conn.php';
@@ -63,7 +73,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="../script/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
     <link rel="stylesheet" href="/css/model6.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <script src="cv_customizer.js"></script>
@@ -81,19 +91,27 @@ if (isset($_SESSION['users_id'])) {
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
 
             <script>
-                // Importez la bibliothèque jsPDF
                 function generatePDF() {
+                    const { jsPDF } = window.jspdf;
                     const element = document.querySelector(".container");
-                    // Hypothétiquement, si resolution et imageMode étaient des options valides
-                    // vous pourriez les fusionner avec les options existantes de cette manière :
-                    const mergedOptions = {
-                        filename: 'cv.pdf',
-                        image: { type: 'jpeg', quality: 1 }, // Qualité JPEG de l'image
-                        html2canvas: { scale: 2 }, // Échelle de rendu HTML2Canvas
-                    };
 
-                    // Utiliser les options fusionnées pour la conversion HTML vers PDF
-                    html2pdf().set(mergedOptions).from(element).save("cv.pdf");
+                    domtoimage.toJpeg(element, {
+                        quality: 1.5,
+                        bgcolor: '#fff'
+                    })
+                        .then(function (dataUrl) {
+                            const pdf = new jsPDF('p', 'mm', 'a4');
+                            const imgProps = pdf.getImageProperties(dataUrl);
+                            const pdfWidth = pdf.internal.pageSize.getWidth();
+                            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                            pdf.save("cv.pdf");
+                        })
+                        .catch(function (error) {
+                            console.error('Une erreur est survenue lors de la génération du PDF:', error);
+                            alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                        });
                 }
             </script>
 

@@ -35,7 +35,9 @@ if (typeof firebase !== 'undefined') {
             Notification.requestPermission().then((permission) => {
                 if (permission === 'granted') {
                     console.log('Notification permission granted.');
-                    // Get FCM token and save it
+                    // Update button state immediately
+                    updateNotificationButtonState('granted');
+                    // Only get FCM token if we don't already have one
                     getAndSaveFCMToken();
                 } else {
                     console.log('Unable to get permission to notify.');
@@ -75,40 +77,29 @@ if (typeof firebase !== 'undefined') {
             console.log('Attempting to save token to server...');
             const notificationButton = document.getElementById('enable-notifications');
             const entrepriseId = notificationButton?.dataset?.entrepriseId;
+            const isUserProfile = window.location.pathname.includes('/page/user_profil.php');
 
-            if (!entrepriseId) {
+            // Determine the correct endpoint based on the page
+            let ajaxUrl = isUserProfile ? '/ajax/save_fcm_token_user.php' : '/ajax/save_fcm_token.php';
+            let postData = isUserProfile ? { token } : { token, entreprise_id: entrepriseId };
+
+            if (!isUserProfile && !entrepriseId) {
                 console.error('No enterprise ID found in data-entreprise-id attribute');
                 alert('Erreur: ID de l\'entreprise non trouvé. Veuillez contacter l\'administrateur.');
                 return;
             }
 
-            console.log('Enterprise ID:', entrepriseId);
-            console.log('Token to save:', token.substring(0, 10) + '...');
-
-            // Determine the correct path for the AJAX endpoint
-            // Try to detect if we're in a subdirectory
-            const currentPath = window.location.pathname;
-            const isInSubdir = currentPath.includes('/entreprise/');
-
-            // Adjust the path based on the current location
-            let ajaxUrl = isInSubdir ? '../ajax/save_fcm_token.php' : '/ajax/save_fcm_token.php';
-
-            console.log('Current path:', currentPath);
-            console.log('Is in subdirectory:', isInSubdir);
             console.log('Sending request to:', ajaxUrl);
+            console.log('Post data:', postData);
 
             fetch(ajaxUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    token: token,
-                    entreprise_id: entrepriseId
-                }),
+                body: JSON.stringify(postData),
             })
                 .then(response => {
-                    console.log('Raw response:', response);
                     if (!response.ok) {
                         throw new Error('Network response was not ok: ' + response.statusText);
                     }
@@ -127,40 +118,6 @@ if (typeof firebase !== 'undefined') {
                 .catch((error) => {
                     console.error('Error saving token:', error);
                     alert('Erreur de communication avec le serveur: ' + error.message);
-
-                    // Try the alternative path if the first one fails
-                    const alternativePath = isInSubdir ? '/ajax/save_fcm_token.php' : '../ajax/save_fcm_token.php';
-                    console.log('Trying alternative path:', alternativePath);
-
-                    fetch(alternativePath, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            token: token,
-                            entreprise_id: entrepriseId
-                        }),
-                    })
-                        .then(response => {
-                            console.log('Alternative response:', response);
-                            if (!response.ok) {
-                                throw new Error('Alternative path also failed: ' + response.statusText);
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log('Alternative token save response:', data);
-                            if (data.success) {
-                                console.log('Token saved successfully via alternative path');
-                                alert('Notifications activées avec succès!');
-                            } else {
-                                console.error('Alternative server error:', data.message);
-                            }
-                        })
-                        .catch(altError => {
-                            console.error('Alternative path also failed:', altError);
-                        });
                 });
         }
 
@@ -180,23 +137,36 @@ if (typeof firebase !== 'undefined') {
                     notificationButton.innerHTML = '<i class="fas fa-bell"></i> Notifications activées';
                     notificationButton.classList.add('notifications-enabled');
                     notificationButton.classList.remove('notifications-disabled');
+                    notificationButton.style.backgroundColor = '#4CAF50';
+                    notificationButton.style.color = 'white';
                     break;
                 case 'denied':
                 case 'error':
                     notificationButton.innerHTML = '<i class="fas fa-bell-slash"></i> Activer les notifications';
                     notificationButton.classList.add('notifications-disabled');
                     notificationButton.classList.remove('notifications-enabled');
+                    notificationButton.style.backgroundColor = '#f44336';
+                    notificationButton.style.color = 'white';
                     break;
                 default:
                     notificationButton.innerHTML = '<i class="fas fa-bell"></i> Activer les notifications';
                     notificationButton.classList.remove('notifications-enabled');
                     notificationButton.classList.remove('notifications-disabled');
+                    notificationButton.style.backgroundColor = '#2196F3';
+                    notificationButton.style.color = 'white';
             }
+
+            // Make button more visible
+            notificationButton.style.padding = '10px 20px';
+            notificationButton.style.borderRadius = '5px';
+            notificationButton.style.cursor = 'pointer';
+            notificationButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+            notificationButton.style.transition = 'all 0.3s ease';
         }
 
         // Listen for token refresh
         messaging.onTokenRefresh(() => {
-            const vapidKey = "BJu_UkRPp4Wfx1KYK7ZDCn-1Q5A5_MjlrM0BhFx5EY-zrpeVYQGiLV_9H0BwBZLudfSiJ5NQJ-LynHm94e5GLHE";
+            const vapidKey = "BDY6Hkwwi0tSnzzww0WJrnJqdeS1d-r2AWJ4Wr9eWQk4dWNmSRjpyvmCqDc99JCW_NRlY8N0PPxUQbrPuxXbrgI";
             messaging.getToken({ vapidKey: vapidKey })
                 .then((refreshedToken) => {
                     console.log('Token refreshed.');

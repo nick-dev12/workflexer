@@ -612,7 +612,7 @@ include_once('controller/controller_users.php');
 
         <div class="profil">
             <div class="owl-slider owl-carousel ">
-                <?php foreach ($totalUsers as $user): ?>
+                <?php foreach ($afficheUsersLimit20 as $user): ?>
 
                     <?php $name_users = $user['nom'];
                     $explode_name_users = explode(' ', $name_users);
