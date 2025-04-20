@@ -94,7 +94,7 @@ body {
 }
 
 .section3 .personnalisation .box p {
-  font-size: 12px;
+  font-size: 11px;
   color: #636262;
   text-align: center;
   margin-right: 20px;
@@ -196,7 +196,7 @@ body {
 }
 
 .contact p {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   margin: 0 0 8px 0;
   display: flex;
@@ -224,7 +224,7 @@ body {
 }
 
 .languages p {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   margin: 0 0 8px 0;
 }
@@ -250,7 +250,7 @@ body {
 }
 
 .skills ul li {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 8px;
   position: relative;
   padding-left: 20px;
@@ -280,7 +280,7 @@ body {
 }
 
 .profile p {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   text-align: justify;
 }
@@ -319,7 +319,7 @@ body {
 
 .experience-item p,
 .education-item p {
-  font-size: 14px;
+  font-size: 12px;
   margin: 5px 0;
   line-height: 1.5;
 }
@@ -331,13 +331,13 @@ body {
 }
 
 .experience-item ul li {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 5px;
 }
 
 .date {
   font-style: italic;
-  font-size: 13px;
+  font-size: 12px;
   color: #666666;
   display: flex;
   align-items: center;

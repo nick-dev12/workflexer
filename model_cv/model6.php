@@ -1,9 +1,10 @@
 <?php
+// Vérification de l'appareil au tout début
+include_once('check_device.php');
 // Démarre la session
 session_start();
 
-// Include device detection functionality
-include_once('check_device.php');
+
 
 // Check if user is on desktop
 $isDesktop = isDesktop();
@@ -605,135 +606,137 @@ if (isset($_SESSION['users_id'])) {
         </div>
 
 
-        <div class="container">
-            <div class="box1">
-                <div class="item1">
-                    <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
-                </div>
+        <div class="container-model">
+            <div class="container">
+                <div class="box1">
+                    <div class="item1">
+                        <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
+                    </div>
 
-                <div class="item2">
-                    <h1><?= $userss['nom'] ?></h1>
-                    <h2><?= $userss['competences'] ?></h2>
-                    <div>
-                        <ul>
-                            <li><img src="/image/address.png" alt=""> <?= $userss['ville'] ?></li>
-                            <li><img src="/image/phone.png" alt=""> <?= $userss['phone'] ?></li>
-                            <li><img src="/image/icons8-gmail-48.png" alt=""> <?= $userss['mail'] ?></li>
-                        </ul>
-
-                        <?php if (empty($afficheLangue)): ?>
+                    <div class="item2">
+                        <h1><?= $userss['nom'] ?></h1>
+                        <h2><?= $userss['competences'] ?></h2>
+                        <div>
                             <ul>
-                                <li>Aucune donnée trouvée</li>
+                                <li><img src="/image/address.png" alt=""> <?= $userss['ville'] ?></li>
+                                <li><img src="/image/phone.png" alt=""> <?= $userss['phone'] ?></li>
+                                <li><img src="/image/icons8-gmail-48.png" alt=""> <?= $userss['mail'] ?></li>
                             </ul>
-                        <?php else: ?>
-                            <ul id="langue">
-                                <?php foreach ($afficheLangue as $langues): ?>
-                                    <li>
-                                        <?php echo $langues['langue']; ?> <span><?= $langues['niveau']; ?></span>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
-                    </div>
-                </div>
 
-            </div>
-            <div class="box2">
-
-            </div>
-            <div class="box3">
-                <div class="item1">
-                    <div class="edu">
-                        <h2> <img src="/image/etude.png" alt=""> Éducation</h2>
-                        <?php if (empty($formationUsers)): ?>
-                            <strong></strong>
-                            <h4>Aucune donnée trouvée</h4>
-                        <?php else: ?>
-                            <?php
-                            shuffle($formationUsers);
-                            $nombre_formation = 3;
-                            ?>
-                            <?php foreach ($formationUsers as $key => $formations): ?>
-                                <?php if ($key < $nombre_formation): ?>
-                                    <div>
-                                        <h3><?= $formations['etablissement'] ?></h3>
-                                        <span> <?= $formations['moisDebut'] ?> /
-                                            <?= $formations['anneeDebut'] ?> , <?= $formations['moisFin'] ?> /
-                                            <?= $formations['anneeFin'] ?></span>
-                                        <p><?= $formations['Filiere'] ?> , <strong>
-                                                <?= $formations['niveau'] ?></strong> </p>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="comp">
-                        <h2><img src="/image/compétences.png" alt=""> Compétences</h2>
-                        <ul>
-                            <?php if ($competencesUtilisateur): ?>
-                                <?php foreach ($competencesUtilisateur as $competence): ?>
-                                    <li> <?php echo $competence['competence']; ?></li>
-                                <?php endforeach; ?>
+                            <?php if (empty($afficheLangue)): ?>
+                                <ul>
+                                    <li>Aucune donnée trouvée</li>
+                                </ul>
                             <?php else: ?>
+                                <ul id="langue">
+                                    <?php foreach ($afficheLangue as $langues): ?>
+                                        <li>
+                                            <?php echo $langues['langue']; ?> <span><?= $langues['niveau']; ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+                    </div>
 
+                </div>
+                <div class="box2">
+
+                </div>
+                <div class="box3">
+                    <div class="item1">
+                        <div class="edu">
+                            <h2> <img src="/image/etude.png" alt=""> Éducation</h2>
+                            <?php if (empty($formationUsers)): ?>
+                                <strong></strong>
                                 <h4>Aucune donnée trouvée</h4>
-                            <?php endif ?>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="item2">
-                    <div class="moi">
-                        <h2><img src="/image/a propos.png" alt=""> À propos</h2>
-                        <?php if (empty($descriptions)): ?>
-                            <p>Aucune donnée trouvée</p>
-                        <?php else: ?>
-                            <p class="p">
-                                <?= $descriptions['description'] ?>
-                            </p>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="exp">
-                        <h2><img src="/image/experience.png" alt=""> Expériences</h2>
-                        <?php if (empty($afficheMetier)): ?>
-                            <h4>Aucune donnée trouvée</h4>
-                        <?php else: ?>
-                            <?php
-                            shuffle($afficheMetier);
-                            $nombre_metier = 3
+                            <?php else: ?>
+                                <?php
+                                shuffle($formationUsers);
+                                $nombre_formation = 3;
                                 ?>
-                            <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                <?php if ($key < $nombre_metier): ?>
-                                    <div>
-                                        <span><?= $Metiers['moisDebut'] ?> /
-                                            <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
-                                            <?= $Metiers['anneeFin'] ?></span>
-                                        <h3><?= $Metiers['metier'] ?></h3>
-                                        <p><?= $Metiers['description'] ?></p>
-                                    </div>
-
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-
-                    </div>
-
-
-                    <div class="outils">
-                        <h2><img src="/image/outil.png" alt=""> Maitrise des outils </h2>
-                        <ul>
-                            <?php if ($afficheOutil): ?>
-                                <?php foreach ($afficheOutil as $outils): ?>
-                                    <li> <?= $outils['outil'] ?></li>
+                                <?php foreach ($formationUsers as $key => $formations): ?>
+                                    <?php if ($key < $nombre_formation): ?>
+                                        <div>
+                                            <h3><?= $formations['etablissement'] ?></h3>
+                                            <span> <?= $formations['moisDebut'] ?> /
+                                                <?= $formations['anneeDebut'] ?> , <?= $formations['moisFin'] ?> /
+                                                <?= $formations['anneeFin'] ?></span>
+                                            <p><?= $formations['Filiere'] ?> , <strong>
+                                                    <?= $formations['niveau'] ?></strong> </p>
+                                        </div>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
-                            <?php endif ?>
-                        </ul>
-                    </div>
-                </div>
+                            <?php endif; ?>
+                        </div>
 
+                        <div class="comp">
+                            <h2><img src="/image/compétences.png" alt=""> Compétences</h2>
+                            <ul>
+                                <?php if ($competencesUtilisateurLimit7): ?>
+                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                        <li> <?php echo $competence['competence']; ?></li>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+
+                                    <h4>Aucune donnée trouvée</h4>
+                                <?php endif ?>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="item2">
+                        <div class="moi">
+                            <h2><img src="/image/a propos.png" alt=""> À propos</h2>
+                            <?php if (empty($descriptions)): ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php else: ?>
+                                <p class="p">
+                                    <?= $descriptions['description'] ?>
+                                </p>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="exp">
+                            <h2><img src="/image/experience.png" alt=""> Expériences</h2>
+                            <?php if (empty($afficheMetier)): ?>
+                                <h4>Aucune donnée trouvée</h4>
+                            <?php else: ?>
+                                <?php
+                                shuffle($afficheMetier);
+                                $nombre_metier = 3
+                                    ?>
+                                <?php foreach ($afficheMetier as $key => $Metiers): ?>
+                                    <?php if ($key < $nombre_metier): ?>
+                                        <div>
+                                            <span><?= $Metiers['moisDebut'] ?> /
+                                                <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
+                                                <?= $Metiers['anneeFin'] ?></span>
+                                            <h3><?= $Metiers['metier'] ?></h3>
+                                            <p><?= $Metiers['description'] ?></p>
+                                        </div>
+
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+                        </div>
+
+
+                        <div class="outils">
+                            <h2><img src="/image/outil.png" alt=""> Maitrise des outils </h2>
+                            <ul>
+                                <?php if ($afficheOutilLimit5): ?>
+                                    <?php foreach ($afficheOutilLimit5 as $outils): ?>
+                                        <li> <?= $outils['outil'] ?></li>
+                                    <?php endforeach; ?>
+                                <?php endif ?>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>

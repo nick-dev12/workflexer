@@ -366,7 +366,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  color: var(--text-color-m5);
+  color: var(--text-color2-m5);
 }
 
 .container .box2 .item2 .comp h2 img {

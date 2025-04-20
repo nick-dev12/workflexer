@@ -1,9 +1,9 @@
 <?php
+// Vérification de l'appareil au tout début
+include_once('check_device.php');
 // Démarre la session
 session_start();
 
-// Include device detection functionality
-include_once('check_device.php');
 
 // Check if user is on desktop
 $isDesktop = isDesktop();
@@ -230,102 +230,110 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
-        <div class="cv10">
-            <!-- Header with photo and name -->
-            <div class="cv-header">
-                <div class="profile-photo-container">
-                    <img src="../upload/<?= $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
-                        alt="Photo de profil" class="profile-photo">
+        <div class="container-model">
+            <div class="cv10">
+                <!-- Header with photo and name -->
+                <div class="cv-header">
+                    <div class="profile-photo-container">
+                        <img src="../upload/<?= $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
+                            alt="Photo de profil" class="profile-photo">
+                    </div>
+                    <div class="header-text">
+                        <h1 class="prenom"><?= isset($userss['prenom']) ?></h1>
+                        <h1 class="nom"><?= isset($userss['nom']) ? $userss['nom'] : "NOM" ?></h1>
+                        <p class="post"><?= $userss['competences'] ?></p>
+                    </div>
                 </div>
-                <div class="header-text">
-                    <h1 class="prenom"><?= isset($userss['prenom']) ?></h1>
-                    <h1 class="nom"><?= isset($userss['nom']) ? $userss['nom'] : "NOM" ?></h1>
-                    <p class="post"><?= $userss['competences'] ?></p>
-                </div>
-            </div>
 
-            <!-- CV body with two columns -->
-            <div class="cv-body">
-                <!-- Left sidebar with contact info and skills -->
-                <div class="left-sidebar">
-                    <div class="contact-section">
-                        <h2>CONTACT</h2>
-                        <div class="contact-info">
-                            <p><span class="icon email-icon"></span> <?= $userss['mail'] ?? "prenom.nom@gmail.com" ?>
+                <!-- CV body with two columns -->
+                <div class="cv-body">
+                    <!-- Left sidebar with contact info and skills -->
+                    <div class="left-sidebar">
+                        <div class="contact-section">
+                            <h2>CONTACT</h2>
+                            <div class="contact-info">
+                                <p><span class="icon email-icon"></span>
+                                    <?= $userss['mail'] ?? "prenom.nom@gmail.com" ?>
+                                </p>
+                                <p><span class="icon phone-icon"></span> <?= $userss['phone'] ?? "+33 6 66 66 66 66" ?>
+                                </p>
+                                <p><span class="icon location-icon"></span> <?= $userss['ville'] ?? "Ville, Pays" ?></p>
+                                <p><span class="icon linkedin-icon"></span> url.linkedin</p>
+                            </div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2>MON PROFIL</h2>
+                            <p class="profile-text">
+                                <?php if (empty($descriptions)): ?>
+                                <p>Aucune description trouvée</p>
+                            <?php else: ?>
+                                <?= $descriptions['description'] ?>
+                            <?php endif; ?>
                             </p>
-                            <p><span class="icon phone-icon"></span> <?= $userss['phone'] ?? "+33 6 66 66 66 66" ?></p>
-                            <p><span class="icon location-icon"></span> <?= $userss['ville'] ?? "Ville, Pays" ?></p>
-                            <p><span class="icon linkedin-icon"></span> url.linkedin</p>
+                        </div>
+
+                        <div class="skills-section">
+                            <h2>LOGICIELS</h2>
+                            <ul>
+                                <?php if (!empty($afficheOutilLimit5)): ?>
+                                    <?php foreach ($afficheOutilLimit5 as $outil): ?>
+                                        <li><span class="checkmark">✓</span> <?= $outil['outil'] ?></li>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p>Aucun logiciel trouvé</p>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+
+                        <div class="languages-section">
+                            <h2>LANGUES</h2>
+                            <ul>
+                                <?php if (empty($afficheLangue)): ?>
+                                    <p>Aucune langue trouvée</p>
+                                <?php else: ?>
+                                    <?php foreach ($afficheLangue as $langue): ?>
+                                        <li><span class="checkmark">✓</span> <?= $langue['langue'] ?> : <?= $langue['niveau'] ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="profile-section">
-                        <h2>MON PROFIL</h2>
-                        <p class="profile-text">
-                            <?php if (empty($descriptions)): ?>
-                            <p>Aucune description trouvée</p>
-                        <?php else: ?>
-                            <?= $descriptions['description'] ?>
-                        <?php endif; ?>
-                        </p>
-                    </div>
+                    <!-- Main content with experience, education, etc. -->
+                    <div class="main-content">
+                        <div class="experiences-section">
+                            <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
 
-                    <div class="skills-section">
-                        <h2>LOGICIELS</h2>
-                        <ul>
-                            <?php if (!empty($afficheOutil)): ?>
-                                <?php foreach ($afficheOutil as $outil): ?>
-                                    <li><span class="checkmark">✓</span> <?= $outil['outil'] ?></li>
-                                <?php endforeach; ?>
+                            <?php if (empty($afficheMetier)): ?>
+                                <p>Aucune expérience professionnelle trouvée</p>
                             <?php else: ?>
-                                <p>Aucun logiciel trouvé</p>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-
-                    <div class="languages-section">
-                        <h2>LANGUES</h2>
-                        <ul>
-                            <?php if (empty($afficheLangue)): ?>
-                                <p>Aucune langue trouvée</p>
-                            <?php else: ?>
-                                <?php foreach ($afficheLangue as $langue): ?>
-                                    <li><span class="checkmark">✓</span> <?= $langue['langue'] ?> : <?= $langue['niveau'] ?>
-                                    </li>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Main content with experience, education, etc. -->
-                <div class="main-content">
-                    <div class="experiences-section">
-                        <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
-
-                        <?php if (empty($afficheMetier)): ?>
-                            <p>Aucune expérience professionnelle trouvée</p>
-                        <?php else: ?>
-                            <?php foreach ($afficheMetier as $metier): ?>
-                                <div class="experience-item">
-                                    <h3><?= strtoupper($metier['metier']) ?></h3>
-                                    <p class="job-location">
-                                        <?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?> -
-                                        <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?>
-                                    </p>
-                                    <ul class="job-description">
-                                        <?php
-                                        $description = nl2br($metier['description']);
-                                        $points = explode('<br />', $description);
-                                        foreach ($points as $point) {
-                                            $point = trim($point);
-                                            if (!empty($point)) {
-                                                echo "<li>" . $point . "</li>";
-                                            }
-                                        }
-                                        ?>
-                                    </ul>
-                                </div>
+                                <?php
+                                shuffle($afficheMetier);
+                                $nombre_metier = 3;
+                                ?>
+                                <?php foreach ($afficheMetier as $key => $metier): ?>
+                                    <?php if ($key < $nombre_metier): ?> <div class="experience-item">
+                                            <h3><?= strtoupper($metier['metier']) ?></h3>
+                                            <p class="job-location">
+                                                <?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?> -
+                                                <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?>
+                                                </p>
+                                                <ul class="job-description">
+                                                    <?php
+                                                    $description = nl2br($metier['description']);
+                                                    $points = explode('<br />', $description);
+                                                    foreach ($points as $point) {
+                                                        $point = trim($point);
+                                                        if (!empty($point)) {
+                                                            echo "<li>" . $point . "</li>";
+                                                        }
+                                                    }
+                                                    ?>
+                                                </ul>
+                                    </div>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
@@ -338,24 +346,31 @@ if (isset($_SESSION['users_id'])) {
                         <?php if (empty($formationUsers)): ?>
                             <p>Aucune formation trouvée</p>
                         <?php else: ?>
-                            <?php foreach ($formationUsers as $formation): ?>
-                                <div class="education-item">
-                                    <h3><?= strtoupper($formation['etablissement'] ?? 'DIPLÔME OU ÉTUDES') ?></h3>
-                                    <p class="education-location">
-                                        <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
-                                        <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
-                                    </p>
-                                    <p class="education-school"><?= $formation['Filiere'] ?> (<?= $formation['niveau'] ?>)</p>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                            <?php
+                            shuffle($formationUsers);
+                            $nombre_formation = 3;
+                            ?>
+                            <?php foreach ($formationUsers as $key => $formation): ?>
+                                <?php if ($key < $nombre_formation): ?>
+                                        <div class="education-item">
+                                            <h3><?= strtoupper($formation['etablissement'] ?? 'DIPLÔME OU ÉTUDES') ?></h3>
+                                            <p class="education-location">
+                                                <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
+                                                <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
+                                            </p>
+                                            <p class="education-school"><?= $formation['Filiere'] ?> (<?= $formation['niveau'] ?>)
+                                            </p>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
+                            <?php endif; ?>
                     </div>
 
                     <div class="competences-section">
                         <h2>COMPÉTENCES</h2>
-                        <?php if (!empty($competencesUtilisateur)): ?>
+                        <?php if (!empty($competencesUtilisateurLimit7)): ?>
                             <div class="competences-grid">
-                                <?php foreach ($competencesUtilisateur as $competence): ?>
+                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
                                     <div class="competence-item">
                                         <span class="competence-name"><?= $competence['competence'] ?></span>
                                         <?php
@@ -421,6 +436,7 @@ if (isset($_SESSION['users_id'])) {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 

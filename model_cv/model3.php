@@ -1,10 +1,9 @@
 <?php
+// Vérification de l'appareil au tout début
+include_once('check_device.php');
 
 // Démarre la session
 session_start();
-
-// Include device detection functionality
-include_once('check_device.php');
 
 // Check if user is on desktop
 $isDesktop = isDesktop();
@@ -98,7 +97,7 @@ if (isset($_SESSION['users_id'])) {
             <script>
                 function generatePDF() {
                     const { jsPDF } = window.jspdf;
-                    const element = document.querySelector(".container");
+                    const element = document.querySelector(".containers");
 
                     domtoimage.toJpeg(element, {
                         quality: 1.5,
@@ -697,7 +696,7 @@ if (isset($_SESSION['users_id'])) {
         </div>
 
 
-        <div id="containe1">
+        <div id="container-model">
             <div class="containers">
                 <div class="box1">
                     <div class="item">
@@ -823,8 +822,8 @@ if (isset($_SESSION['users_id'])) {
 
 
                         <ul>
-                            <?php if ($competencesUtilisateur): ?>
-                                <?php foreach ($competencesUtilisateur as $competence): ?>
+                            <?php if ($competencesUtilisateurLimit7): ?>
+                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
                                     <li> <?php echo $competence['competence']; ?></li>
                                 <?php endforeach; ?>
                             <?php else: ?>
@@ -839,8 +838,8 @@ if (isset($_SESSION['users_id'])) {
                         <h1><strong><img src="/image/outil.png" alt=""></strong>Outils informatiques</h1>
 
                         <ul>
-                            <?php if ($afficheOutil): ?>
-                                <?php foreach ($afficheOutil as $outils): ?>
+                            <?php if ($afficheOutilLimit5): ?>
+                                <?php foreach ($afficheOutilLimit5 as $outils): ?>
                                     <li> <?= $outils['outil'] ?></li>
                                 <?php endforeach; ?>
                             <?php endif ?>

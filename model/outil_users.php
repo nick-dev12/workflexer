@@ -27,4 +27,12 @@ function deleteOutils($db, $id)
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     return $stmt->execute();
 }
-?>
+
+function selectOutilLimit5($db, $users_id)
+{
+    $sql = "SELECT * FROM outil_users WHERE users_id = :users_id LIMIT 5";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}

@@ -1,9 +1,9 @@
 <?php
+// Vérification de l'appareil au tout début
+include_once('check_device.php');
+
 // Démarre la session
 session_start();
-
-// Include device detection functionality
-include_once('check_device.php');
 
 // Check if user is on desktop
 $isDesktop = isDesktop();
@@ -655,8 +655,8 @@ if (isset($_SESSION['users_id'])) {
                         <div>
                             <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
                             <div class="div-comp">
-                                <?php if ($competencesUtilisateur): ?>
-                                    <?php foreach ($competencesUtilisateur as $competence): ?>
+                                <?php if ($competencesUtilisateurLimit7): ?>
+                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
                                         <span class="comp">
                                             <?php echo $competence['competence']; ?>
                                         </span>
@@ -795,9 +795,9 @@ if (isset($_SESSION['users_id'])) {
 
                         <div class="experiences">
                             <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>
-                            <?php if ($afficheOutil): ?>
+                            <?php if ($afficheOutilLimit5): ?>
                                 <div class="outils">
-                                    <?php foreach ($afficheOutil as $outils): ?>
+                                    <?php foreach ($afficheOutilLimit5 as $outils): ?>
                                         <p><span></span>
                                             <?= $outils['outil'] ?>
                                         </p>

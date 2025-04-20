@@ -111,63 +111,63 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="model">
-            <a href="../model_cv/model1.php" target="_blank">
+            <a href="../model_cv/model1.php">
                 <img src="../image/cv1.png" alt="CV Modèle Classique">
                 <div class="model-info">
                     <h3>Modèle Classique</h3>
                     <p>Design épuré et professionnel</p>
                 </div>
             </a>
-            <a href="../model_cv/model10.php" target="_blank">
+            <a href="../model_cv/model10.php">
                 <img src="../image/cv11.png" alt="CV Modèle Turquoise">
                 <div class="model-info">
                     <h3>Modèle Turquoise</h3>
                     <p>Design moderne avec accents turquoise</p>
                 </div>
             </a>
-            <a href="../model_cv/model7.php" target="_blank">
+            <a href="../model_cv/model7.php">
                 <img src="../image/cv8.png" alt="CV Modèle Moderne">
                 <div class="model-info">
                     <h3>Modèle Moderne</h3>
                     <p>Style contemporain avec accents de couleur</p>
                 </div>
             </a>
-            <a href="../model_cv/model3.php" target="_blank">
+            <a href="../model_cv/model3.php">
                 <img src="../image/cv3.png" alt="CV Modèle Créatif">
                 <div class="model-info">
                     <h3>Modèle Créatif</h3>
                     <p>Mise en page originale pour se démarquer</p>
                 </div>
             </a>
-            <a href="../model_cv/model5.php" target="_blank">
+            <a href="../model_cv/model5.php">
                 <img src="../image/cv6.png" alt="CV Modèle Exécutif">
                 <div class="model-info">
                     <h3>Modèle Exécutif</h3>
                     <p>Style sobre et élégant pour cadres</p>
                 </div>
             </a>
-            <a href="../model_cv/model8.php" target="_blank">
+            <a href="../model_cv/model8.php">
                 <img src="../image/cv9.png" alt="CV Modèle Moderne professionnel">
                 <div class="model-info">
                     <h3>Modèle Moderne professionnel</h3>
                     <p>Design épuré et moderne avec des touches de vert</p>
                 </div>
             </a>
-            <a href="../model_cv/model2.php" target="_blank">
+            <a href="../model_cv/model2.php">
                 <img src="../image/cv2.png" alt="CV Modèle Minimaliste">
                 <div class="model-info">
                     <h3>Modèle Minimaliste</h3>
                     <p>Design simple et efficace</p>
                 </div>
             </a>
-            <a href="../model_cv/model6.php" target="_blank">
+            <a href="../model_cv/model6.php">
                 <img src="../image/cv7.png" alt="CV Modèle Chronologique">
                 <div class="model-info">
                     <h3>Modèle Chronologique</h3>
                     <p>Parfait pour mettre en avant votre parcours</p>
                 </div>
             </a>
-            <a href="../model_cv/model4.php" target="_blank">
+            <a href="../model_cv/model4.php">
                 <img src="../image/cv4.png" alt="CV Modèle Technique">
                 <div class="model-info">
                     <h3>Modèle Technique</h3>
@@ -175,7 +175,7 @@ if (isset($_GET['id'])) {
                 </div>
             </a>
 
-            <a href="../model_cv/model9.php" target="_blank">
+            <a href="../model_cv/model9.php">
                 <img src="../image/cv10.png" alt="CV Modèle Blue Header">
                 <div class="model-info">
                     <h3>Modèle Blue Header</h3>

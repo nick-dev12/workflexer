@@ -1,9 +1,10 @@
 <?php
+// Vérification de l'appareil au tout début
+include_once('check_device.php');
 // Démarre la session
 session_start();
 
-// Include device detection functionality
-include_once('check_device.php');
+
 
 // Check if user is on desktop
 $isDesktop = isDesktop();
@@ -76,7 +77,7 @@ if (isset($_SESSION['users_id'])) {
             <script>
                 function generatePDF() {
                     const { jsPDF } = window.jspdf;
-                    const element = document.querySelector(".container");
+                    const element = document.querySelector(".cv-container");
 
                     domtoimage.toJpeg(element, {
                         quality: 1.5,
@@ -363,134 +364,129 @@ if (isset($_SESSION['users_id'])) {
             </style>
         </div>
 
-        <div class="cv-container">
-            <div class="left-column">
-                <h1 class="name-title">PRÉNOM<br>NOM</h1>
-                <p class="subtitle" style="margin-top: 5px; font-style: italic; text-transform: none;">
-                    <?= $userss['competences'] ?>
-                </p>
-                <img src="../upload/<?= $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
-                    alt="Photo de profil" class="profile-image">
+        <div class="container-model">
+            <div class="cv-container">
+                <div class="left-column">
+                    <h1 class="name-title">PRÉNOM<br>NOM</h1>
+                    <p class="subtitle" style="margin-top: 5px; font-style: italic; text-transform: none;">
+                        <?= $userss['competences'] ?>
+                    </p>
+                    <img src="../upload/<?= $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
+                        alt="Photo de profil" class="profile-image">
 
-                <div class="contact">
-                    <h3>CONTACT</h3>
-                    <p><?= $userss['phone'] ?></p>
-                    <p><?= $userss['ville'] ?></p>
-                    <p><?= $userss['mail'] ?></p>
-                    <p>linkedin.com/prénom-nom</p>
-                </div>
+                    <div class="contact">
+                        <h3>CONTACT</h3>
+                        <p><?= $userss['phone'] ?></p>
+                        <p><?= $userss['ville'] ?></p>
+                        <p><?= $userss['mail'] ?></p>
+                        <p>linkedin.com/prénom-nom</p>
+                    </div>
 
-                <div class="languages">
-                    <h3>LANGUES</h3>
-                    <?php if (empty($afficheLangue)): ?>
-                        <p>Français : Langue maternelle</p>
-                        <p>Anglais : Niveau intermédiaire</p>
-                        <p>Espagnol : Niveau avancé</p>
-                    <?php else: ?>
-                        <?php foreach ($afficheLangue as $langues): ?>
-                            <p><?= $langues['langue'] ?> : <?= $langues['niveau'] ?></p>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
-
-                <div class="skills">
-                    <h3>COMPÉTENCES</h3>
-                    <?php if ($competencesUtilisateur): ?>
-                        <ul>
-                            <?php foreach ($competencesUtilisateur as $competence): ?>
-                                <li><?= $competence['competence'] ?></li>
+                    <div class="languages">
+                        <h3>LANGUES</h3>
+                        <?php if (empty($afficheLangue)): ?>
+                            <p>Français : Langue maternelle</p>
+                            <p>Anglais : Niveau intermédiaire</p>
+                            <p>Espagnol : Niveau avancé</p>
+                        <?php else: ?>
+                            <?php foreach ($afficheLangue as $langues): ?>
+                                <p><?= $langues['langue'] ?> : <?= $langues['niveau'] ?></p>
                             <?php endforeach; ?>
-                        </ul>
-                    <?php else: ?>
-                        <ul>
-                            <li>Sens du travail d'équipe</li>
-                            <li>À l'écoute</li>
-                            <li>Esprit d'analyse</li>
-                            <li>Travail en équipe</li>
-                        </ul>
-                    <?php endif; ?>
-                </div>
-            </div>
+                        <?php endif; ?>
+                    </div>
 
-            <div class="right-column">
-                <div class="profile">
-                    <h3>PROFIL</h3>
-                    <?php if (empty($descriptions)): ?>
-                        <p>Étudiante en Licence Éco-Gestion, je souhaite approfondir mes études en intégrant votre Master.
-                            Cette formation précède des cours et apprentissages qui me permettront d'approfondir
-                            spécifiquement mon futur domaine professionnel.</p>
-                    <?php else: ?>
-                        <p><?= $descriptions['description'] ?></p>
-                    <?php endif; ?>
-                </div>
+                    <div class="skills">
+                        <h3>COMPÉTENCES</h3>
+                        <?php if ($competencesUtilisateurLimit7): ?>
+                            <ul>
+                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                    <li> <?php echo $competence['competence']; ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php else: ?>
+                            <h4>Aucune donnée trouvée</h4>
+                        <?php endif ?>
+                    </div>
 
-                <div class="section">
-                    <h3>FORMATION</h3>
-                    <?php if (empty($formationUsers)): ?>
-                        <div class="education-item">
-                            <h4>Licence Éco-Gestion | La Sorbonne</h4>
-                            <p class="date">Sept 2020 - Juin 2023 | Paris</p>
-                            <p>• Cours de gestion, économie, logiciels, droit...</p>
-                            <p>• Licence validée avec mention Bien.</p>
-                            <p>• Membre du bureau des étudiants. Réalisation de plusieurs projets et soutien à des
-                                associations.</p>
-                        </div>
-                        <div class="education-item">
-                            <h4>Baccalauréat ES</h4>
-                            <p class="date">Sept 2020 | Paris</p>
-                        </div>
-                    <?php else: ?>
-                        <?php foreach ($formationUsers as $formations): ?>
-                            <div class="education-item">
-                                <h4><?= $formations['etablissement'] ?></h4>
-                                <p class="date">
-                                    <?= $formations['moisDebut'] ?>/<?= $formations['anneeDebut'] ?> -
-                                    <?= $formations['moisFin'] ?>/<?= $formations['anneeFin'] ?>
-                                    <?php if (!empty($formations['ville'])): ?> | <?= $formations['ville'] ?><?php endif; ?>
-                                </p>
-                                <p><?= $formations['Filiere'] ?> (<?= $formations['niveau'] ?>)</p>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                    <div class="skills">
+                        <h3>OUTILS</h3>
+                        <?php if ($afficheOutilLimit5): ?>
+                            <ul>
+                                <?php foreach ($afficheOutilLimit5 as $outils): ?>
+                                    <li> <?= $outils['outil'] ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif ?>
+                    </div>
                 </div>
 
-                <div class="section">
-                    <h3>EXPÉRIENCES PROFESSIONNELLES</h3>
-                    <?php if (empty($afficheMetier)): ?>
-                        <div class="experience-item">
-                            <h4>CHARGÉE DE CLIENTÈLE (Stage) | BNP</h4>
-                            <p class="date">Janvier 2023 - Avril 2023 | Paris</p>
-                            <p>• Mise en place des dossiers clients et réalisation du suivi.</p>
-                            <p>• Création et présentation des offres clients et proposition du produit le plus adapté à
-                                l'image de marque.</p>
-                        </div>
-                        <div class="experience-item">
-                            <h4>BARISTA | Starbucks</h4>
-                            <p class="date">Juin 2022 - Sept 2022 | Paris</p>
-                            <p>• Préparation des boissons signatures de la marque et service des clients.</p>
-                            <p>• Respect des règles liées à l'hygiène et à la qualité.</p>
-                        </div>
-                        <div class="experience-item">
-                            <h4>AGENTE D'ACCUEIL | Festival d'Avignon</h4>
-                            <p class="date">Juin 2021 - Août 2021 | Avignon</p>
-                            <p>• Accueil du public et aide au bon déroulement des représentations.</p>
-                            <p>• Contrôle des billets et ventes de spectacle.</p>
-                        </div>
-                    <?php else: ?>
-                        <?php foreach ($afficheMetier as $Metiers): ?>
-                            <div class="experience-item">
-                                <h4><?= $Metiers['metier'] ?>
-                                    <?php if (!empty($Metiers['entreprise'])): ?> | <?= $Metiers['entreprise'] ?><?php endif; ?>
-                                </h4>
-                                <p class="date">
-                                    <?= $Metiers['moisDebut'] ?>/<?= $Metiers['anneeDebut'] ?> -
-                                    <?= $Metiers['moisFin'] ?>/<?= $Metiers['anneeFin'] ?>
-                                    <?php if (!empty($Metiers['ville'])): ?> | <?= $Metiers['ville'] ?><?php endif; ?>
-                                </p>
-                                <p><?= nl2br($Metiers['description']) ?></p>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                <div class="right-column">
+                    <div class="profile">
+                        <h3>PROFIL</h3>
+                        <?php if (empty($descriptions)): ?>
+                            <p>Étudiante en Licence Éco-Gestion, je souhaite approfondir mes études en intégrant votre
+                                Master.
+                                Cette formation précède des cours et apprentissages qui me permettront d'approfondir
+                                spécifiquement mon futur domaine professionnel.</p>
+                        <?php else: ?>
+                            <p><?= $descriptions['description'] ?></p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="section">
+                        <h3>FORMATION</h3>
+                        <?php if (empty($formationUsers)): ?>
+                            <p>Aucune donnée trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            shuffle($formationUsers);
+                            $nombre_formation = 3;
+                            ?>
+                            <?php foreach ($formationUsers as $key => $formations): ?>
+                                <?php if ($key < $nombre_formation): ?>
+                                    <div class="education-item">
+                                        <h4><?= $formations['etablissement'] ?></h4>
+                                        <p class="date">
+                                            <?= $formations['moisDebut'] ?>/<?= $formations['anneeDebut'] ?> -
+                                            <?= $formations['moisFin'] ?>/<?= $formations['anneeFin'] ?>
+                                            <?php if (!empty($formations['ville'])): ?> | <?= $formations['ville'] ?><?php endif; ?>
+                                        </p>
+                                        <p><?= $formations['Filiere'] ?> (<?= $formations['niveau'] ?>)</p>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="section">
+                        <h3>EXPÉRIENCES PROFESSIONNELLES</h3>
+                        <?php if (empty($afficheMetier)): ?>
+                            <p>Aucune donnée trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            shuffle($afficheMetier);
+                            $nombre_metier = 3;
+                            ?>
+                            <?php foreach ($afficheMetier as $key => $Metiers): ?>
+                                <?php if ($key < $nombre_metier): ?>
+                                    <div class="experience-item">
+                                        <h4><?= $Metiers['metier'] ?>
+                                            <?php if (!empty($Metiers['entreprise'])): ?> |
+                                                <?= $Metiers['entreprise'] ?>             <?php endif; ?>
+                                        </h4>
+                                        <p class="date">
+                                            <?= $Metiers['moisDebut'] ?>/<?= $Metiers['anneeDebut'] ?> -
+                                            <?= $Metiers['moisFin'] ?>/<?= $Metiers['anneeFin'] ?>
+                                            <?php if (!empty($Metiers['ville'])): ?> | <?= $Metiers['ville'] ?><?php endif; ?>
+                                        </p>
+                                        <p><?= nl2br($Metiers['description']) ?></p>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
+
                 </div>
             </div>
         </div>

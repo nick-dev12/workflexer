@@ -57,4 +57,12 @@ function deleteCompetence($db, $id)
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     return $stmt->execute();
 }
-?>
+
+function selectCompetenceLimit7($db, $users_id)
+{
+    $sql = "SELECT id, competence FROM competence_users WHERE users_id = :users_id LIMIT 7";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}

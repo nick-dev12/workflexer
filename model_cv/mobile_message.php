@@ -385,7 +385,7 @@ session_start();
         <p>Les fonctionnalités de personnalisation avancées sont optimisées pour les grands écrans et ne sont pas
             disponibles sur les appareils mobiles.</p>
 
-        <a href="../" class="btn">Retourner à l'accueil</a>
+        <a href="/model_cv/cv_users.php" class="btn">Retourner à l'accueil</a>
 
         <p class="footer-text">Vous pourrez accéder à tous les modèles de CV et à leurs options de personnalisation une
             fois connecté depuis un ordinateur.</p>
