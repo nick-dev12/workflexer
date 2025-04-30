@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Télécharger votre CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .image-container {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .actions {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0 10px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #2ecc71;
+            text-align: left;
+        }
+        @media print {
+            .actions, .instructions {
+                display: none;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Votre CV est prêt !</h1>
+        
+        <div class="image-container">
+            <img src="https://hcti.io/v1/image/e626dcef-e536-4fc6-9335-c4390ce88508" alt="Votre CV">
+        </div>
+        
+        <div class="actions">
+            <a href="https://hcti.io/v1/image/e626dcef-e536-4fc6-9335-c4390ce88508" download="cv.png" class="button">Télécharger en PNG</a>
+            <a href="#" onclick="window.print(); return false;" class="button">Imprimer / Créer PDF</a>
+        </div>
+        
+        <div class="instructions">
+            <h3>Pour créer un PDF à partir de cette image :</h3>
+            <ol>
+                <li>Cliquez sur le bouton "Imprimer / Créer PDF"</li>
+                <li>Dans la boîte de dialogue d'impression, sélectionnez "Enregistrer comme PDF" ou "Microsoft Print to PDF"</li>
+                <li>Choisissez un emplacement pour enregistrer votre fichier PDF</li>
+                <li>Cliquez sur "Enregistrer" ou "Imprimer"</li>
+            </ol>
+            <p><strong>Note :</strong> Cette méthode fonctionne sur la plupart des navigateurs modernes et ne nécessite aucun logiciel supplémentaire.</p>
+        </div>
+    </div>
+</body>
+</html>

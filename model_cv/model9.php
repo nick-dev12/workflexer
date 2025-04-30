@@ -357,7 +357,7 @@ if (isset($_SESSION['users_id'])) {
                 <div class="cv-header">
                     <div class="header-content">
                         <h1 class="name-title">
-                            <?= isset($userss['prenom'], $userss['nom']) ? $userss['prenom'] . " " . $userss['nom'] : "Albert DUMON" ?>
+                            <?= $userss['nom'] ?>
                         </h1>
                         <p class="job-title"><?= $userss['competences'] ?? "Gestionnaire administratif" ?></p>
                         <p class="header-text">

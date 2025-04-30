@@ -1,0 +1,547 @@
+/* Variables de couleurs et styles */
+:root {
+  /* Couleurs principales */
+  --primary-color: #24355c;
+  --secondary-color: #2c3e50;
+  --text-color: #333;
+  --background-color: #f5f5f5;
+  --light-background: #f9f9f9;
+  --border-color: #eaeaea;
+  --date-color: #888;
+  --light-text: #666;
+  --white: #fff;
+  --header-text-color: var(--white); /* Couleur du texte pour l'en-tête */
+
+  /* Couleurs des thèmes */
+  --classic-primary: #4a4a4a;
+  --classic-secondary: #7a7a7a;
+  --professional-primary: #1d3557;
+  --professional-secondary: #457b9d;
+  --corporate-primary: #1a237e;
+  --corporate-secondary: #5c6bc0;
+  --slate-primary: #2f4f4f;
+  --slate-secondary: #708090;
+  --emerald-primary: #0e3b43;
+  --emerald-secondary: #328590;
+  --violet-primary: #845ec2;
+  --violet-secondary: #b39cd0;
+  --ocean-primary: #3d5a80;
+  --ocean-secondary: #98c1d9;
+  --ruby-primary: #a31621;
+  --ruby-secondary: #db5461;
+}
+
+/* Styles généraux */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Section principale */
+.section3 {
+  display: flex;
+  padding: 30px;
+}
+
+/* Personnalisation */
+.personnalisation {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.button12 {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.button12:hover {
+  background-color: #1a252f;
+}
+
+.theme-selector {
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-selector h3 {
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
+.themes-section h4 {
+  margin: 15px 0 10px;
+  color: var(--secondary-color);
+}
+
+.themes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.theme-card {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: transform 0.3s;
+  width: 80px;
+}
+
+.theme-card:hover {
+  transform: scale(1.05);
+}
+
+.theme-preview {
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+/* Container principal du CV */
+.container {
+  width: 793px !important;
+  height: 1122px !important;
+  border: 1.5px solid #a3a3a3;
+  background-color: var(--white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header du CV avec fond bleu */
+.cv-header {
+  display: flex;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0;
+}
+
+.photo-section {
+  width: 20%;
+  padding: 15px;
+  margin-left: 10px;
+}
+
+.profile-photo {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-photo img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.header-info {
+  width: 80%;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-info h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: var(--header-text-color);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--header-text-color) !important;
+}
+
+.contact-info span {
+  display: flex;
+  align-items: center;
+  font-size: 14px !important;
+  color: var(--header-text-color) !important;
+}
+
+.contact-info span i {
+  margin-right: 8px;
+  width: 20px;
+  color: var(--header-text-color);
+}
+
+/* Conteneur principal de contenu */
+.cv-content {
+  display: flex;
+  padding: 0;
+  height: 100%;
+}
+
+/* Colonne de gauche */
+.left-column {
+  width: 66%;
+  padding: 25px;
+  border-right: 1px solid var(--border-color);
+}
+
+/* Colonne de droite */
+.right-column {
+  width: 34%;
+  padding: 25px;
+  background-color: var(--light-background);
+}
+
+/* Sections générales */
+.section {
+  margin-bottom: 25px;
+}
+
+.section h2 {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+}
+
+.section h2 i {
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Expérience professionnelle */
+.experience {
+  margin-bottom: 15px;
+}
+
+.experience h3,
+.education h3 {
+  font-size: 14px !important;
+  font-weight: bold;
+}
+
+.texte {
+  font-size: 13px !important;
+}
+
+.period {
+  color: var(--date-color);
+  font-size: 12px;
+  margin-bottom: 1px;
+}
+
+/* Formation */
+.education {
+  margin-bottom: 15px;
+}
+
+/* Informations personnelles */
+.info-item {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: column;
+}
+
+.info-label {
+  font-weight: bold;
+  width: 40%;
+}
+
+.info-value {
+  width: 80%;
+  margin-bottom: 5px;
+}
+
+/* Compétences et langues */
+.skill-item {
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  display: block;
+}
+
+/* Centres d'intérêt */
+.interest-item {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.interest-item i {
+  margin-right: 8px;
+  width: 14px;
+  color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cv-header {
+    flex-direction: column;
+  }
+
+  .photo-section,
+  .header-info {
+    width: 100%;
+  }
+
+  .cv-content {
+    flex-direction: column;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    border-right: none;
+  }
+
+  .right-column {
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+/* Styles pour les images personnalisables */
+.customizable-image {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.customizable-image:hover {
+  transform: scale(1.05);
+}
+
+/* Styles pour les sélecteurs de thèmes et polices */
+.theme-card,
+.font-card {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  margin-bottom: 5px;
+}
+
+.theme-card:hover,
+.font-card:hover {
+  transform: scale(1.05);
+  background-color: var(--background-color);
+}
+
+.theme-card.selected,
+.font-card.selected {
+  border-color: var(--secondary-color);
+  background-color: #e8f4fc;
+}
+
+.font-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.font-card {
+  width: auto;
+  padding: 8px 15px;
+}
+
+.font-card span {
+  font-size: 14px;
+}
+
+/* Styles pour les sélecteurs de couleur de date */
+.date-color-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid transparent;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color-option.selected {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--secondary-color);
+}
+
+/* Classes pour les thèmes de couleur */
+/* Thème par défaut (bleu) */
+.cv-header {
+  background-color: var(--primary-color);
+}
+
+.header-info h1,
+.contact-info,
+.contact-info span i {
+  color: var(--header-text-color);
+}
+
+.section h2,
+.interest-item i {
+  color: var(--primary-color);
+}
+
+/* Thème classique */
+.theme-classic .cv-header {
+  background-color: var(--classic-primary);
+}
+
+.theme-classic .section h2,
+.theme-classic .interest-item i {
+  color: var(--classic-primary);
+}
+
+/* Thème professionnel */
+.theme-professional .cv-header {
+  background-color: var(--professional-primary);
+}
+
+.theme-professional .section h2,
+.theme-professional .interest-item i {
+  color: var(--professional-primary);
+}
+
+/* Thème corporate */
+.theme-corporate .cv-header {
+  background-color: var(--corporate-primary);
+}
+
+.theme-corporate .section h2,
+.theme-corporate .interest-item i {
+  color: var(--corporate-primary);
+}
+
+/* Thème ardoise */
+.theme-slate .cv-header {
+  background-color: var(--slate-primary);
+}
+
+.theme-slate .section h2,
+.theme-slate .interest-item i {
+  color: var(--slate-primary);
+}
+
+/* Thème émeraude */
+.theme-emerald .cv-header {
+  background-color: var(--emerald-primary);
+}
+
+.theme-emerald .section h2,
+.theme-emerald .interest-item i {
+  color: var(--emerald-primary);
+}
+
+/* Thème violet */
+.theme-violet .cv-header {
+  background-color: var(--violet-primary);
+}
+
+.theme-violet .section h2,
+.theme-violet .interest-item i {
+  color: var(--violet-primary);
+}
+
+/* Thème océan */
+.theme-ocean .cv-header {
+  background-color: var(--ocean-primary);
+}
+
+.theme-ocean .section h2,
+.theme-ocean .interest-item i {
+  color: var(--ocean-primary);
+}
+
+/* Thème rubis */
+.theme-ruby .cv-header {
+  background-color: var(--ruby-primary);
+}
+
+.theme-ruby .section h2,
+.theme-ruby .interest-item i {
+  color: var(--ruby-primary);
+}
+
+/* Styles pour les PDF et l'impression */
+.pdf-rendering .fas {
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+.pdf-rendering .fa-user:before {
+  content: "\f007" !important;
+}
+.pdf-rendering .fa-briefcase:before {
+  content: "\f0b1" !important;
+}
+.pdf-rendering .fa-graduation-cap:before {
+  content: "\f19d" !important;
+}
+.pdf-rendering .fa-info-circle:before {
+  content: "\f05a" !important;
+}
+.pdf-rendering .fa-language:before {
+  content: "\f1ab" !important;
+}
+.pdf-rendering .fa-tools:before {
+  content: "\f7d9" !important;
+}
+.pdf-rendering .fa-heart:before {
+  content: "\f004" !important;
+}
+.pdf-rendering .fa-map-marker-alt:before {
+  content: "\f3c5" !important;
+}
+.pdf-rendering .fa-book:before {
+  content: "\f02d" !important;
+}
+.pdf-rendering .fa-dumbbell:before {
+  content: "\f44b" !important;
+}
+.pdf-rendering .fa-plane:before {
+  content: "\f072" !important;
+}
+
+/* Icônes dans l'en-tête et centres d'intérêt */
+.contact-info span i,
+.interest-item i {
+  margin-right: 10px;
+  width: 16px;
+  color: var(--header-text-color);
+}

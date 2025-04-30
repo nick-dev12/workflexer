@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemple CV Modèle 12 - Artistique & Élégant</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap");
+
+      :root {
+        --primary-color: #755c4b;
+        --secondary-color: #f5f1ec;
+        --accent-color: #d4af37;
+        --text-color: #2a2a2a;
+        --light-text: #777;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #fcfcfc;
+      }
+
+      .cv-container {
+        width: 793px !important;
+        height: 1122px !important;
+        border: 1.5px solid #a3a3a3;
+        position: relative;
+        background-color: white;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+        margin: 100px 200px;
+      }
+
+      .artistic-element {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: var(--secondary-color);
+        border-radius: 50%;
+        top: -60px;
+        right: -60px;
+        z-index: 0;
+      }
+
+      .artistic-element:before {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: var(--accent-color);
+        opacity: 0.2;
+        border-radius: 50%;
+        bottom: -30px;
+        left: -40px;
+      }
+
+      .artistic-element:after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background: var(--primary-color);
+        opacity: 0.2;
+        border-radius: 50%;
+        bottom: 20px;
+        left: 30px;
+      }
+
+      .cv-header {
+        padding: 20px 40px;
+        position: relative;
+        z-index: 1;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .profile-container {
+        flex: 0 0 200px;
+        margin-right: 10px;
+      }
+
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 8px solid var(--secondary-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .name-title {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        margin-bottom: 5px;
+        color: var(--primary-color);
+        letter-spacing: 1px;
+        position: relative;
+      }
+
+      .name-title:after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 3px;
+        background: var(--accent-color);
+        bottom: -12px;
+        left: 0;
+      }
+
+      .job-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--light-text);
+        margin-top: 20px;
+        margin-bottom: 25px;
+      }
+
+      .bio {
+        font-size: 13px;
+        line-height: 1.4;
+        max-width: 95%;
+        margin-bottom: 20px;
+      }
+
+      .cv-body {
+        display: flex;
+        position: relative;
+        z-index: 1;
+      }
+
+      .left-column {
+        flex: 0 0 35%;
+        padding: 20px 40px;
+        background-color: var(--secondary-color);
+        position: relative;
+      }
+
+      .right-column {
+        flex: 1;
+        padding: 20px 40px;
+      }
+
+      .section {
+        margin-bottom: 20px;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 2px;
+        background: var(--accent-color);
+        bottom: -8px;
+        left: 0;
+      }
+
+      .contact-info p {
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+      }
+
+      .contact-info i {
+        margin-right: 15px;
+        color: var(--primary-color);
+        width: 22px;
+        text-align: center;
+      }
+
+      .skills-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .skills-list li {
+        margin-bottom: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+      }
+
+      .skill-name {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .skill-bar {
+        height: 3px;
+        background: rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .skill-level {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: var(--primary-color);
+      }
+
+      .languages-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .languages-list li {
+        margin-bottom: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .language-level {
+        color: var(--light-text);
+        font-style: italic;
+      }
+
+      .experience-item,
+      .education-item {
+        margin-bottom: 5px;
+        position: relative;
+      }
+
+      .timeline-dot {
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        left: -36px;
+        top: 6px;
+      }
+
+      .timeline-line {
+        position: absolute;
+        width: 2px;
+        background-color: rgba(0, 0, 0, 0.1);
+        top: 18px;
+        bottom: -12px;
+        left: -31px;
+      }
+
+      .timeline-container {
+        position: relative;
+      }
+
+      .experience-item:last-child .timeline-line,
+      .education-item:last-child .timeline-line {
+        display: none;
+      }
+
+      .experience-title,
+      .education-title {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: var(--primary-color);
+      }
+
+      .company-name,
+      .institution-name {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: var(--accent-color);
+      }
+
+      .date-location {
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        color: var(--light-text);
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+      }
+
+      .date-location i {
+        margin-right: 8px;
+        width: 14px;
+        text-align: center;
+      }
+
+      .experience-description,
+      .education-description {
+        line-height: 1.4;
+        font-size: 13px;
+      }
+
+      .interests-list {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .interests-list li {
+        background-color: var(--secondary-color);
+        padding: 4px 10px;
+        border-radius: 25px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        color: var(--primary-color);
+      }
+
+      /* Icons */
+      .fa {
+        font-family: "FontAwesome";
+        display: inline-block;
+        font-style: normal;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="cv-container">
+      <div class="artistic-element"></div>
+
+      <div class="cv-header">
+        <div class="profile-container">
+          <img
+            src="image/image-2.webp"
+            alt="Photo de profil"
+            class="profile-photo"
+          />
+        </div>
+
+        <div class="header-content">
+          <h1 class="name-title">Claire Fontaine</h1>
+          <p class="job-title">Directrice Artistique</p>
+          <p class="bio">
+            Directrice artistique créative avec plus de 8 ans d'expérience dans
+            la conception visuelle et la direction de projets innovants.
+            Passionnée par l'art contemporain et les nouvelles technologies, je
+            crée des expériences visuelles mémorables qui racontent des
+            histoires captivantes.
+          </p>
+        </div>
+      </div>
+
+      <div class="cv-body">
+        <div class="left-column">
+          <div class="section contact-section">
+            <h3 class="section-title">Contact</h3>
+            <div class="contact-info">
+              <p><i class="fas fa-map-marker-alt"></i> Lyon, France</p>
+              <p><i class="fas fa-envelope"></i> claire.fontaine@gmail.com</p>
+              <p><i class="fas fa-phone-alt"></i> +33 6 78 45 23 12</p>
+              <p><i class="fas fa-globe"></i> www.clairefontaine.com</p>
+              <p>
+                <i class="fab fa-linkedin"></i> linkedin.com/in/clairefontaine
+              </p>
+            </div>
+          </div>
+
+          <div class="section skills-section">
+            <h3 class="section-title">Compétences</h3>
+            <ul class="skills-list">
+              <li>
+                <span class="skill-name">Adobe Creative Suite</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 95%"></div>
+                </div>
+              </li>
+              <li>
+                <span class="skill-name">Direction Artistique</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 90%"></div>
+                </div>
+              </li>
+              <li>
+                <span class="skill-name">Design UX/UI</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 85%"></div>
+                </div>
+              </li>
+              <li>
+                <span class="skill-name">Photographie</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 80%"></div>
+                </div>
+              </li>
+              <li>
+                <span class="skill-name">Gestion de Projet</span>
+                <div class="skill-bar">
+                  <div class="skill-level" style="width: 75%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="section languages-section">
+            <h3 class="section-title">Langues</h3>
+            <ul class="languages-list">
+              <li>
+                <span>Français</span>
+                <span class="language-level">Natif</span>
+              </li>
+              <li>
+                <span>Anglais</span>
+                <span class="language-level">Courant</span>
+              </li>
+              <li>
+                <span>Espagnol</span>
+                <span class="language-level">Intermédiaire</span>
+              </li>
+              <li>
+                <span>Italien</span>
+                <span class="language-level">Notions</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="section interests-section">
+            <h3 class="section-title">Centres d'intérêt</h3>
+            <ul class="interests-list">
+              <li>Art contemporain</li>
+              <li>Photographie</li>
+              <li>Voyages</li>
+              <li>Musique</li>
+              <li>Lecture</li>
+              <li>Cuisine créative</li>
+              <li>Yoga</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="section experience-section">
+            <h3 class="section-title">Expérience Professionnelle</h3>
+
+            <div class="timeline-container">
+              <div class="experience-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+                <h4 class="experience-title">Directrice Artistique Senior</h4>
+                <p class="company-name">Agence Créative Lumière</p>
+                <p class="date-location">
+                  <i class="far fa-calendar-alt"></i> 2019 - Présent
+                  <span style="margin: 0 10px">|</span>
+                  <i class="fas fa-map-pin"></i> Lyon
+                </p>
+                <p class="experience-description">
+                  Direction de l'équipe créative sur des projets majeurs pour
+                  des clients internationaux. Élaboration des concepts visuels
+                  et supervision de leur exécution. Réalisation d'une
+                  augmentation de 40% du portefeuille clients grâce à des
+                  approches innovantes en design.
+                </p>
+              </div>
+
+              <div class="experience-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+                <h4 class="experience-title">Directrice Artistique</h4>
+                <p class="company-name">Studio Visuel Abstrait</p>
+                <p class="date-location">
+                  <i class="far fa-calendar-alt"></i> 2016 - 2019
+                  <span style="margin: 0 10px">|</span>
+                  <i class="fas fa-map-pin"></i> Paris
+                </p>
+                <p class="experience-description">
+                  Conception et développement d'identités visuelles complètes
+                  pour des marques de luxe et des institutions culturelles.
+                  Gestion d'une équipe de 5 designers. Mise en place d'un
+                  pipeline de création optimisé qui a réduit de 30% les délais
+                  de production.
+                </p>
+              </div>
+
+              <div class="experience-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+                <h4 class="experience-title">Designer Graphique Senior</h4>
+                <p class="company-name">Agence Multimedia Nova</p>
+                <p class="date-location">
+                  <i class="far fa-calendar-alt"></i> 2014 - 2016
+                  <span style="margin: 0 10px">|</span>
+                  <i class="fas fa-map-pin"></i> Marseille
+                </p>
+                <p class="experience-description">
+                  Création de supports visuels pour des campagnes publicitaires
+                  multicanales. Collaboration étroite avec les équipes marketing
+                  et développement. Contribution à plusieurs projets primés dans
+                  des concours internationaux de design.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section education-section">
+            <h3 class="section-title">Formation</h3>
+
+            <div class="timeline-container">
+              <div class="education-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+                <h4 class="education-title">Master en Direction Artistique</h4>
+                <p class="institution-name">École Supérieure d'Art et Design</p>
+                <p class="date-location">
+                  <i class="far fa-calendar-alt"></i> 2012 - 2014
+                  <span style="margin: 0 10px">|</span>
+                  <i class="fas fa-map-pin"></i> Lyon
+                </p>
+                <p class="education-description">
+                  Spécialisation en conception visuelle et stratégie de marque.
+                  Projet de fin d'études récompensé par le Prix de l'Innovation
+                  Créative.
+                </p>
+              </div>
+
+              <div class="education-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+                <h4 class="education-title">Licence en Arts Appliqués</h4>
+                <p class="institution-name">Université des Arts Visuels</p>
+                <p class="date-location">
+                  <i class="far fa-calendar-alt"></i> 2009 - 2012
+                  <span style="margin: 0 10px">|</span>
+                  <i class="fas fa-map-pin"></i> Paris
+                </p>
+                <p class="education-description">
+                  Formation pluridisciplinaire en design graphique, typographie,
+                  photographie et techniques d'illustration.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

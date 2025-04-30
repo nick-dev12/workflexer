@@ -258,7 +258,6 @@ if (isset($_SESSION['users_id'])) {
                                 <p><span class="icon phone-icon"></span> <?= $userss['phone'] ?? "+33 6 66 66 66 66" ?>
                                 </p>
                                 <p><span class="icon location-icon"></span> <?= $userss['ville'] ?? "Ville, Pays" ?></p>
-                                <p><span class="icon linkedin-icon"></span> url.linkedin</p>
                             </div>
                         </div>
 
@@ -299,6 +298,20 @@ if (isset($_SESSION['users_id'])) {
                                 <?php endif; ?>
                             </ul>
                         </div>
+
+                        <div class="languages-section">
+                            <h2>LOISIRS</h2>
+                            <ul>
+                                <?php if (empty($afficheCentreInteret)): ?>
+                                    <p>Aucun loisir trouvé</p>
+                                <?php else: ?>
+                                    <?php foreach ($afficheCentreInteret as $loisir): ?>
+                                        <li><span class="checkmark">✓</span> <?= $loisir['interet'] ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
                     </div>
 
                     <!-- Main content with experience, education, etc. -->
@@ -314,44 +327,45 @@ if (isset($_SESSION['users_id'])) {
                                 $nombre_metier = 3;
                                 ?>
                                 <?php foreach ($afficheMetier as $key => $metier): ?>
-                                    <?php if ($key < $nombre_metier): ?> <div class="experience-item">
+                                    <?php if ($key < $nombre_metier): ?>
+                                        <div class="experience-item">
                                             <h3><?= strtoupper($metier['metier']) ?></h3>
                                             <p class="job-location">
                                                 <?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?> -
                                                 <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?>
-                                                </p>
-                                                <ul class="job-description">
-                                                    <?php
-                                                    $description = nl2br($metier['description']);
-                                                    $points = explode('<br />', $description);
-                                                    foreach ($points as $point) {
-                                                        $point = trim($point);
-                                                        if (!empty($point)) {
-                                                            echo "<li>" . $point . "</li>";
-                                                        }
+                                            </p>
+                                            <ul class="job-description">
+                                                <?php
+                                                $description = nl2br($metier['description']);
+                                                $points = explode('<br />', $description);
+                                                foreach ($points as $point) {
+                                                    $point = trim($point);
+                                                    if (!empty($point)) {
+                                                        echo "<li>" . $point . "</li>";
                                                     }
-                                                    ?>
-                                                </ul>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </div>
+                                                }
+                                                ?>
+                                            </ul>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
 
 
 
-                    <div class="education-section">
-                        <h2>FORMATION</h2>
+                        <div class="education-section">
+                            <h2>FORMATION</h2>
 
-                        <?php if (empty($formationUsers)): ?>
-                            <p>Aucune formation trouvée</p>
-                        <?php else: ?>
-                            <?php
-                            shuffle($formationUsers);
-                            $nombre_formation = 3;
-                            ?>
-                            <?php foreach ($formationUsers as $key => $formation): ?>
-                                <?php if ($key < $nombre_formation): ?>
+                            <?php if (empty($formationUsers)): ?>
+                                <p>Aucune formation trouvée</p>
+                            <?php else: ?>
+                                <?php
+                                shuffle($formationUsers);
+                                $nombre_formation = 3;
+                                ?>
+                                <?php foreach ($formationUsers as $key => $formation): ?>
+                                    <?php if ($key < $nombre_formation): ?>
                                         <div class="education-item">
                                             <h3><?= strtoupper($formation['etablissement'] ?? 'DIPLÔME OU ÉTUDES') ?></h3>
                                             <p class="education-location">
@@ -362,81 +376,81 @@ if (isset($_SESSION['users_id'])) {
                                             </p>
                                         </div>
                                     <?php endif; ?>
-                                    <?php endforeach; ?>
-                            <?php endif; ?>
-                    </div>
-
-                    <div class="competences-section">
-                        <h2>COMPÉTENCES</h2>
-                        <?php if (!empty($competencesUtilisateurLimit7)): ?>
-                            <div class="competences-grid">
-                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
-                                    <div class="competence-item">
-                                        <span class="competence-name"><?= $competence['competence'] ?></span>
-                                        <?php
-                                        // Afficher le niveau de compétence avec des points
-                                        $niveau = isset($competence['niveau']) ? intval($competence['niveau']) : 4;
-                                        echo '<div class="competence-level">';
-                                        for ($i = 1; $i <= 4; $i++) {
-                                            if ($i <= $niveau) {
-                                                echo '<span class="dot filled"></span>';
-                                            } else {
-                                                echo '<span class="dot"></span>';
-                                            }
-                                        }
-                                        echo '</div>';
-                                        ?>
-                                    </div>
                                 <?php endforeach; ?>
-                            </div>
-                        <?php else: ?>
-                            <div class="competences-grid">
-                                <div class="competence-item">
-                                    <span class="competence-name">Travail d'équipe</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot"></span>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="competences-section">
+                            <h2>COMPÉTENCES</h2>
+                            <?php if (!empty($competencesUtilisateurLimit7)): ?>
+                                <div class="competences-grid">
+                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                        <div class="competence-item">
+                                            <span class="competence-name"><?= $competence['competence'] ?></span>
+                                            <?php
+                                            // Afficher le niveau de compétence avec des points
+                                            $niveau = isset($competence['niveau']) ? intval($competence['niveau']) : 4;
+                                            echo '<div class="competence-level">';
+                                            for ($i = 1; $i <= 4; $i++) {
+                                                if ($i <= $niveau) {
+                                                    echo '<span class="dot filled"></span>';
+                                                } else {
+                                                    echo '<span class="dot"></span>';
+                                                }
+                                            }
+                                            echo '</div>';
+                                            ?>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php else: ?>
+                                <div class="competences-grid">
+                                    <div class="competence-item">
+                                        <span class="competence-name">Travail d'équipe</span>
+                                        <div class="competence-level">
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot"></span>
+                                        </div>
+                                    </div>
+                                    <div class="competence-item">
+                                        <span class="competence-name">Communication</span>
+                                        <div class="competence-level">
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                        </div>
+                                    </div>
+                                    <div class="competence-item">
+                                        <span class="competence-name">Gestion de projet</span>
+                                        <div class="competence-level">
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot"></span>
+                                            <span class="dot"></span>
+                                        </div>
+                                    </div>
+                                    <div class="competence-item">
+                                        <span class="competence-name">Analyse de données</span>
+                                        <div class="competence-level">
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot filled"></span>
+                                            <span class="dot"></span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="competence-item">
-                                    <span class="competence-name">Communication</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                    </div>
-                                </div>
-                                <div class="competence-item">
-                                    <span class="competence-name">Gestion de projet</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot"></span>
-                                        <span class="dot"></span>
-                                    </div>
-                                </div>
-                                <div class="competence-item">
-                                    <span class="competence-name">Analyse de données</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 

@@ -80,7 +80,7 @@ if (isset($_SESSION['users_id'])) {
                     const element = document.querySelector(".cv-container");
 
                     domtoimage.toJpeg(element, {
-                        quality: 1.5,
+                        quality: 2,
                         bgcolor: '#fff'
                     })
                         .then(function (dataUrl) {
@@ -367,7 +367,7 @@ if (isset($_SESSION['users_id'])) {
         <div class="container-model">
             <div class="cv-container">
                 <div class="left-column">
-                    <h1 class="name-title">PRÉNOM<br>NOM</h1>
+                    <h1 class="name-title"><?= $userss['nom'] ?></h1>
                     <p class="subtitle" style="margin-top: 5px; font-style: italic; text-transform: none;">
                         <?= $userss['competences'] ?>
                     </p>
@@ -379,15 +379,12 @@ if (isset($_SESSION['users_id'])) {
                         <p><?= $userss['phone'] ?></p>
                         <p><?= $userss['ville'] ?></p>
                         <p><?= $userss['mail'] ?></p>
-                        <p>linkedin.com/prénom-nom</p>
                     </div>
 
                     <div class="languages">
                         <h3>LANGUES</h3>
                         <?php if (empty($afficheLangue)): ?>
-                            <p>Français : Langue maternelle</p>
-                            <p>Anglais : Niveau intermédiaire</p>
-                            <p>Espagnol : Niveau avancé</p>
+                            <p>Aucune donnée trouvée</p>
                         <?php else: ?>
                             <?php foreach ($afficheLangue as $langues): ?>
                                 <p><?= $langues['langue'] ?> : <?= $langues['niveau'] ?></p>
@@ -424,10 +421,7 @@ if (isset($_SESSION['users_id'])) {
                     <div class="profile">
                         <h3>PROFIL</h3>
                         <?php if (empty($descriptions)): ?>
-                            <p>Étudiante en Licence Éco-Gestion, je souhaite approfondir mes études en intégrant votre
-                                Master.
-                                Cette formation précède des cours et apprentissages qui me permettront d'approfondir
-                                spécifiquement mon futur domaine professionnel.</p>
+                            <p>Aucune donnée trouvée</p>
                         <?php else: ?>
                             <p><?= $descriptions['description'] ?></p>
                         <?php endif; ?>

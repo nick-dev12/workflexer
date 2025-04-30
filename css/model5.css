@@ -11,6 +11,15 @@
   --text-color2-m5: #0089be;
   --light-text-m5: rgba(0, 0, 0, 0.6);
   --item-bg-m5: rgba(195, 193, 193, 0.5);
+
+  /* Font sizes */
+  --h1-size: 25px !important;
+  --h2-size: 20px !important;
+  --h3-size: 15px !important;
+  --p-size: 13px !important;
+  --li-size: 14px !important;
+  --span-size: 11px !important;
+  --strong-size: 14px !important;
 }
 
 /*--------------------------------------------------------------
@@ -20,11 +29,42 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif !important;
+  line-height: 1.4;
 }
 
 body {
-  font-family: "Nunito", sans-serif;
-  background-color: #e1e2e275;
+  font-family: "Nunito", sans-serif !important;
+  background-color: #f5f5f5;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Common text styles */
+h1 {
+  font-size: var(--h1-size) !important;
+}
+h2 {
+  font-size: var(--h2-size) !important;
+}
+h3 {
+  font-size: var(--h3-size) !important;
+}
+p {
+  font-size: var(--p-size) !important;
+}
+li {
+  font-size: var(--li-size) !important;
+}
+span {
+  font-size: var(--span-size) !important;
+}
+strong {
+  font-size: var(--strong-size) !important;
 }
 
 .section2 .box3 table .tr4 {
@@ -40,16 +80,8 @@ body {
 }
 
 .section3 {
-  background-color: #f2f2f275;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
-
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
-  margin-top: 10px;
+  gap: 20px;
 }
 
 @media screen and (max-width: 1050px) {
@@ -71,6 +103,15 @@ body {
   margin-bottom: 10px;
 }
 
+.section3 .reset-button {
+  background-color: #e74c3c;
+  margin-left: 10px;
+}
+
+.section3 .reset-button:hover {
+  background-color: #c0392b;
+}
+
 @media screen and (max-width: 1050px) {
   .section3 {
     width: 100%;
@@ -83,15 +124,11 @@ body {
 }
 
 .section3 .personnalisation {
-  width: 330px;
+  width: 500px;
   padding: 20px;
   margin: 20px 0;
   background-color: #ffffff;
   border-radius: 10px;
-  position: fixed;
-  top: 20px;
-  left: 0;
-  overflow-y: auto;
   max-height: 90vh;
 }
 
@@ -192,7 +229,6 @@ body {
   display: flex;
   align-items: center;
   color: var(--text-color-m5);
-  font-size: 14px;
 }
 
 .container .box1 .item1 ul li img {
@@ -202,14 +238,12 @@ body {
 
 .container .box1 .item1 h3 {
   margin-left: 30px;
-  font-size: 18px;
   margin-bottom: 5px;
   color: var(--text-color-m5);
 }
 
 .container .box1 .item1 h1 {
   margin-left: 30px;
-  font-size: 25px;
   color: var(--text-color-m5);
 }
 
@@ -240,7 +274,6 @@ body {
 }
 
 .container .box2 .item1 .box h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -255,10 +288,8 @@ body {
 }
 
 .container .box2 .item1 .box p {
-  font-size: 12px;
   padding: 0px 30px;
   width: 100%;
-  text-align: justify;
   color: var(--text-color-m5);
 }
 
@@ -267,7 +298,6 @@ body {
 }
 
 .container .box2 .item1 .exp h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -286,21 +316,17 @@ body {
 }
 
 .container .box2 .item1 .exp div h3 {
-  font-size: 14px;
   margin-left: 30px;
   color: var(--text-color2-m5);
 }
 
 .container .box2 .item1 .exp div span {
-  font-size: 10px;
   color: var(--light-text-m5);
   margin-left: 30px;
 }
 
 .container .box2 .item1 .exp div p {
-  font-size: 12px;
   padding: 5px 30px 5px 30px;
-  text-align: justify;
   color: var(--text-color-m5);
 }
 
@@ -316,7 +342,6 @@ body {
 }
 
 .container .box2 .item2 .exp h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -335,20 +360,17 @@ body {
 }
 
 .container .box2 .item2 .exp div h3 {
-  font-size: 13px;
   margin-left: 30px;
   color: var(--text-color2-m5);
 }
 
 .container .box2 .item2 .exp div span {
-  font-size: 10px;
   color: var(--text-color-m5);
   margin-left: 30px;
   display: block;
 }
 
 .container .box2 .item2 .exp div p {
-  font-size: 11px;
   color: var(--text-color-m5);
   margin-left: 30px;
   text-align: justify;
@@ -360,7 +382,6 @@ body {
 }
 
 .container .box2 .item2 .comp h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -384,11 +405,14 @@ body {
 .container .box2 .item2 .comp ul li {
   padding: 3px 7px;
   background-color: var(--item-bg-m5);
-  font-size: 10px;
   margin: 7px 10px;
   border-radius: 5px;
   list-style: none;
   color: var(--text-color-m5);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
 }
 
 .container .box2 .item2 .outils {
@@ -396,7 +420,6 @@ body {
 }
 
 .container .box2 .item2 .outils h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -421,7 +444,6 @@ body {
   list-style: square;
   margin: 7px 10px;
   color: var(--text-color-m5);
-  font-size: 12px;
   list-style: none;
 }
 
@@ -467,7 +489,6 @@ body {
   display: flex;
   align-items: center;
   color: var(--text-color-m5);
-  font-size: 14px;
 }
 
 #cv-content .box1 .item1 ul li img {
@@ -477,14 +498,12 @@ body {
 
 #cv-content .box1 .item1 h3 {
   margin-left: 30px;
-  font-size: 18px;
   margin-bottom: 5px;
   color: var(--text-color-m5);
 }
 
 #cv-content .box1 .item1 h1 {
   margin-left: 30px;
-  font-size: 25px;
   color: var(--text-color-m5);
 }
 
@@ -515,7 +534,6 @@ body {
 }
 
 #cv-content .box2 .item1 .box h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -530,7 +548,6 @@ body {
 }
 
 #cv-content .box2 .item1 .box p {
-  font-size: 12px;
   padding: 0px 30px;
   width: 100%;
   text-align: justify;
@@ -542,7 +559,6 @@ body {
 }
 
 #cv-content .box2 .item1 .exp h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -561,20 +577,17 @@ body {
 }
 
 #cv-content .box2 .item1 .exp div h3 {
-  font-size: 14px;
   margin-left: 30px;
   color: var(--text-color2-m5);
 }
 
 #cv-content .box2 .item1 .exp div span {
-  font-size: 10px;
   color: var(--light-text-m5);
   margin-left: 30px;
   display: block;
 }
 
 #cv-content .box2 .item1 .exp div p {
-  font-size: 12px;
   padding: 5px 30px 5px 30px;
   text-align: justify;
   color: var(--text-color-m5);
@@ -592,7 +605,6 @@ body {
 }
 
 #cv-content .box2 .item2 .exp h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -611,19 +623,16 @@ body {
 }
 
 #cv-content .box2 .item2 .exp div h3 {
-  font-size: 13px;
   margin-left: 30px;
   color: var(--text-color2-m5);
 }
 
 #cv-content .box2 .item2 .exp div span {
-  font-size: 10px;
   color: var(--text-color-m5);
   margin-left: 30px;
 }
 
 #cv-content .box2 .item2 .exp div p {
-  font-size: 11px;
   color: var(--text-color-m5);
   padding: 5px 10px 5px 30px;
   text-align: justify;
@@ -634,7 +643,6 @@ body {
 }
 
 #cv-content .box2 .item2 .comp h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -658,7 +666,6 @@ body {
 #cv-content .box2 .item2 .comp ul li {
   padding: 3px 7px;
   background-color: var(--item-bg-m5);
-  font-size: 10px;
   margin: 7px 10px;
   border-radius: 5px;
   list-style: none;
@@ -670,7 +677,6 @@ body {
 }
 
 #cv-content .box2 .item2 .outils h2 {
-  font-size: 20px;
   margin-bottom: 10px;
   margin-left: 30px;
   width: 100%;
@@ -696,10 +702,19 @@ body {
   margin: 7px 10px;
   color: var(--text-color-m5);
   list-style: none;
-  font-size: 12px;
 }
 
 @media screen and (max-width: 1050px) {
+  :root {
+    --h1-size: 16px;
+    --h2-size: 16px;
+    --h3-size: 11px;
+    --p-size: 9px;
+    --li-size: 12px;
+    --span-size: 8px;
+    --strong-size: 12px;
+  }
+
   .section3 .container {
     width: 550px;
     height: 850px;
@@ -722,7 +737,6 @@ body {
 
   .section3 .container .box1 .item1 ul li {
     margin: 7px 0;
-    font-size: 12px;
   }
 
   .section3 .container .box1 .item1 ul li img {
@@ -732,12 +746,10 @@ body {
 
   .section3 .container .box1 .item1 h3 {
     margin-left: 30px;
-    font-size: 14px;
   }
 
   .section3 .container .box1 .item1 h1 {
     margin-left: 30px;
-    font-size: 16px;
   }
 
   .section3 .container .box1 .item2 {
@@ -755,7 +767,6 @@ body {
   }
 
   .section3 .container .box2 .item1 .box h2 {
-    font-size: 16px;
     margin-bottom: 10px;
     margin-left: 30px;
   }
@@ -766,7 +777,6 @@ body {
   }
 
   .section3 .container .box2 .item1 .box p {
-    font-size: 9px;
     padding: 0px 15px;
   }
 
@@ -775,7 +785,6 @@ body {
   }
 
   .section3 .container .box2 .item1 .exp h2 {
-    font-size: 16px;
     margin-bottom: 3px;
     margin-left: 30px;
   }
@@ -790,17 +799,14 @@ body {
   }
 
   .section3 .container .box2 .item1 .exp div h3 {
-    font-size: 11px;
     margin-left: 30px;
   }
 
   .section3 .container .box2 .item1 .exp div span {
-    font-size: 8px;
     margin-left: 20px;
   }
 
   .section3 .container .box2 .item1 .exp div p {
-    font-size: 9px;
     padding: 0px 15px 0px 15px;
   }
 
@@ -814,7 +820,6 @@ body {
   }
 
   .section3 .container .box2 .item2 .exp h2 {
-    font-size: 16px;
     margin-bottom: 10px;
     margin-left: 20px;
   }
@@ -829,17 +834,14 @@ body {
   }
 
   .section3 .container .box2 .item2 .exp div h3 {
-    font-size: 11px;
     margin-left: 20px;
   }
 
   .section3 .container .box2 .item2 .exp div span {
-    font-size: 8px;
     margin-left: 20px;
   }
 
   .section3 .container .box2 .item2 .exp div p {
-    font-size: 10px;
     margin-left: 20px;
   }
 
@@ -849,7 +851,6 @@ body {
   }
 
   .section3 .container .box2 .item2 .comp h2 {
-    font-size: 16px;
     margin-bottom: 10px;
     margin-left: 20px;
   }
@@ -865,7 +866,6 @@ body {
 
   .section3 .container .box2 .item2 .comp ul li {
     padding: 2px 5px;
-    font-size: 7px;
     margin: 4px 6px;
     border-radius: 5px;
   }
@@ -875,7 +875,6 @@ body {
   }
 
   .section3 .container .box2 .item2 .outils h2 {
-    font-size: 16px;
     margin-bottom: 10px;
     margin-left: 20px;
   }
@@ -892,11 +891,20 @@ body {
   .section3 .container .box2 .item2 .outils ul li {
     list-style: square;
     margin: 6px 20px;
-    font-size: 10px;
   }
 }
 
 @media screen and (max-width: 800px) {
+  :root {
+    --h1-size: 10px;
+    --h2-size: 12px;
+    --h3-size: 9px;
+    --p-size: 7px;
+    --li-size: 9px;
+    --span-size: 6px;
+    --strong-size: 9px;
+  }
+
   .section3 .container {
     width: 340px;
     height: 622px;
@@ -919,7 +927,6 @@ body {
 
   .section3 .container .box1 .item1 ul li {
     margin: 3px 0;
-    font-size: 9px;
   }
 
   .section3 .container .box1 .item1 ul li img {
@@ -929,12 +936,10 @@ body {
 
   .section3 .container .box1 .item1 h3 {
     margin-left: 10px;
-    font-size: 9px;
   }
 
   .section3 .container .box1 .item1 h1 {
     margin-left: 10px;
-    font-size: 10px;
   }
 
   .section3 .container .box1 .item2 {
@@ -953,7 +958,6 @@ body {
   }
 
   .section3 .container .box2 .item1 .box h2 {
-    font-size: 12px;
     margin-bottom: 10px;
     margin-left: 15px;
   }
@@ -964,7 +968,6 @@ body {
   }
 
   .section3 .container .box2 .item1 .box p {
-    font-size: 7px;
     padding: 0px 7px;
   }
 
@@ -973,7 +976,6 @@ body {
   }
 
   .section3 .container .box2 .item1 .exp h2 {
-    font-size: 12px;
     margin-bottom: 3px;
     margin-left: 10px;
   }
@@ -988,12 +990,10 @@ body {
   }
 
   .section3 .container .box2 .item1 .exp div h3 {
-    font-size: 9px;
     margin-left: 10px;
   }
 
   .section3 .container .box2 .item1 .exp div span {
-    font-size: 6px;
     margin-top: 0px;
     margin-left: 10px;
     margin-bottom: 0px;
@@ -1001,7 +1001,6 @@ body {
   }
 
   .section3 .container .box2 .item1 .exp div p {
-    font-size: 7px;
     padding: 0px 7px 0px 7px;
     text-align: left;
   }

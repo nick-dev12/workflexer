@@ -543,11 +543,20 @@ if (isset($_GET['id'])) {
 
                     buton.addEventListener('click', function () {
                         form_box.style.display = 'block';
-                        buton.style.display = 'none'
+                        buton.style.display = 'none';
+                        // Ajouter une courte temporisation pour permettre au navigateur de reconnaître le changement de display
+                        setTimeout(() => {
+                            form_box.classList.add('active');
+                        }, 10);
                     });
+
                     imgs.addEventListener('click', function () {
-                        form_box.style.display = 'none';
-                        buton.style.display = 'block'
+                        form_box.classList.remove('active');
+                        // Attendre la fin de l'animation avant de cacher l'élément
+                        setTimeout(() => {
+                            form_box.style.display = 'none';
+                            buton.style.display = 'block';
+                        }, 400);
                     });
 
                     let button = document.querySelector('.buttons')
@@ -555,30 +564,85 @@ if (isset($_GET['id'])) {
 
                     button.addEventListener('click', function () {
                         texte.style.display = 'block';
-                        button.style.display = 'none'
-                    });
-                    imgs.addEventListener('click', function () {
-                        texte.style.display = 'none';
-                        button.style.display = 'block'
+                        button.style.display = 'none';
+                        // Ajouter une courte temporisation pour l'animation
+                        setTimeout(() => {
+                            texte.classList.add('active');
+                        }, 10);
                     });
 
+                    imgs.addEventListener('click', function () {
+                        texte.classList.remove('active');
+                        // Attendre la fin de l'animation
+                        setTimeout(() => {
+                            texte.style.display = 'none';
+                            button.style.display = 'block';
+                        }, 400);
+                    });
+
+                    // Gestion du textarea pour la modification
                     const textarea = document.getElementById("count");
                     const caracteresRestants = document.getElementById("caracteres-restants");
 
-                    // Mise à jour du compteur de caractères en temps réel
-                    textarea.addEventListener("keyup", () => {
+                    // Mise à jour initiale du compteur
+                    if (textarea) {
                         const nombreCaracteres = textarea.value.length;
-                        caracteresRestants.textContent = `${400 - nombreCaracteres
-                            } caractères restants`;
+                        caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
 
-                    });
-                    // Limiter le nombre de caractères saisis en temps réel
-                    textarea.addEventListener("input", () => {
-                        if (textarea.value.length > 400) {
-                            textarea.value = textarea.value.substring(0, 400);
+                        // Mise à jour du compteur de caractères en temps réel
+                        textarea.addEventListener("keyup", () => {
+                            const nombreCaracteres = textarea.value.length;
+                            caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
+                        });
+
+                        // Limiter le nombre de caractères saisis en temps réel
+                        textarea.addEventListener("input", () => {
+                            if (textarea.value.length > 400) {
+                                textarea.value = textarea.value.substring(0, 400);
+                            }
+                        });
+                    }
+
+                    // Gestion du textarea pour l'ajout
+                    const textareaAdd = document.getElementById("counte");
+                    const caracteresRestantesAdd = document.getElementById("caracteres-restantes");
+
+                    // Mise à jour initiale du compteur
+                    if (textareaAdd) {
+                        const nombreCaracteresAdd = textareaAdd.value.length;
+                        if (caracteresRestantesAdd) {
+                            caracteresRestantesAdd.textContent = `${400 - nombreCaracteresAdd} caractères restants`;
                         }
-                    });
 
+                        // Mise à jour du compteur de caractères en temps réel
+                        textareaAdd.addEventListener("keyup", () => {
+                            const nombreCaracteresAdd = textareaAdd.value.length;
+                            if (caracteresRestantesAdd) {
+                                caracteresRestantesAdd.textContent = `${400 - nombreCaracteresAdd} caractères restants`;
+                            }
+                        });
+
+                        // Limiter le nombre de caractères saisis en temps réel
+                        textareaAdd.addEventListener("input", () => {
+                            if (textareaAdd.value.length > 400) {
+                                textareaAdd.value = textareaAdd.value.substring(0, 400);
+                            }
+                        });
+                    }
+
+                    // Ajouter des effets sur les boutons de soumission
+                    const submitButtons = document.querySelectorAll('#ajoute');
+                    submitButtons.forEach(button => {
+                        button.addEventListener('mousedown', function () {
+                            this.style.transform = 'scale(0.95)';
+                        });
+                        button.addEventListener('mouseup', function () {
+                            this.style.transform = '';
+                        });
+                        button.addEventListener('mouseleave', function () {
+                            this.style.transform = '';
+                        });
+                    });
                 </script>
             </div>
 
@@ -983,8 +1047,16 @@ if (isset($_GET['id'])) {
 
                 <form class="forms" action="" method="post">
                     <img class="imgs2" src="../image/croix.png" alt="">
-                    <input type="text" name="competence" id="competence">
+                    <p class="nb"><em>NB: Ajouter une seule compétence a la fois</em></p>
+                    <input type="text" name="competence" id="competence" maxlength="50">
+                    <p id="char-count" style="font-size: 12px; margin-top: 5px;">50 caractères restants</p>
                     <input type="submit" value="Enregistrer" name="Ajouter1" id="Ajouter">
+                    <script>
+                        document.getElementById('competence').addEventListener('input', function () {
+                            const remaining = 50 - this.value.length;
+                            document.getElementById('char-count').textContent = remaining + ' caractères restants';
+                        });
+                    </script>
                 </form>
 
                 <script>
@@ -1525,8 +1597,12 @@ if (isset($_GET['id'])) {
                 <form action="" method="post" enctype="multipart/form-data">
                     <img class="croixx" src="../image/croix.png" alt="">
                     <div class="tcp">
+                        <p class="nb"><em>NB: Ajouter un seul outil a la fois</em></p>
                         <label for="outil">Ajouter un outil informatique</label>
-                        <input type="text" name="outil" id="outil">
+                        <input type="text" name="outil" id="outil" maxlength="50">
+                        <div class="character-counter">
+                            <span id="char-count">0</span>/50 caractères
+                        </div>
                     </div>
 
                     <div class="tcp">
@@ -1541,6 +1617,23 @@ if (isset($_GET['id'])) {
                     </div>
 
                 </form>
+                <script>
+                    document.getElementById('outil').addEventListener('input', function () {
+                        const maxLength = 50;
+                        const currentLength = this.value.length;
+                        const charCountElement = document.getElementById('char-count');
+
+                        charCountElement.textContent = currentLength;
+
+                        if (currentLength >= maxLength) {
+                            charCountElement.style.color = 'red';
+                        } else if (currentLength >= 40) {
+                            charCountElement.style.color = 'orange';
+                        } else {
+                            charCountElement.style.color = 'inherit';
+                        }
+                    });
+                </script>
             </div>
 
             <script>
@@ -1600,8 +1693,9 @@ if (isset($_GET['id'])) {
                 <form action="" method="post">
                     <img class="croixxx" src="../image/croix.png" alt="">
                     <div class="tcp">
+                        <p class="nb"><em>NB: Ajouter une seule langue a la fois</em></p>
                         <label for="tangue">Ajouter une langue</label>
-                        <input type="text" name="langue" id="langue">
+                        <input type="text" name="langue" id="langue" maxlength="50">
                     </div>
 
                     <div class="tcp">
@@ -2045,6 +2139,91 @@ if (isset($_GET['id'])) {
                     };
                 });
             }
+        });
+    </script>
+
+    <script>
+        // Code JavaScript pour les animations des formulaires dans container_box2
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animation pour les formulaires dans box2
+            const afficherFormButtons = document.querySelectorAll('.section3 .container_box2 .box2 .affiche_form');
+            const forms = document.querySelectorAll('.section3 .container_box2 .box2 form');
+            const closeIcons = document.querySelectorAll('.section3 .container_box2 .box2 form img');
+
+            afficherFormButtons.forEach((button, index) => {
+                if (forms[index]) {
+                    button.addEventListener('click', function () {
+                        forms[index].style.display = 'block';
+                        button.style.display = 'none';
+                    });
+                }
+            });
+
+            closeIcons.forEach((icon, index) => {
+                if (forms[index]) {
+                    icon.addEventListener('click', function () {
+                        forms[index].style.display = 'none';
+                        if (afficherFormButtons[index]) {
+                            afficherFormButtons[index].style.display = 'flex';
+                        }
+                    });
+                }
+            });
+
+            // Animation pour les formulaires dans box3
+            const afficherFormsButtons = document.querySelectorAll('.section3 .container_box2 .box3 .affiche_forms, .section3 .container_box2 .box3 .affiche_formss');
+            const forms3 = document.querySelectorAll('.section3 .container_box2 .box3 form');
+            const closeIcons3 = document.querySelectorAll('.section3 .container_box2 .box3 form img');
+
+            afficherFormsButtons.forEach((button, index) => {
+                if (forms3[index]) {
+                    button.addEventListener('click', function () {
+                        forms3[index].style.display = 'flex';
+                        button.style.display = 'none';
+                    });
+                }
+            });
+
+            closeIcons3.forEach((icon, index) => {
+                if (forms3[index]) {
+                    icon.addEventListener('click', function () {
+                        forms3[index].style.display = 'none';
+                        if (afficherFormsButtons[index]) {
+                            afficherFormsButtons[index].style.display = 'flex';
+                        }
+                    });
+                }
+            });
+
+            // Effet d'échelle sur les boutons au clic
+            const submitButtons = document.querySelectorAll('.section3 .container_box2 form #Ajouter');
+
+            submitButtons.forEach(button => {
+                button.addEventListener('mousedown', function () {
+                    this.style.transform = 'scale(0.95)';
+                });
+
+                button.addEventListener('mouseup', function () {
+                    this.style.transform = 'translateY(-3px)';
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    this.style.transform = '';
+                });
+            });
+
+            // Animation au survol des compétences
+            const competences = document.querySelectorAll('.section3 .container_box2 .box3 .container_comp .comp');
+
+            competences.forEach(comp => {
+                comp.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-3px)';
+                });
+
+                comp.addEventListener('mouseleave', function () {
+                    this.style.transform = '';
+                });
+            });
         });
     </script>
 

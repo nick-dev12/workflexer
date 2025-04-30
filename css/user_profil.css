@@ -28,6 +28,12 @@ textarea {
   border: 1.5px solid #818181;
 }
 
+.nb {
+  font-size: 12px;
+  color: hsl(0, 89%, 74%);
+  margin-bottom: 10px;
+}
+
 .section3 .qr-code {
   display: flex;
   align-items: center;
@@ -560,15 +566,21 @@ textarea {
 }
 .section3 .container_box1 .box1 {
   width: 800px;
-  border: 1px solid rgba(133, 133, 133, 0.243);
+  border: 1px solid rgba(133, 133, 133, 0.15);
   padding: 20px 40px;
   margin-left: -180px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  box-shadow: 0 0 10px 2px #00000036;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   position: relative;
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box1 .box1:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
 }
 
 .section3 .container_box1 .box1 {
@@ -585,15 +597,18 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ebebebc7;
+  background: linear-gradient(145deg, #f6f6f6, #ebebeb);
   text-align: left;
   font-size: 16px;
-  padding: 10px 40px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.258);
-  border-radius: 5px;
-  color: #000000;
+  padding: 14px 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(133, 133, 133, 0.15);
+  border-radius: 10px;
+  color: #333;
   text-transform: uppercase;
-  box-shadow: 0 0 5px 1px #dddddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 .section3 .container_box1 h2 strong {
   display: flex;
@@ -608,111 +623,187 @@ textarea {
 .section3 .container_box1 .buton,
 .buttons {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   right: 100px;
   cursor: pointer;
   transform: translate(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e6e6e68f;
-  padding: 3px 10px;
-  border-radius: 10px;
-  background-color: #f0eeee91;
-  color: #4e4e4e;
-  font-size: 13px;
-  transition: all 0.4s;
-}
-.section3 .container_box1 .buton:hover {
-  background-color: #000000;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
   color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
+
+.section3 .container_box1 .buton:hover,
 .section3 .container_box1 .buttons:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: translate(-50%) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-.section3 .container_box1 .buttons img {
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
-}
+
+.section3 .container_box1 .buttons img,
 .section3 .container_box1 .buton img {
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   margin-right: 10px;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
+}
+
+.section3 .container_box1 .buttons:hover img,
+.section3 .container_box1 .buton:hover img {
+  transform: rotate(15deg);
 }
 
 .section3 .container_box1 .form_box {
   width: 100%;
   display: none;
-  transition: all 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
+.section3 .container_box1 .form_box.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section3 .container_box1 .texte {
   width: 100%;
   display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
+.section3 .container_box1 .texte.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section3 .container_box1 .form_box form {
   width: 90%;
-  padding: 20px 20px;
-  border: 2px solid #b1b1b1;
-  border-radius: 10px;
+  padding: 30px;
+  border: none;
+  border-radius: 15px;
   position: relative;
   margin-top: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box1 .form_box form:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box1 .form_box form img {
   height: 25px;
   width: 25px;
   position: absolute;
-  top: 10px;
-  right: 30px;
+  top: 15px;
+  right: 20px;
   cursor: pointer;
   transition: all 0.4s;
   z-index: 3;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .section3 .container_box1 .form_box form img:hover {
-  transform: scale(1.2);
+  transform: rotate(90deg) scale(1.1);
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 .section3 .container_box1 .form_box form textarea {
   height: 200px;
   width: 100%;
   font-size: 15px;
-  border-radius: 10px;
-  padding: 15px 20px;
-  color: #000000;
+  border-radius: 12px;
+  padding: 20px;
+  color: #333;
   font-family: "Nunito", sans-serif;
   margin-top: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  resize: none;
 }
+
+.section3 .container_box1 .form_box form textarea:focus {
+  outline: none;
+  border-color: #5f5f5f;
+  box-shadow: 0 0 0 3px rgba(95, 95, 95, 0.2);
+}
+
 .section3 .container_box1 .form_box form textarea::placeholder {
-  font-size: 16px;
+  font-size: 15px;
+  color: #aaa;
 }
-.section3 .container_box1 .form_box form img {
-  height: 20px;
-  width: 20px;
-  object-fit: cover;
-  max-width: 120px;
+
+#caracteres-restants,
+#caracteres-restantes {
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+  text-align: right;
+  font-style: italic;
 }
 
 .section3 .container_box1 .form_box form #ajoute {
   color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
+  padding: 10px 25px;
+  border-radius: 30px;
   font-size: 15px;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease;
   margin-top: 20px;
   cursor: pointer;
   border: none;
-  background-color: #5f5f5f;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
+
+.section3 .container_box1 .form_box form #ajoute:hover {
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section3 .container_box1 .form_box form #ajoute:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .section3 .container_box1 .description {
   text-align: left;
   width: 100%;
   margin-top: 20px;
   font-size: 14px;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   color: #444444;
-  line-height: 25px;
+  line-height: 28px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(249, 249, 249, 0.5);
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box1 .description:hover {
+  background-color: rgba(249, 249, 249, 0.9);
 }
 
 .section3 .container_box1 .description .p {
@@ -819,26 +910,39 @@ textarea {
   }
   .section3 .container_box1 h2 {
     font-size: 16px;
+    padding: 12px 20px;
   }
   .section3 .container_box1 .box1 {
     width: 98%;
     margin-left: 0px;
+    padding: 15px 20px;
   }
   .section3 .container_box1 .description {
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 24px;
     text-align: justify;
+    padding: 10px;
   }
   .section3 .container_box1 form {
     width: 100%;
   }
-  .section3 .container_box1 .form_box form textarea {
-    font-size: 13px;
-    padding: 10px 10px;
+  .section3 .container_box1 .form_box form {
+    padding: 20px 15px;
   }
-  .section3 .container_box1 .form_box_texte #counte {
+  .section3 .container_box1 .form_box form textarea {
+    font-size: 14px;
+    padding: 15px;
+    height: 180px;
+  }
+  .section3 .container_box1 .buton,
+  .section3 .container_box1 .buttons {
+    right: 70px;
+    padding: 7px 15px;
     font-size: 13px;
-    padding: 10px 10px;
+  }
+  .section3 .container_box1 .form_box form #ajoute {
+    padding: 8px 20px;
+    font-size: 14px;
   }
 }
 
@@ -846,87 +950,109 @@ textarea {
   .section3 .container_box1 .box1 {
     width: 100%;
     margin-left: 0px;
-    padding: 20px 5px;
+    padding: 15px 10px;
   }
   .section3 .container_box1 .box1 p {
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 22px;
     padding: 10px;
   }
   .section3 .container_box1 h2 {
-    padding: 7px 5px;
+    padding: 10px 15px;
+    font-size: 14px;
   }
-  .section3 .container_box1 .buton {
-    font-size: 13px;
+  .section3 .container_box1 .buton,
+  .section3 .container_box1 .buttons {
+    right: 60px;
+    font-size: 12px;
+    padding: 6px 12px;
   }
   .section3 .container_box1 .form_box {
     width: 100%;
     padding: 10px 0;
   }
   .section3 .container_box1 .form_box form {
-    width: 100%;
-    padding: 40px 0px;
+    width: 95%;
+    padding: 20px 15px;
   }
 
   .section3 .container_box1 .form_box form textarea {
-    font-size: 12px;
+    font-size: 13px;
+    padding: 12px;
+    height: 160px;
   }
 
   .section3 .container_box1 .form_box form #ajoute {
-    font-size: 12px;
+    font-size: 13px;
+    padding: 8px 15px;
   }
 
   .section3 .container_box1 .description {
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 22px;
+    padding: 10px;
   }
 
-  .section3 .container_box1 .description .p {
-    font-size: 12px;
-  }
-
-  .section3 .container_box1 .description img {
-    height: 100px;
-    width: 120px;
+  #caracteres-restants,
+  #caracteres-restantes {
+    font-size: 11px;
   }
 }
 
 .section3 .container_box2 {
   width: 80%;
-  padding: 20px 40px;
-  border: 1px solid #e6e6e68f;
-  box-shadow: 0 0 10px 2px #00000036;
-  border-radius: 10px;
+  padding: 30px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
   margin-bottom: 50px;
   background-color: #ffffff;
   max-width: 1000px;
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box2:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
 }
 
 .section3 .container_box2 .box1 {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .section3 .container_box2 .box1 h1 {
   text-align: left;
-  font-size: 16px;
-  padding: 10px 40px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.258);
-  border-radius: 5px;
-  color: #000000;
+  font-size: 18px;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 10px;
+  color: #333;
   text-transform: uppercase;
-  box-shadow: 0 0 5px 1px #dddddd;
-  background-color: #ebebebc7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(145deg, #f6f6f6, #ebebeb);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .section3 .container_box2 .box2 {
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.221);
-  padding: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(133, 133, 133, 0.12);
+  padding: 25px 20px;
+  border-radius: 10px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box2 .box2:hover {
+  background-color: #f5f5f5;
 }
 
 .section3 .container_box2 .box2 h2 {
-  color: rgba(0, 0, 0, 0.54);
-  margin-bottom: 10px;
+  color: #444;
+  margin-bottom: 15px;
   font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .section3 .container_box2 .box2 .form {
@@ -934,48 +1060,83 @@ textarea {
 }
 
 .section3 .container_box2 .box2 .affiche_form {
-  margin-left: 70%;
-  color: #5c5c5c;
-  transition: all 0.3s ease-out;
+  margin-left: auto;
+  margin-right: 20px;
+  width: fit-content;
+  color: #ffffff;
+  transition: all 0.3s ease;
   margin-top: 20px;
   cursor: pointer;
   border: none;
-  background-color: #f0eeee91;
-  padding: 2px 10px;
-  border-radius: 10px;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
+  padding: 10px 20px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .section3 .container_box2 .box2 .affiche_form img {
-  width: 30px;
+  width: 24px;
+  height: 24px;
   margin-right: 10px;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
 }
+
 .section3 .container_box2 .box2 .affiche_form:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section3 .container_box2 .box2 .affiche_form:hover img {
+  transform: rotate(15deg);
 }
 
 .section3 .container_box2 .box2 form {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
-  border: 2px solid #919191;
-  border-radius: 10px;
-  padding: 40px 20px;
+  border: none;
+  border-radius: 15px;
+  padding: 30px;
   position: relative;
   display: block;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: formFadeIn 0.4s forwards;
+}
+
+@keyframes formFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section3 .container_box2 .box2 form:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box2 form img {
   height: 25px;
   width: 25px;
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 20px;
   cursor: pointer;
   transition: all 0.4s;
   z-index: 3;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box2 #imgs2 {
@@ -983,13 +1144,14 @@ textarea {
 }
 
 .section3 .container_box2 .box2 form img:hover {
-  transform: scale(1.2);
+  transform: rotate(90deg) scale(1.1);
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box2 form .box_date {
   display: flex;
   justify-content: start;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -997,7 +1159,7 @@ textarea {
 .section3 .container_box2 .box2 form .boxmetier {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
 }
 
@@ -1007,11 +1169,16 @@ textarea {
   justify-content: start;
   flex-direction: column;
   margin: 0 30px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .section3 .container_box2 .box2 form .boxmetier .date .mois {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .section3 .container_box2 .box2 form .boxmetier .date .annee {
@@ -1022,26 +1189,47 @@ textarea {
 .section3 .container_box2 .box2 form .encours {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .section3 .container_box2 .box2 form .encours input {
   margin-left: 10px;
   width: 20px;
   height: 20px;
+  cursor: pointer;
+  accent-color: #444;
 }
 
 .section3 .container_box2 .box2 form .boxmetier .date select {
-  padding: 5px 10px;
-  height: 40px;
-  width: 100px;
-  border: 2px solid #011c295b;
-  border-radius: 7px;
+  padding: 10px 15px;
+  height: 45px;
+  width: 120px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   margin-bottom: 10px;
+  font-size: 15px;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box2 .box2 form .boxmetier .date select:hover,
+.section3 .container_box2 .box2 form .boxmetier .date select:focus {
+  border-color: #555;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box2 form .boxmetier .date select option {
-  font-size: 16px;
+  font-size: 15px;
+  padding: 10px;
 }
 
 .section3 .container_box2 form #dat {
@@ -1052,169 +1240,256 @@ textarea {
 
 .section3 .container_box2 .box2 form #Ajouter {
   color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
-  font-size: 14px;
-  transition: all 0.3s ease-out;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 15px;
+  transition: all 0.3s ease;
   margin-top: 20px;
   cursor: pointer;
   border: none;
-  background-color: #2286ff;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .section3 .container_box2 .box2 form #Ajouter:hover {
-  background-color: #f39c12;
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section3 .container_box2 .box2 form #Ajouter:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box2 form #metier {
-  height: 40px;
+  height: 45px;
   width: 80%;
-  border: 1px solid #4444444a;
-  padding: 5px 20px;
-  font-size: 18px;
-  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box2 .box2 form #metier:focus {
+  outline: none;
+  border-color: #5f5f5f;
+  box-shadow: 0 0 0 3px rgba(95, 95, 95, 0.2);
 }
 
 .section3 .container_box2 .box3 {
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.41);
-  padding: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(133, 133, 133, 0.12);
+  padding: 25px 20px;
   width: 100%;
+  border-radius: 10px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box2 .box3:hover {
+  background-color: #f5f5f5;
 }
 
 .section3 .container_box2 .box3 .p {
-  color: #9b9b9b;
+  color: #888;
   font-size: 14px;
-  background-color: none !important;
+  font-style: italic;
 }
 
 .section3 .container_box2 .box3 .affiche_forms,
 .section3 .container_box2 .box3 .affiche_formss {
-  margin-left: 70%;
-  background-color: #f0eeee91;
-  transition: all 0.3s ease-out;
+  margin-left: auto;
+  margin-right: 20px;
+  width: fit-content;
+  color: #ffffff;
+  transition: all 0.3s ease;
   margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3px 15px;
+  padding: 10px 20px;
   cursor: pointer;
   border: none;
-  border-radius: 10px;
-  color: #5c5c5c;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .section3 .container_box2 .box3 .affiche_forms img,
 .section3 .container_box2 .box3 .affiche_formss img {
-  width: 30px;
+  width: 24px;
+  height: 24px;
   margin-right: 10px;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
 }
 
 .section3 .container_box2 .box3 .affiche_forms:hover,
 .section3 .container_box2 .box3 .affiche_formss:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section3 .container_box2 .box3 .affiche_forms:hover img,
+.section3 .container_box2 .box3 .affiche_formss:hover img {
+  transform: rotate(15deg);
 }
 
 .section3 .container_box2 .box3 form {
-  margin-top: 30px;
+  margin: 30px auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  flex-direction: column;
+  width: 90%;
   display: none;
-  border: 2px solid #919191;
-  border-radius: 10px;
-  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  padding: 30px;
   position: relative;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: formFadeIn 0.4s forwards;
+}
+
+.section3 .container_box2 .box3 form:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box3 form img {
   height: 25px;
   width: 25px;
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 20px;
   cursor: pointer;
   transition: all 0.4s;
   z-index: 3;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box3 form img:hover {
-  transform: scale(1.2);
+  transform: rotate(90deg) scale(1.1);
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box3 form #Ajouter {
   color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
-  font-size: 14px;
-  transition: all 0.3s ease-out;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 15px;
+  transition: all 0.3s ease;
   margin-top: 20px;
-  background-color: #2286ff;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
   cursor: pointer;
   border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.section3 .container_box2 .box3 form #Ajouter:hover {
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section3 .container_box2 .box3 form #Ajouter:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box3 form div {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 15px;
+  width: 100%;
 }
 
 .section3 .container_box2 .box3 form label {
-  font-size: 13px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
 .section3 .container_box2 .box3 form select {
-  font-size: 13px;
-  padding: 5px 10px;
-  border-radius: 5px;
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 8px;
   outline: none;
-  border: 2px solid #8484848b;
-  width: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box2 .box3 form select:hover,
+.section3 .container_box2 .box3 form select:focus {
+  border-color: #555;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box3 form select option {
-  font-size: 13px;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.section3 .container_box2 .box3 form #Ajouter:hover {
-  background-color: #f39c12;
+  font-size: 15px;
+  padding: 10px;
 }
 
 .section3 .container_box2 .box3 form #competence {
-  height: 35px;
-  width: 90%;
-  padding: 5px 20px;
-  font-size: 14px;
-  border-radius: 10px;
-  transition: all 0.4s;
-  border: 2px solid #2525257b;
-  outline: none;
+  height: 45px;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
 .section3 .container_box2 .box3 p {
-  margin: 10px;
+  margin: 15px 0;
   font-size: 16px;
+  color: #555;
+  line-height: 1.5;
 }
 
 .section3 .container_box2 .box3 p strong {
   margin-right: 10px;
+  color: #333;
 }
 
 .section3 .container_box2 .box3 form #competence:hover,
 .section3 .container_box2 .box3 form #competence:focus {
-  box-shadow: 0 0 7px 4px #0004ff4f;
-  border: 1px solid #0004ff54;
+  outline: none;
+  border-color: #5f5f5f;
+  box-shadow: 0 0 0 3px rgba(95, 95, 95, 0.2);
 }
 
 .section3 .container_box2 .box3 h2 {
-  color: rgba(0, 0, 0, 0.54);
-  margin-bottom: 10px;
+  color: #444;
+  margin-bottom: 15px;
   font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .section3 .container_box2 .box3 .container_comp {
@@ -1223,6 +1498,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  gap: 10px;
 }
 
 .section3 .container_box2 .box3 .b2 p {
@@ -1235,140 +1511,175 @@ textarea {
   flex-direction: column;
   padding: 20px;
   border-radius: 15px;
-  background-color: #f0f0f079;
-  border: 1px solid #ebebebc7;
-  box-shadow: 0 0 2px 1px #dddddd;
+  background-color: rgba(240, 240, 240, 0.5);
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box2 .box3 .b2 p:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box3 .b2 p .cercl {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #002ba1;
+  background-color: #0062ff;
   margin-bottom: 10px;
 }
 
 .section3 .container_box2 .box3 .b2 p strong {
-  color: #000;
+  color: #333;
+  font-weight: 600;
 }
 
 .section3 .container_box2 .box3 .container_comp .comp {
-  background-color: #f0f0f079;
-  color: #5c5c5c;
-  border: 1px solid #ebebebc7;
-  box-shadow: 0 0 2px 1px #dddddd;
-  border-radius: 10px;
-  font-size: 12px;
+  background-color: white;
+  color: #444;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  font-size: 14px;
   text-transform: capitalize;
-  margin-right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-  transition: all 0.3s ease-out;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
 }
 
 .section3 .container_box2 .box3 .container_comp .comp:hover {
-  background-color: #000000;
+  background-color: #444;
   color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box2 .box3 .container_comp p img {
   height: 15px;
   width: 15px;
-  margin-left: 20px;
+  margin-left: 10px;
   transition: all 0.3s;
 }
 
+.section3 .container_box2 .box3 .container_comp p img:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
 .section3 .container_box2 .box3 a:hover {
-  transform: translate(1.05);
+  transform: scale(1.05);
 }
 
 @media screen and (max-width: 800px) {
   .section3 .container_box2 {
-    width: 98%;
-    padding: 20px 5px;
+    width: 95%;
+    padding: 25px 15px;
   }
 
   .section3 .container_box2 .box3 {
     width: 98%;
-    padding: 5px;
+    padding: 15px;
   }
+
   .section3 .container_box2 .box3 form #competence {
-    height: 35px;
-    width: 90%;
-    padding: 5px 20px;
-    font-size: 12px;
+    height: 40px;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
   }
 
   .section3 .container_box2 .box3 form {
     width: 100%;
     display: none;
-    border: 2px solid #919191;
+    border: none;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 15px;
+  }
+
+  .section3 .container_box2 .box2 .affiche_form,
+  .section3 .container_box2 .box3 .affiche_forms,
+  .section3 .container_box2 .box3 .affiche_formss {
+    margin-left: auto;
+    margin-right: 0;
+    padding: 8px 15px;
+  }
+
+  .section3 .container_box2 .box2 form,
+  .section3 .container_box2 .box3 form {
+    padding: 20px 15px;
+  }
+
+  .section3 .container_box2 .box2 form #Ajouter,
+  .section3 .container_box2 .box3 form #Ajouter {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .section3 .container_box2 .box1 h1 {
-    font-size: 14px;
+    font-size: 16px;
+    padding: 12px 20px;
   }
 
   .section3 .container_box2 .box2 {
-    padding: 20px 10px;
+    padding: 15px 10px;
     width: 100%;
   }
 
   .section3 .container_box2 .box2 h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .section3 .container_box2 .box2 .p {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .section3 .container_box2 .box2 p {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .section3 .container_box2 .box2 .affiche_form {
-    font-size: 12px;
+    width: fit-content;
+    padding: 8px 15px;
+    font-size: 13px;
   }
 
   .section3 .container_box2 .box2 form {
-    padding: 30px 10px;
+    padding: 15px 10px;
   }
 
   .section3 .container_box2 .box2 form textarea {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .section3 .container_box2 .box2 form .boxmetier .date {
-    margin: 0 10px;
+    margin: 0 10px 15px 0;
+    padding: 10px;
   }
 
   .section3 .container_box2 .box2 form .boxmetier .date select {
-    padding: 0 5px;
+    height: 40px;
     width: 100px;
-    height: 30px;
+    padding: 8px 10px;
+    font-size: 14px;
   }
 
   .section3 .container_box2 .box2 form .boxmetier .date select option {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .section3 .container_box2 .box2 form #Ajouter {
-    font-size: 12px;
-    background-color: #b1b1b1;
+    padding: 8px 15px;
+    font-size: 14px;
   }
 
   .section3 .container_box2 .box2 form #metier {
-    font-size: 12px;
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
   }
 
   .section3 .container_box2 .box2 .metier table tr span {
@@ -1376,213 +1687,406 @@ textarea {
   }
 
   .section3 .container_box2 .box2 .metier table th {
-    width: 90%;
-  }
-
-  .section3 .container_box2 .box2 .metier table th p {
-    font-size: 13px;
-  }
-
-  .section3 .container_box2 .box2 .metier table #td {
-    width: 100%;
     font-size: 12px;
   }
 
+  .section3 .container_box2 .box2 .metier table th p {
+    font-size: 12px;
+  }
+
+  .section3 .container_box2 .box2 .metier table #td {
+    padding: 0 5px;
+  }
+
   .section3 .container_box2 .box2 .metier table .date {
-    font-size: 9px;
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .section3 .container_box2 .box3 form #competence {
-    height: 30px;
+    height: 40px;
     width: 100%;
-    padding: 5px 15px;
-    font-size: 14px;
+    padding: 8px 15px;
+    font-size: 13px;
+    border-radius: 6px;
   }
 
   .section3 .container_box2 .box3 form {
     width: 100%;
-    display: none;
-    border: 2px solid #919191;
-    border-radius: 10px;
-    padding: 20px;
+    padding: 15px 10px;
   }
 
   .section3 .container_box2 .box3 form img {
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
   }
 
   .section3 .container_box2 .box3 .container_comp .comp {
-    background-color: #1685cf24;
-    display: inline;
-    padding: 4px 10px;
-    border-radius: 10px;
-    font-size: 10px;
-    text-transform: capitalize;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+
+  .section3 .container_box2 .box3 .affiche_forms,
+  .section3 .container_box2 .box3 .affiche_formss {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .section3 .container_box2 .box3 form #Ajouter {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .section3 .container_box2 .box3 form label {
+    font-size: 13px;
+  }
+
+  .section3 .container_box2 .box3 form select,
+  .section3 .container_box2 .box3 form select option {
+    font-size: 13px;
+    padding: 8px 10px;
   }
 }
 
 .section3 .container_box3 {
-  padding: 20px;
+  padding: 30px;
   background-color: #ffffff;
-  border: 1px solid #e6e6e68f;
-  box-shadow: 0 0 5px 1px #dddddd;
-  border-radius: 10px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
   width: 80%;
   position: relative;
   max-width: 1000px;
+  transition: all 0.3s ease;
 }
+
+.section3 .container_box3:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
 .section3 .container_box3 .box4 {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   width: 100%;
 }
 
 .section3 .container_box3 .box4 h1 {
   text-align: left;
-  font-size: 16px;
-  padding: 10px 40px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.258);
-  border-radius: 5px;
-  color: #000000;
+  font-size: 18px;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 10px;
+  color: #333;
   text-transform: uppercase;
-  box-shadow: 0 0 5px 1px #dddddd;
-  background-color: #ebebebc7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(145deg, #f6f6f6, #ebebeb);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .section3 .container_box3 .containne {
   display: none;
   width: 100%;
+  animation: formFadeIn 0.4s forwards;
 }
+
+.section3 .container_box3 .containne.active {
+  display: block;
+}
+
 .section3 .container_box3 .containne .formee {
   width: 90%;
   display: flex;
   align-items: center;
   justify-content: left;
-  padding: 30px 40px;
-  border: 1px solid rgba(78, 77, 77, 0.325);
-  margin-top: 20px;
+  padding: 30px;
+  border: none;
+  border-radius: 15px;
+  margin: 25px auto;
   flex-wrap: wrap;
   position: relative;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
 }
+
+.section3 .container_box3 .containne .formee:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
 .section3 .container_box3 .containne .formee img {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 20px;
   height: 25px;
   width: 25px;
   cursor: pointer;
+  transition: all 0.4s;
+  z-index: 3;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.section3 .container_box3 .containne .formee img:hover {
+  transform: rotate(90deg) scale(1.1);
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
 .section3 .container_box3 .containne form .container_box {
-  margin-right: 60px;
-  margin-top: 10px;
+  margin-right: 40px;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
+
+.section3 .container_box3 .containne form .container_box:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 .section3 .container_box3 .containne form .container_box .date {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
+
 .section3 .container_box3 .containne form .container_box .date select {
-  padding: 5px 10px;
-  height: 40px;
-  width: 100px;
-  border: 2px solid #011c295b;
-  border-radius: 7px;
+  padding: 10px 15px;
+  height: 45px;
+  width: 120px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   margin-bottom: 10px;
+  font-size: 15px;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
+
+.section3 .container_box3 .containne form .container_box .date select:hover,
+.section3 .container_box3 .containne form .container_box .date select:focus {
+  border-color: #555;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
 .section3 .container_box3 .containne form .container_box .date select option {
   font-size: 15px;
+  padding: 10px;
 }
+
 .section3 .container_box3 .containne form .box1 {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
+
 .section3 .container_box3 .containne form .box1 .date .mois {
-  margin-right: 10px;
+  margin-right: 15px;
 }
+
 .section3 .container_box3 .containne form .box1 label {
   text-align: left;
-  font-size: 16px;
-  color: #0078ce;
-  margin-bottom: 7px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
+
 .section3 .container_box3 .containne form .box1 input {
-  font-size: 17px;
-  padding: 5px 15px;
-  margin-bottom: 10px;
-  border-radius: 7px;
-  transition: all 0.5s;
+  font-size: 15px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  width: 100%;
 }
+
 .section3 .container_box3 .containne form .box1 input:focus {
-  background-color: #3451c618;
+  outline: none;
+  border-color: #5f5f5f;
+  box-shadow: 0 0 0 3px rgba(95, 95, 95, 0.2);
+  background-color: #ffffff;
 }
+
 .section3 .container_box3 .containne form .box1 input:hover {
-  background-color: #3451c618;
+  border-color: #5f5f5f;
+  background-color: #ffffff;
 }
 
 .section3 .container_box3 .containne form .box1 .encours {
   display: flex;
   align-items: center;
   justify-content: start;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .section3 .container_box3 .containne form .box1 .encours span {
-  font-size: 15px;
-  font-style: italic;
+  font-size: 14px;
+  color: #555;
 }
 
 .section3 .container_box3 .containne form .box1 .encours input {
   width: 20px;
   height: 20px;
   margin-left: 10px;
+  cursor: pointer;
+  accent-color: #444;
+  box-shadow: none;
+  margin-bottom: 0;
 }
+
 .section3 .container_box3 .containne form .box1 #ajouter {
   color: #ffffff;
-  padding: 5px 7px;
-  border-radius: 5px;
+  padding: 12px 25px;
+  border-radius: 30px;
   font-size: 15px;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease;
   margin-top: 20px;
   cursor: pointer;
-  background-color: #b1b1b1;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
   border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
 }
+
 .section3 .container_box3 .containne form .box1 #ajouter:hover {
-  background-color: #f39c12;
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section3 .container_box3 .containne form .box1 #ajouter:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section3 .container_box3 .fa-formation .Ajouters {
-  background-color: #f0eeee91;
-  color: #5c5c5c;
-  padding: 3px 15px;
-  border-radius: 10px;
-  transition: all 0.3s ease-out;
+  margin-left: auto;
+  margin-right: 20px;
+  width: fit-content;
+  color: #ffffff;
+  transition: all 0.3s ease;
   margin-top: 20px;
   cursor: pointer;
-  border: 1px solid #e6e6e68f;
+  border: none;
+  background: linear-gradient(145deg, #5f5f5f, #444444);
+  padding: 10px 20px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 70%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .section3 .container_box3 .fa-formation .Ajouters img {
-  width: 30px;
+  width: 24px;
+  height: 24px;
   margin-right: 10px;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
 }
+
 .section3 .container_box3 .fa-formation .Ajouters:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background: linear-gradient(145deg, #444444, #333333);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
+.section3 .container_box3 .fa-formation .Ajouters:hover img {
+  transform: rotate(15deg);
+}
+
+/* Styles pour les tableaux */
+.section3 .container_box3 .box5 {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+  margin: 40px 0;
+  width: 100%;
+}
+
+.section3 .container_box3 .box5 .p {
+  color: #888;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.section3 .container_box3 .box5 table {
+  border-collapse: collapse;
+  transition: all 0.3s ease;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section3 .container_box3 .box5 table:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section3 .container_box3 .box5 table th {
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 20px;
+  color: #444;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.section3 .container_box3 .box5 table th:hover {
+  background-color: #f0f0f0;
+}
+
+.section3 .container_box3 .box5 table td {
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box3 .box5 table tr:hover td {
+  background-color: rgba(19, 155, 246, 0.05);
+}
+
+.section3 .container_box3 .box5 table .pt {
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #5c8aff;
+  font-style: italic;
+}
+
 @media screen and (max-width: 1100px) {
   .section3 .container_box3 {
-    padding: 20px;
+    padding: 25px;
     width: 95%;
   }
 
@@ -1590,6 +2094,7 @@ textarea {
     font-size: 12px;
   }
 }
+
 @media screen and (max-width: 800px) {
   .section3 .container_box3 {
     padding: 20px;
@@ -1597,221 +2102,119 @@ textarea {
   }
 
   .section3 .container_box3 .box4 h1 {
-    font-size: 18px;
-    padding: 7px 40px;
+    font-size: 16px;
+    padding: 12px 20px;
   }
 
   .section3 .container_box3 .containne .formee {
     width: 98%;
-    padding: 40px 10px;
+    padding: 20px 15px;
   }
+
   .section3 .container_box3 .containne form .container_box {
-    margin-right: 60px;
-    margin-top: 30px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 15px;
   }
+
   .section3 .container_box3 .containne form .container_box .date {
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
   }
+
   .section3 .container_box3 .containne form .container_box .date select {
-    padding: 5px 10px;
-    height: 30px;
-    width: 80px;
+    padding: 8px 15px;
+    height: 40px;
+    width: 100px;
+    font-size: 14px;
   }
-  .section3 .container_box3 .containne form .container_box .date select option {
-    font-size: 15px;
+
+  .section3 .container_box3 .fa-formation .Ajouters {
+    margin-left: auto;
+    margin-right: 0;
+    padding: 8px 15px;
+    font-size: 14px;
   }
-  .section3 .container_box3 .containne form .box1 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .section3 .container_box3 .containne form .box1 label {
-    text-align: left;
-    font-size: 16px;
-  }
+
   .section3 .container_box3 .containne form .box1 input {
-    font-size: 15px;
-    padding: 5px 15px;
-    margin-bottom: 10px;
-    width: 100%;
+    font-size: 14px;
+    padding: 8px 15px;
   }
 
   .section3 .container_box3 .containne form .box1 #ajouter {
-    color: #ffffff;
-    padding: 5px 7px;
-    border-radius: 5px;
-    font-size: 13px;
-    transition: all 0.3s ease-out;
-    margin-top: 20px;
-    cursor: pointer;
-    border: none;
-  }
-  .section3 .container_box3 .containne form .box1 #ajouter:hover {
-    background-color: #f39c12;
-  }
-
-  .section3 .container_box3 .box5 {
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    flex-direction: column;
-    margin: 40px 0;
-  }
-  .section3 .container_box3 .box5 .p {
-    color: #9b9b9b;
-    font-size: 16px;
-    background-color: none !important;
-    margin-bottom: 10px;
-  }
-  .section3 .container_box3 .box5 table {
-    border-collapse: collapse;
-    transition: all 0.3s ease-out;
-    width: 100%;
-  }
-
-  .section3 .container_box3 .box5 table:hover {
-    background-color: #139bf60e;
-  }
-  .section3 .container_box3 .box5 table th {
+    padding: 10px 20px;
     font-size: 14px;
-    border: 1px solid rgba(0, 0, 0, 0.337);
-    width: 200px;
-    max-width: 200px;
-    padding: 8px 20px;
-    color: #000000;
-    text-transform: capitalize;
-    transition: all 0.3s ease-out;
   }
-  .section3 .container_box3 .box5 table th:hover {
-    background-color: #ffffff;
-    color: #000000;
+
+  .section3 .container_box3 .box5 table th {
+    font-size: 13px;
+    padding: 10px;
   }
+
   .section3 .container_box3 .box5 table td {
-    height: 50px;
-    border: 1px solid rgba(6, 6, 6, 0.337);
-    width: 200px;
-    max-width: 200px;
-    text-align: center;
     font-size: 12px;
-    padding: 4px 5px;
-  }
-  .section3 .container_box3 .box5 table .pt {
-    font-weight: bold;
-    font-size: 10px;
-    letter-spacing: 0.5px;
-    color: #8b9bdd;
-    font-style: italic;
+    padding: 8px;
   }
 }
+
 @media screen and (max-width: 600px) {
   .section3 .container_box3 {
-    padding: 20px;
+    padding: 15px;
     width: 98%;
   }
+
   .section3 .container_box3 .box4 h1 {
-    font-size: 16px;
-    padding: 7px 40px;
+    font-size: 15px;
+    padding: 10px 15px;
   }
 
   .section3 .container_box3 .containne .formee {
-    width: 98%;
-  }
-  .section3 .container_box3 .containne form .container_box {
-    margin-right: 60px;
-  }
-  .section3 .container_box3 .containne form .container_box .date {
-    display: flex;
-    align-items: center;
-  }
-  .section3 .container_box3 .containne form .container_box .date select {
-    padding: 5px 10px;
-    height: 30px;
-    width: 80px;
-  }
-  .section3 .container_box3 .containne form .container_box .date select option {
-    font-size: 10px;
-  }
-  .section3 .container_box3 .containne form .box1 {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    padding: 15px 10px;
   }
+
+  .section3 .container_box3 .containne form .container_box {
+    padding: 10px;
+  }
+
+  .section3 .container_box3 .containne form .container_box .date select {
+    padding: 8px 10px;
+    height: 38px;
+    width: 90px;
+    font-size: 13px;
+  }
+
   .section3 .container_box3 .containne form .box1 label {
-    text-align: left;
-    font-size: 14px;
+    font-size: 13px;
   }
+
   .section3 .container_box3 .containne form .box1 input {
-    font-size: 12px;
-    padding: 5px 15px;
-    margin-bottom: 10px;
+    font-size: 13px;
+    padding: 8px 10px;
   }
 
   .section3 .container_box3 .containne form .box1 #ajouter {
-    color: #ffffff;
-    padding: 5px 7px;
-    border-radius: 5px;
+    padding: 8px 15px;
     font-size: 13px;
-    transition: all 0.3s ease-out;
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: #b1b1b1;
-    border: none;
+    width: fit-content;
+  }
+
+  .section3 .container_box3 .fa-formation .Ajouters {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  .section3 .container_box3 .fa-formation .Ajouters img {
+    width: 20px;
+    height: 20px;
   }
 
   .section3 .container_box3 .box5 {
     overflow-x: auto;
-    margin: 40px 0;
   }
-  .section3 .container_box3 .box5 .p {
-    color: #9b9b9b;
-    font-size: 15px;
-  }
+
   .section3 .container_box3 .box5 table {
-    border-collapse: collapse;
-    transition: all 0.3s ease-out;
-    width: 100%;
-  }
-
-  .section3 .container_box3 .box5 table:hover {
-    background-color: #139bf60e;
-  }
-  .section3 .container_box3 .box5 table th {
-    font-size: 14px;
-    border: 1px solid rgba(0, 0, 0, 0.337);
-    width: 200px;
-    max-width: 200px;
-    min-width: 150px;
-    padding: 8px 20px;
-    color: #000000;
-    text-transform: capitalize;
-    transition: all 0.3s ease-out;
-  }
-
-  .section3 .container_box3 .box5 table td {
-    height: 50px;
-    border: 1px solid rgba(6, 6, 6, 0.337);
-    width: 200px;
-    max-width: 200px;
-    min-width: 150px;
-    text-align: center;
-    font-size: 12px;
-    padding: 4px 5px;
-  }
-  .section3 .container_box3 .box5 table .pt {
-    font-weight: bold;
-    font-size: 9px;
-    letter-spacing: 0.5px;
-    font-style: italic;
-    width: 90px;
-    max-width: 90px;
-    min-width: 90px;
-  }
-
-  .section3 .container_box3 .box5 table #date {
-    width: 90px;
-    max-width: 90px;
-    min-width: 90px;
+    min-width: 500px;
   }
 }
 

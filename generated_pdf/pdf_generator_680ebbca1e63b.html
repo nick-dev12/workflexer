@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Génération de PDF en cours...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        #status {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e8f4fd;
+            border-left: 4px solid #3498db;
+            text-align: left;
+        }
+        #canvas {
+            display: none;
+        }
+        .loading {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #3498db;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .manual-download {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            text-align: left;
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Génération de votre CV en PDF</h1>
+        
+        <div id="status">
+            <div class="loading"></div>
+            <span>Chargement de l'image et préparation du PDF...</span>
+        </div>
+        
+        <img id="cvImage" src="http://localhost:3000/generated_pdf/temp_img_680ebbca1df0e.png" style="display:none;" />
+        <canvas id="canvas" width="1000" height="1414"></canvas>
+        
+        <div id="manualDownload" class="manual-download">
+            <h3>Si le téléchargement automatique ne fonctionne pas:</h3>
+            <p>1. Cliquez sur le bouton ci-dessous pour télécharger votre PDF manuellement</p>
+            <button id="downloadBtn" class="hidden">Télécharger le PDF</button>
+        </div>
+    </div>
+    
+    <!-- Inclure jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script>
+        // Attendre que tout soit chargé
+        window.onload = function() {
+            const status = document.getElementById("status");
+            const img = document.getElementById("cvImage");
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            const manualDownload = document.getElementById("manualDownload");
+            const downloadBtn = document.getElementById("downloadBtn");
+            
+            // Fonction pour générer et télécharger le PDF
+            function generatePDF() {
+                try {
+                    status.innerHTML = "<div class='loading'></div><span>Création du PDF en cours...</span>";
+                    
+                    // Obtenir les dimensions de l'image
+                    const imgWidth = img.naturalWidth;
+                    const imgHeight = img.naturalHeight;
+                    
+                    // Ajuster la taille du canvas
+                    canvas.width = imgWidth;
+                    canvas.height = imgHeight;
+                    
+                    // Dessiner l'image sur le canvas
+                    ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
+                    
+                    // Créer un PDF avec jsPDF
+                    const { jsPDF } = window.jspdf;
+                    
+                    // Déterminer l'orientation et le format
+                    const orientation = imgWidth > imgHeight ? "landscape" : "portrait";
+                    
+                    // Créer un nouveau document PDF
+                    const pdf = new jsPDF({
+                        orientation: orientation,
+                        unit: "pt", // points
+                        format: "a4"
+                    });
+                    
+                    // Calculer le ratio pour adapter l'image à la page A4
+                    const pdfWidth = orientation === "portrait" ? pdf.internal.pageSize.getWidth() : pdf.internal.pageSize.getHeight();
+                    const pdfHeight = orientation === "portrait" ? pdf.internal.pageSize.getHeight() : pdf.internal.pageSize.getWidth();
+                    
+                    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                    const canvasWidth = imgWidth * ratio;
+                    const canvasHeight = imgHeight * ratio;
+                    
+                    // Centrer l'image sur la page
+                    const x = (pdfWidth - canvasWidth) / 2;
+                    const y = (pdfHeight - canvasHeight) / 2;
+                    
+                    // Convertir le canvas en image data URL
+                    const imgData = canvas.toDataURL("image/jpeg", 1.0);
+                    
+                    // Ajouter l'image au PDF
+                    pdf.addImage(imgData, "JPEG", x, y, canvasWidth, canvasHeight);
+                    
+                    // Créer un blob du PDF
+                    const pdfBlob = pdf.output("blob");
+                    
+                    // Créer un URL pour le blob
+                    const pdfUrl = URL.createObjectURL(pdfBlob);
+                    
+                    // Mettre à jour le bouton de téléchargement manuel
+                    downloadBtn.href = pdfUrl;
+                    downloadBtn.download = "cv.pdf";
+                    downloadBtn.classList.remove("hidden");
+                    downloadBtn.innerHTML = "Télécharger le PDF";
+                    
+                    // Afficher l'option de téléchargement manuel
+                    manualDownload.style.display = "block";
+                    
+                    // Télécharger automatiquement
+                    const link = document.createElement("a");
+                    link.href = pdfUrl;
+                    link.download = "cv.pdf";
+                    link.click();
+                    
+                    status.innerHTML = "<span style='color:green;'>✓ PDF généré avec succès! Le téléchargement devrait commencer automatiquement.</span>";
+                } catch (error) {
+                    console.error("Erreur lors de la génération du PDF:", error);
+                    status.innerHTML = "<span style='color:red;'>⚠️ Erreur lors de la génération du PDF: " + error.message + "</span>";
+                    manualDownload.innerHTML = "<h3>Solution alternative:</h3><p>Faites un clic droit sur l'image et sélectionnez \"Enregistrer l'image sous...\" puis utilisez un outil en ligne pour convertir l'image en PDF.</p>";
+                    manualDownload.style.display = "block";
+                }
+            }
+            
+            // Attacher des événements
+            img.onload = function() {
+                generatePDF();
+            };
+            
+            img.onerror = function() {
+                status.innerHTML = "<span style='color:red;'>⚠️ Erreur lors du chargement de l'image</span>";
+                manualDownload.innerHTML = "<h3>Solution alternative:</h3><p>Essayez de <a href='http://localhost:3000/generated_pdf/temp_img_680ebbca1df0e.png' target='_blank'>télécharger l'image directement</a> puis utilisez un outil en ligne pour la convertir en PDF.</p>";
+                manualDownload.style.display = "block";
+            };
+            
+            // Recréer le bouton de téléchargement comme un lien
+            const downloadBtnParent = downloadBtn.parentNode;
+            downloadBtnParent.removeChild(downloadBtn);
+            const newDownloadBtn = document.createElement("a");
+            newDownloadBtn.id = "downloadBtn";
+            newDownloadBtn.className = "hidden";
+            newDownloadBtn.style.display = "inline-block";
+            newDownloadBtn.style.padding = "10px 20px";
+            newDownloadBtn.style.backgroundColor = "#4CAF50";
+            newDownloadBtn.style.color = "white";
+            newDownloadBtn.style.border = "none";
+            newDownloadBtn.style.borderRadius = "4px";
+            newDownloadBtn.style.cursor = "pointer";
+            newDownloadBtn.style.fontSize = "16px";
+            newDownloadBtn.style.textDecoration = "none";
+            newDownloadBtn.style.margin = "10px";
+            newDownloadBtn.textContent = "Télécharger le PDF";
+            downloadBtnParent.appendChild(newDownloadBtn);
+            downloadBtn = newDownloadBtn;
+        };
+    </script>
+</body>
+</html>

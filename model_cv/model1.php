@@ -100,19 +100,31 @@ if (isset($_SESSION['users_id'])) {
             <script>
                 function generatePDF() {
                     const { jsPDF } = window.jspdf;
-                    const element = document.querySelector("#container");
+                    const element = document.querySelector(".container");
 
-                    domtoimage.toJpeg(element, {
-                        quality: 1.5,
-                        bgcolor: '#fff'
-                    })
+                    // Définir une échelle plus élevée pour une meilleure qualité
+                    const scale = 3;
+                    const options = {
+                        scale: scale,
+                        quality: 2,
+                        width: element.offsetWidth * scale,
+                        height: element.offsetHeight * scale,
+                        style: {
+                            transform: 'scale(' + scale + ')',
+                            transformOrigin: 'top left',
+                            width: element.offsetWidth + "px",
+                            height: element.offsetHeight + "px"
+                        }
+                    };
+
+                    domtoimage.toJpeg(element, options)
                         .then(function (dataUrl) {
                             const pdf = new jsPDF('p', 'mm', 'a4');
                             const imgProps = pdf.getImageProperties(dataUrl);
                             const pdfWidth = pdf.internal.pageSize.getWidth();
                             const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                            pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
                             pdf.save("cv.pdf");
                         })
                         .catch(function (error) {
@@ -622,15 +634,6 @@ if (isset($_SESSION['users_id'])) {
                                 </p>
                             </div>
 
-                            <div class="bb">
-                                <img src="/image/nationalite.png" alt="">
-                                <p>
-                                    <strong>
-                                        NATIONALITÉ
-                                    </strong>
-                                    <span>*********</span>
-                                </p>
-                            </div>
                         </div>
 
 
@@ -714,8 +717,8 @@ if (isset($_SESSION['users_id'])) {
                                 <?php else: ?>
                                     <?php
                                     shuffle($afficheMetier);
-                                    $nombre_metier = 2
-                                        ?>
+                                    $nombre_metier = 3;
+                                    ?>
                                     <?php foreach ($afficheMetier as $key => $Metiers): ?>
                                         <?php if ($key < $nombre_metier): ?>
                                             <div class="div1">

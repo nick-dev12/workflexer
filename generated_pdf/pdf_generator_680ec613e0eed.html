@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Génération de PDF en cours...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        #status {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e8f4fd;
+            border-left: 4px solid #3498db;
+            text-align: left;
+        }
+        .loading {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #3498db;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button, a.button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        button:hover, a.button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        #view-image {
+            background-color: #3498db;
+        }
+        #view-image:hover {
+            background-color: #2980b9;
+        }
+        .debug-info {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 12px;
+            color: #666;
+            display: none;
+        }
+        #toggle-debug {
+            background-color: #7f8c8d;
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+        #toggle-debug:hover {
+            background-color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Génération de votre CV en PDF</h1>
+        
+        <div id="status">
+            <div class="loading"></div>
+            <span>Chargement de l'image et préparation du PDF...</span>
+        </div>
+        
+        <div id="error-container" style="display: none;">
+            <p class="error-message" id="error-message">Une erreur s'est produite.</p>
+            <div class="buttons">
+                <a href="https://hcti.io/v1/image/86b46a44-57f2-464e-bdd9-733999960f9d" id="view-image" class="button" download="cv.png">Télécharger l'image</a>
+                <button id="retry-button">Réessayer</button>
+            </div>
+        </div>
+        
+        <div id="success-container" style="display: none;">
+            <p style="color: green; font-weight: bold;">PDF généré avec succès!</p>
+            <div class="buttons">
+                <a id="download-link" class="button" download="cv.pdf">Télécharger à nouveau le PDF</a>
+                <a href="https://hcti.io/v1/image/86b46a44-57f2-464e-bdd9-733999960f9d" id="view-image-success" class="button" download="cv.png">Télécharger aussi en PNG</a>
+            </div>
+        </div>
+        
+        <button id="toggle-debug" onclick="toggleDebug()">Afficher les détails techniques</button>
+        <div id="debug-info" class="debug-info"></div>
+    </div>
+    
+    <!-- Inclure html2canvas et jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script>
+        // Fonction pour ajouter un message de debug
+        function addDebugMessage(message) {
+            const debugInfo = document.getElementById("debug-info");
+            const now = new Date();
+            const timestamp = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+            debugInfo.innerHTML += "<p>[" + timestamp + "] " + message + "</p>";
+        }
+        
+        // Fonction pour afficher/masquer les détails techniques
+        function toggleDebug() {
+            const debugInfo = document.getElementById("debug-info");
+            if (debugInfo.style.display === "none") {
+                debugInfo.style.display = "block";
+                document.getElementById("toggle-debug").textContent = "Masquer les détails techniques";
+            } else {
+                debugInfo.style.display = "none";
+                document.getElementById("toggle-debug").textContent = "Afficher les détails techniques";
+            }
+        }
+        
+        // Fonction pour générer le PDF
+        function generatePDF() {
+            const statusElement = document.getElementById("status");
+            const errorContainer = document.getElementById("error-container");
+            const successContainer = document.getElementById("success-container");
+            const errorMessage = document.getElementById("error-message");
+            
+            try {
+                addDebugMessage("Début de la génération du PDF");
+                
+                // Charger l'image
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                
+                // En cas d'erreur lors du chargement de l'image
+                img.onerror = function() {
+                    addDebugMessage("Erreur de chargement de l'image: " + img.src);
+                    statusElement.style.display = "none";
+                    errorContainer.style.display = "block";
+                    errorMessage.textContent = "Impossible de charger l'image du CV.";
+                };
+                
+                // Quand l'image est chargée
+                img.onload = function() {
+                    try {
+                        addDebugMessage("Image chargée avec succès - largeur: " + img.width + ", hauteur: " + img.height);
+                        statusElement.innerHTML = "<div class='loading'></div><span>Création du PDF...</span>";
+                        
+                        // Créer un canvas pour l'image
+                        const canvas = document.createElement("canvas");
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        
+                        const ctx = canvas.getContext("2d");
+                        ctx.drawImage(img, 0, 0, img.width, img.height);
+                        
+                        addDebugMessage("Image dessinée sur le canvas");
+                        
+                        // Créer un nouveau document PDF avec jsPDF
+                        const { jsPDF } = window.jspdf;
+                        
+                        // Déterminer l'orientation en fonction des dimensions de l'image
+                        const orientation = img.width > img.height ? "landscape" : "portrait";
+                        addDebugMessage("Orientation du PDF: " + orientation);
+                        
+                        const pdf = new jsPDF({
+                            orientation: orientation,
+                            unit: "mm",
+                            format: "a4",
+                            compress: true
+                        });
+                        
+                        // Obtenir les dimensions de la page
+                        const pageWidth = pdf.internal.pageSize.getWidth();
+                        const pageHeight = pdf.internal.pageSize.getHeight();
+                        addDebugMessage("Dimensions de la page PDF: " + pageWidth + "mm x " + pageHeight + "mm");
+                        
+                        // Convertir le canvas en image de base64
+                        const imgData = canvas.toDataURL("image/jpeg", 1.0);
+                        
+                        // Calculer le ratio pour adapter l'image à la page
+                        const imgProps = pdf.getImageProperties(imgData);
+                        const imgWidthMm = imgProps.width * 0.264583; // pixels to mm
+                        const imgHeightMm = imgProps.height * 0.264583; // pixels to mm
+                        
+                        const ratio = Math.min(pageWidth / imgWidthMm, pageHeight / imgHeightMm) * 0.95;
+                        const imgWidthScaled = imgWidthMm * ratio;
+                        const imgHeightScaled = imgHeightMm * ratio;
+                        
+                        // Centrer l'image sur la page
+                        const x = (pageWidth - imgWidthScaled) / 2;
+                        const y = (pageHeight - imgHeightScaled) / 2;
+                        
+                        addDebugMessage("Ajout de l'image au PDF avec les dimensions: " + imgWidthScaled + "mm x " + imgHeightScaled + "mm à la position (" + x + ", " + y + ")");
+                        
+                        // Ajouter l'image au PDF
+                        pdf.addImage(imgData, "JPEG", x, y, imgWidthScaled, imgHeightScaled);
+                        
+                        // Générer le PDF
+                        const pdfBlob = pdf.output("blob");
+                        addDebugMessage("PDF généré avec succès - taille: " + Math.round(pdfBlob.size / 1024) + " Ko");
+                        
+                        // Créer un URL pour le PDF
+                        const pdfUrl = URL.createObjectURL(pdfBlob);
+                        
+                        // Mettre à jour le lien de téléchargement
+                        const downloadLink = document.getElementById("download-link");
+                        downloadLink.href = pdfUrl;
+                        
+                        // Masquer le statut et afficher le succès
+                        statusElement.style.display = "none";
+                        successContainer.style.display = "block";
+                        
+                        // Télécharger automatiquement le PDF
+                        const autoDownloadLink = document.createElement("a");
+                        autoDownloadLink.href = pdfUrl;
+                        autoDownloadLink.download = "cv.pdf";
+                        document.body.appendChild(autoDownloadLink);
+                        autoDownloadLink.click();
+                        document.body.removeChild(autoDownloadLink);
+                        
+                        addDebugMessage("Téléchargement du PDF déclenché automatiquement");
+                    } catch (err) {
+                        addDebugMessage("Erreur lors de la création du PDF: " + err.message);
+                        statusElement.style.display = "none";
+                        errorContainer.style.display = "block";
+                        errorMessage.textContent = "Erreur lors de la création du PDF: " + err.message;
+                    }
+                };
+                
+                // Définir la source de l'image
+                addDebugMessage("Chargement de l'image depuis: https://hcti.io/v1/image/86b46a44-57f2-464e-bdd9-733999960f9d");
+                img.src = "https://hcti.io/v1/image/86b46a44-57f2-464e-bdd9-733999960f9d";
+            } catch (err) {
+                addDebugMessage("Erreur non gérée: " + err.message);
+                statusElement.style.display = "none";
+                errorContainer.style.display = "block";
+                errorMessage.textContent = "Une erreur inattendue s'est produite: " + err.message;
+            }
+        }
+        
+        // Attendre que la page soit complètement chargée
+        window.onload = function() {
+            addDebugMessage("Page chargée, librairies: jsPDF " + (window.jspdf ? "disponible" : "non disponible") + ", html2canvas " + (window.html2canvas ? "disponible" : "non disponible"));
+            
+            // Configurer le bouton de nouvelle tentative
+            document.getElementById("retry-button").addEventListener("click", function() {
+                document.getElementById("error-container").style.display = "none";
+                document.getElementById("status").style.display = "block";
+                generatePDF();
+            });
+            
+            // Démarrer la génération du PDF
+            generatePDF();
+        };
+    </script>
+</body>
+</html>

@@ -60,10 +60,6 @@ body {
   margin-top: 10px;
 }
 
-.section3 .cv {
-  display: none;
-}
-
 @media screen and (max-width: 1050px) {
   .section3 {
     width: 100%;
@@ -140,7 +136,16 @@ body {
   padding: 5px;
 }
 
-.containers {
+.container-model {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container1 {
   width: 793px;
   height: 1122px;
   border: 1.5px solid #a3a3a3;
@@ -148,13 +153,15 @@ body {
   position: relative;
   margin-bottom: 40px;
   background-color: #ffffff;
-  display: flex;
   overflow: hidden;
   display: flex;
+  align-items: center;
   flex-direction: column;
+  page-break-inside: avoid;
+  font-family: "Nunito", sans-serif !important;
 }
 
-.containers .decor {
+.container1 .decor {
   position: absolute;
   bottom: 0;
   height: 20px;
@@ -162,20 +169,19 @@ body {
   background-color: var(--font-color_section);
 }
 
-.containers .box1 {
-  height: 42%;
-  width: 100%;
+.container1 .box1 {
+  width: 300px !important;
   background-color: var(--font-color_section);
 }
 
-.containers .box1 .item1 {
+.container1 .box1 .item1 {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
 }
 
-.containers .box1 .item1 img {
+.container1 .box1 .item1 img {
   width: 180px;
   height: 180px;
   object-fit: cover;
@@ -183,31 +189,31 @@ body {
   margin-right: 20px;
 }
 
-.containers .box1 .item1 div {
+.container1 .box1 .item1 div {
   width: 400px;
 }
 
-.containers .box1 .item1 div h1 {
+.container1 .box1 .item1 div h1 {
   font-size: 20px;
   text-align: center;
   color: var(--texte-color_section);
 }
 
-.containers .box1 .item1 div h2 {
+.container1 .box1 .item1 div h2 {
   font-size: 16px;
   color: #636262;
   text-align: center;
   color: var(--texte-color_section);
 }
 
-.containers .box1 .item2 {
+.container1 .box1 .item2 {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 10px;
 }
 
-.containers .box1 .item2 .a_propos {
+.container1 .box1 .item2 .a_propos {
   width: 50%;
   font-size: 11px;
   text-align: justify;
@@ -215,19 +221,19 @@ body {
   color: var(--texte-color_section);
 }
 
-.containers .box1 .item2 div {
+.container1 .box1 .item2 div {
   display: flex;
   align-items: start;
   flex-direction: column;
 }
 
-.containers .box1 .item2 div h2 {
+.container1 .box1 .item2 div h2 {
   text-align: center;
   font-size: 16px;
   color: var(--texte-color_section);
 }
 
-.containers .box1 .item2 div p {
+.container1 .box1 .item2 div p {
   display: flex;
   align-items: center;
   font-size: 12px;
@@ -235,32 +241,32 @@ body {
   color: var(--texte-color_section);
 }
 
-.containers .box1 .item2 div p img {
+.container1 .box1 .item2 div p img {
   width: 23px;
   margin-right: 7px;
 }
 
-.containers .box1 .item3 {
+.container1 .box1 .item3 {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 10px;
 }
 
-.containers .box1 .item3 div {
+.container1 .box1 .item3 div {
   width: 45%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.containers .box1 .item3 div h2 {
+.container1 .box1 .item3 div h2 {
   font-size: 16px;
   margin-bottom: 10px;
   color: var(--texte-color_section);
 }
 
-.containers .box1 .item3 div ul {
+.container1 .box1 .item3 div ul {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -268,30 +274,29 @@ body {
   width: 100%;
 }
 
-.containers .box1 .item3 div ul li {
+.container1 .box1 .item3 div ul li {
   font-size: 12px;
   color: #474747;
   margin: 5px 10px;
   color: var(--texte-color_section);
 }
 
-.containers .box2 {
-  height: 50%;
-  width: 100%;
+.container1 .box2 {
+  width: 450px;
 }
 
-.containers .box2 .item1 {
+.container1 .box2 .item1 {
   display: flex;
   margin-top: 30px;
 }
 
-.containers .box2 .item1 .exp {
+.container1 .box2 .item1 .exp {
   margin-right: 20px;
   width: 70%;
   margin-left: 30px;
 }
 
-.containers .box2 .item1 .exp h2 {
+.container1 .box2 .item1 .exp h2 {
   font-size: 20px;
   margin-left: 30px;
   display: flex;
@@ -303,12 +308,12 @@ body {
   border-radius: 10px;
 }
 
-.containers .box2 .item1 .exp h2 img {
+.container1 .box2 .item1 .exp h2 img {
   width: 25px;
   margin-left: 20px;
 }
 
-.containers .box2 .item1 .exp .box {
+.container1 .box2 .item1 .exp .box {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -318,26 +323,26 @@ body {
   margin-top: 10px;
 }
 
-.containers .box2 .item1 .exp .box div {
+.container1 .box2 .item1 .exp .box div {
   margin: 10px 0;
   margin-right: 20px;
 }
 
-.containers .box2 .item1 .exp .box div h3 {
+.container1 .box2 .item1 .exp .box div h3 {
   font-size: 13px;
 }
 
-.containers .box2 .item1 .exp .box div span {
+.container1 .box2 .item1 .exp .box div span {
   font-size: 10px;
   color: #a3a3a3;
 }
 
-.containers .box2 .item1 .exp .box div p {
+.container1 .box2 .item1 .exp .box div p {
   font-size: 11px;
   color: #636262;
 }
 
-.containers .box2 .item1 .exp .box .desc {
+.container1 .box2 .item1 .exp .box .desc {
   font-size: 11px;
   color: #636262;
   width: 300px;
@@ -345,14 +350,14 @@ body {
   padding: 10px 0;
 }
 
-.containers .box2 .item1 .educ {
+.container1 .box2 .item1 .educ {
   margin-right: 30px;
   margin-left: 30px;
   display: flex;
   flex-direction: column;
 }
 
-.containers .box2 .item1 .educ h2 {
+.container1 .box2 .item1 .educ h2 {
   font-size: 20px;
   margin-left: 30px;
   margin-bottom: 10px;
@@ -364,48 +369,48 @@ body {
   border-radius: 10px;
 }
 
-.containers .box2 .item1 .educ h2 img {
+.container1 .box2 .item1 .educ h2 img {
   width: 25px;
   margin-left: 20px;
 }
 
-.containers .box2 .item1 .educ .box {
+.container1 .box2 .item1 .educ .box {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.containers .box2 .item1 .educ .box div {
+.container1 .box2 .item1 .educ .box div {
   margin-bottom: 20px;
   margin-right: 20px;
   width: 250px;
 }
 
-.containers .box2 .item1 .educ .box div h3 {
+.container1 .box2 .item1 .educ .box div h3 {
   font-size: 14px;
 }
 
-.containers .box2 .item1 .educ .box div span {
+.container1 .box2 .item1 .educ .box div span {
   font-size: 11px;
   color: #a3a3a3;
 }
 
-.containers .box2 .item1 .educ .box div p {
+.container1 .box2 .item1 .educ .box div p {
   font-size: 10px;
   color: #636262;
 }
 
-.containers .box2 .item2 {
+.container1 .box2 .item2 {
   display: flex;
   margin-top: 40px;
 }
 
-.containers .box2 .item2 .logiciel {
+.container1 .box2 .item2 .logiciel {
   display: flex;
   margin-left: 20px;
 }
 
-.containers .box2 .item2 .logiciel h2 {
+.container1 .box2 .item2 .logiciel h2 {
   font-size: 20px;
   margin-bottom: 10px;
   display: flex;
@@ -416,738 +421,22 @@ body {
   border-radius: 10px;
 }
 
-.containers .box2 .item2 .logiciel h2 img {
+.container1 .box2 .item2 .logiciel h2 img {
   width: 25px;
   margin-left: 20px;
 }
 
-.containers .box2 .item2 .logiciel div {
+.container1 .box2 .item2 .logiciel div {
   margin-right: 30px;
   margin-left: 30px;
 }
 
-.containers .box2 .item2 .logiciel div ul {
+.container1 .box2 .item2 .logiciel div ul {
   display: flex;
   flex-wrap: wrap;
 }
 
-.containers .box2 .item2 .logiciel div ul li {
+.container1 .box2 .item2 .logiciel div ul li {
   margin: 5px 20px;
   font-size: 13px;
-}
-
-#containe {
-  width: 793px;
-  height: 1122px;
-  border: 1.5px solid #a3a3a3;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 40px;
-  background-color: #ffffff;
-  display: flex;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-#containe .decor {
-  position: absolute;
-  bottom: 0;
-  height: 20px;
-  width: 100%;
-  background-color: var(--font-color_section);
-}
-
-#containe .box1 {
-  height: 42%;
-  width: 100%;
-  background-color: var(--font-color_section);
-}
-
-#containe .box1 .item1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-#containe .box1 .item1 img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 0 200px 200px;
-  margin-right: 20px;
-}
-
-#containe .box1 .item1 div {
-  width: 400px;
-}
-
-#containe .box1 .item1 div h1 {
-  font-size: 20px;
-  text-align: center;
-  color: var(--texte-color_section);
-}
-
-#containe .box1 .item1 div h2 {
-  font-size: 16px;
-  color: #636262;
-  text-align: center;
-  color: var(--texte-color_section);
-}
-
-#containe .box1 .item2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
-#containe .box1 .item2 .a_propos {
-  width: 50%;
-  font-size: 11px;
-  text-align: justify;
-  line-height: 22px;
-  color: var(--texte-color_section);
-}
-
-#containe .box1 .item2 div {
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-}
-
-#containe .box1 .item2 div h2 {
-  text-align: center;
-  font-size: 16px;
-  color: var(--texte-color_section);
-}
-
-#containe .box1 .item2 div p {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  margin: 5px 0;
-  color: var(--texte-color_section);
-}
-
-#containe .box1 .item2 div p img {
-  width: 23px;
-  margin-right: 7px;
-}
-
-#containe .box1 .item3 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 10px;
-}
-
-#containe .box1 .item3 div {
-  width: 45%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-#containe .box1 .item3 div h2 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: var(--texte-color_section);
-}
-
-#containe .box1 .item3 div ul {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-}
-
-#containe .box1 .item3 div ul li {
-  font-size: 12px;
-  color: #474747;
-  margin: 5px 10px;
-  color: var(--texte-color_section);
-}
-
-#containe .box2 {
-  height: 50%;
-  width: 100%;
-}
-
-#containe .box2 .item1 {
-  display: flex;
-  margin-top: 30px;
-}
-
-#containe .box2 .item1 .exp {
-  margin-right: 20px;
-  width: 70%;
-  margin-left: 30px;
-}
-
-#containe .box2 .item1 .exp h2 {
-  font-size: 20px;
-  margin-left: 30px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  background-color: var(--font-color_section);
-  color: var(--texte-color_section);
-  padding-left: 10px;
-  border-radius: 10px;
-}
-
-#containe .box2 .item1 .exp h2 img {
-  width: 25px;
-  margin-left: 20px;
-}
-
-#containe .box2 .item1 .exp .box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 5px 0;
-  border-bottom: 2px solid #636262;
-  width: 400px;
-  margin-top: 10px;
-}
-
-#containe .box2 .item1 .exp .box div {
-  margin: 10px 0;
-  margin-right: 20px;
-}
-
-#containe .box2 .item1 .exp .box div h3 {
-  font-size: 13px;
-}
-
-#containe .box2 .item1 .exp .box div span {
-  font-size: 10px;
-  color: #a3a3a3;
-}
-
-#containe .box2 .item1 .exp .box div p {
-  font-size: 11px;
-  color: #636262;
-}
-
-#containe .box2 .item1 .exp .box .desc {
-  font-size: 11px;
-  color: #636262;
-  width: 300px;
-  text-align: justify;
-  padding: 10px 0;
-}
-
-#containe .box2 .item1 .educ {
-  margin-right: 30px;
-  margin-left: 30px;
-  display: flex;
-  flex-direction: column;
-}
-
-#containe .box2 .item1 .educ h2 {
-  font-size: 20px;
-  margin-left: 30px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  background-color: var(--font-color_section);
-  color: var(--texte-color_section);
-  padding-left: 10px;
-  border-radius: 10px;
-}
-
-#containe .box2 .item1 .educ h2 img {
-  width: 25px;
-  margin-left: 20px;
-}
-
-#containe .box2 .item1 .educ .box {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-#containe .box2 .item1 .educ .box div {
-  margin-bottom: 20px;
-  margin-right: 20px;
-  width: 250px;
-}
-
-#containe .box2 .item1 .educ .box div h3 {
-  font-size: 14px;
-}
-
-#containe .box2 .item1 .educ .box div span {
-  font-size: 11px;
-  color: #a3a3a3;
-}
-
-#containe .box2 .item1 .educ .box div p {
-  font-size: 10px;
-  color: #636262;
-}
-
-#containe .box2 .item2 {
-  display: flex;
-  margin-top: 40px;
-}
-
-#containe .box2 .item2 .logiciel {
-  display: flex;
-  margin-left: 20px;
-}
-
-#containe .box2 .item2 .logiciel h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  background-color: var(--font-color_section);
-  color: var(--texte-color_section);
-  padding-left: 10px;
-  border-radius: 10px;
-}
-
-#containe .box2 .item2 .logiciel h2 img {
-  width: 25px;
-  margin-left: 20px;
-}
-
-#containe .box2 .item2 .logiciel div {
-  margin-right: 30px;
-  margin-left: 30px;
-}
-
-#containe .box2 .item2 .logiciel div ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#containe .box2 .item2 .logiciel div ul li {
-  margin: 5px 20px;
-  font-size: 13px;
-}
-
-@media screen and (max-width: 1050px) {
-  .containers {
-    width: 593px;
-    height: 822px;
-  }
-
-  .containers .decor {
-    position: absolute;
-    bottom: 0;
-    height: 20px;
-    width: 100%;
-  }
-
-  .containers .box1 {
-    height: 43%;
-    width: 100%;
-  }
-
-  .containers .box1 .item1 {
-    margin-top: 20px;
-  }
-
-  .containers .box1 .item1 img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 0 200px 200px;
-    margin-right: 20px;
-  }
-
-  .containers .box1 .item1 div {
-    width: 250px;
-  }
-
-  .containers .box1 .item1 div h1 {
-    font-size: 18px;
-    text-align: center;
-  }
-
-  .containers .box1 .item1 div h2 {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .containers .box1 .item2 {
-    margin-top: 20px;
-  }
-
-  .containers .box1 .item2 .a_propos {
-    width: 50%;
-    font-size: 8px;
-    line-height: 16px;
-  }
-
-  .containers .box1 .item2 div {
-    width: 30%;
-  }
-
-  .containers .box1 .item2 div h2 {
-    font-size: 14px;
-  }
-
-  .containers .box1 .item2 div p {
-    font-size: 10px;
-    margin: 5px 0;
-  }
-
-  .containers .box1 .item2 div p img {
-    width: 20px;
-    margin-right: 7px;
-  }
-
-  .containers .box1 .item3 {
-    margin-top: 10px;
-  }
-
-  .containers .box1 .item3 div {
-    width: 45%;
-  }
-
-  .containers .box1 .item3 div h2 {
-    font-size: 14px;
-    margin-bottom: 7px;
-  }
-
-  .containers .box1 .item3 div ul li {
-    font-size: 10px;
-    margin: 5px 10px;
-  }
-
-  .containers .box2 .item1 {
-    margin-top: 30px;
-  }
-
-  .containers .box2 .item1 .exp {
-    margin-right: 20px;
-    width: 70%;
-    margin-left: 20px;
-  }
-
-  .containers .box2 .item1 .exp h2 {
-    font-size: 14px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-  }
-
-  .containers .box2 .item1 .exp h2 img {
-    width: 20px;
-    margin-left: 10px;
-  }
-
-  .containers .box2 .item1 .exp .box {
-    margin: 5px 0;
-    width: 300px;
-    margin-top: 10px;
-  }
-
-  .containers .box2 .item1 .exp .box div {
-    margin: 10px 0;
-    margin-right: 20px;
-  }
-
-  .containers .box2 .item1 .exp .box div h3 {
-    font-size: 10px;
-  }
-
-  .containers .box2 .item1 .exp .box div span {
-    font-size: 7px;
-    color: #a3a3a3;
-  }
-
-  .containers .box2 .item1 .exp .box div p {
-    font-size: 8px;
-    color: #636262;
-  }
-
-  .containers .box2 .item1 .exp .box .desc {
-    font-size: 8px;
-    width: 280px;
-    padding: 5px 0;
-  }
-
-  .containers .box2 .item1 .educ {
-    margin-right: 10px;
-    margin-left: 20px;
-  }
-
-  .containers .box2 .item1 .educ h2 {
-    font-size: 16px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-
-  .containers .box2 .item1 .educ h2 img {
-    width: 20px;
-    margin-left: 20px;
-  }
-
-  .containers .box2 .item1 .educ .box div {
-    margin-bottom: 10px;
-    margin-right: 10px;
-    width: 220px;
-  }
-
-  .containers .box2 .item1 .educ .box div h3 {
-    font-size: 10px;
-  }
-
-  .containers .box2 .item1 .educ .box div span {
-    font-size: 9px;
-    color: #a3a3a3;
-  }
-
-  .containers .box2 .item1 .educ .box div p {
-    font-size: 8px;
-    color: #636262;
-  }
-
-  .containers .box2 .item2 {
-    margin-top: 20px;
-  }
-
-  .containers .box2 .item2 .logiciel {
-    margin-left: 10px;
-  }
-
-  .containers .box2 .item2 .logiciel h2 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  .containers .box2 .item2 .logiciel h2 img {
-    width: 20px;
-    margin-left: 20px;
-  }
-
-  .containers .box2 .item2 .logiciel div {
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-
-  .containers .box2 .item2 .logiciel div ul li {
-    margin: 5px 20px;
-    font-size: 9px;
-  }
-}
-
-@media screen and (max-width: 680px) {
-  .containers {
-    width: 340px;
-    height: 622px;
-  }
-
-  .containers .decor {
-    position: absolute;
-    bottom: 0;
-    height: 20px;
-    width: 100%;
-  }
-
-  .containers .box1 {
-    height: 42%;
-    width: 100%;
-  }
-
-  .containers .box1 .item1 {
-    margin-top: 10px;
-  }
-
-  .containers .box1 .item1 img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 0 200px 200px;
-    margin-right: 20px;
-  }
-
-  .containers .box1 .item1 div {
-    width: 150px;
-  }
-
-  .containers .box1 .item1 div h1 {
-    font-size: 14px;
-    width: 150px;
-  }
-
-  .containers .box1 .item1 div h2 {
-    width: 150px;
-    font-size: 12px;
-  }
-
-  .containers .box1 .item2 {
-    margin-top: 10px;
-  }
-
-  .containers .box1 .item2 .a_propos {
-    width: 50%;
-    font-size: 6px;
-    line-height: 10px;
-  }
-
-  .containers .box1 .item2 div {
-    width: 30%;
-  }
-
-  .containers .box1 .item2 div h2 {
-    font-size: 12px;
-  }
-
-  .containers .box1 .item2 div p {
-    font-size: 6px;
-    margin: 1px 0;
-  }
-
-  .containers .box1 .item2 div p img {
-    width: 10px;
-    margin-right: 7px;
-  }
-
-  .containers .box1 .item3 {
-    margin-top: 10px;
-  }
-
-  .containers .box1 .item3 div {
-    width: auto;
-  }
-
-  .containers .box1 .item3 div h2 {
-    font-size: 12px;
-    margin-bottom: 3px;
-  }
-
-  .containers .box1 .item3 div ul li {
-    font-size: 6px;
-    margin: 2px 10px;
-  }
-
-  .containers .box2 .item1 {
-    margin-top: 15px;
-  }
-
-  .containers .box2 .item1 .exp {
-    margin-right: 20px;
-    width: 50%;
-    margin-left: 10px;
-  }
-
-  .containers .box2 .item1 .exp h2 {
-    font-size: 10px;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    text-transform: capitalize;
-  }
-
-  .containers .box2 .item1 .exp h2 img {
-    width: 17px;
-    margin-left: 10px;
-  }
-
-  .containers .box2 .item1 .exp .box {
-    margin: 5px 0;
-    width: 180px;
-    margin-top: 5px;
-  }
-
-  .containers .box2 .item1 .exp .box div {
-    margin: 7px 0;
-    margin-right: 10px;
-  }
-
-  .containers .box2 .item1 .exp .box div h3 {
-    font-size: 7px;
-  }
-
-  .containers .box2 .item1 .exp .box div span {
-    font-size: 7px;
-    display: block;
-  }
-
-  .containers .box2 .item1 .exp .box div p {
-    font-size: 7px;
-    color: #636262;
-  }
-
-  .containers .box2 .item1 .exp .box .desc {
-    font-size: 6px;
-    width: 250px;
-    padding: 5px 0;
-  }
-
-  .containers .box2 .item1 .educ {
-    margin-right: 5px;
-    margin-left: 7px;
-    width: 200px;
-  }
-
-  .containers .box2 .item1 .educ h2 {
-    font-size: 10px;
-    margin-left: 20px;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-  }
-
-  .containers .box2 .item1 .educ h2 img {
-    width: 20px;
-    margin-left: 20px;
-  }
-
-  .containers .box2 .item1 .educ .box div {
-    margin-bottom: 0px;
-    margin-right: 5px;
-    width: 135px;
-  }
-
-  .containers .box2 .item1 .educ .box div h3 {
-    font-size: 8px;
-  }
-
-  .containers .box2 .item1 .educ .box div span {
-    font-size: 6px;
-    color: #a3a3a3;
-  }
-
-  .containers .box2 .item1 .educ .box div p {
-    font-size: 6px;
-    color: #636262;
-  }
-
-  .containers .box2 .item2 {
-    margin-top: 15px;
-  }
-
-  .containers .box2 .item2 .logiciel {
-    margin-left: 5px;
-  }
-
-  .containers .box2 .item2 .logiciel h2 {
-    font-size: 10px;
-    margin-bottom: 10px;
-  }
-
-  .containers .box2 .item2 .logiciel h2 img {
-    width: 20px;
-    margin-left: 20px;
-  }
-
-  .containers .box2 .item2 .logiciel div {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-
-  .containers .box2 .item2 .logiciel div ul li {
-    margin: 5px 7px;
-    font-size: 6px;
-  }
 }

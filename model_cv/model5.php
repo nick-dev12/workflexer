@@ -90,22 +90,81 @@ if (isset($_SESSION['users_id'])) {
         <div class="personnalisation">
 
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
+            <button class="button12 reset-button" onclick="resetStyles()">Réinitialiser le style</button>
             <script>
+                function resetStyles() {
+                    // Récupérer le numéro du modèle
+                    const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?.[1] || '5';
+                    const storagePrefix = `model${modelNumber}-`;
+
+                    // Liste des clés à supprimer
+                    const keysToRemove = [
+                        `${storagePrefix}font_color_section_m5`,
+                        `${storagePrefix}texte_color_m5`,
+                        `${storagePrefix}texte_color2_m5`,
+                        `${storagePrefix}light_text_m5`,
+                        `${storagePrefix}item_bg_m5`
+                    ];
+
+                    // Supprimer toutes les clés
+                    keysToRemove.forEach(key => {
+                        localStorage.removeItem(key);
+                    });
+
+                    // Appliquer les couleurs par défaut
+                    document.documentElement.style.setProperty('--font-color-m5', '#ebebeb');
+                    document.documentElement.style.setProperty('--text-color-m5', '#000000');
+                    document.documentElement.style.setProperty('--text-color2-m5', '#0089be');
+                    document.documentElement.style.setProperty('--light-text-m5', 'rgba(0, 0, 0, 0.6)');
+                    document.documentElement.style.setProperty('--item-bg-m5', 'rgba(195, 193, 193, 0.5)');
+
+                    // Mettre à jour les valeurs des inputs de couleur
+                    document.getElementById('fontColor_m52').value = '#ebebeb';
+                    document.getElementById('fontColor_m53').value = '#000000';
+                    document.getElementById('fontColor_m54').value = '#0089be';
+
+                    // Retirer la classe active de toutes les cartes de thème
+                    document.querySelectorAll('.theme-card').forEach(card => {
+                        card.classList.remove('active');
+                    });
+
+                    // Trouver la carte du thème par défaut et la marquer comme active
+                    const defaultThemeCard = document.querySelector('.theme-card[data-theme="classic"]');
+                    if (defaultThemeCard) {
+                        defaultThemeCard.classList.add('active');
+                    }
+
+                    // Message de confirmation
+                    alert('Les styles ont été réinitialisés avec succès !');
+                }
+
                 function generatePDF() {
                     const { jsPDF } = window.jspdf;
                     const element = document.querySelector(".container");
 
-                    domtoimage.toJpeg(element, {
-                        quality: 1.5,
-                        bgcolor: '#fff'
-                    })
+                    // Définir une échelle plus élevée pour une meilleure qualité
+                    const scale = 2;
+                    const options = {
+                        scale: scale,
+                        quality: 2,
+                        width: element.offsetWidth * scale,
+                        height: element.offsetHeight * scale,
+                        style: {
+                            transform: 'scale(' + scale + ')',
+                            transformOrigin: 'top left',
+                            width: element.offsetWidth + "px",
+                            height: element.offsetHeight + "px"
+                        }
+                    };
+
+                    domtoimage.toJpeg(element, options)
                         .then(function (dataUrl) {
                             const pdf = new jsPDF('p', 'mm', 'a4');
                             const imgProps = pdf.getImageProperties(dataUrl);
                             const pdfWidth = pdf.internal.pageSize.getWidth();
                             const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                            pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
                             pdf.save("cv.pdf");
                         })
                         .catch(function (error) {
@@ -812,6 +871,8 @@ if (isset($_SESSION['users_id'])) {
         </div>
 
     </section>
+
+
 </body>
 
 </html>

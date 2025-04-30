@@ -1,0 +1,884 @@
+/* CSS pour le modèle de CV 15 
+   Design innovant et original */
+
+:root {
+  --primary-color: #344055;
+  --secondary-color: #5f85db;
+  --accent-color: #ff6b6b;
+  --text-color: #2d3748;
+  --light-text-color: #718096;
+  --background-color: #ffffff;
+  --section-background: #f7fafc;
+  --border-color: #e2e8f0;
+  --header-font: "Montserrat", sans-serif;
+  --body-font: "Open Sans", sans-serif;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* Styles généraux pour le CV */
+.cv15-container {
+  width: 793px !important;
+  height: 1122px !important;
+  background-color: var(--background-color);
+  box-shadow: var(--shadow);
+  position: relative;
+  font-family: var(--body-font);
+  color: var(--text-color);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+/* En-tête du CV - Design hexagone innovant */
+.cv15-header {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.cv15-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color) 0%,
+    var(--primary-color) 100%
+  );
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  z-index: 1;
+}
+
+.cv15-header-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translate(100px, -200px);
+  z-index: 2;
+}
+
+.cv15-profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 40px;
+  width: 100%;
+  padding: 40px;
+  z-index: 5;
+}
+
+.cv15-profile-photo-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.cv15-profile-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.cv15-profile-photo:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cv15-profile-photo::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  filter: blur(10px);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.cv15-profile-info {
+  color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cv15-name {
+  font-family: var(--header-font);
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  position: relative;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.cv15-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.cv15-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.cv15-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 20px;
+  margin-top: 5px;
+}
+
+.cv15-contact-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  transition: transform 0.2s ease;
+}
+
+.cv15-contact-item:hover {
+  transform: translateX(3px);
+}
+
+.cv15-contact-item i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cv15-contact-item:hover i {
+  background-color: var(--accent-color);
+  transform: rotate(360deg);
+}
+
+/* Corps du CV - Mise en page innovante avec zones spécifiques */
+.cv15-body {
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Zone latérale pour compétences et langues avec angles coupés */
+.cv15-sidebar {
+  width: 250px;
+  padding: 40px 25px;
+  background-color: var(--section-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.cv15-sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40px;
+  background-color: var(--section-background);
+  transform: translateX(20px) skewX(-3deg);
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.03);
+  z-index: 3;
+}
+
+/* Zone principale */
+.cv15-main {
+  flex: 1;
+  padding: 40px 30px 40px 50px;
+  position: relative;
+}
+
+/* Sections du CV */
+.cv15-section {
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.cv15-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Design innovant pour titres de section */
+.cv15-section-title {
+  font-family: var(--header-font);
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 25px 0;
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+}
+
+/* Styles différents pour les titres selon la colonne */
+.cv15-sidebar .cv15-section-title {
+  position: relative;
+  padding-left: 15px;
+  margin-left: -15px;
+}
+
+.cv15-sidebar .cv15-section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+}
+
+.cv15-main .cv15-section-title {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.cv15-main .cv15-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    var(--accent-color) 0%,
+    var(--accent-color) 30%,
+    transparent 100%
+  );
+}
+
+/* STYLE INNOVANT POUR LES COMPÉTENCES - DESIGN EN HEXAGONES */
+.cv15-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cv15-skill {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 95px;
+  background-color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 5px;
+  margin: 3px;
+}
+
+.cv15-skill:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cv15-skill-icon {
+  font-size: 24px;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+}
+
+.cv15-skill-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 2px;
+}
+
+.cv15-skill-level {
+  font-size: 10px;
+  color: var(--light-text-color);
+}
+
+/* STYLE INNOVANT POUR LES LANGUES - DESIGN CIRCULAIRE */
+.cv15-languages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.cv15-language {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.cv15-language-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.cv15-language-flag {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cv15-language-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.cv15-language-progress svg {
+  width: 80px;
+  height: 80px;
+  transform: rotate(-90deg);
+}
+
+.cv15-language-progress circle {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 251.2;
+  transform-origin: center;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.cv15-language-progress .bg {
+  stroke: #f0f0f0;
+}
+
+.cv15-language-progress .fill {
+  stroke: var(--secondary-color);
+}
+
+.cv15-language-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.cv15-language-level {
+  font-size: 10px;
+  color: var(--light-text-color);
+  text-align: center;
+}
+
+/* STYLE INNOVANT POUR L'EXPÉRIENCE - TIMELINE AVEC POINTS ET CONNECTEURS */
+.cv15-timeline-item {
+  padding-left: 30px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.cv15-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.cv15-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  border: 3px solid var(--section-background);
+  box-shadow: 0 0 0 1px var(--secondary-color);
+  z-index: 2;
+}
+
+.cv15-timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 20px;
+  width: 2px;
+  height: calc(100% + 20px);
+  background: linear-gradient(
+    to bottom,
+    var(--secondary-color) 0%,
+    rgba(95, 133, 219, 0.2) 100%
+  );
+}
+
+.cv15-timeline-item:last-child::after {
+  display: none;
+}
+
+.cv15-timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.cv15-timeline-title {
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--primary-color);
+  margin-bottom: 3px;
+}
+
+.cv15-timeline-subtitle {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+}
+
+.cv15-timeline-subtitle i {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.cv15-timeline-period {
+  font-size: 13px;
+  color: white;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.cv15-timeline-period i {
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.cv15-timeline-content {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.03);
+  border-left: 3px solid var(--secondary-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv15-timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cv15-timeline-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.cv15-timeline-description ul {
+  padding-left: 18px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.cv15-timeline-description li {
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.cv15-timeline-description li:last-child {
+  margin-bottom: 0;
+}
+
+.cv15-timeline-description li::marker {
+  color: var(--secondary-color);
+}
+
+/* Bio/Présentation avec design distinctif */
+.cv15-bio {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+  position: relative;
+  padding: 25px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  border-top: 3px solid var(--accent-color);
+}
+
+.cv15-bio::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 25px;
+  height: 25px;
+  background-color: var(--section-background);
+  opacity: 0.5;
+  border-radius: 5px;
+  transform: rotate(45deg);
+  z-index: 0;
+}
+
+.cv15-bio::after {
+  content: '"';
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  font-size: 40px;
+  font-family: Georgia, serif;
+  color: var(--accent-color);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* STYLE INNOVANT POUR LES PROJETS */
+.cv15-projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cv15-project {
+  position: relative;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  padding: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.cv15-project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    var(--accent-color),
+    var(--secondary-color)
+  );
+}
+
+.cv15-project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.cv15-project-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.cv15-project-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Outils et technlogies */
+.cv15-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cv15-tool {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cv15-tool:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cv15-tool i {
+  margin-right: 5px;
+  color: var(--secondary-color);
+  font-size: 14px;
+}
+
+.cv15-tool-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Centres d'intérêt */
+.cv15-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cv15-interest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+}
+
+.cv15-interest-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv15-interest:hover .cv15-interest-icon {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cv15-interest-icon i {
+  font-size: 18px;
+  color: var(--secondary-color);
+}
+
+.cv15-interest-name {
+  font-size: 11px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+/* Styles pour le thème et la personnalisation */
+.theme-selector {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #f9f9fc;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.theme-selector h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+.theme-selector h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.theme-selector h4 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin: 20px 0 15px;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.themes-section {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.themes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.theme-card {
+  width: calc(25% - 12px);
+  min-width: 85px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.theme-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.theme-card.active {
+  border: 2px solid var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.theme-preview {
+  width: 100%;
+}
+
+.theme-card span {
+  display: block;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Styles pour la génération PDF */
+.button12 {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(52, 64, 85, 0.3);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.button12:hover {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color) 0%,
+    var(--primary-color) 100%
+  );
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(52, 64, 85, 0.4);
+}
+
+/* Media queries pour responsivité */
+@media screen and (max-width: 768px) {
+  .theme-card {
+    width: calc(33.33% - 12px);
+  }
+
+  .themes-section {
+    max-height: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .theme-card {
+    width: calc(50% - 8px);
+    min-width: 60px;
+  }
+
+  .themes-container {
+    gap: 8px;
+  }
+
+  .theme-selector {
+    padding: 15px;
+  }
+
+  .theme-selector h3 {
+    font-size: 18px;
+  }
+
+  .theme-selector h4 {
+    font-size: 15px;
+  }
+
+  .theme-card span {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+
+  .themes-section {
+    max-height: 250px;
+  }
+}

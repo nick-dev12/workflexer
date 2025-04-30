@@ -19,6 +19,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.4 !important;
 }
 
 body {
@@ -241,6 +243,12 @@ body {
 #container .box1 .bb p span {
   overflow: hidden;
   width: 140px;
+  color: var(--texte-color_titre);
+}
+
+#container .box1 .bb p strong {
+  font-weight: 600;
+  color: var(--texte-color_titre);
 }
 
 #container .box1 ul {
@@ -254,6 +262,10 @@ body {
   margin: 2px auto;
   margin-left: 10px;
   list-style: none;
+  color: var(--texte-color_titre) !important;
+}
+#container .box1 ul li span {
+  color: var(--texte-color_titre) !important;
 }
 
 #container .box1 .div-comp {
@@ -270,6 +282,7 @@ body {
   border-radius: 5px;
   background-color: #e2e2e2;
   margin: 5px 5px;
+  width: 100%;
 }
 
 #container .box1 .reseaux {
@@ -290,6 +303,9 @@ body {
   position: relative;
   padding-top: 10px;
   padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #container .box2 .info_users {
   margin-top: 30px;
@@ -315,7 +331,6 @@ body {
   font-size: 12px;
   width: 90%;
   margin: 15px auto;
-  text-align: justify;
 }
 #container .box2 p {
   font-size: 12px;
@@ -361,7 +376,6 @@ body {
   font-size: 12px;
   width: 100%;
   margin: 0;
-  text-align: justify;
 }
 #container .box2 .div span {
   font-size: 10px;
@@ -389,7 +403,7 @@ body {
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-top: -3px;
+  margin-top: 10px;
 }
 #container .box2 .outils p {
   display: flex;
@@ -422,348 +436,6 @@ body {
   margin: 5px 10px;
 }
 
-@media screen and (max-width: 820px) {
-  #box #container .haut {
-    height: 20px;
-  }
-  #box #container .bas {
-    height: 20px;
-  }
-  #box #container {
-    width: 493px;
-    height: 750px;
-  }
-  #box #container .img {
-    width: 120px;
-    height: 100px;
-    top: 10px;
-    left: 0px;
-  }
-  #box #container .box1 {
-    width: 180px;
-    height: 740px;
-    margin-top: 0px;
-    padding: 10px 5px;
-    border-width: 2px;
-  }
-  #box #container .box1 h1 {
-    width: 80%;
-    font-size: 10px;
-    margin: 5px auto;
-  }
-  #box #container .box1 .profil {
-    margin-top: 15px;
-    padding: 5px 7px;
-  }
-  #box #container .box1 .profil .nom {
-    font-size: 8px;
-  }
-  #box #container .box1 .profil h2 {
-    font-size: 11px;
-  }
-  #box #container .box1 h1 img {
-    height: 10px;
-    width: 10px;
-    margin-right: 10px;
-  }
-  #box #container .box1 .bb {
-    width: 120px;
-    margin: 6px 20px;
-  }
-  #box #container .box1 .bb img {
-    height: 15px;
-    width: 15px;
-    margin-right: 7px;
-  }
-  #box #container .box1 .bb p {
-    font-size: 8px;
-    overflow: hidden;
-  }
-  #box #container .box1 ul {
-    width: 80%;
-    margin: 0 auto;
-  }
-  #box #container .box1 ul li {
-    font-size: 8px;
-  }
-
-  #box #container .box1 .div-comp {
-    width: 95%;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    position: relative;
-    flex-wrap: wrap;
-  }
-  #box #container .box1 .comp {
-    padding: 2px 5px;
-    font-size: 8px;
-    border-radius: 5px;
-    background-color: #e2e2e2;
-    margin: 2px 5px;
-  }
-
-  #box #container .box1 .reseaux {
-    width: 80%;
-  }
-  #box #container .box1 .reseaux img {
-    height: 20px;
-    width: 20px;
-  }
-
-  #box #container .box2 {
-    width: 310px;
-    height: 750px;
-    padding: 10px 10px;
-  }
-  #box #container .box2 .info_users {
-    margin-top: 40px;
-  }
-  #box #container .box2 .info_users p {
-    font-size: 8px;
-  }
-  #box #container .box2 h1 {
-    font-size: 10px;
-    width: 80%;
-    margin: 5px 20px;
-    text-transform: uppercase;
-  }
-  #box #container .box2 h1 img {
-    height: 17px;
-    width: 17px;
-  }
-  #box #container .box2 .p {
-    font-size: 7px;
-    width: 80%;
-    margin-left: 20px;
-  }
-  #box #container .box2 .experiences .div1 {
-    margin-top: -2px;
-    width: 90%;
-  }
-  #box #container .box2 .div {
-    width: 100%;
-  }
-
-  #box #container .box2 .div .div2 #strong {
-    height: 15px;
-    padding: 2px;
-    margin-right: 10px;
-  }
-
-  #box #container .box2 .div h4 {
-    width: 90%;
-    font-size: 9px;
-  }
-  #box #container .box2 .div p {
-    font-size: 8px;
-    width: 100%;
-  }
-  #box #container .box2 .div span {
-    font-size: 6px;
-    display: block;
-  }
-  #box #container .box2 .div .strong {
-    padding: 1px;
-    margin-right: 7px;
-    height: 30px;
-  }
-  #box #container .box2 .experiences .outils {
-    width: 95%;
-    margin-top: -2px;
-  }
-  #box #container .box2 .outils p {
-    font-size: 8px;
-    margin-top: 2px;
-    margin-left: 6px;
-  }
-  #box #container .box2 .outils p span {
-    padding: 2px;
-  }
-  #box #container .box2 .div-comp {
-    width: 90%;
-  }
-  #box #container .box2 .comp {
-    font-size: 7px;
-    padding: 1px 5px;
-    margin: 5px;
-    margin-right: 3px;
-    margin-top: 4px;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  #box #container {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-    margin: 10px 5px;
-    padding: 0;
-  }
-  #box #container .img {
-    width: 90px;
-    height: 70px;
-    top: 0px;
-    left: 0px;
-  }
-
-  #box #container .box1 {
-    width: 160px;
-    height: 550px;
-    border-width: 2px;
-  }
-  #box #container .box1 h1 {
-    width: 80%;
-    font-size: 6px;
-    margin: 5px auto;
-    text-align: center;
-    align-items: start;
-    padding: 3px 10px;
-  }
-  #box #container .box1 .profil .nom {
-    background-color: #ffffff;
-    font-size: 6px;
-    color: #000000;
-    width: 100%;
-    padding: 5px 10px;
-  }
-  #box #container .box1 .profil h2 {
-    font-size: 9px;
-  }
-  #box #container .box1 h1 img {
-    height: 8px;
-    width: 8px;
-    margin-right: 5px;
-  }
-  #box #container .box1 .bb {
-    width: 120px;
-    margin: 6px 10px;
-    text-align: left;
-    align-items: start;
-  }
-  #box #container .box1 .bb img {
-    height: 10px;
-    width: 10px;
-    margin-right: 5px;
-  }
-  #box #container .box1 .bb p {
-    font-size: 5px;
-    width: 100%;
-    align-items: start;
-    /* margin-left: 5px; */
-  }
-  #box #container .box1 ul {
-    width: 80%;
-    margin: 0 auto;
-  }
-  #box #container .box1 ul li {
-    font-size: 5.5px;
-  }
-  #box #container .box1 .div-comp {
-    width: 95%;
-  }
-  #box #container .box1 .comp {
-    padding: 2px 5px;
-    font-size: 5px;
-    border-radius: 5px;
-    background-color: #e2e2e2;
-    margin: 2px 4px;
-  }
-  #box #container .box1 .reseaux {
-    width: 80%;
-  }
-  #box #container .box1 .reseaux img {
-    height: 20px;
-    width: 20px;
-  }
-
-  #box #container .box2 {
-    width: 220px;
-    height: auto;
-    padding: 10px 10px;
-  }
-  #box #container .box2 .info_users {
-    margin-top: 10px;
-  }
-  #box #container .box2 .info_users p {
-    font-size: 6px;
-    margin: 0 7px;
-    width: 95%;
-  }
-  #box #container .box2 h1 {
-    font-size: 6px;
-    width: 100%;
-    margin: 5px 10px;
-  }
-  #box #container .box2 h1 img {
-    height: 10px;
-    width: 10px;
-    margin-right: 5px;
-  }
-  #box #container .box2 .p {
-    font-size: 6px;
-    width: 95%;
-    margin-left: 10px;
-  }
-  #box #container .box2 .div .div1 #strong {
-    height: 20px;
-    padding: 1px;
-    margin-right: 10px;
-  }
-  #box #container .box2 .div .div2 {
-    width: 100%;
-  }
-  #box #container .box2 .div .div2 #strong {
-    height: 10px;
-    padding: 1px;
-    margin-right: 10px;
-  }
-  #box #container .box2 .experiences .div1 {
-    width: 100%;
-    position: relative;
-  }
-  #box #container .box2 .experiences .div1 .info p {
-    width: 100%;
-  }
-  #box #container .box2 .experiences .div {
-    width: 100%;
-    margin-top: -2px;
-  }
-
-  #box #container .box2 .div h4 {
-    font-size: 7px;
-  }
-  #box #container .box2 .div p {
-    font-size: 6px;
-  }
-  #box #container .box2 .div span {
-    font-size: 4.5px;
-  }
-  #box #container .box2 .div .strong {
-    padding: 1px;
-    margin-right: 10px;
-    height: 20px;
-  }
-
-  #box #container .box2 .experiences .outils {
-    width: 100%;
-    margin-top: -2px;
-  }
-  #box #container .box2 .experiences .outils p {
-    font-size: 7px;
-    margin-bottom: 3px;
-  }
-  #box #container .box2 .div-comp {
-    width: 100%;
-  }
-  #box #container .box2 .comp {
-    font-size: 5px;
-    padding: 1px 5px;
-    margin: 5px;
-    margin-right: 1px;
-    margin-top: 2px;
-  }
-}
 p {
   color: black;
 }

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemple CV Modèle 15 - Original et Professionnel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #1e3a5f;
+        --secondary-color: #3e8ed0;
+        --accent-color: #e67e22;
+        --text-color: #2d3436;
+        --light-text-color: #636e72;
+        --background-color: #ffffff;
+        --section-background: #f6f9fc;
+        --border-color: #dfe6e9;
+        --header-font: "Montserrat", sans-serif;
+        --body-font: "Open Sans", sans-serif;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        --border-radius: 8px;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--body-font);
+        color: var(--text-color);
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        padding: 40px 0;
+      }
+
+      /* Styles généraux pour le CV */
+      .cv15-container {
+        width: 793px !important;
+        height: 1122px !important;
+        background-color: var(--background-color);
+        box-shadow: var(--shadow);
+        position: relative;
+        font-family: var(--body-font);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* En-tête du CV */
+      .cv15-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #2c5282 100%
+        );
+        padding: 40px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .cv15-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        border-radius: 50%;
+        transform: translate(100px, -150px);
+      }
+
+      .cv15-profile {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cv15-profile-photo {
+        width: 130px;
+        height: 130px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .cv15-profile-photo:hover {
+        transform: scale(1.03);
+      }
+
+      .cv15-profile-info {
+        color: var(--background-color);
+      }
+
+      .cv15-name {
+        font-family: var(--header-font);
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+        position: relative;
+        letter-spacing: 0.5px;
+      }
+
+      .cv15-name::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: var(--accent-color);
+        margin-top: 8px;
+      }
+
+      .cv15-title {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 0 15px 0;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.5px;
+      }
+
+      .cv15-contact {
+        margin-top: 15px;
+      }
+
+      .cv15-contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 13px;
+      }
+
+      .cv15-contact-item i {
+        margin-right: 10px;
+        color: var(--accent-color);
+        width: 16px;
+        text-align: center;
+      }
+
+      /* Corps du CV */
+      .cv15-body {
+        display: flex;
+        flex: 1;
+        background: linear-gradient(
+          to right,
+          var(--section-background) 33%,
+          var(--background-color) 33%
+        );
+      }
+
+      /* Colonne de gauche */
+      .cv15-sidebar {
+        width: 33%;
+        padding: 40px 25px;
+      }
+
+      /* Colonne droite / principale */
+      .cv15-main {
+        width: 67%;
+        padding: 40px 30px;
+      }
+
+      /* Sections du CV */
+      .cv15-section {
+        margin-bottom: 35px;
+        position: relative;
+      }
+
+      .cv15-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .cv15-section-title {
+        font-family: var(--header-font);
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+        color: var(--primary-color);
+        position: relative;
+        display: inline-block;
+      }
+
+      .cv15-sidebar .cv15-section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent-color);
+      }
+
+      .cv15-main .cv15-section-title::before {
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+      }
+
+      /* Style pour les compétences */
+      .cv15-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .cv15-skill {
+        background-color: rgba(30, 58, 95, 0.1);
+        color: var(--primary-color);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        transition: all 0.2s ease;
+      }
+
+      .cv15-skill:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Style pour les langues */
+      .cv15-language {
+        margin-bottom: 15px;
+      }
+
+      .cv15-language-name {
+        margin-bottom: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .cv15-language-level {
+        height: 8px;
+        background-color: rgba(30, 58, 95, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .cv15-language-level-fill {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        border-radius: 4px;
+        transition: width 1s ease-in-out;
+      }
+
+      /* Style pour l'expérience et l'éducation */
+      .cv15-timeline-item {
+        margin-bottom: 25px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .cv15-timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .cv15-timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--secondary-color);
+        z-index: 2;
+      }
+
+      .cv15-timeline-item::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 20px;
+        width: 2px;
+        height: calc(100% + 5px);
+        background-color: rgba(62, 142, 208, 0.2);
+      }
+
+      .cv15-timeline-item:last-child::after {
+        display: none;
+      }
+
+      .cv15-timeline-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      .cv15-timeline-title {
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--primary-color);
+        margin-bottom: 3px;
+      }
+
+      .cv15-timeline-subtitle {
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--secondary-color);
+      }
+
+      .cv15-timeline-period {
+        font-size: 13px;
+        color: var(--light-text-color);
+        font-weight: 500;
+        background-color: rgba(62, 142, 208, 0.1);
+        padding: 3px 10px;
+        border-radius: 15px;
+        white-space: nowrap;
+      }
+
+      .cv15-timeline-description {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-color);
+        padding-top: 5px;
+      }
+
+      .cv15-timeline-description ul {
+        padding-left: 18px;
+        margin-top: 5px;
+      }
+
+      .cv15-timeline-description li {
+        margin-bottom: 6px;
+        position: relative;
+      }
+
+      .cv15-timeline-description li::marker {
+        color: var(--secondary-color);
+      }
+
+      /* Bio/Présentation */
+      .cv15-bio {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 30px;
+        position: relative;
+        padding: 20px;
+        background-color: rgba(30, 58, 95, 0.03);
+        border-radius: var(--border-radius);
+        border-left: 3px solid var(--accent-color);
+      }
+
+      /* Style pour les projets */
+      .cv15-project {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: rgba(30, 58, 95, 0.03);
+        border-radius: var(--border-radius);
+        transition: all 0.2s ease;
+      }
+
+      .cv15-project:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .cv15-project:last-child {
+        margin-bottom: 0;
+      }
+
+      .cv15-project-title {
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 6px;
+        color: var(--primary-color);
+      }
+
+      .cv15-project-description {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* Barre de progression pour les compétences */
+      .cv15-progress-container {
+        margin-bottom: 15px;
+      }
+
+      .cv15-progress-title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .cv15-progress-bar {
+        height: 8px;
+        background-color: rgba(30, 58, 95, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .cv15-progress-fill {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        border-radius: 4px;
+        transition: width 1s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Container du CV -->
+    <div class="cv15-container">
+      <!-- En-tête du CV -->
+      <header class="cv15-header">
+        <div class="cv15-profile">
+          <img
+            src="https://randomuser.me/api/portraits/men/32.jpg"
+            alt="Photo de profil"
+            class="cv15-profile-photo"
+          />
+          <div class="cv15-profile-info">
+            <h1 class="cv15-name">Thomas Dubois</h1>
+            <h2 class="cv15-title">Ingénieur DevOps</h2>
+            <div class="cv15-contact">
+              <div class="cv15-contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>thomas.dubois@email.com</span>
+              </div>
+              <div class="cv15-contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>+33 6 87 65 43 21</span>
+              </div>
+              <div class="cv15-contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Lyon, France</span>
+              </div>
+              <div class="cv15-contact-item">
+                <i class="fa-brands fa-github"></i>
+                <span>github.com/thomasdubois</span>
+              </div>
+              <div class="cv15-contact-item">
+                <i class="fa-solid fa-globe"></i>
+                <span>thomas-dubois.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Corps du CV -->
+      <div class="cv15-body">
+        <!-- Barre latérale / Colonne de gauche -->
+        <div class="cv15-sidebar">
+          <!-- Section Compétences -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Compétences</h3>
+
+            <div class="cv15-progress-container">
+              <div class="cv15-progress-title">
+                <span>AWS</span>
+                <span>95%</span>
+              </div>
+              <div class="cv15-progress-bar">
+                <div class="cv15-progress-fill" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div class="cv15-progress-container">
+              <div class="cv15-progress-title">
+                <span>Docker</span>
+                <span>90%</span>
+              </div>
+              <div class="cv15-progress-bar">
+                <div class="cv15-progress-fill" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="cv15-progress-container">
+              <div class="cv15-progress-title">
+                <span>Kubernetes</span>
+                <span>85%</span>
+              </div>
+              <div class="cv15-progress-bar">
+                <div class="cv15-progress-fill" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="cv15-progress-container">
+              <div class="cv15-progress-title">
+                <span>CI/CD (Jenkins)</span>
+                <span>80%</span>
+              </div>
+              <div class="cv15-progress-bar">
+                <div class="cv15-progress-fill" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="cv15-progress-container">
+              <div class="cv15-progress-title">
+                <span>Terraform</span>
+                <span>75%</span>
+              </div>
+              <div class="cv15-progress-bar">
+                <div class="cv15-progress-fill" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Langues -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Langues</h3>
+
+            <div class="cv15-language">
+              <div class="cv15-language-name">
+                <span>Français</span>
+                <span>Natif</span>
+              </div>
+              <div class="cv15-language-level">
+                <div class="cv15-language-level-fill" style="width: 100%"></div>
+              </div>
+            </div>
+
+            <div class="cv15-language">
+              <div class="cv15-language-name">
+                <span>Anglais</span>
+                <span>Courant</span>
+              </div>
+              <div class="cv15-language-level">
+                <div class="cv15-language-level-fill" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="cv15-language">
+              <div class="cv15-language-name">
+                <span>Allemand</span>
+                <span>Intermédiaire</span>
+              </div>
+              <div class="cv15-language-level">
+                <div class="cv15-language-level-fill" style="width: 40%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Outils -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Outils & Technologies</h3>
+            <div class="cv15-skills">
+              <span class="cv15-skill">Linux</span>
+              <span class="cv15-skill">Git</span>
+              <span class="cv15-skill">Python</span>
+              <span class="cv15-skill">Ansible</span>
+              <span class="cv15-skill">Prometheus</span>
+              <span class="cv15-skill">Grafana</span>
+              <span class="cv15-skill">ELK Stack</span>
+              <span class="cv15-skill">Bash</span>
+              <span class="cv15-skill">Maven</span>
+            </div>
+          </div>
+
+          <!-- Section Certifications -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Certifications</h3>
+            <div class="cv15-skills">
+              <span class="cv15-skill">AWS Solutions Architect</span>
+              <span class="cv15-skill">Certified Kubernetes Admin</span>
+              <span class="cv15-skill">Docker Certified Associate</span>
+            </div>
+          </div>
+
+          <!-- Section Centres d'intérêt -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Centres d'intérêt</h3>
+            <div class="cv15-skills">
+              <span class="cv15-skill">Escalade</span>
+              <span class="cv15-skill">Impression 3D</span>
+              <span class="cv15-skill">Smart Home</span>
+              <span class="cv15-skill">Musique</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenu principal / Colonne de droite -->
+        <div class="cv15-main">
+          <!-- Section Profil / Présentation -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Profil</h3>
+            <p class="cv15-bio">
+              Ingénieur DevOps avec 6 ans d'expérience dans la mise en place et
+              la gestion d'infrastructures cloud et l'automatisation de
+              déploiements. Expertise dans les technologies AWS, Docker et
+              Kubernetes. Passionné par l'amélioration continue des processus de
+              développement et de déploiement, avec une approche orientée vers
+              la performance et la sécurité.
+            </p>
+          </div>
+
+          <!-- Section Expérience professionnelle -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Expérience professionnelle</h3>
+
+            <div class="cv15-timeline-item">
+              <div class="cv15-timeline-header">
+                <div>
+                  <div class="cv15-timeline-title">DevOps Team Lead</div>
+                  <div class="cv15-timeline-subtitle">CloudTech, Lyon</div>
+                </div>
+                <div class="cv15-timeline-period">Fév 2021 - Présent</div>
+              </div>
+              <div class="cv15-timeline-description">
+                <ul>
+                  <li>Direction d'une équipe de 6 ingénieurs DevOps</li>
+                  <li>
+                    Migration de l'infrastructure vers Kubernetes avec 99.99% de
+                    disponibilité
+                  </li>
+                  <li>
+                    Mise en place d'une stratégie de sécurité et de conformité
+                    cloud
+                  </li>
+                  <li>
+                    Réduction de 40% des coûts d'infrastructure par optimisation
+                    des ressources
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cv15-timeline-item">
+              <div class="cv15-timeline-header">
+                <div>
+                  <div class="cv15-timeline-title">DevOps Engineer</div>
+                  <div class="cv15-timeline-subtitle">FinTech SAS, Paris</div>
+                </div>
+                <div class="cv15-timeline-period">Avr 2018 - Jan 2021</div>
+              </div>
+              <div class="cv15-timeline-description">
+                <ul>
+                  <li>
+                    Mise en place de pipelines CI/CD avec Jenkins et GitLab
+                  </li>
+                  <li>
+                    Déploiement d'une infrastructure AWS multi-régions hautement
+                    disponible
+                  </li>
+                  <li>
+                    Automatisation des processus de sauvegarde et de
+                    récupération
+                  </li>
+                  <li>
+                    Réduction de 70% du temps de déploiement des applications
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cv15-timeline-item">
+              <div class="cv15-timeline-header">
+                <div>
+                  <div class="cv15-timeline-title">Administrateur Système</div>
+                  <div class="cv15-timeline-subtitle">TechServ, Grenoble</div>
+                </div>
+                <div class="cv15-timeline-period">Sept 2016 - Mar 2018</div>
+              </div>
+              <div class="cv15-timeline-description">
+                <ul>
+                  <li>Administration de serveurs Linux et Windows</li>
+                  <li>Supervision des systèmes avec Zabbix et Nagios</li>
+                  <li>Gestion des sauvegardes et récupération de données</li>
+                  <li>Support technique de niveau 3</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Formation -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Formation</h3>
+
+            <div class="cv15-timeline-item">
+              <div class="cv15-timeline-header">
+                <div>
+                  <div class="cv15-timeline-title">
+                    Master en Sécurité Informatique
+                  </div>
+                  <div class="cv15-timeline-subtitle">INSA Lyon</div>
+                </div>
+                <div class="cv15-timeline-period">2014 - 2016</div>
+              </div>
+              <div class="cv15-timeline-description">
+                Spécialisation en sécurité des systèmes distribués et cloud
+                computing. Projet de fin d'études: Détection d'intrusion et
+                réponse automatisée dans les environnements conteneurisés.
+              </div>
+            </div>
+
+            <div class="cv15-timeline-item">
+              <div class="cv15-timeline-header">
+                <div>
+                  <div class="cv15-timeline-title">Licence en Informatique</div>
+                  <div class="cv15-timeline-subtitle">
+                    Université Grenoble Alpes
+                  </div>
+                </div>
+                <div class="cv15-timeline-period">2011 - 2014</div>
+              </div>
+              <div class="cv15-timeline-description">
+                Formation généraliste en informatique avec spécialisation en
+                systèmes et réseaux. Mention Bien.
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Projets -->
+          <div class="cv15-section">
+            <h3 class="cv15-section-title">Projets personnels</h3>
+
+            <div class="cv15-project">
+              <div class="cv15-project-title">
+                K8s-Monitor - Outil de surveillance pour Kubernetes
+              </div>
+              <div class="cv15-project-description">
+                Développement d'un outil open source de surveillance pour
+                clusters Kubernetes. Intégration avec Prometheus et Grafana pour
+                la visualisation des métriques. Plus de 500 stars sur GitHub.
+              </div>
+            </div>
+
+            <div class="cv15-project">
+              <div class="cv15-project-title">
+                Auto-Scale - Solution d'autoscaling intelligente
+              </div>
+              <div class="cv15-project-description">
+                Création d'une solution d'autoscaling basée sur l'apprentissage
+                automatique pour prédire les besoins en ressources et ajuster
+                dynamiquement la capacité des clusters.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

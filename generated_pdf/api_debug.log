@@ -1,0 +1,173 @@
+[2025-04-27 23:11:30] API DEBUG: Début du traitement de la requête
+[2025-04-27 23:11:30] API DEBUG: Méthode POST vérifiée
+[2025-04-27 23:11:30] API DEBUG: Données reçues - {"html_length":3122236,"css_length":58484,"google_fonts":"Nunito","device_scale":"2","download":false,"output_format":"pdf"}
+[2025-04-27 23:11:30] API DEBUG: Initialisation de cURL
+[2025-04-27 23:11:30] API DEBUG: Exécution de la requête cURL
+[2025-04-27 23:11:36] API DEBUG: Code de statut HTTP - 200
+[2025-04-27 23:11:36] API DEBUG: Réponse reçue avec succès - {"url":"https:\/\/hcti.io\/v1\/image\/18a19f31-0727-44d4-8aba-9e35c3c0e9a0"}
+[2025-04-27 23:11:36] API DEBUG: Conversion de l'image en PDF
+[2025-04-27 23:11:36] API DEBUG: Téléchargement de l'image depuis - "https:\/\/hcti.io\/v1\/image\/18a19f31-0727-44d4-8aba-9e35c3c0e9a0"
+[2025-04-27 23:11:41] API DEBUG: Image téléchargée avec succès, taille: - 935096
+[2025-04-27 23:11:41] API DEBUG: Enregistrement de l'image temporaire dans - "..\/generated_pdf\/temp_680eb9adc5a65.png"
+[2025-04-27 23:11:41] API DEBUG: PDF créé avec succès - {"path":"..\/generated_pdf\/cv_680eb9adc6445.pdf","size":1247504}
+[2025-04-27 23:11:41] API DEBUG: Fin du traitement de la requête
+[2025-04-27 23:11:53] API DEBUG: Début du traitement de la requête
+[2025-04-27 23:11:53] API DEBUG: Méthode POST vérifiée
+[2025-04-27 23:11:53] API DEBUG: Données reçues - {"html_length":3122236,"css_length":58484,"google_fonts":"Nunito","device_scale":"2","download":false,"output_format":"pdf"}
+[2025-04-27 23:11:53] API DEBUG: Initialisation de cURL
+[2025-04-27 23:11:53] API DEBUG: Exécution de la requête cURL
+[2025-04-27 23:12:00] API DEBUG: Code de statut HTTP - 200
+[2025-04-27 23:12:00] API DEBUG: Réponse reçue avec succès - {"url":"https:\/\/hcti.io\/v1\/image\/3586637f-599a-4dfc-b807-af49a1261d99"}
+[2025-04-27 23:12:00] API DEBUG: Conversion de l'image en PDF
+[2025-04-27 23:12:00] API DEBUG: Téléchargement de l'image depuis - "https:\/\/hcti.io\/v1\/image\/3586637f-599a-4dfc-b807-af49a1261d99"
+[2025-04-27 23:12:04] API DEBUG: Image téléchargée avec succès, taille: - 935182
+[2025-04-27 23:12:04] API DEBUG: Enregistrement de l'image temporaire dans - "..\/generated_pdf\/temp_680eb9c463df2.png"
+[2025-04-27 23:12:04] API DEBUG: PDF créé avec succès - {"path":"..\/generated_pdf\/cv_680eb9c46452f.pdf","size":1247620}
+[2025-04-27 23:12:04] API DEBUG: Fin du traitement de la requête
+[2025-04-27 23:14:34] API DEBUG: Début du traitement de la requête
+[2025-04-27 23:14:34] API DEBUG: Méthode POST vérifiée
+[2025-04-27 23:14:34] API DEBUG: Données reçues - {"html_length":3122236,"css_length":58484,"google_fonts":"Nunito","device_scale":"2","download":false,"output_format":"pdf"}
+[2025-04-27 23:14:34] API DEBUG: Initialisation de cURL
+[2025-04-27 23:14:34] API DEBUG: Exécution de la requête cURL
+[2025-04-27 23:14:40] API DEBUG: Code de statut HTTP - 200
+[2025-04-27 23:14:40] API DEBUG: Réponse reçue avec succès - {"url":"https:\/\/hcti.io\/v1\/image\/17a0d1db-b4b0-4efb-afd3-febc8cc9cd47"}
+[2025-04-27 23:14:40] API DEBUG: Conversion de l'image en PDF
+[2025-04-27 23:14:40] API DEBUG: Téléchargement de l'image depuis - "https:\/\/hcti.io\/v1\/image\/17a0d1db-b4b0-4efb-afd3-febc8cc9cd47"
+[2025-04-27 23:14:43] API DEBUG: Image téléchargée avec succès, taille: - 934997
+[2025-04-27 23:14:43] API DEBUG: Page HTML pour impression PDF créée avec succès - {"url":"http:\/\/localhost:3000\/generated_pdf\/temp_680eba63eff3f.html"}
+[2025-04-27 23:14:43] API DEBUG: Fin du traitement de la requête
+[2025-04-27 23:20:32] API DEBUG: Début du traitement de la requête
+[2025-04-27 23:20:32] API DEBUG: Méthode POST vérifiée
+[2025-04-27 23:20:32] API DEBUG: Données reçues - {"html_length":3122236,"css_length":58484,"google_fonts":"Nunito","device_scale":"2","download":false,"output_format":"pdf"}
+[2025-04-27 23:20:32] API DEBUG: Initialisation de cURL
+[2025-04-27 23:20:32] API DEBUG: Exécution de la requête cURL
+[2025-04-27 23:20:38] API DEBUG: Code de statut HTTP - 200
+[2025-04-27 23:20:38] API DEBUG: Réponse reçue avec succès - {"url":"https:\/\/hcti.io\/v1\/image\/527b70fa-6173-428b-b60e-72e86163d600"}
+[2025-04-27 23:20:38] API DEBUG: Préparation de la page avec jsPDF pour conversion PDF
+[2025-04-27 23:20:38] API DEBUG: Téléchargement de l'image depuis - "https:\/\/hcti.io\/v1\/image\/527b70fa-6173-428b-b60e-72e86163d600"
+[2025-04-27 23:20:42] API DEBUG: Image téléchargée avec succès, taille: - 935089
+[2025-04-27 23:20:42] API DEBUG: Page HTML avec jsPDF créée avec succès - {"url":"http:\/\/localhost:3000\/generated_pdf\/pdf_generator_680ebbca1e63b.html"}
+[2025-04-27 23:20:42] API DEBUG: Fin du traitement de la requête
+[2025-04-27 23:30:00] API DEBUG: Début du traitement de la requête
+[2025-04-27 23:30:00] API DEBUG: Méthode POST vérifiée
+[2025-04-27 23:30:00] API DEBUG: Données reçues - {"html_length":3122236,"css_length":48903,"google_fonts":"Nunito","device_scale":"2","download":false,"output_format":"image"}
+[2025-04-27 23:30:00] API DEBUG: Initialisation de cURL
+[2025-04-27 23:30:00] API DEBUG: Exécution de la requête cURL
+[2025-04-27 23:30:06] API DEBUG: Code de statut HTTP - 200
+[2025-04-27 23:30:06] API DEBUG: Réponse reçue avec succès - {"url":"https:\/\/hcti.io\/v1\/image\/24861b40-f504-4c48-a367-a3da05817fe8"}
+[2025-04-27 23:30:06] API DEBUG: Fin du traitement de la requête
+[2025-04-28 00:04:29] API DEBUG: Début du traitement de la requête
+[2025-04-28 00:04:29] API DEBUG: Méthode POST vérifiée
+[2025-04-28 00:04:29] API DEBUG: Données reçues - {"html_length":3122236,"css_length":58484,"google_fonts":"Nunito","device_scale":"2","download":false,"output_format":"pdf"}
+[2025-04-28 00:04:29] API DEBUG: Initialisation de cURL
+[2025-04-28 00:04:29] API DEBUG: Exécution de la requête cURL
+[2025-04-28 00:04:35] API DEBUG: Code de statut HTTP - 200
+[2025-04-28 00:04:35] API DEBUG: Réponse reçue avec succès - {"url":"https:\/\/hcti.io\/v1\/image\/86b46a44-57f2-464e-bdd9-733999960f9d"}
+[2025-04-28 00:04:35] API DEBUG: Préparation de la page avec jsPDF pour conversion PDF
+[2025-04-28 00:04:35] API DEBUG: Page HTML avec jsPDF créée avec succès - {"url":"http:\/\/localhost:3000\/generated_pdf\/pdf_generator_680ec613e0eed.html"}
+[2025-04-28 00:04:35] API DEBUG: Fin du traitement de la requête
+[2025-04-28 00:04:43] API DEBUG: Début du traitement de la requête
+[2025-04-28 00:04:43] API DEBUG: Méthode POST vérifiée
+[2025-04-28 00:04:43] API DEBUG: Données reçues - {"html_length":3122236,"css_length":58484,"google_fonts":"Nunito","device_scale":"2","download":false,"output_format":"pdf"}
+[2025-04-28 00:04:43] API DEBUG: Initialisation de cURL
+[2025-04-28 00:04:43] API DEBUG: Exécution de la requête cURL
+[2025-04-28 00:04:48] API DEBUG: Code de statut HTTP - 200
+[2025-04-28 00:04:48] API DEBUG: Réponse reçue avec succès - {"url":"https:\/\/hcti.io\/v1\/image\/86b46a44-57f2-464e-bdd9-733999960f9d"}
+[2025-04-28 00:04:48] API DEBUG: Préparation de la page avec jsPDF pour conversion PDF
+[2025-04-28 00:04:48] API DEBUG: Page HTML avec jsPDF créée avec succès - {"url":"http:\/\/localhost:3000\/generated_pdf\/pdf_generator_680ec6200293f.html"}
+[2025-04-28 00:04:48] API DEBUG: Fin du traitement de la requête
+[2025-04-28 00:45:30] API DEBUG: Début du traitement de la requête | Mémoire: 12 MB
+[2025-04-28 00:45:30] API DEBUG: Méthode POST vérifiée | Mémoire: 12 MB
+[2025-04-28 00:45:30] API DEBUG: Données reçues - {
+    "html_length": 3122236,
+    "css_length": 58873,
+    "google_fonts": "Nunito",
+    "device_scale": "2",
+    "download": false,
+    "output_format": "pdf"
+} | Mémoire: 12 MB
+[2025-04-28 00:45:30] API DEBUG: Initialisation de cURL | Mémoire: 12 MB
+[2025-04-28 00:45:30] API DEBUG: Exécution de la requête cURL | Mémoire: 12 MB
+[2025-04-28 00:45:36] API DEBUG: Code de statut HTTP - 200 | Mémoire: 12 MB
+[2025-04-28 00:45:36] API DEBUG: Réponse reçue avec succès - {
+    "url": "https:\/\/hcti.io\/v1\/image\/a9419384-1680-478c-9094-b1764f832ffa"
+} | Mémoire: 12 MB
+[2025-04-28 00:45:36] API DEBUG: Préparation du PDF avec DOMPDF | Mémoire: 12 MB
+[2025-04-28 00:45:36] API DEBUG: Téléchargement de l'image depuis - https://hcti.io/v1/image/a9419384-1680-478c-9094-b1764f832ffa | Mémoire: 12 MB
+[2025-04-28 00:45:39] API DEBUG: Image téléchargée avec succès, taille: - 935307 | Mémoire: 12 MB
+[2025-04-28 00:45:39] API DEBUG: Dimensions de l'image - {
+    "width": 1586,
+    "height": 2324
+} | Mémoire: 12 MB
+[2025-04-28 00:45:39] API DEBUG: Génération du PDF | Mémoire: 18 MB
+[2025-04-28 00:45:40] API DEBUG: PDF généré avec succès - {
+    "file": "..\/generated_pdf\/cv_680ecfb4a3d61.pdf",
+    "size": 759017
+} | Mémoire: 22 MB
+[2025-04-28 00:45:40] API DEBUG: Fin du traitement de la requête | Mémoire: 22 MB
+[2025-04-28 00:49:59] API DEBUG: Début du traitement de la requête | Mémoire: 12 MB
+[2025-04-28 00:49:59] API DEBUG: Méthode POST vérifiée | Mémoire: 12 MB
+[2025-04-28 00:49:59] API DEBUG: Données reçues - {
+    "html_length": 3122236,
+    "css_length": 58873,
+    "google_fonts": "Nunito",
+    "device_scale": "2",
+    "download": false,
+    "output_format": "pdf"
+} | Mémoire: 12 MB
+[2025-04-28 00:49:59] API DEBUG: Initialisation de cURL | Mémoire: 12 MB
+[2025-04-28 00:49:59] API DEBUG: Exécution de la requête cURL | Mémoire: 12 MB
+[2025-04-28 00:50:05] API DEBUG: Code de statut HTTP - 200 | Mémoire: 12 MB
+[2025-04-28 00:50:05] API DEBUG: Réponse reçue avec succès - {
+    "url": "https:\/\/hcti.io\/v1\/image\/a9419384-1680-478c-9094-b1764f832ffa"
+} | Mémoire: 12 MB
+[2025-04-28 00:50:05] API DEBUG: Préparation du PDF avec DOMPDF | Mémoire: 12 MB
+[2025-04-28 00:50:05] API DEBUG: Téléchargement de l'image depuis - https://hcti.io/v1/image/a9419384-1680-478c-9094-b1764f832ffa | Mémoire: 12 MB
+[2025-04-28 00:50:06] API DEBUG: Image téléchargée avec succès, taille: - 935307 | Mémoire: 12 MB
+[2025-04-28 00:50:06] API DEBUG: Dimensions de l'image - {
+    "width": 1586,
+    "height": 2324
+} | Mémoire: 12 MB
+[2025-04-28 00:50:06] API DEBUG: Génération du PDF | Mémoire: 16 MB
+[2025-04-28 00:50:07] API DEBUG: PDF généré avec succès - {
+    "file": "..\/generated_pdf\/cv_680ed0bf98797.pdf",
+    "size": 759017
+} | Mémoire: 20 MB
+[2025-04-28 00:50:07] API DEBUG: Fin du traitement de la requête | Mémoire: 20 MB
+[2025-04-28 00:59:48] API DEBUG: Début du traitement de la requête | Mémoire: 12 MB
+[2025-04-28 00:59:48] API DEBUG: Méthode POST vérifiée | Mémoire: 12 MB
+[2025-04-28 00:59:48] API DEBUG: Données reçues - {
+    "html_length": 3122236,
+    "css_length": 49292,
+    "google_fonts": "Nunito",
+    "device_scale": "2",
+    "download": false,
+    "output_format": "pdf"
+} | Mémoire: 12 MB
+[2025-04-28 00:59:48] API DEBUG: Initialisation de cURL | Mémoire: 12 MB
+[2025-04-28 00:59:48] API DEBUG: Exécution de la requête cURL | Mémoire: 12 MB
+[2025-04-28 00:59:54] API DEBUG: Code de statut HTTP - 200 | Mémoire: 12 MB
+[2025-04-28 00:59:54] API DEBUG: Réponse reçue avec succès - {
+    "url": "https:\/\/hcti.io\/v1\/image\/e626dcef-e536-4fc6-9335-c4390ce88508"
+} | Mémoire: 12 MB
+[2025-04-28 00:59:54] API DEBUG: Approche simplifiée pour la génération de PDF | Mémoire: 12 MB
+[2025-04-28 00:59:54] API DEBUG: URL de l'image - https://hcti.io/v1/image/e626dcef-e536-4fc6-9335-c4390ce88508 | Mémoire: 12 MB
+[2025-04-28 00:59:54] API DEBUG: Fichier HTML créé - ../generated_pdf/pdf_page_680ed30a89015.html | Mémoire: 12 MB
+[2025-04-28 00:59:54] API DEBUG: URL du fichier HTML - http://localhost:3000/generated_pdf/pdf_page_680ed30a89015.html | Mémoire: 12 MB
+[2025-04-28 01:09:25] API DEBUG: Début du traitement de la requête | Mémoire: 12 MB
+[2025-04-28 01:09:25] API DEBUG: Méthode POST vérifiée | Mémoire: 12 MB
+[2025-04-28 01:09:25] API DEBUG: Données reçues - {
+    "html_length": 3122236,
+    "css_length": 58873,
+    "google_fonts": "Nunito",
+    "device_scale": "2",
+    "download": false,
+    "output_format": "image"
+} | Mémoire: 12 MB
+[2025-04-28 01:09:25] API DEBUG: Initialisation de cURL | Mémoire: 12 MB
+[2025-04-28 01:09:25] API DEBUG: Exécution de la requête cURL | Mémoire: 12 MB
+[2025-04-28 01:09:31] API DEBUG: Code de statut HTTP - 200 | Mémoire: 12 MB
+[2025-04-28 01:09:31] API DEBUG: Réponse reçue avec succès - {
+    "url": "https:\/\/hcti.io\/v1\/image\/6f33499e-dff6-406a-a7a8-3ddb746ce2b5"
+} | Mémoire: 12 MB
+[2025-04-28 01:09:31] API DEBUG: Fin du traitement de la requête | Mémoire: 12 MB

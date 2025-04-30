@@ -3,6 +3,7 @@ require_once(__DIR__ . '/../model/admin.php');
 
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['admin'])) {
+    $admin = infoAdmin($db, $_SESSION['admin']);
     // L'utilisateur est déjà connecté, pas besoin de vérifier le cookie
 } elseif (isset($_COOKIE['remember_me'])) {
     // Le cookie remember_me est présent, essayons de reconnecter l'utilisateur

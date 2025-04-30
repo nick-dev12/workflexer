@@ -14,8 +14,10 @@
         "mpdf/mpdf": "^8.2",
         "setasign/fpdf": "^1.8",
         "knplabs/knp-snappy": "^1.5",
-        "tecnickcom/tcpdf": "^6.8",
+        "tecnickcom/tcpdf": "^6.9",
         "phpmailer/phpmailer": "^6.9",
-        "google/apiclient": "^2.18"
+        "google/apiclient": "^2.18",
+        "dompdf/dompdf": "^3.1",
+        "phpoffice/phpword": "^1.3"
     }
 }
