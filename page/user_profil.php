@@ -184,6 +184,9 @@ if (isset($_GET['id'])) {
 
     <script src="../script/jquery-3.6.0.min.js"></script>
 
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <!-- <script src="../script/summernote@0.8.18.js"></script>
     <link rel="stylesheet" href="../style/summernote@0.8.18.css"> -->
 
@@ -191,6 +194,7 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="../css/navbare.css">
 
     <link rel="stylesheet" href="../css/aos.css" />
+    <link rel="stylesheet" href="../css/notifications.css">
     <script defer src="../js/aos.js"></script>
 
 
@@ -249,48 +253,7 @@ if (isset($_GET['id'])) {
         <?php endif; ?>
 
 
-
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="message">
-                <p>
-                    <span></span>
-                    <?php echo $_SESSION['success_message']; ?>
-                    <?php unset($_SESSION['success_message']); ?>
-                </p>
-            </div>
-        <?php else: ?>
-            <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="erreurs" id="messageErreur">
-                    <span></span>
-                    <?php echo $_SESSION['error_message']; ?>
-                    <?php unset($_SESSION['error_message']); ?>
-                </div>
-            <?php endif; ?>
-        <?php endif; ?>
-
-        <script>
-            let success = document.querySelector('.message')
-            setTimeout(() => {
-                success.classList.add('visible');
-            }, 200);
-            setTimeout(() => {
-                success.classList.remove('visible');
-            }, 6000);
-
-            // Sélectionnez l'élément contenant le message d'erreur
-            var messageErreur = document.getElementById('messageErreur');
-
-            // Fonction pour afficher le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.add('visible');
-            }, 200); // 1000 millisecondes équivalent à 1 seconde
-
-            // Fonction pour masquer le message avec une transition de fondu
-            setTimeout(function () {
-                messageErreur.classList.remove('visible');
-            }, 6000); // 6000 millisecondes équivalent à 6 secondes
-        </script>
-
+        <?php include('../include/notifications.php') ?>
         <!-- Afficher le QR code -->
         <div class="qr-code">
             <button class="mon_qrcode">Mon QR Code <?php echo generateQRCode($_SESSION['users_id']); ?></button>
@@ -303,7 +266,32 @@ if (isset($_GET['id'])) {
             </div>
         </div>
 
+        <!-- Nouveau conteneur pour le bouton de notifications -->
+        <?php if ($hasNotificationsEnabled): ?>
+            <p>Vous avez activé les notifications</p>
+        <?php else: ?>
+            <div class="notifications-control notifications-control-disabled">
+                <div class="notifications-bubble">
+                    <div class="notifications-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="notifications-content">
+                        <h3>Restez informé</h3>
+                        <p>Recevez des notifications en temps réel sur vos candidatures</p>
+                        <?php if ($hasNotificationsEnabled): ?>
+                            <button id="notification-button-user" class="notification-button enabled" disabled>
+                                <i class="fas fa-bell"></i> Notifications activées
+                            </button>
+                        <?php else: ?>
+                            <button id="notification-button-user" class="notification-button">
+                                <i class="fas fa-bell"></i> Activer les notifications
+                            </button>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
 
+        <?php endif; ?>
         <!-- Conteneur pour le scanner de QR code -->
         <div id="qr-reader"></div>
 
@@ -372,88 +360,9 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="fille">
-            <!-- <strong class="btn_f"><img src="../image/fichier.png" alt="">+</strong> -->
-            <form action="" method="post" class="form-btn" enctype="multipart/form-data">
-                <div class="box">
-                    <label for="file"><img src="../image/fichier.png" alt=""></label>
-                    <input type="file" name="document" id="file"
-                        accept="application/pdf,.pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-                    <input type="submit" name="téléverser" value="Téléverser" id="tele">
-                </div>
-                <div id="documentName"></div>
-            </form>
-            <div class="boxe">
-                <p class="p">documents<img src="../image/fichier1.png" alt=""> <span>
-                        <?php echo $rowCount ?>
-                    </span></p>
-                <ul>
-                    <img class="img" src="../image/croix.png" alt="">
-                    <?php foreach ($GetDocumentUsers as $documents): ?>
-                        <li>
-                            <a href="?document_id=<?= $documents['document_id'] ?>"><img class="img2"
-                                    src="../image/croix.png" alt="">
-                            </a>
-                            <img class="img3" src="../image/document.png" alt="">
-                            <span>
-                                <?= $documents['document'] ?>
-                            </span>
-                            <a class="a" href="../document/<?= $documents['document'] ?>">
-                                <img class="img4" src="../image/telechargement.png" alt="">
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-
-            <script>
-                let boxe = document.querySelector('.boxe')
-                let p = document.querySelector('.p')
-                let img = document.querySelector('.img')
-                p.addEventListener('click', () => {
-                    boxe.style.height = 'auto'
-                })
-                img.addEventListener('click', () => {
-                    boxe.style.height = '40px'
-                })
-
-
-                document.getElementById('file').addEventListener('change', function () {
-                    var fileName = this.value.split('\\').pop(); // Obtenir le nom du fichier
-                    document.getElementById('documentName').innerText = fileName;
-                });
-            </script>
-        </div>
-
 
         <div class="container_box1">
             <div class="box1">
-                <div class="container-fluid mt-4" id="notifications-section">
-                    <div class="row">
-                        <div class="card-body">
-                            <p id="p">Activez les notifications push pour être informé en temps réel des mises à jour de
-                                vos
-                                candidatures (acceptation, refus, etc.)</p>
-                            <div class="mt-3">
-                                <?php if ($hasNotificationsEnabled): ?>
-                                    <button id="notification-button-user" class="btn btn-success" disabled>
-                                        <i class="fas fa-bell"></i> Notifications activées
-                                    </button>
-                                <?php else: ?>
-                                    <button id="notification-button-user" class="btn btn-primary">
-                                        <i class="fas fa-bell"></i> Activer les notifications
-                                    </button>
-                                <?php endif; ?>
-                            </div>
-                            <div id="notification-status" class="mt-3">
-                                <?php if ($hasNotificationsEnabled): ?>
-                                    <div class="alert alert-success">
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <h2>A propos de moi ! <strong>
                         <?php echo $getVueProfil; ?><img src="../image/vue2.png" alt="">
                     </strong></h2>
@@ -1926,78 +1835,6 @@ if (isset($_GET['id'])) {
         <?php endif; ?>
 
 
-
-
-
-
-
-        <div class="container_box10" id="container_box10">
-            <h2>Offres qui correspondes a votre profil </h2>
-
-            <div class="slider owl-carousel carousel3">
-                <?php if ($afficheAllOffre): ?>
-
-                    <?php foreach ($afficheAllOffre as $affiches): ?>
-
-                        <?php
-                        $info_entreprise = getEntreprise($db, $affiches['entreprise_id']);
-                        $niveau_etude = gettNiveau($db, $_SESSION['users_id']);
-                        ?>
-
-                        <?php if ($affiches['categorie'] === $users['categorie'] && ($niveau_etude['n_etude'] >= $affiches['n_etudes']) && $niveau_etude['n_experience'] >= $affiches['n_experience']): ?>
-
-                            <div class="carousel">
-                                <img src="../upload/<?= $info_entreprise['images'] ?>" alt="">
-
-                                <div class="info-box">
-
-                                    <p class="p">
-                                        <strong>
-                                            <?= $info_entreprise['entreprise'] ?>
-                                        </strong>
-                                    </p>
-                                    <p class="poste"><strong>Nous recherchons un(une) </strong>
-                                        <?= $affiches['poste'] ?>
-                                    </p>
-                                    <div class="box_vendu">
-                                        <div class="vendu">
-
-                                            <p><strong>Niveau : </strong>
-                                                <?= $affiches['etudes'] ?>
-                                            </p>
-                                            <p><strong>Experience : </strong>
-                                                <?= $affiches['experience'] ?>
-                                            </p>
-
-                                            <p><strong>Contrat : </strong>
-                                                <?= $affiches['contrat'] ?>
-                                            </p>
-                                            <p><strong>Ville : </strong>
-                                                <?= $affiches['localite'] ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <p id="nom">
-                                        <?= $affiches['date'] ?>
-                                    </p>
-                                    <a
-                                        href="../entreprise/voir_offre.php?offres_id=<?= $affiches['offre_id'] ?> & entreprise_id=<?= $affiches['entreprise_id'] ?>"><i
-                                            class="fa-solid fa-eye"></i>Voir l\'offre</a>
-
-                                </div>
-                            </div>
-
-                        <?php else: ?>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-
-
-
-            </div>
-        </div>
-
-
     </section>
 
 
@@ -2031,14 +1868,14 @@ if (isset($_GET['id'])) {
             if (!notificationButton.disabled) {
                 // Vérifier si les notifications sont prises en charge
                 if (!('Notification' in window)) {
-                    notificationStatus.innerHTML = '<div class="alert alert-warning">Votre navigateur ne prend pas en charge les notifications.</div>';
+                    console.warn('Votre navigateur ne prend pas en charge les notifications.');
                     notificationButton.disabled = true;
                     return;
                 }
 
                 // Vérifier si le service worker est pris en charge
                 if (!('serviceWorker' in navigator)) {
-                    notificationStatus.innerHTML = '<div class="alert alert-warning">Votre navigateur ne prend pas en charge les Service Workers, nécessaires pour les notifications.</div>';
+                    console.warn('Votre navigateur ne prend pas en charge les Service Workers, nécessaires pour les notifications.');
                     notificationButton.disabled = true;
                     return;
                 }
@@ -2064,11 +1901,15 @@ if (isset($_GET['id'])) {
                 // Gérer le clic sur le bouton d'activation des notifications
                 notificationButton.addEventListener('click', async function () {
                     try {
+                        // Ajouter une classe pour l'animation de chargement
+                        notificationButton.classList.add('loading');
+                        notificationButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Activation...';
+
                         // Demander la permission pour les notifications
                         const permission = await Notification.requestPermission();
 
                         if (permission === 'granted') {
-                            notificationStatus.innerHTML = '<div class="alert alert-info">Obtention du token FCM...</div>';
+                            console.log('Permission de notification accordée.');
 
                             // Enregistrer le service worker
                             const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
@@ -2078,6 +1919,8 @@ if (isset($_GET['id'])) {
                             const token = await messaging.getToken();
 
                             if (token) {
+                                console.log('Token FCM obtenu avec succès');
+
                                 // Envoyer le token au serveur
                                 const response = await fetch('../ajax/save_fcm_token_user.php', {
                                     method: 'POST',
@@ -2093,10 +1936,26 @@ if (isset($_GET['id'])) {
                                 const data = await response.json();
 
                                 if (data.success) {
-                                    notificationStatus.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Notifications activées avec succès! Vous recevrez des notifications lorsque le statut de vos candidatures changera.</div>';
+                                    console.log('Token enregistré avec succès');
+
+                                    // Mettre à jour l'apparence du bouton
+                                    notificationButton.classList.remove('loading');
+                                    notificationButton.classList.add('enabled');
                                     notificationButton.innerHTML = '<i class="fas fa-bell"></i> Notifications activées';
-                                    notificationButton.classList.replace('btn-primary', 'btn-success');
                                     notificationButton.disabled = true;
+
+                                    // Animation de succès
+                                    const successIcon = document.createElement('div');
+                                    successIcon.className = 'success-animation';
+                                    successIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                                    document.querySelector('.notifications-bubble').appendChild(successIcon);
+
+                                    // Supprimer l'animation après 2 secondes
+                                    setTimeout(() => {
+                                        if (successIcon.parentNode) {
+                                            successIcon.parentNode.removeChild(successIcon);
+                                        }
+                                    }, 2000);
                                 } else {
                                     throw new Error(data.message || 'Erreur lors de l\'enregistrement du token');
                                 }
@@ -2104,11 +1963,46 @@ if (isset($_GET['id'])) {
                                 throw new Error('Impossible d\'obtenir le token FCM');
                             }
                         } else {
-                            notificationStatus.innerHTML = '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Vous avez refusé les notifications. Veuillez les autoriser dans les paramètres de votre navigateur.</div>';
+                            console.warn('Permission de notification refusée par l\'utilisateur');
+                            notificationButton.classList.remove('loading');
+                            notificationButton.innerHTML = '<i class="fas fa-bell"></i> Activer les notifications';
+
+                            // Afficher un message discret pour l'utilisateur
+                            const warningBadge = document.createElement('div');
+                            warningBadge.className = 'notification-warning';
+                            warningBadge.innerHTML = 'Notifications refusées par le navigateur';
+                            notificationStatus.appendChild(warningBadge);
+
+                            // Faire disparaître le message après 3 secondes
+                            setTimeout(() => {
+                                warningBadge.style.opacity = '0';
+                                setTimeout(() => {
+                                    if (warningBadge.parentNode) {
+                                        warningBadge.parentNode.removeChild(warningBadge);
+                                    }
+                                }, 300);
+                            }, 3000);
                         }
                     } catch (error) {
-                        console.error('Erreur:', error);
-                        notificationStatus.innerHTML = `<div class="alert alert-danger"><i class="fas fa-times-circle"></i> Erreur lors de l'activation des notifications: ${error.message}</div>`;
+                        console.error('Erreur lors de l\'activation des notifications:', error);
+                        notificationButton.classList.remove('loading');
+                        notificationButton.innerHTML = '<i class="fas fa-bell"></i> Activer les notifications';
+
+                        // Message d'erreur discret pour l'utilisateur
+                        const errorBadge = document.createElement('div');
+                        errorBadge.className = 'notification-error';
+                        errorBadge.innerHTML = 'Impossible d\'activer les notifications';
+                        notificationStatus.appendChild(errorBadge);
+
+                        // Faire disparaître le message après 3 secondes
+                        setTimeout(() => {
+                            errorBadge.style.opacity = '0';
+                            setTimeout(() => {
+                                if (errorBadge.parentNode) {
+                                    errorBadge.parentNode.removeChild(errorBadge);
+                                }
+                            }, 300);
+                        }, 3000);
                     }
                 });
 

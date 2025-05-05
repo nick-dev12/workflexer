@@ -75,6 +75,10 @@
                     <li class="tr4"><img src="../image/MCV.png" alt=""> <span class="td">Mon CV</span></li>
                 </a>
 
+                <a href="../page/mes_documments.php">
+                    <li class="tr6"><img src="../image/fichier1.png" alt=""> <span class="td">Mes documents</span></li>
+                </a>
+
                 <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>">
                     <li class="tr1"><img src="../image/mdep.png" alt=""><span class="td">Mes demandes d'emplois</span>
                         <?php if (empty($notif_suivi) or empty($notif_suiviRecaler)): ?>
@@ -110,9 +114,6 @@
                     </li>
                 </a>
 
-                <a href="../page/historique_users.php">
-                    <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li>
-                </a>
             </ul>
 
         </div>
@@ -150,6 +151,10 @@
                     <li class="tr4"><img src="../image/MCV.png" alt=""></li>
                 </a>
 
+                <a href="../page/mes_documments.php">
+                    <li class="tr6"><img src="../image/fichier1.png" alt=""></li>
+                </a>
+
                 <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>">
                     <li class="tr1"><img src="../image/mdep.png" alt="">
                         <?php if (($notif_suivi) or ($notif_suiviRecaler)): ?>
@@ -180,9 +185,6 @@
                     </li>
                 </a>
 
-                <a href="../page/historique_users.php">
-                    <li class="tr5"><img src="../image/historique.png" alt=""> <span class="td">Historique</span></li>
-                </a>
             </ul>
 
         </div>

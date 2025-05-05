@@ -7,6 +7,8 @@ if (isset($_POST['téléverser'])) {
     $document = '';
     if (empty($_FILES['document']['name'])) {
         $_SESSION['error_message'] = 'Veuillez ajouter un document';
+        header('Location: user_profil.php');
+        exit;
     } else {
         // Récupérer les données du formulaire
         $document = $_FILES['document'];
@@ -31,11 +33,12 @@ if (isset($_POST['téléverser'])) {
             // Ajouter le document à la base de données (vous devez implémenter votre propre fonction PostDocumentUsers)
             if (PostDocumentUsers($db, $users_id, $uniqueFileName)) {
                 $_SESSION['success_message'] = 'Document ajouté';
-                header('Location: user_profil.php');
+                header('Location: mes_documents.php');
                 exit;
             }
         } else {
             $_SESSION['error_message'] = 'Seuls les documents de type PDF, Word, Excel, PowerPoint, OpenOffice, texte et CSV sont autorisés';
+
         }
     }
 }
@@ -57,7 +60,7 @@ if (isset($_GET['document_id'])) {
     // Supprimer le document de la base de données
     if (DeleteDocument($db, $document_id)) {
         $_SESSION['success_message'] = 'Document supprimé';
-        header('Location: user_profil.php');
+        header('Location: mes_documents.php');
         exit;
     }
 }
@@ -65,4 +68,3 @@ $GetDocumentUsers = GetDocumentUsers($db, $_SESSION['users_id']);
 $rowCount = count($GetDocumentUsers);
 
 
-?>

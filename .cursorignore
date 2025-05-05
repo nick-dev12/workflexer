@@ -1,0 +1,17 @@
+# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+
+# PHP packages
+vendor/
+composer/
+
+# Node.js packages
+node_modules/
+npm-debug.log
+.npm/
+
+# Common cache/build directories
+.cache/
+dist/
+build/
+generated_pdf/
+generated_pdfs/

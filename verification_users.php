@@ -10,18 +10,14 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-
-
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
-
   // Rediriger l'utilisateur vers la page d'accueil
   header('Location: index.php');
   exit();
 }
 
-
-
+$erreurs = '';
 
 if (isset($_POST['valider'])) {
   $code = '';
@@ -33,7 +29,6 @@ if (isset($_POST['valider'])) {
   }
 
   if (empty($erreurs)) {
-
     $sql = "SELECT * FROM users
             WHERE verification = :verification ";
     $stmt = $db->prepare($sql);
@@ -69,9 +64,9 @@ if (isset($_POST['valider'])) {
 if (isset($_POST['renvoyer'])) {
   $email = $_SESSION['mail_users'];
   $nom = $_SESSION['nom'];
-  function generateSecurityCode($length = 9)
+  function generateSecurityCode($length = 6)
   {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $characters = '0123456789';
     $code = '';
     $max = strlen($characters) - 1;
     for ($i = 0; $i < $length; $i++) {
@@ -306,22 +301,8 @@ if (isset($_POST['renvoyer'])) {
     header('Location: compte_travailleur.php');
     exit();
   }
-
 }
-
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -341,97 +322,98 @@ if (isset($_POST['renvoyer'])) {
     })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
   <!-- End Google Tag Manager -->
 
-
-  <title>Verification</title>
+  <title>Vérification de compte - Work-Flexer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="../css/navbare.css">
+  <link rel="stylesheet" href="/css/navbare.css">
   <link rel="stylesheet" href="/css/connexion.css">
+  <link rel="stylesheet" href="/css/notifications.css">
 </head>
 
 <body>
-
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  <?php include('navbare.php') ?>
 
-  <?php if (isset($_SESSION['success_message'])): ?>
-    <div class="message">
-      <p>
-        <span></span>
-        <?php echo $_SESSION['success_message']; ?>
-        <?php unset($_SESSION['success_message']); ?>
-      </p>
-    </div>
-  <?php else: ?>
-    <?php if (isset($_SESSION['error_message'])): ?>
-      <div class="erreurs" id="messageErreur">
-        <span></span>
-        <?php echo $_SESSION['error_message']; ?>
-        <?php unset($_SESSION['error_message']); ?>
+  <?php include('include/notifications.php') ?>
+
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-image">
+        <img src="/image/undraw_secure_login_pdn4.svg" alt="Illustration de vérification de compte">
       </div>
-    <?php endif; ?>
-  <?php endif; ?>
 
-  <script>
-    let success = document.querySelector('.message')
-    setTimeout(() => {
-      success.classList.add('visible');
-    }, 200);
-    setTimeout(() => {
-      success.classList.remove('visible');
-    }, 6000);
+      <div class="login-form-container">
+        <div class="login-header">
+          <h2>Vérification de compte</h2>
+          <p>Veuillez saisir le code de vérification envoyé à votre adresse e-mail pour activer votre compte</p>
+        </div>
 
-    // Sélectionnez l'élément contenant le message d'erreur
-    var messageErreur = document.getElementById('messageErreur');
-
-    // Fonction pour afficher le message avec une transition de fondu
-    setTimeout(function () {
-      messageErreur.classList.add('visible');
-    }, 200); // 1000 millisecondes équivalent à 1 seconde
-
-    // Fonction pour masquer le message avec une transition de fondu
-    setTimeout(function () {
-      messageErreur.classList.remove('visible');
-    }, 6000); // 6000 millisecondes équivalent à 6 secondes
-  </script>
-
-
-
-  <section class="section2">
-
-    <div class="formulaire1  ">
-      <img src="/image/undraw_secure_login_pdn4.svg" alt="">
-      <form method="post" action="">
-        <h3>Confirmation de compte</h3>
-
-        <?php if (isset($erreurs)): ?>
-          <div class="erreur">
-            <?php echo $erreurs; ?>
+        <?php if (!empty($erreurs)): ?>
+          <div class="error-message" id="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <span><?php echo $erreurs; ?></span>
           </div>
         <?php endif; ?>
 
+        <form method="post" action="" class="login-form">
+          <div class="form-group">
+            <label for="code">Code de vérification</label>
+            <input type="text" name="code" id="code" class="form-input" placeholder="Entrez le code reçu par e-mail">
+          </div>
 
-        <div class="box1">
-          <label for="code">Entrez le code de vérification envoyé à votre boîte mail.</label>
-          <input type="text" name="code" id="code">
-        </div>
+          <div class="form-actions">
+            <button type="submit" name="valider" class="submit-button">
+              <i class="fas fa-check-circle"></i>Vérifier
+            </button>
 
-        <input type="submit" name="valider" value="Valider" id="valider">
-        <div class="bo">
-          <p>Si vous n'avez pas reçu de code de vérification, vous pouvez le renvoyer.</p>
-          <input type="submit" name="renvoyer" value="Renvoyer le code" id="renvoyer">
-        </div>
-      </form>
+            <div class="separator">ou</div>
 
+            <button type="submit" name="renvoyer" class="register-button">
+              <i class="fas fa-paper-plane"></i>Renvoyer le code
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
+  <script>
+    // Animation pour les messages d'erreur
+    const errorMessage = document.getElementById('error-message');
+    if (errorMessage) {
+      errorMessage.classList.add('shake');
 
+      // Supprimer la classe après l'animation
+      errorMessage.addEventListener('animationend', function () {
+        this.classList.remove('shake');
+      });
+    }
+
+    // Animation pour les notifications
+    const notificationMessage = document.getElementById('notification-message');
+    if (notificationMessage) {
+      notificationMessage.classList.add('visible');
+
+      // Masquer après 6 secondes
+      setTimeout(function () {
+        notificationMessage.classList.remove('visible');
+      }, 6000);
+    }
+
+    // Ajustement pour les appareils mobiles
+    window.addEventListener('resize', function () {
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        document.activeElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
 </body>
 
 </html>

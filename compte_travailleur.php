@@ -174,9 +174,9 @@ if (isset($_POST['valider'])) {
         // Hachage du mot de passe
         $passe = password_hash($passe, PASSWORD_DEFAULT);
 
-        function generateSecurityCode($length = 9)
+        function generateSecurityCode($length = 6)
         {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $characters = '0123456789';
             $code = '';
             $max = strlen($characters) - 1;
             for ($i = 0; $i < $length; $i++) {

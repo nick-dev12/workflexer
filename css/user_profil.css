@@ -624,10 +624,11 @@ textarea {
 .buttons {
   position: absolute;
   bottom: 15px;
-  right: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   cursor: pointer;
   transform: translate(-50%);
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   border: none;
@@ -1060,10 +1061,10 @@ textarea {
 }
 
 .section3 .container_box2 .box2 .affiche_form {
-  margin-left: auto;
-  margin-right: 20px;
   width: fit-content;
   color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
   transition: all 0.3s ease;
   margin-top: 20px;
   cursor: pointer;
@@ -1304,7 +1305,7 @@ textarea {
 .section3 .container_box2 .box3 .affiche_forms,
 .section3 .container_box2 .box3 .affiche_formss {
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: auto;
   width: fit-content;
   color: #ffffff;
   transition: all 0.3s ease;
@@ -1982,7 +1983,7 @@ textarea {
 
 .section3 .container_box3 .fa-formation .Ajouters {
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: auto;
   width: fit-content;
   color: #ffffff;
   transition: all 0.3s ease;
@@ -1992,7 +1993,7 @@ textarea {
   background: linear-gradient(145deg, #5f5f5f, #444444);
   padding: 10px 20px;
   border-radius: 30px;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -4458,4 +4459,247 @@ textarea {
   .experience-title h3 {
     font-size: 1.1rem;
   }
+}
+
+/* Nouveau style pour la section des notifications */
+.notifications-control {
+  position: relative;
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notifications-bubble {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff, #f5f8ff);
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  padding: 15px 10px;
+  max-width: 650px;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.notifications-bubble:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.notifications-bubble:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  opacity: 0.7;
+}
+
+.notifications-icon {
+  flex: 0 0 60px;
+  height: 60px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+.notifications-icon i {
+  font-size: 26px;
+  color: white;
+}
+
+.notifications-content {
+  flex: 1;
+}
+
+.notifications-content h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.notifications-content p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+}
+
+.notification-button {
+  background: linear-gradient(135deg, #f45d42, #eb4325);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
+.notification-button i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.notification-button:hover {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+.notification-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
+}
+
+.notification-button.enabled {
+  background: linear-gradient(135deg, #34a853, #15803d);
+  cursor: default;
+}
+
+.notification-button.enabled:hover {
+  background: linear-gradient(135deg, #34a853, #15803d);
+  transform: none;
+  box-shadow: 0 4px 10px rgba(21, 128, 61, 0.2);
+}
+
+.notification-status {
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  min-height: 20px;
+  position: relative;
+}
+
+/* Styles pour les messages d'état */
+.notification-warning,
+.notification-error {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-top: 10px;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification-warning {
+  background-color: #fff8e1;
+  color: #f57c00;
+  border: 1px solid rgba(245, 124, 0, 0.2);
+}
+
+.notification-error {
+  background-color: #ffebee;
+  color: #e53935;
+  border: 1px solid rgba(229, 57, 53, 0.2);
+}
+
+/* Styles pour l'animation de chargement */
+.notification-button.loading {
+  background: linear-gradient(135deg, #b0bec5, #78909c);
+  cursor: wait;
+  position: relative;
+}
+
+.notification-button.loading:hover {
+  transform: none;
+  box-shadow: 0 4px 10px rgba(120, 144, 156, 0.2);
+}
+
+/* Animation de succès */
+.success-animation {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #4caf50;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInOut 2s ease-in-out;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+}
+
+.success-animation i {
+  font-size: 20px;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+  }
+  30% {
+    transform: translateY(-50%) scale(1);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .notifications-bubble {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .notifications-icon {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .notification-button {
+    margin: 0 auto;
+  }
+}
+
+.section3 .qr-code img {
+  max-width: 140px;
+  max-height: 140px;
 }
