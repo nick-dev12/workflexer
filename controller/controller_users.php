@@ -38,6 +38,9 @@ if (isset($_SESSION['users_id'])) {
     $getVueProfil = GetVueProfil($db, $_SESSION['users_id']);
     $userss = infoUsers($db, $_SESSION['users_id']);
 }
+if (isset($_GET['id'])) {
+    $userss = infoUsers($db, $_GET['id']);
+}
 
 
 // if (isset($totalUsers)){
@@ -338,4 +341,4 @@ if (isset($_POST['send'])) {
 
 
 }
-?>
+

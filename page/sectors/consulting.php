@@ -62,25 +62,26 @@ session_start();
             <div class="intro-content" data-aos="fade-up">
                 <h2>À propos du secteur du conseil</h2>
                 <p>Le secteur du conseil et de la gestion d'entreprise regroupe des professionnels dont la mission est
-                    d'accompagner les organisations dans leur développement, leur transformation et l'optimisation de
+                    d'accompagner les organisations africaines dans leur développement, leur transformation et
+                    l'optimisation de
                     leurs processus. Ces métiers mobilisent des compétences analytiques, relationnelles et stratégiques
-                    pour résoudre des problématiques variées et répondre aux défis des entreprises modernes, qu'il
+                    pour résoudre des problématiques variées et répondre aux défis des entreprises en Afrique, qu'il
                     s'agisse de stratégie, d'organisation, de finances ou de ressources humaines.</p>
                 <div class="sector-stats">
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-chart-pie"></i>
-                        <h3>+8%</h3>
-                        <p>Croissance annuelle du secteur du conseil</p>
+                        <h3>+12%</h3>
+                        <p>Croissance annuelle du secteur du conseil en Afrique</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-user-tie"></i>
-                        <h3>+150 000</h3>
-                        <p>Professionnels du conseil en France</p>
+                        <h3>+45 000</h3>
+                        <p>Professionnels du conseil en Afrique francophone</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fas fa-euro-sign"></i>
-                        <h3>+40%</h3>
-                        <p>Des salaires supérieurs à la moyenne nationale</p>
+                        <i class="fas fa-coins"></i>
+                        <h3>+35%</h3>
+                        <p>Des salaires supérieurs à la moyenne régionale</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +115,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+5 en école de commerce, ingénieur ou Master en stratégie/management</p>
+                                        <p>Bac+5 en école de commerce (CESAG, ISM, IAM), ingénieur ou Master en
+                                            stratégie/management</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -123,8 +125,9 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Cabinets de conseil stratégique, départements stratégie des grands groupes,
-                                            salaire de 45 000€ à 120 000€</p>
+                                        <p>Cabinets de conseil africains et internationaux, départements stratégie des
+                                            grands groupes,
+                                            salaire de 800 000 FCFA à 3 000 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +140,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+5 en management, organisation, école d'ingénieurs ou sciences de gestion
+                                        <p>Bac+5 en management, organisation, école d'ingénieurs (2iE, ESP, ESMT) ou
+                                            sciences de gestion
                                         </p>
                                     </div>
                                     <div class="detail-item">
@@ -148,7 +152,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Cabinets de conseil en organisation, services internes, freelance, salaire de
-                                            40 000€ à 90 000€</p>
+                                            700 000 FCFA à 2 000 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +170,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+5 en école de commerce, MBA ou formation équivalente avec expérience
+                                        <p>Bac+5 en école de commerce (CESAG, IAM, UCAD), MBA ou formation équivalente
+                                            avec expérience
                                             significative</p>
                                     </div>
                                     <div class="detail-item">
@@ -177,7 +182,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Entreprises de toutes tailles, possibilité d'évolution vers la présidence,
-                                            salaire de 80 000€ à 250 000€+</p>
+                                            salaire de 2 000 000 FCFA à 6 000 000 FCFA+</p>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +195,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+3 à Bac+5 en gestion de projet, management ou domaine spécifique au
+                                        <p>Bac+3 à Bac+5 en gestion de projet, management (ISM, SUPDECO, UCAD) ou
+                                            domaine spécifique au
                                             secteur</p>
                                     </div>
                                     <div class="detail-item">
@@ -200,8 +206,9 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Entreprises de tous secteurs, cabinets de conseil, PMO, salaire de 35 000€ à
-                                            70 000€</p>
+                                        <p>Entreprises de tous secteurs, cabinets de conseil, PMO, salaire de 600 000
+                                            FCFA à
+                                            1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -219,17 +226,18 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+5 en finance, école de commerce ou Master finance d'entreprise</p>
+                                        <p>Bac+5 en finance, école de commerce (CESAG, ISM) ou Master finance
+                                            d'entreprise</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
                                         <p>Analyse financière, modélisation, évaluation d'entreprise, due diligence,
-                                            réglementation</p>
+                                            réglementation OHADA</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Cabinets de conseil financier, banques d'affaires, Big Four, salaire de 45
-                                            000€ à 100 000€</p>
+                                        <p>Cabinets de conseil financier, banques d'affaires, Big Four en Afrique,
+                                            salaire de 900 000 FCFA à 2 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -242,7 +250,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+3 à Bac+5 en contrôle de gestion, finance ou comptabilité</p>
+                                        <p>Bac+3 à Bac+5 en contrôle de gestion, finance ou comptabilité (UCAD, CESAG,
+                                            INTEC)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -251,8 +260,9 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Entreprises de tous secteurs, direction financière, DAF, salaire de 35 000€ à
-                                            70 000€</p>
+                                        <p>Entreprises de tous secteurs, direction financière, DAF, salaire de 600 000
+                                            FCFA à
+                                            1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -271,16 +281,18 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
                                         <p>Bac+4 à Bac+5 en ressources humaines, psychologie du travail ou management
+                                            (ISM, CESAG, UCAD)
                                         </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>GPEC, recrutement, assessment, droit social, SIRH, conduite du changement</p>
+                                        <p>GPEC, recrutement, assessment, droit social africain, SIRH, conduite du
+                                            changement</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Cabinets de conseil RH, cabinets de recrutement, services RH, salaire de 35
-                                            000€ à 80 000€</p>
+                                        <p>Cabinets de conseil RH, cabinets de recrutement, services RH, salaire de 700
+                                            000 FCFA à 1 800 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -294,17 +306,18 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
                                         <p>Bac+3 à Bac+5 en ressources humaines, ingénierie de formation ou sciences de
-                                            l'éducation</p>
+                                            l'éducation (FASTEF, CESAG)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Ingénierie pédagogique, gestion de budget formation, réglementation, digital
+                                        <p>Ingénierie pédagogique, gestion de budget formation, réglementation du
+                                            travail UEMOA, digital
                                             learning</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Entreprises, organismes de formation, direction RH, salaire de 40 000€ à 70
-                                            000€</p>
+                                        <p>Entreprises, organismes de formation, direction RH, salaire de 700 000 FCFA à
+                                            1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -327,7 +340,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formation Initiale</h3>
-                        <p>Bac général (spécialités économie, mathématiques) recommandé, développement de compétences
+                        <p>Bac général (spécialités économie, mathématiques) dans les lycées d'Afrique francophone,
+                            développement de compétences
                             analytiques</p>
                         <span class="timeline-date">Années -3 à 0</span>
                     </div>
@@ -337,7 +351,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Supérieures</h3>
-                        <p>Écoles de commerce, Masters en management, gestion ou conseil, écoles d'ingénieurs avec
+                        <p>Écoles de commerce africaines (CESAG, ISM, IAM), Masters en management, gestion ou conseil,
+                            écoles d'ingénieurs (ESP, 2iE, INPHB) avec
                             spécialisation</p>
                         <span class="timeline-date">Années 1 à 5</span>
                     </div>
@@ -347,7 +362,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Spécialisation & Expérience</h3>
-                        <p>MBA, spécialisation sectorielle, certifications professionnelles, stages en cabinets</p>
+                        <p>MBA africains ou internationaux, spécialisation sectorielle, certifications professionnelles,
+                            stages en cabinets</p>
                         <span class="timeline-date">1 à 3 ans</span>
                     </div>
                 </div>
@@ -356,7 +372,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formation Continue</h3>
-                        <p>Développement des compétences techniques et soft skills, veille sectorielle, networking</p>
+                        <p>Développement des compétences techniques et soft skills, veille sectorielle, networking
+                            africain et international</p>
                         <span class="timeline-date">Tout au long de la carrière</span>
                     </div>
                 </div>
@@ -369,10 +386,10 @@ session_start();
                         <h3>Formations Académiques</h3>
                     </div>
                     <ul>
-                        <li>Grandes écoles de commerce (Programme Grande École)</li>
-                        <li>Masters en management, stratégie ou conseil</li>
-                        <li>Écoles d'ingénieurs avec spécialisation management</li>
-                        <li>Master en finance ou ressources humaines</li>
+                        <li>Écoles de commerce africaines (CESAG, ISM, IAM, SUPDECO)</li>
+                        <li>Masters en management, stratégie ou conseil (UCAD, CESAG)</li>
+                        <li>Écoles d'ingénieurs avec spécialisation management (ESP, 2iE, INPHB)</li>
+                        <li>Master en finance ou ressources humaines (UCAD, CESAG, ISM)</li>
                     </ul>
                 </div>
 
@@ -382,10 +399,10 @@ session_start();
                         <h3>Certifications Professionnelles</h3>
                     </div>
                     <ul>
-                        <li>MBA (Master of Business Administration)</li>
+                        <li>MBA africains et internationaux (CESAG, IAM, ESCA)</li>
                         <li>Certifications en gestion de projet (PMP, Prince2)</li>
                         <li>Certifications en conseil (CMC)</li>
-                        <li>Certifications métiers (CIMA, CIPD, etc.)</li>
+                        <li>Certifications UEMOA et OHADA</li>
                     </ul>
                 </div>
 
@@ -395,10 +412,10 @@ session_start();
                         <h3>Formations Alternatives</h3>
                     </div>
                     <ul>
-                        <li>Executive Education et formations courtes</li>
-                        <li>MOOC en business et management</li>
-                        <li>Learning expeditions et business cases</li>
-                        <li>Mentorat et coaching professionnel</li>
+                        <li>Executive Education africaine (AUF, CESAG Executive)</li>
+                        <li>MOOC en business et management adaptés au contexte africain</li>
+                        <li>Learning expeditions et business cases sur des problématiques africaines</li>
+                        <li>Mentorat et coaching professionnel par des experts africains</li>
                     </ul>
                 </div>
             </div>
@@ -410,43 +427,46 @@ session_start();
         <div class="container">
             <h2 class="section-title light" data-aos="fade-up">Tendances du Secteur</h2>
             <p class="section-description light" data-aos="fade-up">Les évolutions majeures qui façonnent l'avenir du
-                conseil et de la gestion d'entreprise</p>
+                conseil et de la gestion d'entreprise en Afrique</p>
 
             <div class="trends-grid">
                 <div class="trend-card" data-aos="zoom-in">
                     <div class="trend-icon">
                         <i class="fas fa-digital-tachograph"></i>
                     </div>
-                    <h3>Transformation Digitale</h3>
-                    <p>Accompagnement des entreprises dans leur digitalisation, intégration de solutions technologiques
-                        et refonte des processus.</p>
+                    <h3>Transformation Digitale Africaine</h3>
+                    <p>Accompagnement des entreprises africaines dans leur digitalisation, intégration de solutions
+                        technologiques
+                        adaptées au contexte local et développement de l'économie numérique.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="trend-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>RSE et Développement Durable</h3>
-                    <p>Intégration des considérations environnementales et sociales dans les stratégies d'entreprise et
-                        reporting extra-financier.</p>
+                    <h3>Développement Durable et Impact</h3>
+                    <p>Conseil en stratégies durables adaptées aux défis environnementaux africains, économie circulaire
+                        et
+                        développement de projets à impact social positif.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="trend-icon">
-                        <i class="fas fa-chart-network"></i>
+                        <i class="fas fa-globe-africa"></i>
                     </div>
-                    <h3>Data-Driven Management</h3>
-                    <p>Utilisation croissante de l'analyse de données pour informer les décisions stratégiques et
-                        opérationnelles.</p>
+                    <h3>Intégration Économique Régionale</h3>
+                    <p>Accompagnement des entreprises dans le cadre de la ZLECAf, développement de stratégies
+                        panafricaines
+                        et optimisation des chaînes de valeur continentales.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="trend-icon">
                         <i class="fas fa-people-arrows"></i>
                     </div>
-                    <h3>Nouvelles Organisations du Travail</h3>
-                    <p>Accompagnement vers des modèles hybrides, agiles et collaboratifs adaptés aux attentes des
-                        nouvelles générations.</p>
+                    <h3>Innovation Entrepreneuriale</h3>
+                    <p>Soutien aux startups africaines, développement de l'écosystème entrepreneurial et adaptation
+                        des modèles d'affaires aux spécificités des marchés africains.</p>
                 </div>
             </div>
         </div>
@@ -456,7 +476,7 @@ session_start();
     <section class="cta-section">
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Prêt à vous lancer dans une carrière en conseil et gestion d'entreprise ?</h2>
+                <h2>Prêt à vous lancer dans une carrière en conseil et gestion d'entreprise en Afrique ?</h2>
                 <p>Découvrez nos ressources d'orientation et prenez contact avec nos conseillers</p>
                 <div class="cta-buttons">
                     <a href="#" class="cta-primary">Consulter le guide complet</a>

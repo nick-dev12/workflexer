@@ -2,6 +2,7 @@
 include(__DIR__ . '../../model/message1.php');
 require_once(__DIR__ . '/../model/appelle_offre.php');
 include(__DIR__ . '/../entreprise/app/controller/controllerEntreprise.php');
+require_once(__DIR__ . '/../model/fcm_notification.php');
 require __DIR__ . '../../vendor/autoload.php';
 
 // include('../model/vue_offre.php');
@@ -27,7 +28,7 @@ if (isset($_GET['entreprise_id'])) {
       } else {
         $statut = '';
       }
-      $messages = nl2br(htmlspecialchars($_POST['messages']));
+      $messages = htmlspecialchars(nl2br($_POST['messages']));
       $indicatif = 'recruteur';
       $sujet = 'appel';
       $date_publication = new DateTime();
@@ -53,8 +54,16 @@ if (isset($_GET['entreprise_id'])) {
 
       }
 
-      if (notification_messageUsers($db, $entreprise_id, $users_id, $sujet)) {
+      // Récupérer les informations de l'entreprise pour la notification
+      $infoEntreprise = getEntreprise($db, $entreprise_id);
+      $entrepriseName = isset($infoEntreprise['entreprise']) ? $infoEntreprise['entreprise'] : 'Recruteur';
 
+      // Envoyer notification push Firebase
+      sendMessageNotification($db, $users_id, $entrepriseName, true, $messages);
+
+      // Ancienne méthode de notification conservée pour compatibilité
+      if (notification_messageUsers($db, $entreprise_id, $users_id, $sujet)) {
+        // code...
       }
 
       postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $sujet, $date);
@@ -107,6 +116,14 @@ if (isset($_GET['users_id'])) {
       if (post_TMPMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $sujet, $date)) {
       }
 
+      // Récupérer les informations du candidat pour la notification
+      $infoUsers = infoUsers($db, $users_id);
+      $userName = isset($infoUsers['nom']) ? $infoUsers['nom'] : 'Candidat';
+
+      // Envoyer notification push Firebase
+      sendMessageNotification($db, $entreprise_id, $userName, false, $messages);
+
+      // Ancienne méthode de notification conservée pour compatibilité
       if (notification_message($db, $entreprise_id, $users_id)) {
         # code...
       }
@@ -169,6 +186,14 @@ if (isset($_GET['offres_id'])) {
 
       }
 
+      // Récupérer les informations de l'entreprise pour la notification
+      $infoEntreprise = getEntreprise($db, $entreprise_id);
+      $entrepriseName = isset($infoEntreprise['entreprise']) ? $infoEntreprise['entreprise'] : 'Recruteur';
+
+      // Envoyer notification push Firebase
+      sendMessageNotification($db, $users_id, $entrepriseName, true, $messages);
+
+      // Ancienne méthode de notification conservée pour compatibilité
       if (notification_messageUsers($db, $entreprise_id, $users_id, $sujet)) {
         # code...
       }
@@ -224,6 +249,14 @@ if (isset($_GET['offres_id'])) {
 
       }
 
+      // Récupérer les informations du candidat pour la notification
+      $infoUsers = infoUsers($db, $users_id);
+      $userName = isset($infoUsers['nom']) ? $infoUsers['nom'] : 'Candidat';
+
+      // Envoyer notification push Firebase
+      sendMessageNotification($db, $entreprise_id, $userName, false, $messages);
+
+      // Ancienne méthode de notification conservée pour compatibilité
       if (notification_message($db, $entreprise_id, $users_id)) {
         # code...
       }
@@ -477,6 +510,10 @@ if (isset($_GET['id'])) {
 
         }
 
+        // Envoyer une notification push en plus de l'email
+        sendMessageNotification($db, $users_id, $entreprise, true, "Appel d'offre: $titre");
+
+        // Ancienne méthode de notification conservée pour compatibilité
         if (notification_messageUsers($db, $entreprise_id, $users_id, $sujet)) {
           # code...
         }

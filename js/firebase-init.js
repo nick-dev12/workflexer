@@ -10,14 +10,22 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-if (typeof firebase !== 'undefined') {
+if (typeof firebase !== 'undefined' && !firebase.apps.length) { // S'assurer qu'on initialise qu'une fois
     try {
         firebase.initializeApp(firebaseConfig);
-        console.log('Firebase initialized successfully');
+        console.log('Firebase initialized successfully by firebase-init.js');
+    } catch (error) {
+        console.error('Firebase initialization error in firebase-init.js:', error);
+    }
+} else if (typeof firebase !== 'undefined' && firebase.apps.length) {
+    console.log('Firebase already initialized (firebase-init.js check).');
+}
 
-        const messaging = firebase.messaging();
-        console.log('Firebase Messaging initialized');
+// TOUTE LA LOGIQUE CI-DESSOUS A ÉTÉ SUPPRIMÉE OU DÉPLACÉE VERS
+// js/notifications-user.js et js/notifications-entreprise.js
+// pour éviter les conflits et centraliser la gestion par page.
 
+/*
         // Initialize UI elements once DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             const notificationButton = document.getElementById('enable-notifications');
@@ -198,6 +206,9 @@ if (typeof firebase !== 'undefined') {
             }
         });
     } catch (error) {
-        console.error('Firebase initialization error:', error);
+        console.error('Firebase initialization error in firebase-init.js (outer try-catch):', error);
     }
-} 
+} else {
+    console.warn('Firebase object not found, cannot initialize (firebase-init.js).');
+}
+*/ 

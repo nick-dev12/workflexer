@@ -1,0 +1,304 @@
+/* Technology Sector CSS - Thème Afrique */
+
+:root {
+  --primary-color: #3498db; /* Bleu tech africain */
+  --secondary-color: #f39c12; /* Orange solaire africain */
+  --accent-color: #2980b9; /* Bleu foncé pour le secteur tech */
+  --accent-dark: #1c638d; /* Version foncée de l'accent */
+  --accent-light: rgba(
+    52,
+    152,
+    219,
+    0.2
+  ); /* Version claire de l'accent pour les fonds */
+  --dark-color: #2c3e50;
+  --light-color: #f5f5f5;
+  --text-color: #333;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Styles généraux */
+.technology-sector-container {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.technology-sector-container h1,
+.technology-sector-container h2,
+.technology-sector-container h3 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.technology-sector-container h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 2rem 0;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.technology-sector-container h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+}
+
+/* Section Hero avec image de fond africaine */
+.hero-section {
+  background: url("https://images.unsplash.com/photo-1526399232581-2ab5608a6416?q=80&w=1920&h=1080&auto=format&fit=crop")
+    center/cover no-repeat !important;
+  position: relative;
+}
+
+/* Style des icônes de tendance */
+.trend-icon {
+  background-color: var(--accent-light);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.trend-icon i {
+  font-size: 32px;
+  color: var(--accent-color);
+}
+
+/* Styles pour les cartes des parcours professionnels */
+.career-card .career-icon {
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.career-card .career-icon i {
+  font-size: 24px;
+}
+
+/* Styles pour les boutons d'onglets */
+.tab-btn {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.tab-btn.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.tab-btn:hover:not(.active) {
+  background-color: #e0e0e0;
+  color: var(--accent-color);
+}
+
+/* Styles pour les éléments de statistiques */
+.stat-box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+}
+
+.stat-box i {
+  font-size: 36px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.stat-box h3 {
+  font-size: 28px;
+  margin: 10px 0;
+  color: var(--accent-dark);
+}
+
+/* Styles pour les cartes d'éducation */
+.education-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.education-card .card-header {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.education-card .card-header i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.education-card ul {
+  padding: 20px;
+  list-style-type: none;
+}
+
+.education-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.education-card li:last-child {
+  border-bottom: none;
+}
+
+/* Styles pour mettre en valeur les éléments africains */
+.career-details h4::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin-top: 8px;
+}
+
+/* Motifs africains subtils dans les sections */
+.intro-section {
+  position: relative;
+}
+
+.intro-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background-image: url("https://i.pinimg.com/originals/8f/d0/57/8fd057d4d80c5bb0fb593abd7aaf5e9c.png");
+  background-size: contain;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Style pour les boutons d'appel à l'action */
+.cta-primary {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.cta-primary:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.cta-secondary {
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  padding: 10px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.cta-secondary:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Styles pour les médias responsifs */
+@media (max-width: 768px) {
+  .hero-section {
+    background-position: 70% center;
+  }
+
+  .tab-btn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .stat-box {
+    margin-bottom: 20px;
+  }
+}
+
+/* Éléments spécifiques au contexte africain */
+.african-tech-tag {
+  display: inline-block;
+  background-color: var(--accent-light);
+  color: var(--accent-dark);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* Section tendances avec motif africain */
+.trends-section {
+  background-color: var(--primary-color);
+  background-image: url("../../images/patterns/adinkra-pattern-light.png");
+  background-size: 200px;
+  background-repeat: repeat;
+  background-blend-mode: soft-light;
+}
+
+/* Adaptation des couleurs pour le thème africain */
+.education-card .card-header {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+/* Styles pour la section CTA avec motif africain */
+.cta-section {
+  background-color: var(--primary-color);
+  background-image: url("../../images/patterns/african-tech-pattern.png");
+  background-size: 300px;
+  background-repeat: repeat;
+  background-blend-mode: soft-light;
+}
+
+/* Adaptation mobile-first pour le contexte africain */
+.mobile-first-feature {
+  border-left: 4px solid var(--secondary-color);
+  padding-left: 15px;
+  margin: 20px 0;
+}
+
+.mobile-first-feature h4 {
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}

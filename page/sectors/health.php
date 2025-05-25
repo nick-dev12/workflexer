@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/css/sectors.css">
+    <link rel="stylesheet" href="/css/health-sector.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@ session_start();
         <div class="hero-content" data-aos="fade-up">
             <span class="sector-badge">Secteur Professionnel</span>
             <h1>Santé et Médecine</h1>
-            <p>Découvrez les opportunités, formations et perspectives dans le domaine médical</p>
+            <p>Découvrez les opportunités, formations et perspectives dans le domaine médical en Afrique francophone</p>
         </div>
     </section>
 
@@ -44,25 +45,27 @@ session_start();
     <section class="intro-section">
         <div class="container">
             <div class="intro-content" data-aos="fade-up">
-                <h2>À propos du secteur de la santé</h2>
+                <h2>À propos du secteur de la santé en Afrique</h2>
                 <p>Le secteur de la santé est un domaine vital qui offre des carrières diversifiées dédiées au bien-être
-                    et aux soins des individus. Ce secteur en croissance constante propose de nombreuses opportunités
-                    professionnelles allant des soins directs aux patients à la recherche médicale de pointe.</p>
+                    et aux soins des populations africaines. Ce secteur en pleine transformation propose de nombreuses
+                    opportunités
+                    professionnelles allant des soins directs aux patients à la recherche médicale adaptée aux défis
+                    sanitaires spécifiques du continent.</p>
                 <div class="sector-stats">
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-user-md"></i>
-                        <h3>+10%</h3>
-                        <p>Croissance annuelle des emplois</p>
+                        <h3>+8,4%</h3>
+                        <p>Croissance annuelle du marché de la santé en Afrique</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-graduation-cap"></i>
-                        <h3>+300</h3>
-                        <p>Formations disponibles</p>
+                        <h3>+250</h3>
+                        <p>Formations médicales disponibles en Afrique francophone</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
                         <i class="fas fa-hospital"></i>
-                        <h3>25%</h3>
-                        <p>Du marché de l'emploi</p>
+                        <h3>2,4M</h3>
+                        <p>Déficit estimé de professionnels de santé en Afrique</p>
                     </div>
                 </div>
             </div>
@@ -74,7 +77,7 @@ session_start();
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Parcours Professionnels</h2>
             <p class="section-description" data-aos="fade-up">Explorez les différentes voies professionnelles dans le
-                secteur de la santé</p>
+                secteur de la santé en Afrique</p>
 
             <div class="career-tabs">
                 <div class="tabs-navigation" data-aos="fade-up">
@@ -92,21 +95,22 @@ session_start();
                                 <div class="career-icon"><i class="fas fa-stethoscope"></i></div>
                                 <h3>Médecin</h3>
                                 <p>Diagnostique et traite les maladies, prescrit des médicaments et fournit des soins
-                                    médicaux complets.</p>
+                                    médicaux complets adaptés au contexte sanitaire africain.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Doctorat en médecine (6-10 ans), spécialisation (3-5 ans supplémentaires
-                                            selon la spécialité)</p>
+                                        <p>Doctorat en médecine (7-10 ans) dans les facultés africaines (FMPO Dakar,
+                                            FMPOS Bamako, etc.)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Diagnostic, analyse, empathie, communication, prise de décision</p>
+                                        <p>Diagnostic, connaissance des pathologies tropicales, empathie, communication,
+                                            adaptation aux ressources limitées</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Excellentes opportunités d'emploi, salaire moyen de 60 000€ à 150 000€ selon
-                                            spécialité</p>
+                                        <p>Opportunités dans les hôpitaux publics et privés, ONG, salaire moyen de 500
+                                            000 FCFA à 2 500 000 FCFA selon spécialité</p>
                                     </div>
                                 </div>
                             </div>
@@ -115,21 +119,22 @@ session_start();
                                 <div class="career-icon"><i class="fas fa-heartbeat"></i></div>
                                 <h3>Infirmier/Infirmière</h3>
                                 <p>Fournit des soins directs aux patients, administre des médicaments et travaille en
-                                    collaboration avec les médecins.</p>
+                                    collaboration avec les médecins dans divers contextes sanitaires africains.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Diplôme d'État d'Infirmier (3 ans), possibilité de spécialisation</p>
+                                        <p>Diplôme d'Infirmier (3-4 ans) dans les écoles africaines (ENDSS Dakar, INFAS
+                                            Abidjan, etc.)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Soins aux patients, organisation, observation, communication, travail
-                                            d'équipe</p>
+                                        <p>Soins aux patients, organisation, adaptabilité aux ressources limitées,
+                                            communication interculturelle</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Haute demande, évolution possible vers des postes spécialisés, salaire moyen
-                                            de 25 000€ à 45 000€</p>
+                                        <p>Forte demande, évolution vers des postes spécialisés, salaire moyen de 150
+                                            000 FCFA à 450 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -138,20 +143,22 @@ session_start();
                                 <div class="career-icon"><i class="fas fa-tooth"></i></div>
                                 <h3>Dentiste</h3>
                                 <p>Spécialiste de la santé bucco-dentaire, diagnostique et traite les problèmes
-                                    dentaires.</p>
+                                    dentaires dans un contexte où ces soins sont souvent peu accessibles.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Diplôme d'État de Docteur en Chirurgie Dentaire (6 ans)</p>
+                                        <p>Diplôme de Chirurgie Dentaire (6-7 ans) à la FMPO Dakar, Faculté
+                                            d'Odontostomatologie de Bamako, etc.</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Précision, dextérité manuelle, diagnostic, relation patient</p>
+                                        <p>Précision, dextérité manuelle, adaptabilité aux équipements disponibles,
+                                            prévention</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Possibilité d'exercice libéral ou en tant que salarié, salaire moyen de 50
-                                            000€ à 100 000€</p>
+                                        <p>Exercice libéral ou salarié, opportunités dans les programmes de santé
+                                            communautaire, salaire moyen de 400 000 FCFA à 1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -164,21 +171,23 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-microscope"></i></div>
                                 <h3>Chercheur Médical</h3>
-                                <p>Conduit des recherches pour développer de nouveaux traitements, médicaments et
-                                    technologies médicales.</p>
+                                <p>Conduit des recherches sur les maladies tropicales et endémiques pour développer des
+                                    traitements adaptés au contexte africain.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Doctorat en sciences ou médecine (8-10 ans), post-doctorat recommandé</p>
+                                        <p>Doctorat en sciences ou médecine (8-10 ans) dans des instituts africains ou
+                                            internationaux</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Analyse scientifique, méthodologie de recherche, rédaction scientifique</p>
+                                        <p>Analyse scientifique, méthodologie de recherche, connaissance des pathologies
+                                            locales</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Postes en laboratoires publics ou privés, instituts de recherche, salaire
-                                            moyen de 35 000€ à 70 000€</p>
+                                        <p>Instituts de recherche africains, centres régionaux, ONG, salaire moyen de
+                                            350 000 FCFA à 1 200 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -186,21 +195,23 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-pills"></i></div>
                                 <h3>Pharmacologue</h3>
-                                <p>Étudie les effets des médicaments sur les organismes vivants et développe de nouveaux
-                                    traitements.</p>
+                                <p>Étudie les effets des médicaments et développe des traitements adaptés aux besoins et
+                                    ressources locales.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Doctorat en pharmacologie ou sciences pharmaceutiques (5-8 ans)</p>
+                                        <p>Doctorat en pharmacologie ou sciences pharmaceutiques (5-8 ans) à
+                                            l'Université de Dakar, Yaoundé, etc.</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Connaissances en biochimie, expérimentation, analyse de données</p>
+                                        <p>Connaissances en biochimie, recherche sur les plantes médicinales africaines,
+                                            analyse de données</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Industrie pharmaceutique, laboratoires de recherche, salaire moyen de 40 000€
-                                            à 80 000€</p>
+                                        <p>Industrie pharmaceutique émergente, laboratoires de recherche, salaire moyen
+                                            de 400 000 FCFA à 1 000 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -213,22 +224,22 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-hospital-user"></i></div>
                                 <h3>Directeur d'Établissement de Santé</h3>
-                                <p>Gère les opérations quotidiennes d'un établissement médical et supervise le
-                                    personnel.</p>
+                                <p>Gère les opérations d'un établissement médical et optimise l'utilisation des
+                                    ressources souvent limitées.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Master en gestion de la santé, École des Hautes Études en Santé Publique
-                                            (EHESP)</p>
+                                        <p>Master en gestion de la santé, ISED Dakar, IRSP Cotonou, CESAG, etc.</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Leadership, gestion, connaissance du système de santé, finances</p>
+                                        <p>Leadership, gestion des ressources limitées, connaissance des systèmes de
+                                            santé africains</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Postes dans les hôpitaux publics et privés, salaire moyen de 50 000€ à 120
-                                            000€</p>
+                                        <p>Hôpitaux publics et privés, ONG, salaire moyen de 600 000 FCFA à 2 000 000
+                                            FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -241,21 +252,23 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-chart-line"></i></div>
                                 <h3>Épidémiologiste</h3>
-                                <p>Étudie la distribution et les déterminants des maladies pour développer des
-                                    stratégies de prévention.</p>
+                                <p>Étudie les maladies endémiques et épidémiques africaines pour développer des
+                                    stratégies de prévention adaptées.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Master ou Doctorat en épidémiologie ou santé publique (5-8 ans)</p>
+                                        <p>Master ou Doctorat en épidémiologie ou santé publique (5-8 ans) à l'ISED,
+                                            IRSP, etc.</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Analyse statistique, méthodologie de recherche, surveillance sanitaire</p>
+                                        <p>Analyse statistique, surveillance des maladies tropicales, connaissance des
+                                            contextes locaux</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Organismes de santé publique, ONG, instituts de recherche, salaire moyen de
-                                            35 000€ à 65 000€</p>
+                                        <p>Ministères de la Santé, OMS-Afrique, ONG, salaire moyen de 400 000 FCFA à 1
+                                            500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -271,14 +284,14 @@ session_start();
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Parcours de Formation</h2>
             <p class="section-description" data-aos="fade-up">Les différentes voies pour accéder aux métiers de la santé
-            </p>
+                en Afrique</p>
 
             <div class="timeline" data-aos="fade-up">
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Secondaires</h3>
-                        <p>Baccalauréat scientifique recommandé (Bac S) avec de bonnes notes en sciences</p>
+                        <p>Baccalauréat scientifique ou équivalent avec de bonnes notes en sciences</p>
                         <span class="timeline-date">Années -3 à 0</span>
                     </div>
                 </div>
@@ -286,9 +299,9 @@ session_start();
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <h3>PASS ou L.AS</h3>
-                        <p>Parcours Accès Spécifique Santé ou Licence avec Accès Santé pour les filières médicales</p>
-                        <span class="timeline-date">Année 1</span>
+                        <h3>Concours d'Entrée</h3>
+                        <p>Concours d'accès aux facultés de médecine, pharmacie et écoles paramédicales africaines</p>
+                        <span class="timeline-date">Année 0-1</span>
                     </div>
                 </div>
 
@@ -296,9 +309,9 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Supérieures Spécialisées</h3>
-                        <p>Selon la voie choisie : médecine (9 ans min.), pharmacie (6 ans), soins infirmiers (3 ans),
+                        <p>Selon la voie choisie : médecine (7-10 ans), pharmacie (6 ans), soins infirmiers (3-4 ans),
                             etc.</p>
-                        <span class="timeline-date">Années 2 à 10</span>
+                        <span class="timeline-date">Années 1 à 10</span>
                     </div>
                 </div>
 
@@ -306,7 +319,7 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formations Complémentaires</h3>
-                        <p>Spécialisations, DU (Diplôme Universitaire), masters, doctorats selon le métier visé</p>
+                        <p>Spécialisations, CES, DU, masters, doctorats selon le métier visé</p>
                         <span class="timeline-date">Années variables</span>
                     </div>
                 </div>
@@ -319,11 +332,13 @@ session_start();
                         <h3>Formations Universitaires</h3>
                     </div>
                     <ul>
-                        <li>Études de médecine (PASS/L.AS puis cycle médical)</li>
-                        <li>Études de pharmacie</li>
-                        <li>Études d'odontologie (dentaire)</li>
-                        <li>Études de maïeutique (sage-femme)</li>
-                        <li>Licences et Masters en sciences de la santé</li>
+                        <li>Faculté de Médecine, Pharmacie et Odontologie (FMPO) - Université Cheikh Anta Diop (Sénégal)
+                        </li>
+                        <li>Faculté de Médecine et des Sciences Biomédicales - Université de Yaoundé I (Cameroun)</li>
+                        <li>Faculté de Médecine - Université Félix Houphouët-Boigny (Côte d'Ivoire)</li>
+                        <li>Faculté de Médecine, Pharmacie et Odontostomatologie (FMPOS) - Université de Bamako (Mali)
+                        </li>
+                        <li>Faculté des Sciences de la Santé - Université d'Abomey-Calavi (Bénin)</li>
                     </ul>
                 </div>
 
@@ -333,25 +348,27 @@ session_start();
                         <h3>Écoles Spécialisées</h3>
                     </div>
                     <ul>
-                        <li>Instituts de Formation en Soins Infirmiers (IFSI)</li>
-                        <li>Écoles de kinésithérapie</li>
-                        <li>Écoles d'orthophonie</li>
-                        <li>Écoles de psychomotricité</li>
-                        <li>Écoles d'audioprothèse</li>
+                        <li>École Nationale de Développement Sanitaire et Social (ENDSS) - Dakar (Sénégal)</li>
+                        <li>Institut National de Formation des Agents de Santé (INFAS) - Abidjan (Côte d'Ivoire)</li>
+                        <li>École Nationale de Santé Publique (ENSP) - Ouagadougou (Burkina Faso)</li>
+                        <li>Institut de Formation en Sciences Infirmières et Obstétricales (IFSIO) - Libreville (Gabon)
+                        </li>
+                        <li>École des Techniciens Supérieurs de la Santé (ETSS) - Lomé (Togo)</li>
                     </ul>
                 </div>
 
                 <div class="education-card">
                     <div class="card-header">
                         <i class="fas fa-certificate"></i>
-                        <h3>Formations Professionnelles</h3>
+                        <h3>Instituts de Santé Publique</h3>
                     </div>
                     <ul>
-                        <li>BTS/DUT dans les domaines paramédicaux</li>
-                        <li>Formations d'aides-soignants</li>
-                        <li>Formations d'auxiliaires de puériculture</li>
-                        <li>Formations continues et VAE</li>
-                        <li>Diplômes d'État spécialisés</li>
+                        <li>Institut de Santé et Développement (ISED) - Université Cheikh Anta Diop (Sénégal)</li>
+                        <li>Institut Régional de Santé Publique (IRSP) - Cotonou (Bénin)</li>
+                        <li>École de Santé Publique - Université de Kinshasa (RDC)</li>
+                        <li>Institut National d'Administration Sanitaire (INAS) - Rabat (Maroc)</li>
+                        <li>Centre Inter-États d'Enseignement Supérieur en Santé Publique d'Afrique Centrale (CIESPAC) -
+                            Brazzaville (Congo)</li>
                     </ul>
                 </div>
             </div>
@@ -363,43 +380,47 @@ session_start();
         <div class="container">
             <h2 class="section-title light" data-aos="fade-up">Tendances du Secteur</h2>
             <p class="section-description light" data-aos="fade-up">Les évolutions majeures qui façonnent l'avenir de la
-                santé</p>
+                santé en Afrique</p>
 
             <div class="trends-grid">
                 <div class="trend-card" data-aos="zoom-in">
                     <div class="trend-icon">
-                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Intelligence Artificielle</h3>
-                    <p>L'IA révolutionne le diagnostic médical, les traitements personnalisés et l'analyse de données de
-                        santé, créant de nouveaux métiers à l'intersection de la technologie et de la médecine.</p>
+                    <h3>Santé Mobile (mHealth)</h3>
+                    <p>L'utilisation des technologies mobiles pour améliorer l'accès aux soins dans les zones rurales
+                        africaines, avec des applications de téléconsultation et de suivi des patients adaptées au
+                        contexte local.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="trend-icon">
-                        <i class="fas fa-dna"></i>
+                        <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Médecine Personnalisée</h3>
-                    <p>Développement de traitements sur mesure basés sur le profil génétique du patient, offrant des
-                        débouchés dans la génomique et les thérapies ciblées.</p>
+                    <h3>Médecine Traditionnelle Intégrée</h3>
+                    <p>Reconnaissance et intégration croissantes des pratiques médicales traditionnelles africaines dans
+                        les systèmes de santé modernes, créant des opportunités pour la recherche ethnopharmacologique.
+                    </p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="trend-icon">
-                        <i class="fas fa-laptop-medical"></i>
+                        <i class="fas fa-clinic-medical"></i>
                     </div>
-                    <h3>Télémédecine</h3>
-                    <p>L'essor des consultations à distance et du suivi médical connecté transforme la pratique médicale
-                        et crée une demande pour des compétences numériques en santé.</p>
+                    <h3>Renforcement des Systèmes de Santé</h3>
+                    <p>Investissement croissant dans les centres de santé communautaires et la médecine préventive pour
+                        répondre aux besoins des populations africaines, notamment dans les zones rurales et
+                        périurbaines.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="trend-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-microscope"></i>
                     </div>
-                    <h3>Santé Mentale</h3>
-                    <p>Reconnaissance croissante de l'importance de la santé mentale, créant des opportunités pour les
-                        psychologues, psychiatres et autres professionnels spécialisés.</p>
+                    <h3>Recherche sur les Maladies Tropicales</h3>
+                    <p>Développement de la recherche médicale africaine sur les maladies endémiques comme le paludisme,
+                        la tuberculose et les maladies tropicales négligées, avec des opportunités croissantes pour les
+                        chercheurs locaux.</p>
                 </div>
             </div>
         </div>
@@ -413,30 +434,32 @@ session_start();
             <div class="testimonials-slider" data-aos="fade-up">
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"Après mes études de médecine, j'ai choisi la spécialité de cardiologie. C'est un parcours
-                            exigeant mais extrêmement gratifiant. Chaque jour, je contribue concrètement à sauver des
-                            vies et à améliorer la qualité de vie de mes patients."</p>
+                        <p>"Après mes études à la Faculté de Médecine de Dakar, j'ai choisi de travailler dans un centre
+                            de santé rural au Sénégal. Les défis sont nombreux mais la satisfaction d'améliorer
+                            concrètement la santé des communautés est incomparable. Les jeunes médecins africains ont un
+                            rôle crucial à jouer dans le développement de notre système de santé."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="../../image/doctor-profile.jpg" alt="Dr. Sophie Martin">
+                        <img src="../../image/doctor-profile.jpg" alt="Dr. Aminata Diallo">
                         <div>
-                            <h4>Dr. Sophie Martin</h4>
-                            <p>Cardiologue, CHU de Lyon</p>
+                            <h4>Dr. Aminata Diallo</h4>
+                            <p>Médecin généraliste, Centre de Santé de Kaffrine, Sénégal</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"Le métier d'infirmier demande beaucoup d'empathie et de résistance, mais l'impact que nous
-                            avons sur nos patients est incomparable. La formation est complète et permet d'accéder à de
-                            nombreuses spécialisations par la suite."</p>
+                        <p>"La formation en soins infirmiers à l'INFAS d'Abidjan m'a donné les compétences nécessaires
+                            pour travailler dans différents contextes sanitaires. Aujourd'hui, je coordonne une équipe
+                            d'infirmiers dans un programme de vaccination communautaire. Les opportunités d'évolution
+                            sont réelles pour ceux qui s'engagent pleinement dans ce secteur essentiel."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="../../image/nurse-profile.jpg" alt="Thomas Dubois">
+                        <img src="../../image/nurse-profile.jpg" alt="Jean-Baptiste Koné">
                         <div>
-                            <h4>Thomas Dubois</h4>
-                            <p>Infirmier en soins intensifs</p>
+                            <h4>Jean-Baptiste Koné</h4>
+                            <p>Infirmier chef, Programme Élargi de Vaccination, Côte d'Ivoire</p>
                         </div>
                     </div>
                 </div>
@@ -453,7 +476,7 @@ session_start();
     <section class="cta-section">
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Prêt à vous lancer dans une carrière en santé ?</h2>
+                <h2>Prêt à vous lancer dans une carrière en santé en Afrique ?</h2>
                 <p>Découvrez nos ressources d'orientation et prenez contact avec nos conseillers</p>
                 <div class="cta-buttons">
                     <a href="#" class="cta-primary">Consulter le guide complet</a>
@@ -464,60 +487,7 @@ session_start();
     </section>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animation
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabPanes = document.querySelectorAll('.tab-pane');
-
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    // Remove active class from all buttons and panes
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabPanes.forEach(p => p.classList.remove('active'));
-
-                    // Add active class to clicked button
-                    this.classList.add('active');
-
-                    // Show the corresponding tab content
-                    const tabId = this.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-
-            // Testimonial slider
-            const testimonials = document.querySelectorAll('.testimonial');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            let currentIndex = 0;
-
-            function showTestimonial(index) {
-                testimonials.forEach((testimonial, i) => {
-                    testimonial.style.display = i === index ? 'block' : 'none';
-                });
-            }
-
-            // Show first testimonial on load
-            showTestimonial(0);
-
-            // Event listeners for navigation
-            prevBtn.addEventListener('click', function () {
-                currentIndex = (currentIndex === 0) ? testimonials.length - 1 : currentIndex - 1;
-                showTestimonial(currentIndex);
-            });
-
-            nextBtn.addEventListener('click', function () {
-                currentIndex = (currentIndex === testimonials.length - 1) ? 0 : currentIndex + 1;
-                showTestimonial(currentIndex);
-            });
-        });
-    </script>
+    <script src="../../js/health-sector.js"></script>
 </body>
 
 </html>

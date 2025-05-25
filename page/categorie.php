@@ -61,6 +61,7 @@ $categories = getAllCategories($db);
     <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="../css/voir_profil.css">
     <link rel="stylesheet" href="../css/profil.css">
+    <link rel="stylesheet" href="../css/categorie-cards.css">
 </head>
 
 <body>
@@ -163,129 +164,114 @@ $categories = getAllCategories($db);
             </div>
 
             <div class="produit_vedete">
-                <article data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out"
-                    data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-bottom"
-                    class="articles">
-                    <?php if (empty($usersInCategory)): ?>
-                        <h1 class="message">Aucun profil disponible pour cette catégorie</h1>
-                    <?php else: ?>
+                <?php 
+                // Déterminer la classe de couleur pour cette catégorie
+                $categoryNames = array_column($categories, 'categorie');
+                $categoryIndex = array_search($categorie, $categoryNames);
+                $colorIndex = ($categoryIndex % 5) + 1;
+                $categoryColorClass = "cat-color-" . $colorIndex;
+                ?>
+                
+                <?php if (empty($usersInCategory)): ?>
+                    <h1 class="no-profile-message">Aucun profil disponible pour cette catégorie</h1>
+                <?php else: ?>
+                    <div class="professionals-grid" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out">
                         <?php foreach ($usersInCategory as $user): ?>
                             <?php
                             $nombreCompetences = countCompetences($db, $user['id']);
                             $niveauEtude = gettNiveau($db, $user['id']);
+                            
+                            // On n'affiche que les profils avec au moins 4 compétences et qui ne sont pas occupés
+                            if ($nombreCompetences >= 4 ):
                             ?>
-                            <?php if ($nombreCompetences < 4): ?>
-                            <?php else: ?>
-                                <?php if ($user['statut'] == 'Occuper'): ?>
-                                <?php else: ?>
-                                    <div class="carousel">
-                                        <?php if ($user['statut'] == 'Disponible'): ?>
-                                            <p class="statut"><span></span>
-                                                <?= $user['statut'] ?>
-                                            </p>
-                                        <?php else: ?>
-                                            <?php if ($user['statut'] == 'Occuper'): ?>
-                                                <p class="statut2"><span></span>
-                                                    <?= $user['statut'] ?>
-                                                </p>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-
-                                        <img src="../upload/<?php echo $user['images'] ?>" alt="">
-
-                                        <div class="info-box">
-                                            <h4>
-                                                <?php echo substr($user['competences'], 0, 40) . '...' ?>
-                                            </h4>
-
-                                            <div class="vendu">
-                                                <?php
-                                                $afficheCompetences = getCompetences($db, $user['id']);
-                                                // Garder seulement les 4 premières 
-                                                $afficheCompetences = array_slice($afficheCompetences, 0, 4);
-                                                ?>
-
-                                                <?php if (empty($afficheCompetences)): ?>
-                                                    <span>Competences indisponibles</span>
-                                                <?php else: ?>
-                                                    <?php
-                                                    $competencesAffichees = 0; // Initialiser le compteur de compétences affichées
-                                
-                                                    foreach ($afficheCompetences as $compe):
-                                                        if ($competencesAffichees < 4):
-                                                            ?>
-                                                            <span>
-                                                                <?= substr($compe['competence'], 0, 20) . '...' ?>
-                                                            </span>
-                                                            <?php
-                                                            $competencesAffichees++;
-                                                        endif;
-                                                    endforeach;
-                                                    ?>
-                                                <?php endif; ?>
-                                            </div>
-                                            <p class="nom">
-                                                <?php
-                                                $fullName = $user['nom'];
-                                                // Utilisez la fonction explode pour diviser le nom en mots
-                                                $words = explode(' ', $fullName);
-                                                // $words[0] contient le premier mot, $words[1] contient le deuxième mot
-                                                $nameUsers = isset($words[1]) ? $words[0] . ' ' . $words[1] : $words[0];
-                                                ?>
-                                                <?php echo $nameUsers; ?>
-                                            </p>
-
-                                            <p class="ville">
-                                                <?php echo $user['ville']; ?>
-                                            </p>
-
-                                            <div class="divpp"></div>
-                                            <p class="pp"><strong>Niveau :</strong>
-                                                <?php if (empty($niveauEtude['etude'])): ?>
-                                                    indisponibles
-                                                <?php else: ?>
-                                                    <?php echo $niveauEtude['etude'] ?>
-                                                <?php endif; ?>
-                                            </p>
-                                            <p class="pp"><strong>Experience :</strong>
-                                                <?php if (empty($niveauEtude['etude'])): ?>
-                                                    indisponibles
-                                                <?php else: ?>
-                                                    <?php echo $niveauEtude['experience'] ?>
-                                                <?php endif; ?>
-                                            </p>
+                                <div class="profile-card <?= $categoryColorClass ?>">
+                                    <!-- Indicateur de statut -->
+                                    <?php if ($user['statut'] == 'Disponible' || $user['statut'] == 'Occuper'): ?>
+                                        <div class="status-indicator available">
+                                            <span></span><?= $user['statut'] ?>
                                         </div>
-
-                                        <a href="/page/candidats.php?id=<?php echo $user['id']; ?>">
-                                            <i class="fa-solid fa-eye"></i>Profil
-                                        </a>
+                                    <?php endif; ?>
+                                    
+                                    <!-- En-tête avec image -->
+                                    <div class="profile-header">
+                                        <img src="../upload/<?= $user['images'] ?>" alt="Photo de <?= $user['nom'] ?>">
+                                        
+                                        <!-- Overlay avec nom -->
+                                        <div class="profile-name-overlay">
+                                            <?php
+                                            $fullName = $user['nom'];
+                                            $words = explode(' ', $fullName);
+                                            $nameUsers = isset($words[1]) ? $words[0] . ' ' . $words[1] : $words[0];
+                                            ?>
+                                            <p class="profile-name"><?= $nameUsers ?></p>
+                                        </div>
+                                        
+                                        <!-- Localisation -->
+                                        <div class="profile-location">
+                                            <i class="fas fa-map-marker-alt"></i> <?= $user['ville'] ?>
+                                        </div>
                                     </div>
-                                <?php endif; ?>
+                                    
+                                    <!-- Contenu principal -->
+                                    <div class="profile-content">
+                                        <!-- Titre principal -->
+                                        <h3 class="profile-title">
+                                            <?= substr($user['competences'], 0, 60) . (strlen($user['competences']) > 60 ? '...' : '') ?>
+                                        </h3>
+                                        
+                                        <!-- Badges de compétences -->
+                                        <div class="skills-container">
+                                            <?php
+                                            $afficheCompetences = getCompetences($db, $user['id']);
+                                            $afficheCompetences = array_slice($afficheCompetences, 0, 4);
+                                            
+                                            if (!empty($afficheCompetences)):
+                                                foreach ($afficheCompetences as $compe):
+                                            ?>
+                                                <span class="skill-badge">
+                                                    <?= substr($compe['competence'], 0, 20) . (strlen($compe['competence']) > 20 ? '...' : '') ?>
+                                                </span>
+                                            <?php
+                                                endforeach;
+                                            else:
+                                            ?>
+                                                <span class="skill-badge">Compétences indisponibles</span>
+                                            <?php endif; ?>
+                                        </div>
+                                        
+                                        <!-- Détails d'éducation et expérience -->
+                                        <div class="profile-details">
+                                            <div class="detail-item">
+                                                <strong>Niveau :</strong>
+                                                <span><?= !empty($niveauEtude['etude']) ? $niveauEtude['etude'] : 'Indisponible' ?></span>
+                                            </div>
+                                            <div class="detail-item">
+                                                <strong>Expérience :</strong>
+                                                <span><?= !empty($niveauEtude['experience']) ? $niveauEtude['experience'] : 'Indisponible' ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Bouton de visualisation du profil -->
+                                    <a href="/page/candidats.php?id=<?= $user['id'] ?>" class="view-profile-btn">
+                                        <i class="fa-solid fa-eye"></i> Voir le profil
+                                    </a>
+                                </div>
                             <?php endif; ?>
-                        <?php endforeach ?>
-                    <?php endif; ?>
-                </article>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
 
                 <!-- Afficher le nombre total de candidats dans la catégorie -->
-                <div class="total-count">
+                <div class="results-counter">
                     <p>
                         <?= $total_profils ?> candidat<?= ($total_profils > 1) ? 's' : '' ?> trouvé<?= ($total_profils > 1) ? 's' : '' ?> dans la catégorie <strong><?= $categorie ?></strong>
                     </p>
                 </div>
 
-                <!-- Nouvelle pagination élégante -->
-                <?php 
-                // Déterminer la couleur de pagination à utiliser en fonction de la catégorie
-                // On utilise l'index de couleur modulo 5 car nous n'avons défini que 5 styles de couleurs pour la pagination
-                $categoryNames = array_column($categories, 'categorie');
-                $categoryIndex = array_search($categorie, $categoryNames);
-                $colorIndex = ($categoryIndex % 5) + 1;
-                $paginationColorClass = "cat-color-" . $colorIndex;
-                ?>
-                
-                <!-- Affichage conditionnel de la pagination -->
-                <div class="pagination-container" id="pagination-section">
-                    <ul class="pagination <?= $paginationColorClass ?>">
+                <!-- Pagination élégante -->
+                <div class="pagination-container" >
+                    <ul class="pagination <?= $categoryColorClass ?>">
                         <?php if ($total_pages > 1): ?>
                             <!-- Lien vers la première page -->
                             <?php if ($page_courante > 3): ?>
@@ -389,7 +375,7 @@ $categories = getAllCategories($db);
             // Masquer la pagination s'il n'y a pas de profils
             const totalProfiles = <?= $total_profils ?>;
             const paginationSection = document.getElementById('pagination-section');
-            const messageElement = document.querySelector('.message');
+            const messageElement = document.querySelector('.no-profile-message');
             
             if (totalProfiles === 0 && messageElement && paginationSection) {
                 paginationSection.style.display = 'none';

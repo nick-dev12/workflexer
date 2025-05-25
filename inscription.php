@@ -55,8 +55,8 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
     <section class="signup-section">
         <h1>Créez votre compte</h1>
         <p class="signup-description">
-            Rejoignez notre plateforme en créant un compte adapté à vos besoins. Choisissez le type de compte qui
-            correspond à votre profil pour accéder à des fonctionnalités personnalisées.
+            Rejoignez notre plateforme et accédez à des fonctionnalités personnalisées.
+            Choisissez le type de compte qui correspond à votre profil professionnel.
         </p>
 
         <div class="account-options">
@@ -69,8 +69,8 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
                 <div class="account-info">
                     <h2 class="account-title">Compte Entreprise</h2>
                     <p class="account-description">
-                        Créez un compte entreprise pour publier des offres d'emploi, rechercher des candidats qualifiés
-                        et gérer vos recrutements efficacement.
+                        Publiez des offres d'emploi, recherchez des candidats qualifiés
+                        et gérez efficacement vos recrutements.
                     </p>
                     <div class="account-features">
                         <div class="feature-item">
@@ -90,7 +90,9 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
                             <span>Statistiques de recrutement</span>
                         </div>
                     </div>
-                    <a href="/compte_entreprise.php" class="account-button">Créer un compte</a>
+                    <a href="/compte_entreprise.php" class="account-button">
+                        <i class="fas fa-plus-circle"></i> Créer un compte
+                    </a>
                 </div>
             </div>
 
@@ -104,8 +106,8 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
                 <div class="account-info">
                     <h2 class="account-title">Compte Professionnel</h2>
                     <p class="account-description">
-                        Créez votre profil professionnel pour postuler aux offres d'emploi, mettre en valeur vos
-                        compétences et développer votre carrière.
+                        Créez votre profil, postulez aux offres d'emploi, mettez en valeur vos
+                        compétences et développez votre carrière.
                     </p>
                     <div class="account-features">
                         <div class="feature-item">
@@ -125,14 +127,16 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
                             <span>Suivi de candidatures</span>
                         </div>
                     </div>
-                    <a href="/compte_travailleur.php" class="account-button">Créer un compte</a>
+                    <a href="/compte_travailleur.php" class="account-button">
+                        <i class="fas fa-plus-circle"></i> Créer un compte
+                    </a>
                 </div>
             </div>
         </div>
 
-        <p class="signup-description" style="margin-top: 40px;">
+        <p class="signup-description" style="margin-top: 30px;">
             Vous avez déjà un compte ? <a href="/connection_compte.php"
-                style="color: var(--primary-color); font-weight: 600;">Connectez-vous ici</a>
+                style="color: var(--primary-color); font-weight: 600; text-decoration: none;">Connectez-vous ici</a>
         </p>
     </section>
 

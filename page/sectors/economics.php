@@ -20,20 +20,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/css/sectors.css">
-    <style>
-        /* Economics sector specific styles */
-        .hero-section {
-            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&h=1080&auto=format&fit=crop') center/cover no-repeat;
-        }
-
-        .trend-icon {
-            background-color: rgba(39, 174, 96, 0.2);
-        }
-
-        .education-card .card-header {
-            background: linear-gradient(135deg, #2c3e50, #27ae60);
-        }
-    </style>
+    <link rel="stylesheet" href="/css/economics-sector.css">
 </head>
 
 <body>
@@ -50,7 +37,7 @@ session_start();
         <div class="hero-content" data-aos="fade-up">
             <span class="sector-badge">Secteur Professionnel</span>
             <h1>Économie et Finance</h1>
-            <p>Découvrez les opportunités, formations et perspectives dans le monde économique et financier</p>
+            <p>Découvrez les opportunités, formations et perspectives dans le monde économique et financier africain</p>
         </div>
     </section>
 
@@ -58,26 +45,27 @@ session_start();
     <section class="intro-section">
         <div class="container">
             <div class="intro-content" data-aos="fade-up">
-                <h2>À propos du secteur économique et financier</h2>
-                <p>Le secteur de l'économie et de la finance est au cœur du fonctionnement des entreprises, des marchés
-                    et des politiques publiques. Ces métiers, en constante évolution, offrent de nombreuses opportunités
+                <h2>À propos du secteur économique et financier en Afrique</h2>
+                <p>Le secteur de l'économie et de la finance est au cœur du développement des entreprises, des marchés
+                    et des politiques publiques en Afrique. Ces métiers, en pleine expansion sur le continent, offrent
+                    de nombreuses opportunités
                     aux profils analytiques et stratégiques qui souhaitent contribuer au développement économique et
-                    financier.</p>
+                    financier de l'Afrique francophone.</p>
                 <div class="sector-stats">
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-chart-line"></i>
-                        <h3>+7%</h3>
-                        <p>Croissance annuelle des emplois</p>
+                        <h3>+8.5%</h3>
+                        <p>Croissance annuelle des emplois financiers en Afrique de l'Ouest</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-university"></i>
-                        <h3>+100</h3>
-                        <p>Institutions financières majeures</p>
+                        <h3>+70</h3>
+                        <p>Institutions financières majeures en Afrique francophone</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fas fa-euro-sign"></i>
-                        <h3>15%</h3>
-                        <p>Du PIB français</p>
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h3>12%</h3>
+                        <p>Du PIB de l'UEMOA</p>
                     </div>
                 </div>
             </div>
@@ -89,7 +77,7 @@ session_start();
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Parcours Professionnels</h2>
             <p class="section-description" data-aos="fade-up">Explorez les différentes voies professionnelles dans le
-                secteur économique et financier</p>
+                secteur économique et financier en Afrique francophone</p>
 
             <div class="career-tabs">
                 <div class="tabs-navigation" data-aos="fade-up">
@@ -111,16 +99,19 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+3 à Bac+5 en finance, gestion de patrimoine ou banque</p>
+                                        <p>Bac+3 à Bac+5 en finance, gestion de patrimoine ou banque au CESAG, UCAD ou
+                                            FASEG</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Conseil financier, connaissance des produits d'investissement, relation
-                                            client</p>
+                                        <p>Conseil financier, connaissance des produits d'investissement africains,
+                                            relation
+                                            client, maîtrise des réglementations UEMOA/CEMAC</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers des postes de banque privée, salaire de 35 000€ à 80 000€ +
+                                        <p>Évolution vers des postes de banque privée, salaire de 400 000 FCFA à 1 200
+                                            000 FCFA +
                                             commissions</p>
                                     </div>
                                 </div>
@@ -129,21 +120,23 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-handshake"></i></div>
                                 <h3>Chargé d'Affaires Entreprises</h3>
-                                <p>Accompagne les entreprises dans leurs besoins financiers et leur développement.</p>
+                                <p>Accompagne les entreprises africaines dans leurs besoins financiers et leur
+                                    développement.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+4/5 en finance, économie ou école de commerce</p>
+                                        <p>Bac+4/5 en finance, économie ou école de commerce (ISM, CESAG, INPHB)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Analyse financière, négociation, connaissance sectorielle, gestion de
+                                        <p>Analyse financière, négociation, connaissance des secteurs économiques
+                                            africains, gestion de
                                             portefeuille</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Possibilité d'évolution vers des postes de direction, salaire de 40 000€ à 70
-                                            000€</p>
+                                        <p>Possibilité d'évolution vers des postes de direction, salaire de 500 000 FCFA
+                                            à 1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -157,22 +150,25 @@ session_start();
                                 <div class="career-icon"><i class="fas fa-calculator"></i></div>
                                 <h3>Directeur Financier</h3>
                                 <p>Supervise la stratégie financière d'une entreprise et optimise sa performance
-                                    économique.</p>
+                                    économique dans le contexte africain.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+5 en finance ou école de commerce, expérience significative en finance
+                                        <p>Bac+5 en finance ou école de commerce (CESAG, ISM, IAM), expérience
+                                            significative en finance
                                         </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Stratégie financière, contrôle de gestion, comptabilité, management d'équipe
+                                        <p>Stratégie financière, contrôle de gestion, comptabilité SYSCOHADA, management
+                                            d'équipe
                                         </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution possible vers des postes de direction générale, salaire de 80 000€
-                                            à 200 000€+</p>
+                                        <p>Évolution possible vers des postes de direction générale, salaire de 1 500
+                                            000 FCFA
+                                            à 5 000 000 FCFA+</p>
                                     </div>
                                 </div>
                             </div>
@@ -180,22 +176,25 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-chart-pie"></i></div>
                                 <h3>Contrôleur de Gestion</h3>
-                                <p>Analyse les performances financières de l'entreprise et propose des optimisations.
+                                <p>Analyse les performances financières de l'entreprise et propose des optimisations
+                                    adaptées au marché africain.
                                 </p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+4/5 en contrôle de gestion, finance ou comptabilité</p>
+                                        <p>Bac+4/5 en contrôle de gestion, finance ou comptabilité (UCAD, CESAG, ENCG)
+                                        </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Analyse de données, reporting, budgétisation, outils informatiques financiers
+                                        <p>Analyse de données, reporting, budgétisation, maîtrise du SYSCOHADA, outils
+                                            informatiques financiers
                                         </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers directeur du contrôle de gestion, DAF, salaire de 35 000€ à 70
-                                            000€</p>
+                                        <p>Évolution vers directeur du contrôle de gestion, DAF, salaire de 600 000 FCFA
+                                            à 1 200 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -208,22 +207,23 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-exchange-alt"></i></div>
                                 <h3>Trader</h3>
-                                <p>Achète et vend des actifs financiers sur les marchés pour générer des profits.</p>
+                                <p>Achète et vend des actifs financiers sur les marchés africains et internationaux pour
+                                    générer des profits.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+5 en finance de marché, mathématiques financières ou école d'ingénieur
+                                        <p>Bac+5 en finance de marché, mathématiques financières (ESP, ENSAE Dakar, 2iE)
                                         </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Analyse technique et fondamentale, gestion du risque, réactivité, résistance
-                                            au stress</p>
+                                        <p>Analyse technique et fondamentale, gestion du risque, connaissance des
+                                            marchés africains (BRVM, NSE), réactivité</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Métier sélectif, salaire très variable avec partie fixe et bonus (50 000€ à
-                                            500 000€+)</p>
+                                        <p>Métier sélectif, salaire très variable avec partie fixe et bonus (800 000
+                                            FCFA à 10 000 000 FCFA+)</p>
                                     </div>
                                 </div>
                             </div>
@@ -231,22 +231,23 @@ session_start();
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-search-dollar"></i></div>
                                 <h3>Analyste Financier</h3>
-                                <p>Étudie les entreprises et les marchés pour formuler des recommandations
+                                <p>Étudie les entreprises et les marchés africains pour formuler des recommandations
                                     d'investissement.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+5 en finance, économie ou école de commerce, certification CFA appréciée
+                                        <p>Bac+5 en finance, économie (CESAG, ISM, ENCG), certification CFA appréciée
                                         </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Modélisation financière, analyse sectorielle, valorisation d'entreprise</p>
+                                        <p>Modélisation financière, analyse sectorielle, valorisation d'entreprise,
+                                            connaissance des marchés africains</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers des postes de gérant de portefeuille, salaire de 45 000€ à 90
-                                            000€</p>
+                                        <p>Évolution vers des postes de gérant de portefeuille, salaire de 700 000 FCFA
+                                            à 1 800 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -257,23 +258,26 @@ session_start();
                     <div class="tab-pane" id="economics" data-aos="fade-up">
                         <div class="tab-grid">
                             <div class="career-card">
-                                <div class="career-icon"><i class="fas fa-globe-europe"></i></div>
+                                <div class="career-icon"><i class="fas fa-globe-africa"></i></div>
                                 <h3>Économiste</h3>
-                                <p>Analyse les tendances économiques et formule des prévisions et recommandations.</p>
+                                <p>Analyse les tendances économiques africaines et formule des prévisions et
+                                    recommandations.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Master ou Doctorat en économie, économétrie ou statistiques</p>
+                                        <p>Master ou Doctorat en économie, économétrie ou statistiques (UCAD, ENSEA,
+                                            CERDI)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Analyse macroéconomique, modélisation, statistiques, rédaction de rapports
+                                        <p>Analyse macroéconomique, modélisation, statistiques, connaissance des
+                                            économies africaines
                                         </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Postes en institutions (Banque de France, BCE), ministères, banques, salaire
-                                            de 40 000€ à 80 000€</p>
+                                        <p>Postes en institutions (BCEAO, BAD, BEAC), ministères, banques, salaire de
+                                            800 000 FCFA à 2 000 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -289,14 +293,14 @@ session_start();
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Parcours de Formation</h2>
             <p class="section-description" data-aos="fade-up">Les différentes voies pour accéder aux métiers de
-                l'économie et de la finance</p>
+                l'économie et de la finance en Afrique</p>
 
             <div class="timeline" data-aos="fade-up">
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formation Initiale</h3>
-                        <p>Baccalauréat général avec spécialité mathématiques recommandée</p>
+                        <p>Baccalauréat général avec spécialité mathématiques ou sciences économiques</p>
                         <span class="timeline-date">Années -3 à 0</span>
                     </div>
                 </div>
@@ -305,7 +309,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Supérieures</h3>
-                        <p>Licence en économie, gestion, finance ou classes préparatoires économiques</p>
+                        <p>Licence en économie, gestion, finance dans les universités africaines ou classes
+                            préparatoires</p>
                         <span class="timeline-date">Années 1 à 3</span>
                     </div>
                 </div>
@@ -314,7 +319,7 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Spécialisation</h3>
-                        <p>Master en finance, économie, grandes écoles de commerce ou d'ingénieurs</p>
+                        <p>Master en finance, économie dans les grandes écoles africaines ou internationales</p>
                         <span class="timeline-date">Années 4 à 5</span>
                     </div>
                 </div>
@@ -323,7 +328,7 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Certifications Professionnelles</h3>
-                        <p>CFA, FRM, AMF, ACCA ou autres certifications spécialisées selon le métier visé</p>
+                        <p>CFA, ACCA, DESCOGEF ou autres certifications spécialisées selon le métier visé</p>
                         <span class="timeline-date">En parallèle ou post-diplôme</span>
                     </div>
                 </div>
@@ -336,11 +341,11 @@ session_start();
                         <h3>Universités</h3>
                     </div>
                     <ul>
-                        <li>Licences et Masters en économie</li>
-                        <li>Masters spécialisés en finance</li>
-                        <li>IAE (Instituts d'Administration des Entreprises)</li>
-                        <li>Paris-Dauphine, Paris 1 Panthéon-Sorbonne</li>
-                        <li>Doctorats en sciences économiques</li>
+                        <li>Licences et Masters en économie à l'UCAD (Sénégal)</li>
+                        <li>FASEG (Bénin, Togo, Cameroun)</li>
+                        <li>Université Félix Houphouët-Boigny (Côte d'Ivoire)</li>
+                        <li>Université Mohammed V (Maroc)</li>
+                        <li>Doctorats en sciences économiques (NPTCI)</li>
                     </ul>
                 </div>
 
@@ -350,11 +355,11 @@ session_start();
                         <h3>Grandes Écoles</h3>
                     </div>
                     <ul>
-                        <li>HEC, ESSEC, ESCP, EM Lyon, EDHEC</li>
-                        <li>Sciences Po (Master Finance et Stratégie)</li>
-                        <li>ENSAE Paris (École d'ingénieurs statisticiens)</li>
-                        <li>École Polytechnique (filière économie)</li>
-                        <li>ENS (École Normale Supérieure) Paris-Saclay</li>
+                        <li>CESAG (Centre Africain d'Études Supérieures en Gestion)</li>
+                        <li>ISM (Institut Supérieur de Management)</li>
+                        <li>ENSAE Dakar (École Nationale de la Statistique et de l'Analyse Économique)</li>
+                        <li>ENCG (École Nationale de Commerce et de Gestion)</li>
+                        <li>2iE (Institut International d'Ingénierie de l'Eau et de l'Environnement)</li>
                     </ul>
                 </div>
 
@@ -365,10 +370,11 @@ session_start();
                     </div>
                     <ul>
                         <li>CFA (Chartered Financial Analyst)</li>
-                        <li>FRM (Financial Risk Manager)</li>
-                        <li>Certification AMF (Autorité des Marchés Financiers)</li>
-                        <li>CIIA (Certified International Investment Analyst)</li>
+                        <li>DESCOGEF (Diplôme d'Expertise Comptable et de Gestion Financière)</li>
+                        <li>Certification CREPMF (Conseil Régional de l'Épargne Publique et des Marchés Financiers)</li>
                         <li>ACCA (Association of Chartered Certified Accountants)</li>
+                        <li>Certification OHADA (Organisation pour l'Harmonisation en Afrique du Droit des Affaires)
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -380,16 +386,16 @@ session_start();
         <div class="container">
             <h2 class="section-title light" data-aos="fade-up">Tendances du Secteur</h2>
             <p class="section-description light" data-aos="fade-up">Les évolutions majeures qui façonnent l'avenir de
-                l'économie et de la finance</p>
+                l'économie et de la finance en Afrique</p>
 
             <div class="trends-grid">
                 <div class="trend-card" data-aos="zoom-in">
                     <div class="trend-icon">
-                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Finance Digitale</h3>
-                    <p>Transformation numérique des services financiers, émergence des fintechs, automatisation des
-                        processus financiers et nouveaux modes de paiement.</p>
+                    <h3>Finance Mobile</h3>
+                    <p>Expansion rapide des services financiers mobiles, solutions de paiement innovantes et inclusion
+                        financière à travers le mobile money et les fintechs africaines.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="100">
@@ -397,26 +403,26 @@ session_start();
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3>Finance Durable</h3>
-                    <p>Essor des investissements ESG (Environnement, Social, Gouvernance), finance verte et prise en
-                        compte des enjeux climatiques dans les décisions financières.</p>
+                    <p>Développement de la finance climatique, investissements dans les énergies renouvelables et
+                        projets agricoles durables adaptés aux défis environnementaux africains.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="trend-icon">
                         <i class="fas fa-coins"></i>
                     </div>
-                    <h3>Blockchain et Cryptomonnaies</h3>
-                    <p>Développement des actifs numériques, technologies blockchain dans les transactions financières et
-                        émergence de la finance décentralisée (DeFi).</p>
+                    <h3>Intégration Financière Régionale</h3>
+                    <p>Harmonisation des marchés financiers africains, développement des bourses régionales (BRVM,
+                        BVMAC) et renforcement des unions monétaires (UEMOA, CEMAC).</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="trend-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Régulation et Conformité</h3>
-                    <p>Renforcement du cadre réglementaire suite aux crises financières, importance croissante des
-                        métiers de la conformité et de la gestion des risques.</p>
+                    <h3>Microfinance et Inclusion</h3>
+                    <p>Expansion des institutions de microfinance, développement de produits financiers adaptés aux
+                        populations non bancarisées et aux PME africaines.</p>
                 </div>
             </div>
         </div>
@@ -426,7 +432,7 @@ session_start();
     <section class="cta-section">
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Prêt à vous lancer dans une carrière en économie ou finance ?</h2>
+                <h2>Prêt à vous lancer dans une carrière en économie ou finance en Afrique ?</h2>
                 <p>Découvrez nos ressources d'orientation et prenez contact avec nos conseillers</p>
                 <div class="cta-buttons">
                     <a href="#" class="cta-primary">Consulter le guide complet</a>
@@ -438,34 +444,7 @@ session_start();
 
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animation
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabPanes = document.querySelectorAll('.tab-pane');
-
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    // Remove active class from all buttons and panes
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabPanes.forEach(p => p.classList.remove('active'));
-
-                    // Add active class to clicked button
-                    this.classList.add('active');
-
-                    // Show the corresponding tab content
-                    const tabId = this.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-        });
-    </script>
+    <script src="/js/economics-sector.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,98 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Règles de développement pour le projet Gestion Scolaire
+
+## Structure du projet
+- Respecter l'architecture MVC (Models, Views, Controllers)
+- Placer les fichiers dans les dossiers appropriés selon leur fonction
+- Utiliser des noms de fichiers descriptifs en français, en minuscules avec des tirets pour séparer les mots
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+## Conventions de codage
+- Indentation: utiliser 4 espaces (pas de tabulations)
+- Nommer les variables et fonctions en camelCase
+- Nommer les classes en PascalCase
+- Préfixer les variables de classe avec $_
+- Utiliser des commentaires pour expliquer la logique complexe
+- Écrire des commentaires en français
+
+## Base de données
+- Nommer les tables en minuscules avec des underscores
+- Préfixer les noms de tables avec "gs_" (gestion scolaire)
+- Toujours utiliser des requêtes préparées pour éviter les injections SQL
+- Documenter la structure des tables dans les modèles
+
+## Sécurité
+- Valider et assainir toutes les entrées utilisateur
+- Utiliser password_hash() pour le hachage des mots de passe
+- Implémenter une authentification robuste avec gestion des sessions
+- Éviter d'exposer des informations sensibles dans les URLs
+
+## Interface utilisateur
+- Assurer la compatibilité avec les navigateurs modernes
+- Concevoir des interfaces responsives pour mobile et desktop
+- Utiliser des composants réutilisables pour maintenir la cohérence visuelle
+- Suivre les principes d'accessibilité WCAG
+
+## Performance
+- Optimiser les requêtes SQL avec des index appropriés
+- Minimiser le nombre de requêtes à la base de données
+- Mettre en cache les données fréquemment utilisées
+- Optimiser les images et ressources statiques
+
+## Bonnes pratiques
+- Écrire des tests unitaires pour les fonctionnalités critiques
+- Documenter les APIs et fonctions principales
+- Éviter la duplication de code
+- Suivre le principe DRY (Don't Repeat Yourself)
+- Gérer correctement les erreurs avec try/catch
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+
+## Gestion des versions
+- Faire des commits fréquents avec des messages descriptifs
+- Utiliser des branches pour les nouvelles fonctionnalités
+- Faire des revues de code avant les fusions dans la branche principale
+- Suivre la convention de versionnage sémantique
+
+## Création progressive des fichiers
+- Diviser la création de fichiers en sections logiques (imports, configuration, fonctions, classes, etc.)
+- Implémenter d'abord le squelette du fichier avant d'ajouter les détails
+- Créer et tester les fonctions une par une
+- Pour les fichiers complexes, commencer par les dépendances et les imports
+- Ajouter les commentaires de documentation en même temps que le code
+- Créer d'abord la structure HTML avant d'ajouter le JavaScript et le CSS
+- Implémenter les fonctionnalités critiques en premier, puis ajouter les fonctionnalités secondaires
+- Tester chaque section avant de passer à la suivante
+- Pour les classes, implémenter d'abord les propriétés et la structure, puis les méthodes
+- Diviser les requêtes SQL complexes en plusieurs étapes pour faciliter le débogage
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+
+## Règles spécifiques pour Cursor
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+- Toujours créer les fichiers par étapes progressives pour éviter les limites de tokens
+- Diviser la génération de code en plusieurs commandes distinctes
+- Structure d'implémentation recommandée:
+  1. Créer d'abord le squelette du fichier avec les imports et la structure de base
+  2. Ajouter les classes/fonctions principales sans leur implémentation détaillée
+  3. Implémenter les méthodes/fonctions une par une
+  4. Finaliser avec les commentaires et la documentation
+- Pour les fichiers PHP:
+  1. Commencer par la déclaration <?php et les imports/requires
+  2. Ajouter les définitions de classes/fonctions
+  3. Implémenter la logique métier
+  4. Ajouter le code HTML si nécessaire
+- Pour les fichiers HTML/CSS/JS:
+  1. Créer d'abord la structure HTML de base
+  2. Ajouter les styles CSS essentiels
+  3. Implémenter le JavaScript par fonctionnalités
+- Toujours demander confirmation avant de passer à l'étape suivante
+- Valider chaque section avant de continuer
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+
+

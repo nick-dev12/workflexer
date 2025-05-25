@@ -64,7 +64,7 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
         <h1>Choisissez votre type de compte</h1>
         <p class="login-description">
             Sélectionnez le type de compte qui correspond à votre profil pour vous connecter à notre plateforme.
-            Chaque type de compte offre des fonctionnalités spécifiques adaptées à vos besoins.
+            Chaque option offre des fonctionnalités adaptées à vos besoins spécifiques.
         </p>
 
         <div class="account-options">
@@ -77,8 +77,8 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
                 <div class="account-info">
                     <h2 class="account-title">Compte Entreprise</h2>
                     <p class="account-description">
-                        Idéal pour les recruteurs, employeurs et entreprises cherchant à publier des offres d'emploi et
-                        à trouver des talents.
+                        Pour les recruteurs et entreprises cherchant à publier des offres d'emploi et à découvrir des
+                        talents qualifiés.
                     </p>
                     <div class="account-features">
                         <div class="feature-item">
@@ -94,7 +94,9 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
                             <span>Gestion des candidatures</span>
                         </div>
                     </div>
-                    <a href="/entreprise/connexion.php" class="account-button">Se connecter</a>
+                    <a href="/entreprise/connexion.php" class="account-button">
+                        <i class="fas fa-building"></i> Se connecter
+                    </a>
                 </div>
             </div>
 
@@ -107,8 +109,8 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
                 <div class="account-info">
                     <h2 class="account-title">Compte Professionnel</h2>
                     <p class="account-description">
-                        Pour les candidats, étudiants et professionnels à la recherche d'opportunités d'emploi et de
-                        stages.
+                        Pour les candidats et professionnels à la recherche d'opportunités d'emploi et de développement
+                        de carrière.
                     </p>
                     <div class="account-features">
                         <div class="feature-item">
@@ -124,7 +126,9 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
                             <span>Candidature simplifiée</span>
                         </div>
                     </div>
-                    <a href="/connexion.php" class="account-button">Se connecter</a>
+                    <a href="/connexion.php" class="account-button">
+                        <i class="fas fa-user-tie"></i> Se connecter
+                    </a>
                 </div>
             </div>
         </div>

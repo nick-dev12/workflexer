@@ -4,11 +4,11 @@
   --primary-color: #0066ff;
   --secondary-color: #002233;
   --accent-color: #f39c12;
-  --light-bg: #f8f9fa;
+  --light-bg: #f9fafc;
   --dark-text: #333;
   --light-text: #fff;
-  --border-radius: 12px;
-  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s ease;
 }
 
@@ -25,26 +25,27 @@ body {
 }
 
 .login-section {
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
-  padding: 60px 20px;
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(
     135deg,
-    rgba(0, 102, 255, 0.05),
-    rgba(0, 34, 51, 0.1)
+    rgba(0, 102, 255, 0.03),
+    rgba(0, 34, 51, 0.06)
   );
 }
 
 .login-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 16px;
   color: var(--secondary-color);
   text-align: center;
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 12px;
+  font-weight: 600;
 }
 
 .login-section h1::after {
@@ -53,47 +54,60 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 60px;
   height: 3px;
   background-color: var(--primary-color);
   border-radius: 3px;
 }
 
 .login-description {
-  max-width: 800px;
+  max-width: 700px;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   color: #555;
   line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .account-options {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .account-card {
-  width: 340px;
+  width: 320px;
   background-color: white;
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--box-shadow);
   transition: var(--transition);
   position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .account-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .account-image {
-  height: 200px;
+  height: 180px;
   overflow: hidden;
+  position: relative;
+}
+
+.account-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
 }
 
 .account-image img {
@@ -108,110 +122,227 @@ body {
 }
 
 .account-info {
-  padding: 25px;
+  padding: 22px;
 }
 
 .account-title {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   color: var(--secondary-color);
+  position: relative;
+  display: inline-block;
+}
+
+.account-title::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
 }
 
 .account-description {
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   line-height: 1.5;
+  font-size: 0.9rem;
 }
 
 .account-features {
-  margin-bottom: 25px;
+  margin-bottom: 22px;
+  background-color: rgba(0, 102, 255, 0.03);
+  padding: 12px 15px;
+  border-radius: 8px;
 }
 
 .feature-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.feature-item:last-child {
+  margin-bottom: 0;
 }
 
 .feature-item i {
   color: var(--primary-color);
   margin-right: 10px;
+  font-size: 0.85rem;
+}
+
+.feature-item span {
+  font-size: 0.9rem;
 }
 
 .account-button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 12px 0;
+  padding: 11px 0;
   background-color: var(--primary-color);
   color: var(--light-text);
   text-align: center;
   border-radius: 6px;
   font-weight: 500;
+  font-size: 0.95rem;
   text-decoration: none;
   transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.account-button i {
+  margin-right: 8px;
+  font-size: 0.9rem;
 }
 
 .account-button:hover {
-  background-color: var(--accent-color);
+  background-color: #0055d4;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
 }
 
 /* Badge pour indiquer le type de compte */
 .account-badge {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 8px 15px;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
   background-color: var(--primary-color);
   color: white;
-  border-radius: 30px;
-  font-size: 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
   font-weight: 500;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  letter-spacing: 0.5px;
 }
 
 .enterprise-badge {
   background-color: var(--secondary-color);
 }
 
-/* Responsive design */
+/* Responsive design amélioré */
 @media screen and (max-width: 768px) {
-  .login-section h1 {
-    font-size: 2rem;
-  }
-
-  .account-options {
-    gap: 30px;
-  }
-
-  .account-card {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 480px) {
   .login-section {
     padding: 40px 15px;
   }
 
   .login-section h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+  }
+
+  .login-description {
+    max-width: 90%;
+    margin-bottom: 30px;
+  }
+
+  .account-options {
+    gap: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-section {
+    padding: 30px 12px;
+    min-height: 85vh;
+  }
+
+  .login-section h1 {
+    font-size: 1.7rem;
+  }
+
+  .login-description {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
   }
 
   .account-card {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
   }
 
   .account-image {
-    height: 180px;
+    height: 160px;
   }
 
   .account-info {
-    padding: 20px;
+    padding: 18px;
   }
 
   .account-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
   }
+
+  .account-description {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+
+  .feature-item {
+    margin-bottom: 6px;
+  }
+
+  .feature-item span {
+    font-size: 0.85rem;
+  }
+
+  .account-button {
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .account-features {
+    padding: 10px;
+  }
+}
+
+/* Animation subtile pour améliorer l'expérience utilisateur */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.account-card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.account-options .account-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+/* Focus styles pour l'accessibilité */
+.account-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.4);
+}
+
+/* Effet de pulsation sur les badges */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.account-badge {
+  animation: pulse 2s infinite;
 }

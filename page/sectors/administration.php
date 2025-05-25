@@ -66,18 +66,18 @@ session_start();
                 <div class="sector-stats">
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-building"></i>
-                        <h3>5,6M</h3>
-                        <p>Agents publics en France</p>
+                        <h3>3,2M</h3>
+                        <p>Agents publics en Afrique francophone</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-briefcase"></i>
-                        <h3>+300</h3>
+                        <h3>+250</h3>
                         <p>Métiers différents</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
                         <i class="fas fa-handshake"></i>
-                        <h3>20%</h3>
-                        <p>De l'emploi total en France</p>
+                        <h3>15%</h3>
+                        <p>De l'emploi formel en Afrique francophone</p>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ session_start();
                     <button class="tab-btn active" data-tab="state">Administration d'État</button>
                     <button class="tab-btn" data-tab="territorial">Collectivités Territoriales</button>
                     <button class="tab-btn" data-tab="hospital">Fonction Publique Hospitalière</button>
-                    <button class="tab-btn" data-tab="international">Organisations Internationales</button>
+                    <button class="tab-btn" data-tab="international">Organisations Régionales</button>
                 </div>
 
                 <div class="tab-content">
@@ -110,7 +110,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Diplôme de grande école (Sciences Po, ENA/INSP), Master en droit public ou
+                                        <p>Diplôme de grande école (ENA du Sénégal, ENAM du Bénin), Master en droit
+                                            public ou
                                             administration (Bac+5)</p>
                                     </div>
                                     <div class="detail-item">
@@ -120,8 +121,8 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers des postes de direction, salaire progressif de 45 000€ à 120
-                                            000€+</p>
+                                        <p>Évolution vers des postes de direction, salaire progressif de 800 000 FCFA à
+                                            3 000 000 FCFA+</p>
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +146,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Évolution vers attaché principal, directeur de service, salaire progressif de
-                                            30 000€ à 60 000€</p>
+                                            500 000 FCFA à 1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +158,7 @@ session_start();
                         <div class="tab-grid">
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-city"></i></div>
-                                <h3>Directeur Général des Services</h3>
+                                <h3>Secrétaire Général de Collectivité</h3>
                                 <p>Dirige l'ensemble des services d'une collectivité territoriale et met en œuvre les
                                     orientations politiques.</p>
                                 <div class="career-details">
@@ -174,7 +175,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Évolution vers des collectivités plus importantes, salaire variable selon la
-                                            taille de la collectivité (60 000€ à 150 000€+)</p>
+                                            taille de la collectivité (700 000 FCFA à 2 500 000 FCFA+)</p>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +198,8 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers DRH de grandes collectivités, salaire de 35 000€ à 80 000€
+                                        <p>Évolution vers DRH de grandes collectivités, salaire de 600 000 FCFA à 1 800
+                                            000 FCFA
                                             selon la taille</p>
                                     </div>
                                 </div>
@@ -216,7 +218,7 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Concours de l'EHESP, formation spécifique à Rennes, Bac+5 requis</p>
+                                        <p>Concours spécifique, formation à l'ISED (Sénégal) ou CESAG, Bac+5 requis</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -225,7 +227,8 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers la direction de CHU, salaire progressif de 45 000€ à 100 000€+
+                                        <p>Évolution vers la direction de CHU, salaire progressif de 900 000 FCFA à 2
+                                            500 000 FCFA+
                                         </p>
                                     </div>
                                 </div>
@@ -248,8 +251,8 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers des postes de direction adjointe, salaire progressif de 30
-                                            000€ à 60 000€</p>
+                                        <p>Évolution vers des postes de direction adjointe, salaire progressif de 600
+                                            000 FCFA à 1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -260,38 +263,38 @@ session_start();
                     <div class="tab-pane" id="international" data-aos="fade-up">
                         <div class="tab-grid">
                             <div class="career-card">
-                                <div class="career-icon"><i class="fas fa-globe-europe"></i></div>
-                                <h3>Administrateur à l'Union Européenne</h3>
-                                <p>Élabore, met en œuvre et évalue les politiques européennes dans divers domaines.</p>
+                                <div class="career-icon"><i class="fas fa-globe-africa"></i></div>
+                                <h3>Administrateur à l'Union Africaine</h3>
+                                <p>Élabore, met en œuvre et évalue les politiques africaines dans divers domaines.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Master en droit européen, relations internationales, sciences politiques
-                                            (Bac+5), concours EPSO</p>
+                                        <p>Master en droit international, relations internationales, sciences politiques
+                                            (Bac+5), concours spécifiques</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Langues étrangères, droit européen, négociation internationale, analyse
+                                        <p>Langues étrangères, droit international, négociation internationale, analyse
                                             politique</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers chef d'unité, directeur, salaire attractif de 50 000€ à 150
-                                            000€+</p>
+                                        <p>Évolution vers chef d'unité, directeur, salaire attractif de 2 500 000 FCFA à
+                                            5 000 000 FCFA+</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="career-card">
                                 <div class="career-icon"><i class="fas fa-hands-helping"></i></div>
-                                <h3>Spécialiste de Programme (ONU)</h3>
-                                <p>Conçoit et gère des programmes internationaux dans des domaines comme le
+                                <h3>Spécialiste de Programme (CEDEAO/UEMOA)</h3>
+                                <p>Conçoit et gère des programmes régionaux dans des domaines comme le
                                     développement, les droits humains ou l'environnement.</p>
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
                                         <p>Master ou doctorat en relations internationales, développement ou domaine
-                                            spécialisé, expérience internationale</p>
+                                            spécialisé, expérience régionale</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -300,8 +303,8 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Évolution vers des postes de direction de programme, salaire de 60 000$ à 120
-                                            000$+</p>
+                                        <p>Évolution vers des postes de direction de programme, salaire de 2 000 000
+                                            FCFA à 4 000 000 FCFA+</p>
                                     </div>
                                 </div>
                             </div>
@@ -329,14 +332,14 @@ session_start();
                         <ul>
                             <li><strong>Licence Administration Publique</strong> - Fondamentaux du droit public et de
                                 l'administration</li>
-                            <li><strong>Master Droit Public</strong> - Approfondissement des connaissances juridiques
-                                administratives</li>
-                            <li><strong>Master Administration Publique</strong> - Préparation spécifique aux carrières
-                                administratives</li>
-                            <li><strong>Master Politiques Publiques</strong> - Analyse et conception des politiques
-                                publiques</li>
-                            <li><strong>Master Management Public</strong> - Gestion et pilotage des organisations
-                                publiques</li>
+                            <li><strong>Master Droit Public</strong> - Université Cheikh Anta Diop (Sénégal), Université
+                                Félix Houphouët-Boigny (Côte d'Ivoire)</li>
+                            <li><strong>Master Administration Publique</strong> - Université de Yaoundé II (Cameroun),
+                                Université d'Abomey-Calavi (Bénin)</li>
+                            <li><strong>Master Politiques Publiques</strong> - Université Mohammed V (Maroc), Université
+                                de Lomé (Togo)</li>
+                            <li><strong>Master Management Public</strong> - Université Gaston Berger (Sénégal),
+                                Université de Ouagadougou (Burkina Faso)</li>
                         </ul>
                     </div>
                 </div>
@@ -348,12 +351,13 @@ session_start();
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li><strong>Sciences Po</strong> - Préparation privilégiée aux concours administratifs</li>
-                            <li><strong>INSP (ex-ENA)</strong> - Formation des hauts fonctionnaires de l'État</li>
-                            <li><strong>INET</strong> - Formation des administrateurs territoriaux</li>
-                            <li><strong>EHESP</strong> - Spécialisation dans la fonction publique hospitalière</li>
-                            <li><strong>ENS</strong> - Préparation à l'enseignement et la recherche en administration
-                            </li>
+                            <li><strong>ENA Sénégal</strong> - Formation des hauts fonctionnaires sénégalais</li>
+                            <li><strong>ENAM Bénin</strong> - École Nationale d'Administration et de Magistrature</li>
+                            <li><strong>ISCAE Maroc</strong> - Institut Supérieur de Commerce et d'Administration des
+                                Entreprises</li>
+                            <li><strong>CESAG</strong> - Centre Africain d'Études Supérieures en Gestion (Dakar)</li>
+                            <li><strong>CAFRAD</strong> - Centre Africain de Formation et de Recherche Administratives
+                                pour le Développement (Maroc)</li>
                         </ul>
                     </div>
                 </div>
@@ -365,14 +369,15 @@ session_start();
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li><strong>Classes Préparatoires Intégrées</strong> - Préparation aux concours pour public
-                                diversifié</li>
-                            <li><strong>IPAG/CPAG</strong> - Instituts spécialisés dans la préparation aux concours</li>
-                            <li><strong>Concours Externes</strong> - Accessibles selon le niveau d'études (catégories A,
+                            <li><strong>Cycles Préparatoires</strong> - Préparation aux concours administratifs dans
+                                plusieurs pays</li>
+                            <li><strong>Instituts de Formation Administrative</strong> - Centres spécialisés dans la
+                                préparation aux concours</li>
+                            <li><strong>Concours Directs</strong> - Accessibles selon le niveau d'études (catégories A,
                                 B, C)</li>
-                            <li><strong>Concours Internes</strong> - Réservés aux agents déjà en poste</li>
-                            <li><strong>Troisième Voie</strong> - Pour les candidats avec expérience professionnelle
-                            </li>
+                            <li><strong>Concours Professionnels</strong> - Réservés aux agents déjà en poste</li>
+                            <li><strong>Recrutements sur Titre</strong> - Pour les candidats avec qualifications
+                                spécifiques</li>
                         </ul>
                     </div>
                 </div>
@@ -385,7 +390,7 @@ session_start();
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Tendances du Secteur</h2>
             <p class="section-description" data-aos="fade-up">Les évolutions et innovations qui transforment
-                l'administration publique</p>
+                l'administration publique en Afrique</p>
 
             <div class="trends-grid">
                 <div class="trend-card" data-aos="fade-up" data-aos-delay="100">
@@ -393,39 +398,41 @@ session_start();
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <h3>Transformation Numérique</h3>
-                    <p>La dématérialisation des procédures administratives et le développement de l'e-administration
-                        transforment profondément les méthodes de travail et les relations avec les usagers. Les
-                        compétences numériques sont désormais essentielles pour les agents publics.</p>
+                    <p>Le développement de l'e-gouvernance et la digitalisation des services publics révolutionnent
+                        l'administration africaine. Des initiatives comme Smart Africa et les programmes nationaux
+                        d'identité numérique créent de nouvelles opportunités professionnelles et améliorent l'accès aux
+                        services pour les citoyens.</p>
                 </div>
 
                 <div class="trend-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="trend-icon">
                         <i class="fas fa-users-cog"></i>
                     </div>
-                    <h3>Management Participatif</h3>
-                    <p>L'administration évolue vers des modèles de gestion plus horizontaux et participatifs, favorisant
-                        l'implication des agents, l'innovation et l'intelligence collective. Les méthodes agiles et le
-                        design thinking font leur entrée dans le secteur public.</p>
+                    <h3>Décentralisation</h3>
+                    <p>Le renforcement des collectivités locales et la décentralisation administrative créent de
+                        nouveaux besoins en compétences dans la gestion territoriale. L'intelligence territoriale
+                        devient un enjeu majeur pour le développement local durable et la gouvernance participative.</p>
                 </div>
 
                 <div class="trend-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="trend-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Pilotage par la Performance</h3>
-                    <p>Les administrations adoptent une culture du résultat avec des indicateurs de performance, des
-                        évaluations régulières et une recherche d'efficience. La maîtrise des outils d'analyse de
-                        données devient un atout majeur.</p>
+                    <h3>Modernisation de la Gestion Publique</h3>
+                    <p>L'adoption progressive de la gestion axée sur les résultats (GAR) et la budgétisation par
+                        programme transforment les administrations africaines. Ces approches favorisent la transparence,
+                        l'efficacité et la redevabilité dans la gestion des ressources publiques.</p>
                 </div>
 
                 <div class="trend-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="trend-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Administration Écoresponsable</h3>
-                    <p>La prise en compte des enjeux environnementaux dans les politiques publiques et le fonctionnement
-                        interne des administrations crée de nouveaux métiers et compétences liés au développement
-                        durable et à la transition écologique.</p>
+                    <h3>Développement Durable</h3>
+                    <p>L'intégration des Objectifs de Développement Durable (ODD) dans les politiques publiques crée de
+                        nouvelles fonctions administratives liées à l'environnement, l'énergie renouvelable et la
+                        résilience climatique. Les compétences en gestion de projets durables sont particulièrement
+                        recherchées.</p>
                 </div>
             </div>
         </div>

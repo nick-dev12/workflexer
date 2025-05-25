@@ -62,27 +62,28 @@ session_start();
             <div class="intro-content" data-aos="fade-up">
                 <h2>À propos du secteur commercial</h2>
                 <p>Le secteur du commerce et de la vente représente un domaine d'activité dynamique et diversifié,
-                    essentiel à l'économie. De la petite entreprise locale aux grands groupes internationaux, ces
+                    essentiel à l'économie africaine. Des petites entreprises locales aux grands groupes panafricains,
+                    ces
                     métiers constituent le moteur des échanges commerciaux et de la relation client. Ce secteur offre
                     des perspectives d'évolution rapide et permet de développer des compétences valorisées dans tous les
                     domaines professionnels : négociation, conseil, analyse, stratégie, gestion... L'évolution des
                     comportements d'achat et la transformation digitale ont profondément renouvelé ces métiers, créant
-                    de nouvelles opportunités.</p>
+                    de nouvelles opportunités en Afrique francophone.</p>
                 <div class="sector-stats">
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-chart-line"></i>
-                        <h3>3,5 millions</h3>
-                        <p>Emplois dans le commerce en France</p>
+                        <h3>25%</h3>
+                        <p>Du PIB en Afrique francophone</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-store"></i>
-                        <h3>+800 000</h3>
-                        <p>Entreprises commerciales</p>
+                        <h3>+2 millions</h3>
+                        <p>Entreprises commerciales formelles et informelles</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
                         <i class="fas fa-shopping-cart"></i>
-                        <h3>+12%</h3>
-                        <p>Croissance du e-commerce par an</p>
+                        <h3>+30%</h3>
+                        <p>Croissance du e-commerce africain par an</p>
                     </div>
                 </div>
             </div>
@@ -116,7 +117,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+2 à Bac+5 en commerce, vente ou management commercial</p>
+                                        <p>Bac+2 à Bac+5 en commerce, vente ou management commercial (CESAG, ISM, UCAD)
+                                        </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -126,7 +128,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Évolution vers des responsabilités régionales, direction de réseau de
-                                            magasins, salaire de 30 000€ à 60 000€</p>
+                                            magasins, salaire de 600 000 FCFA à 1 200 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +141,7 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>CAP Vente, Bac Pro Commerce ou BTS MCO (Management Commercial Opérationnel)
+                                        <p>CAP Vente, Bac Pro Commerce ou BTS Management Commercial (ISTA, CFPT, ISEP)
                                         </p>
                                     </div>
                                     <div class="detail-item">
@@ -150,7 +152,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Évolution vers des postes de responsable de rayon, adjoint, manager de
-                                            magasin, salaire de 20 000€ à 30 000€</p>
+                                            magasin, salaire de 150 000 FCFA à 400 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +170,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>BTS NDRC, BUT TC, Licence pro ou Master en commerce/vente</p>
+                                        <p>BTS Commerce, DUT TC, Licence pro ou Master en commerce/vente (CESAG, ISM,
+                                            ETICCA)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -178,7 +181,8 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Évolution vers des postes de responsable commercial, directeur des ventes,
-                                            business developer, salaire de 30 000€ à 70 000€ (fixe + variable)</p>
+                                            business developer, salaire de 500 000 FCFA à 1 500 000 FCFA (fixe +
+                                            variable)</p>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +195,7 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+4/5 en école de commerce, management ou marketing</p>
+                                        <p>Bac+4/5 en école de commerce, management ou marketing (CESAG, ISM, IAM)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -201,7 +205,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Direction commerciale, direction de business unit, stratégie d'entreprise,
-                                            salaire de 45 000€ à 90 000€ (fixe + variable)</p>
+                                            salaire de 900 000 FCFA à 2 000 000 FCFA (fixe + variable)</p>
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +223,7 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+4/5 en marketing, école de commerce ou IAE</p>
+                                        <p>Bac+4/5 en marketing, école de commerce (CESAG, UCAD, IAM)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -228,8 +232,9 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Responsable marketing, directeur marketing, brand manager, salaire de 35 000€
-                                            à 60 000€</p>
+                                        <p>Responsable marketing, directeur marketing, brand manager, salaire de 700 000
+                                            FCFA
+                                            à 1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -242,7 +247,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>BTS MCO, Licence pro ou Master en merchandising/marketing</p>
+                                        <p>BTS Commerce, Licence pro ou Master en merchandising/marketing (SUPDECO, ESP,
+                                            ISM)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -252,7 +258,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Direction merchandising, direction de catégorie, consultant retail, salaire
-                                            de 30 000€ à 50 000€</p>
+                                            de 500 000 FCFA à 1 000 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +276,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+4/5 en commerce électronique, marketing digital ou école de commerce</p>
+                                        <p>Bac+4/5 en commerce électronique, marketing digital ou école de commerce
+                                            (ESMT, ISM, IAM)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -279,8 +286,9 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Directeur digital, directeur omnicanal, entrepreneur web, salaire de 40 000€
-                                            à 80 000€</p>
+                                        <p>Directeur digital, directeur omnicanal, entrepreneur web, salaire de 800 000
+                                            FCFA
+                                            à 1 800 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +301,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac+3 à Bac+5 en marketing digital, webmarketing ou communication</p>
+                                        <p>Bac+3 à Bac+5 en marketing digital, webmarketing ou communication (ESMT,
+                                            SUPDECO, ISTIC)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -303,7 +312,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Responsable acquisition, directeur marketing digital, consultant digital,
-                                            salaire de 30 000€ à 55 000€</p>
+                                            salaire de 500 000 FCFA à 1 200 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -326,8 +335,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formation Initiale</h3>
-                        <p>Bac technologique STMG (Sciences et Technologies du Management et de la Gestion) ou bac
-                            professionnel commerce/vente</p>
+                        <p>Bac technologique Sciences de Gestion ou bac
+                            professionnel commerce/vente dans les lycées techniques d'Afrique francophone</p>
                         <span class="timeline-date">Années -3 à 0</span>
                     </div>
                 </div>
@@ -336,7 +345,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Professionnalisantes</h3>
-                        <p>BTS MCO, BTS NDRC, BUT TC, Licences professionnelles en commerce, vente ou marketing</p>
+                        <p>BTS Commerce, BTS Action Commerciale, DUT Techniques de Commercialisation, Licences
+                            professionnelles en commerce (CESAG, ISM, ISTA)</p>
                         <span class="timeline-date">Années 1 à 3</span>
                     </div>
                 </div>
@@ -345,7 +355,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Supérieures</h3>
-                        <p>Masters en marketing, commerce, management commercial, écoles de commerce, IAE</p>
+                        <p>Masters en marketing, commerce, management commercial dans les grandes écoles africaines
+                            (CESAG, IAM, UCAD, ESP)</p>
                         <span class="timeline-date">Années 3 à 5</span>
                     </div>
                 </div>
@@ -354,8 +365,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formation Continue</h3>
-                        <p>Certifications professionnelles, spécialisations sectorielles, programmes en négociation,
-                            vente complexe, management commercial</p>
+                        <p>Certifications professionnelles, spécialisations sectorielles, programmes en négociation
+                            offerts par les chambres de commerce africaines et centres de formation professionnelle</p>
                         <span class="timeline-date">Tout au long de la carrière</span>
                     </div>
                 </div>
@@ -368,10 +379,10 @@ session_start();
                         <h3>Formations Courtes</h3>
                     </div>
                     <ul>
-                        <li>CAP Équipier polyvalent du commerce</li>
+                        <li>CAP Vente et Commerce (ONFP, CFPT)</li>
                         <li>Bac Pro Métiers du commerce et de la vente</li>
-                        <li>BTS MCO (Management Commercial Opérationnel)</li>
-                        <li>BTS NDRC (Négociation et Digitalisation de la Relation Client)</li>
+                        <li>BTS Management Commercial (CFPT, ISTA)</li>
+                        <li>BTS Action Commerciale (ISEP, CFPA)</li>
                     </ul>
                 </div>
 
@@ -381,10 +392,10 @@ session_start();
                         <h3>Formations Universitaires</h3>
                     </div>
                     <ul>
-                        <li>BUT Techniques de Commercialisation</li>
-                        <li>Licence professionnelle Commerce et Distribution</li>
-                        <li>Master Marketing et Vente</li>
-                        <li>Master Commerce International ou E-business</li>
+                        <li>DUT Techniques de Commercialisation (ESP, UCAD)</li>
+                        <li>Licence professionnelle Commerce et Distribution (CESAG, ISM)</li>
+                        <li>Master Marketing et Vente (UCAD, CESAG)</li>
+                        <li>Master Commerce International ou E-business (ESMT, IAM)</li>
                     </ul>
                 </div>
 
@@ -394,10 +405,10 @@ session_start();
                         <h3>Formations Complémentaires</h3>
                     </div>
                     <ul>
-                        <li>Certifications en vente et négociation (CCIP)</li>
-                        <li>Programmes spécialisés en digital business</li>
-                        <li>Formations en techniques de vente avancées</li>
-                        <li>MOOC et e-learning en commerce et marketing</li>
+                        <li>Certifications en vente et négociation (Chambres de Commerce Africaines)</li>
+                        <li>Programmes spécialisés en digital business (ESMT, Orange Digital Center)</li>
+                        <li>Formations en techniques de vente adaptées au marché africain</li>
+                        <li>MOOC et e-learning en commerce et marketing (CESAG, AUF)</li>
                     </ul>
                 </div>
             </div>
@@ -409,43 +420,45 @@ session_start();
         <div class="container">
             <h2 class="section-title light" data-aos="fade-up">Tendances du Secteur</h2>
             <p class="section-description light" data-aos="fade-up">Les évolutions majeures qui façonnent l'avenir du
-                commerce et de la vente</p>
+                commerce et de la vente en Afrique</p>
 
             <div class="trends-grid">
                 <div class="trend-card" data-aos="zoom-in">
                     <div class="trend-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Commerce Omnicanal</h3>
-                    <p>Intégration fluide entre points de vente physiques et canaux digitaux, parcours client sans
-                        couture et expérience d'achat unifiée.</p>
+                    <h3>Commerce Mobile</h3>
+                    <p>Développement du m-commerce et des paiements mobiles (Mobile Money, Orange Money, Wave) qui
+                        révolutionnent l'accès aux services commerciaux dans les zones urbaines et rurales.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="trend-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3>Commerce Intelligent</h3>
-                    <p>Utilisation de l'intelligence artificielle et des données clients pour personnaliser l'offre,
-                        prédire les comportements d'achat et optimiser les prix.</p>
+                    <h3>Commerce Inclusif</h3>
+                    <p>Intégration du secteur informel dans les écosystèmes commerciaux formels grâce aux technologies
+                        numériques, permettant aux petits commerçants d'accéder à de nouveaux marchés.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="trend-icon">
                         <i class="fas fa-recycle"></i>
                     </div>
-                    <h3>Commerce Responsable</h3>
-                    <p>Développement de la vente de produits durables, circuits courts, économie circulaire et
-                        transparence sur les conditions de production.</p>
+                    <h3>Commerce Panafricain</h3>
+                    <p>Expansion des échanges intra-africains favorisée par la Zone de Libre-Échange Continentale
+                        Africaine (ZLECAf), créant de nouvelles opportunités pour les entreprises commerciales locales.
+                    </p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="trend-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Commerce Expérientiel</h3>
-                    <p>Transformation des points de vente en lieux d'expérience, utilisation de la réalité augmentée et
-                        mise en avant du conseil plutôt que de la transaction.</p>
+                    <h3>Commerce Innovant</h3>
+                    <p>Émergence de solutions adaptées au contexte africain comme les plateformes de livraison du
+                        dernier kilomètre, les marketplaces spécialisées et les modèles commerciaux hybrides entre
+                        traditionnel et digital.</p>
                 </div>
             </div>
         </div>
@@ -455,7 +468,7 @@ session_start();
     <section class="cta-section">
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Prêt à vous lancer dans une carrière commerciale ?</h2>
+                <h2>Prêt à vous lancer dans une carrière commerciale en Afrique ?</h2>
                 <p>Découvrez nos ressources d'orientation et prenez contact avec nos conseillers</p>
                 <div class="cta-buttons">
                     <a href="#" class="cta-primary">Consulter le guide complet</a>

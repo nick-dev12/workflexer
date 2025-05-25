@@ -1,0 +1,69 @@
+---
+description: Bonnes pratiques à respecter systématiquement
+globs: 
+alwaysApply: false
+---
+## 🔧 Bonnes pratiques à respecter systématiquement
+
+## Règles spécifiques pour Cursor
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+- Toujours créer les fichiers par étapes progressives pour éviter les limites de tokens
+- Diviser la génération de code en plusieurs commandes distinctes
+- Structure d'implémentation recommandée:
+  1. Créer d'abord le squelette du fichier avec les imports et la structure de base
+  2. Ajouter les classes/fonctions principales sans leur implémentation détaillée
+  3. Implémenter les méthodes/fonctions une par une
+  4. Finaliser avec les commentaires et la documentation
+- Pour les fichiers PHP:
+  1. Commencer par la déclaration <?php et les imports/requires
+  2. Ajouter les définitions de classes/fonctions
+  3. Implémenter la logique métier
+  4. Ajouter le code HTML si nécessaire
+- Pour les fichiers HTML/CSS/JS:
+  1. Créer d'abord la structure HTML de base
+  2. Ajouter les styles CSS essentiels
+  3. Implémenter le JavaScript par fonctionnalités
+- Toujours demander confirmation avant de passer à l'étape suivante
+- Valider chaque section avant de continuer
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+
+### PHP
+- Utiliser des classes, des namespaces et des méthodes claires
+- Respecter la séparation des responsabilités
+- Sécuriser toutes les entrées/sorties
+- Toujours commenter la logique métier
+
+### JavaScript
+- Modulariser le code (fichiers séparés, fonctions pures, code réutilisable)
+- Utiliser `let`, `const` au lieu de `var`
+- Éviter les dépendances inutiles
+- Prioriser les événements délégués et les animations légères
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+### CSS
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+- Utiliser des classes cohérentes et lisibles
+- Éviter les répétitions de code (DRY)
+- Utiliser des variables CSS, des mixins ou des utility classes si applicable
+- S’inspirer des frameworks modernes (ex: Tailwind, SCSS, BEM)
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+---
+
+## Création progressive des fichiers
+- Diviser la création de fichiers en sections logiques (imports, configuration, fonctions, classes, etc.)
+- Implémenter d'abord le squelette du fichier avant d'ajouter les détails
+- Créer et tester les fonctions une par une
+- Pour les fichiers complexes, commencer par les dépendances et les imports
+- Ajouter les commentaires de documentation en même temps que le code
+- Créer d'abord la structure HTML avant d'ajouter le JavaScript et le CSS
+- Implémenter les fonctionnalités critiques en premier, puis ajouter les fonctionnalités secondaires
+- Tester chaque section avant de passer à la suivante
+- Pour les classes, implémenter d'abord les propriétés et la structure, puis les méthodes
+- Diviser les requêtes SQL complexes en plusieurs étapes pour faciliter le débogage
+
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher

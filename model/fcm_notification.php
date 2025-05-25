@@ -187,12 +187,12 @@ function sendFCMNotification($db, $entreprise_id, $notification, $data = [])
         error_log($error_message);
 
         // Log notification attempt with error
-        if (isset($data['candidat_id'])) {
+        if (isset($data['type'])) {
             logNotification(
                 $db,
                 $entreprise_id,
-                $data['candidat_id'],
-                'application',
+                isset($data['candidat_id']) ? $data['candidat_id'] : '',
+                $data['type'],
                 $notification,
                 $data,
                 'failed',
@@ -215,12 +215,12 @@ function sendFCMNotification($db, $entreprise_id, $notification, $data = [])
         error_log($error_message);
 
         // Log notification attempt with error
-        if (isset($data['candidat_id'])) {
+        if (isset($data['type'])) {
             logNotification(
                 $db,
                 $entreprise_id,
-                $data['candidat_id'],
-                'application',
+                isset($data['candidat_id']) ? $data['candidat_id'] : '',
+                $data['type'],
                 $notification,
                 $data,
                 'failed',
@@ -234,9 +234,19 @@ function sendFCMNotification($db, $entreprise_id, $notification, $data = [])
         return false;
     }
 
+    // Limiter la taille du titre si nécessaire
+    if (isset($notification['title']) && strlen($notification['title']) > 50) {
+        $notification['title'] = substr($notification['title'], 0, 47) . '...';
+    }
+
     // Ensure all data values are strings
     foreach ($data as $key => $value) {
         $data[$key] = (string) $value;
+    }
+
+    // Si le type de notification n'est pas spécifié, définir une valeur par défaut
+    if (!isset($data['notification_type'])) {
+        $data['notification_type'] = 'recruteur';
     }
 
     // Prepare FCM message
@@ -289,13 +299,20 @@ function sendFCMNotification($db, $entreprise_id, $notification, $data = [])
     $status = $success ? 'sent' : 'failed';
     $error_message = !$success ? ($curl_error ?: $response) : null;
 
-    // Log the notification
-    if (isset($data['candidat_id'])) {
+    // Log the notification with a message if success
+    if ($success) {
+        error_log("Notification envoyée avec succès à l'entreprise $entreprise_id");
+    } else {
+        error_log("Échec de l'envoi de notification à l'entreprise $entreprise_id: $error_message");
+    }
+
+    // Log the notification in the database
+    if (isset($data['type'])) {
         logNotification(
             $db,
             $entreprise_id,
-            $data['candidat_id'],
-            'application',
+            isset($data['candidat_id']) ? $data['candidat_id'] : '',
+            $data['type'],
             $notification,
             $data,
             $status,
@@ -556,4 +573,85 @@ function sendApplicationStatusNotification($db, $users_id, $statut, $poste, $ent
 
     // Send notification
     return sendUserFCMNotification($db, $users_id, $notification, $data);
+}
+
+/**
+ * Send notification for new message
+ * @param PDO $db Database connection
+ * @param string $receiver_id User or Enterprise ID that will receive the notification
+ * @param string $sender_name Name of the sender
+ * @param bool $is_user_receiver True if the receiver is a user (candidat), false if it's an enterprise
+ * @param string $message_preview First words of the message 
+ * @return bool Success status
+ */
+function sendMessageNotification($db, $receiver_id, $sender_name, $is_user_receiver = true, $message_preview = '')
+{
+    // Trim message preview if needed
+    if (strlen($message_preview) > 50) {
+        $message_preview = substr(strip_tags($message_preview), 0, 47) . '...';
+    } else {
+        $message_preview = strip_tags($message_preview);
+    }
+
+    // Log start of notification process with type info
+    $receiver_type = $is_user_receiver ? "utilisateur" : "entreprise";
+    error_log("⚠️ Début d'envoi de notification à $receiver_type #$receiver_id de $sender_name");
+
+    // Check if token exists before trying to send
+    if ($is_user_receiver) {
+        $token = getUserToken($db, $receiver_id);
+        if (!$token) {
+            error_log("❌ Pas de token FCM pour l'utilisateur #$receiver_id - Impossible d'envoyer la notification");
+            return false;
+        }
+    } else {
+        $token = getEnterpriseToken($db, $receiver_id);
+        if (!$token) {
+            error_log("❌ Pas de token FCM pour l'entreprise #$receiver_id - Impossible d'envoyer la notification");
+            return false;
+        }
+    }
+    error_log("✅ Token FCM trouvé pour $receiver_type #$receiver_id");
+
+    // Create notification based on receiver type
+    $notification = [
+        'title' => 'Nouveau message de ' . $sender_name,
+        'body' => !empty($message_preview) ? $message_preview : 'Vous avez reçu un nouveau message'
+    ];
+
+    // Create data payload with URL to redirect user
+    $data = [
+        'type' => 'message',
+        'url' => $is_user_receiver ? '/page/user_profil.php' : '/entreprise/entreprise_profil.php',
+        'sender_name' => $sender_name,
+        'notification_type' => $is_user_receiver ? 'candidat' : 'recruteur'
+    ];
+
+    // Log attempt details
+    error_log("📤 Tentative d'envoi de notification: " . json_encode([
+        'to' => "$receiver_type #$receiver_id",
+        'title' => $notification['title'],
+        'body' => $notification['body'],
+        'data' => $data
+    ]));
+
+    // Send notification based on receiver type
+    $result = false;
+    if ($is_user_receiver) {
+        $result = sendUserFCMNotification($db, $receiver_id, $notification, $data);
+    } else {
+        // Pour l'entreprise, s'assurer que data['notification_type'] est défini correctement pour le service worker
+        $data['notification_type'] = 'recruteur';
+        // Pour l'entreprise, on utilise sendFCMNotification qui attend un entreprise_id
+        $result = sendFCMNotification($db, $receiver_id, $notification, $data);
+    }
+
+    // Log final result
+    if ($result) {
+        error_log("✅ Notification envoyée avec succès à $receiver_type #$receiver_id");
+    } else {
+        error_log("❌ Échec de l'envoi de notification à $receiver_type #$receiver_id");
+    }
+
+    return $result;
 }

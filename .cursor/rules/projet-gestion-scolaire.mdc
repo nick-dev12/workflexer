@@ -1,0 +1,142 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🧠 Règles d'Intelligence pour Cursor
+
+## Objectif principal
+Cursor doit se comporter comme **un développeur expert en PHP, JavaScript, CSS et Python**.  
+Il doit :
+- Travailler de **manière progressive, étape par étape, section par section**
+- Être **créatif, structuré, artistique** et produire un travail **professionnel de haute qualité**
+- Toujours **commenter**, **expliquer** et **organiser** son code
+- S'adapter dynamiquement à la **structure de la base de code existante**
+- Toujours **évoluer** et **apprendre** pour améliorer les futurs fichiers
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+---
+
+## 📁 Structure du projet
+- Architecture **MVC** obligatoire : Modèles, Vues, Contrôleurs
+- Les fichiers doivent être placés dans les répertoires appropriés selon leur fonction
+- Utiliser des noms de fichiers en **français**, en **minuscules**, avec des **tirets** (`exemple-de-fichier.php`)
+
+---
+
+## 🧾 Conventions de codage
+- Indentation : **4 espaces**, **aucune tabulation**
+- Nom des éléments :
+  - Variables et fonctions : `camelCase`
+  - Classes : `PascalCase`
+  - Variables de classe : préfixées par `$_`
+- Tous les commentaires doivent être :
+  - **En français**
+  - Présents pour toute logique importante ou complexe
+
+---
+
+## 🛢️ Base de données
+- Noms des tables : minuscules, avec `_`, préfixés par `gs_` (ex: `gs_utilisateurs`)
+- Utiliser exclusivement des **requêtes préparées**
+- Documenter la structure de chaque table dans le modèle associé
+
+---
+
+## 🔒 Sécurité
+- Valider et assainir toutes les entrées utilisateur
+- Utiliser `password_hash()` / `password_verify()` pour les mots de passe
+- Protéger toutes les routes critiques avec une gestion des sessions
+- Ne jamais exposer d’informations sensibles dans l’URL
+
+---
+
+## 🖥️ Interface utilisateur
+- Compatibilité totale avec les navigateurs modernes
+- Design **responsive** : mobile et bureau
+- Composants réutilisables avec une cohérence graphique
+- Respect des normes d’**accessibilité (WCAG)**
+
+---
+
+## 🚀 Performance
+- Optimiser les requêtes SQL avec les bons **index**
+- Réduire le nombre de requêtes simultanées
+- Mettre en cache les données récurrentes
+- Compresser/optimiser les images et scripts
+
+---
+
+## ✅ Bonnes pratiques
+- Éviter toute duplication de code (**DRY**)
+- Gérer les erreurs proprement avec `try/catch`
+- Écrire des **tests unitaires** pour les fonctionnalités critiques
+- Documenter les APIs et fonctions principales
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+---
+
+## 📌 Gestion de version
+- Commits fréquents avec des messages clairs et descriptifs
+- Une branche = une fonctionnalité
+- Revue de code obligatoire avant tout merge
+- Suivre le **versionnage sémantique** (`vX.Y.Z`)
+
+---
+
+## 🧱 Création **progressive** des fichiers
+
+> Cursor doit **toujours générer les fichiers progressivement**, section par section, comme suit :
+
+### Approche générale
+1. Créer le **squelette** du fichier (imports, structures de base)
+2. Ajouter les **classes ou fonctions principales** sans implémentation
+3. Implémenter chaque fonction ou méthode **une par une**
+4. Ajouter les commentaires de documentation
+5. Tester chaque section avant de passer à la suivante
+6. cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+
+### PHP
+- `<?php` + `require`/`include`
+- Classes et fonctions (déclarations)
+- Logique métier
+- Bloc HTML (si nécessaire)
+
+### HTML/CSS/JS
+1. Créer la **structure HTML** de base
+2. Ajouter les **styles CSS essentiels**
+3. Implémenter le **JS** progressivement, par fonctionnalité
+4. cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+---
+
+## ⚙️ Instructions spécifiques à Cursor
+- Ne jamais générer un fichier en un seul bloc massif
+- Diviser les fichiers longs en **étapes logiques** (structure → contenu → logique → styles/scripts)
+- Toujours demander une **validation explicite** avant de continuer
+- Créer des fichiers complexes **par lots** :
+- cree troujous les styles dans un fichier separer qui portera le nom du fichier au quel il est ratacher
+  1. Imports & squelette
+  2. Classes / sections
+  3. Fonctions / fonctionnalités critiques
+  4. Fonctions secondaires
+  5. Tests / commentaires / finalisation
+
+---
+
+## ✨ Style de développement
+- Être **créatif** et **artistique**, mais toujours **logique**
+- Organiser le code comme un **chef-d’œuvre technique**
+- Rechercher une **clarté maximale**
+- Toujours laisser une trace de compréhension pour les humains (commentaires, structure claire)
+- S’adapter dynamiquement au **contexte** et à la **structure du projet**
+- Ensuite, crée un **fichier CSS séparé** contenant les styles associés
+- Puis, crée un **fichier JS séparé** avec les scripts nécessaires
+
+---
+

@@ -34,91 +34,263 @@ textarea {
   margin-bottom: 10px;
 }
 
+/* Nouvelle carte professionnelle avec QR code */
 .section3 .qr-code {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 2px #00000036;
+  flex-direction: column;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
 }
 
-.section3 .qr-code .qr_code {
-  display: none;
+/* Styles pour la carte professionnelle */
+.section3 .qr-code .professional-card {
+  width: 100%;
+  aspect-ratio: 1.58 / 1; /* Ratio d'une carte bancaire/professionnelle */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: all 0.3s ease;
+  height: 170px;
+  margin-bottom: 5px;
 }
+
+/* Éléments décoratifs de la carte */
+.section3 .qr-code .card-decoration {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: -60px;
+  right: -60px;
+}
+
+.section3 .qr-code .card-decoration:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  left: -70px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+}
+
+/* Logo en haut à droite de la carte */
+.section3 .qr-code .card-logo {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+}
+
+.section3 .qr-code .card-logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Rend le logo blanc */
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.section3 .qr-code .card-logo img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Contenu central avec QR code */
+.section3 .qr-code .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  position: relative;
+  height: 170px;
+}
+
+/* QR code centré avec fond blanc et logo au centre */
+.section3 .qr-code .qr_code {
+  display: block;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  height: 120px;
+}
+
+/* Suppression du logo au centre du QR code */
 
 .section3 .qr-code .qr_code.active {
   display: block;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
-.section3 .qr-code .qr_code.active a {
-  margin-top: 10px;
-  padding: 6px 20px;
-  border-radius: 10px;
-  color: #ffffff;
-  text-decoration: none;
+.section3 .qr-code .qr_code img {
+  width: 110px;
+  height: 110px;
+  display: block;
+  max-width: 110px;
+  max-height: 100px;
+}
+
+/* Informations de l'utilisateur en bas de la carte */
+.section3 .qr-code .card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: white;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.section3 .qr-code .card-info .card-name {
   font-size: 12px;
-  font-weight: bold;
-  background-color: #0062ff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: right;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section3 .qr-code .card-info .card-profession {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  text-align: left;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Puce électronique simulée */
+.section3 .qr-code .card-chip {
+  position: absolute;
+  width: 30px;
+  height: 24px;
+  background: linear-gradient(145deg, #d4af37, #f2d279);
+  border-radius: 4px;
+  top: 20px;
+  left: 20px;
+}
+
+.section3 .qr-code .card-chip::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 12px;
+  background: linear-gradient(to right, #d4af37, #f2d279, #d4af37);
+  top: 6px;
+  left: 5px;
+  border-radius: 2px;
+}
+
+/* Boutons d'action */
+.section3 .qr-code .card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 100%;
 }
 
 .section3 .qr-code .mon_qrcode {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  background-color: rgba(255, 255, 255, 0.15);
   color: #ffffff;
-  padding: 6px 20px;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 30px;
   cursor: pointer;
   border: none;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.section3 .qr-code .mon_qrcode img {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
-}
-
-.section3 .qr-code span {
-  margin: 0 10px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.section3 .qr-code .mon_qrcode:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
 }
 
 .section3 .qr-code #open-scanner {
-  background-color: #04ba10;
-  color: #ffffff;
-  padding: 6px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  font-size: 12px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.section3 .qr-code #open-scanner img {
-  width: 20px;
-  height: 20px;
+  background-color: rgba(4, 186, 16, 0.8);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  flex: 1;
   margin-left: 10px;
 }
 
-.section3 .qr-code img {
-  width: 200px;
-  height: 200px;
+.section3 .qr-code #open-scanner:hover {
+  background-color: rgba(4, 186, 16, 1);
+  transform: translateY(-2px);
+}
+
+.section3 .qr-code #open-scanner img {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+}
+
+.section3 .qr-code .qr_code.active a {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #0062ff;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 98, 255, 0.3);
+}
+
+.section3 .qr-code .qr_code.active a:hover {
+  background-color: #0051d4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 98, 255, 0.4);
+}
+
+/* Styles pour le scanner */
+#qr-reader {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  display: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 #qr-reader {
@@ -564,96 +736,119 @@ textarea {
   margin-top: 30px;
   margin-bottom: 50px;
 }
+
 .section3 .container_box1 .box1 {
   width: 800px;
-  border: 1px solid rgba(133, 133, 133, 0.15);
-  padding: 20px 40px;
+  border: none;
+  padding: 30px 40px;
   margin-left: -180px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .section3 .container_box1 .box1:hover {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
   transform: translateY(-5px);
 }
 
-.section3 .container_box1 .box1 {
-  position: relative;
-}
-.section3 .container_box1 .box1 p {
-  font-size: 13px;
-  line-height: 28px;
-  color: #525252;
-}
 .section3 .container_box1 h2 {
   text-align: left;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(145deg, #f6f6f6, #ebebeb);
+  background: linear-gradient(145deg, #f8f9fa, #edf0f3);
   text-align: left;
-  font-size: 16px;
-  padding: 14px 40px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(133, 133, 133, 0.15);
+  font-size: 18px;
+  padding: 16px 40px;
+  margin-bottom: 25px;
+  border-bottom: none;
   border-radius: 10px;
-  color: #333;
+  color: #2c3e50;
   text-transform: uppercase;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   font-weight: 600;
   letter-spacing: 0.5px;
+  position: relative;
 }
+
+.section3 .container_box1 h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #0066ff, #3498db);
+  border-radius: 3px;
+}
+
 .section3 .container_box1 h2 strong {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #7f8c8d;
+  font-size: 14px;
+  font-weight: 500;
 }
+
 .section3 .container_box1 h2 img {
-  height: 25px;
-  width: 25px;
+  height: 22px;
+  width: 22px;
+  margin-left: 8px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.section3 .container_box1 h2:hover img {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .section3 .container_box1 .buton,
-.buttons {
+.section3 .container_box1 .buttons {
   position: absolute;
-  bottom: 15px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
-  transform: translate(-50%);
   display: flex !important;
   align-items: center;
   justify-content: center;
   border: none;
-  padding: 8px 20px;
+  padding: 12px 25px;
   border-radius: 30px;
-  background: linear-gradient(145deg, #5f5f5f, #444444);
+  background: linear-gradient(145deg, #0066ff, #3498db);
   color: #ffffff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.2);
 }
 
 .section3 .container_box1 .buton:hover,
 .section3 .container_box1 .buttons:hover {
-  background: linear-gradient(145deg, #444444, #333333);
-  transform: translate(-50%) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, #3498db, #0066ff);
+  transform: translate(-50%, -3px);
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+}
+
+.section3 .container_box1 .buton:active,
+.section3 .container_box1 .buttons:active {
+  transform: translate(-50%, 0);
+  box-shadow: 0 4px 10px rgba(0, 102, 255, 0.2);
 }
 
 .section3 .container_box1 .buttons img,
 .section3 .container_box1 .buton img {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   margin-right: 10px;
   filter: brightness(1.2);
   transition: transform 0.3s ease;
@@ -664,20 +859,7 @@ textarea {
   transform: rotate(15deg);
 }
 
-.section3 .container_box1 .form_box {
-  width: 100%;
-  display: none;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.section3 .container_box1 .form_box.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
+.section3 .container_box1 .form_box,
 .section3 .container_box1 .texte {
   width: 100%;
   display: none;
@@ -686,29 +868,33 @@ textarea {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+.section3 .container_box1 .form_box.active,
 .section3 .container_box1 .texte.active {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
 
-.section3 .container_box1 .form_box form {
+.section3 .container_box1 .form_box form,
+.section3 .container_box1 .texte form {
   width: 90%;
   padding: 30px;
   border: none;
   border-radius: 15px;
   position: relative;
-  margin-top: 20px;
-  background-color: #f9f9f9;
+  margin: 20px auto;
+  background-color: #f8f9fa;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
-.section3 .container_box1 .form_box form:hover {
+.section3 .container_box1 .form_box form:hover,
+.section3 .container_box1 .texte form:hover {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
-.section3 .container_box1 .form_box form img {
+.section3 .container_box1 .form_box form img,
+.section3 .container_box1 .texte form img {
   height: 25px;
   width: 25px;
   position: absolute;
@@ -723,18 +909,20 @@ textarea {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.section3 .container_box1 .form_box form img:hover {
+.section3 .container_box1 .form_box form img:hover,
+.section3 .container_box1 .texte form img:hover {
   transform: rotate(90deg) scale(1.1);
   background-color: rgba(255, 0, 0, 0.1);
 }
 
-.section3 .container_box1 .form_box form textarea {
+.section3 .container_box1 .form_box form textarea,
+.section3 .container_box1 .texte form textarea {
   height: 200px;
   width: 100%;
   font-size: 15px;
   border-radius: 12px;
   padding: 20px;
-  color: #333;
+  color: #505050;
   font-family: "Nunito", sans-serif;
   margin-top: 20px;
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -743,13 +931,15 @@ textarea {
   resize: none;
 }
 
-.section3 .container_box1 .form_box form textarea:focus {
+.section3 .container_box1 .form_box form textarea:focus,
+.section3 .container_box1 .texte form textarea:focus {
   outline: none;
-  border-color: #5f5f5f;
-  box-shadow: 0 0 0 3px rgba(95, 95, 95, 0.2);
+  border-color: #0066ff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
 }
 
-.section3 .container_box1 .form_box form textarea::placeholder {
+.section3 .container_box1 .form_box form textarea::placeholder,
+.section3 .container_box1 .texte form textarea::placeholder {
   font-size: 15px;
   color: #aaa;
 }
@@ -757,59 +947,65 @@ textarea {
 #caracteres-restants,
 #caracteres-restantes {
   font-size: 13px;
-  color: #888;
+  color: #95a5a6;
   margin-top: 8px;
   text-align: right;
   font-style: italic;
 }
 
-.section3 .container_box1 .form_box form #ajoute {
+.section3 .container_box1 .form_box form #ajoute,
+.section3 .container_box1 .texte form #ajoute {
   color: #ffffff;
-  padding: 10px 25px;
+  padding: 12px 30px;
   border-radius: 30px;
   font-size: 15px;
   transition: all 0.3s ease;
   margin-top: 20px;
   cursor: pointer;
   border: none;
-  background: linear-gradient(145deg, #5f5f5f, #444444);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #0066ff, #3498db);
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.1);
   font-weight: 500;
   letter-spacing: 0.5px;
 }
 
-.section3 .container_box1 .form_box form #ajoute:hover {
-  background: linear-gradient(145deg, #444444, #333333);
+.section3 .container_box1 .form_box form #ajoute:hover,
+.section3 .container_box1 .texte form #ajoute:hover {
+  background: linear-gradient(145deg, #3498db, #0066ff);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.15);
 }
 
-.section3 .container_box1 .form_box form #ajoute:active {
+.section3 .container_box1 .form_box form #ajoute:active,
+.section3 .container_box1 .texte form #ajoute:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.1);
 }
 
 .section3 .container_box1 .description {
   text-align: left;
   width: 100%;
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 70px;
-  color: #444444;
-  line-height: 28px;
-  padding: 15px;
+  color: #505050;
+  line-height: 1.7;
+  padding: 20px;
   border-radius: 10px;
-  background-color: rgba(249, 249, 249, 0.5);
+  background-color: rgba(248, 249, 250, 0.7);
+  border-left: 3px solid #0066ff;
   transition: all 0.3s ease;
 }
 
 .section3 .container_box1 .description:hover {
-  background-color: rgba(249, 249, 249, 0.9);
+  background-color: rgba(248, 249, 250, 0.9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .section3 .container_box1 .description .p {
-  color: #9b9b9b;
-  font-size: 14px;
+  color: #95a5a6;
+  font-size: 15px;
+  font-style: italic;
 }
 
 .section3 .container_box1 .description img {
@@ -820,64 +1016,9 @@ textarea {
 }
 
 @media screen and (max-width: 1400px) {
-  .section3 .container_box1 {
-    margin-top: 30px;
-    margin-bottom: 50px;
-  }
   .section3 .container_box1 .box1 {
     width: 800px;
     margin-left: -20px;
-  }
-  .section3 .container_box1 .box1 p {
-    font-size: 17px;
-    line-height: 25px;
-  }
-  .section3 .container_box1 h2 {
-    width: 100%;
-    border-radius: 10px;
-    font-size: 14px;
-  }
-  .section3 .container_box1 .buton {
-    font-size: 15px;
-  }
-  .section3 .container_box1 button {
-    color: #000000;
-  }
-  .section3 .container_box1 button:hover {
-    background-color: #f39c12;
-  }
-  .section3 .container_box1 .form_box {
-    width: 100%;
-    display: none;
-    transition: all 0.5s;
-  }
-  .section3 .container_box1 .texte {
-    width: 100%;
-    display: none;
-  }
-  .section3 .container_box1 .form_box form {
-    width: 90%;
-    padding: 20px 20px;
-  }
-  .section3 .container_box1 .form_box form textarea {
-    height: 200px;
-    width: 100%;
-    font-size: 18px;
-  }
-  .section3 .container_box1 .form_box form #ajoute {
-    padding: 5px 7px;
-    font-size: 15px;
-  }
-  .section3 .container_box1 .description {
-    width: 100%;
-    font-size: 14px;
-  }
-  .section3 .container_box1 .description .p {
-    font-size: 12px;
-  }
-  .section3 .container_box1 .description img {
-    height: 100px;
-    width: 120px;
   }
 }
 
@@ -889,16 +1030,11 @@ textarea {
     font-size: 15px;
   }
   .section3 .container_box1 h2 {
-    font-size: 18px;
-  }
-  .section3 .container_box1 .buton {
-    font-size: 14px;
-  }
-  .section3 .container_box1 .form_box form textarea {
     font-size: 16px;
+    padding: 14px 30px;
   }
   .section3 .container_box1 .description {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
@@ -913,36 +1049,35 @@ textarea {
     font-size: 16px;
     padding: 12px 20px;
   }
+  .section3 .container_box1 h2::after {
+    left: 20px;
+    width: 40px;
+  }
   .section3 .container_box1 .box1 {
     width: 98%;
     margin-left: 0px;
-    padding: 15px 20px;
+    padding: 20px;
   }
   .section3 .container_box1 .description {
     font-size: 14px;
-    line-height: 24px;
-    text-align: justify;
-    padding: 10px;
+    line-height: 1.6;
+    padding: 15px;
+    margin-bottom: 60px;
   }
-  .section3 .container_box1 form {
-    width: 100%;
+  .section3 .container_box1 .form_box form,
+  .section3 .container_box1 .texte form {
+    width: 95%;
+    padding: 20px;
   }
-  .section3 .container_box1 .form_box form {
-    padding: 20px 15px;
-  }
-  .section3 .container_box1 .form_box form textarea {
+  .section3 .container_box1 .form_box form textarea,
+  .section3 .container_box1 .texte form textarea {
     font-size: 14px;
     padding: 15px;
     height: 180px;
   }
   .section3 .container_box1 .buton,
   .section3 .container_box1 .buttons {
-    right: 70px;
-    padding: 7px 15px;
-    font-size: 13px;
-  }
-  .section3 .container_box1 .form_box form #ajoute {
-    padding: 8px 20px;
+    padding: 10px 20px;
     font-size: 14px;
   }
 }
@@ -950,50 +1085,51 @@ textarea {
 @media screen and (max-width: 500px) {
   .section3 .container_box1 .box1 {
     width: 100%;
-    margin-left: 0px;
-    padding: 15px 10px;
-  }
-  .section3 .container_box1 .box1 p {
-    font-size: 13px;
-    line-height: 22px;
-    padding: 10px;
+    padding: 15px;
   }
   .section3 .container_box1 h2 {
     padding: 10px 15px;
-    font-size: 14px;
+    font-size: 15px;
+    margin-bottom: 20px;
   }
-  .section3 .container_box1 .buton,
-  .section3 .container_box1 .buttons {
-    right: 60px;
+  .section3 .container_box1 h2::after {
+    left: 15px;
+    width: 30px;
+  }
+  .section3 .container_box1 h2 strong {
     font-size: 12px;
-    padding: 6px 12px;
   }
-  .section3 .container_box1 .form_box {
+  .section3 .container_box1 h2 img {
+    height: 18px;
+    width: 18px;
+  }
+  .section3 .container_box1 .description {
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 12px;
+    margin-bottom: 60px;
+  }
+  .section3 .container_box1 .form_box form,
+  .section3 .container_box1 .texte form {
     width: 100%;
-    padding: 10px 0;
+    padding: 15px;
   }
-  .section3 .container_box1 .form_box form {
-    width: 95%;
-    padding: 20px 15px;
-  }
-
-  .section3 .container_box1 .form_box form textarea {
+  .section3 .container_box1 .form_box form textarea,
+  .section3 .container_box1 .texte form textarea {
     font-size: 13px;
     padding: 12px;
     height: 160px;
   }
-
-  .section3 .container_box1 .form_box form #ajoute {
-    font-size: 13px;
-    padding: 8px 15px;
+  .section3 .container_box1 .form_box form #ajoute,
+  .section3 .container_box1 .texte form #ajoute {
+    font-size: 14px;
+    padding: 10px 20px;
   }
-
-  .section3 .container_box1 .description {
+  .section3 .container_box1 .buton,
+  .section3 .container_box1 .buttons {
+    padding: 8px 16px;
     font-size: 13px;
-    line-height: 22px;
-    padding: 10px;
   }
-
   #caracteres-restants,
   #caracteres-restantes {
     font-size: 11px;
@@ -1001,38 +1137,50 @@ textarea {
 }
 
 .section3 .container_box2 {
-  width: 80%;
-  padding: 30px;
-  border: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(249, 250, 252, 0.9)
+  );
   border-radius: 15px;
-  margin-bottom: 50px;
-  background-color: #ffffff;
+  padding: 30px;
+  margin: 40px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
   max-width: 1000px;
-  transition: all 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section3 .container_box2:hover {
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
   transform: translateY(-3px);
 }
 
-.section3 .container_box2 .box1 {
+.section3 .container_box2 .box1 h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--secondary-color, #002233);
   margin-bottom: 25px;
+  padding-bottom: 10px;
+  position: relative;
+  text-align: center;
 }
 
-.section3 .container_box2 .box1 h1 {
-  text-align: left;
-  font-size: 18px;
-  padding: 14px 40px;
-  border: none;
-  border-radius: 10px;
-  color: #333;
-  text-transform: uppercase;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  background: linear-gradient(145deg, #f6f6f6, #ebebeb);
-  font-weight: 600;
-  letter-spacing: 0.5px;
+.section3 .container_box2 .box1 h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color, #0066ff),
+    var(--accent-color, #f39c12)
+  );
+  border-radius: 2px;
 }
 
 .section3 .container_box2 .box2 {
@@ -4003,7 +4151,6 @@ textarea {
     font-size: 16px;
   }
 }
-
 /* Styles pour la liste des formations */
 .formations-list {
   display: flex;
@@ -4702,4 +4849,344 @@ textarea {
 .section3 .qr-code img {
   max-width: 140px;
   max-height: 140px;
+}
+
+/* Améliorations supplémentaires pour la section "À propos de moi" */
+
+/* Styles pour les labels des formulaires */
+.section3 .container_box1 .form_box form label,
+.section3 .container_box1 .texte form label {
+  display: block;
+  color: #2c3e50;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  position: relative;
+  padding-left: 15px;
+}
+
+.section3 .container_box1 .form_box form label::before,
+.section3 .container_box1 .texte form label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 15px;
+  background: linear-gradient(to bottom, #0066ff, #3498db);
+  border-radius: 3px;
+}
+
+/* Amélioration du titre */
+.section3 .container_box1 h2 span {
+  position: relative;
+  z-index: 1;
+}
+
+.section3 .container_box1 h2 span::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(0, 102, 255, 0.2), transparent);
+  z-index: -1;
+}
+
+/* Améliorations des boutons */
+.section3 .container_box1 .buton,
+.section3 .container_box1 .buttons {
+  overflow: hidden;
+}
+
+.section3 .container_box1 .buton::before,
+.section3 .container_box1 .buttons::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.section3 .container_box1 .buton:hover::before,
+.section3 .container_box1 .buttons:hover::before {
+  left: 100%;
+}
+
+/* Amélioration de la description vide */
+.section3 .container_box1 .description .p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: #95a5a6;
+  padding: 20px;
+  text-align: center;
+  border: 1px dashed rgba(0, 102, 255, 0.2);
+  border-radius: 8px;
+}
+
+.section3 .container_box1 .description .p::before {
+  content: "\f05a";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  color: #3498db;
+  font-size: 18px;
+}
+
+/* Animation pour le focus des textarea */
+.section3 .container_box1 .form_box form textarea:focus,
+.section3 .container_box1 .texte form textarea:focus {
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Amélioration du compteur de caractères */
+#caracteres-restants,
+#caracteres-restantes {
+  position: relative;
+  padding-right: 22px;
+}
+
+#caracteres-restants::after,
+#caracteres-restantes::after {
+  content: "\f021";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #95a5a6;
+  font-size: 14px;
+}
+
+/* Amélioration de l'animation des formulaires */
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section3 .container_box1 .form_box.active,
+.section3 .container_box1 .texte.active {
+  animation: formSlideIn 0.4s ease-out forwards;
+}
+
+/* Effet de surbrillance pour les boutons de fermeture */
+.section3 .container_box1 .form_box form img:hover,
+.section3 .container_box1 .texte form img:hover {
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+/* Amélioration responsive */
+@media screen and (max-width: 500px) {
+  .section3 .container_box1 .form_box form label,
+  .section3 .container_box1 .texte form label {
+    font-size: 13px;
+    padding-left: 12px;
+  }
+
+  .section3 .container_box1 .form_box form label::before,
+  .section3 .container_box1 .texte form label::before {
+    height: 12px;
+    width: 4px;
+  }
+
+  #caracteres-restants::after,
+  #caracteres-restantes::after {
+    font-size: 12px;
+  }
+}
+
+/* Effet de focus pour les formulaires */
+.section3 .container_box1 .form_box form.focused,
+.section3 .container_box1 .texte form.focused {
+  box-shadow: 0 15px 30px rgba(0, 102, 255, 0.15);
+}
+
+.section3 .container_box1 .form_box form textarea:focus,
+.section3 .container_box1 .texte form textarea:focus {
+  border-color: #0066ff;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+  background-color: #fff;
+}
+
+/* Styles améliorés pour les formulaires */
+.error-message {
+  background-color: #ffebee;
+  color: #e53935;
+  border-left: 3px solid #e53935;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Animation pour les boutons */
+.add-experience-btn,
+.affiche_forms,
+.affiche_formss {
+  position: relative;
+  overflow: hidden;
+}
+
+.add-experience-btn::after,
+.affiche_forms::after,
+.affiche_formss::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.add-experience-btn:hover::after,
+.affiche_forms:hover::after,
+.affiche_formss:hover::after {
+  left: 100%;
+}
+
+/* Styles pour les formulaires actifs */
+.form.active,
+.forms.active,
+.formss.active {
+  animation: formSlideIn 0.5s ease-out forwards;
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effet de focus pour les inputs et selects */
+.boxmetier input:focus,
+.boxmetier select:focus,
+.boxmetier textarea:focus {
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+  border-color: var(--primary-color, #0066ff);
+  background-color: #fff;
+}
+
+/* Amélioration des boutons de fermeture */
+.imgs1:hover,
+.imgs2:hover,
+.imgs22:hover,
+.imgFormee:hover {
+  transform: rotate(90deg) scale(1.1);
+  background-color: rgba(231, 76, 60, 0.1);
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Styles pour les badges de niveau */
+.level-badge {
+  background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+  border-left: 3px solid var(--primary-color, #0066ff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.level-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Amélioration des compteurs de caractères */
+#char-count,
+#caractere,
+#caracteres-restants,
+#caracteres-restantes {
+  font-size: 0.8rem;
+  color: #95a5a6;
+  text-align: right;
+  margin-top: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Amélioration de l'apparence des inputs désactivés */
+input:disabled,
+select:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Amélioration des messages vides */
+.p {
+  color: #95a5a6;
+  font-style: italic;
+  background-color: rgba(248, 249, 250, 0.7);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid #95a5a6;
+  text-align: center;
+}
+
+/* Effet de survol pour les cartes d'expérience et de formation */
+.experience-card:hover,
+.formation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation pour les formulaires */
+.form,
+.forms,
+.formss,
+.form-modif,
+.edit-form {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Amélioration des boutons d'action */
+.experience-actions img,
+.formation-actions img {
+  transition: all 0.3s ease;
+}
+
+.experience-actions img:hover,
+.formation-actions img:hover {
+  transform: scale(1.2);
 }

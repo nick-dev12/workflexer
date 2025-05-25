@@ -254,99 +254,144 @@ if (isset($_GET['id'])) {
 
 
         <?php include('../include/notifications.php') ?>
-        <!-- Afficher le QR code -->
+        <!-- Afficher la carte professionnelle avec QR code -->
         <div class="qr-code">
-            <button class="mon_qrcode">Mon QR Code <?php echo generateQRCode($_SESSION['users_id']); ?></button>
-            <span> ou </span>
-            <!-- Bouton pour ouvrir le scanner de QR code -->
-            <button id="open-scanner">Scanner un QR Code <img src="../image/scanner.png" alt=""></button>
-            <div class="qr_code">
-                <?php echo generateQRCode($_SESSION['users_id']); ?>
-                <a href="qrcodes/user_<?php echo $_SESSION['users_id']; ?>.png"> Telecharger mon code QR </a>
-            </div>
-        </div>
+            <div class="professional-card">
+                <!-- Éléments décoratifs -->
+                <div class="card-decoration"></div>
+                <div class="card-decoration"></div>
 
-        <!-- Nouveau conteneur pour le bouton de notifications -->
-        <?php if ($hasNotificationsEnabled): ?>
-            <p>Vous avez activé les notifications</p>
-        <?php else: ?>
-            <div class="notifications-control notifications-control-disabled">
-                <div class="notifications-bubble">
-                    <div class="notifications-icon">
-                        <i class="fas fa-bell"></i>
+                <!-- Puce électronique simulée -->
+                <div class="card-chip"></div>
+
+                <!-- Logo en haut à droite de la carte -->
+                <div class="card-logo"><img src="../image/logo.png" alt="WorkFlexer"></div>
+
+                <!-- Contenu central avec QR code -->
+                <div class="card-content">
+                    <div class="qr_code active">
+                        <?php echo generateQRCode($_SESSION['users_id']); ?>
                     </div>
-                    <div class="notifications-content">
-                        <h3>Restez informé</h3>
-                        <p>Recevez des notifications en temps réel sur vos candidatures</p>
-                        <?php if ($hasNotificationsEnabled): ?>
-                            <button id="notification-button-user" class="notification-button enabled" disabled>
-                                <i class="fas fa-bell"></i> Notifications activées
-                            </button>
-                        <?php else: ?>
-                            <button id="notification-button-user" class="notification-button">
-                                <i class="fas fa-bell"></i> Activer les notifications
-                            </button>
-                        <?php endif; ?>
+                </div>
+
+                <!-- Informations de l'utilisateur -->
+                <div class="card-info">
+                    <div class="card-profession">
+                        <?php echo !empty($users['competences']) ? $users['competences'] : 'Professionnel'; ?>
                     </div>
+                    <div class="card-name"><?php echo $users['nom']; ?></div>
                 </div>
             </div>
 
-        <?php endif; ?>
+
+            <!-- <div class="card-actions">
+                <button class="mon_qrcode">Mon QR Code</button>
+                <button id="open-scanner">Scanner un QR Code <img src="../image/scanner.png" alt=""></button>
+            </div> -->
+
+            <!-- Lien de téléchargement -->
+            <!-- <div class="qr_code">
+                <a href="qrcodes/user_<?php echo $_SESSION['users_id']; ?>.png">Télécharger mon code QR</a>
+            </div> -->
+        </div>
+
+        <!-- Nouveau conteneur pour le bouton de notifications -->
+        <div class="notifications-control">
+            <div class="notifications-bubble">
+                <div class="notifications-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="notifications-content">
+                    <h3>Restez informé</h3>
+                    <p>Recevez des notifications en temps réel sur vos candidatures.</p>
+                    <button id="notification-button-user" class="notification-button">
+                        <i class="fas fa-bell"></i> Activer les notifications
+                    </button>
+                    <div id="notification-status"></div> <!-- Pour les messages d'état -->
+                </div>
+            </div>
+        </div>
+
         <!-- Conteneur pour le scanner de QR code -->
         <div id="qr-reader"></div>
 
         <script>
+            // Script pour la carte professionnelle avec QR Code
+            document.addEventListener('DOMContentLoaded', function () {
+                // Animation subtile de la carte
+                const card = document.querySelector('.professional-card');
+                if (card) {
+                    card.addEventListener('mousemove', function (e) {
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left; // Position X de la souris dans la carte
+                        const y = e.clientY - rect.top; // Position Y de la souris dans la carte
 
-            let mon_qrcode = document.querySelector('.mon_qrcode')
-            let qr_code = document.querySelector('.qr_code')
+                        // Calcul du tilt en fonction de la position de la souris
+                        const tiltX = (y / rect.height - 0.5) * 5; // -2.5 à 2.5 degrés
+                        const tiltY = -(x / rect.width - 0.5) * 5; // -2.5 à 2.5 degrés
 
-            mon_qrcode.addEventListener('click', () => {
-                qr_code.classList.toggle('active')
-            })
-
-
-
-            let scannerActive = false;
-            const html5QrCode = new Html5Qrcode("qr-reader");
-
-            document.getElementById('open-scanner').addEventListener('click', function () {
-                if (scannerActive) {
-                    html5QrCode.stop().then(ignore => {
-                        document.getElementById('qr-reader').style.display = 'none';
-                        scannerActive = false;
-                        console.log("Scanner arrêté.");
-                    }).catch(err => {
-                        console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                        this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
                     });
-                } else {
-                    document.getElementById('qr-reader').style.display = 'block';
-                    html5QrCode.start(
-                        { facingMode: "environment" }, // Utiliser la caméra arrière
-                        {
-                            fps: 10,    // Fréquence d'images par seconde
-                            qrbox: 250  // Taille de la boîte de scan
-                        },
-                        qrCodeMessage => {
-                            // Ouvrir le lien scanné dans un nouvel onglet
-                            window.open(qrCodeMessage, '_blank');
-                            // Arrêter le scanner
-                            html5QrCode.stop().then(ignore => {
-                                document.getElementById('qr-reader').style.display = 'none';
-                                scannerActive = false;
-                                console.log("Scanner arrêté.");
-                            }).catch(err => {
-                                console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
-                            });
-                        },
-                        errorMessage => {
-                            console.log(`Erreur de scan: ${errorMessage}`);
-                        }
-                    ).catch(err => {
-                        console.log(`Erreur de démarrage du scanner: ${err}`);
+
+                    // Retour à la position normale lorsque la souris quitte la carte
+                    card.addEventListener('mouseleave', function () {
+                        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
                     });
-                    scannerActive = true;
                 }
-            });
+
+                // Gestion du QR code
+                let mon_qrcode = document.querySelector('.mon_qrcode');
+                let qr_code = document.querySelector('.qr_code:not(.active)');
+
+                if (mon_qrcode && qr_code) {
+                    mon_qrcode.addEventListener('click', () => {
+                        qr_code.classList.toggle('active');
+                    });
+                }
+
+
+
+                let scannerActive = false;
+                const html5QrCode = new Html5Qrcode("qr-reader");
+
+                document.getElementById('open-scanner').addEventListener('click', function () {
+                    if (scannerActive) {
+                        html5QrCode.stop().then(ignore => {
+                            document.getElementById('qr-reader').style.display = 'none';
+                            scannerActive = false;
+                            console.log("Scanner arrêté.");
+                        }).catch(err => {
+                            console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                        });
+                    } else {
+                        document.getElementById('qr-reader').style.display = 'block';
+                        html5QrCode.start(
+                            { facingMode: "environment" }, // Utiliser la caméra arrière
+                            {
+                                fps: 10,    // Fréquence d'images par seconde
+                                qrbox: 250  // Taille de la boîte de scan
+                            },
+                            qrCodeMessage => {
+                                // Ouvrir le lien scanné dans un nouvel onglet
+                                window.open(qrCodeMessage, '_blank');
+                                // Arrêter le scanner
+                                html5QrCode.stop().then(ignore => {
+                                    document.getElementById('qr-reader').style.display = 'none';
+                                    scannerActive = false;
+                                    console.log("Scanner arrêté.");
+                                }).catch(err => {
+                                    console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                                });
+                            },
+                            errorMessage => {
+                                console.log(`Erreur de scan: ${errorMessage}`);
+                            }
+                        ).catch(err => {
+                            console.log(`Erreur de démarrage du scanner: ${err}`);
+                        });
+                        scannerActive = true;
+                    }
+                });
         </script>
 
 
@@ -363,130 +408,128 @@ if (isset($_GET['id'])) {
 
         <div class="container_box1">
             <div class="box1">
-                <h2>A propos de moi ! <strong>
-                        <?php echo $getVueProfil; ?><img src="../image/vue2.png" alt="">
-                    </strong></h2>
+                <h2>
+                    <span>À propos de moi</span>
+                    <strong>
+                        <i class="fas fa-eye"></i> <?php echo $getVueProfil; ?>
+                        <img src="../image/vue2.png" alt="Vues">
+                    </strong>
+                </h2>
 
                 <div class="description">
                     <?php
                     // Vérifier si la description de l'utilisateur est vide
                     if (empty($descriptions['description'])):
                         ?>
-                        <p class="p">Veuillez ajouter une description pour votre profil</p>
+                        <p class="p">Veuillez ajouter une description pour votre profil professionnel</p>
                     <?php else: ?>
                         <?php echo $descriptions['description']; ?>
                     <?php endif; ?>
-
                 </div>
+
                 <?php
                 // Vérifier si la description de l'utilisateur est vide
                 if (empty($descriptions['description'])):
                     ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <span class="buton"><img src="../image/edite.png" alt="">Ajouter</span>
-                    <?php else: ?>
+                        <span class="buton">
+                            <img src="../image/edite.png" alt="Ajouter">
+                            Ajouter ma description
+                        </span>
                     <?php endif; ?>
-
 
                     <div class="form_box">
                         <form method="post" action="" enctype="multipart/form-data">
-                            <img class="imgs" src="../image/croix.png" alt="">
+                            <img class="imgs" src="../image/croix.png" alt="Fermer">
 
                             <?php if (isset($erreurs)): ?>
                                 <div class="erreur">
                                     <?php echo $erreurs; ?>
                                 </div>
                             <?php endif; ?>
-                            <textarea name="description" id="counte" placeholder="Ajoutez une description ici"
+
+                            <label for="counte">Votre description professionnelle</label>
+                            <textarea name="description" id="counte"
+                                placeholder="Présentez-vous, décrivez votre parcours, vos compétences et vos objectifs professionnels..."
                                 maxlength="400"></textarea>
                             <p id="caracteres-restantes">400 caractères restants</p>
                             <input type="submit" value="Enregistrer" name="ajouter" id="ajoute">
-
                         </form>
-
-                        <script>
-                            const textareas = document.getElementById("counte");
-                            const caracteresRestantes = document.getElementById("caracteres-restantes");
-
-                            // Mise à jour du compteur de caractères en temps réel
-                            textareas.addEventListener("keyup", () => {
-                                const nombreCaracteress = textareas.value.length;
-                                caracteresRestantes.textContent = `${400 - nombreCaracteress
-                                } caractères restants`;
-
-                            });
-                            // Limiter le nombre de caractères saisis en temps réel
-                            textareas.addEventListener("input", () => {
-                                if (textareas.value.length > 400) {
-                                    textareas.value = textareas.value.substring(0, 400);
-                                }
-                            });
-                        </script>
                     </div>
 
                 <?php else: ?>
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <span class="buton buttons"><img src="../image/ajouter2.png" alt="">Modifier</span>
-                    <?php else: ?>
+                        <span class="buton buttons">
+                            <img src="../image/ajouter2.png" alt="Modifier">
+                            Modifier ma description
+                        </span>
                     <?php endif; ?>
-
 
                     <div class="form_box texte">
                         <form method="post" action="" enctype="multipart/form-data">
-                            <img class="imgs" src="../image/croix.png" alt="">
+                            <img class="imgs" src="../image/croix.png" alt="Fermer">
 
-                            <textarea name="nouvelleDescription" id="count" placeholder="Ajoutez une description ici"
-                                maxlength="400"> <?php echo $descriptions['description'] ?></textarea>
+                            <label for="count">Modifier votre description professionnelle</label>
+                            <textarea name="nouvelleDescription" id="count"
+                                placeholder="Présentez-vous, décrivez votre parcours, vos compétences et vos objectifs professionnels..."
+                                maxlength="400"><?php echo $descriptions['description'] ?></textarea>
                             <p id="caracteres-restants">400 caractères restants</p>
-                            <input type="submit" value="Enregistrer" name="Modifier" id="ajoute">
-
+                            <input type="submit" value="Enregistrer les modifications" name="Modifier" id="ajoute">
                         </form>
                     </div>
-
                 <?php endif; ?>
 
                 <script>
-                    let buton = document.querySelector('.buton')
-                    let form_box = document.querySelector('.form_box')
-                    let imgs = document.querySelector('.imgs')
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Animation et interaction pour le formulaire d'ajout
+                    const buton = document.querySelector('.buton');
+                    const form_box = document.querySelector('.form_box');
+                    const imgs = document.querySelectorAll('.imgs');
 
-                    buton.addEventListener('click', function () {
-                        form_box.style.display = 'block';
-                        buton.style.display = 'none';
-                        // Ajouter une courte temporisation pour permettre au navigateur de reconnaître le changement de display
-                        setTimeout(() => {
-                            form_box.classList.add('active');
-                        }, 10);
-                    });
+                    if (buton) {
+                        buton.addEventListener('click', function () {
+                            form_box.style.display = 'block';
+                            buton.style.display = 'none';
+                            // Ajouter une courte temporisation pour permettre au navigateur de reconnaître le changement de display
+                            setTimeout(() => {
+                                form_box.classList.add('active');
+                            }, 10);
+                        });
+                    }
 
-                    imgs.addEventListener('click', function () {
-                        form_box.classList.remove('active');
-                        // Attendre la fin de l'animation avant de cacher l'élément
-                        setTimeout(() => {
-                            form_box.style.display = 'none';
-                            buton.style.display = 'block';
-                        }, 400);
-                    });
+                    // Animation et interaction pour le formulaire de modification
+                    const button = document.querySelector('.buttons');
+                    const texte = document.querySelector('.texte');
 
-                    let button = document.querySelector('.buttons')
-                    let texte = document.querySelector('.texte')
+                    if (button) {
+                        button.addEventListener('click', function () {
+                            texte.style.display = 'block';
+                            button.style.display = 'none';
+                            // Ajouter une courte temporisation pour l'animation
+                            setTimeout(() => {
+                                texte.classList.add('active');
+                            }, 10);
+                        });
+                    }
 
-                    button.addEventListener('click', function () {
-                        texte.style.display = 'block';
-                        button.style.display = 'none';
-                        // Ajouter une courte temporisation pour l'animation
-                        setTimeout(() => {
-                            texte.classList.add('active');
-                        }, 10);
-                    });
+                    // Gestion des boutons de fermeture
+                    imgs.forEach(img => {
+                        img.addEventListener('click', function () {
+                            const parentForm = this.closest('.form_box');
+                            parentForm.classList.remove('active');
 
-                    imgs.addEventListener('click', function () {
-                        texte.classList.remove('active');
-                        // Attendre la fin de l'animation
-                        setTimeout(() => {
-                            texte.style.display = 'none';
-                            button.style.display = 'block';
-                        }, 400);
+                            // Attendre la fin de l'animation avant de cacher l'élément
+                            setTimeout(() => {
+                                parentForm.style.display = 'none';
+
+                                // Afficher le bon bouton selon le contexte
+                                if (parentForm.classList.contains('texte')) {
+                                    if (button) button.style.display = 'block';
+                                } else {
+                                    if (buton) buton.style.display = 'block';
+                                }
+                            }, 400);
+                        });
                     });
 
                     // Gestion du textarea pour la modification
@@ -496,12 +539,16 @@ if (isset($_GET['id'])) {
                     // Mise à jour initiale du compteur
                     if (textarea) {
                         const nombreCaracteres = textarea.value.length;
-                        caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
+                        if (caracteresRestants) {
+                            caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
+                        }
 
                         // Mise à jour du compteur de caractères en temps réel
                         textarea.addEventListener("keyup", () => {
                             const nombreCaracteres = textarea.value.length;
-                            caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
+                            if (caracteresRestants) {
+                                caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
+                            }
                         });
 
                         // Limiter le nombre de caractères saisis en temps réel
@@ -509,6 +556,15 @@ if (isset($_GET['id'])) {
                             if (textarea.value.length > 400) {
                                 textarea.value = textarea.value.substring(0, 400);
                             }
+                        });
+
+                        // Effet de focus amélioré
+                        textarea.addEventListener("focus", function () {
+                            this.parentElement.classList.add('focused');
+                        });
+
+                        textarea.addEventListener("blur", function () {
+                            this.parentElement.classList.remove('focused');
                         });
                     }
 
@@ -537,6 +593,15 @@ if (isset($_GET['id'])) {
                                 textareaAdd.value = textareaAdd.value.substring(0, 400);
                             }
                         });
+
+                        // Effet de focus amélioré
+                        textareaAdd.addEventListener("focus", function () {
+                            this.parentElement.classList.add('focused');
+                        });
+
+                        textareaAdd.addEventListener("blur", function () {
+                            this.parentElement.classList.remove('focused');
+                        });
                     }
 
                     // Ajouter des effets sur les boutons de soumission
@@ -552,20 +617,30 @@ if (isset($_GET['id'])) {
                             this.style.transform = '';
                         });
                     });
+
+                    // Effet de pulse sur les boutons
+                    const pulseButtons = document.querySelectorAll('.buton, .buttons');
+                    pulseButtons.forEach(button => {
+                        button.addEventListener('mouseover', function () {
+                            this.style.animation = 'none';
+                        });
+                        button.addEventListener('mouseout', function () {
+                            this.style.animation = 'pulse 2s infinite';
+                        });
+                    });
+                });
                 </script>
             </div>
-
-
-
-
         </div>
+
+
 
 
         <div class="container_box2">
             <div class="box1">
                 <h1>Expertise et compétences</h1>
             </div>
-            <dsiv class="box2">
+            <div class="box2">
                 <h2>Expérience professionnelle</h2>
 
                 <?php if (empty($afficheMetier)): ?>
@@ -581,7 +656,8 @@ if (isset($_GET['id'])) {
                                     <?php if (isset($_SESSION['users_id'])): ?>
                                         <div class="experience-actions">
                                             <img class="img2-btn" id="imgs2-<?php echo $metiers['id']; ?>"
-                                                data-id="<?php echo $metiers['id']; ?>" src="../image/edite.png" alt="">
+                                                data-id="<?php echo $metiers['id']; ?>" src="../image/edite.png" alt="Modifier"
+                                                title="Modifier">
                                             <a class="delete-btn" href="?supprimer=<?php echo $metiers['id']; ?>">
                                                 <img src="../image/croix.png" alt="Supprimer" title="Supprimer">
                                             </a>
@@ -707,15 +783,15 @@ if (isset($_GET['id'])) {
                                         </div>
 
                                         <script>
-                                            $(document).ready(function () {
-                                                $('#encours').change(function () {
-                                                    if ($(this).is(':checked')) {
-                                                        $('#moisFin, #anneeFin').prop('disabled', true);
-                                                    } else {
-                                                        $('#moisFin, #anneeFin').prop('disabled', false);
-                                                    }
-                                                });
-                                            });
+                        $(document).ready(function () {
+                            $('#encours').change(function () {
+                                if ($(this).is(':checked')) {
+                                    $('#moisFin, #anneeFin').prop('disabled', true);
+                                } else {
+                                    $('#moisFin, #anneeFin').prop('disabled', false);
+                                }
+                            });
+                        });
                                         </script>
                                     </div>
 
@@ -732,44 +808,44 @@ if (isset($_GET['id'])) {
                             </div>
                         <?php endforeach; ?>
                         <script>
-                            document.addEventListener("DOMContentLoaded", function () {
-                                // Sélectionne tous les boutons "Modifier"
-                                document.querySelectorAll("[id^='imgs2-']").forEach(button => {
-                                    button.addEventListener("click", function () {
-                                        let id = this.dataset.id;
-                                        let form_modif = document.getElementById("form-modif-" + id);
-                                        form_modif.style.display = (form_modif.style.display === "none" || form_modif.style.display === "") ? "block" : "none";
-                                    });
-                                });
-
-                                // Sélectionne tous les boutons "Fermer"
-                                document.querySelectorAll("[id^='imgs1-']").forEach(button => {
-                                    button.addEventListener("click", function () {
-                                        let id = this.id.split('-')[1];
-                                        let form_modif = document.getElementById("form-modif-" + id);
-                                        form_modif.style.display = "none";
-                                    });
-                                });
-
-                                // Mise à jour du compteur de caractères pour chaque textarea généré dynamiquement
-                                document.querySelectorAll("textarea[id^='description-']").forEach(textarea => {
-                                    const caractere_id = document.getElementById("caractere-" + textarea.id.split('-')[1]);
-                                    textarea.addEventListener("input", () => {
-                                        const nombre = textarea.value.length;
-                                        caractere_id.textContent = `${300 - nombre} caractères restants`;
-                                        if (nombre > 300) {
-                                            textarea.value = textarea.value.substring(0, 300);
-                                        }
-                                    });
-                                });
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Sélectionne tous les boutons "Modifier"
+                        document.querySelectorAll("[id^='imgs2-']").forEach(button => {
+                            button.addEventListener("click", function () {
+                                let id = this.dataset.id;
+                                let form_modif = document.getElementById("form-modif-" + id);
+                                form_modif.style.display = (form_modif.style.display === "none" || form_modif.style.display === "") ? "block" : "none";
                             });
+                        });
+
+                        // Sélectionne tous les boutons "Fermer"
+                        document.querySelectorAll("[id^='imgs1-']").forEach(button => {
+                            button.addEventListener("click", function () {
+                                let id = this.id.split('-')[1];
+                                let form_modif = document.getElementById("form-modif-" + id);
+                                form_modif.style.display = "none";
+                            });
+                        });
+
+                        // Mise à jour du compteur de caractères pour chaque textarea généré dynamiquement
+                        document.querySelectorAll("textarea[id^='description-']").forEach(textarea => {
+                            const caractere_id = document.getElementById("caractere-" + textarea.id.split('-')[1]);
+                            textarea.addEventListener("input", () => {
+                                const nombre = textarea.value.length;
+                                caractere_id.textContent = `${300 - nombre} caractères restants`;
+                                if (nombre > 300) {
+                                    textarea.value = textarea.value.substring(0, 300);
+                                }
+                            });
+                        });
+                    });
                         </script>
                     </div>
                 <?php endif; ?>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
                     <button class="add-experience-btn affiche_form">
-                        <img src="../image/ajouter2.png" alt="">
+                        <img src="../image/ajouter2.png" alt="Ajouter" title="Ajouter une expérience">
                         <span>Ajouter une expérience</span>
                     </button>
                 <?php endif; ?>
@@ -781,7 +857,7 @@ if (isset($_GET['id'])) {
                     </div>
 
                     <form action="" method="post">
-                        <img class="imgs1" src="../image/croix.png" alt="">
+                        <img class="imgs1" src="../image/croix.png" alt="Fermer" title="Fermer le formulaire">
 
                         <div class="boxmetier">
                             <label for="metier">Titre de l'expérience professionnelle</label>
@@ -864,15 +940,15 @@ if (isset($_GET['id'])) {
                             </div>
 
                             <script>
-                                $(document).ready(function () {
-                                    $('#encours').change(function () {
-                                        if ($(this).is(':checked')) {
-                                            $('#moisFin, #anneeFin').prop('disabled', true);
-                                        } else {
-                                            $('#moisFin, #anneeFin').prop('disabled', false);
-                                        }
-                                    });
-                                });
+                $(document).ready(function () {
+                    $('#encours').change(function () {
+                        if ($(this).is(':checked')) {
+                            $('#moisFin, #anneeFin').prop('disabled', true);
+                        } else {
+                            $('#moisFin, #anneeFin').prop('disabled', false);
+                        }
+                    });
+                });
                             </script>
                         </div>
 
@@ -888,37 +964,37 @@ if (isset($_GET['id'])) {
 
 
                 <script>
-                    let affiche_form = document.querySelector('.affiche_form')
-                    let form = document.querySelector('.form')
-                    let imgs1 = document.querySelector('.imgs1')
+                let affiche_form = document.querySelector('.affiche_form')
+                let form = document.querySelector('.form')
+                let imgs1 = document.querySelector('.imgs1')
 
-                    affiche_form.addEventListener('click', function () {
-                        form.style.display = 'block';
-                        affiche_form.style.display = 'none';
-                    });
-                    imgs1.addEventListener('click', function () {
-                        form.style.display = 'none';
-                        affiche_form.style.display = 'block';
-                    });
+                affiche_form.addEventListener('click', function () {
+                    form.style.display = 'block';
+                    affiche_form.style.display = 'none';
+                });
+                imgs1.addEventListener('click', function () {
+                    form.style.display = 'none';
+                    affiche_form.style.display = 'block';
+                });
 
-                    const textee = document.getElementById("description");
-                    const caractere = document.getElementById("caractere");
+                const textee = document.getElementById("description");
+                const caractere = document.getElementById("caractere");
 
-                    // Mise à jour du compteur de caractères en temps réel
-                    textee.addEventListener("keyup", () => {
-                        const nombre = textee.value.length;
-                        caractere.textContent = `${300 - nombre
-                            } caractères restants`;
+                // Mise à jour du compteur de caractères en temps réel
+                textee.addEventListener("keyup", () => {
+                    const nombre = textee.value.length;
+                    caractere.textContent = `${300 - nombre
+                        } caractères restants`;
 
-                    });
-                    // Limiter le nombre de caractères saisis en temps réel
-                    textee.addEventListener("input", () => {
-                        if (textee.value.length > 300) {
-                            textee.value = textee.value.substring(0, 300);
-                        }
-                    });
+                });
+                // Limiter le nombre de caractères saisis en temps réel
+                textee.addEventListener("input", () => {
+                    if (textee.value.length > 300) {
+                        textee.value = textee.value.substring(0, 300);
+                    }
+                });
                 </script>
-            </dsiv>
+            </div>
 
 
 
@@ -936,12 +1012,12 @@ if (isset($_GET['id'])) {
                             ?>
                             <p class="comp">
                                 <?php echo $competence['competence']; ?>
-                                <a href="?supprime=<?php echo $competence['id']; ?>"><img src="../image/croix.png" alt=""></a>
+                                <?php if (isset($_SESSION['users_id'])): ?>
+                                    <a href="?supprime=<?php echo $competence['id']; ?>" title="Supprimer cette compétence">
+                                        <img src="../image/croix.png" alt="Supprimer">
+                                    </a>
+                                <?php endif; ?>
                             </p>
-
-
-
-
                             <?php
                         endforeach;
                         ?>
@@ -950,54 +1026,62 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
-                    <button class="affiche_forms"><img src="../image/ajouter2.png" alt="">Ajouter</button>
-                <?php else: ?>
+                    <button class="affiche_forms">
+                        <img src="../image/ajouter2.png" alt="Ajouter" title="Ajouter une compétence">
+                        <span>Ajouter une compétence</span>
+                    </button>
                 <?php endif; ?>
 
                 <form class="forms" action="" method="post">
-                    <img class="imgs2" src="../image/croix.png" alt="">
-                    <p class="nb"><em>NB: Ajouter une seule compétence a la fois</em></p>
-                    <input type="text" name="competence" id="competence" maxlength="50">
-                    <p id="char-count" style="font-size: 12px; margin-top: 5px;">50 caractères restants</p>
+                    <img class="imgs2" src="../image/croix.png" alt="Fermer" title="Fermer le formulaire">
+                    <div class="form-header">
+                        <h3>Ajouter une compétence</h3>
+                    </div>
+                    <p class="nb"><em>NB: Ajouter une seule compétence à la fois</em></p>
+                    <div class="boxmetier">
+                        <label for="competence">Intitulé de la compétence</label>
+                        <input type="text" name="competence" id="competence" maxlength="50"
+                            placeholder="Ex: Développement web, Design UX/UI, etc.">
+                        <p id="char-count">50 caractères restants</p>
+                    </div>
                     <input type="submit" value="Enregistrer" name="Ajouter1" id="Ajouter">
                     <script>
-                        document.getElementById('competence').addEventListener('input', function () {
-                            const remaining = 50 - this.value.length;
-                            document.getElementById('char-count').textContent = remaining + ' caractères restants';
-                        });
+                document.getElementById('competence').addEventListener('input', function () {
+                    const remaining = 50 - this.value.length;
+                    document.getElementById('char-count').textContent = remaining + ' caractères restants';
+                });
                     </script>
                 </form>
 
                 <script>
-                    let affiche_forms = document.querySelector('.affiche_forms')
-                    let forms = document.querySelector('.forms')
-                    let imgs2 = document.querySelector('.imgs2')
+                let affiche_forms = document.querySelector('.affiche_forms')
+                let forms = document.querySelector('.forms')
+                let imgs2 = document.querySelector('.imgs2')
 
-                    affiche_forms.addEventListener('click', function () {
-                        forms.style.display = 'block';
-                        affiche_forms.style.display = 'none';
-                    });
-                    imgs2.addEventListener('click', function () {
-                        forms.style.display = 'none';
-                        affiche_forms.style.display = 'block';
-                    });
+                affiche_forms.addEventListener('click', function () {
+                    forms.style.display = 'block';
+                    affiche_forms.style.display = 'none';
+                });
+                imgs2.addEventListener('click', function () {
+                    forms.style.display = 'none';
+                    affiche_forms.style.display = 'block';
+                });
                 </script>
 
             </div>
 
             <div class="box3">
-                <h2>Niveau d'Expérience et d'Etude </h2>
+                <h2>Niveau d'Expérience et d'Étude</h2>
                 <div class="container_comp b2">
 
                     <?php if (empty($getNiveauEtude)): ?>
                         <p class="p">
-                            Aucun niveau d'etude ajouter a votre profil
+                            Aucun niveau d'étude ajouté à votre profil
                         </p>
                     <?php else: ?>
-
                         <p>
                             <span class="cercl"></span>
-                            <strong>Niveau D'etude</strong>
+                            <strong>Niveau d'étude</strong>
                             <?php echo $getNiveauEtude['etude'] ?>
                         </p>
                         <p>
@@ -1005,31 +1089,41 @@ if (isset($_GET['id'])) {
                             <strong>Niveau d'expérience</strong>
                             <?php echo $getNiveauEtude['experience'] ?>
                         </p>
-
                     <?php endif; ?>
 
                 </div>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
                     <?php if (isset($getNiveauEtude['etude'])): ?>
-                        <button class="affiche_formss"><img src="../image/ajouter2.png" alt="">Modifier</button>
+                        <button class="affiche_formss">
+                            <img src="../image/ajouter2.png" alt="Modifier" title="Modifier les niveaux">
+                            <span>Modifier</span>
+                        </button>
                     <?php else: ?>
-                        <button class="affiche_formss"><img src="../image/ajouter2.png" alt="">Ajouter</button>
+                        <button class="affiche_formss">
+                            <img src="../image/ajouter2.png" alt="Ajouter" title="Ajouter des niveaux">
+                            <span>Ajouter</span>
+                        </button>
                     <?php endif; ?>
                 <?php endif; ?>
 
                 <form class="formss" action="" method="post">
-                    <img class="imgs22" src="../image/croix.png" alt="">
+                    <img class="imgs22" src="../image/croix.png" alt="Fermer" title="Fermer le formulaire">
+
+                    <div class="form-header">
+                        <h3><?php echo isset($getNiveauEtude['etude']) ? 'Modifier' : 'Ajouter' ?> les niveaux</h3>
+                    </div>
+
                     <?php if (isset($erreurs)): ?>
-                        <p>
-                            <?php echo $erreurs; ?>
-                        </p>
+                        <div class="error-message">
+                            <p><?php echo $erreurs; ?></p>
+                        </div>
                     <?php endif; ?>
 
-                    <div>
-                        <label for="etude">Niveau D'etude</label>
+                    <div class="boxmetier">
+                        <label for="etude">Niveau d'étude</label>
                         <select name="etude" id="etude">
-                            <option value="">Choisissez un niveau d'études </option>
+                            <option value="">Choisissez un niveau d'études</option>
                             <option value="Bac+1an">Bac+1 an</option>
                             <option value="Bac+2ans">Bac+2 ans</option>
                             <option value="Bac+3ans">Bac+3 ans</option>
@@ -1043,10 +1137,11 @@ if (isset($_GET['id'])) {
                             <option value="Aucun">Aucun</option>
                         </select>
                     </div>
-                    <div>
+
+                    <div class="boxmetier">
                         <label for="experience">Niveau d'expérience</label>
                         <select name="experience" id="experience">
-                            <option value="">Choisissez un niveau d'expérience </option>
+                            <option value="">Choisissez un niveau d'expérience</option>
                             <option value="1an">1 an</option>
                             <option value="2ans">2 ans</option>
                             <option value="3ans">3 ans</option>
@@ -1060,26 +1155,27 @@ if (isset($_GET['id'])) {
                             <option value="Aucun">Aucun</option>
                         </select>
                     </div>
+
                     <?php if (isset($getNiveauEtude['etude'])): ?>
-                        <input type="submit" value="Enregistrer" name="Ajouters1" id="Ajouter">
+                        <input type="submit" value="Mettre à jour" name="Ajouters1" id="Ajouter">
                     <?php else: ?>
                         <input type="submit" value="Enregistrer" name="Ajouters" id="Ajouter">
                     <?php endif; ?>
                 </form>
 
                 <script>
-                    let affiche_formss = document.querySelector('.affiche_formss')
-                    let formss = document.querySelector('.formss')
-                    let imgs22 = document.querySelector('.imgs22')
+                let affiche_formss = document.querySelector('.affiche_formss')
+                let formss = document.querySelector('.formss')
+                let imgs22 = document.querySelector('.imgs22')
 
-                    affiche_formss.addEventListener('click', function () {
-                        formss.style.display = 'block';
-                        affiche_formss.style.display = 'none';
-                    });
-                    imgs22.addEventListener('click', function () {
-                        formss.style.display = 'none';
-                        affiche_formss.style.display = 'block';
-                    });
+                affiche_formss.addEventListener('click', function () {
+                    formss.style.display = 'block';
+                    affiche_formss.style.display = 'none';
+                });
+                imgs22.addEventListener('click', function () {
+                    formss.style.display = 'none';
+                    affiche_formss.style.display = 'block';
+                });
                 </script>
 
             </div>
@@ -1224,11 +1320,11 @@ if (isset($_GET['id'])) {
                                             </div>
 
                                             <script>
-                                                function toggleEndDateFields(id) {
-                                                    const isChecked = document.getElementById('encours-' + id).checked;
-                                                    document.getElementById('moisFin-' + id).disabled = isChecked;
-                                                    document.getElementById('anneeFin-' + id).disabled = isChecked;
-                                                }
+                        function toggleEndDateFields(id) {
+                            const isChecked = document.getElementById('encours-' + id).checked;
+                            document.getElementById('moisFin-' + id).disabled = isChecked;
+                            document.getElementById('anneeFin-' + id).disabled = isChecked;
+                        }
                                             </script>
                                         </div>
 
@@ -1271,13 +1367,13 @@ if (isset($_GET['id'])) {
                                 </div>
 
                                 <script>
-                                    document.querySelector('.edit-btn[data-formation-id="<?php echo $formations['id']; ?>"]').addEventListener('click', function () {
-                                        document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'block';
-                                    });
+                        document.querySelector('.edit-btn[data-formation-id="<?php echo $formations['id']; ?>"]').addEventListener('click', function () {
+                            document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'block';
+                        });
 
-                                    document.querySelector('#edit-form-<?php echo $formations['id']; ?> .close-edit-form').addEventListener('click', function () {
-                                        document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'none';
-                                    });
+                        document.querySelector('#edit-form-<?php echo $formations['id']; ?> .close-edit-form').addEventListener('click', function () {
+                            document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'none';
+                        });
                                 </script>
                             </div>
                         <?php endforeach; ?>
@@ -1378,34 +1474,34 @@ if (isset($_GET['id'])) {
 
 
                         <script>
-                            let Ajoutes = document.querySelector('.Ajouters')
-                            let formee = document.querySelector('.containne')
-                            let imgFormee = document.querySelector('.imgForme')
+                let Ajoutes = document.querySelector('.Ajouters')
+                let formee = document.querySelector('.containne')
+                let imgFormee = document.querySelector('.imgForme')
 
-                            Ajoutes.addEventListener('click', function () {
-                                formee.style.display = 'block';
-                                Ajoutes.style.display = 'none'
-                            });
-                            imgFormee.addEventListener('click', function () {
-                                formee.style.display = 'none';
-                                Ajoutes.style.display = 'block'
+                Ajoutes.addEventListener('click', function () {
+                    formee.style.display = 'block';
+                    Ajoutes.style.display = 'none'
+                });
+                imgFormee.addEventListener('click', function () {
+                    formee.style.display = 'none';
+                    Ajoutes.style.display = 'block'
 
-                            });
+                });
                         </script>
                         <script>
-                            function toggleEndDate(checkbox) {
-                                const endDateFields = document.getElementById('endDateFields');
-                                const moisFin = document.getElementById('moisFin');
-                                const anneeFin = document.getElementById('anneeFin');
+                function toggleEndDate(checkbox) {
+                    const endDateFields = document.getElementById('endDateFields');
+                    const moisFin = document.getElementById('moisFin');
+                    const anneeFin = document.getElementById('anneeFin');
 
-                                if (checkbox.checked) {
-                                    moisFin.disabled = true;
-                                    anneeFin.disabled = true;
-                                } else {
-                                    moisFin.disabled = false;
-                                    anneeFin.disabled = false;
-                                }
-                            }
+                    if (checkbox.checked) {
+                        moisFin.disabled = true;
+                        anneeFin.disabled = true;
+                    } else {
+                        moisFin.disabled = false;
+                        anneeFin.disabled = false;
+                    }
+                }
                         </script>
                     </div>
                     <div class="container_box">
@@ -1527,21 +1623,21 @@ if (isset($_GET['id'])) {
 
                 </form>
                 <script>
-                    document.getElementById('outil').addEventListener('input', function () {
-                        const maxLength = 50;
-                        const currentLength = this.value.length;
-                        const charCountElement = document.getElementById('char-count');
+                document.getElementById('outil').addEventListener('input', function () {
+                    const maxLength = 50;
+                    const currentLength = this.value.length;
+                    const charCountElement = document.getElementById('char-count');
 
-                        charCountElement.textContent = currentLength;
+                    charCountElement.textContent = currentLength;
 
-                        if (currentLength >= maxLength) {
-                            charCountElement.style.color = 'red';
-                        } else if (currentLength >= 40) {
-                            charCountElement.style.color = 'orange';
-                        } else {
-                            charCountElement.style.color = 'inherit';
-                        }
-                    });
+                    if (currentLength >= maxLength) {
+                        charCountElement.style.color = 'red';
+                    } else if (currentLength >= 40) {
+                        charCountElement.style.color = 'orange';
+                    } else {
+                        charCountElement.style.color = 'inherit';
+                    }
+                });
                 </script>
             </div>
 
@@ -1675,20 +1771,20 @@ if (isset($_GET['id'])) {
                             <img id="imagePreview" src="" alt="view">
 
                             <script>
-                                // Récupérer l'élément input type file
-                                const inputImage = document.getElementById('images');
+                // Récupérer l'élément input type file
+                const inputImage = document.getElementById('images');
 
-                                // Écouter le changement de fichier sélectionné
-                                inputImage.addEventListener('change', () => {
+                // Écouter le changement de fichier sélectionné
+                inputImage.addEventListener('change', () => {
 
-                                    // Récupérer le premier fichier sélectionné
-                                    const file = inputImage.files[0];
+                    // Récupérer le premier fichier sélectionné
+                    const file = inputImage.files[0];
 
-                                    // Afficher l'aperçu dans l'élément img
-                                    const previewImg = document.getElementById('imagePreview');
-                                    previewImg.src = URL.createObjectURL(file);
+                    // Afficher l'aperçu dans l'élément img
+                    const previewImg = document.getElementById('imagePreview');
+                    previewImg.src = URL.createObjectURL(file);
 
-                                });
+                });
                             </script>
                         </div>
 
@@ -1786,18 +1882,18 @@ if (isset($_GET['id'])) {
                     </ul>
                 <?php endif; ?>
                 <script>
-                    let btn_i = document.querySelector('.btn_eteret');
-                    let form_btn = document.querySelector('.form_btn');
-                    let ims = document.querySelector('.ims')
+                let btn_i = document.querySelector('.btn_eteret');
+                let form_btn = document.querySelector('.form_btn');
+                let ims = document.querySelector('.ims')
 
-                    btn_i.addEventListener('click', () => {
-                        form_btn.style.display = 'block'
-                        btn_i.style.display = 'none';
-                    })
-                    ims.addEventListener('click', () => {
-                        form_btn.style.display = 'none';
-                        btn_i.style.display = 'block';
-                    })
+                btn_i.addEventListener('click', () => {
+                    form_btn.style.display = 'block'
+                    btn_i.style.display = 'none';
+                })
+                ims.addEventListener('click', () => {
+                    form_btn.style.display = 'none';
+                    btn_i.style.display = 'block';
+                })
                 </script>
             </div>
 
@@ -1840,17 +1936,17 @@ if (isset($_GET['id'])) {
 
 
     <script>
-        let assistance = document.getElementById('contacte');
-        let cache = document.getElementById('img');
-        let container_box6 = document.querySelector('.container_box6');
+                let assistance = document.getElementById('contacte');
+                let cache = document.getElementById('img');
+                let container_box6 = document.querySelector('.container_box6');
 
-        assistance.addEventListener('click', () => {
+                assistance.addEventListener('click', () => {
 
-        });
+                });
 
-        cache.addEventListener('click', () => {
-            container_box6.style.transform = 'translateX(0px)';
-        });
+                cache.addEventListener('click', () => {
+                    container_box6.style.transform = 'translateX(0px)';
+                });
     </script>
 
 
@@ -1859,266 +1955,91 @@ if (isset($_GET['id'])) {
     <!-- Ajouter ce script à la fin du fichier, avant la fermeture de la balise body -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const notificationButton = document.getElementById('notification-button-user');
-            const notificationStatus = document.getElementById('notification-status');
-
-            // Si l'utilisateur n'a pas encore activé les notifications
-            if (!notificationButton.disabled) {
-                // Vérifier si les notifications sont prises en charge
-                if (!('Notification' in window)) {
-                    console.warn('Votre navigateur ne prend pas en charge les notifications.');
-                    notificationButton.disabled = true;
-                    return;
-                }
-
-                // Vérifier si le service worker est pris en charge
-                if (!('serviceWorker' in navigator)) {
-                    console.warn('Votre navigateur ne prend pas en charge les Service Workers, nécessaires pour les notifications.');
-                    notificationButton.disabled = true;
-                    return;
-                }
-
-                // Configuration Firebase
-                const firebaseConfig = {
-                    apiKey: "AIzaSyBV9jAeyVG2RvKRr6l0d1mk6c_O_2hScGg",
-                    authDomain: "send-notification-257c0.firebaseapp.com",
-                    projectId: "send-notification-257c0",
-                    storageBucket: "send-notification-257c0.firebasestorage.app",
-                    messagingSenderId: "276851238884",
-                    appId: "1:276851238884:web:03262cc0ea23a80154c9f1",
-                    measurementId: "G-N4TGHGX008"
-                };
-
-                // Initialisation de Firebase
-                if (!window.firebase || !firebase.apps.length) {
-                    firebase.initializeApp(firebaseConfig);
-                }
-
-                const messaging = firebase.messaging();
-
-                // Gérer le clic sur le bouton d'activation des notifications
-                notificationButton.addEventListener('click', async function () {
-                    try {
-                        // Ajouter une classe pour l'animation de chargement
-                        notificationButton.classList.add('loading');
-                        notificationButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Activation...';
-
-                        // Demander la permission pour les notifications
-                        const permission = await Notification.requestPermission();
-
-                        if (permission === 'granted') {
-                            console.log('Permission de notification accordée.');
-
-                            // Enregistrer le service worker
-                            const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
-                            messaging.useServiceWorker(registration);
-
-                            // Obtenir le token FCM
-                            const token = await messaging.getToken();
-
-                            if (token) {
-                                console.log('Token FCM obtenu avec succès');
-
-                                // Envoyer le token au serveur
-                                const response = await fetch('../ajax/save_fcm_token_user.php', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify({
-                                        token: token,
-                                        device_info: navigator.userAgent
-                                    }),
-                                });
-
-                                const data = await response.json();
-
-                                if (data.success) {
-                                    console.log('Token enregistré avec succès');
-
-                                    // Mettre à jour l'apparence du bouton
-                                    notificationButton.classList.remove('loading');
-                                    notificationButton.classList.add('enabled');
-                                    notificationButton.innerHTML = '<i class="fas fa-bell"></i> Notifications activées';
-                                    notificationButton.disabled = true;
-
-                                    // Animation de succès
-                                    const successIcon = document.createElement('div');
-                                    successIcon.className = 'success-animation';
-                                    successIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
-                                    document.querySelector('.notifications-bubble').appendChild(successIcon);
-
-                                    // Supprimer l'animation après 2 secondes
-                                    setTimeout(() => {
-                                        if (successIcon.parentNode) {
-                                            successIcon.parentNode.removeChild(successIcon);
-                                        }
-                                    }, 2000);
-                                } else {
-                                    throw new Error(data.message || 'Erreur lors de l\'enregistrement du token');
-                                }
-                            } else {
-                                throw new Error('Impossible d\'obtenir le token FCM');
-                            }
-                        } else {
-                            console.warn('Permission de notification refusée par l\'utilisateur');
-                            notificationButton.classList.remove('loading');
-                            notificationButton.innerHTML = '<i class="fas fa-bell"></i> Activer les notifications';
-
-                            // Afficher un message discret pour l'utilisateur
-                            const warningBadge = document.createElement('div');
-                            warningBadge.className = 'notification-warning';
-                            warningBadge.innerHTML = 'Notifications refusées par le navigateur';
-                            notificationStatus.appendChild(warningBadge);
-
-                            // Faire disparaître le message après 3 secondes
-                            setTimeout(() => {
-                                warningBadge.style.opacity = '0';
-                                setTimeout(() => {
-                                    if (warningBadge.parentNode) {
-                                        warningBadge.parentNode.removeChild(warningBadge);
-                                    }
-                                }, 300);
-                            }, 3000);
-                        }
-                    } catch (error) {
-                        console.error('Erreur lors de l\'activation des notifications:', error);
-                        notificationButton.classList.remove('loading');
-                        notificationButton.innerHTML = '<i class="fas fa-bell"></i> Activer les notifications';
-
-                        // Message d'erreur discret pour l'utilisateur
-                        const errorBadge = document.createElement('div');
-                        errorBadge.className = 'notification-error';
-                        errorBadge.innerHTML = 'Impossible d\'activer les notifications';
-                        notificationStatus.appendChild(errorBadge);
-
-                        // Faire disparaître le message après 3 secondes
-                        setTimeout(() => {
-                            errorBadge.style.opacity = '0';
-                            setTimeout(() => {
-                                if (errorBadge.parentNode) {
-                                    errorBadge.parentNode.removeChild(errorBadge);
-                                }
-                            }, 300);
-                        }, 3000);
-                    }
-                });
-
-                // Écouteur pour les messages reçus en premier plan
-                messaging.onMessage((payload) => {
-                    console.log('Message reçu:', payload);
-
-                    // Limiter la taille du titre à 50 caractères
-                    let notificationTitle = payload.notification.title;
-                    if (notificationTitle && notificationTitle.length > 50) {
-                        notificationTitle = notificationTitle.substring(0, 47) + '...';
-                    }
-
-                    const notificationOptions = {
-                        body: payload.notification.body,
-                        icon: '/image/logo 2.png',
-                        data: { url: '/page/user_profil.php' } // URL pour la redirection
-                    };
-
-                    // Créer et afficher la notification
-                    const notification = new Notification(notificationTitle, notificationOptions);
-
-                    // Gérer le clic sur la notification
-                    notification.onclick = function () {
-                        window.focus();
-                        window.location.href = '/page/user_profil.php'; // Redirection vers le profil utilisateur
-                        notification.close();
-                    };
-                });
-            }
-        });
-    </script>
+    <script src="../js/notifications-user.js" defer></script>
 
     <script>
-        // Code JavaScript pour les animations des formulaires dans container_box2
-        document.addEventListener('DOMContentLoaded', function () {
-            // Animation pour les formulaires dans box2
-            const afficherFormButtons = document.querySelectorAll('.section3 .container_box2 .box2 .affiche_form');
-            const forms = document.querySelectorAll('.section3 .container_box2 .box2 form');
-            const closeIcons = document.querySelectorAll('.section3 .container_box2 .box2 form img');
+                // Code JavaScript pour les animations des formulaires dans container_box2
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Animation pour les formulaires dans box2
+                    const afficherFormButtons = document.querySelectorAll('.section3 .container_box2 .box2 .affiche_form');
+                    const forms = document.querySelectorAll('.section3 .container_box2 .box2 form');
+                    const closeIcons = document.querySelectorAll('.section3 .container_box2 .box2 form img');
 
-            afficherFormButtons.forEach((button, index) => {
-                if (forms[index]) {
-                    button.addEventListener('click', function () {
-                        forms[index].style.display = 'block';
-                        button.style.display = 'none';
-                    });
-                }
-            });
-
-            closeIcons.forEach((icon, index) => {
-                if (forms[index]) {
-                    icon.addEventListener('click', function () {
-                        forms[index].style.display = 'none';
-                        if (afficherFormButtons[index]) {
-                            afficherFormButtons[index].style.display = 'flex';
+                    afficherFormButtons.forEach((button, index) => {
+                        if (forms[index]) {
+                            button.addEventListener('click', function () {
+                                forms[index].style.display = 'block';
+                                button.style.display = 'none';
+                            });
                         }
                     });
-                }
-            });
 
-            // Animation pour les formulaires dans box3
-            const afficherFormsButtons = document.querySelectorAll('.section3 .container_box2 .box3 .affiche_forms, .section3 .container_box2 .box3 .affiche_formss');
-            const forms3 = document.querySelectorAll('.section3 .container_box2 .box3 form');
-            const closeIcons3 = document.querySelectorAll('.section3 .container_box2 .box3 form img');
-
-            afficherFormsButtons.forEach((button, index) => {
-                if (forms3[index]) {
-                    button.addEventListener('click', function () {
-                        forms3[index].style.display = 'flex';
-                        button.style.display = 'none';
-                    });
-                }
-            });
-
-            closeIcons3.forEach((icon, index) => {
-                if (forms3[index]) {
-                    icon.addEventListener('click', function () {
-                        forms3[index].style.display = 'none';
-                        if (afficherFormsButtons[index]) {
-                            afficherFormsButtons[index].style.display = 'flex';
+                    closeIcons.forEach((icon, index) => {
+                        if (forms[index]) {
+                            icon.addEventListener('click', function () {
+                                forms[index].style.display = 'none';
+                                if (afficherFormButtons[index]) {
+                                    afficherFormButtons[index].style.display = 'flex';
+                                }
+                            });
                         }
                     });
-                }
-            });
 
-            // Effet d'échelle sur les boutons au clic
-            const submitButtons = document.querySelectorAll('.section3 .container_box2 form #Ajouter');
+                    // Animation pour les formulaires dans box3
+                    const afficherFormsButtons = document.querySelectorAll('.section3 .container_box2 .box3 .affiche_forms, .section3 .container_box2 .box3 .affiche_formss');
+                    const forms3 = document.querySelectorAll('.section3 .container_box2 .box3 form');
+                    const closeIcons3 = document.querySelectorAll('.section3 .container_box2 .box3 form img');
 
-            submitButtons.forEach(button => {
-                button.addEventListener('mousedown', function () {
-                    this.style.transform = 'scale(0.95)';
+                    afficherFormsButtons.forEach((button, index) => {
+                        if (forms3[index]) {
+                            button.addEventListener('click', function () {
+                                forms3[index].style.display = 'flex';
+                                button.style.display = 'none';
+                            });
+                        }
+                    });
+
+                    closeIcons3.forEach((icon, index) => {
+                        if (forms3[index]) {
+                            icon.addEventListener('click', function () {
+                                forms3[index].style.display = 'none';
+                                if (afficherFormsButtons[index]) {
+                                    afficherFormsButtons[index].style.display = 'flex';
+                                }
+                            });
+                        }
+                    });
+
+                    // Effet d'échelle sur les boutons au clic
+                    const submitButtons = document.querySelectorAll('.section3 .container_box2 form #Ajouter');
+
+                    submitButtons.forEach(button => {
+                        button.addEventListener('mousedown', function () {
+                            this.style.transform = 'scale(0.95)';
+                        });
+
+                        button.addEventListener('mouseup', function () {
+                            this.style.transform = 'translateY(-3px)';
+                        });
+
+                        button.addEventListener('mouseleave', function () {
+                            this.style.transform = '';
+                        });
+                    });
+
+                    // Animation au survol des compétences
+                    const competences = document.querySelectorAll('.section3 .container_box2 .box3 .container_comp .comp');
+
+                    competences.forEach(comp => {
+                        comp.addEventListener('mouseenter', function () {
+                            this.style.transform = 'translateY(-3px)';
+                        });
+
+                        comp.addEventListener('mouseleave', function () {
+                            this.style.transform = '';
+                        });
+                    });
                 });
-
-                button.addEventListener('mouseup', function () {
-                    this.style.transform = 'translateY(-3px)';
-                });
-
-                button.addEventListener('mouseleave', function () {
-                    this.style.transform = '';
-                });
-            });
-
-            // Animation au survol des compétences
-            const competences = document.querySelectorAll('.section3 .container_box2 .box3 .container_comp .comp');
-
-            competences.forEach(comp => {
-                comp.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-3px)';
-                });
-
-                comp.addEventListener('mouseleave', function () {
-                    this.style.transform = '';
-                });
-            });
-        });
     </script>
 
 </body>

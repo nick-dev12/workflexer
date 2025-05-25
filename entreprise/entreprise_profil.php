@@ -84,7 +84,7 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-messaging-compat.js"></script>
 
     <!-- Custom Firebase initialization -->
-    <script src="../js/firebase-init.js"></script>
+    <!-- <script src="../js/firebase-init.js"></script> COMMENTED OUT -->
 
     <!-- Firebase notification styles -->
     <style>
@@ -275,50 +275,62 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
             data-entreprise-id="<?php echo htmlspecialchars($_SESSION['compte_entreprise']); ?>">
             <i class="fas fa-bell"></i> Activer les notifications
         </button>
+        <div id="notification-status-entreprise" style="text-align: right; margin-top: 5px;"></div>
+        <!-- Conteneur pour messages d'état -->
 
         <script>
-
             let scannerActive = false;
-            const html5QrCode = new Html5Qrcode("qr-reader");
 
-            document.getElementById('open-scanner').addEventListener('click', function () {
-                if (scannerActive) {
-                    html5QrCode.stop().then(ignore => {
-                        document.getElementById('qr-reader').style.display = 'none';
-                        scannerActive = false;
-                        console.log("Scanner arrêté.");
-                    }).catch(err => {
-                        console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
-                    });
-                } else {
-                    document.getElementById('qr-reader').style.display = 'block';
-                    html5QrCode.start(
-                        { facingMode: "environment" }, // Utiliser la caméra arrière
-                        {
-                            fps: 10,    // Fréquence d'images par seconde
-                            qrbox: 250  // Taille de la boîte de scan
-                        },
-                        qrCodeMessage => {
-                            // Ouvrir le lien scanné dans un nouvel onglet
-                            window.open(qrCodeMessage, '_blank');
-                            // Arrêter le scanner
-                            html5QrCode.stop().then(ignore => {
-                                document.getElementById('qr-reader').style.display = 'none';
-                                scannerActive = false;
-                                console.log("Scanner arrêté.");
-                            }).catch(err => {
-                                console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
-                            });
-                        },
-                        errorMessage => {
-                            console.log(`Erreur de scan: ${errorMessage}`);
-                        }
-                    ).catch(err => {
-                        console.log(`Erreur de démarrage du scanner: ${err}`);
-                    });
-                    scannerActive = true;
+            // Vérifier si la classe Html5Qrcode est disponible
+            if (typeof Html5Qrcode !== 'undefined') {
+                const html5QrCode = new Html5Qrcode("qr-reader");
+
+                document.getElementById('open-scanner').addEventListener('click', function () {
+                    if (scannerActive) {
+                        html5QrCode.stop().then(ignore => {
+                            document.getElementById('qr-reader').style.display = 'none';
+                            scannerActive = false;
+                            console.log("Scanner arrêté.");
+                        }).catch(err => {
+                            console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                        });
+                    } else {
+                        document.getElementById('qr-reader').style.display = 'block';
+                        html5QrCode.start(
+                            { facingMode: "environment" }, // Utiliser la caméra arrière
+                            {
+                                fps: 10,    // Fréquence d'images par seconde
+                                qrbox: 250  // Taille de la boîte de scan
+                            },
+                            qrCodeMessage => {
+                                // Ouvrir le lien scanné dans un nouvel onglet
+                                window.open(qrCodeMessage, '_blank');
+                                // Arrêter le scanner
+                                html5QrCode.stop().then(ignore => {
+                                    document.getElementById('qr-reader').style.display = 'none';
+                                    scannerActive = false;
+                                    console.log("Scanner arrêté.");
+                                }).catch(err => {
+                                    console.log(`Erreur lors de l'arrêt du scanner: ${err}`);
+                                });
+                            },
+                            errorMessage => {
+                                console.log(`Erreur de scan: ${errorMessage}`);
+                            }
+                        ).catch(err => {
+                            console.log(`Erreur de démarrage du scanner: ${err}`);
+                        });
+                        scannerActive = true;
+                    }
+                });
+            } else {
+                console.warn("La bibliothèque Html5Qrcode n'est pas chargée. La fonctionnalité de scan QR est désactivée.");
+                const openScannerBtn = document.getElementById('open-scanner');
+                if (openScannerBtn) {
+                    openScannerBtn.disabled = true;
+                    openScannerBtn.title = "Scanner QR désactivé - Bibliothèque non chargée";
                 }
-            });
+            }
         </script>
 
         <div class="container_box3">
@@ -598,9 +610,13 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
                 btn2.addEventListener('click', () => {
                     form_off.style.height = 'auto'
                 })
-                img1.addEventListener('click', () => {
-                    form_off.style.height = '0'
-                })
+
+                // Vérifier si img1 existe avant d'ajouter un écouteur d'événement
+                if (img1) {
+                    img1.addEventListener('click', () => {
+                        form_off.style.height = '0'
+                    })
+                }
             </script>
         </div>
 
@@ -753,6 +769,7 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
     <script src="../js/owl.carousel.js"></script>
     <script src="../js/owl.animate.js"></script>
     <script src="../js/owl.autoplay.js"></script>
+    <script src="../js/notifications-entreprise.js" defer></script>
 
 
 
@@ -939,6 +956,9 @@ $afficheCategorie_entreprise = getALLcategorieEntreprise($db, $_SESSION['compte_
             }
         });
     </script>
+
+    <!-- Conteneur pour les messages de statut des notifications -->
+    <div id="notification-status-entreprise" class="notification-status-container"></div>
 
 </body>
 

@@ -1,0 +1,180 @@
+/* Styles spécifiques pour la page du secteur Ingénierie et Architecture en Afrique */
+
+/* Variables spécifiques au secteur ingénierie */
+:root {
+  --accent-color: #27ae60; /* Couleur d'accent verte pour le secteur ingénierie */
+  --accent-dark: #2c3e50; /* Couleur complémentaire foncée */
+  --accent-light: rgba(
+    39,
+    174,
+    96,
+    0.2
+  ); /* Version claire de l'accent pour les fonds */
+}
+
+/* Hero section avec image de fond africaine */
+.hero-section {
+  background: url("https://images.unsplash.com/photo-1603738876496-e3c82f65341e?q=80&w=1920&h=1080&auto=format&fit=crop")
+    center/cover no-repeat;
+}
+
+/* Style des icônes de tendance */
+.trend-icon {
+  background-color: var(--accent-light);
+}
+
+/* Styles pour les cartes des parcours professionnels */
+.career-card .career-icon {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Styles pour les boutons d'onglets */
+.tab-btn.active {
+  background-color: var(--accent-color);
+}
+
+.tab-btn:hover:not(.active) {
+  color: var(--accent-color);
+}
+
+/* Styles pour les marqueurs de la timeline */
+.timeline-marker {
+  background-color: var(--accent-color);
+}
+
+.timeline-marker::before {
+  border-color: var(--accent-color);
+}
+
+/* Style pour les boutons d'appel à l'action */
+.cta-primary {
+  background-color: var(--accent-color);
+}
+
+.cta-secondary {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.cta-secondary:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Styles pour les éléments de statistiques */
+.stat-box i {
+  color: var(--accent-color);
+}
+
+/* Styles pour les cartes d'éducation */
+.education-card .card-header {
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent-color));
+}
+
+/* Styles pour mettre en valeur les éléments africains */
+.career-details h4::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin-top: 8px;
+}
+
+/* Motifs africains subtils dans les sections */
+.intro-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background-image: url("https://i.pinimg.com/originals/e0/e8/2b/e0e82b64b0008b054a2658a2b1e57b36.png");
+  background-size: contain;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Animation spécifique pour les éléments d'ingénierie */
+@keyframes pulseEngineer {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.trend-icon:hover i {
+  animation: pulseEngineer 1s infinite;
+}
+
+/* Style pour les citations ou témoignages */
+.engineer-quote {
+  font-style: italic;
+  border-left: 4px solid var(--accent-color);
+  padding-left: 20px;
+  margin: 30px 0;
+  color: #555;
+}
+
+/* Styles pour les médias responsifs */
+@media (max-width: 768px) {
+  .hero-section {
+    background-position: 70% center;
+  }
+}
+
+/* Styles pour les éléments spécifiques à l'innovation africaine */
+.innovation-tag {
+  display: inline-block;
+  background-color: var(--accent-light);
+  color: var(--accent-dark);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* Styles pour les indicateurs de matériaux locaux */
+.local-material-indicator {
+  position: relative;
+  padding-left: 20px;
+}
+
+.local-material-indicator::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+/* Styles pour les projets communautaires */
+.community-project {
+  border: 1px solid var(--accent-light);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.community-project::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url("https://i.pinimg.com/originals/3f/e7/88/3fe788c7b7cb6d4ce3e4a9c8b4fd7ee5.png");
+  background-size: contain;
+  opacity: 0.1;
+  pointer-events: none;
+}

@@ -62,7 +62,7 @@ session_start();
             <div class="intro-content" data-aos="fade-up">
                 <h2>À propos du secteur agricole et agroalimentaire</h2>
                 <p>Le secteur de l'agriculture et de l'agroalimentaire constitue un pilier fondamental de l'économie
-                    française et mondiale, allant de la production des matières premières agricoles à la transformation
+                    africaine, allant de la production des matières premières agricoles à la transformation
                     des aliments jusqu'à leur distribution. Ce domaine stratégique, à la croisée des enjeux de
                     souveraineté alimentaire, de développement durable et d'innovation technologique, offre une grande
                     diversité de métiers et de parcours professionnels. Face aux défis de la transition écologique, de
@@ -72,18 +72,18 @@ session_start();
                 <div class="sector-stats">
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
                         <i class="fas fa-tractor"></i>
-                        <h3>1,5 million</h3>
-                        <p>Emplois directs dans les filières agricoles et agroalimentaires en France</p>
+                        <h3>60%</h3>
+                        <p>De la population active travaille dans le secteur agricole en Afrique francophone</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-industry"></i>
-                        <h3>16%</h3>
-                        <p>Du chiffre d'affaires de l'industrie française</p>
+                        <h3>24%</h3>
+                        <p>Du PIB de l'Afrique subsaharienne</p>
                     </div>
                     <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
                         <i class="fas fa-chart-line"></i>
-                        <h3>+10%</h3>
-                        <p>De croissance pour les produits bio et écoresponsables</p>
+                        <h3>+15%</h3>
+                        <p>De croissance pour les produits agroécologiques et durables</p>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Bac Pro agricole, BTSA, Licence Pro ou Ingénieur agricole</p>
+                                        <p>Bac Pro agricole, BTSA, Licence Pro ou Ingénieur agricole (ISRA, ENSA, IAV
+                                            Hassan II)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -140,7 +141,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>BTSA, Licence Pro ou BTS en agronomie, productions animales ou végétales</p>
+                                        <p>BTS, Licence Pro ou DUT en agronomie, productions animales ou végétales
+                                            (ISFAR, ENSA, UCAD)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -150,7 +152,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Évolution vers des postes de conseiller spécialisé, responsable technique,
-                                            salaire de 23 000€ à 35 000€</p>
+                                            salaire de 300 000 FCFA à 700 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +170,7 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>BTS, BUT, Licence Pro ou Ingénieur en agroalimentaire</p>
+                                        <p>BTS, DUT, Licence Pro ou Ingénieur en agroalimentaire (ESP, UCAD, 2iE)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -178,7 +180,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Directeur d'usine, responsable industriel, consultant en optimisation,
-                                            salaire de 35 000€ à 60 000€</p>
+                                            salaire de 700 000 FCFA à 1 500 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -191,8 +193,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>CAP, BP, BTM ou BM dans la spécialité (boulangerie, pâtisserie, boucherie,
-                                            fromagerie)</p>
+                                        <p>CAP, BP, BTM ou formation professionnelle (ONFP, CFPT, centres de formation
+                                            professionnelle)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -202,7 +204,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Création ou reprise d'entreprise, développement de produits, formation,
-                                            salaire de 25 000€ à 45 000€ (variable pour les indépendants)</p>
+                                            salaire de 200 000 FCFA à 800 000 FCFA (variable pour les indépendants)</p>
                                     </div>
                                 </div>
                             </div>
@@ -220,7 +222,8 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Master ou diplôme d'ingénieur en agroalimentaire, spécialisation R&D</p>
+                                        <p>Master ou diplôme d'ingénieur en agroalimentaire (ESP, IAV Hassan II, INPHB)
+                                        </p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -230,7 +233,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Responsable R&D, chef de projet innovation, direction scientifique, salaire
-                                            de 35 000€ à 65 000€</p>
+                                            de 800 000 FCFA à 1 800 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -243,17 +246,17 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>Licence Pro à Master en qualité agroalimentaire, ingénieur spécialisé</p>
+                                        <p>Licence Pro à Master en qualité agroalimentaire (UCAD, CESAG, ESP)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
-                                        <p>Maîtrise des normes (ISO, IFS, BRC), audit, analyse des risques,
+                                        <p>Maîtrise des normes (ISO, UEMOA, CEDEAO), audit, analyse des risques,
                                             réglementation alimentaire, gestion documentaire</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Directeur qualité, auditeur, consultant en sécurité alimentaire, salaire de
-                                            30 000€ à 55 000€</p>
+                                            600 000 FCFA à 1 200 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +274,7 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>BTSA, Licence Pro ou diplôme d'ingénieur agricole</p>
+                                        <p>BTS, Licence Pro ou diplôme d'ingénieur agricole (ISRA, ANCAR, ENSA)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -280,8 +283,9 @@ session_start();
                                     </div>
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
-                                        <p>Consultant spécialisé, responsable de service, formateur, salaire de 25 000€
-                                            à 45 000€</p>
+                                        <p>Consultant spécialisé, responsable de service, formateur, salaire de 400 000
+                                            FCFA
+                                            à 900 000 FCFA</p>
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +298,7 @@ session_start();
                                 <div class="career-details">
                                     <div class="detail-item">
                                         <h4>Formation Requise</h4>
-                                        <p>BTS, BUT, Licence ou Master commerce avec spécialisation agroalimentaire</p>
+                                        <p>BTS, DUT, Licence ou Master commerce (CESAG, ISM, SUPDECO)</p>
                                     </div>
                                     <div class="detail-item">
                                         <h4>Compétences Clés</h4>
@@ -304,7 +308,7 @@ session_start();
                                     <div class="detail-item">
                                         <h4>Perspectives</h4>
                                         <p>Directeur commercial, responsable grands comptes, export manager, salaire de
-                                            35 000€ à 70 000€ (fixe + variable)</p>
+                                            700 000 FCFA à 1 800 000 FCFA (fixe + variable)</p>
                                     </div>
                                 </div>
                             </div>
@@ -327,8 +331,7 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formation Initiale</h3>
-                        <p>CAP agricole, Bac Pro agricole, Bac technologique STAV (Sciences et Technologies de
-                            l'Agronomie et du Vivant)</p>
+                        <p>CAP agricole, Bac Pro agricole, Bac technologique Sciences Agronomiques</p>
                         <span class="timeline-date">Années -3 à 0</span>
                     </div>
                 </div>
@@ -337,8 +340,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Professionnalisantes</h3>
-                        <p>BTSA, BUT, Licences professionnelles spécialisées en agriculture, agroalimentaire ou
-                            environnement</p>
+                        <p>BTS, DUT, Licences professionnelles spécialisées en agriculture, agroalimentaire ou
+                            environnement (ISFAR, ENSA, UCAD, ESP)</p>
                         <span class="timeline-date">Années 1 à 3</span>
                     </div>
                 </div>
@@ -347,7 +350,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Études Supérieures</h3>
-                        <p>Masters spécialisés, écoles d'ingénieurs agronomes ou agroalimentaires, écoles vétérinaires
+                        <p>Masters spécialisés, écoles d'ingénieurs agronomes ou agroalimentaires (IAV Hassan II, ENSA,
+                            INPHB, 2iE)
                         </p>
                         <span class="timeline-date">Années 3 à 5</span>
                     </div>
@@ -357,8 +361,8 @@ session_start();
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Formation Continue</h3>
-                        <p>Certificats de spécialisation, formations pour l'installation agricole (PPP), certifications
-                            en agriculture biologique</p>
+                        <p>Certificats de spécialisation, formations pour l'installation agricole, certifications
+                            en agroécologie et agriculture durable (ANCAR, ISRA, centres de formation)</p>
                         <span class="timeline-date">Tout au long de la carrière</span>
                     </div>
                 </div>
@@ -372,9 +376,9 @@ session_start();
                     </div>
                     <ul>
                         <li>Bac Pro Conduite et Gestion de l'Entreprise Agricole</li>
-                        <li>BTSA Productions Animales ou Végétales</li>
-                        <li>BTSA Analyse, Conduite et Stratégie de l'Entreprise Agricole</li>
-                        <li>Diplôme d'ingénieur agronome</li>
+                        <li>BTS Productions Animales ou Végétales (ISFAR)</li>
+                        <li>Licence Pro Analyse et Conduite des Systèmes d'Exploitation (UCAD)</li>
+                        <li>Diplôme d'ingénieur agronome (ENSA, IAV Hassan II)</li>
                     </ul>
                 </div>
 
@@ -384,10 +388,10 @@ session_start();
                         <h3>Formations Agroalimentaires</h3>
                     </div>
                     <ul>
-                        <li>BTS Bioqualité</li>
-                        <li>BUT Génie Biologique option industries alimentaires</li>
-                        <li>Licence Pro Industries Agroalimentaires</li>
-                        <li>Master Innovation en Industries Alimentaires</li>
+                        <li>BTS Qualité dans les Industries Agroalimentaires</li>
+                        <li>DUT Génie Biologique option industries alimentaires (ESP)</li>
+                        <li>Licence Pro Industries Agroalimentaires (UCAD)</li>
+                        <li>Master Innovation en Industries Alimentaires (INPHB, ESP)</li>
                     </ul>
                 </div>
 
@@ -397,10 +401,10 @@ session_start();
                         <h3>Formations Complémentaires</h3>
                     </div>
                     <ul>
-                        <li>Certificat de Spécialisation Agriculture Biologique</li>
-                        <li>Formation à l'installation agricole (capacité professionnelle)</li>
-                        <li>Certifications en agroécologie et permaculture</li>
-                        <li>Formations en œnologie et viticulture</li>
+                        <li>Certificat de Spécialisation en Agroécologie (ISRA)</li>
+                        <li>Formation à l'entrepreneuriat agricole (ANIDA, ADEPME)</li>
+                        <li>Certifications en agriculture durable et permaculture</li>
+                        <li>Formations en transformation des produits locaux (ONFP, CFPT)</li>
                     </ul>
                 </div>
             </div>
@@ -412,43 +416,45 @@ session_start();
         <div class="container">
             <h2 class="section-title light" data-aos="fade-up">Tendances du Secteur</h2>
             <p class="section-description light" data-aos="fade-up">Les évolutions majeures qui façonnent l'avenir de
-                l'agriculture et de l'agroalimentaire</p>
+                l'agriculture et de l'agroalimentaire en Afrique</p>
 
             <div class="trends-grid">
                 <div class="trend-card" data-aos="zoom-in">
                     <div class="trend-icon">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <h3>Agriculture Durable</h3>
-                    <p>Développement de l'agroécologie, de l'agriculture biologique, de la permaculture et des
-                        techniques agricoles régénératives pour réduire l'impact environnemental.</p>
+                    <h3>Agriculture Résiliente</h3>
+                    <p>Développement de l'agroécologie, de l'agriculture intelligente face au climat, et des
+                        techniques agricoles adaptées aux conditions sahéliennes pour lutter contre la désertification.
+                    </p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="trend-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
-                    <h3>Agriculture de Précision</h3>
-                    <p>Utilisation des technologies numériques (IoT, drones, capteurs, intelligence artificielle) pour
-                        optimiser les pratiques culturales et les rendements.</p>
+                    <h3>Agriculture Numérique</h3>
+                    <p>Utilisation des technologies mobiles, systèmes d'information géographique et solutions adaptées
+                        aux petits producteurs pour améliorer les rendements et l'accès aux marchés.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="trend-icon">
                         <i class="fas fa-carrot"></i>
                     </div>
-                    <h3>Alimentation Responsable</h3>
-                    <p>Montée des produits alimentaires éthiques, locaux, clean label et à faible impact
-                        environnemental, développement des protéines alternatives.</p>
+                    <h3>Souveraineté Alimentaire</h3>
+                    <p>Valorisation des cultures vivrières locales, développement des chaînes de valeur inclusives et
+                        promotion des produits à haute valeur nutritionnelle adaptés aux besoins locaux.</p>
                 </div>
 
                 <div class="trend-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="trend-icon">
                         <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <h3>Circuits Courts</h3>
-                    <p>Transformation des modes de distribution avec le développement des circuits courts, de la vente
-                        directe, des plateformes numériques connectant producteurs et consommateurs.</p>
+                    <h3>Intégration Régionale</h3>
+                    <p>Renforcement des échanges commerciaux intra-africains, développement des plateformes numériques
+                        connectant producteurs et marchés, et harmonisation des normes au sein de la CEDEAO et de
+                        l'UEMOA.</p>
                 </div>
             </div>
         </div>
@@ -458,7 +464,7 @@ session_start();
     <section class="cta-section">
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Prêt à vous lancer dans une carrière agricole ou agroalimentaire ?</h2>
+                <h2>Prêt à vous lancer dans une carrière agricole ou agroalimentaire en Afrique ?</h2>
                 <p>Découvrez nos ressources d'orientation et prenez contact avec nos conseillers</p>
                 <div class="cta-buttons">
                     <a href="#" class="cta-primary">Consulter le guide complet</a>
