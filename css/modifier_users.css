@@ -1,74 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
 
-*{
-    margin:0 ;
-    box-sizing: border-box;
-    letter-spacing: 0.5px;
+* {
+  margin: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.5px;
 }
 
-body{
-    font-family: 'Nunito', sans-serif;
-    background-color: #e1e2e275;
-    overflow-x: hidden;
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #e1e2e275;
+  overflow-x: hidden;
 }
-
-
-
 
 /* section 2 et toute ces modification  */
 
-
-.section2 .box3 table .me1{
+.section2 .box3 table .me1 {
   background-color: #797979;
   border-radius: 15px;
 }
 .section2 .box3 table .me1 td a {
-    color: rgb(255, 255, 255);
-
+  color: rgb(255, 255, 255);
 }
-  .section2 .box3  .tr3{
-    background-color: #797979;
-  }
-  .section2 .box3 .tr3 {
-    color: #ffffff;
-  }
-
-
-
-
-
-
-
+.section2 .box3 .tr3 {
+  background-color: #797979;
+}
+.section2 .box3 .tr3 {
+  color: #ffffff;
+}
 
 /* section 3 et toute ces modification  */
 
-.section3{
+.section3 {
   margin-left: 250px;
   /* background-color: #d4f2f675; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
- /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
- 
- background-position: center;
- background-attachment: fixed;
- position: relative;
- margin-top: 10px;
+  /* background: radial-gradient(circle, rgba(226,226,230,1) 0%, rgba(220,220,233,1) 35%, rgba(255,255,255,1) 100%); */
+
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  margin-top: 10px;
 }
 
-@media screen and (max-width : 1050px){
-  .section3{
-      width: 100%;
-     padding-left: 50px;
-     margin-left: 0;
+@media screen and (max-width: 1050px) {
+  .section3 {
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0;
   }
 }
 
-
-.section3 .success{
+.section3 .success {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -82,10 +69,10 @@ body{
   opacity: 0;
   padding: 10px 20px;
 }
-.section3 .success.visible{
+.section3 .success.visible {
   opacity: 1;
 }
-.section3 .erreur{
+.section3 .erreur {
   position: absolute;
   top: 130px;
   left: 50%;
@@ -100,11 +87,11 @@ body{
   opacity: 0;
 }
 
-.section3 .erreur.visible{
+.section3 .erreur.visible {
   opacity: 1;
 }
 
-.section3 .delete{
+.section3 .delete {
   position: absolute;
   top: 90px;
   left: 50%;
@@ -119,20 +106,16 @@ body{
   padding: 10px 20px;
 }
 
-.section3 .delete.visiblee{
+.section3 .delete.visiblee {
   opacity: 1;
 }
 
-
-
-
-
-.section{
+.section {
   width: 90%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
 }
-.section .container2{
+.section .container2 {
   width: 90%;
   display: flex;
   align-items: center;
@@ -144,7 +127,7 @@ body{
   justify-content: center;
 }
 
-.section .container2 h1{
+.section .container2 h1 {
   padding: 10px;
   width: 500px;
   font-size: 18px;
@@ -154,11 +137,11 @@ body{
   margin: 20px auto;
   color: #636363;
   border-bottom: 2px solid #a3a3a3;
-  border-bottom-left-radius:20px ;
-  border-bottom-right-radius:20px ;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.section .container2 .commande{
+.section .container2 .commande {
   width: 90%;
   margin: 10px auto;
   display: flex;
@@ -168,7 +151,7 @@ body{
   position: relative;
 }
 
-.section .container2 .commande h2{
+.section .container2 .commande h2 {
   text-align: center;
   color: #636363;
   font-size: 16px;
@@ -176,7 +159,7 @@ body{
   margin-top: 30px;
 }
 
-.section .container2 .commande .param{
+.section .container2 .commande .param {
   width: 100%;
   display: flex;
   align-items: center;
@@ -188,7 +171,7 @@ body{
   padding-bottom: 20px;
 }
 
-.section .container2 .commande .param p{
+.section .container2 .commande .param p {
   width: 80%;
   display: flex;
   align-items: center;
@@ -202,7 +185,7 @@ body{
   transform: translateY(0);
 }
 
-.section .container2 .commande .param p span{
+.section .container2 .commande .param p span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,19 +198,19 @@ body{
   transition: all 0.3s ease-in-out;
 }
 
-.section .container2 .commande .param p span img{
+.section .container2 .commande .param p span img {
   width: 15px;
   height: 15px;
   margin-right: 10px;
   border-radius: 4px;
 }
 
-.section .container2 .commande .param p span:hover{
+.section .container2 .commande .param p span:hover {
   background-color: #636363;
   color: #eaeaea;
 }
 
-.section .container2 .commande .param p .money{
+.section .container2 .commande .param p .money {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,14 +223,14 @@ body{
   transition: all 0.3s ease-in-out;
 }
 
-.section .container2 .commande .param p .money img{
+.section .container2 .commande .param p .money img {
   width: 20px;
   height: 20px;
   margin-left: 10px;
   border-radius: 4px;
 }
 
-.section .container2 .commande .param p .lieu{
+.section .container2 .commande .param p .lieu {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,14 +243,14 @@ body{
   transition: all 0.3s ease-in-out;
 }
 
-.section .container2 .commande .param p .lieu img{
+.section .container2 .commande .param p .lieu img {
   width: 20px;
   height: 20px;
   margin-left: 10px;
   border-radius: 4px;
 }
 
-.section .container2 .commande form{ 
+.section .container2 .commande form {
   position: absolute;
   background-color: #ffffff;
   z-index: 1;
@@ -282,7 +265,7 @@ body{
   transition: all 0.3s ease-in-out;
 }
 
-.section .container2 .commande form #nom{
+.section .container2 .commande form #nom {
   padding: 2px 10px;
   font-size: 14px;
   color: #636363;
@@ -292,7 +275,7 @@ body{
   border: 1.5px solid #a3a3a3;
 }
 
-.section .container2 .commande form select{
+.section .container2 .commande form select {
   padding: 2px 10px;
   font-size: 12px;
   color: #636363;
@@ -302,7 +285,7 @@ body{
   border: 1.5px solid #a3a3a3;
 }
 
-.section .container2 .commande form select option{
+.section .container2 .commande form select option {
   font-size: 12px;
   color: #636363;
   width: 500px;
@@ -311,30 +294,30 @@ body{
   border: 1.5px solid #a3a3a3;
 }
 
-.section .container2 .commande form div{
+.section .container2 .commande form div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.section .container2 .commande form div label img{
+.section .container2 .commande form div label img {
   width: 20px;
   height: 20px;
   transition: all 0.3s ease-in-out;
   margin-left: 10px;
 }
 
-.section .container2 .commande form div label img:hover{
+.section .container2 .commande form div label img:hover {
   cursor: pointer;
   transform: scale(1.1);
   filter: grayscale(80);
 }
 
-.section .container2 .commande form div .btn{
+.section .container2 .commande form div .btn {
   display: none;
 }
 
-.section .container2 .commande form div #img{
+.section .container2 .commande form div #img {
   width: 20px;
   height: 20px;
   transition: all 0.3s ease-in-out;
@@ -342,21 +325,21 @@ body{
   margin-left: 10px;
 }
 
-.section .container2 .commande form div #img:hover{
+.section .container2 .commande form div #img:hover {
   cursor: pointer;
   transform: scale(1.1);
   filter: grayscale(80);
 }
-.section .container2 .commande .param1{
+.section .container2 .commande .param1 {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
-.section .container2 .commande .param1 form{
+.section .container2 .commande .param1 form {
   border: none;
 }
-.section .container2 .commande .param1 #photo1{
+.section .container2 .commande .param1 #photo1 {
   width: 40px;
   height: 40px;
   transition: all 0.3s ease-in-out;
@@ -369,7 +352,7 @@ body{
   transform: translateX(-50%);
   cursor: pointer;
 }
-.section .container2 .commande .param #photo{
+.section .container2 .commande .param #photo {
   width: 90px;
   height: 90px;
   transition: all 0.3s ease-in-out;
@@ -377,7 +360,7 @@ body{
   margin-left: 10px;
   object-fit: cover;
 }
-.section .container2 .commande .param #galerie{
+.section .container2 .commande .param #galerie {
   width: 60px;
   height: 60px;
   transition: all 0.3s ease-in-out;
@@ -385,12 +368,12 @@ body{
   margin-left: 10px;
 }
 
-.section .container2 .commande .param #galerie:hover{
+.section .container2 .commande .param #galerie:hover {
   cursor: pointer;
   transform: scale(1.1);
   filter: grayscale(80);
 }
-.section .container2 .commande form  #image{
+.section .container2 .commande form #image {
   width: 60px;
   height: 60px;
   transition: all 0.3s ease-in-out;
@@ -398,11 +381,11 @@ body{
   margin-left: 10px;
 }
 
-.section .container2 .commande .param1 #images{
+.section .container2 .commande .param1 #images {
   display: none;
 }
 
-.section .container2 .commande .param1 .preview #imagePreview{
+.section .container2 .commande .param1 .preview #imagePreview {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -411,7 +394,7 @@ body{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.section .container2 .commande .param1  .close{
+.section .container2 .commande .param1 .close {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -421,10 +404,10 @@ body{
 }
 
 @media screen and (max-width: 850px) {
-  .section{
+  .section {
     width: 98%;
   }
-  .section .container2{
+  .section .container2 {
     width: 98%;
   }
 
@@ -432,42 +415,41 @@ body{
   .section .container2 .commande form select {
     width: 100%;
   }
-  .section .container2 .commande form div label img{
+  .section .container2 .commande form div label img {
     width: 15px;
     height: 15px;
   }
-  .section .container2 .commande form div #img{
+  .section .container2 .commande form div #img {
     width: 15px;
     height: 15px;
   }
-  .section .container2 .commande .param1 .close{
+  .section .container2 .commande .param1 .close {
     width: 15px;
     height: 15px;
   }
-  .section .container2 .commande form div{
+  .section .container2 .commande form div {
     display: flex;
     align-items: center;
     justify-content: space-around;
   }
-  .section .container2 .commande form{
+  .section .container2 .commande form {
     width: 100%;
   }
-  .section .container2 .commande form #nom{
+  .section .container2 .commande form #nom {
     font-size: 10px;
   }
-  .section .container2 .commande form select{
+  .section .container2 .commande form select {
     font-size: 10px;
   }
 
-  .section .container2 .commande .param p{
+  .section .container2 .commande .param p {
     font-size: 10px;
     width: 100%;
   }
-
 }
 
 @media screen and (max-width: 650px) {
-  .section .container2 h1{
+  .section .container2 h1 {
     font-size: 15px;
     width: 90%;
   }
@@ -475,28 +457,28 @@ body{
   .section .container2 .commande form select {
     width: 100%;
   }
-  .section .container2 .commande form div label img{
+  .section .container2 .commande form div label img {
     width: 18px;
     height: 18px;
   }
-  .section .container2 .commande form div #img{
+  .section .container2 .commande form div #img {
     width: 18px;
     height: 18px;
   }
-  .section .container2 .commande .param1 .close{
+  .section .container2 .commande .param1 .close {
     width: 18px;
     height: 18px;
   }
-  .section .container2 .commande .param p{
+  .section .container2 .commande .param p {
     font-size: 10px;
     width: 100%;
   }
 
-  .section .container2 .commande .param p strong{
+  .section .container2 .commande .param p strong {
     font-size: 10px;
     display: none;
   }
-  .section .container2 .commande form div{
+  .section .container2 .commande form div {
     display: flex;
     align-items: center;
     justify-content: space-around;

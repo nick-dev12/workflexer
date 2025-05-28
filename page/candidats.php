@@ -80,6 +80,9 @@ if (isset($_GET['id'])) {
         }
     </style>
 
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
@@ -93,89 +96,48 @@ if (isset($_GET['id'])) {
 
 
 
-    <section class="section2 ste" id="ste">
-        <img src="../image/croix.png" alt="" class="img111" id="img24">
-        <div class="container">
-            <div class="box1">
+    <section class="candidat-profile" id="ste">
+        <div class="profile-header">
+            <div class="profile-background"></div>
 
-                <script>
-                    let statut = document.querySelector('.statut')
-                    let div_statut = document.querySelector('.div_statut')
-                    let imag = document.querySelector('.imag')
-                    statut.addEventListener('click', () => {
-                        div_statut.style.left = '0'
-                    })
-                    imag.addEventListener('click', () => {
-                        div_statut.style.left = '-200%'
-                    })
+            <div class="profile-content">
+                <div class="profile-image-container">
+                    <div class="profile-image-wrapper">
+                        <img class="profile-image" src="/upload/<?= $userss['images'] ?>" alt="Photo de profil">
+                        <span class="profile-status online" title="Disponible"></span>
+                    </div>
+                </div>
 
-                    // Ajouter un gestionnaire au clic n'importe où sur la page
-                    document.addEventListener('click', (e) => {
-                        // Vérifier que le clic ne vient pas du bouton
-                        if (e.target !== statut) {
-                            // Masquer la div
-                            div_statut.style.left = '-200%'
-                        }
-                    });
-                </script>
+                <div class="profile-info">
+                    <h1 class="profile-name">
+                        <?php $nom = explode(' ', $userss['nom']); ?>
+                        <span class="first-name"><?php echo $nom[0]; ?></span>
+                        <span class="last-name"><?php echo $nom[1]; ?></span>
+                        <?php if (isset($nom[2])): ?>
+                            <span class="last-name"><?php echo $nom[2]; ?></span>
+                        <?php endif; ?>
+                    </h1>
 
+                    <div class="profile-title">
+                        <span class="profession"><?php echo $userss['competences']; ?></span>
+                    </div>
 
-                <img class="affiche" src="/upload/<?= $userss['images'] ?>" alt="">
-                <span></span>
-                <h2>
-                    <?php echo $userss['nom']; ?>
-                </h2>
+                </div>
+
+                <div class="profile-metrics">
+                    <?php if (isset($competencesCount)): ?>
+                        <div class="metric">
+                            <span class="metric-value"><?= $competencesCount ?></span>
+                            <span class="metric-label">Compétences</span>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
-
-            <div class="box2">
-                <h3>
-                    <?php echo $userss['competences']; ?>
-                </h3>
-            </div>
-
-            <div class="box3">
-                <ul>
-                    <a href="../page/candidats.php?id=<?php echo $userss['id']; ?>">
-                        <li class="tr pcr"><img src="../image/mpc.png" alt=""> <span class="td">Mon parcour</span></li>
-                    </a>
-
-                </ul>
-
-            </div>
-
         </div>
-
-
     </section>
 
 
 
-    <section class="section2 menu" id="menu">
-        <img class="img23" id="img23" src="../image/menu n.png" alt="">
-        <div class="container">
-            <div class="box1">
-
-                <img class="affiche" src="/upload/<?= $userss['images'] ?>" alt="">
-                <span></span>
-
-            </div>
-
-
-            <div class="box3">
-                <ul>
-
-                    <a href="../page/user_profil.php">
-                        <li class="tr pcr"><img src="../image/mpc.png" alt=""> </li>
-                    </a>
-
-                </ul>
-
-            </div>
-        </div>
-
-
-
-    </section>
 
     <script>
         // Sélectionne l'élément avec la classe 'img' et l'assigne à img222
@@ -208,7 +170,7 @@ if (isset($_GET['id'])) {
     </script>
 
 
-    <section class="section3">
+    <section class="section3" id="candidat">
 
 
         <?php if (isset($_SESSION['compte_entreprise'])): ?>
@@ -315,10 +277,20 @@ if (isset($_GET['id'])) {
 
         <div class="container_box2" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
-                <h1>Expertise et compétences</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    Expertise et compétences
+                </h1>
             </div>
             <div class="box2">
-                <h2>Experience professionnel</h2>
+                <h2 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <span>Expérience professionnelle</span>
+                </h2>
                 <?php if (empty($afficheMetier)): ?>
                     <p class="p">Aucune expérience professionnelle enregistrée !</p>
                 <?php else: ?>
@@ -365,7 +337,12 @@ if (isset($_GET['id'])) {
 
 
             <div class="box3">
-                <h2>Compétences</h2>
+                <h2 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span>Compétences</span>
+                </h2>
                 <div class="container_comp">
                     <?php if (empty($competencesUtilisateur)): ?>
                         <p class="p">
@@ -383,7 +360,12 @@ if (isset($_GET['id'])) {
 
 
             <div class="box3">
-                <h2>Niveau d'expérience et d'étude </h2>
+                <h2 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <span>Niveau d'expérience et d'étude</span>
+                </h2>
                 <div class="container_comp b2">
 
                     <?php if (empty($getNiveauEtude)): ?>
@@ -427,7 +409,12 @@ if (isset($_GET['id'])) {
         <div class="container_box3" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
 
             <div class="box4">
-                <h1>formation</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <span>Formation</span>
+                </h1>
             </div>
             <div class="box5">
                 <?php if (empty($formationUsers)): ?>
@@ -483,7 +470,12 @@ if (isset($_GET['id'])) {
                 <div class="div">
                     <table>
                         <tr>
-                            <th>Diplôme</th>
+                            <th class="header-with-icon">
+                                <div class="header-icon-wrapper">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <span>Diplôme</span>
+                            </th>
                         </tr>
                     </table>
                     <div>
@@ -527,7 +519,12 @@ if (isset($_GET['id'])) {
         <div class="container_box7" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
 
             <div class="box1">
-                <h1>Projets et réalisations</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <span>Projets et réalisations</span>
+                </h1>
             </div>
 
             <div class="box2">
@@ -557,7 +554,12 @@ if (isset($_GET['id'])) {
 
         <div class="container_box5" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
-                <h1>maîtrise des outils informatiques</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span>Maîtrise des outils informatiques</span>
+                </h1>
             </div>
 
             <div class="box2">
@@ -588,7 +590,12 @@ if (isset($_GET['id'])) {
 
         <div class="container_box5" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
             <div class="box1">
-                <h1>maîtrise des langues</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <span>Maîtrise des langues</span>
+                </h1>
             </div>
 
             <div class="box2">
@@ -617,7 +624,12 @@ if (isset($_GET['id'])) {
 
         <div class="container_box8">
             <div class="box1">
-                <h1>Centre d'intérêt</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span>Centre d'intérêt</span>
+                </h1>
             </div>
 
             <div class="box2">
@@ -711,6 +723,64 @@ if (isset($_GET['id'])) {
         });
     </script>
 
+    <!-- Script pour l'animation de l'en-tête des compétences -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animation de l'en-tête des compétences
+            const skillsHeader = document.querySelector('.skills-header');
+
+            if (skillsHeader) {
+                // Créer un observateur d'intersection pour déclencher l'animation au défilement
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Ajouter une classe pour déclencher l'animation
+                            skillsHeader.classList.add('animated');
+
+                            // Ajouter un effet d'apparition progressive pour les points de décoration
+                            const dots = skillsHeader.querySelectorAll('.decoration-dot');
+                            dots.forEach((dot, index) => {
+                                setTimeout(() => {
+                                    dot.style.opacity = '1';
+                                }, 300 * (index + 1));
+                            });
+
+                            // Effet spécial pour l'icône
+                            const icon = skillsHeader.querySelector('.header-icon');
+                            if (icon) {
+                                icon.style.transform = 'scale(1.1)';
+                                setTimeout(() => {
+                                    icon.style.transform = 'scale(1)';
+                                }, 300);
+                            }
+
+                            // Arrêter d'observer une fois animé
+                            observer.disconnect();
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                // Commencer à observer l'en-tête
+                observer.observe(skillsHeader);
+
+                // Ajouter un effet au survol pour les points de décoration
+                const dots = skillsHeader.querySelectorAll('.decoration-dot');
+                dots.forEach(dot => {
+                    dot.addEventListener('mouseover', function () {
+                        this.style.transform = 'scale(1.5)';
+                    });
+
+                    dot.addEventListener('mouseout', function () {
+                        this.style.transform = '';
+                    });
+                });
+            }
+        });
+    </script>
+
+    <!-- Liens vers les nouveaux fichiers CSS et JS -->
+    <link rel="stylesheet" href="../css/candidat-profile.css">
+    <script src="../js/candidat-profile.js"></script>
 </body>
 
 </html>

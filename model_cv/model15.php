@@ -498,16 +498,7 @@ if (isset($_SESSION['users_id'])) {
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <div class="timeline-item">
-                                    <div class="timeline-dot"></div>
-                                    <div class="timeline-date">2015-2021</div>
-                                    <div class="timeline-title">COMPANY NAME</div>
-                                    <div class="timeline-description">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s.
-                                    </div>
-                                </div>
+                                <p>Aucune expérience professionnelle trouvée</p>
                             <?php endif; ?>
                         </div>
                     </div>

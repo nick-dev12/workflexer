@@ -126,72 +126,9 @@
 
 
 
-<section class="section2 menu" id="menu">
+<section class="menu" id="menu">
     <img class="img23" id="img23" src="../image/menu n.png" alt="">
-    <div class="container">
-        <div class="box1">
-
-            <img class="affiche" src="/upload/<?= $users['images'] ?>" alt="">
-            <span></span>
-
-        </div>
-
-
-        <div class="box3">
-            <ul>
-                <a href="../page/modifier.php">
-                    <li class="tr3"><img src="../image/modifier 1.png" alt=""> </li>
-                </a>
-
-                <a href="../page/user_profil.php">
-                    <li class="tr"><img src="../image/a propos.png" alt=""> <span class="td">À propos</span></li>
-                </a>
-
-                <a href="/model_cv/cv_users.php">
-                    <li class="tr4"><img src="../image/MCV.png" alt=""></li>
-                </a>
-
-                <a href="../page/mes_documments.php">
-                    <li class="tr6"><img src="../image/fichier1.png" alt=""></li>
-                </a>
-
-                <a href="../page/mes_demande.php?supp4=<?= $_SESSION['users_id'] ?>">
-                    <li class="tr1"><img src="../image/mdep.png" alt="">
-                        <?php if (($notif_suivi) or ($notif_suiviRecaler)): ?>
-                            <em><?= $count_notif_suivi + $count_notif_suiviRecaler ?></em>
-                        <?php else: ?>
-                        <?php endif; ?>
-                    </li>
-                </a>
-
-                <a href="../page/candature_accepter.php">
-                    <li class="tr10"><img src="../image/reussi.png" alt=""> <span class="td"></span>
-                        <?php if ($notif_suivi): ?>
-                            <em><?= $count_notif_suivi ?></em>
-                        <?php else: ?>
-                        <?php endif; ?>
-
-                    </li>
-                </a>
-
-                <a href="../page/message_users.php?supp3=<?= $_SESSION['users_id'] ?>">
-                    <li class="tr2"><img src="../image/message.png" alt="">
-                        <?php if (empty($notif_users)): ?>
-                        <?php else: ?>
-                            <?php if (isset($notif_users)): ?>
-                                <em><?= $count_notif_users ?></em>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    </li>
-                </a>
-
-            </ul>
-
-        </div>
-    </div>
-
-
-
+    <span class="span1">Menu</span>
 </section>
 
 <script>

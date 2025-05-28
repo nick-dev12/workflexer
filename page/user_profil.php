@@ -254,7 +254,7 @@ if (isset($_GET['id'])) {
 
 
         <?php include('../include/notifications.php') ?>
-        <!-- Afficher la carte professionnelle avec QR code -->
+        <!-- Carte professionnelle avec QR code -->
         <div class="qr-code">
             <div class="professional-card">
                 <!-- Éléments décoratifs -->
@@ -282,33 +282,23 @@ if (isset($_GET['id'])) {
                     <div class="card-name"><?php echo $users['nom']; ?></div>
                 </div>
             </div>
-
-
-            <!-- <div class="card-actions">
-                <button class="mon_qrcode">Mon QR Code</button>
-                <button id="open-scanner">Scanner un QR Code <img src="../image/scanner.png" alt=""></button>
-            </div> -->
-
-            <!-- Lien de téléchargement -->
-            <!-- <div class="qr_code">
-                <a href="qrcodes/user_<?php echo $_SESSION['users_id']; ?>.png">Télécharger mon code QR</a>
-            </div> -->
         </div>
 
-        <!-- Nouveau conteneur pour le bouton de notifications -->
-        <div class="notifications-control">
-            <div class="notifications-bubble">
-                <div class="notifications-icon">
+        <!-- Nouvelle implémentation du système de notification en plein écran -->
+        <div id="fullscreen-notification" class="fullscreen-notification">
+            <div class="notification-content">
+                <div class="notification-icon">
                     <i class="fas fa-bell"></i>
                 </div>
-                <div class="notifications-content">
-                    <h3>Restez informé</h3>
-                    <p>Recevez des notifications en temps réel sur vos candidatures.</p>
-                    <button id="notification-button-user" class="notification-button">
-                        <i class="fas fa-bell"></i> Activer les notifications
-                    </button>
-                    <div id="notification-status"></div> <!-- Pour les messages d'état -->
-                </div>
+                <h2>Restez informé</h2>
+                <p>Recevez des notifications en temps réel sur vos candidatures et opportunités professionnelles.</p>
+                <button id="notification-button-user" class="notification-button">
+                    <i class="fas fa-bell"></i> Activer les notifications
+                </button>
+                <div id="notification-status"></div>
+                <button id="close-notification" class="close-button">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         </div>
 
@@ -392,6 +382,7 @@ if (isset($_GET['id'])) {
                         scannerActive = true;
                     }
                 });
+            });
         </script>
 
 
@@ -408,12 +399,22 @@ if (isset($_GET['id'])) {
 
         <div class="container_box1">
             <div class="box1">
-                <h2>
-                    <span>À propos de moi</span>
-                    <strong>
-                        <i class="fas fa-eye"></i> <?php echo $getVueProfil; ?>
-                        <img src="../image/vue2.png" alt="Vues">
-                    </strong>
+                <h2 class="about-header">
+                    <div class="about-title">
+                        <div class="title-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span>À propos de moi</span>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stats-item">
+                            <div class="stats-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stats-count" data-count="<?php echo $getVueProfil; ?>">0</div>
+                            <div class="stats-label">Vues</div>
+                        </div>
+                    </div>
                 </h2>
 
                 <div class="description">
@@ -638,10 +639,20 @@ if (isset($_GET['id'])) {
 
         <div class="container_box2">
             <div class="box1">
-                <h1>Expertise et compétences</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    Expertise et compétences
+                </h1>
             </div>
             <div class="box2">
-                <h2>Expérience professionnelle</h2>
+                <h2 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <span>Expérience professionnelle</span>
+                </h2>
 
                 <?php if (empty($afficheMetier)): ?>
                     <p class="p">Aucune expérience professionnelle enregistrée !</p>
@@ -999,7 +1010,12 @@ if (isset($_GET['id'])) {
 
 
             <div class="box3">
-                <h2>Compétences</h2>
+                <h2 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span>Compétences</span>
+                </h2>
                 <div class="container_comp">
 
                     <?php if (empty($competencesUtilisateur)): ?>
@@ -1071,7 +1087,12 @@ if (isset($_GET['id'])) {
             </div>
 
             <div class="box3">
-                <h2>Niveau d'Expérience et d'Étude</h2>
+                <h2 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <span>Niveau d'expérience et d'étude</span>
+                </h2>
                 <div class="container_comp b2">
 
                     <?php if (empty($getNiveauEtude)): ?>
@@ -1190,7 +1211,12 @@ if (isset($_GET['id'])) {
         <div class="container_box3">
 
             <div class="box4">
-                <h1>formation</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <span>Formation</span>
+                </h1>
             </div>
             <div class="box5">
                 <?php if (empty($formationUsers)): ?>
@@ -1563,7 +1589,12 @@ if (isset($_GET['id'])) {
 
         <div class="container_box5 tools-section">
             <div class="box1">
-                <h1>Maîtrise des outils informatiques</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span>Maîtrise des outils informatiques</span>
+                </h1>
             </div>
 
             <div class="box2">
@@ -1659,7 +1690,12 @@ if (isset($_GET['id'])) {
 
         <div class="container_box5 languages-section">
             <div class="box1">
-                <h1>Maîtrise des langues</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <span>Maîtrise des langues</span>
+                </h1>
             </div>
 
             <div class="box2">
@@ -1737,7 +1773,12 @@ if (isset($_GET['id'])) {
         <div class="container_box7">
 
             <div class="box1">
-                <h1>Projets et réalisations</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <span>Projets et réalisations</span>
+                </h1>
             </div>
             <?php if (isset($_SESSION['users_id'])): ?>
                 <button class="ajout"><img src="../image/ajouter2.png" alt=""> Ajouter</button>
@@ -1849,7 +1890,12 @@ if (isset($_GET['id'])) {
 
         <div class="container_box8">
             <div class="box1">
-                <h1>Centre d'intérêt</h1>
+                <h1 class="header-with-icon">
+                    <div class="header-icon-wrapper">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span>Centre d'intérêt</span>
+                </h1>
             </div>
 
             <div class="box2">
@@ -2042,6 +2088,43 @@ if (isset($_GET['id'])) {
                 });
     </script>
 
+    <!-- Ajouter ce script pour animer le compteur de vues -->
+    <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Animation du compteur de vues
+                    const viewCounter = document.querySelector('.stats-count');
+                    if (viewCounter) {
+                        const targetCount = parseInt(viewCounter.dataset.count);
+                        let currentCount = 0;
+
+                        // Vérifier si l'élément est visible dans la fenêtre
+                        const observer = new IntersectionObserver(entries => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    // Ajouter une classe d'animation
+                                    viewCounter.classList.add('animated');
+
+                                    // Démarrer le compteur
+                                    const countUp = setInterval(() => {
+                                        currentCount += Math.ceil(targetCount / 30);
+                                        if (currentCount >= targetCount) {
+                                            viewCounter.textContent = targetCount;
+                                            clearInterval(countUp);
+                                        } else {
+                                            viewCounter.textContent = currentCount;
+                                        }
+                                    }, 30);
+
+                                    // Arrêter d'observer une fois animé
+                                    observer.disconnect();
+                                }
+                            });
+                        });
+
+                        observer.observe(viewCounter);
+                    }
+                });
+    </script>
 </body>
 
 </html>

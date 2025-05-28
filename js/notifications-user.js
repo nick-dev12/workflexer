@@ -1,10 +1,54 @@
 document.addEventListener('DOMContentLoaded', async function () {
     const notificationButton = document.getElementById('notification-button-user');
     const notificationStatus = document.getElementById('notification-status');
+    const fullscreenNotification = document.getElementById('fullscreen-notification');
+    const closeNotificationButton = document.getElementById('close-notification');
 
-    if (!notificationButton || !notificationStatus) {
-        console.warn("Bouton de notification ou conteneur de statut non trouvé.");
+    // Vérifier si les notifications sont déjà activées
+    const notificationsEnabled = localStorage.getItem('notifications_enabled') === 'true';
+
+    // Vérifier si la notification a été fermée récemment
+    const lastDismissedTime = localStorage.getItem('notification_closed_time');
+    const currentTime = new Date().getTime();
+    // Définir un délai d'expiration (1 minute en millisecondes)
+    const dismissExpiration = 1 * 60 * 1000;
+    const notificationClosedRecently = lastDismissedTime && (currentTime - parseInt(lastDismissedTime) < dismissExpiration);
+
+    if (!notificationButton || !notificationStatus || !fullscreenNotification) {
+        console.warn("Éléments de notification non trouvés.");
         return;
+    }
+
+    // Fonctions pour gérer l'affichage de la notification en plein écran
+    function showFullscreenNotification() {
+        fullscreenNotification.style.display = 'flex';
+        setTimeout(() => {
+            fullscreenNotification.classList.add('visible');
+        }, 50); // Petit délai pour permettre la transition
+    }
+
+    function hideFullscreenNotification() {
+        fullscreenNotification.classList.remove('visible');
+        setTimeout(() => {
+            fullscreenNotification.style.display = 'none';
+        }, 500); // Correspondant à la durée de transition
+    }
+
+    // Gestion du bouton de fermeture
+    if (closeNotificationButton) {
+        closeNotificationButton.addEventListener('click', function () {
+            hideFullscreenNotification();
+            // Stocker le timestamp actuel plutôt qu'un simple booléen
+            localStorage.setItem('notification_closed_time', new Date().getTime().toString());
+        });
+    }
+
+    // Si les notifications ne sont pas activées et la notification n'a pas été fermée récemment,
+    // afficher la notification après 5 secondes
+    if (!notificationsEnabled && !notificationClosedRecently) {
+        setTimeout(() => {
+            showFullscreenNotification();
+        }, 5000);
     }
 
     // Vérifications initiales de support
@@ -95,6 +139,17 @@ document.addEventListener('DOMContentLoaded', async function () {
                     notificationButton.innerHTML = '<i class="fas fa-bell"></i> Notifications activées';
                     notificationButton.disabled = true;
                     showUserMessage('Notifications activées avec succès!', 'success');
+
+                    // Marquer les notifications comme activées dans localStorage
+                    localStorage.setItem('notifications_enabled', 'true');
+
+                    // Supprimer l'horodatage de fermeture de notification lors de l'activation
+                    localStorage.removeItem('notification_closed_time');
+
+                    // Masquer la notification en plein écran si elle est visible
+                    if (fullscreenNotification.classList.contains('visible')) {
+                        hideFullscreenNotification();
+                    }
                 } else {
                     throw new Error(data.message || 'Erreur serveur lors de la sauvegarde du token.');
                 }

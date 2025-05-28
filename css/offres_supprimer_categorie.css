@@ -89,7 +89,7 @@ body {
 @media screen and (max-width: 1050px) {
   .section3 {
     width: 100%;
-    padding-left: 50px;
+    padding-left: 0px;
     margin-left: 0;
   }
 }

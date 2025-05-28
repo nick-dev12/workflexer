@@ -58,64 +58,10 @@
     </div>
 </section>
 
-<section class="section2 menu" id="menu">
+<section class="menu" id="menu">
     <!-- <img src="../image/croix.png" alt="" class="img111"> -->
     <img class="img23" id="img23" src="../image/menu n.png" alt="">
-
-    <div class="container">
-        <div class="box1">
-            <img src="../upload/<?= $getEntreprise['images']; ?>" alt="">
-            <span></span>
-        </div>
-
-
-        <div class="box3">
-            <ul>
-                <a href="modifier.php">
-                    <li class="tr3"><img src="../image/modifier 1.png" alt=""></li>
-                </a>
-
-                <a href="../entreprise/entreprise_profil.php">
-                    <li class="tr"><img src="../image/entreprise_ic.png" alt=""></li>
-                </a>
-
-                <a href="../page/candidature.php?supp2= <?= $_SESSION['compte_entreprise'] ?>">
-                    <li class="me3">
-                        <img src="../image/candidat.png" alt="">
-                        <?php if (empty($afficheNotificationPostulation)): ?>
-
-                        <?php else: ?>
-                            <?php if (isset($afficheNotificationPostulation)): ?>
-                                <em><?= $countnotificationPostulation ?></em>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    </li>
-                </a>
-
-
-                <a href="../entreprise/message.php?supp1= <?= $_SESSION['compte_entreprise'] ?>">
-                    <li class="tr2"><img src="../image/message.png" alt="">
-                        <?php if (empty($afficheNotificationMessage)): ?>
-
-                        <?php else: ?>
-                            <em><?= $countafficheNotificationMessage ?></em>
-                        <?php endif; ?>
-                    </li>
-                </a>
-
-                <a href="../entreprise/offre_expirer.php">
-                    <li class="tr7"><img src="../image/Expiration.png" alt=""></li>
-                </a>
-                <a href="../entreprise/offre_suprimer.php">
-                    <li class="tr8"><img src="../image/supprimé.png" alt=""> </li>
-                </a>
-                <a href="../entreprise/historique.php">
-                    <li class="tr5"><img src="../image/historique.png" alt=""></li>
-                </a>
-            </ul>
-
-        </div>
-    </div>
+    <span class="span1">menu</span>
 </section>
 
 

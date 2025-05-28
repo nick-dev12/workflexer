@@ -310,7 +310,7 @@ body {
 }
 
 .summary {
-  font-size: 13px !important;
+  font-size: 12px !important;
   line-height: 1.4;
   opacity: 0.8;
   max-width: 98%;
@@ -479,13 +479,13 @@ body {
 }
 
 .timeline-subtitle {
-  font-size: 13px !important;
+  font-size: 12px !important;
   color: var(--light-text);
   margin-bottom: 10px;
 }
 
 .timeline-content {
-  font-size: 13px !important;
+  font-size: 12px !important;
   color: var(--text-color);
   line-height: 1.4;
 }

@@ -200,14 +200,15 @@ include_once('../controller/controller_users.php');
                                 Modifier</span> </p>
                         <form class="form" action="" method="post">
                             <select name="categorie" id="categorie">
-                                <option value="">Sélectionnez une catégorie</option>
-                                <option value="Informatique">Informatique et tech</option>
-                                <option value="design">Design et création</option>
-                                <option value="Rédaction">Rédaction et traduction</option>
-                                <option value="marketing">Marketing et communication</option>
-                                <option value="business">Conseil et gestion d'entreprise</option>
+                                <option value="">Sélectionnez une
+                                    catégorie</option>
+                                <option value="Informatique et tech">Informatique et tech</option>
+                                <option value="Design et création">Design et création</option>
+                                <option value="Rédaction et traduction">Rédaction et traduction</option>
+                                <option value="Marketing et communication">Marketing et communication</option>
+                                <option value="Conseil et gestion d'entreprise">Conseil et gestion d'entreprise</option>
                                 <option value="Juridique">Juridique</option>
-                                <option value="Ingénierie">Ingénierie et architecture</option>
+                                <option value="Ingénierie et architecture">Ingénierie et architecture</option>
                                 <option value="Finance et comptabilité">Finance et comptabilité</option>
                                 <option value="Santé et bien-être">Santé et bien-être</option>
                                 <option value="Éducation et formation">Éducation et formation</option>
