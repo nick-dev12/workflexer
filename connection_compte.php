@@ -61,56 +61,19 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
     <?php include('navbare.php') ?>
 
     <section class="login-section">
-        <h1>Choisissez votre type de compte</h1>
-        <p class="login-description">
-            Sélectionnez le type de compte qui correspond à votre profil pour vous connecter à notre plateforme.
-            Chaque option offre des fonctionnalités adaptées à vos besoins spécifiques.
-        </p>
+        <h1>Choisissez votre compte</h1>
 
         <div class="account-options">
-            <!-- Carte pour le compte entreprise -->
-            <div class="account-card">
-                <span class="account-badge enterprise-badge">Entreprise</span>
-                <div class="account-image">
-                    <img src="/image/entreprise.jpg" alt="Compte d'entreprise">
-                </div>
-                <div class="account-info">
-                    <h2 class="account-title">Compte Entreprise</h2>
-                    <p class="account-description">
-                        Pour les recruteurs et entreprises cherchant à publier des offres d'emploi et à découvrir des
-                        talents qualifiés.
-                    </p>
-                    <div class="account-features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Publication d'offres d'emploi</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Recherche de candidats</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Gestion des candidatures</span>
-                        </div>
-                    </div>
-                    <a href="/entreprise/connexion.php" class="account-button">
-                        <i class="fas fa-building"></i> Se connecter
-                    </a>
-                </div>
-            </div>
-
-            <!-- Carte pour le compte professionnel -->
+            <!-- Carte pour le compte particulier -->
             <div class="account-card">
                 <span class="account-badge">Professionnel</span>
                 <div class="account-image">
                     <img src="/image/travail.png" alt="Compte professionnel">
                 </div>
                 <div class="account-info">
-                    <h2 class="account-title">Compte Professionnel</h2>
+                    <h2 class="account-title">Professionnel</h2>
                     <p class="account-description">
-                        Pour les candidats et professionnels à la recherche d'opportunités d'emploi et de développement
-                        de carrière.
+                        Trouvez des opportunités d'emploi et développez votre carrière.
                     </p>
                     <div class="account-features">
                         <div class="feature-item">
@@ -119,11 +82,7 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Création de CV</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Candidature simplifiée</span>
+                            <span>CV et candidatures</span>
                         </div>
                     </div>
                     <a href="/connexion.php" class="account-button">
@@ -131,6 +90,34 @@ if (isset($_SESSION['compte_entreprise']) && $_SESSION['compte_entreprise']) {
                     </a>
                 </div>
             </div>
+
+            <!-- Carte pour le compte recruteur -->
+            <div class="account-card">
+                <span class="account-badge enterprise-badge">Recruteur</span>
+                <div class="account-image">
+                    <img src="/image/entreprise.jpg" alt="Compte recruteur">
+                </div>
+                <div class="account-info">
+                    <h2 class="account-title">Recruteur</h2>
+                    <p class="account-description">
+                        Publiez des offres et découvrez des talents qualifiés.
+                    </p>
+                    <div class="account-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Publication d'offres</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Recherche de candidats</span>
+                        </div>
+                    </div>
+                    <a href="/entreprise/connexion.php" class="account-button">
+                        <i class="fas fa-building"></i> Se connecter
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 

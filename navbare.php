@@ -74,14 +74,14 @@ include(__DIR__ . '/controller/controller_statut_offre.php');
 
 <nav>
     <a class="logo" href="../index.php"> <img src="/image/logo.png " alt="logo"></a>
-    <div class="container">
+    <div class="container-nav">
         <img class="menu" src="/image/menu.png" alt="">
         <div class="box1">
             <img class="cacheMenu" src="/image/croix.png" alt="">
-            <a href="../page/orientation.php">Orientation</a>
-            <a href="../page/Offres_d'emploi.php">Offres d'emploi</a>
+            <a href="/page/orientation.php">Orientation</a>
+            <a href="/page/Offres_d'emploi.php">Offres d'emploi</a>
             <a href="/page/entreprise.php">Entreprise</a>
-            <a href="../page/voir_profil.php">Espace Candidat</a>
+            <a href="/page/voir_profil.php">Espace Candidat</a>
         </div>
         <script>
             let menu = document.querySelector(".menu");

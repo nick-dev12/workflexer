@@ -1,3 +1,6 @@
+/**
+ * Script pour les animations et interactions de la page de profil candidat
+ */
 document.addEventListener('DOMContentLoaded', function () {
     // Animation d'entrée pour la carte de profil
     const profileHeader = document.querySelector('.profile-header');
@@ -52,47 +55,108 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Animation au survol de l'image de profil
+    // Animation pour l'image de profil au survol
     const profileImage = document.querySelector('.profile-image-wrapper');
     if (profileImage) {
         profileImage.addEventListener('mouseover', function () {
-            this.classList.add('hovered');
+            this.style.transform = 'scale(1.05)';
         });
 
         profileImage.addEventListener('mouseout', function () {
-            this.classList.remove('hovered');
+            this.style.transform = 'scale(1)';
         });
     }
 
-    // Animation pour les métriques (compteurs)
-    animateCounters();
-});
+    // Animation pour les métriques (compteur)
+    const metricValues = document.querySelectorAll('.metric-value');
+    metricValues.forEach(metric => {
+        const targetValue = parseInt(metric.textContent);
+        let currentValue = 0;
 
-// Fonction pour animer les compteurs numériques
-function animateCounters() {
-    const counters = document.querySelectorAll('.metric-value');
+        // Animation du compteur uniquement si l'élément est visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Commencer l'animation
+                    const duration = 1500; // ms
+                    const frameRate = 30; // fps
+                    const increment = Math.ceil(targetValue / (duration / 1000 * frameRate));
 
-    counters.forEach(counter => {
-        const target = parseInt(counter.innerText);
-        const count = 0;
-        const speed = 200; // Vitesse d'animation (ms)
+                    const counter = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= targetValue) {
+                            metric.textContent = targetValue;
+                            clearInterval(counter);
+                        } else {
+                            metric.textContent = currentValue;
+                        }
+                    }, 1000 / frameRate);
 
-        if (target > 0) {
-            const inc = Math.ceil(target / speed);
-
-            const updateCount = () => {
-                const value = parseInt(counter.innerText);
-                if (value < target) {
-                    counter.innerText = Math.min(value + inc, target);
-                    setTimeout(updateCount, 1);
+                    // Arrêter d'observer une fois l'animation démarrée
+                    observer.disconnect();
                 }
-            };
+            });
+        }, { threshold: 0.5 });
 
-            counter.innerText = '0';
-            setTimeout(updateCount, 800); // Délai avant de démarrer l'animation
-        }
+        observer.observe(metric);
     });
-}
+
+    // Effet parallaxe sur l'arrière-plan du profil
+    const profileBackground = document.querySelector('.profile-background');
+    if (profileBackground) {
+        window.addEventListener('scroll', function () {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition < 500) { // Limiter l'effet aux 500 premiers pixels de défilement
+                profileBackground.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+            }
+        });
+    }
+
+    // Animation des compétences au défilement
+    const animateOnScroll = (elements, className) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(className);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => {
+            observer.observe(el);
+        });
+    };
+
+    // Animer les cartes d'expérience
+    animateOnScroll(document.querySelectorAll('.experience-card'), 'animate-fade-in');
+
+    // Animer les compétences
+    animateOnScroll(document.querySelectorAll('.comp'), 'animate-scale-in');
+
+    // Animer les formations
+    animateOnScroll(document.querySelectorAll('.formation-card'), 'animate-slide-in');
+
+    // Effet de survol sur les boutons d'action
+    actionButtons.forEach(button => {
+        button.addEventListener('mouseover', function () {
+            this.style.transform = 'translateY(-3px)';
+        });
+
+        button.addEventListener('mouseout', function () {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Initialiser AOS (Animate On Scroll) si présent
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    }
+});
 
 // Fonction pour afficher des notifications
 function showNotification(message, type = 'info') {

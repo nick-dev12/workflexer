@@ -21,9 +21,9 @@
 
 /* Styles de la barre de navigation */
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
   height: var(--nav-height);
   max-height: var(--nav-height);
   min-height: var(--nav-height);
@@ -57,10 +57,10 @@ nav .box1 .cacheMenu {
   width: 25px;
   display: none;
 }
-nav .container .menu {
+nav .container-nav .menu {
   display: none;
 }
-nav .container {
+nav .container-nav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -682,7 +682,7 @@ nav .box3 :nth-child(1) {
     height: 80px;
     object-fit: cover;
   }
-  nav .container .menu {
+  nav .container-nav .menu {
     /* display: block; */
     height: 35px;
     width: 35px;
@@ -695,7 +695,7 @@ nav .box3 :nth-child(1) {
     margin: 0 5px;
   }
 
-  nav .container .box1 {
+  nav .container-nav .box1 {
     display: none;
   }
 
@@ -927,15 +927,15 @@ nav .box3 :nth-child(1) {
 /* modification de la premiere section */
 .section1 {
   height: auto;
-  background-color: #000102;
+  background-color: #000102 !important;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 10px;
-  z-index: 10;
-  flex-wrap: wrap;
-  padding: 5px 0;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+  z-index: 10 !important;
+  flex-wrap: wrap !important;
+  padding: 5px 0 !important;
 }
 .section1 span {
   height: 30px;
@@ -955,11 +955,11 @@ nav .box3 :nth-child(1) {
   margin-left: 10px;
 }
 .section1 div {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex !important;
+  align-items: center !important;
+  margin-right: 15px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
 }
 
 @media screen and (max-width: 1000px) {

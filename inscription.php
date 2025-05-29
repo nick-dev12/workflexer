@@ -60,41 +60,6 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
         </p>
 
         <div class="account-options">
-            <!-- Carte pour le compte entreprise -->
-            <div class="account-card enterprise">
-                <span class="account-badge enterprise-badge">Entreprise</span>
-                <div class="account-image">
-                    <img src="/image/entreprise.jpg" alt="Compte d'entreprise">
-                </div>
-                <div class="account-info">
-                    <h2 class="account-title">Compte Entreprise</h2>
-                    <p class="account-description">
-                        Publiez des offres d'emploi, recherchez des candidats qualifiés
-                        et gérez efficacement vos recrutements.
-                    </p>
-                    <div class="account-features">
-                        <div class="feature-item">
-                            <i class="fas fa-building"></i>
-                            <span>Profil d'entreprise personnalisé</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-bullhorn"></i>
-                            <span>Publication d'offres illimitées</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-users"></i>
-                            <span>Accès à notre base de talents</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Statistiques de recrutement</span>
-                        </div>
-                    </div>
-                    <a href="/compte_entreprise.php" class="account-button">
-                        <i class="fas fa-plus-circle"></i> Créer un compte
-                    </a>
-                </div>
-            </div>
 
             <!-- Carte pour le compte professionnel -->
             <div class="account-card">
@@ -132,6 +97,42 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
                     </a>
                 </div>
             </div>
+            <!-- Carte pour le compte entreprise -->
+            <div class="account-card enterprise">
+                <span class="account-badge enterprise-badge">Recruteur</span>
+                <div class="account-image">
+                    <img src="/image/entreprise.jpg" alt="Compte d'entreprise">
+                </div>
+                <div class="account-info">
+                    <h2 class="account-title">Compte Recruteur</h2>
+                    <p class="account-description">
+                        Publiez des offres d'emploi, recherchez des candidats qualifiés
+                        et gérez efficacement vos recrutements.
+                    </p>
+                    <div class="account-features">
+                        <div class="feature-item">
+                            <i class="fas fa-building"></i>
+                            <span>Profil d'entreprise personnalisé</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Publication d'offres illimitées</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Accès à notre base de talents</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Statistiques de recrutement</span>
+                        </div>
+                    </div>
+                    <a href="/compte_entreprise.php" class="account-button">
+                        <i class="fas fa-plus-circle"></i> Créer un compte
+                    </a>
+                </div>
+            </div>
+
         </div>
 
         <p class="signup-description" style="margin-top: 30px;">

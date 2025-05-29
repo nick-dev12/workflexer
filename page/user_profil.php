@@ -160,6 +160,25 @@ if (isset($_GET['id'])) {
     <meta name="description"
         content="Gérez votre profil professionnel sur Work-Flexer. Mettez en valeur vos compétences, expériences et réalisations. CV virtuel personnalisable, portfolio en ligne et suivi des candidatures. Augmentez votre visibilité auprès des recruteurs.">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url"
+        content="https://www.work-flexer.com/page/candidats.php?id=<?php echo $_SESSION['users_id']; ?>">
+    <meta property="og:title"
+        content="<?php echo $users['nom']; ?> - <?php echo $users['competences']; ?> | Work-Flexer">
+    <meta property="og:description" content="Découvrez mon profil professionnel et mes compétences sur Work-Flexer">
+    <meta property="og:image" content="https://www.work-flexer.com/upload/<?php echo $users['images']; ?>">
+    <meta property="og:image:alt" content="Photo de profil de <?php echo $users['nom']; ?>">
+    <meta property="og:site_name" content="Work-Flexer">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="<?php echo $users['nom']; ?> - <?php echo $users['competences']; ?> | Work-Flexer">
+    <meta name="twitter:description" content="Découvrez mon profil professionnel et mes compétences sur Work-Flexer">
+    <meta name="twitter:image" content="https://www.work-flexer.com/upload/<?php echo $users['images']; ?>">
+    <meta name="twitter:image:alt" content="Photo de profil de <?php echo $users['nom']; ?>">
+
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -192,6 +211,7 @@ if (isset($_GET['id'])) {
 
     <link rel="stylesheet" href="/css/user_profil.css">
     <link rel="stylesheet" href="../css/navbare.css">
+    <link rel="stylesheet" href="../css/share-profile.css">
 
     <link rel="stylesheet" href="../css/aos.css" />
     <link rel="stylesheet" href="../css/notifications.css">
@@ -481,155 +501,155 @@ if (isset($_GET['id'])) {
                 <?php endif; ?>
 
                 <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Animation et interaction pour le formulaire d'ajout
-                    const buton = document.querySelector('.buton');
-                    const form_box = document.querySelector('.form_box');
-                    const imgs = document.querySelectorAll('.imgs');
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Animation et interaction pour le formulaire d'ajout
+                        const buton = document.querySelector('.buton');
+                        const form_box = document.querySelector('.form_box');
+                        const imgs = document.querySelectorAll('.imgs');
 
-                    if (buton) {
-                        buton.addEventListener('click', function () {
-                            form_box.style.display = 'block';
-                            buton.style.display = 'none';
-                            // Ajouter une courte temporisation pour permettre au navigateur de reconnaître le changement de display
-                            setTimeout(() => {
-                                form_box.classList.add('active');
-                            }, 10);
-                        });
-                    }
-
-                    // Animation et interaction pour le formulaire de modification
-                    const button = document.querySelector('.buttons');
-                    const texte = document.querySelector('.texte');
-
-                    if (button) {
-                        button.addEventListener('click', function () {
-                            texte.style.display = 'block';
-                            button.style.display = 'none';
-                            // Ajouter une courte temporisation pour l'animation
-                            setTimeout(() => {
-                                texte.classList.add('active');
-                            }, 10);
-                        });
-                    }
-
-                    // Gestion des boutons de fermeture
-                    imgs.forEach(img => {
-                        img.addEventListener('click', function () {
-                            const parentForm = this.closest('.form_box');
-                            parentForm.classList.remove('active');
-
-                            // Attendre la fin de l'animation avant de cacher l'élément
-                            setTimeout(() => {
-                                parentForm.style.display = 'none';
-
-                                // Afficher le bon bouton selon le contexte
-                                if (parentForm.classList.contains('texte')) {
-                                    if (button) button.style.display = 'block';
-                                } else {
-                                    if (buton) buton.style.display = 'block';
-                                }
-                            }, 400);
-                        });
-                    });
-
-                    // Gestion du textarea pour la modification
-                    const textarea = document.getElementById("count");
-                    const caracteresRestants = document.getElementById("caracteres-restants");
-
-                    // Mise à jour initiale du compteur
-                    if (textarea) {
-                        const nombreCaracteres = textarea.value.length;
-                        if (caracteresRestants) {
-                            caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
+                        if (buton) {
+                            buton.addEventListener('click', function () {
+                                form_box.style.display = 'block';
+                                buton.style.display = 'none';
+                                // Ajouter une courte temporisation pour permettre au navigateur de reconnaître le changement de display
+                                setTimeout(() => {
+                                    form_box.classList.add('active');
+                                }, 10);
+                            });
                         }
 
-                        // Mise à jour du compteur de caractères en temps réel
-                        textarea.addEventListener("keyup", () => {
+                        // Animation et interaction pour le formulaire de modification
+                        const button = document.querySelector('.buttons');
+                        const texte = document.querySelector('.texte');
+
+                        if (button) {
+                            button.addEventListener('click', function () {
+                                texte.style.display = 'block';
+                                button.style.display = 'none';
+                                // Ajouter une courte temporisation pour l'animation
+                                setTimeout(() => {
+                                    texte.classList.add('active');
+                                }, 10);
+                            });
+                        }
+
+                        // Gestion des boutons de fermeture
+                        imgs.forEach(img => {
+                            img.addEventListener('click', function () {
+                                const parentForm = this.closest('.form_box');
+                                parentForm.classList.remove('active');
+
+                                // Attendre la fin de l'animation avant de cacher l'élément
+                                setTimeout(() => {
+                                    parentForm.style.display = 'none';
+
+                                    // Afficher le bon bouton selon le contexte
+                                    if (parentForm.classList.contains('texte')) {
+                                        if (button) button.style.display = 'block';
+                                    } else {
+                                        if (buton) buton.style.display = 'block';
+                                    }
+                                }, 400);
+                            });
+                        });
+
+                        // Gestion du textarea pour la modification
+                        const textarea = document.getElementById("count");
+                        const caracteresRestants = document.getElementById("caracteres-restants");
+
+                        // Mise à jour initiale du compteur
+                        if (textarea) {
                             const nombreCaracteres = textarea.value.length;
                             if (caracteresRestants) {
                                 caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
                             }
-                        });
 
-                        // Limiter le nombre de caractères saisis en temps réel
-                        textarea.addEventListener("input", () => {
-                            if (textarea.value.length > 400) {
-                                textarea.value = textarea.value.substring(0, 400);
-                            }
-                        });
+                            // Mise à jour du compteur de caractères en temps réel
+                            textarea.addEventListener("keyup", () => {
+                                const nombreCaracteres = textarea.value.length;
+                                if (caracteresRestants) {
+                                    caracteresRestants.textContent = `${400 - nombreCaracteres} caractères restants`;
+                                }
+                            });
 
-                        // Effet de focus amélioré
-                        textarea.addEventListener("focus", function () {
-                            this.parentElement.classList.add('focused');
-                        });
+                            // Limiter le nombre de caractères saisis en temps réel
+                            textarea.addEventListener("input", () => {
+                                if (textarea.value.length > 400) {
+                                    textarea.value = textarea.value.substring(0, 400);
+                                }
+                            });
 
-                        textarea.addEventListener("blur", function () {
-                            this.parentElement.classList.remove('focused');
-                        });
-                    }
+                            // Effet de focus amélioré
+                            textarea.addEventListener("focus", function () {
+                                this.parentElement.classList.add('focused');
+                            });
 
-                    // Gestion du textarea pour l'ajout
-                    const textareaAdd = document.getElementById("counte");
-                    const caracteresRestantesAdd = document.getElementById("caracteres-restantes");
-
-                    // Mise à jour initiale du compteur
-                    if (textareaAdd) {
-                        const nombreCaracteresAdd = textareaAdd.value.length;
-                        if (caracteresRestantesAdd) {
-                            caracteresRestantesAdd.textContent = `${400 - nombreCaracteresAdd} caractères restants`;
+                            textarea.addEventListener("blur", function () {
+                                this.parentElement.classList.remove('focused');
+                            });
                         }
 
-                        // Mise à jour du compteur de caractères en temps réel
-                        textareaAdd.addEventListener("keyup", () => {
+                        // Gestion du textarea pour l'ajout
+                        const textareaAdd = document.getElementById("counte");
+                        const caracteresRestantesAdd = document.getElementById("caracteres-restantes");
+
+                        // Mise à jour initiale du compteur
+                        if (textareaAdd) {
                             const nombreCaracteresAdd = textareaAdd.value.length;
                             if (caracteresRestantesAdd) {
                                 caracteresRestantesAdd.textContent = `${400 - nombreCaracteresAdd} caractères restants`;
                             }
+
+                            // Mise à jour du compteur de caractères en temps réel
+                            textareaAdd.addEventListener("keyup", () => {
+                                const nombreCaracteresAdd = textareaAdd.value.length;
+                                if (caracteresRestantesAdd) {
+                                    caracteresRestantesAdd.textContent = `${400 - nombreCaracteresAdd} caractères restants`;
+                                }
+                            });
+
+                            // Limiter le nombre de caractères saisis en temps réel
+                            textareaAdd.addEventListener("input", () => {
+                                if (textareaAdd.value.length > 400) {
+                                    textareaAdd.value = textareaAdd.value.substring(0, 400);
+                                }
+                            });
+
+                            // Effet de focus amélioré
+                            textareaAdd.addEventListener("focus", function () {
+                                this.parentElement.classList.add('focused');
+                            });
+
+                            textareaAdd.addEventListener("blur", function () {
+                                this.parentElement.classList.remove('focused');
+                            });
+                        }
+
+                        // Ajouter des effets sur les boutons de soumission
+                        const submitButtons = document.querySelectorAll('#ajoute');
+                        submitButtons.forEach(button => {
+                            button.addEventListener('mousedown', function () {
+                                this.style.transform = 'scale(0.95)';
+                            });
+                            button.addEventListener('mouseup', function () {
+                                this.style.transform = '';
+                            });
+                            button.addEventListener('mouseleave', function () {
+                                this.style.transform = '';
+                            });
                         });
 
-                        // Limiter le nombre de caractères saisis en temps réel
-                        textareaAdd.addEventListener("input", () => {
-                            if (textareaAdd.value.length > 400) {
-                                textareaAdd.value = textareaAdd.value.substring(0, 400);
-                            }
-                        });
-
-                        // Effet de focus amélioré
-                        textareaAdd.addEventListener("focus", function () {
-                            this.parentElement.classList.add('focused');
-                        });
-
-                        textareaAdd.addEventListener("blur", function () {
-                            this.parentElement.classList.remove('focused');
-                        });
-                    }
-
-                    // Ajouter des effets sur les boutons de soumission
-                    const submitButtons = document.querySelectorAll('#ajoute');
-                    submitButtons.forEach(button => {
-                        button.addEventListener('mousedown', function () {
-                            this.style.transform = 'scale(0.95)';
-                        });
-                        button.addEventListener('mouseup', function () {
-                            this.style.transform = '';
-                        });
-                        button.addEventListener('mouseleave', function () {
-                            this.style.transform = '';
+                        // Effet de pulse sur les boutons
+                        const pulseButtons = document.querySelectorAll('.buton, .buttons');
+                        pulseButtons.forEach(button => {
+                            button.addEventListener('mouseover', function () {
+                                this.style.animation = 'none';
+                            });
+                            button.addEventListener('mouseout', function () {
+                                this.style.animation = 'pulse 2s infinite';
+                            });
                         });
                     });
-
-                    // Effet de pulse sur les boutons
-                    const pulseButtons = document.querySelectorAll('.buton, .buttons');
-                    pulseButtons.forEach(button => {
-                        button.addEventListener('mouseover', function () {
-                            this.style.animation = 'none';
-                        });
-                        button.addEventListener('mouseout', function () {
-                            this.style.animation = 'pulse 2s infinite';
-                        });
-                    });
-                });
                 </script>
             </div>
         </div>
@@ -794,15 +814,15 @@ if (isset($_GET['id'])) {
                                         </div>
 
                                         <script>
-                        $(document).ready(function () {
-                            $('#encours').change(function () {
-                                if ($(this).is(':checked')) {
-                                    $('#moisFin, #anneeFin').prop('disabled', true);
-                                } else {
-                                    $('#moisFin, #anneeFin').prop('disabled', false);
-                                }
-                            });
-                        });
+                                            $(document).ready(function () {
+                                                $('#encours').change(function () {
+                                                    if ($(this).is(':checked')) {
+                                                        $('#moisFin, #anneeFin').prop('disabled', true);
+                                                    } else {
+                                                        $('#moisFin, #anneeFin').prop('disabled', false);
+                                                    }
+                                                });
+                                            });
                                         </script>
                                     </div>
 
@@ -819,37 +839,37 @@ if (isset($_GET['id'])) {
                             </div>
                         <?php endforeach; ?>
                         <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        // Sélectionne tous les boutons "Modifier"
-                        document.querySelectorAll("[id^='imgs2-']").forEach(button => {
-                            button.addEventListener("click", function () {
-                                let id = this.dataset.id;
-                                let form_modif = document.getElementById("form-modif-" + id);
-                                form_modif.style.display = (form_modif.style.display === "none" || form_modif.style.display === "") ? "block" : "none";
-                            });
-                        });
+                            document.addEventListener("DOMContentLoaded", function () {
+                                // Sélectionne tous les boutons "Modifier"
+                                document.querySelectorAll("[id^='imgs2-']").forEach(button => {
+                                    button.addEventListener("click", function () {
+                                        let id = this.dataset.id;
+                                        let form_modif = document.getElementById("form-modif-" + id);
+                                        form_modif.style.display = (form_modif.style.display === "none" || form_modif.style.display === "") ? "block" : "none";
+                                    });
+                                });
 
-                        // Sélectionne tous les boutons "Fermer"
-                        document.querySelectorAll("[id^='imgs1-']").forEach(button => {
-                            button.addEventListener("click", function () {
-                                let id = this.id.split('-')[1];
-                                let form_modif = document.getElementById("form-modif-" + id);
-                                form_modif.style.display = "none";
-                            });
-                        });
+                                // Sélectionne tous les boutons "Fermer"
+                                document.querySelectorAll("[id^='imgs1-']").forEach(button => {
+                                    button.addEventListener("click", function () {
+                                        let id = this.id.split('-')[1];
+                                        let form_modif = document.getElementById("form-modif-" + id);
+                                        form_modif.style.display = "none";
+                                    });
+                                });
 
-                        // Mise à jour du compteur de caractères pour chaque textarea généré dynamiquement
-                        document.querySelectorAll("textarea[id^='description-']").forEach(textarea => {
-                            const caractere_id = document.getElementById("caractere-" + textarea.id.split('-')[1]);
-                            textarea.addEventListener("input", () => {
-                                const nombre = textarea.value.length;
-                                caractere_id.textContent = `${300 - nombre} caractères restants`;
-                                if (nombre > 300) {
-                                    textarea.value = textarea.value.substring(0, 300);
-                                }
+                                // Mise à jour du compteur de caractères pour chaque textarea généré dynamiquement
+                                document.querySelectorAll("textarea[id^='description-']").forEach(textarea => {
+                                    const caractere_id = document.getElementById("caractere-" + textarea.id.split('-')[1]);
+                                    textarea.addEventListener("input", () => {
+                                        const nombre = textarea.value.length;
+                                        caractere_id.textContent = `${300 - nombre} caractères restants`;
+                                        if (nombre > 300) {
+                                            textarea.value = textarea.value.substring(0, 300);
+                                        }
+                                    });
+                                });
                             });
-                        });
-                    });
                         </script>
                     </div>
                 <?php endif; ?>
@@ -951,15 +971,15 @@ if (isset($_GET['id'])) {
                             </div>
 
                             <script>
-                $(document).ready(function () {
-                    $('#encours').change(function () {
-                        if ($(this).is(':checked')) {
-                            $('#moisFin, #anneeFin').prop('disabled', true);
-                        } else {
-                            $('#moisFin, #anneeFin').prop('disabled', false);
-                        }
-                    });
-                });
+                                $(document).ready(function () {
+                                    $('#encours').change(function () {
+                                        if ($(this).is(':checked')) {
+                                            $('#moisFin, #anneeFin').prop('disabled', true);
+                                        } else {
+                                            $('#moisFin, #anneeFin').prop('disabled', false);
+                                        }
+                                    });
+                                });
                             </script>
                         </div>
 
@@ -975,35 +995,35 @@ if (isset($_GET['id'])) {
 
 
                 <script>
-                let affiche_form = document.querySelector('.affiche_form')
-                let form = document.querySelector('.form')
-                let imgs1 = document.querySelector('.imgs1')
+                    let affiche_form = document.querySelector('.affiche_form')
+                    let form = document.querySelector('.form')
+                    let imgs1 = document.querySelector('.imgs1')
 
-                affiche_form.addEventListener('click', function () {
-                    form.style.display = 'block';
-                    affiche_form.style.display = 'none';
-                });
-                imgs1.addEventListener('click', function () {
-                    form.style.display = 'none';
-                    affiche_form.style.display = 'block';
-                });
+                    affiche_form.addEventListener('click', function () {
+                        form.style.display = 'block';
+                        affiche_form.style.display = 'none';
+                    });
+                    imgs1.addEventListener('click', function () {
+                        form.style.display = 'none';
+                        affiche_form.style.display = 'block';
+                    });
 
-                const textee = document.getElementById("description");
-                const caractere = document.getElementById("caractere");
+                    const textee = document.getElementById("description");
+                    const caractere = document.getElementById("caractere");
 
-                // Mise à jour du compteur de caractères en temps réel
-                textee.addEventListener("keyup", () => {
-                    const nombre = textee.value.length;
-                    caractere.textContent = `${300 - nombre
-                        } caractères restants`;
+                    // Mise à jour du compteur de caractères en temps réel
+                    textee.addEventListener("keyup", () => {
+                        const nombre = textee.value.length;
+                        caractere.textContent = `${300 - nombre
+                            } caractères restants`;
 
-                });
-                // Limiter le nombre de caractères saisis en temps réel
-                textee.addEventListener("input", () => {
-                    if (textee.value.length > 300) {
-                        textee.value = textee.value.substring(0, 300);
-                    }
-                });
+                    });
+                    // Limiter le nombre de caractères saisis en temps réel
+                    textee.addEventListener("input", () => {
+                        if (textee.value.length > 300) {
+                            textee.value = textee.value.substring(0, 300);
+                        }
+                    });
                 </script>
             </div>
 
@@ -1062,26 +1082,26 @@ if (isset($_GET['id'])) {
                     </div>
                     <input type="submit" value="Enregistrer" name="Ajouter1" id="Ajouter">
                     <script>
-                document.getElementById('competence').addEventListener('input', function () {
-                    const remaining = 50 - this.value.length;
-                    document.getElementById('char-count').textContent = remaining + ' caractères restants';
-                });
+                        document.getElementById('competence').addEventListener('input', function () {
+                            const remaining = 50 - this.value.length;
+                            document.getElementById('char-count').textContent = remaining + ' caractères restants';
+                        });
                     </script>
                 </form>
 
                 <script>
-                let affiche_forms = document.querySelector('.affiche_forms')
-                let forms = document.querySelector('.forms')
-                let imgs2 = document.querySelector('.imgs2')
+                    let affiche_forms = document.querySelector('.affiche_forms')
+                    let forms = document.querySelector('.forms')
+                    let imgs2 = document.querySelector('.imgs2')
 
-                affiche_forms.addEventListener('click', function () {
-                    forms.style.display = 'block';
-                    affiche_forms.style.display = 'none';
-                });
-                imgs2.addEventListener('click', function () {
-                    forms.style.display = 'none';
-                    affiche_forms.style.display = 'block';
-                });
+                    affiche_forms.addEventListener('click', function () {
+                        forms.style.display = 'block';
+                        affiche_forms.style.display = 'none';
+                    });
+                    imgs2.addEventListener('click', function () {
+                        forms.style.display = 'none';
+                        affiche_forms.style.display = 'block';
+                    });
                 </script>
 
             </div>
@@ -1185,18 +1205,18 @@ if (isset($_GET['id'])) {
                 </form>
 
                 <script>
-                let affiche_formss = document.querySelector('.affiche_formss')
-                let formss = document.querySelector('.formss')
-                let imgs22 = document.querySelector('.imgs22')
+                    let affiche_formss = document.querySelector('.affiche_formss')
+                    let formss = document.querySelector('.formss')
+                    let imgs22 = document.querySelector('.imgs22')
 
-                affiche_formss.addEventListener('click', function () {
-                    formss.style.display = 'block';
-                    affiche_formss.style.display = 'none';
-                });
-                imgs22.addEventListener('click', function () {
-                    formss.style.display = 'none';
-                    affiche_formss.style.display = 'block';
-                });
+                    affiche_formss.addEventListener('click', function () {
+                        formss.style.display = 'block';
+                        affiche_formss.style.display = 'none';
+                    });
+                    imgs22.addEventListener('click', function () {
+                        formss.style.display = 'none';
+                        affiche_formss.style.display = 'block';
+                    });
                 </script>
 
             </div>
@@ -1346,11 +1366,11 @@ if (isset($_GET['id'])) {
                                             </div>
 
                                             <script>
-                        function toggleEndDateFields(id) {
-                            const isChecked = document.getElementById('encours-' + id).checked;
-                            document.getElementById('moisFin-' + id).disabled = isChecked;
-                            document.getElementById('anneeFin-' + id).disabled = isChecked;
-                        }
+                                                function toggleEndDateFields(id) {
+                                                    const isChecked = document.getElementById('encours-' + id).checked;
+                                                    document.getElementById('moisFin-' + id).disabled = isChecked;
+                                                    document.getElementById('anneeFin-' + id).disabled = isChecked;
+                                                }
                                             </script>
                                         </div>
 
@@ -1393,13 +1413,13 @@ if (isset($_GET['id'])) {
                                 </div>
 
                                 <script>
-                        document.querySelector('.edit-btn[data-formation-id="<?php echo $formations['id']; ?>"]').addEventListener('click', function () {
-                            document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'block';
-                        });
+                                    document.querySelector('.edit-btn[data-formation-id="<?php echo $formations['id']; ?>"]').addEventListener('click', function () {
+                                        document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'block';
+                                    });
 
-                        document.querySelector('#edit-form-<?php echo $formations['id']; ?> .close-edit-form').addEventListener('click', function () {
-                            document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'none';
-                        });
+                                    document.querySelector('#edit-form-<?php echo $formations['id']; ?> .close-edit-form').addEventListener('click', function () {
+                                        document.getElementById('edit-form-<?php echo $formations['id']; ?>').style.display = 'none';
+                                    });
                                 </script>
                             </div>
                         <?php endforeach; ?>
@@ -1500,34 +1520,34 @@ if (isset($_GET['id'])) {
 
 
                         <script>
-                let Ajoutes = document.querySelector('.Ajouters')
-                let formee = document.querySelector('.containne')
-                let imgFormee = document.querySelector('.imgForme')
+                            let Ajoutes = document.querySelector('.Ajouters')
+                            let formee = document.querySelector('.containne')
+                            let imgFormee = document.querySelector('.imgForme')
 
-                Ajoutes.addEventListener('click', function () {
-                    formee.style.display = 'block';
-                    Ajoutes.style.display = 'none'
-                });
-                imgFormee.addEventListener('click', function () {
-                    formee.style.display = 'none';
-                    Ajoutes.style.display = 'block'
+                            Ajoutes.addEventListener('click', function () {
+                                formee.style.display = 'block';
+                                Ajoutes.style.display = 'none'
+                            });
+                            imgFormee.addEventListener('click', function () {
+                                formee.style.display = 'none';
+                                Ajoutes.style.display = 'block'
 
-                });
+                            });
                         </script>
                         <script>
-                function toggleEndDate(checkbox) {
-                    const endDateFields = document.getElementById('endDateFields');
-                    const moisFin = document.getElementById('moisFin');
-                    const anneeFin = document.getElementById('anneeFin');
+                            function toggleEndDate(checkbox) {
+                                const endDateFields = document.getElementById('endDateFields');
+                                const moisFin = document.getElementById('moisFin');
+                                const anneeFin = document.getElementById('anneeFin');
 
-                    if (checkbox.checked) {
-                        moisFin.disabled = true;
-                        anneeFin.disabled = true;
-                    } else {
-                        moisFin.disabled = false;
-                        anneeFin.disabled = false;
-                    }
-                }
+                                if (checkbox.checked) {
+                                    moisFin.disabled = true;
+                                    anneeFin.disabled = true;
+                                } else {
+                                    moisFin.disabled = false;
+                                    anneeFin.disabled = false;
+                                }
+                            }
                         </script>
                     </div>
                     <div class="container_box">
@@ -1654,21 +1674,21 @@ if (isset($_GET['id'])) {
 
                 </form>
                 <script>
-                document.getElementById('outil').addEventListener('input', function () {
-                    const maxLength = 50;
-                    const currentLength = this.value.length;
-                    const charCountElement = document.getElementById('char-count');
+                    document.getElementById('outil').addEventListener('input', function () {
+                        const maxLength = 50;
+                        const currentLength = this.value.length;
+                        const charCountElement = document.getElementById('char-count');
 
-                    charCountElement.textContent = currentLength;
+                        charCountElement.textContent = currentLength;
 
-                    if (currentLength >= maxLength) {
-                        charCountElement.style.color = 'red';
-                    } else if (currentLength >= 40) {
-                        charCountElement.style.color = 'orange';
-                    } else {
-                        charCountElement.style.color = 'inherit';
-                    }
-                });
+                        if (currentLength >= maxLength) {
+                            charCountElement.style.color = 'red';
+                        } else if (currentLength >= 40) {
+                            charCountElement.style.color = 'orange';
+                        } else {
+                            charCountElement.style.color = 'inherit';
+                        }
+                    });
                 </script>
             </div>
 
@@ -1812,20 +1832,20 @@ if (isset($_GET['id'])) {
                             <img id="imagePreview" src="" alt="view">
 
                             <script>
-                // Récupérer l'élément input type file
-                const inputImage = document.getElementById('images');
+                                // Récupérer l'élément input type file
+                                const inputImage = document.getElementById('images');
 
-                // Écouter le changement de fichier sélectionné
-                inputImage.addEventListener('change', () => {
+                                // Écouter le changement de fichier sélectionné
+                                inputImage.addEventListener('change', () => {
 
-                    // Récupérer le premier fichier sélectionné
-                    const file = inputImage.files[0];
+                                    // Récupérer le premier fichier sélectionné
+                                    const file = inputImage.files[0];
 
-                    // Afficher l'aperçu dans l'élément img
-                    const previewImg = document.getElementById('imagePreview');
-                    previewImg.src = URL.createObjectURL(file);
+                                    // Afficher l'aperçu dans l'élément img
+                                    const previewImg = document.getElementById('imagePreview');
+                                    previewImg.src = URL.createObjectURL(file);
 
-                });
+                                });
                             </script>
                         </div>
 
@@ -1928,18 +1948,18 @@ if (isset($_GET['id'])) {
                     </ul>
                 <?php endif; ?>
                 <script>
-                let btn_i = document.querySelector('.btn_eteret');
-                let form_btn = document.querySelector('.form_btn');
-                let ims = document.querySelector('.ims')
+                    let btn_i = document.querySelector('.btn_eteret');
+                    let form_btn = document.querySelector('.form_btn');
+                    let ims = document.querySelector('.ims')
 
-                btn_i.addEventListener('click', () => {
-                    form_btn.style.display = 'block'
-                    btn_i.style.display = 'none';
-                })
-                ims.addEventListener('click', () => {
-                    form_btn.style.display = 'none';
-                    btn_i.style.display = 'block';
-                })
+                    btn_i.addEventListener('click', () => {
+                        form_btn.style.display = 'block'
+                        btn_i.style.display = 'none';
+                    })
+                    ims.addEventListener('click', () => {
+                        form_btn.style.display = 'none';
+                        btn_i.style.display = 'block';
+                    })
                 </script>
             </div>
 
@@ -1982,17 +2002,17 @@ if (isset($_GET['id'])) {
 
 
     <script>
-                let assistance = document.getElementById('contacte');
-                let cache = document.getElementById('img');
-                let container_box6 = document.querySelector('.container_box6');
+        let assistance = document.getElementById('contacte');
+        let cache = document.getElementById('img');
+        let container_box6 = document.querySelector('.container_box6');
 
-                assistance.addEventListener('click', () => {
+        assistance.addEventListener('click', () => {
 
-                });
+        });
 
-                cache.addEventListener('click', () => {
-                    container_box6.style.transform = 'translateX(0px)';
-                });
+        cache.addEventListener('click', () => {
+            container_box6.style.transform = 'translateX(0px)';
+        });
     </script>
 
 
@@ -2004,126 +2024,126 @@ if (isset($_GET['id'])) {
     <script src="../js/notifications-user.js" defer></script>
 
     <script>
-                // Code JavaScript pour les animations des formulaires dans container_box2
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Animation pour les formulaires dans box2
-                    const afficherFormButtons = document.querySelectorAll('.section3 .container_box2 .box2 .affiche_form');
-                    const forms = document.querySelectorAll('.section3 .container_box2 .box2 form');
-                    const closeIcons = document.querySelectorAll('.section3 .container_box2 .box2 form img');
+        // Code JavaScript pour les animations des formulaires dans container_box2
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animation pour les formulaires dans box2
+            const afficherFormButtons = document.querySelectorAll('.section3 .container_box2 .box2 .affiche_form');
+            const forms = document.querySelectorAll('.section3 .container_box2 .box2 form');
+            const closeIcons = document.querySelectorAll('.section3 .container_box2 .box2 form img');
 
-                    afficherFormButtons.forEach((button, index) => {
-                        if (forms[index]) {
-                            button.addEventListener('click', function () {
-                                forms[index].style.display = 'block';
-                                button.style.display = 'none';
-                            });
+            afficherFormButtons.forEach((button, index) => {
+                if (forms[index]) {
+                    button.addEventListener('click', function () {
+                        forms[index].style.display = 'block';
+                        button.style.display = 'none';
+                    });
+                }
+            });
+
+            closeIcons.forEach((icon, index) => {
+                if (forms[index]) {
+                    icon.addEventListener('click', function () {
+                        forms[index].style.display = 'none';
+                        if (afficherFormButtons[index]) {
+                            afficherFormButtons[index].style.display = 'flex';
                         }
                     });
+                }
+            });
 
-                    closeIcons.forEach((icon, index) => {
-                        if (forms[index]) {
-                            icon.addEventListener('click', function () {
-                                forms[index].style.display = 'none';
-                                if (afficherFormButtons[index]) {
-                                    afficherFormButtons[index].style.display = 'flex';
-                                }
-                            });
+            // Animation pour les formulaires dans box3
+            const afficherFormsButtons = document.querySelectorAll('.section3 .container_box2 .box3 .affiche_forms, .section3 .container_box2 .box3 .affiche_formss');
+            const forms3 = document.querySelectorAll('.section3 .container_box2 .box3 form');
+            const closeIcons3 = document.querySelectorAll('.section3 .container_box2 .box3 form img');
+
+            afficherFormsButtons.forEach((button, index) => {
+                if (forms3[index]) {
+                    button.addEventListener('click', function () {
+                        forms3[index].style.display = 'flex';
+                        button.style.display = 'none';
+                    });
+                }
+            });
+
+            closeIcons3.forEach((icon, index) => {
+                if (forms3[index]) {
+                    icon.addEventListener('click', function () {
+                        forms3[index].style.display = 'none';
+                        if (afficherFormsButtons[index]) {
+                            afficherFormsButtons[index].style.display = 'flex';
                         }
                     });
+                }
+            });
 
-                    // Animation pour les formulaires dans box3
-                    const afficherFormsButtons = document.querySelectorAll('.section3 .container_box2 .box3 .affiche_forms, .section3 .container_box2 .box3 .affiche_formss');
-                    const forms3 = document.querySelectorAll('.section3 .container_box2 .box3 form');
-                    const closeIcons3 = document.querySelectorAll('.section3 .container_box2 .box3 form img');
+            // Effet d'échelle sur les boutons au clic
+            const submitButtons = document.querySelectorAll('.section3 .container_box2 form #Ajouter');
 
-                    afficherFormsButtons.forEach((button, index) => {
-                        if (forms3[index]) {
-                            button.addEventListener('click', function () {
-                                forms3[index].style.display = 'flex';
-                                button.style.display = 'none';
-                            });
-                        }
-                    });
-
-                    closeIcons3.forEach((icon, index) => {
-                        if (forms3[index]) {
-                            icon.addEventListener('click', function () {
-                                forms3[index].style.display = 'none';
-                                if (afficherFormsButtons[index]) {
-                                    afficherFormsButtons[index].style.display = 'flex';
-                                }
-                            });
-                        }
-                    });
-
-                    // Effet d'échelle sur les boutons au clic
-                    const submitButtons = document.querySelectorAll('.section3 .container_box2 form #Ajouter');
-
-                    submitButtons.forEach(button => {
-                        button.addEventListener('mousedown', function () {
-                            this.style.transform = 'scale(0.95)';
-                        });
-
-                        button.addEventListener('mouseup', function () {
-                            this.style.transform = 'translateY(-3px)';
-                        });
-
-                        button.addEventListener('mouseleave', function () {
-                            this.style.transform = '';
-                        });
-                    });
-
-                    // Animation au survol des compétences
-                    const competences = document.querySelectorAll('.section3 .container_box2 .box3 .container_comp .comp');
-
-                    competences.forEach(comp => {
-                        comp.addEventListener('mouseenter', function () {
-                            this.style.transform = 'translateY(-3px)';
-                        });
-
-                        comp.addEventListener('mouseleave', function () {
-                            this.style.transform = '';
-                        });
-                    });
+            submitButtons.forEach(button => {
+                button.addEventListener('mousedown', function () {
+                    this.style.transform = 'scale(0.95)';
                 });
+
+                button.addEventListener('mouseup', function () {
+                    this.style.transform = 'translateY(-3px)';
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    this.style.transform = '';
+                });
+            });
+
+            // Animation au survol des compétences
+            const competences = document.querySelectorAll('.section3 .container_box2 .box3 .container_comp .comp');
+
+            competences.forEach(comp => {
+                comp.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-3px)';
+                });
+
+                comp.addEventListener('mouseleave', function () {
+                    this.style.transform = '';
+                });
+            });
+        });
     </script>
 
     <!-- Ajouter ce script pour animer le compteur de vues -->
     <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Animation du compteur de vues
-                    const viewCounter = document.querySelector('.stats-count');
-                    if (viewCounter) {
-                        const targetCount = parseInt(viewCounter.dataset.count);
-                        let currentCount = 0;
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animation du compteur de vues
+            const viewCounter = document.querySelector('.stats-count');
+            if (viewCounter) {
+                const targetCount = parseInt(viewCounter.dataset.count);
+                let currentCount = 0;
 
-                        // Vérifier si l'élément est visible dans la fenêtre
-                        const observer = new IntersectionObserver(entries => {
-                            entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                    // Ajouter une classe d'animation
-                                    viewCounter.classList.add('animated');
+                // Vérifier si l'élément est visible dans la fenêtre
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Ajouter une classe d'animation
+                            viewCounter.classList.add('animated');
 
-                                    // Démarrer le compteur
-                                    const countUp = setInterval(() => {
-                                        currentCount += Math.ceil(targetCount / 30);
-                                        if (currentCount >= targetCount) {
-                                            viewCounter.textContent = targetCount;
-                                            clearInterval(countUp);
-                                        } else {
-                                            viewCounter.textContent = currentCount;
-                                        }
-                                    }, 30);
-
-                                    // Arrêter d'observer une fois animé
-                                    observer.disconnect();
+                            // Démarrer le compteur
+                            const countUp = setInterval(() => {
+                                currentCount += Math.ceil(targetCount / 30);
+                                if (currentCount >= targetCount) {
+                                    viewCounter.textContent = targetCount;
+                                    clearInterval(countUp);
+                                } else {
+                                    viewCounter.textContent = currentCount;
                                 }
-                            });
-                        });
+                            }, 30);
 
-                        observer.observe(viewCounter);
-                    }
+                            // Arrêter d'observer une fois animé
+                            observer.disconnect();
+                        }
+                    });
                 });
+
+                observer.observe(viewCounter);
+            }
+        });
     </script>
 </body>
 

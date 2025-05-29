@@ -1,0 +1,497 @@
+/* Styles pour le bouton de partage et la modal */
+
+/* Bouton de partage */
+.share-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.share-button i {
+  margin-right: 6px;
+}
+
+.share-button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal de partage */
+.share-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.share-modal-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.share-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.share-close:hover {
+  color: #1f2937;
+}
+
+.share-modal h3 {
+  font-size: 1.2rem;
+  color: #1f2937;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Prévisualisation du partage */
+.share-preview {
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.share-preview-card {
+  display: flex;
+  background-color: #f9fafb;
+}
+
+.share-preview-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.share-preview-info {
+  padding: 12px;
+  flex: 1;
+}
+
+.share-preview-info h4 {
+  font-size: 1rem;
+  color: #1f2937;
+  margin: 0 0 5px 0;
+}
+
+.share-preview-info p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Options de partage */
+.share-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.share-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #4b5563;
+  transition: all 0.2s ease;
+}
+
+.share-option:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.share-option i {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.share-option span {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Couleurs spécifiques pour les réseaux sociaux */
+#shareWhatsapp i {
+  color: #25d366;
+}
+
+#shareFacebook i {
+  color: #1877f2;
+}
+
+#shareLinkedin i {
+  color: #0a66c2;
+}
+
+#shareTwitter i {
+  color: #1da1f2;
+}
+
+#shareGmail i {
+  color: #ea4335;
+}
+
+#shareCopyLink i {
+  color: #6b7280;
+}
+
+/* État copié */
+.share-option.copied {
+  background-color: #dcfce7;
+}
+
+.share-option.copied i {
+  color: #16a34a;
+}
+
+/* État de chargement pour les boutons de partage */
+.share-option.loading {
+  position: relative;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.share-option.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #25d366;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .share-modal-content {
+    padding: 20px 15px;
+  }
+
+  .share-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .share-option {
+    padding: 10px;
+  }
+
+  .share-option i {
+    font-size: 1.3rem;
+  }
+
+  .share-option span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Modal de personnalisation d'email */
+.customize-email-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1100;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.customize-email-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+.customize-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.customize-close:hover {
+  color: #1f2937;
+}
+
+.customize-email-modal h3 {
+  font-size: 1.2rem;
+  color: #1f2937;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.customize-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+}
+
+.customize-button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.customize-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .customize-email-content {
+    padding: 20px 15px;
+  }
+
+  .customize-button {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+.email-note {
+  background-color: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: #1e40af;
+  font-size: 0.9rem;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.email-note i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.field-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  margin-bottom: 0;
+  min-height: 18px;
+}
+
+input[type="email"].form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="email"].form-control:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+.customize-button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Styles pour les champs de fichiers */
+.files-group {
+  margin-top: 20px;
+}
+
+.file-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.file-input-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.file-label {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.file-label:hover {
+  background-color: #d1d5db;
+}
+
+.file-label i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.file-name {
+  font-size: 0.85rem;
+  color: #6b7280;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.file-clear {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 3px 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-clear:hover {
+  background-color: #fee2e2;
+}
+
+@media screen and (max-width: 480px) {
+  .file-input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .file-name {
+    max-width: 100%;
+    margin-top: 5px;
+  }
+}

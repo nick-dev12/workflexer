@@ -45,6 +45,37 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvrez le profil professionnel de <?php echo $userss['nom']; ?>, <?php echo $userss['competences']; ?> sur Work-Flexer. Compétences, expériences et réalisations.">
+    <link rel="canonical" href="https://www.work-flexer.com/page/candidats.php?id=<?php echo $users_id; ?>">
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.work-flexer.com/page/candidats.php?id=<?php echo $users_id; ?>">
+    <meta property="og:title"
+        content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?> - <?php echo htmlspecialchars($userss['competences'], ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:description" content="Découvrez le profil professionnel et les compétences sur Work-Flexer">
+    <!-- Image optimisée pour LinkedIn (ratio 1.91:1 exactement comme recommandé) -->
+    <meta property="og:image" content="https://www.work-flexer.com/image/logo2_linkedin.jpg?v=2">
+    <meta property="og:image:secure_url" content="https://www.work-flexer.com/image/logo2_linkedin.jpg?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Logo Work-Flexer">
+    <meta property="og:site_name" content="Work-Flexer">
+
+    <!-- LinkedIn spécifique -->
+    <meta name="linkedin:owner" content="Work-Flexer">
+    <meta name="author" content="Work-Flexer">
+    <meta name="article:published_time" content="<?php echo date('c'); ?>">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?> - <?php echo htmlspecialchars($userss['competences'], ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="twitter:description" content="Découvrez le profil professionnel et les compétences sur Work-Flexer">
+    <meta name="twitter:image" content="https://www.work-flexer.com/image/logo2_linkedin.jpg?v=2">
+    <meta name="twitter:image:alt" content="Logo Work-Flexer">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -57,7 +88,7 @@ if (isset($_GET['id'])) {
         })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
-    <title>Profil</title>
+    <title><?php echo $userss['nom']; ?> - <?php echo $userss['competences']; ?> | Work-Flexer</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
 
@@ -70,6 +101,7 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="/css/user_profil.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/section2.css">
+    <link rel="stylesheet" href="../css/candidat-profile.css">
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -465,55 +497,7 @@ if (isset($_GET['id'])) {
         </div>
 
 
-        <div class="container_box4" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
-            <div class="box1">
-                <div class="div">
-                    <table>
-                        <tr>
-                            <th class="header-with-icon">
-                                <div class="header-icon-wrapper">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                                <span>Diplôme</span>
-                            </th>
-                        </tr>
-                    </table>
-                    <div>
-                        <?php foreach ($afficheDiplome as $diplomes): ?>
 
-                            <table>
-                                <tr>
-                                    <td>
-                                        <?php echo $diplomes['diplome']; ?>
-                                    </td>
-                                </tr>
-                            </table>
-                        <?php endforeach; ?>
-                    </div>
-
-                </div>
-
-                <div class="div">
-                    <table>
-                        <tr>
-                            <th>Certificats</th>
-                        </tr>
-                    </table>
-                    <div>
-                        <?php foreach ($afficheCertificat as $certificats): ?>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <?php echo $certificats['certificat'] ?>
-                                    </td>
-                                </tr>
-                            </table>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
 
         <div class="container_box7" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-in-out">
