@@ -28,6 +28,22 @@ textarea {
   border: 1.5px solid #818181;
 }
 
+button {
+  border: 1.5px dotted #818181 !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 6px 20px !important;
+  border-radius: 10px !important;
+  background-color: #707070 !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  margin: 0 auto !important;
+  margin-bottom: 10px !important;
+  margin-top: 20px !important;
+}
+
 .nb {
   font-size: 12px;
   color: hsl(0, 89%, 74%);
@@ -821,11 +837,11 @@ textarea {
   justify-content: center;
   border: none;
   padding: 12px 25px;
-  border-radius: 30px;
+  border-radius: 10px;
   background: linear-gradient(145deg, #4d4d4d, #464646);
   color: #ffffff;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.4s ease;
   box-shadow: 0 4px 15px rgba(0, 102, 255, 0.2);
@@ -1135,16 +1151,13 @@ textarea {
 }
 
 .section3 .container_box2 {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.8),
-    rgba(249, 250, 252, 0.9)
-  );
+  background-color: #ffffff;
   border-radius: 15px;
   padding: 30px;
   margin: 40px 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.4s ease;
+  width: 1000px;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -1191,8 +1204,12 @@ textarea {
   border-bottom: 1px solid rgba(133, 133, 133, 0.12);
   padding: 25px 20px;
   border-radius: 10px;
-  background-color: #fafafa;
+  background-color: #ffffff;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .section3 .container_box2 .box2:hover {
@@ -1205,10 +1222,6 @@ textarea {
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.3px;
-}
-
-.container_box2 span {
-  color: #1a1a1a !important;
 }
 
 .section3 .container_box2 .box2 .form {
@@ -2111,8 +2124,8 @@ textarea {
 
 .section3 .container_box3 .containne form .box1 #ajouter {
   color: #ffffff;
-  padding: 12px 25px;
-  border-radius: 30px;
+  padding: 6px 25px;
+  border-radius: 10px;
   font-size: 15px;
   transition: all 0.3s ease;
   margin-top: 20px;
@@ -2172,6 +2185,11 @@ textarea {
 
 .section3 .container_box3 .fa-formation .Ajouters:hover img {
   transform: rotate(15deg);
+}
+
+.section3 .container_box3 .formations-list .edit-btn {
+  background-color: #ffffff !important;
+  border: none !important;
 }
 
 /* Styles pour les tableaux */
@@ -2616,14 +2634,6 @@ textarea {
   margin: 20px;
 }
 .section3 .container_box5 .box2 .outil button {
-  background-color: #ebebebc7;
-  color: #4d4d4d;
-  padding: 3px 15px;
-  border-radius: 5px;
-  font-size: 15px;
-  margin-top: 20px;
-  cursor: pointer;
-  border: none;
   display: flex;
   align-items: center;
   -webkit-transition: all 0.3s ease-out; /* Pour les anciens navigateurs */
@@ -5584,7 +5594,7 @@ select:disabled {
   font-size: 24px;
   font-weight: 700;
   color: #2c3e50;
-  margin-bottom: 25px;
+
   padding: 15px 25px;
   border-radius: 10px;
   background: linear-gradient(135deg, #f7f9fc, #eef1f5);
@@ -5610,7 +5620,7 @@ select:disabled {
   top: 0;
   height: 100%;
   width: 5px;
-  background: linear-gradient(to bottom, #4776e6, #8e54e9);
+
   border-radius: 5px 0 0 5px;
 }
 
@@ -5629,7 +5639,7 @@ select:disabled {
   left: 25px;
   width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, #4776e6, #8e54e9);
+
   transition: width 0.3s ease;
 }
 
@@ -5675,7 +5685,7 @@ select:disabled {
   margin-bottom: 20px;
   padding: 12px 20px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #ffffff, #f5f7fa);
+
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
   display: flex;
   align-items: center;
@@ -5698,7 +5708,7 @@ select:disabled {
   top: 0;
   height: 100%;
   width: 3px;
-  background: linear-gradient(to bottom, #4776e6, #8e54e9);
+
   opacity: 0.7;
   border-radius: 3px 0 0 3px;
 }
@@ -5718,7 +5728,6 @@ select:disabled {
   left: 20px;
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, #4776e6, #8e54e9);
   opacity: 0.7;
   transition: width 0.3s ease;
 }
@@ -5753,6 +5762,8 @@ select:disabled {
   display: flex;
   align-items: center;
   gap: 15px;
+  width: 100%;
+  margin-bottom: 20px !important;
 }
 
 .header-icon-wrapper {

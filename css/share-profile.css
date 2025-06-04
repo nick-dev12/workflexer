@@ -12,7 +12,7 @@
   padding: 8px 16px;
   font-size: 0.9rem;
   font-weight: 500;
-  margin-top: 5px;
+  margin-top: -5px !important;
   margin-bottom: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
