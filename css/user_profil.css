@@ -41,7 +41,17 @@ button {
   transition: all 0.3s ease !important;
   margin: 0 auto !important;
   margin-bottom: 10px !important;
-  margin-top: 20px !important;
+  margin-top: 40px !important;
+}
+
+#ajouter_outil {
+  margin-left: 60px !important;
+  padding: 3px 10px !important;
+}
+
+#ajouter_langue {
+  margin-left: 60px !important;
+  padding: 3px 10px !important;
 }
 
 .nb {
@@ -217,6 +227,12 @@ button {
   top: 6px;
   left: 5px;
   border-radius: 2px;
+}
+
+@media screen and (max-width: 500px) {
+  .section3 .qr-code .professional-card {
+    max-width: 320px;
+  }
 }
 
 /* Boutons d'action */
@@ -1002,7 +1018,7 @@ button {
   width: 100%;
   margin-top: 20px;
   font-size: 15px;
-  margin-bottom: 70px;
+  margin-bottom: 100px;
   color: #505050;
   line-height: 1.7;
   padding: 20px;
@@ -1118,7 +1134,6 @@ button {
     width: 18px;
   }
   .section3 .container_box1 .description {
-    font-size: 13px;
     line-height: 1.6;
     padding: 12px;
     margin-bottom: 60px;
@@ -1157,7 +1172,7 @@ button {
   margin: 40px 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.4s ease;
-  width: 1000px;
+  width: 100%;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -1456,7 +1471,7 @@ button {
   padding: 25px 20px;
   width: 100%;
   border-radius: 10px;
-  background-color: #fafafa;
+  background-color: #f3f1f1;
   transition: all 0.3s ease;
 }
 
@@ -1637,7 +1652,7 @@ button {
 .section3 .container_box2 .box3 p {
   margin: 15px 0;
   font-size: 16px;
-  color: #555;
+  color: #2e2e2e;
   line-height: 1.5;
 }
 
@@ -1666,6 +1681,8 @@ button {
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   gap: 10px;
 }
@@ -1680,7 +1697,7 @@ button {
   flex-direction: column;
   padding: 20px;
   border-radius: 15px;
-  background-color: rgba(240, 240, 240, 0.5);
+  background-color: rgba(253, 253, 253, 0.925);
   border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -4572,7 +4589,7 @@ button {
   padding: 1rem;
   border-radius: 8px;
   border-left: 3px solid #4caf50;
-  text-align: justify;
+  text-align: left;
 }
 
 /* Responsive Design */

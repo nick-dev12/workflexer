@@ -10,7 +10,17 @@
   z-index: 20;
   background-color: #fffffff7;
   transition: all 0.5s ease;
-  border-right: 2px solid rgba(110, 109, 109, 0.478);
+  border-right: 2px solid rgba(209, 209, 209, 0.478);
+  overflow-y: auto !important;
+}
+
+.section2::-webkit-scrollbar {
+  width: 5px;
+}
+
+.section2::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 10px;
 }
 
 .section2 .liens {
@@ -58,7 +68,7 @@
   flex-direction: column;
   z-index: 1;
   position: relative;
-  margin-top: 30px;
+  margin-top: 10px !important;
 }
 .section2 .box1 .statut {
   padding: 5px 20px;

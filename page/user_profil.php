@@ -455,7 +455,7 @@ if (isset($_GET['id'])) {
                     <?php if (isset($_SESSION['users_id'])): ?>
                         <span class="buton">
                             <img src="../image/edite.png" alt="Ajouter">
-                            Ajouter ma description
+                            Ajouter
                         </span>
                     <?php endif; ?>
 
@@ -482,7 +482,7 @@ if (isset($_GET['id'])) {
                     <?php if (isset($_SESSION['users_id'])): ?>
                         <span class="buton buttons">
                             <img src="../image/ajouter2.png" alt="Modifier">
-                            Modifier ma description
+                            Modifier
                         </span>
                     <?php endif; ?>
 
@@ -877,7 +877,7 @@ if (isset($_GET['id'])) {
                 <?php if (isset($_SESSION['users_id'])): ?>
                     <button class="add-experience-btn affiche_form">
                         <img src="../image/ajouter2.png" alt="Ajouter" title="Ajouter une expérience">
-                        <span>Ajouter une expérience</span>
+                        <span>Ajouter </span>
                     </button>
                 <?php endif; ?>
 
@@ -1064,7 +1064,7 @@ if (isset($_GET['id'])) {
                 <?php if (isset($_SESSION['users_id'])): ?>
                     <button class="affiche_forms">
                         <img src="../image/ajouter2.png" alt="Ajouter" title="Ajouter une compétence">
-                        <span>Ajouter une compétence</span>
+                        <span>Ajouter</span>
                     </button>
                 <?php endif; ?>
 
@@ -1641,9 +1641,9 @@ if (isset($_GET['id'])) {
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn3 add-button">
+                        <button id="ajouter_outil" class="btn3 add-button">
                             <img src="../image/ajouter2.png" alt="">
-                            <span>Ajouter un outil</span>
+                            <span>Ajouter</span>
                         </button>
                     <?php endif; ?>
                 </div>
@@ -1742,9 +1742,9 @@ if (isset($_GET['id'])) {
 
                 <div class="outil">
                     <?php if (isset($_SESSION['users_id'])): ?>
-                        <button class="btn4 add-button">
+                        <button id="ajouter_langue" class="btn4 add-button">
                             <img src="../image/ajouter2.png" alt="">
-                            <span>Ajouter une langue</span>
+                            <span>Ajouter</span>
                         </button>
                     <?php endif; ?>
                 </div>

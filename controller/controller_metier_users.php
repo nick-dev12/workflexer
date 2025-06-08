@@ -32,23 +32,32 @@ if (isset($_POST['Ajouter'])) {
         $anneeDebut = $_POST['anneeDebut'];
     }
 
-    if (empty($_POST['moisFin'])) {
-        $_SESSION['error_message'] = "Veiller entrer un mois";
+
+
+    if (isset($_POST['encours'])) {
+        $moisFin = null;
+        $anneeFin = null;
+        $encours = 'En cours';
     } else {
-        $moisFin = $_POST['moisFin'];
+        if (empty($_POST['anneeFin'])) {
+            $_SESSION['error_message'] = "Veiller entrer une date";
+        } else {
+            $anneeFin = $_POST['anneeFin'];
+        }
+        if (empty($_POST['moisFin'])) {
+            $_SESSION['error_message'] = "Veiller entrer un mois";
+        } else {
+            $moisFin = $_POST['moisFin'];
+        }
     }
 
-    if (empty($_POST['anneeFin'])) {
-        $_SESSION['error_message'] = "Veiller entrer une date";
-    } else {
-        $anneeFin = $_POST['anneeFin'];
-    }
+
 
 
     // Si aucune erreur n'est détectée, procédez à l'insertion
     if (empty($_SESSION['error_message'])) {
 
-        if (insertMetier($db, $users_id, $metier, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $description)) {
+        if (insertMetier($db, $users_id, $metier, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $encours, $description)) {
             $_SESSION['success_message'] = "Operation réussie ";
         }
         // Redirection vers une page de confirmation

@@ -276,7 +276,7 @@ if (isset($_POST['recherche'])) {
         <div class="cta-container">
             <h2>Prêt à découvrir tous nos talents?</h2>
             <p>Nous avons des profils qualifiés dans de nombreux domaines professionnels</p>
-            <a href="candidats.php" class="cta-button">Explorer tous les profils</a>
+            <a href="voir_profil.php" class="cta-button">Explorer tous les profils</a>
         </div>
     </section>
 

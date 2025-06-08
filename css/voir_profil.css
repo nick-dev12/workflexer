@@ -94,11 +94,12 @@ body {
 
 .section2 .slider .box form .search {
   width: 100%;
+  max-width: 1000px;
   position: relative;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 20px;
   background-color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 5px;
@@ -202,14 +203,9 @@ body {
   }
 
   .section2 .slider .box form #search {
-    width: 600px;
     height: 40px;
   }
 
-  .section2 .slider .box form label {
-    width: 70px;
-    height: 50px;
-  }
   .section2 .slider .box form label:hover {
     background-color: #f39c12;
   }
@@ -231,7 +227,7 @@ body {
   .section2 .slider .box .text h1 {
     font-size: 30px;
     width: 900px;
-    margin-top: -20px;
+    margin-top: -40px;
   }
   .section2 .slider .box .text p {
     width: 600px;
@@ -242,7 +238,7 @@ body {
   .section2 .slider .box .text h1 {
     font-size: 25px;
     width: 700px;
-    margin-top: -20px;
+    margin-top: -40px;
   }
   .section2 .slider .box .text p {
     width: 500px;
@@ -254,7 +250,7 @@ body {
   }
 
   .section2 .slider .box form label {
-    width: 70px;
+    width: 40px;
     height: 40px;
   }
   .section2 .slider .box form label i {
@@ -287,7 +283,7 @@ body {
   .section2 .slider .box .text h1 {
     font-size: 20px;
     width: 500px;
-    margin-top: 50px;
+    margin-top: 30px;
   }
   .section2 .slider .box .text p {
     font-size: 12px;
@@ -303,10 +299,6 @@ body {
     font-size: 15px;
   }
 
-  .section2 .slider .box form label {
-    width: 50px;
-    height: 30px;
-  }
   .section2 .slider .box form label i {
     font-size: 20px;
   }
@@ -314,21 +306,22 @@ body {
 @media screen and (max-width: 600px) {
   .section2 .slider .box .text h1 {
     width: 400px;
-    margin-top: 50px;
+    margin-top: 30px;
   }
   .section2 .slider .box .text p {
     width: 350px;
     margin-top: 30px;
+    margin-bottom: 20px;
   }
   .section2 .slider .box form #search {
     width: 300px;
-    height: 30px;
+    height: 40px;
     font-size: 15px;
   }
 
   .section2 .slider .box form label {
-    width: 50px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
   .section2 .slider .box form label i {
     font-size: 20px;
@@ -343,49 +336,34 @@ body {
 @media screen and (max-width: 500px) {
   .section2 .slider .box .text h1 {
     width: 360px;
-    margin-top: 50px;
+    margin-top: 30px;
   }
   .section2 .slider .box .text p {
     width: 350px;
     margin-top: 30px;
   }
   .section2 .slider .box form #search {
-    width: 250px;
-    height: 30px;
+    width: 320px;
+    height: 40px;
     font-size: 13px;
-  }
-
-  .section2 .slider .box form label {
-    width: 50px;
-    height: 30px;
-  }
-  .section2 .slider .box form label i {
-    font-size: 20px;
   }
 }
 @media screen and (max-width: 400px) {
+  .section2 .slider .box form .search {
+    width: 300px;
+    height: 40px;
+    font-size: 13px;
+  }
+
   .section2 .slider .box .text h1 {
     font-size: 20px;
     width: 320px;
-    margin-top: 50px;
+    margin-top: 30px;
   }
   .section2 .slider .box .text p {
     font-size: 14px;
     width: 290px;
-    margin-top: 30px;
-  }
-  .section2 .slider .box form #search {
-    width: 250px;
-    height: 30px;
-    font-size: 13px;
-  }
-
-  .section2 .slider .box form label {
-    width: 50px;
-    height: 30px;
-  }
-  .section2 .slider .box form label i {
-    font-size: 20px;
+    margin-top: 10px;
   }
 }
 

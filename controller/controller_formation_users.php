@@ -15,23 +15,28 @@ if (isset($_POST['ajouter2'])) {
         $moisDebut = $_POST['moisDebut'];
     }
 
-    if (empty($_POST['moisFin'])) {
-        $_SESSION['error_message'] = "Veiller entrer un mois";
-    } else {
-        $moisFin = $_POST['moisFin'];
-    }
-
     if (empty($_POST['anneeDebut'])) {
         $_SESSION['error_message'] = "Veiller entrer une date";
     } else {
         $anneeDebut = $_POST['anneeDebut'];
     }
 
-
-    if (empty($_POST['anneeFin'])) {
-        $_SESSION['error_message'] = "Veiller entrer une date";
+    // Vérification de la date de fin
+    if (isset($_POST['encours'])) {
+        $moisFin = null;
+        $anneeFin = null;
+        $encours = 'En cours';
     } else {
-        $anneeFin = $_POST['anneeFin'];
+        if (empty($_POST['moisFin'])) {
+            $_SESSION['error_message'] = "Veiller entrer un mois";
+        } else {
+            $moisFin = $_POST['moisFin'];
+        }
+        if (empty($_POST['anneeFin'])) {
+            $_SESSION['error_message'] = "Veiller entrer une date";
+        } else {
+            $anneeFin = $_POST['anneeFin'];
+        }
     }
 
     // Vérification de la filiere
@@ -55,7 +60,7 @@ if (isset($_POST['ajouter2'])) {
 
     // Si aucune erreur n'est détectée, procédez à l'insertion
     if (empty($_SESSION['error_message'])) {
-        if (insertFormation($db, $users_id, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $Filiere, $etablissement, $niveau)) {
+        if (insertFormation($db, $users_id, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $encours, $Filiere, $etablissement, $niveau)) {
             $_SESSION['success_message'] = " success!";
             // Redirection vers une page de confirmation
             header('Location: user_profil.php');
