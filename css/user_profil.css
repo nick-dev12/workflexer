@@ -2207,6 +2207,7 @@ button {
 .section3 .container_box3 .formations-list .edit-btn {
   background-color: #ffffff !important;
   border: none !important;
+  margin-top: 0 !important;
 }
 
 /* Styles pour les tableaux */

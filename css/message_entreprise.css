@@ -58,7 +58,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   position: relative;
-  margin-top: 20px;
+  margin-top: 5px;
   padding: 20px;
 }
 
@@ -73,8 +73,8 @@ body {
 
 /* Main messages container */
 .section3 .messages {
-  margin-top: 20px;
-  height: 78vh;
+  margin-top: 5px;
+  height: 70vh;
   width: 640px;
   border-radius: 16px;
   background-color: #ffffff;
@@ -335,7 +335,7 @@ body {
 
   .section3 .messages {
     width: 100%;
-    height: 70vh;
+    height: 50vh;
     border-radius: 12px;
     padding: 15px 5px 70px 5px;
   }

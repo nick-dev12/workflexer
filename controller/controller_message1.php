@@ -62,7 +62,7 @@ if (isset($_GET['entreprise_id'])) {
       sendMessageNotification($db, $users_id, $entrepriseName, true, $messages);
 
       // Ancienne méthode de notification conservée pour compatibilité
-      if (notification_messageUsers($db, $entreprise_id, $users_id, $sujet)) {
+      if (notification_messageUsers($db, $entreprise_id, $users_id, $statut, $sujet)) {
         // code...
       }
 
@@ -194,7 +194,7 @@ if (isset($_GET['offres_id'])) {
       sendMessageNotification($db, $users_id, $entrepriseName, true, $messages);
 
       // Ancienne méthode de notification conservée pour compatibilité
-      if (notification_messageUsers($db, $entreprise_id, $users_id, $sujet)) {
+      if (notification_messageUsers($db, $entreprise_id, $users_id, $statut, $sujet)) {
         # code...
       }
 
@@ -205,9 +205,6 @@ if (isset($_GET['offres_id'])) {
       exit;
     }
   }
-
-
-
 
 
   if (isset($_SESSION['users_id'])) {
@@ -260,11 +257,18 @@ if (isset($_GET['offres_id'])) {
       if (notification_message($db, $entreprise_id, $users_id)) {
         # code...
       }
-      postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $sujet, $date);
-
-      $_SESSION['success_message'] = 'Message envoyé';
-      header("Location: get_message_users.php?offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&users_id=" . $_GET['users_id'] . "&statut=" . $_GET['statut']);
-      exit();
+      // Enregistrer le message dans la base de données
+      if (postMessage1($db, $entreprise_id, $users_id, $offre_id, $statut, $messages, $indicatif, $sujet, $date)) {
+        $_SESSION['success_message'] = 'Message envoyé';
+        ob_start();
+        header("Location: get_message_users.php?users_id=" . $_GET['users_id'] . "&offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&statut=" . $_GET['statut']);
+        exit();
+      } else {
+        $_SESSION['error_message'] = 'Erreur lors de l\'enregistrement du message';
+        ob_start();
+        header("Location: get_message_users.php?users_id=" . $_GET['users_id'] . "&offres_id=" . $_GET['offres_id'] . "&entreprise_id=" . $_GET['entreprise_id'] . "&statut=" . $_GET['statut']);
+        exit();
+      }
     }
   }
 }
@@ -514,7 +518,7 @@ if (isset($_GET['id'])) {
         sendMessageNotification($db, $users_id, $entreprise, true, "Appel d'offre: $titre");
 
         // Ancienne méthode de notification conservée pour compatibilité
-        if (notification_messageUsers($db, $entreprise_id, $users_id, $sujet)) {
+        if (notification_messageUsers($db, $entreprise_id, $users_id, $statut, $sujet)) {
           # code...
         }
 

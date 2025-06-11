@@ -23,8 +23,8 @@ if (isset($_POST['ajouter2'])) {
 
     // Vérification de la date de fin
     if (isset($_POST['encours'])) {
-        $moisFin = null;
-        $anneeFin = null;
+        $moisFin = '';
+        $anneeFin = '';
         $encours = 'En cours';
     } else {
         if (empty($_POST['moisFin'])) {
@@ -79,11 +79,11 @@ if (isset($_POST['Modifier_formation'])) {
     $Filiere = htmlspecialchars($_POST['Filiere2']);
     $etablissement = htmlspecialchars($_POST['etablissement2']);
     $niveau = htmlspecialchars($_POST['niveau2']);
-    $encours = ($_POST['encours2']) ? 'En cours' : null;
+    $encours = ($_POST['encours2']) ? 'En cours' : '';
 
     if ($encours) {
-        $moisFin = null;
-        $anneeFin = null;
+        $moisFin = '';
+        $anneeFin = '';
     } else {
         $moisFin = htmlspecialchars($_POST['moisFin2']);
         $anneeFin = htmlspecialchars($_POST['anneeFin2']);

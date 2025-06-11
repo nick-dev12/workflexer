@@ -35,8 +35,8 @@ if (isset($_POST['Ajouter'])) {
 
 
     if (isset($_POST['encours'])) {
-        $moisFin = null;
-        $anneeFin = null;
+        $moisFin = '';
+        $anneeFin = '';
         $encours = 'En cours';
     } else {
         if (empty($_POST['anneeFin'])) {
@@ -74,12 +74,12 @@ if (isset($_POST['Modifier_metier'])) {
     $moisDebut1 = htmlspecialchars(trim($_POST['moisDebut1']), ENT_QUOTES, 'UTF-8');
     $anneeDebut1 = filter_input(INPUT_POST, 'anneeDebut1', FILTER_VALIDATE_INT);
     $description1 = htmlspecialchars(trim($_POST['Metierdescription1']), ENT_QUOTES, 'UTF-8');
-    $encours = isset($_POST['encours']) ? 'En cours' : null;
+    $encours = isset($_POST['encours']) ? 'En cours' : '';
 
     // Check if 'encours' is set and handle accordingly
     if ($encours) {
-        $moisFin1 = null;
-        $anneeFin1 = null;
+        $moisFin1 = '';
+        $anneeFin1 = '';
     } else {
         $moisFin1 = htmlspecialchars(trim($_POST['moisFin1']), ENT_QUOTES, 'UTF-8');
         $anneeFin1 = filter_input(INPUT_POST, 'anneeFin1', FILTER_VALIDATE_INT);

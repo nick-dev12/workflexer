@@ -130,6 +130,7 @@ header h2 {
   box-shadow: var(--box-shadow);
   transition: var(--transition);
   display: block;
+  width: 320px;
 }
 
 .model a:hover {
@@ -139,7 +140,7 @@ header h2 {
 
 .model a img {
   height: 450px;
-  width: 100%;
+  width: 320px;
   object-fit: cover;
   border-radius: 8px;
   transition: var(--transition);
@@ -256,19 +257,11 @@ header h2 {
   .page-intro h2 {
     font-size: 24px;
   }
-
-  .model a img {
-    height: 400px;
-  }
 }
 
 @media screen and (max-width: 650px) {
   .model {
     grid-template-columns: 1fr;
-  }
-
-  .model a img {
-    height: 350px;
   }
 
   header h1,
