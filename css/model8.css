@@ -349,8 +349,8 @@ body {
 /* Style pour la photo de profil */
 .profile-image {
   width: 170px;
-  height: 150px;
-  border-radius: 15px;
+  height: 170px;
+  border-radius: 50%;
   object-fit: cover;
   margin: 15px auto 25px;
   display: block;

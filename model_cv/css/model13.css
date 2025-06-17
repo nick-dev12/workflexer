@@ -262,8 +262,9 @@ body {
 
 /* CV Header */
 .cv-header {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--primary-color);
   color: white;
   position: relative;
@@ -292,6 +293,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 600px;
 }
 
 .name {
@@ -488,6 +490,7 @@ body {
   font-size: 12px !important;
   color: var(--text-color);
   line-height: 1.4;
+  display: block;
 }
 
 .timeline-content ul li {

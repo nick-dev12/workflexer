@@ -65,7 +65,7 @@ if (isset($_POST['valider'])) {
         // Connexion réussie 
 
         // Générer un nouveau jeton unique
-        $token = bin2hex(random_bytes(16)); // 16 octets donne 32 caractères hexadécimaux
+        $token = bin2hex(random_bytes(32)); // 32 octets donne 64 caractères hexadécimaux pour plus de sécurité
 
         // Stocker le jeton dans la base de données avec l'ID de l'utilisateur
         $sqlUpdateToken = "UPDATE compte_entreprise SET remember_token = :token WHERE id = :entreprise";
@@ -74,7 +74,9 @@ if (isset($_POST['valider'])) {
         $stmtUpdateToken->bindParam(':entreprise', $entreprise['id']);
         $stmtUpdateToken->execute();
 
-        setcookie('compte_entreprise', $token, time() + 60 * 60 * 24 * 30, '/');
+        // Stocker le jeton dans le cookie pour une durée de 10 ans (connexion permanente)
+        // 60 secondes * 60 minutes * 24 heures * 365 jours * 10 ans
+        setcookie('compte_entreprises', $token, time() + 60 * 60 * 24 * 365 * 10, '/', '', false, true);
         $_SESSION['compte_entreprise'] = $entreprise['id']; // Initialisation de la variable de session
 
         header('location: entreprise_profil.php');

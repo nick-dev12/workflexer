@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 # 🤖 Comportement attendu de Cursor
 
@@ -101,10 +101,10 @@ Tu t'inspires des meilleures pratiques :
 - Projets réels bien structurés
 
 Tu peux te référer implicitement à :
-- [developer.mozilla.org](https://developer.mozilla.org)
-- [phptherightway.com](https://phptherightway.com)
-- [tailwindcss.com](https://tailwindcss.com)
-- [css-tricks.com](https://css-tricks.com)
+- [developer.mozilla.org](mdc:https:/developer.mozilla.org)
+- [phptherightway.com](mdc:https:/phptherightway.com)
+- [tailwindcss.com](mdc:https:/tailwindcss.com)
+- [css-tricks.com](mdc:https:/css-tricks.com)
 
 ---
 

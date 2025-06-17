@@ -37,6 +37,7 @@ if (isset($_POST['ajouter2'])) {
         } else {
             $anneeFin = $_POST['anneeFin'];
         }
+        $encours = '';
     }
 
     // Vérification de la filiere
@@ -74,19 +75,20 @@ if (isset($_POST['Modifier_formation'])) {
     $erreurs = '';
     $users_id = $_SESSION['users_id'];
     $id_formation = $_POST['id_formation'];
-    $moisDebut = htmlspecialchars($_POST['moisDebut2']);
-    $anneeDebut = htmlspecialchars($_POST['anneeDebut2']);
-    $Filiere = htmlspecialchars($_POST['Filiere2']);
-    $etablissement = htmlspecialchars($_POST['etablissement2']);
-    $niveau = htmlspecialchars($_POST['niveau2']);
-    $encours = ($_POST['encours2']) ? 'En cours' : '';
+    $moisDebut = htmlspecialchars(trim($_POST['moisDebut2']), ENT_QUOTES, 'UTF-8');
+    $anneeDebut = htmlspecialchars(trim($_POST['anneeDebut2']), ENT_QUOTES, 'UTF-8');
+    $Filiere = htmlspecialchars(trim($_POST['Filiere2']), ENT_QUOTES, 'UTF-8');
+    $etablissement = htmlspecialchars(trim($_POST['etablissement2']), ENT_QUOTES, 'UTF-8');
+    $niveau = htmlspecialchars(trim($_POST['niveau2']), ENT_QUOTES, 'UTF-8');
 
-    if ($encours) {
+    if (isset($_POST['encours2'])) {
+        $encours = 'En cours';
         $moisFin = '';
         $anneeFin = '';
     } else {
-        $moisFin = htmlspecialchars($_POST['moisFin2']);
-        $anneeFin = htmlspecialchars($_POST['anneeFin2']);
+        $moisFin = htmlspecialchars(trim($_POST['moisFin2']), ENT_QUOTES, 'UTF-8');
+        $anneeFin = htmlspecialchars(trim($_POST['anneeFin2']), ENT_QUOTES, 'UTF-8');
+        $encours = '';
     }
 
     if (updateFormation($db, $id_formation, $moisDebut, $anneeDebut, $moisFin, $anneeFin, $Filiere, $etablissement, $niveau, $encours)) {

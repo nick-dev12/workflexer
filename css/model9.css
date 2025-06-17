@@ -98,12 +98,13 @@ body {
   background-color: var(--primary-color);
   color: var(--light-text);
   display: flex;
-  padding: 30px;
+  padding: 20px 40px;
   align-items: center;
 }
 
 .header-content {
   flex: 1;
+  max-width: 600px;
 }
 
 .name-title {
@@ -120,7 +121,7 @@ body {
 }
 
 .header-text {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   margin-right: 20px;
 }
@@ -271,7 +272,7 @@ body {
 
 .experience-item .company,
 .education-item .school {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: normal;
   font-style: italic;
   margin-bottom: 5px;
@@ -282,7 +283,7 @@ body {
 .education-item .date {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 11px;
   color: #666;
   margin-bottom: 8px;
 }

@@ -16,9 +16,12 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 // Initialiser toutes les variables
-$nom = $email = $phone = $types = $taille = $entreprise = $ville = $categorie = $passe = $cpasse = '';
+$nom = $email = $phone = $types = $taille = $entreprise = $verification_statu = $remember_token = $ville = $categorie = $passe = $cpasse = '';
 $erreurs = '';
 $hasError = false;
+
+$verification_status = '';
+$remember_token = '';
 
 // Vérification si le bouton valider est cliqué
 if (isset($_POST['valider'])) {
@@ -390,8 +393,8 @@ if (isset($_POST['valider'])) {
             $mail->send();
 
             // Requête SQL pour l'insertion des données
-            $sql = "INSERT INTO compte_entreprise (nom, mail, phone, types, taille, entreprise, ville, categorie, images, verification, passe) 
-            VALUES (:nom, :mail, :phone, :types, :taille, :entreprise, :ville, :categorie, :images, :verification, :passe)";
+            $sql = "INSERT INTO compte_entreprise (nom, mail, phone, types, taille, entreprise, ville, categorie, images, remember_token, verification, verification_status, passe) 
+            VALUES (:nom, :mail, :phone, :types, :taille, :entreprise, :ville, :categorie, :images, :remember_token, :verification, :verification_status, :passe)";
 
             $stmt = $db->prepare($sql);
             $stmt->bindParam(':nom', $nom);
@@ -400,6 +403,8 @@ if (isset($_POST['valider'])) {
             $stmt->bindParam(':types', $types);
             $stmt->bindParam(':taille', $taille);
             $stmt->bindParam(':entreprise', $entreprise);
+            $stmt->bindParam(':remember_token', $remember_token);
+            $stmt->bindParam(':verification_status', $verification_status);
             $stmt->bindParam(':ville', $ville);
             $stmt->bindParam(':categorie', $categorie);
             $stmt->bindParam(':images', $uniqueFileName);

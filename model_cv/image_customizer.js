@@ -129,11 +129,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .editable-image.active {
             outline: 2px solid #ff9800;
         }
-        
+
         .editable-image.hidden {
             display: none !important;
         }
-        
+
         .image-position-control {
             display: flex;
             justify-content: center;
@@ -432,7 +432,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 opacity: currentImage.style.opacity,
                 filter: currentImage.style.filter,
                 margin: currentImage.style.margin,
-                hidden: currentImage.classList.contains('hidden'),
+                display: currentImage.style.display,
 
                 // Valeurs de l'éditeur pour faciliter la restauration
                 borderRadiusValue: imageBorderRadiusInput.value,
@@ -470,10 +470,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     img.style.margin = styles.margin || '';
 
                     // Gérer la visibilité
-                    if (styles.hidden) {
-                        img.classList.add('hidden');
+                    if (styles.display === 'none') {
+                        img.style.setProperty('display', 'none', 'important');
                     } else {
-                        img.classList.remove('hidden');
+                        img.style.removeProperty('display');
                     }
                 }
             });
@@ -569,11 +569,11 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleImageVisibilityBtn.addEventListener('click', function () {
         if (!currentImage) return;
 
-        if (currentImage.classList.contains('hidden')) {
-            currentImage.classList.remove('hidden');
+        if (currentImage.style.display === 'none') {
+            currentImage.style.removeProperty('display');
             this.textContent = "Cacher l'image";
         } else {
-            currentImage.classList.add('hidden');
+            currentImage.style.setProperty('display', 'none', 'important');
             this.textContent = "Afficher l'image";
         }
     });
@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentImage.style.margin = origStyle.margin;
 
             if (origStyle.display !== 'none') {
-                currentImage.classList.remove('hidden');
+                currentImage.style.removeProperty('display');
                 toggleImageVisibilityBtn.textContent = "Cacher l'image";
             }
 
@@ -612,6 +612,9 @@ document.addEventListener('DOMContentLoaded', function () {
         currentImage.classList.remove('active');
         imageEditorPanel.style.display = 'none';
         currentImage = null;
+
+        // Réactualisation automatique de la page
+        window.location.reload();
     });
 
     // Fermer l'éditeur
@@ -650,7 +653,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 img.style.opacity = origStyle.opacity;
                 img.style.filter = origStyle.filter;
                 img.style.margin = origStyle.margin;
-                img.classList.remove('hidden');
+                img.style.removeProperty('display');
             } else {
                 img.style.width = '';
                 img.style.height = '';
@@ -658,7 +661,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 img.style.opacity = '';
                 img.style.filter = '';
                 img.style.margin = '';
-                img.classList.remove('hidden');
+                img.style.removeProperty('display');
             }
         });
     };

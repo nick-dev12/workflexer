@@ -219,6 +219,7 @@ if (isset($_GET['id'])) {
 
 
     <script src="../js/html5Qrcode.js"></script>
+    <script type="module" src="/js/init-notifications.js"></script>
 
 </head>
 

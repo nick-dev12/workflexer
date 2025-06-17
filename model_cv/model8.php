@@ -473,7 +473,7 @@ if (isset($_SESSION['users_id'])) {
                                             <?= $Metiers['moisFin'] ?>/<?= $Metiers['anneeFin'] ?>
                                             <?php if (!empty($Metiers['ville'])): ?> | <?= $Metiers['ville'] ?><?php endif; ?>
                                         </p>
-                                        <p><?= nl2br($Metiers['description']) ?></p>
+                                        <p><?= $Metiers['description'] ?></p>
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>

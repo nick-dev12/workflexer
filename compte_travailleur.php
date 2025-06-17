@@ -22,9 +22,13 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
 }
 
 // Initialiser toutes les variables
-$nom = $email = $phone = $competences = $profession = $ville = $categorie = $passe = $cpasse = '';
+$nom = $email = $phone = $competences = $statu = $remember_token = $verification_statu = $profession = $ville = $categorie = $passe = $cpasse = '';
 $erreurs = '';
 $hasError = false;
+
+$verification_status = '';
+$remember_token = '';
+$status = '';
 
 // Vérification si le bouton valider est cliqué
 if (isset($_POST['valider'])) {
@@ -388,8 +392,8 @@ if (isset($_POST['valider'])) {
             $mail->send();
 
             // Préparation de la requête SQL
-            $sql = "INSERT INTO users ( nom, mail, phone, competences, profession, ville, categorie, images, verification, passe) 
-            VALUES ( :nom, :mail, :phone, :competences, :profession, :ville, :categorie, :images, :verification, :passe)";
+            $sql = "INSERT INTO users ( nom, mail, phone, competences, profession, statu, remember_token, verification_status, ville, categorie, images , verification, passe) 
+            VALUES ( :nom, :mail, :phone, :competences, :profession, :statu, :remember_token, :verification_status, :ville, :categorie, :images, :verification, :passe)";
 
             // Préparation de la requête 
             $stmt = $db->prepare($sql);
@@ -400,6 +404,9 @@ if (isset($_POST['valider'])) {
             $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':competences', $competences);
             $stmt->bindParam(':profession', $profession);
+            $stmt->bindParam(':statu', $statu);
+            $stmt->bindParam(':remember_token', $remember_token);
+            $stmt->bindParam(':verification_status', $verification_status);
             $stmt->bindParam(':ville', $ville);
             $stmt->bindParam(':categorie', $categorie);
             $stmt->bindParam(':images', $uniqueFileName);

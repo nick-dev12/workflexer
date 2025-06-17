@@ -2,6 +2,7 @@
 // Vérification de l'appareil au tout début
 include_once('check_device.php');
 
+
 // Démarre la session
 session_start();
 
@@ -565,14 +566,18 @@ if (isset($_SESSION['users_id'])) {
 
         <div id="box">
             <div id="container" class="container">
-                <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
                 <header>
-                    <h1>
-                        <?= $userss['nom'] ?>
-                    </h1>
-                    <h2>
-                        <?= $userss['competences'] ?>
-                    </h2>
+                    <div class="header-content-img">
+                        <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
+                    </div>
+                    <div class="header-content-text">
+                        <h1>
+                            <?= $userss['nom'] ?>
+                        </h1>
+                        <h2>
+                            <?= $userss['competences'] ?>
+                        </h2>
+                    </div>
                 </header>
                 <div class="bas"></div>
 
@@ -587,9 +592,7 @@ if (isset($_SESSION['users_id'])) {
                                     <strong>
                                         ADRESSE
                                     </strong>
-                                    <span>
-                                        <?= $userss['ville'] ?>
-                                    </span>
+                                    <?= $userss['ville'] ?>
                                 </p>
                             </div>
 
@@ -599,9 +602,7 @@ if (isset($_SESSION['users_id'])) {
                                     <strong>
                                         E-mail
                                     </strong>
-                                    <span>
-                                        <?= $userss['mail'] ?>
-                                    </span>
+                                    <?= $userss['mail'] ?>
                                 </p>
                             </div>
 
@@ -611,9 +612,7 @@ if (isset($_SESSION['users_id'])) {
                                     <strong>
                                         TÉLÉPHONE
                                     </strong>
-                                    <span>
-                                        <?= $userss['phone'] ?>
-                                    </span>
+                                    <?= $userss['phone'] ?>
                                 </p>
                             </div>
 
@@ -623,7 +622,7 @@ if (isset($_SESSION['users_id'])) {
                                     <strong>
                                         NATIONALITÉ
                                     </strong>
-                                    <span>*********</span>
+                                    *********
                                 </p>
                             </div>
                         </div>

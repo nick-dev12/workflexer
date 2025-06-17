@@ -37,25 +37,6 @@ body {
 #box1 {
   display: none;
 }
-header {
-  background-color: var(--font-color_section);
-  padding: 40px;
-  text-align: center;
-  /* background-color: #d7d7d7; */
-}
-header h1 {
-  width: 70%;
-  margin-left: 200px;
-  font-size: 25px;
-  padding: 0 20px;
-  color: var(--texte-color_section);
-}
-header h2 {
-  width: 70%;
-  margin-left: 200px;
-  font-size: 20px;
-  color: #346dc8;
-}
 
 .section3 {
   background-color: #f2f2f275;
@@ -167,6 +148,7 @@ header h2 {
   position: relative;
   margin-bottom: 40px;
   background-color: #ffffff;
+  overflow: hidden;
 }
 #container .box1 p {
   color: var(--texte-color_section);
@@ -177,17 +159,46 @@ header h2 {
 #container .box1 ul li {
   color: var(--texte-color_section);
 }
-#container .img {
-  position: absolute;
-  width: 170px;
+
+#container header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--font-color_section);
+  padding: 20px 40px;
+  text-align: center;
+  height: auto;
+  /* background-color: #d7d7d7; */
+}
+#container .header-content-img .img {
+  width: 150px;
   height: 150px;
   object-fit: cover;
-  top: 40px;
-  left: 40px;
   border: 1.5px solid #ddd;
-  border-radius: 7px;
+  border-radius: 50%;
   padding: 0%;
-  z-index: 5;
+  margin-right: 50px;
+}
+
+#container .header-content-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+}
+#container .header-content-text h1 {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--texte-color_section);
+  margin-left: 0 !important;
+}
+#container .header-content-text h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--texte-color_section);
+  margin-left: 0 !important;
 }
 
 #container .container-box {
@@ -199,7 +210,7 @@ header h2 {
   height: 975px;
   position: relative;
   border-right: 3px solid #000000;
-  padding-top: 40px;
+  padding-top: 0px;
   background-color: var(--font-color_section);
 }
 #container .box1 .iff {
@@ -257,6 +268,7 @@ header h2 {
 #container .box1 .bb p span {
   overflow: hidden;
   width: 140px;
+  color: var(--texte-color_section) !important;
 }
 
 #container .box1 ul {
@@ -265,11 +277,14 @@ header h2 {
   padding-left: 10px;
 }
 #container .box1 ul li {
-  font-size: 14px;
   width: 100%;
   margin: 2px auto;
   list-style: none;
-  color: var(--texte-color_section);
+  color: var(--texte-color_section) !important;
+}
+
+#container .box1 ul li span {
+  color: var(--texte-color_section) !important;
 }
 
 #container .formation {
@@ -300,17 +315,21 @@ header h2 {
 }
 
 #container .formation .div2 .info h4 {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--texte-color_section);
 }
 
 #container .formation .div2 .info span {
-  font-size: 10px;
-  color: var(--texte-color_section);
+  font-size: 11px;
+  color: var(--texte-color_section) !important;
 }
 
+#container .formation .div2 .info span em {
+  font-size: 11px;
+  color: var(--texte-color_section) !important;
+}
 #container .formation .div2 .info p {
-  font-size: 12px;
+  font-size: 13px;
   text-align: justify;
   color: var(--texte-color_section);
 }

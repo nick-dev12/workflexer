@@ -1,0 +1,13 @@
+fastapi>=0.95.0
+uvicorn>=0.21.1
+pydantic>=2.0.0
+
+# Pour le traitement du langage naturel (NLP)
+sentence-transformers>=2.2.0
+spacy>=3.5.0
+fr_core_news_sm@https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.5.0/fr_core_news_sm-3.5.0.tar.gz 
+nltk>=3.8.1
+
+# Outils complémentaires utiles
+python-dotenv>=1.0.0
+requests>=2.31.0

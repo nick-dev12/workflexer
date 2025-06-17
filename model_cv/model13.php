@@ -64,8 +64,8 @@ if (isset($_SESSION['users_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="css/model13.css">
-    <script src="cv_customizer.js" defer></script>
     <script src="image_customizer.js" defer></script>
+    <script src="cv_customizer.js" defer></script>
 
     <!-- Vérification du chargement du CSS -->
     <script>
@@ -397,6 +397,7 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
+
         <div class="container-model">
             <div class="cv13 theme-blue">
                 <!-- CV Header -->
@@ -506,7 +507,13 @@ if (isset($_SESSION['users_id'])) {
                             <h2 class="section-title cv-editable">Expérience professionnelle</h2>
 
                             <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
-                                <?php foreach ($afficheMetier as $metier): ?>
+                                <?php 
+                                // Limiter l'affichage aux 3 premiers métiers
+                                $count = 0;
+                                foreach ($afficheMetier as $metier): 
+                                    if ($count >= 3) break;
+                                    $count++;
+                                ?>
                                     <div class="timeline-item">
                                         <div class="timeline-dot"></div>
                                         <div class="timeline-header">
@@ -532,21 +539,26 @@ if (isset($_SESSION['users_id'])) {
                             <h2 class="section-title cv-editable">Formation</h2>
 
                             <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
-                                <?php foreach ($formationUsers as $formation): ?>
+                                <?php
+                                // Limiter l'affichage aux 3 premières formations
+                                $count = 0;
+                                foreach ($formationUsers as $formation):
+                                    if ($count >= 3) break;
+                                    $count++;
+                                ?>
                                     <div class="timeline-item">
                                         <div class="timeline-dot"></div>
                                         <div class="timeline-header">
                                             <h3 class="timeline-title cv-editable"><?= $formation['Filiere'] ?></h3>
-                                            <span
-                                                class="timeline-date cv-editable"><?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?>
-                                                -
-                                                <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?></span>
-
-                                            <p class="timeline-subtitle cv-editable"><?= $formation['etablissement'] ?>
+                                            <span class="timeline-date cv-editable">
+                                                <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
+                                                <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
+                                            </span>
+                                            <p class="timeline-subtitle cv-editable">
+                                                <?= $formation['etablissement'] ?>
                                                 <strong><?= $formation['niveau'] ?></strong>
                                             </p>
                                         </div>
-
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>

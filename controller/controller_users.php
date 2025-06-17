@@ -4,21 +4,24 @@ require_once(__DIR__ . '/../model/users.php');
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['users_id'])) {
     // L'utilisateur est déjà connecté, pas besoin de vérifier le cookie
-} elseif (isset($_COOKIE['remember_me'])) {
+} 
+if (isset($_COOKIE['remember_me'])) {
     // Le cookie remember_me est présent, essayons de reconnecter l'utilisateur
-
     $token = $_COOKIE['remember_me'];
 
-    // Vérifier le jeton dans la base de données
-    $sqlCheckToken = "SELECT id FROM users WHERE remember_token = :token";
+    // Vérifier le jeton dans la base de données avec une requête plus sécurisée
+    $sqlCheckToken = "SELECT id, remember_token FROM users WHERE remember_token = :token AND remember_token IS NOT NULL";
     $stmtCheckToken = $db->prepare($sqlCheckToken);
     $stmtCheckToken->bindParam(':token', $token);
     $stmtCheckToken->execute();
-    $userId = $stmtCheckToken->fetchColumn();
+    $userData = $stmtCheckToken->fetch(PDO::FETCH_ASSOC);
 
-    if ($userId) {
+    if ($userData && $userData['remember_token'] === $token) {
         // Jeton valide, connecter l'utilisateur
-        $_SESSION['users_id'] = $userId;
+        $_SESSION['users_id'] = $userData['id'];
+        
+        // Renouveler le cookie pour prolonger la session
+        setcookie('remember_me', $token, time() + 60 * 60 * 24 * 365 * 10, '/', '', false, true);
     }
 }
 

@@ -9,7 +9,7 @@ if (isset($_POST['Ajouter'])) {
 
     // Déclaration des variables 
 
-    $description = $_POST['Metierdescription'];
+    $description =  nl2br( htmlspecialchars($_POST['Metierdescription']));
 
 
     // Vérification du nom
@@ -49,6 +49,7 @@ if (isset($_POST['Ajouter'])) {
         } else {
             $moisFin = $_POST['moisFin'];
         }
+        $encours = '';
     }
 
 
@@ -73,16 +74,18 @@ if (isset($_POST['Modifier_metier'])) {
     $metier1 = htmlspecialchars(trim($_POST['metier']), ENT_QUOTES, 'UTF-8');
     $moisDebut1 = htmlspecialchars(trim($_POST['moisDebut1']), ENT_QUOTES, 'UTF-8');
     $anneeDebut1 = filter_input(INPUT_POST, 'anneeDebut1', FILTER_VALIDATE_INT);
-    $description1 = htmlspecialchars(trim($_POST['Metierdescription1']), ENT_QUOTES, 'UTF-8');
-    $encours = isset($_POST['encours']) ? 'En cours' : '';
+    $description1 = nl2br(htmlspecialchars(trim($_POST['Metierdescription1']), ENT_QUOTES, 'UTF-8'));
+   
 
     // Check if 'encours' is set and handle accordingly
-    if ($encours) {
+    if (isset($_POST['encours'])) {
+        $encours = 'En cours';
         $moisFin1 = '';
         $anneeFin1 = '';
     } else {
         $moisFin1 = htmlspecialchars(trim($_POST['moisFin1']), ENT_QUOTES, 'UTF-8');
         $anneeFin1 = filter_input(INPUT_POST, 'anneeFin1', FILTER_VALIDATE_INT);
+        $encours = '';
     }
 
     // Update the metier without requiring all fields

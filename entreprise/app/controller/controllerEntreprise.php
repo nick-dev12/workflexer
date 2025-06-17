@@ -24,21 +24,25 @@ if (isset($_SESSION['compte_entreprise'])) {
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['compte_entreprise'])) {
     // L'utilisateur est déjà connecté, pas besoin de vérifier le cookie
-} elseif (isset($_COOKIE['compte_entreprise'])) {
+} 
+if (isset($_COOKIE['compte_entreprise'])) {
     // Le cookie remember_me est présent, essayons de reconnecter l'utilisateur
 
     $token = $_COOKIE['compte_entreprise'];
 
-    // Vérifier le jeton dans la base de données
-    $sqlCheckToken = "SELECT id FROM compte_entreprise WHERE remember_token = :token";
+    // Vérifier le jeton dans la base de données avec une requête plus sécurisée
+    $sqlCheckToken = "SELECT id, remember_token FROM compte_entreprise WHERE remember_token = :token AND remember_token IS NOT NULL";
     $stmtCheckToken = $db->prepare($sqlCheckToken);
     $stmtCheckToken->bindParam(':token', $token);
     $stmtCheckToken->execute();
-    $userId = $stmtCheckToken->fetchColumn();
+    $entrepriseData = $stmtCheckToken->fetch(PDO::FETCH_ASSOC);
 
-    if ($userId) {
+    if ($entrepriseData && $entrepriseData['remember_token'] === $token) {
         // Jeton valide, connecter l'utilisateur
-        $_SESSION['compte_entreprise'] = $userId;
+        $_SESSION['compte_entreprise'] = $entrepriseData['id'];
+        
+        // Renouveler le cookie pour prolonger la session
+        setcookie('compte_entreprises', $token, time() + 60 * 60 * 24 * 365 * 10, '/', '', false, true);
     }
 }
 

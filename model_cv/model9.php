@@ -504,7 +504,7 @@ if (isset($_SESSION['users_id'])) {
                                             </p>
                                             <ul>
                                                 <?php
-                                                $description = nl2br($Metiers['description']);
+                                                $description = $Metiers['description'];
                                                 $points = explode('<br />', $description);
                                                 foreach ($points as $point) {
                                                     $point = trim($point);
