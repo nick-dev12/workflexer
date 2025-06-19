@@ -100,6 +100,25 @@ if (isset($_POST['Modifier_metier'])) {
     exit;
 }
 
+// Traitement pour mettre à jour le statut "mis_en_avant"
+if (isset($_POST['update_mis_en_avant'])) {
+    if (isset($_SESSION['users_id']) && isset($_POST['experience_id']) && isset($_POST['mis_en_avant'])) {
+        $id = intval($_POST['experience_id']);
+        $mis_en_avant = intval($_POST['mis_en_avant']);
+        
+        if (updateMisEnAvant($db, $id, $mis_en_avant)) {
+            echo json_encode(['success' => true]);
+            exit;
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Erreur lors de la mise à jour']);
+            exit;
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Paramètres manquants']);
+        exit;
+    }
+}
+
 if (isset($_SESSION['users_id'])) {
     $users_id = $_SESSION['users_id'];
     $afficheMetier = getMetier($db, $users_id);

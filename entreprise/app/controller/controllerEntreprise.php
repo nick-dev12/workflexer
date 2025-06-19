@@ -383,7 +383,7 @@ if (isset($_POST['publier'])) {
                                     <a href='#'>LinkedIn</a>
                                 </div>
                                 <p class='footer-text'>© 2023 Work-Flexer. Tous droits réservés.</p>
-                                <p class='footer-text'>Pour toute question, contactez-nous à <a href='mailto:info@advantech-group.space'>info@advantech-group.space</a></p>
+                                <p class='footer-text'>Pour toute question, contactez-nous à <a href='mailto:service@work-flexer.com'>service@work-flexer.com</a></p>
                             </div>
                         </div>
                     </body>

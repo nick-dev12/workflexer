@@ -1,7 +1,45 @@
 <?php
+// Démarrer la session si elle n'est pas déjà démarrée
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Inclusion du fichier de configuration de la base de données
 require_once(__DIR__ . '/../model/formation_users.php');
 
+// Gestion de la mise en avant des formations
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'updateFormationHighlights') {
+    // Activer l'affichage des erreurs pour le débogage
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    
+    // Log pour le débogage
+    error_log("Requête AJAX reçue pour updateFormationHighlights");
+    
+    if (isset($_SESSION['users_id'])) {
+        $highlightedFormations = json_decode($_POST['highlighted_formations'], true);
+        $userId = $_SESSION['users_id'];
+        
+        error_log("ID utilisateur: " . $userId);
+        error_log("Formations sélectionnées: " . print_r($highlightedFormations, true));
+        
+        if (updateFormationHighlights($db, $highlightedFormations, $userId)) {
+            error_log("Mise à jour réussie");
+            http_response_code(200);
+            echo json_encode(['success' => true]);
+        } else {
+            error_log("Échec de la mise à jour");
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Erreur lors de la mise à jour']);
+        }
+        exit;
+    } else {
+        error_log("Session utilisateur non définie");
+        http_response_code(401);
+        echo json_encode(['success' => false, 'message' => 'Utilisateur non connecté']);
+        exit;
+    }
+}
 
 // Vérification si le bouton valider est cliqué
 if (isset($_POST['ajouter2'])) {
@@ -99,9 +137,6 @@ if (isset($_POST['Modifier_formation'])) {
 
     header('Location: user_profil.php');
     exit;
-
-
-
 }
 
 if (isset($_GET['id'])) {
@@ -109,8 +144,6 @@ if (isset($_GET['id'])) {
 } else {
     $formationUsers = getFormation($db, $_SESSION['users_id']);
 }
-
-
 
 // Traitement de la suppression
 if (isset($_GET['supprimes'])) {
@@ -125,6 +158,4 @@ if (isset($_GET['supprimes'])) {
         }
     }
 }
-
-
 ?>

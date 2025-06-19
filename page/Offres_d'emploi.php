@@ -207,6 +207,7 @@ if (isset($_POST['recherche'])) {
                             <a href="offres_emploi_senegal.php" class="source-btn">EmploiSenegal</a>
                             <a href="offres_emploi_dakar.php" class="source-btn">EmploiDakar</a>
                             <a href="offres_senjob.php" class="source-btn">SenJob</a>
+                            <a href="plateformes_emploi.php" class="source-btn compare-btn"><i class="fas fa-exchange-alt"></i> Comparer</a>
                         </div>
                     </form>
                 </div>
@@ -500,6 +501,17 @@ if (isset($_POST['recherche'])) {
             background-color: #007BFF;
             color: white;
             border-color: #0056b3;
+        }
+        
+        .source-btn.compare-btn {
+            background-color: #28a745;
+            color: white;
+            border-color: #1e7e34;
+            margin-left: 5px;
+        }
+        
+        .source-btn.compare-btn:hover {
+            background-color: #218838;
         }
 
         /* Style pour la section des autres plateformes */

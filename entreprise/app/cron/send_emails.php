@@ -32,13 +32,14 @@ if (empty($emailsEnAttente)) {
 // Configurer PHPMailer
 $mail = new PHPMailer(true);
 $mail->isSMTP();
-$mail->Host = 'advantech-group.space';
+$mail->Host = 'mail.work-flexer.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'info@advantech-group.space';
+$mail->Username = 'service@work-flexer.com';
 $mail->Password = 'Ludvanne12@gmail.com'; // À stocker de manière sécurisée dans un fichier de configuration
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
-$mail->setFrom('info@advantech-group.space', 'Work-Flexer');
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
+$mail->setFrom('service@work-flexer.com', 'Work-Flexer');
+$mail->addReplyTo('service@work-flexer.com', 'Service Client Work-Flexer');
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8'; // Important pour l'affichage correct des caractères accentués
 

@@ -33,16 +33,16 @@
             <img class="affiche" src="/upload/<?= $users['images'] ?>" alt="">
 
             <?php if ($users['statut'] == 'Disponible'): ?>
-                <button class="statut occ">
+                <span id="statut" class="statut-disp">
                     <?= $users['statut'] ?>
-                </button>
+                </span>
             <?php else: ?>
                 <?php if ($users['statut'] == 'Occuper'): ?>
-                    <button class="statut disp">
+                    <span id="statut" class="statut-occ">
                         <?= $users['statut'] ?>
-                    </button>
+                    </span>
                 <?php else: ?>
-                    <button class="statut occ">Statut</button>
+                    <span id="statut" class="statut occ">Statut</span>
                 <?php endif; ?>
             <?php endif; ?>
             <div class="div_statut">

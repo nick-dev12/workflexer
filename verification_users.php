@@ -82,12 +82,12 @@ if (isset($_POST['renvoyer'])) {
   try {
     // Paramètres SMTP
     $mail->isSMTP();
-    $mail->Host = 'advantech-group.space';
+    $mail->Host = 'mail.work-flexer.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@advantech-group.space';
+    $mail->Username = 'service@work-flexer.com';
     $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
 
     // Fonction pour générer un code de sécurité aléatoire
 
@@ -272,13 +272,14 @@ if (isset($_POST['renvoyer'])) {
                       <a href='#'>LinkedIn</a>
                   </div>
                   <p class='footer-text'>© 2023 Work-Flexer. Tous droits réservés.</p>
-                  <p class='footer-text'>Pour toute question, contactez-nous à <a href='mailto:info@advantech-group.space'>info@advantech-group.space</a></p>
+                  <p class='footer-text'>Pour toute question, contactez-nous à <a href='mailto:service@work-flexer.com'>service@work-flexer.com</a></p>
               </div>
           </div>
       </body>
       </html> ";
 
-    $mail->setFrom('info@advantech-group.space', 'Work-Flexer');
+    $mail->setFrom('service@work-flexer.com', 'Work-Flexer');
+    $mail->addReplyTo('service@work-flexer.com', 'Service Client Work-Flexer');
     $mail->isHTML(true);
     $mail->Subject = $sujet;
     $mail->Body = $message;

@@ -43,6 +43,25 @@ if (isset($_GET['supprime'])) {
     }
 }
 
+// Traitement pour mettre à jour le statut "mis_en_avant" des compétences
+if (isset($_POST['update_competence_mis_en_avant'])) {
+    if (isset($_SESSION['users_id']) && isset($_POST['competence_id']) && isset($_POST['mis_en_avant'])) {
+        $id = intval($_POST['competence_id']);
+        $mis_en_avant = intval($_POST['mis_en_avant']);
+        
+        if (updateCompetenceMisEnAvant($db, $id, $mis_en_avant)) {
+            echo json_encode(['success' => true]);
+            exit;
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Erreur lors de la mise à jour']);
+            exit;
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Paramètres manquants']);
+        exit;
+    }
+}
+
 // Récupération des compétences de l'utilisateur
 
 if (isset($_GET['id'])) {

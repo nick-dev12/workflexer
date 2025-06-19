@@ -212,11 +212,18 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="/css/user_profil.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/share-profile.css">
+    <link rel="stylesheet" href="../css/experience_highlight.css">
+    <link rel="stylesheet" href="../css/competence_highlight.css">
+    <link rel="stylesheet" href="../css/formation_highlight.css">
+    <link rel="stylesheet" href="../css/outil_highlight.css">
 
     <link rel="stylesheet" href="../css/aos.css" />
     <link rel="stylesheet" href="../css/notifications.css">
     <script defer src="../js/aos.js"></script>
-
+    <script defer src="../js/experience_highlight.js"></script>
+    <script defer src="../js/competence_highlight.js"></script>
+    <script defer src="../js/formation_highlight.js"></script>
+    <script defer src="../js/outil_highlight.js"></script>
 
     <script src="../js/html5Qrcode.js"></script>
     <script type="module" src="/js/init-notifications.js"></script>
@@ -678,9 +685,25 @@ if (isset($_GET['id'])) {
                 <?php if (empty($afficheMetier)): ?>
                         <p class="p">Aucune expérience professionnelle enregistrée !</p>
                 <?php else: ?>
+                        <?php if (isset($_SESSION['users_id'])): ?>
+                                <div class="highlight-instructions">
+                                    <p>Sélectionnez les expériences professionnelles que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur une expérience pour commencer la sélection.</p>
+                                    <div class="highlight-actions">
+                                        <button class="cancel-btn">Annuler</button>
+                                        <button class="save-btn">Enregistrer</button>
+                                    </div>
+                                </div>
+                                <button class="highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
+                        <?php endif; ?>
+
                         <div class="experiences-list">
                             <?php foreach ($afficheMetier as $metiers): ?>
-                                    <div class="experience-card">
+                                    <div class="experience-card <?php echo ($metiers['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>" data-id="<?php echo $metiers['id']; ?>">
+                                        <?php if ($metiers['mis_en_avant'] == 1): ?>
+                                                <div class="highlighted-badge">
+                                                    <i class="fas fa-star"></i> Mis en avant
+                                                </div>
+                                        <?php endif; ?>
                                         <div class="experience-header">
                                             <div class="experience-title">
                                                 <h3><?php echo $metiers['metier']; ?></h3>
@@ -873,6 +896,12 @@ if (isset($_GET['id'])) {
                                 });
                             </script>
                         </div>
+                        
+                        <!-- Message de confirmation pour la mise en avant -->
+                        <div class="highlight-confirmation">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vos expériences mises en avant ont été enregistrées</span>
+                        </div>
                 <?php endif; ?>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
@@ -1037,8 +1066,19 @@ if (isset($_GET['id'])) {
                     </div>
                     <span>Compétences</span>
                 </h2>
+                
+                <?php if (isset($_SESSION['users_id'])): ?>
+                        <div class="competence-highlight-instructions">
+                            <p>Sélectionnez les compétences que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur une compétence pour commencer la sélection.</p>
+                            <div class="competence-highlight-actions">
+                                <button class="competence-cancel-btn">Annuler</button>
+                                <button class="competence-save-btn">Enregistrer</button>
+                            </div>
+                        </div>
+                        <button class="competence-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
+                <?php endif; ?>
+                
                 <div class="container_comp">
-
                     <?php if (empty($competencesUtilisateur)): ?>
                             <p class="p">
                                 Aucune compétence pour votre profil
@@ -1047,7 +1087,8 @@ if (isset($_GET['id'])) {
                             <?php
                             foreach ($competencesUtilisateur as $competence):
                                 ?>
-                                    <p class="comp">
+                        <p class="comp <?php echo ($competence['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>" data-id="<?php echo $competence['id']; ?>">
+                            <i class="fas fa-star competence-star-icon"></i>
                                         <?php echo $competence['competence']; ?>
                                         <?php if (isset($_SESSION['users_id'])): ?>
                                                 <a href="?supprime=<?php echo $competence['id']; ?>" title="Supprimer cette compétence">
@@ -1059,7 +1100,12 @@ if (isset($_GET['id'])) {
                             endforeach;
                             ?>
                     <?php endif; ?>
+                </div>
 
+                <!-- Message de confirmation pour la mise en avant des compétences -->
+                <div class="competence-highlight-confirmation">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Vos compétences mises en avant ont été enregistrées</span>
                 </div>
 
                 <?php if (isset($_SESSION['users_id'])): ?>
@@ -1104,7 +1150,6 @@ if (isset($_GET['id'])) {
                         affiche_forms.style.display = 'block';
                     });
                 </script>
-
             </div>
 
             <div class="box3">
@@ -1243,9 +1288,20 @@ if (isset($_GET['id'])) {
                 <?php if (empty($formationUsers)): ?>
                         <p class="p">Aucune formation enregistrée pour votre profil!</p>
                 <?php else: ?>
+                        <?php if (isset($_SESSION['users_id'])): ?>
+                                <div class="formation-highlight-instructions">
+                                    <p>Sélectionnez les formations que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur une formation pour commencer la sélection.</p>
+                                    <div class="formation-highlight-actions">
+                                        <button class="formation-cancel-btn">Annuler</button>
+                                        <button class="formation-save-btn">Enregistrer</button>
+                                    </div>
+                                </div>
+                                <button class="formation-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
+                        <?php endif; ?>
+                        
                         <div class="formations-list">
                             <?php foreach ($formationUsers as $formations): ?>
-                                    <div class="formation-card">
+                                    <div class="formation-card <?php echo ($formations['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>" data-id="<?php echo $formations['id']; ?>">
                                         <div class="formation-content">
                                             <div class="formation-header">
                                                 <div class="formation-period">
@@ -1277,7 +1333,9 @@ if (isset($_GET['id'])) {
 
                                             <div class="formation-details">
                                                 <div class="formation-main-info">
-                                                    <h3 class="formation-title"><?php echo htmlspecialchars($formations['Filiere']); ?>
+                                                    <h3 class="formation-title">
+                                                        <i class="fas fa-star formation-star-icon"></i>
+                                                        <?php echo htmlspecialchars($formations['Filiere']); ?>
                                                     </h3>
                                                     <p class="formation-school">
                                                         <?php echo htmlspecialchars($formations['etablissement']); ?>
@@ -1424,6 +1482,12 @@ if (isset($_GET['id'])) {
                                         </script>
                                     </div>
                             <?php endforeach; ?>
+                        </div>
+                        
+                        <!-- Message de confirmation pour la mise en avant des formations -->
+                        <div class="formation-highlight-confirmation">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vos formations mises en avant ont été enregistrées</span>
                         </div>
                 <?php endif; ?>
             </div>
@@ -1622,11 +1686,25 @@ if (isset($_GET['id'])) {
                 <?php if (empty($afficheOutil)): ?>
                         <p class="p">Aucun outil informatique ajouté à votre profil</p>
                 <?php else: ?>
+                        
                         <div class="tools-list">
+                        <?php if (isset($_SESSION['users_id'])): ?>
+                                <div class="outil-highlight-instructions">
+                                    <p>Sélectionnez les outils que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur un outil pour commencer la sélection.</p>
+                                    <div class="outil-highlight-actions">
+                                        <button class="outil-cancel-btn">Annuler</button>
+                                        <button class="outil-save-btn">Enregistrer</button>
+                                    </div>
+                                </div>
+                                <button class="outil-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
+                        <?php endif; ?>
                             <?php foreach ($afficheOutil as $outils): ?>
-                                    <div class="tool-item">
+                                    <div class="tool-item <?php echo ($outils['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>" data-id="<?php echo $outils['id'] ?>">
                                         <div class="tool-info">
-                                            <span class="tool-name"><?php echo $outils['outil'] ?></span>
+                                            <span class="tool-name">
+                                                <i class="fas fa-star outil-star-icon"></i>
+                                                <?php echo $outils['outil'] ?>
+                                            </span>
                                             <span
                                                 class="tool-level <?php echo strtolower($outils['niveau']) ?>"><?php echo $outils['niveau'] ?></span>
                                         </div>
@@ -1638,9 +1716,16 @@ if (isset($_GET['id'])) {
                                     </div>
                             <?php endforeach; ?>
                         </div>
+                        
+                        <!-- Message de confirmation pour la mise en avant -->
+                        <div class="outil-highlight-confirmation">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vos outils mis en avant ont été enregistrés</span>
+                        </div>
                 <?php endif; ?>
 
                 <div class="outil">
+                    
                     <?php if (isset($_SESSION['users_id'])): ?>
                             <button id="ajouter_outil" class="btn3 add-button">
                                 <img src="../image/ajouter2.png" alt="">
@@ -1667,8 +1752,8 @@ if (isset($_GET['id'])) {
                         <select name="niveau" id="niveau">
                             <option value="Debutant">Debutant</option>
                             <option value="Intermediaire">Intermédiaire</option>
-                            <option value="professionel">Professionnel</option>
-                            <option value="Avencer">Avancé</option>
+                            <option value="Professionnel">Professionnel</option>
+                            <option value="Avancé">Avancé</option>
                         </select>
                         <input type="submit" value="Enregister" name="ajouts" id="ajout">
                     </div>
@@ -1765,8 +1850,8 @@ if (isset($_GET['id'])) {
                         <select name="niveau" id="niveau">
                             <option value="Debutant">Debutant</option>
                             <option value="Intermediaire">Intermédiaire</option>
-                            <option value="professionel">Professionnel</option>
-                            <option value="Avencer">Avancé</option>
+                            <option value="Professionnel">Professionnel</option>
+                            <option value="Avancé">Avancé</option>
                         </select>
                         <input type="submit" value="Enregister" name="ajoutss" id="ajout">
                     </div>

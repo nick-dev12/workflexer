@@ -46,18 +46,26 @@ $mail = new PHPMailer(true); // true active les exceptions
 try {
     // Configuration du serveur (utilisation des mêmes paramètres que dans compte_entreprise.php)
     $mail->isSMTP();
-    $mail->Host = 'advantech-group.space';
+    $mail->Host = 'mail.work-flexer.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@advantech-group.space';
+    $mail->Username = 'service@work-flexer.com';
     $mail->Password = 'Ludvanne12@gmail.com';
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
     $mail->CharSet = 'UTF-8';
+    // Optionnel : autoriser certificat auto-signé
+$mail->SMTPOptions = [
+    'ssl' => [
+        'verify_peer'       => false,
+        'verify_peer_name'  => false,
+        'allow_self_signed' => true,
+    ],
+];
 
     // Destinataires
-    $mail->setFrom('info@advantech-group.space', 'Work-Flexer');
+    $mail->setFrom('service@work-flexer.com', 'Work-Flexer');
     $mail->addAddress($recipient);
-    $mail->addReplyTo('info@advantech-group.space', 'Service Client Work-Flexer');
+    $mail->addReplyTo('service@work-flexer.com', 'Service Client Work-Flexer');
 
     // Traitement des pièces jointes
     $attachments = [];

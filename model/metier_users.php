@@ -53,7 +53,7 @@ function updateMetier($db, $id, $metier, $moisDebut, $anneeDebut, $encours, $moi
 function getMetier($db, $users_id)
 {
     // Requête pour récupérer les métiers
-    $sql = "SELECT * FROM metier_users WHERE users_id = :users_id";
+    $sql = "SELECT * FROM metier_users WHERE users_id = :users_id ORDER BY mis_en_avant DESC, anneeDebut DESC";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
     $stmt->execute();
@@ -71,5 +71,35 @@ function suprimeMetier($db, $id)
     $stmt->execute();
 
 }
-;
+
+/**
+ * Mettre à jour le statut "mis_en_avant" d'une expérience professionnelle
+ * @param mixed $db
+ * @param mixed $id
+ * @param mixed $mis_en_avant
+ * @return bool
+ */
+function updateMisEnAvant($db, $id, $mis_en_avant)
+{
+    $sql = "UPDATE metier_users SET mis_en_avant = :mis_en_avant WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->bindParam(':mis_en_avant', $mis_en_avant, PDO::PARAM_INT);
+    return $stmt->execute();
+}
+
+/**
+ * Récupérer les expériences mises en avant pour un utilisateur
+ * @param mixed $db
+ * @param mixed $users_id
+ * @return mixed
+ */
+function getMetierMisEnAvant($db, $users_id)
+{
+    $sql = "SELECT * FROM metier_users WHERE users_id = :users_id AND mis_en_avant = 1";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':users_id', $users_id, PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>

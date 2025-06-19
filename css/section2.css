@@ -71,21 +71,27 @@
   margin-top: 10px !important;
 }
 .section2 .box1 .statut {
-  padding: 5px 20px;
+  padding: 3px 20px;
   border-radius: 7px;
   background-color: #000000;
   color: #ffffff;
   font-weight: 700;
   font-style: italic;
-  font-size: 15px;
+  font-size: 12px;
   box-shadow: 0 0 5px 2px;
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .section2 .box1 .div_statut {
   padding: 10px 20px;
   border-radius: 10px;
   background-color: #ffffff;
-  font-size: 15px;
   top: 10px;
   position: absolute;
   width: 100%;
@@ -103,49 +109,59 @@
   top: 10px;
   right: 10px;
 }
-.section2 .box1 .div_statut .occ {
-  padding: 5px 10px;
+.section2 .box1 .div_statut .disp {
   border-radius: 7px;
   background-color: #03d014;
   color: #ffffff;
   font-weight: 700;
   font-style: italic;
-  font-size: 11px;
   box-shadow: 0 0 2px 2px #00000071;
   border: none;
 }
-.section2 .box1 .div_statut .disp {
-  padding: 5px 10px;
+.section2 .box1 .div_statut .occ {
   border-radius: 7px;
   background-color: #020202;
   color: #ffffff;
   font-weight: 700;
   font-style: italic;
-  font-size: 11px;
   margin-right: 10px;
   border: none;
   box-shadow: 0 0 2px 2px #00000071;
 }
 
-.section2 .box1 .occ {
-  padding: 5px 10px;
+.section2 .box1 .statut-disp {
+  height: 25px;
+  width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 3px 10px;
+  font-size: 12px;
   border-radius: 7px;
   background-color: #01d212;
   color: #ffffff;
   font-weight: 700;
   font-style: italic;
-  font-size: 11px;
   box-shadow: 0 0 2px 2px #00000071;
   border: none;
 }
-.section2 .box1 .disp {
-  padding: 5px 10px;
+.section2 .box1 .statut-occ {
+  height: 25px;
+  width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 3px 10px;
+  font-size: 12px;
   border-radius: 7px;
   background-color: #020202;
   color: #ffffff;
   font-weight: 700;
   font-style: italic;
-  font-size: 11px;
   box-shadow: 0 0 2px 2px #000000;
   margin-right: 10px;
   border: none;
