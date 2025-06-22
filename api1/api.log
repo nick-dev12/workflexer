@@ -1,0 +1,830 @@
+2025-06-21 00:55:48,597 - api_matching - INFO - Analyse demand�e pour candidat ID: 1 et offre ID: 42
+2025-06-21 00:55:48,952 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 77%
+[21-Jun-2025 02:53:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function getOffreForCompatibilite() in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php:58
+Stack trace:
+#0 C:\wamp64\www\workflexer\api1\get_compatibilite.php(51): analyserCompatibiliteOffre(Object(PDO), 5, 3)
+#1 {main}
+  thrown in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 58
+2025-06-21 03:09:41,841 - api_matching - INFO - Analyse demand�e pour candidat ID: 1 et offre ID: 1
+2025-06-21 03:09:42,393 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 57%
+[21-Jun-2025 03:09:55 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'id' inconnu dans field list
+[21-Jun-2025 03:31:55 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 03:37:45 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 03:37:53 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 03:41:39 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 03:45:01 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre_offre' inconnu dans field list
+[21-Jun-2025 03:56:08 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 03:56:14 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 08:48:47 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 08:48:56 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 08:50:15 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 08:50:21 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 08:57:49 UTC] PHP Warning:  Undefined array key "email" in C:\wamp64\www\workflexer\api1\direct_compatibility.php on line 125
+[21-Jun-2025 08:57:49 UTC] PHP Stack trace:
+[21-Jun-2025 08:57:49 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\direct_compatibility.php:0
+[21-Jun-2025 08:57:49 UTC] PHP Warning:  Undefined array key "telephone" in C:\wamp64\www\workflexer\api1\direct_compatibility.php on line 126
+[21-Jun-2025 08:57:49 UTC] PHP Stack trace:
+[21-Jun-2025 08:57:49 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\direct_compatibility.php:0
+[21-Jun-2025 08:57:49 UTC] Erreur dans direct_compatibility.php: SQLSTATE[42S22]: Column not found: 1054 Champ 'titre' inconnu dans field list
+[21-Jun-2025 08:59:48 UTC] [DEBUG] Début getOffreForCompatibilite - offre_id: 3
+[21-Jun-2025 08:59:48 UTC] [DEBUG] Exécution requête SQL: SELECT `offre_id`, 
+                       `description_poste`, 
+                       `profil_recherche`, 
+                       `entreprise`, 
+                       `localisation`, 
+                       `niveau_etude`, 
+                       `niveau_experience`, 
+                       `type_contrat`, 
+                       `competences`, 
+                       `secteur_activite`, 
+                       `description_entreprise`
+                FROM `scrap_emploi_emploisenegal`
+                WHERE offre_id = :offre_id
+[21-Jun-2025 08:59:48 UTC] [DEBUG] Données brutes de l'offre: Array
+(
+    [offre_id] => 3
+    [description_poste] => <div class="job-description"><p>Dans le cadre d'une mission de recrutement pour un de ses clients évoluant dans le secteur de l'hôtellerie, Tectra Sénégal cherche un <strong>Directeur d'Hôtel (H/F).</strong><br/>
+<strong>Missions principales :</strong><br/>
+<strong>Gestion administrative et financière :</strong></p>
+<ul>
+<li>Participer au contrôle de gestion, au suivi et à l’évaluation de la rentabilité de l'établissement</li>
+<li>Superviser et valider l’élaboration des budgets</li>
+<li>Participer au suivi comptable global et de chaque département (Hébergement, Cuisine, Bar et Activités)</li>
+<li>Aider et promouvoir le déploiement d’outils de reporting adaptés afin d’assurer la rentabilité de l’établissement.</li>
+<li>Aide et participation à l’élaboration et l’exploitation de tableaux de bord de suivi de l'activité</li>
+<li>Émettre des propositions d’investissements</li>
+</ul>
+<p><strong>Gestion marketing et commerciale :</strong></p>
+<ul>
+<li>Adaptation permanente de l'offre de services et d’activités aux évolutions de la clientèle</li>
+<li>Analyse du marché et de la concurrence locale</li>
+<li>Contrôle et évaluation de la qualité du service rendu</li>
+<li>Élaboration et/ou application d'une politique commerciale</li>
+<li>Fixation des prix</li>
+<li>Mise en place d'actions de promotion de l'établissement</li>
+<li>Relations commerciales internes et externes</li>
+</ul>
+<p><strong>Concevoir et organiser les services :</strong></p>
+<ul>
+<li>Concevoir et mettre en place un organigramme</li>
+<li>Définir et rédiger les fiches de poste pour l’ensemble des différents membres des services dans l’optique de garantir aux clients une expérience d’excellence de bout en bout et de fidéliser la clientèle.</li>
+<li>La restauration et le plus large éventail d’activités en plein air font aussi partie des axes de gestion et de développement souhaités.</li>
+<li>Organisation et supervision de l'approvisionnement en matériels, équipements, fournitures, … </li>
+</ul>
+<p><strong>Management des équipes :</strong></p>
+<ul>
+<li>Coordination de toutes les équipes de l'hôtel</li>
+<li>Évaluation des besoins en formation</li>
+<li>Évaluation des compétences nécessaires à la qualité du service</li>
+<li>Supervision de l'ensemble des activités de l'hôtel, soit en direct soit par délégation</li>
+<li>Rédaction des plannings :</li>
+<li>Formation et développement des talents au sein de l’établissement.</li>
+<li>Suivi de l’élaboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.</li>
+</ul>
+<p><strong>Planifier et coordonner l’activité des différents services de l’hôtel :</strong></p>
+<ul>
+<li>Contrôler la conformité des opérations, aux standards d’hygiène, de qualité et de sécurité</li>
+<li>Être garant de l’amélioration continue de ces axes en tenant compte des retours clients.</li>
+<li>Être garant de la bonne utilisation et de la maintenance de l’ensemble des biens de l’entreprise.</li>
+</ul>
+<p><strong>Supervision des relations avec les partenaires et fournisseurs :</strong></p>
+<ul>
+<li>Émettre des avis et participer au choix de ceux-ci en fonction de leurs critères de coûts et de qualités.</li>
+</ul>
+<p><strong>Définir et garantir la mise en œuvre de stratégies commerciales et marketing, pour promouvoir l’hôtel et atteindre les objectifs :</strong></p>
+<ul>
+<li>Responsable de la stratégie commerciale</li>
+<li>Participation à l’élaboration de la communication</li>
+<li>Responsable du suivi de la communication</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p><strong>Compétences techniques :</strong></p>
+<ul>
+<li>Connaissances approfondies de la gestion hôtelière, incluant les opérations, la finance et le marketing</li>
+<li>Maîtrise des outils de gestion et logiciels spécifiques à l’industrie hôtelière</li>
+<li>Connaissance des normes de sécurité et d’hygiène en vigueur dans l’industrie hôtelière</li>
+<li>Évaluation des ressources matérielles et immatérielles nécessaires à la bonne marche de l'établissement</li>
+<li>Connaissances mécaniques de base pour pouvoir appréhender et prévenir la maintenance des matériels et machines utilisés dans l’ensemble de la structure.</li>
+</ul>
+<p><strong>Compétences en gestion financière et Marketing :</strong></p>
+<ul>
+<li>Capacité à élaborer et suivre les budgets</li>
+<li>Émettre des avis et choix pour développer des stratégies marketing efficaces et de fidélisation de la clientèle.</li>
+</ul>
+<p><strong>Compétences relationnelles et humaines :</strong></p>
+<ul>
+<li>Leadership et capacité à inspirer une équipe, motivant le personnel à atteindre l’excellence</li>
+<li>Excellentes compétences en communication, essentielles pour interagir avec les clients, le personnel et les partenaires</li>
+<li>Sens du service client développé, avec un engagement envers la satisfaction et la fidélisation des clients</li>
+<li>Capacité à gérer le stress et à prendre des décisions judicieuses dans un environnement dynamique</li>
+<li>Compétences en résolution de conflits, permettant de gérer efficacement les différends internes et externes</li>
+</ul>
+<p><strong>Formation :</strong> École hôtelière ou diplôme équivalent.</p>
+<ul>
+<li>B. E. P. C. ou diplôme équivalent. Connaissance parfaite du Français, de l’anglais et si possible d’une autre langue</li>
+<li>Expérience professionnelle minimale : 2 ans comme sous-directeur ou 3 ans comme chef de service.</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar & Thiès
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 2 ans et 5 ans et plus
+    [type_contrat] => Contrat proposé
+                             :CDI
+    [competences] => Cuisine, Tourisme, Gestion Hôtelière, Hôtellerie, Restauration
+    [secteur_activite] => Intérim, recrutement
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+[21-Jun-2025 08:59:48 UTC] PHP Warning:  Undefined array key "titre" in C:\wamp64\www\workflexer\model\offre_profile.php on line 67
+[21-Jun-2025 08:59:48 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:48 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:48 UTC] PHP   2. obtenirAnalyseCompatibilite($db = class PDO {  }, $candidat_id = 5, $offre_id = 3, $max_age_hours = 0) C:\wamp64\www\workflexer\api1\test.php:138
+[21-Jun-2025 08:59:48 UTC] PHP   3. analyserCompatibiliteOffre($db = class PDO {  }, $candidat_id = 5, $offre_id = 3) C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php:259
+[21-Jun-2025 08:59:48 UTC] PHP   4. getOffreForCompatibilite($db = class PDO {  }, $offre_id = 3) C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php:58
+[21-Jun-2025 08:59:48 UTC] [DEBUG] Offre formatée avec succès: Array
+(
+    [id] => 3
+    [titre] => 
+    [entreprise] => TECTRA SÉNÉGAL
+    [categorie] => Intérim, recrutement
+    [description] => <div class="job-description"><p>Dans le cadre d'une mission de recrutement pour un de ses clients évoluant dans le secteur de l'hôtellerie, Tectra Sénégal cherche un <strong>Directeur d'Hôtel (H/F).</strong><br/>
+<strong>Missions principales :</strong><br/>
+<strong>Gestion administrative et financière :</strong></p>
+<ul>
+<li>Participer au contrôle de gestion, au suivi et à l’évaluation de la rentabilité de l'établissement</li>
+<li>Superviser et valider l’élaboration des budgets</li>
+<li>Participer au suivi comptable global et de chaque département (Hébergement, Cuisine, Bar et Activités)</li>
+<li>Aider et promouvoir le déploiement d’outils de reporting adaptés afin d’assurer la rentabilité de l’établissement.</li>
+<li>Aide et participation à l’élaboration et l’exploitation de tableaux de bord de suivi de l'activité</li>
+<li>Émettre des propositions d’investissements</li>
+</ul>
+<p><strong>Gestion marketing et commerciale :</strong></p>
+<ul>
+<li>Adaptation permanente de l'offre de services et d’activités aux évolutions de la clientèle</li>
+<li>Analyse du marché et de la concurrence locale</li>
+<li>Contrôle et évaluation de la qualité du service rendu</li>
+<li>Élaboration et/ou application d'une politique commerciale</li>
+<li>Fixation des prix</li>
+<li>Mise en place d'actions de promotion de l'établissement</li>
+<li>Relations commerciales internes et externes</li>
+</ul>
+<p><strong>Concevoir et organiser les services :</strong></p>
+<ul>
+<li>Concevoir et mettre en place un organigramme</li>
+<li>Définir et rédiger les fiches de poste pour l’ensemble des différents membres des services dans l’optique de garantir aux clients une expérience d’excellence de bout en bout et de fidéliser la clientèle.</li>
+<li>La restauration et le plus large éventail d’activités en plein air font aussi partie des axes de gestion et de développement souhaités.</li>
+<li>Organisation et supervision de l'approvisionnement en matériels, équipements, fournitures, … </li>
+</ul>
+<p><strong>Management des équipes :</strong></p>
+<ul>
+<li>Coordination de toutes les équipes de l'hôtel</li>
+<li>Évaluation des besoins en formation</li>
+<li>Évaluation des compétences nécessaires à la qualité du service</li>
+<li>Supervision de l'ensemble des activités de l'hôtel, soit en direct soit par délégation</li>
+<li>Rédaction des plannings :</li>
+<li>Formation et développement des talents au sein de l’établissement.</li>
+<li>Suivi de l’élaboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.</li>
+</ul>
+<p><strong>Planifier et coordonner l’activité des différents services de l’hôtel :</strong></p>
+<ul>
+<li>Contrôler la conformité des opérations, aux standards d’hygiène, de qualité et de sécurité</li>
+<li>Être garant de l’amélioration continue de ces axes en tenant compte des retours clients.</li>
+<li>Être garant de la bonne utilisation et de la maintenance de l’ensemble des biens de l’entreprise.</li>
+</ul>
+<p><strong>Supervision des relations avec les partenaires et fournisseurs :</strong></p>
+<ul>
+<li>Émettre des avis et participer au choix de ceux-ci en fonction de leurs critères de coûts et de qualités.</li>
+</ul>
+<p><strong>Définir et garantir la mise en œuvre de stratégies commerciales et marketing, pour promouvoir l’hôtel et atteindre les objectifs :</strong></p>
+<ul>
+<li>Responsable de la stratégie commerciale</li>
+<li>Participation à l’élaboration de la communication</li>
+<li>Responsable du suivi de la communication</li>
+</ul>
+</div>
+
+Profil recherché:
+<div class="job-qualifications"><p><strong>Compétences techniques :</strong></p>
+<ul>
+<li>Connaissances approfondies de la gestion hôtelière, incluant les opérations, la finance et le marketing</li>
+<li>Maîtrise des outils de gestion et logiciels spécifiques à l’industrie hôtelière</li>
+<li>Connaissance des normes de sécurité et d’hygiène en vigueur dans l’industrie hôtelière</li>
+<li>Évaluation des ressources matérielles et immatérielles nécessaires à la bonne marche de l'établissement</li>
+<li>Connaissances mécaniques de base pour pouvoir appréhender et prévenir la maintenance des matériels et machines utilisés dans l’ensemble de la structure.</li>
+</ul>
+<p><strong>Compétences en gestion financière et Marketing :</strong></p>
+<ul>
+<li>Capacité à élaborer et suivre les budgets</li>
+<li>Émettre des avis et choix pour développer des stratégies marketing efficaces et de fidélisation de la clientèle.</li>
+</ul>
+<p><strong>Compétences relationnelles et humaines :</strong></p>
+<ul>
+<li>Leadership et capacité à inspirer une équipe, motivant le personnel à atteindre l’excellence</li>
+<li>Excellentes compétences en communication, essentielles pour interagir avec les clients, le personnel et les partenaires</li>
+<li>Sens du service client développé, avec un engagement envers la satisfaction et la fidélisation des clients</li>
+<li>Capacité à gérer le stress et à prendre des décisions judicieuses dans un environnement dynamique</li>
+<li>Compétences en résolution de conflits, permettant de gérer efficacement les différends internes et externes</li>
+</ul>
+<p><strong>Formation :</strong> École hôtelière ou diplôme équivalent.</p>
+<ul>
+<li>B. E. P. C. ou diplôme équivalent. Connaissance parfaite du Français, de l’anglais et si possible d’une autre langue</li>
+<li>Expérience professionnelle minimale : 2 ans comme sous-directeur ou 3 ans comme chef de service.</li>
+</ul>
+</div>
+
+A propos de l'entreprise:
+Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+    [competences_requises] => Array
+        (
+            [0] => Cuisine
+            [1] => Tourisme
+            [2] => Gestion Hôtelière
+            [3] => Hôtellerie
+            [4] => Restauration
+        )
+
+    [niveau_etudes] => Non spécifié
+    [annees_experience] => 2
+    [formation_requise] => Array
+        (
+        )
+
+    [langues_requises] => Array
+        (
+        )
+
+    [outils_requis] => Array
+        (
+        )
+
+    [type_contrat] => Contrat proposé
+                             :CDI
+    [lieu] => Région de :Dakar & Thiès
+    [salaire] => 
+)
+
+[21-Jun-2025 08:59:48 UTC] Début du JSON envoyé: 7b2263616e646964617465223a7b226964223a352c226e6f6d223a224f594f4e4f2045464645204e69636b204c756476616e ({"candidate":{"id":5,"nom":"OYONO EFFE Nick Ludvan)
+2025-06-21 08:59:49,191 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 08:59:51,026 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -190%
+[21-Jun-2025 08:59:51 UTC] Réponse brute de l'API: {"global_score":-190,"compatibility_level":"poor","compatibility_message":"Votre profil ne correspon
+[21-Jun-2025 08:59:51 UTC] Erreur lors de la sauvegarde des résultats: SQLSTATE[42S22]: Column not found: 1054 Champ 'score_global' inconnu dans field list
+[21-Jun-2025 08:59:51 UTC] PHP Warning:  Undefined array key "score_global" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 278
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 08:59:51 UTC] PHP Warning:  Undefined array key "score_global" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 279
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 08:59:51 UTC] PHP Warning:  Undefined array key "details" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 281
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 08:59:51 UTC] PHP Warning:  Trying to access array offset on null in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 281
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 08:59:51 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 281
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 08:59:51 UTC] PHP   3. htmlspecialchars($string = NULL) C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php:281
+[21-Jun-2025 08:59:51 UTC] PHP Warning:  Undefined array key "details" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 288
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 08:59:51 UTC] PHP Warning:  Trying to access array offset on null in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 288
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 08:59:51 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 288
+[21-Jun-2025 08:59:51 UTC] PHP Stack trace:
+[21-Jun-2025 08:59:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 08:59:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:50 UTC] [DEBUG] Début getOffreForCompatibilite - offre_id: 3
+[21-Jun-2025 09:08:50 UTC] [DEBUG] Exécution requête SQL: SELECT `offre_id`, 
+                       `titre`,
+                       `description_poste`, 
+                       `profil_recherche`, 
+                       `entreprise`, 
+                       `localisation`, 
+                       `niveau_etude`, 
+                       `niveau_experience`, 
+                       `type_contrat`, 
+                       `competences`, 
+                       `secteur_activite`, 
+                       `description_entreprise`
+                FROM `scrap_emploi_emploisenegal`
+                WHERE offre_id = :offre_id
+[21-Jun-2025 09:08:50 UTC] [DEBUG] Données brutes de l'offre: Array
+(
+    [offre_id] => 3
+    [titre] => Directeur D´Hôtel (H/F) - Dakar
+    [description_poste] => <div class="job-description"><p>Dans le cadre d'une mission de recrutement pour un de ses clients évoluant dans le secteur de l'hôtellerie, Tectra Sénégal cherche un <strong>Directeur d'Hôtel (H/F).</strong><br/>
+<strong>Missions principales :</strong><br/>
+<strong>Gestion administrative et financière :</strong></p>
+<ul>
+<li>Participer au contrôle de gestion, au suivi et à l’évaluation de la rentabilité de l'établissement</li>
+<li>Superviser et valider l’élaboration des budgets</li>
+<li>Participer au suivi comptable global et de chaque département (Hébergement, Cuisine, Bar et Activités)</li>
+<li>Aider et promouvoir le déploiement d’outils de reporting adaptés afin d’assurer la rentabilité de l’établissement.</li>
+<li>Aide et participation à l’élaboration et l’exploitation de tableaux de bord de suivi de l'activité</li>
+<li>Émettre des propositions d’investissements</li>
+</ul>
+<p><strong>Gestion marketing et commerciale :</strong></p>
+<ul>
+<li>Adaptation permanente de l'offre de services et d’activités aux évolutions de la clientèle</li>
+<li>Analyse du marché et de la concurrence locale</li>
+<li>Contrôle et évaluation de la qualité du service rendu</li>
+<li>Élaboration et/ou application d'une politique commerciale</li>
+<li>Fixation des prix</li>
+<li>Mise en place d'actions de promotion de l'établissement</li>
+<li>Relations commerciales internes et externes</li>
+</ul>
+<p><strong>Concevoir et organiser les services :</strong></p>
+<ul>
+<li>Concevoir et mettre en place un organigramme</li>
+<li>Définir et rédiger les fiches de poste pour l’ensemble des différents membres des services dans l’optique de garantir aux clients une expérience d’excellence de bout en bout et de fidéliser la clientèle.</li>
+<li>La restauration et le plus large éventail d’activités en plein air font aussi partie des axes de gestion et de développement souhaités.</li>
+<li>Organisation et supervision de l'approvisionnement en matériels, équipements, fournitures, … </li>
+</ul>
+<p><strong>Management des équipes :</strong></p>
+<ul>
+<li>Coordination de toutes les équipes de l'hôtel</li>
+<li>Évaluation des besoins en formation</li>
+<li>Évaluation des compétences nécessaires à la qualité du service</li>
+<li>Supervision de l'ensemble des activités de l'hôtel, soit en direct soit par délégation</li>
+<li>Rédaction des plannings :</li>
+<li>Formation et développement des talents au sein de l’établissement.</li>
+<li>Suivi de l’élaboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.</li>
+</ul>
+<p><strong>Planifier et coordonner l’activité des différents services de l’hôtel :</strong></p>
+<ul>
+<li>Contrôler la conformité des opérations, aux standards d’hygiène, de qualité et de sécurité</li>
+<li>Être garant de l’amélioration continue de ces axes en tenant compte des retours clients.</li>
+<li>Être garant de la bonne utilisation et de la maintenance de l’ensemble des biens de l’entreprise.</li>
+</ul>
+<p><strong>Supervision des relations avec les partenaires et fournisseurs :</strong></p>
+<ul>
+<li>Émettre des avis et participer au choix de ceux-ci en fonction de leurs critères de coûts et de qualités.</li>
+</ul>
+<p><strong>Définir et garantir la mise en œuvre de stratégies commerciales et marketing, pour promouvoir l’hôtel et atteindre les objectifs :</strong></p>
+<ul>
+<li>Responsable de la stratégie commerciale</li>
+<li>Participation à l’élaboration de la communication</li>
+<li>Responsable du suivi de la communication</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p><strong>Compétences techniques :</strong></p>
+<ul>
+<li>Connaissances approfondies de la gestion hôtelière, incluant les opérations, la finance et le marketing</li>
+<li>Maîtrise des outils de gestion et logiciels spécifiques à l’industrie hôtelière</li>
+<li>Connaissance des normes de sécurité et d’hygiène en vigueur dans l’industrie hôtelière</li>
+<li>Évaluation des ressources matérielles et immatérielles nécessaires à la bonne marche de l'établissement</li>
+<li>Connaissances mécaniques de base pour pouvoir appréhender et prévenir la maintenance des matériels et machines utilisés dans l’ensemble de la structure.</li>
+</ul>
+<p><strong>Compétences en gestion financière et Marketing :</strong></p>
+<ul>
+<li>Capacité à élaborer et suivre les budgets</li>
+<li>Émettre des avis et choix pour développer des stratégies marketing efficaces et de fidélisation de la clientèle.</li>
+</ul>
+<p><strong>Compétences relationnelles et humaines :</strong></p>
+<ul>
+<li>Leadership et capacité à inspirer une équipe, motivant le personnel à atteindre l’excellence</li>
+<li>Excellentes compétences en communication, essentielles pour interagir avec les clients, le personnel et les partenaires</li>
+<li>Sens du service client développé, avec un engagement envers la satisfaction et la fidélisation des clients</li>
+<li>Capacité à gérer le stress et à prendre des décisions judicieuses dans un environnement dynamique</li>
+<li>Compétences en résolution de conflits, permettant de gérer efficacement les différends internes et externes</li>
+</ul>
+<p><strong>Formation :</strong> École hôtelière ou diplôme équivalent.</p>
+<ul>
+<li>B. E. P. C. ou diplôme équivalent. Connaissance parfaite du Français, de l’anglais et si possible d’une autre langue</li>
+<li>Expérience professionnelle minimale : 2 ans comme sous-directeur ou 3 ans comme chef de service.</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar & Thiès
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 2 ans et 5 ans et plus
+    [type_contrat] => Contrat proposé
+                             :CDI
+    [competences] => Cuisine, Tourisme, Gestion Hôtelière, Hôtellerie, Restauration
+    [secteur_activite] => Intérim, recrutement
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+[21-Jun-2025 09:08:50 UTC] [DEBUG] Offre formatée avec succès: Array
+(
+    [id] => 3
+    [entreprise] => TECTRA SÉNÉGAL
+    [categorie] => Intérim, recrutement
+    [description] => <div class="job-description"><p>Dans le cadre d'une mission de recrutement pour un de ses clients évoluant dans le secteur de l'hôtellerie, Tectra Sénégal cherche un <strong>Directeur d'Hôtel (H/F).</strong><br/>
+<strong>Missions principales :</strong><br/>
+<strong>Gestion administrative et financière :</strong></p>
+<ul>
+<li>Participer au contrôle de gestion, au suivi et à l’évaluation de la rentabilité de l'établissement</li>
+<li>Superviser et valider l’élaboration des budgets</li>
+<li>Participer au suivi comptable global et de chaque département (Hébergement, Cuisine, Bar et Activités)</li>
+<li>Aider et promouvoir le déploiement d’outils de reporting adaptés afin d’assurer la rentabilité de l’établissement.</li>
+<li>Aide et participation à l’élaboration et l’exploitation de tableaux de bord de suivi de l'activité</li>
+<li>Émettre des propositions d’investissements</li>
+</ul>
+<p><strong>Gestion marketing et commerciale :</strong></p>
+<ul>
+<li>Adaptation permanente de l'offre de services et d’activités aux évolutions de la clientèle</li>
+<li>Analyse du marché et de la concurrence locale</li>
+<li>Contrôle et évaluation de la qualité du service rendu</li>
+<li>Élaboration et/ou application d'une politique commerciale</li>
+<li>Fixation des prix</li>
+<li>Mise en place d'actions de promotion de l'établissement</li>
+<li>Relations commerciales internes et externes</li>
+</ul>
+<p><strong>Concevoir et organiser les services :</strong></p>
+<ul>
+<li>Concevoir et mettre en place un organigramme</li>
+<li>Définir et rédiger les fiches de poste pour l’ensemble des différents membres des services dans l’optique de garantir aux clients une expérience d’excellence de bout en bout et de fidéliser la clientèle.</li>
+<li>La restauration et le plus large éventail d’activités en plein air font aussi partie des axes de gestion et de développement souhaités.</li>
+<li>Organisation et supervision de l'approvisionnement en matériels, équipements, fournitures, … </li>
+</ul>
+<p><strong>Management des équipes :</strong></p>
+<ul>
+<li>Coordination de toutes les équipes de l'hôtel</li>
+<li>Évaluation des besoins en formation</li>
+<li>Évaluation des compétences nécessaires à la qualité du service</li>
+<li>Supervision de l'ensemble des activités de l'hôtel, soit en direct soit par délégation</li>
+<li>Rédaction des plannings :</li>
+<li>Formation et développement des talents au sein de l’établissement.</li>
+<li>Suivi de l’élaboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.</li>
+</ul>
+<p><strong>Planifier et coordonner l’activité des différents services de l’hôtel :</strong></p>
+<ul>
+<li>Contrôler la conformité des opérations, aux standards d’hygiène, de qualité et de sécurité</li>
+<li>Être garant de l’amélioration continue de ces axes en tenant compte des retours clients.</li>
+<li>Être garant de la bonne utilisation et de la maintenance de l’ensemble des biens de l’entreprise.</li>
+</ul>
+<p><strong>Supervision des relations avec les partenaires et fournisseurs :</strong></p>
+<ul>
+<li>Émettre des avis et participer au choix de ceux-ci en fonction de leurs critères de coûts et de qualités.</li>
+</ul>
+<p><strong>Définir et garantir la mise en œuvre de stratégies commerciales et marketing, pour promouvoir l’hôtel et atteindre les objectifs :</strong></p>
+<ul>
+<li>Responsable de la stratégie commerciale</li>
+<li>Participation à l’élaboration de la communication</li>
+<li>Responsable du suivi de la communication</li>
+</ul>
+</div>
+
+Profil recherché:
+<div class="job-qualifications"><p><strong>Compétences techniques :</strong></p>
+<ul>
+<li>Connaissances approfondies de la gestion hôtelière, incluant les opérations, la finance et le marketing</li>
+<li>Maîtrise des outils de gestion et logiciels spécifiques à l’industrie hôtelière</li>
+<li>Connaissance des normes de sécurité et d’hygiène en vigueur dans l’industrie hôtelière</li>
+<li>Évaluation des ressources matérielles et immatérielles nécessaires à la bonne marche de l'établissement</li>
+<li>Connaissances mécaniques de base pour pouvoir appréhender et prévenir la maintenance des matériels et machines utilisés dans l’ensemble de la structure.</li>
+</ul>
+<p><strong>Compétences en gestion financière et Marketing :</strong></p>
+<ul>
+<li>Capacité à élaborer et suivre les budgets</li>
+<li>Émettre des avis et choix pour développer des stratégies marketing efficaces et de fidélisation de la clientèle.</li>
+</ul>
+<p><strong>Compétences relationnelles et humaines :</strong></p>
+<ul>
+<li>Leadership et capacité à inspirer une équipe, motivant le personnel à atteindre l’excellence</li>
+<li>Excellentes compétences en communication, essentielles pour interagir avec les clients, le personnel et les partenaires</li>
+<li>Sens du service client développé, avec un engagement envers la satisfaction et la fidélisation des clients</li>
+<li>Capacité à gérer le stress et à prendre des décisions judicieuses dans un environnement dynamique</li>
+<li>Compétences en résolution de conflits, permettant de gérer efficacement les différends internes et externes</li>
+</ul>
+<p><strong>Formation :</strong> École hôtelière ou diplôme équivalent.</p>
+<ul>
+<li>B. E. P. C. ou diplôme équivalent. Connaissance parfaite du Français, de l’anglais et si possible d’une autre langue</li>
+<li>Expérience professionnelle minimale : 2 ans comme sous-directeur ou 3 ans comme chef de service.</li>
+</ul>
+</div>
+
+A propos de l'entreprise:
+Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+    [competences_requises] => Array
+        (
+            [0] => Cuisine
+            [1] => Tourisme
+            [2] => Gestion Hôtelière
+            [3] => Hôtellerie
+            [4] => Restauration
+        )
+
+    [niveau_etudes] => Non spécifié
+    [annees_experience] => 2
+    [formation_requise] => Array
+        (
+        )
+
+    [langues_requises] => Array
+        (
+        )
+
+    [outils_requis] => Array
+        (
+        )
+
+    [type_contrat] => Contrat proposé
+                             :CDI
+    [lieu] => Région de :Dakar & Thiès
+    [salaire] => 
+)
+
+[21-Jun-2025 09:08:50 UTC] Début du JSON envoyé: 7b2263616e646964617465223a7b226964223a352c226e6f6d223a224f594f4e4f2045464645204e69636b204c756476616e ({"candidate":{"id":5,"nom":"OYONO EFFE Nick Ludvan)
+2025-06-21 09:08:50,461 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 09:08:51,464 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -190%
+[21-Jun-2025 09:08:51 UTC] Réponse brute de l'API: {"global_score":-190,"compatibility_level":"poor","compatibility_message":"Votre profil ne correspon
+[21-Jun-2025 09:08:51 UTC] Erreur lors de la sauvegarde des résultats: SQLSTATE[42S22]: Column not found: 1054 Champ 'score_global' inconnu dans field list
+[21-Jun-2025 09:08:51 UTC] PHP Warning:  Undefined array key "score_global" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 278
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:51 UTC] PHP Warning:  Undefined array key "score_global" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 279
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:51 UTC] PHP Warning:  Undefined array key "details" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 281
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:51 UTC] PHP Warning:  Trying to access array offset on null in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 281
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:51 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 281
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:51 UTC] PHP   3. htmlspecialchars($string = NULL) C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php:281
+[21-Jun-2025 09:08:51 UTC] PHP Warning:  Undefined array key "details" in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 288
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:51 UTC] PHP Warning:  Trying to access array offset on null in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 288
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+[21-Jun-2025 09:08:51 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in C:\wamp64\www\workflexer\controller\controller_api_compatibilite.php on line 288
+[21-Jun-2025 09:08:51 UTC] PHP Stack trace:
+[21-Jun-2025 09:08:51 UTC] PHP   1. {main}() C:\wamp64\www\workflexer\api1\test.php:0
+[21-Jun-2025 09:08:51 UTC] PHP   2. genererHTMLCompatibilite($resultats = ['global_score' => -190, 'compatibility_level' => 'poor', 'compatibility_message' => 'Votre profil ne correspond pas à cette offre.', 'scores_by_category' => ['competences' => 0, 'formation' => 0, 'experience' => -950, 'langues' => 0, 'outils' => 0], 'strengths' => [], 'improvements' => [0 => 'Acquérir la compétence \'Cuisine\'', 1 => 'Acquérir la compétence \'Tourisme\'', 2 => 'Acquérir la compétence \'Gestion Hôtelière\'', 3 => 'Acquérir la compétence \'Hôtellerie\'', 4 => 'Acquérir la compétence \'Restauration\'']]) C:\wamp64\www\workflexer\api1\test.php:149
+2025-06-21 09:14:03,009 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 09:14:04,371 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -190%
+2025-06-21 09:16:36,671 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 09:16:37,879 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -190%
+2025-06-21 09:19:10,313 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 09:19:11,581 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -190%
+2025-06-21 09:19:41,518 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 09:19:43,426 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -190%
+2025-06-21 09:20:06,027 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 09:20:07,188 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -190%
+2025-06-21 09:59:33,378 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 1
+2025-06-21 09:59:35,019 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -180%
+2025-06-21 10:01:17,122 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 1
+2025-06-21 10:01:22,741 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -180%
+2025-06-21 10:09:15,651 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 3
+2025-06-21 10:09:19,468 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -180%
+2025-06-21 10:35:21,596 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 2
+2025-06-21 10:35:31,662 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: -68%
+2025-06-21 10:37:04,356 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 10:37:06,654 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 7%
+2025-06-21 10:41:13,627 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 10:41:16,417 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 7%
+2025-06-21 11:20:51,496 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 11:20:51,500 - utils - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 256, in analyze_compatibility
+    analyze_langues_compatibility(profile.langues, offer.langues_requises)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 155, in analyze_langues_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 11:20:51,506 - api_matching - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 67, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 256, in analyze_compatibility
+    analyze_langues_compatibility(profile.langues, offer.langues_requises)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 155, in analyze_langues_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 11:24:26,179 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 11:24:26,185 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 42.1%
+2025-06-21 13:10:55,465 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 13:10:55,466 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 42.1%
+2025-06-21 13:11:04,404 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 13:11:04,406 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 42.1%
+2025-06-21 13:11:18,736 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 73
+2025-06-21 13:11:18,738 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 18.8%
+2025-06-21 13:12:11,253 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 13:12:11,254 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 42.1%
+2025-06-21 13:31:27,454 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 13:31:27,456 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 58.8%
+2025-06-21 13:38:14,810 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 13:38:14,812 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 62.9%
+2025-06-21 13:40:36,543 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 40
+2025-06-21 13:40:36,545 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 62.9%
+2025-06-21 13:40:54,834 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 15
+2025-06-21 13:40:54,835 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 52.5%
+2025-06-21 13:42:45,223 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 120
+2025-06-21 13:42:45,225 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 18.8%
+2025-06-21 13:43:02,214 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 171
+2025-06-21 13:43:02,215 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 29.1%
+2025-06-21 13:44:33,591 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 5
+2025-06-21 13:44:33,593 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 18.8%
+2025-06-21 13:44:52,869 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 7
+2025-06-21 13:44:52,870 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 18.8%
+2025-06-21 13:45:26,251 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 9
+2025-06-21 13:45:26,253 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 18.8%
+2025-06-21 13:46:44,095 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 10
+2025-06-21 13:46:44,097 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 18.8%
+2025-06-21 14:05:04,619 - ERROR - Erreur lors de l'analyse: Formation.__init__() got an unexpected keyword argument 'annee_obtention'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 44, in analyser_compatibilite
+    matching_request = MatchingRequest.from_dict(request)
+  File "C:\wamp64\www\workflexer\api1\models.py", line 146, in from_dict
+    candidate=CandidatProfile.from_dict(data['candidate']),
+              ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\models.py", line 74, in from_dict
+    formations = [Formation(**f) for f in data.get('formations', [])]
+                  ~~~~~~~~~^^^^^
+TypeError: Formation.__init__() got an unexpected keyword argument 'annee_obtention'
+2025-06-21 14:11:59,621 - INFO - Analyse effectu�e avec succ�s - Score: 35.28
+2025-06-21 14:12:39,182 - INFO - Analyse effectu�e avec succ�s - Score: 76.67
+2025-06-21 14:46:48,091 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 15
+2025-06-21 14:46:48,093 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 52.5%
+2025-06-21 14:48:22,936 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 55
+2025-06-21 14:48:22,937 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 18.8%
+2025-06-21 17:28:01,206 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 55
+2025-06-21 17:28:01,209 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 40.5%
+2025-06-21 17:28:28,836 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 126
+2025-06-21 17:28:28,838 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 40.5%
+2025-06-21 17:29:09,861 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 32
+2025-06-21 17:29:09,862 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 40.5%
+2025-06-21 17:29:19,763 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 46
+2025-06-21 17:29:19,764 - utils - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 243, in analyze_compatibility
+    competences_score, competences_details, competences_reco = analyze_competences_compatibility(profile.competences, offer.competences_requises)
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 135, in analyze_competences_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 17:29:19,769 - api_matching - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 67, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 243, in analyze_compatibility
+    competences_score, competences_details, competences_reco = analyze_competences_compatibility(profile.competences, offer.competences_requises)
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 135, in analyze_competences_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 17:29:26,137 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 46
+2025-06-21 17:29:26,138 - utils - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 243, in analyze_compatibility
+    competences_score, competences_details, competences_reco = analyze_competences_compatibility(profile.competences, offer.competences_requises)
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 135, in analyze_competences_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 17:29:26,143 - api_matching - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 67, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 243, in analyze_compatibility
+    competences_score, competences_details, competences_reco = analyze_competences_compatibility(profile.competences, offer.competences_requises)
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 135, in analyze_competences_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 17:29:39,760 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 32
+2025-06-21 17:29:39,762 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 40.5%
+2025-06-21 17:30:18,633 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 17
+2025-06-21 17:30:18,635 - utils - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 243, in analyze_compatibility
+    competences_score, competences_details, competences_reco = analyze_competences_compatibility(profile.competences, offer.competences_requises)
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 135, in analyze_competences_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 17:30:18,638 - api_matching - ERROR - Erreur lors de l'analyse: division by zero
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 67, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 243, in analyze_compatibility
+    competences_score, competences_details, competences_reco = analyze_competences_compatibility(profile.competences, offer.competences_requises)
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 135, in analyze_competences_compatibility
+    return score / len(requises), details, recommendations
+           ~~~~~~^~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-06-21 17:30:28,518 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 20
+2025-06-21 17:30:28,520 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 40.5%
+2025-06-21 17:30:38,735 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 19
+2025-06-21 17:30:38,736 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 51.0%
+2025-06-21 17:30:46,605 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 21
+2025-06-21 17:30:46,607 - api_matching - INFO - Analyse termin�e avec succ�s. Score global: 39.2%
+2025-06-21 17:36:51,077 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 20
+2025-06-21 17:36:51,080 - utils - ERROR - Erreur lors de l'analyse de compatibilit�: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 457, in analyze_compatibility
+    experience_score, experience_details, experience_reco = analyze_experience_compatibility(
+                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        profile.experiences, offer.experience_requise)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 200, in analyze_experience_compatibility
+    if any(mot in exp.titre_poste.lower()
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          for mot in exigence.mots_cles_poste)]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 201, in <genexpr>
+    for mot in exigence.mots_cles_poste)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+2025-06-21 17:36:51,091 - api_matching - ERROR - Erreur lors de l'analyse: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 67, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 457, in analyze_compatibility
+    experience_score, experience_details, experience_reco = analyze_experience_compatibility(
+                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        profile.experiences, offer.experience_requise)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 200, in analyze_experience_compatibility
+    if any(mot in exp.titre_poste.lower()
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          for mot in exigence.mots_cles_poste)]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 201, in <genexpr>
+    for mot in exigence.mots_cles_poste)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+2025-06-21 17:37:26,064 - api_matching - INFO - Analyse demand�e pour candidat ID: 5 et offre ID: 19
+2025-06-21 17:37:26,066 - utils - ERROR - Erreur lors de l'analyse de compatibilit�: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 457, in analyze_compatibility
+    experience_score, experience_details, experience_reco = analyze_experience_compatibility(
+                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        profile.experiences, offer.experience_requise)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 200, in analyze_experience_compatibility
+    if any(mot in exp.titre_poste.lower()
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          for mot in exigence.mots_cles_poste)]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 201, in <genexpr>
+    for mot in exigence.mots_cles_poste)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+2025-06-21 17:37:26,071 - api_matching - ERROR - Erreur lors de l'analyse: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 67, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 457, in analyze_compatibility
+    experience_score, experience_details, experience_reco = analyze_experience_compatibility(
+                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        profile.experiences, offer.experience_requise)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 200, in analyze_experience_compatibility
+    if any(mot in exp.titre_poste.lower()
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          for mot in exigence.mots_cles_poste)]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 201, in <genexpr>
+    for mot in exigence.mots_cles_poste)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable

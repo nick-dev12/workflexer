@@ -1,0 +1,724 @@
+[
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingRequest",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingResponse",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatProfile",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobOffer",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingResponse",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Formation",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Experience",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Competence",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Langue",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "ExigenceFormation",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "ExigenceExperience",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_compatibility",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "extract_keywords_from_description",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "SentenceTransformer",
+        "importPath": "sentence_transformers",
+        "description": "sentence_transformers",
+        "isExtraImport": true,
+        "detail": "sentence_transformers",
+        "documentation": {}
+    },
+    {
+        "label": "util",
+        "importPath": "sentence_transformers",
+        "description": "sentence_transformers",
+        "isExtraImport": true,
+        "detail": "sentence_transformers",
+        "documentation": {}
+    },
+    {
+        "label": "WEIGHTS",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "WEIGHTS = {\n    \"competences\": 0.40,       # 40% pour les compétences\n    \"formation\": 0.20,         # 20% pour la formation/diplômes\n    \"experience\": 0.20,        # 20% pour l'expérience professionnelle\n    \"langues\": 0.10,           # 10% pour les langues\n    \"outils\": 0.10,            # 10% pour les outils maîtrisés\n}\n# Seuils de compatibilité\nCOMPATIBILITY_THRESHOLDS = {\n    \"excellent\": 0.85,         # Au-dessus de 85% = excellente compatibilité",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "COMPATIBILITY_THRESHOLDS",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "COMPATIBILITY_THRESHOLDS = {\n    \"excellent\": 0.85,         # Au-dessus de 85% = excellente compatibilité\n    \"good\": 0.70,              # Entre 70% et 85% = bonne compatibilité\n    \"moderate\": 0.50,          # Entre 50% et 70% = compatibilité moyenne\n    \"low\": 0.30,               # Entre 30% et 50% = faible compatibilité\n    \"poor\": 0.0                # En dessous de 30% = très faible compatibilité\n}\n# Configuration des messages selon le niveau de compatibilité\nCOMPATIBILITY_MESSAGES = {\n    \"excellent\": \"Votre profil correspond parfaitement à cette offre!\",",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "COMPATIBILITY_MESSAGES",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "COMPATIBILITY_MESSAGES = {\n    \"excellent\": \"Votre profil correspond parfaitement à cette offre!\",\n    \"good\": \"Votre profil correspond bien à cette offre.\",\n    \"moderate\": \"Votre profil correspond partiellement à cette offre.\",\n    \"low\": \"Votre profil correspond peu à cette offre.\",\n    \"poor\": \"Votre profil ne correspond pas à cette offre.\"\n}\n# Nombre maximum de points forts et points à améliorer à retourner\nMAX_STRENGTHS = 5\nMAX_IMPROVEMENTS = 5",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_STRENGTHS",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "MAX_STRENGTHS = 5\nMAX_IMPROVEMENTS = 5\n# Configuration de l'API\nAPI_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": \"1.0.0\",\n    \"docs_url\": \"/docs\",\n    \"redoc_url\": \"/redoc\",\n}",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_IMPROVEMENTS",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "MAX_IMPROVEMENTS = 5\n# Configuration de l'API\nAPI_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": \"1.0.0\",\n    \"docs_url\": \"/docs\",\n    \"redoc_url\": \"/redoc\",\n}\n# Seuil de similarité pour considérer deux compétences comme équivalentes",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "API_CONFIG",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "API_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": \"1.0.0\",\n    \"docs_url\": \"/docs\",\n    \"redoc_url\": \"/redoc\",\n}\n# Seuil de similarité pour considérer deux compétences comme équivalentes\nSIMILARITY_THRESHOLD = 0.75",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "SIMILARITY_THRESHOLD",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "SIMILARITY_THRESHOLD = 0.75",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api1.main",
+        "description": "api1.main",
+        "peekOfCode": "logger = logging.getLogger('api_matching')\napp = FastAPI(\n    title=\"WorkFlexer Matching API\",\n    description=\"API d'analyse de compatibilité entre profils de candidats et offres d'emploi\",\n    version=\"2.0.0\"\n)\n# Configuration CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],",
+        "detail": "api1.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "api1.main",
+        "description": "api1.main",
+        "peekOfCode": "app = FastAPI(\n    title=\"WorkFlexer Matching API\",\n    description=\"API d'analyse de compatibilité entre profils de candidats et offres d'emploi\",\n    version=\"2.0.0\"\n)\n# Configuration CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,",
+        "detail": "api1.main",
+        "documentation": {}
+    },
+    {
+        "label": "Formation",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class Formation(BaseModel):\n    niveau: str\n    domaine: str\n    etablissement: Optional[str] = None\n    annee_obtention: Optional[int] = None\n    description: Optional[str] = None\n    date_debut: Optional[str] = None\n    date_fin: Optional[str] = None\n    en_cours: bool = False\n    type_formation: Optional[str] = None",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "Experience",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class Experience(BaseModel):\n    titre_poste: str\n    entreprise: Optional[str] = None\n    duree_mois: int = 0\n    description: str = \"\"\n    competences: List[str] = Field(default_factory=list)\n    secteur: Optional[str] = None\n    date_debut: Optional[str] = None\n    date_fin: Optional[str] = None\n    en_cours: bool = False",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "Competence",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class Competence(BaseModel):\n    nom: str\n    niveau: int = Field(ge=1, le=5, default=1)\n    annees_experience: float = 0.0\n    certifications: List[str] = Field(default_factory=list)\n    derniere_utilisation: Optional[str] = None\n    contexte_utilisation: List[str] = Field(default_factory=list)\n    type_competence: str = \"Technique\"\n    projets_associes: List[str] = Field(default_factory=list)\n    @validator('niveau')",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "Langue",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class Langue(BaseModel):\n    nom: str\n    niveau: str = \"A1\"\n    certifications: List[str] = Field(default_factory=list)\n    date_certification: Optional[str] = None\n    contexte_utilisation: List[str] = Field(default_factory=list)\n    sejours_linguistiques: List[Dict[str, str]] = Field(default_factory=list)\n    @validator('niveau')\n    def validate_niveau(cls, v):\n        niveaux_valides = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProjetPersonnel",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class ProjetPersonnel(BaseModel):\n    titre: str\n    description: str = \"\"\n    technologies: List[str] = Field(default_factory=list)\n    date_debut: Optional[str] = None\n    date_fin: Optional[str] = None\n    en_cours: bool = False\n    url: Optional[str] = None\n    images: List[str] = Field(default_factory=list)\n    competences_developpees: List[str] = Field(default_factory=list)",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatProfile",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class CandidatProfile(BaseModel):\n    id: int\n    formations: List[Formation] = Field(default_factory=list)\n    experiences: List[Experience] = Field(default_factory=list)\n    competences: List[Competence] = Field(default_factory=list)\n    langues: List[Langue] = Field(default_factory=list)\n    centres_interet: List[str] = Field(default_factory=list)\n    projets: List[ProjetPersonnel] = Field(default_factory=list)\n    disponibilite: Optional[str] = None\n    mobilite: Dict[str, Union[bool, List[str]]] = Field(default_factory=dict)",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "ExigenceFormation",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class ExigenceFormation(BaseModel):\n    niveau_minimum: str = \"Non spécifié\"\n    domaines_acceptes: List[str] = Field(default_factory=list)\n    formation_obligatoire: bool = False\n    formations_alternatives: List[str] = Field(default_factory=list)\n    equivalences_acceptees: List[str] = Field(default_factory=list)\n    specialisations_preferees: List[str] = Field(default_factory=list)\nclass ExigenceExperience(BaseModel):\n    duree_minimum_mois: int = 0\n    secteurs_acceptes: List[str] = Field(default_factory=list)",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "ExigenceExperience",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class ExigenceExperience(BaseModel):\n    duree_minimum_mois: int = 0\n    secteurs_acceptes: List[str] = Field(default_factory=list)\n    competences_requises: List[str] = Field(default_factory=list)\n    mots_cles_poste: List[str] = Field(default_factory=list)\n    niveaux_responsabilite: List[str] = Field(default_factory=list)\n    contextes_valorises: List[str] = Field(default_factory=list)\n    type_experience: List[str] = Field(default_factory=list)\nclass JobOffer(BaseModel):\n    id: int",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "JobOffer",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class JobOffer(BaseModel):\n    id: int\n    titre: str\n    description: str = \"\"\n    formation_requise: ExigenceFormation = Field(default_factory=ExigenceFormation)\n    experience_requise: ExigenceExperience = Field(default_factory=ExigenceExperience)\n    competences_requises: List[Competence] = Field(default_factory=list)\n    langues_requises: List[Langue] = Field(default_factory=list)\n    secteur: str\n    type_contrat: str",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompetenceAnalysis",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class CompetenceAnalysis(BaseModel):\n    score: float\n    niveau_actuel: int\n    niveau_requis: int\n    experience_pertinente: List[str] = Field(default_factory=list)\n    projets_pertinents: List[str] = Field(default_factory=list)\n    certifications_pertinentes: List[str] = Field(default_factory=list)\n    suggestions_amelioration: List[str] = Field(default_factory=list)\nclass DetailedScore(BaseModel):\n    score: float",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "DetailedScore",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class DetailedScore(BaseModel):\n    score: float\n    details: List[str] = Field(default_factory=list)\n    points_forts: List[str] = Field(default_factory=list)\n    points_faibles: List[str] = Field(default_factory=list)\n    recommandations: List[str] = Field(default_factory=list)\n    analyse_detaillee: Optional[Dict[str, Union[float, str, List[str]]]] = None\nclass ReportSection(BaseModel):\n    titre: str\n    score: float",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "ReportSection",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class ReportSection(BaseModel):\n    titre: str\n    score: float\n    points_forts: List[str] = Field(default_factory=list)\n    points_faibles: List[str] = Field(default_factory=list)\nclass MatchingScore(BaseModel):\n    formation: DetailedScore\n    experience: DetailedScore\n    competences: DetailedScore\n    langues: DetailedScore",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingScore",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class MatchingScore(BaseModel):\n    formation: DetailedScore\n    experience: DetailedScore\n    competences: DetailedScore\n    langues: DetailedScore\n    global_score: float\n    profil_completion: Dict[str, Dict[str, Union[float, Dict[str, Union[int, float]]]]]\n    lacunes_critiques: List[Dict[str, str]] = Field(default_factory=list)\n    atouts_majeurs: List[Dict[str, str]] = Field(default_factory=list)\n    suggestions_amelioration: List[Dict[str, str]] = Field(default_factory=list)",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingRequest",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class MatchingRequest(BaseModel):\n    candidate: CandidatProfile\n    job_offer: JobOffer\n    options: Dict[str, bool] = Field(default_factory=dict)\nclass ProfileCompletionDetails(BaseModel):\n    formations: float\n    experiences: float\n    competences: float\n    langues: float\nclass ProfileCompletionScore(BaseModel):",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileCompletionDetails",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class ProfileCompletionDetails(BaseModel):\n    formations: float\n    experiences: float\n    competences: float\n    langues: float\nclass ProfileCompletionScore(BaseModel):\n    score: float\n    details: ProfileCompletionDetails\nclass MatchingResponse(BaseModel):\n    global_score: float",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileCompletionScore",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class ProfileCompletionScore(BaseModel):\n    score: float\n    details: ProfileCompletionDetails\nclass MatchingResponse(BaseModel):\n    global_score: float\n    completion: ProfileCompletionScore\n    analyses: Dict[str, ReportSection]\n    synthesis: str\n    adequation_globale: str\n    contexte_analyse: Dict[str, Union[str, float, bool]] = Field(",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingResponse",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class MatchingResponse(BaseModel):\n    global_score: float\n    completion: ProfileCompletionScore\n    analyses: Dict[str, ReportSection]\n    synthesis: str\n    adequation_globale: str\n    contexte_analyse: Dict[str, Union[str, float, bool]] = Field(\n        default_factory=lambda: {\n            \"timestamp\": datetime.now().isoformat(),\n            \"version_api\": \"2.0.0\",",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "extract_keywords_from_description",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits\n    \"\"\"\n    # Liste de mots à ignorer\n    stop_words = {",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_niveau_etudes_value",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def get_niveau_etudes_value(niveau: str) -> int:\n    \"\"\"Convertit un niveau d'études en valeur numérique standardisée.\"\"\"\n    niveau = niveau.strip()\n    for key, data in NIVEAU_ETUDES_MAP.items():\n        if niveau == key or niveau in data[\"equivalents\"]:\n            return data[\"niveau\"]\n    return 0\ndef analyze_profile_completion(profile: CandidatProfile) -> Dict:\n    \"\"\"Analyse le niveau de complétion du profil.\"\"\"\n    scores = {}",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_profile_completion",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_profile_completion(profile: CandidatProfile) -> Dict:\n    \"\"\"Analyse le niveau de complétion du profil.\"\"\"\n    scores = {}\n    # Vérification des formations\n    if profile.formations:\n        formations_score = sum(1 for f in profile.formations \n                             if f.niveau and f.domaine and f.etablissement) / len(profile.formations)\n        scores[\"formations\"] = formations_score\n    else:\n        scores[\"formations\"] = 0.0",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_formation_compatibility",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_formation_compatibility(\n    formations: List[Formation],\n    exigence: ExigenceFormation,\n    niveau_etude_profil: Optional[str]\n) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse de la compatibilité des formations, incluant le niveau d'étude global.\"\"\"\n    details = []\n    recommendations = []\n    points_forts = []\n    if not exigence.domaines_acceptes and exigence.niveau_minimum == \"Non spécifié\":",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_experience_compatibility",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_experience_compatibility(\n    experiences: List[Experience],\n    exigence: ExigenceExperience\n) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse approfondie de la compatibilité des expériences professionnelles.\"\"\"\n    details = []\n    recommendations = []\n    points_forts = []\n    # Analyse de la durée d'expérience\n    duree_totale = sum(exp.duree_mois for exp in experiences)",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_competences_compatibility",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_competences_compatibility(\n    candidate_competences: List[Competence],\n    required_competences: List[Competence]\n) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse sémantique de la compatibilité des compétences en utilisant le traitement par lots.\"\"\"\n    details, recommendations, points_forts = [], [], []\n    if not required_competences:\n        return 1.0, [\"Aucune compétence spécifique n'est requise.\"], []\n    if not candidate_competences:\n        reco_text = f\"Le profil ne liste aucune compétence. Compétences à ajouter : {', '.join([c.nom for c in required_competences])}\"",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_langues_compatibility",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_langues_compatibility(\n    langues: List[Langue],\n    requises: List[Langue]\n) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse approfondie de la compatibilité des langues.\"\"\"\n    if not requises:\n        return 1.0, [\"Aucune exigence linguistique spécifique\"], []\n    score = 0\n    details = []\n    recommendations = []",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "identify_critical_gaps",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def identify_critical_gaps(\n    profile: CandidatProfile,\n    offer: JobOffer\n) -> List[Dict[str, str]]:\n    \"\"\"Identifie les lacunes critiques du profil de manière détaillée.\"\"\"\n    gaps = []\n    # Analyse formation\n    if offer.formation_requise.formation_obligatoire:\n        niveau_requis = get_niveau_etudes_value(offer.formation_requise.niveau_minimum)\n        formations_suffisantes = [f for f in profile.formations ",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_improvement_suggestions",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def generate_improvement_suggestions(\n    profile: CandidatProfile,\n    offer: JobOffer,\n    recommendations: Dict[str, List[str]]\n) -> List[Dict[str, str]]:\n    \"\"\"\n    Génère des suggestions d'amélioration personnalisées basées sur le profil et l'offre.\n    \"\"\"\n    suggestions = []\n    # Analyse du secteur d'activité",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_certifications_recommandees",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def get_certifications_recommandees(secteur: str) -> List[str]:\n    \"\"\"Retourne les certifications recommandées pour un secteur donné.\"\"\"\n    certifications_par_secteur = {\n        \"Informatique\": [\n            \"ITIL Foundation\",\n            \"Certification Agile/Scrum\",\n            \"Certifications Cloud (AWS, Azure, GCP)\",\n        ],\n        \"Marketing\": [\n            \"Google Analytics\",",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_tendances_marche",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def get_tendances_marche(secteur: str) -> List[str]:\n    \"\"\"Retourne les tendances actuelles du marché pour un secteur donné.\"\"\"\n    tendances_par_secteur = {\n        \"Informatique\": [\n            \"Intelligence Artificielle\",\n            \"DevOps\",\n            \"Cloud Computing\",\n            \"Cybersécurité\",\n        ],\n        \"Marketing\": [",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "niveau_satisfait_exigence",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def niveau_satisfait_exigence(niveau_candidat: str, niveau_requis: str) -> bool:\n    \"\"\"Vérifie si le niveau d'études du candidat satisfait le niveau requis.\"\"\"\n    niveaux_ordre = {\n        \"Secondaire\": 1,\n        \"Bac\": 2,\n        \"Bac+1\": 3,\n        \"Bac+2\": 4,\n        \"Bac+3\": 5,\n        \"Licence\": 5,\n        \"Bac+4\": 6,",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_synthesis",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def generate_synthesis(global_score: float, analyses: Dict) -> str:\n    \"\"\"Génère une synthèse textuelle à partir des résultats de l'analyse.\"\"\"\n    score = round(global_score)\n    if score >= 75:\n        intro = f\"Avec un score de {score}%, votre profil est en excellente adéquation avec cette offre. \"\n        conclusion = \"Vous êtes un candidat très prometteur pour ce poste.\"\n    elif score >= 50:\n        intro = f\"Votre profil correspond à {score}%, ce qui représente une bonne base. \"\n        conclusion = \"Avec quelques ajustements, votre candidature pourrait être encore plus forte.\"\n    else:",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_compatibility",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"Analyse complète et génère un rapport structuré.\"\"\"\n    try:\n        # Validation et nettoyage des données d'entrée\n        candidate_data = {k: v for k, v in candidate_data.items() if v is not None}\n        job_offer_data = {k: v for k, v in job_offer_data.items() if v is not None}\n        # Initialisation des objets avec gestion des valeurs par défaut\n        profile = CandidatProfile(**candidate_data)\n        offer = JobOffer(**job_offer_data)\n        # S'assurer que les listes ne sont pas None",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "semantic_model",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "semantic_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')\nlogger = logging.getLogger(__name__)\n# Constantes pour l'analyse\nCOMPLETION_THRESHOLD = 0.7  # Seuil minimum de complétion du profil\nEXPERIENCE_WEIGHT = 0.35\nFORMATION_WEIGHT = 0.25\nCOMPETENCES_WEIGHT = 0.25\nLANGUES_WEIGHT = 0.15\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Constantes pour l'analyse\nCOMPLETION_THRESHOLD = 0.7  # Seuil minimum de complétion du profil\nEXPERIENCE_WEIGHT = 0.35\nFORMATION_WEIGHT = 0.25\nCOMPETENCES_WEIGHT = 0.25\nLANGUES_WEIGHT = 0.15\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "COMPLETION_THRESHOLD",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "COMPLETION_THRESHOLD = 0.7  # Seuil minimum de complétion du profil\nEXPERIENCE_WEIGHT = 0.35\nFORMATION_WEIGHT = 0.25\nCOMPETENCES_WEIGHT = 0.25\nLANGUES_WEIGHT = 0.15\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "EXPERIENCE_WEIGHT",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "EXPERIENCE_WEIGHT = 0.35\nFORMATION_WEIGHT = 0.25\nCOMPETENCES_WEIGHT = 0.25\nLANGUES_WEIGHT = 0.15\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "FORMATION_WEIGHT",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "FORMATION_WEIGHT = 0.25\nCOMPETENCES_WEIGHT = 0.25\nLANGUES_WEIGHT = 0.15\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "COMPETENCES_WEIGHT",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "COMPETENCES_WEIGHT = 0.25\nLANGUES_WEIGHT = 0.15\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits\n    \"\"\"",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUES_WEIGHT",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "LANGUES_WEIGHT = 0.15\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits\n    \"\"\"\n    # Liste de mots à ignorer",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "NIVEAU_ETUDES_MAP",
+        "kind": 5,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "NIVEAU_ETUDES_MAP = {\n    \"Bac\": {\"niveau\": 1, \"equivalents\": [\"Baccalauréat\", \"High School\"]},\n    \"Bac+2\": {\"niveau\": 2, \"equivalents\": [\"DUT\", \"BTS\", \"DEUG\"]},\n    \"Bac+3\": {\"niveau\": 3, \"equivalents\": [\"Licence\", \"Bachelor\"]},\n    \"Bac+4\": {\"niveau\": 4, \"equivalents\": [\"Maîtrise\", \"Master 1\"]},\n    \"Bac+5\": {\"niveau\": 5, \"equivalents\": [\"Master\", \"Ingénieur\", \"MBA\"]},\n    \"Doctorat\": {\"niveau\": 8, \"equivalents\": [\"PhD\", \"Doctorate\"]}\n}\ndef get_niveau_etudes_value(niveau: str) -> int:\n    \"\"\"Convertit un niveau d'études en valeur numérique standardisée.\"\"\"",
+        "detail": "api1.utils",
+        "documentation": {}
+    }
+]

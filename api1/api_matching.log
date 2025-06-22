@@ -1,0 +1,170 @@
+2025-06-21 17:43:13,133 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 19
+2025-06-21 17:43:13,146 - utils - ERROR - Erreur lors de l'analyse de compatibilité: 'JobOffer' object has no attribute 'secteur_activite'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 577, in analyze_compatibility
+    suggestions = generate_improvement_suggestions(profile, offer, {
+        "formation_reco": formation_reco,
+    ...<2 lines>...
+        "langues_reco": langues_reco
+    })
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 480, in generate_improvement_suggestions
+    secteur = offer.secteur_activite
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\oyono\OneDrive\Bureau\Nouveau dossier\env\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'JobOffer' object has no attribute 'secteur_activite'
+2025-06-21 17:43:13,216 - api_matching - ERROR - Erreur lors de l'analyse: 'JobOffer' object has no attribute 'secteur_activite'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 71, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 577, in analyze_compatibility
+    suggestions = generate_improvement_suggestions(profile, offer, {
+        "formation_reco": formation_reco,
+    ...<2 lines>...
+        "langues_reco": langues_reco
+    })
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 480, in generate_improvement_suggestions
+    secteur = offer.secteur_activite
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\oyono\OneDrive\Bureau\Nouveau dossier\env\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'JobOffer' object has no attribute 'secteur_activite'
+2025-06-21 17:45:48,894 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 19
+2025-06-21 17:45:48,901 - api_matching - ERROR - Erreur lors de l'analyse: 'score'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 80, in analyser_compatibilite
+    "niveau_confiance": "haute" if results["completion"]["score"] > 0.8 else "moyenne"
+                                   ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'score'
+2025-06-21 17:48:54,578 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 19
+2025-06-21 17:48:54,587 - api_matching - ERROR - Erreur lors de l'analyse: 1 validation error for MatchingResponse
+completion.score
+  Input should be a valid dictionary [type=dict_type, input_value=0.9, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/dict_type
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 91, in analyser_compatibilite
+    return MatchingResponse(**results)
+  File "C:\Users\oyono\OneDrive\Bureau\Nouveau dossier\env\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for MatchingResponse
+completion.score
+  Input should be a valid dictionary [type=dict_type, input_value=0.9, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.11/v/dict_type
+2025-06-21 17:52:27,955 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 19
+2025-06-21 17:52:27,964 - utils - ERROR - Erreur lors de l'analyse: 'description'
+2025-06-21 17:52:27,984 - api_matching - ERROR - Erreur lors de l'analyse: 'description'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 71, in analyser_compatibilite
+    results = analyze_compatibility(
+        request.candidate.dict(exclude_none=True),
+        request.job_offer.dict(exclude_none=True)
+    )
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 751, in analyze_compatibility
+    raise e
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 740, in analyze_compatibility
+    if any(kw in s["description"].lower() for kw in ["formation", "certification", "compétence"])
+       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 740, in <genexpr>
+    if any(kw in s["description"].lower() for kw in ["formation", "certification", "compétence"])
+                 ~^^^^^^^^^^^^^^^
+KeyError: 'description'
+2025-06-21 17:56:35,690 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 19
+2025-06-21 17:56:35,718 - api_matching - ERROR - Erreur lors de l'analyse: float() argument must be a string or a real number, not 'dict'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 81, in analyser_compatibilite
+    completion_score = float(results["completion"]["global"])
+TypeError: float() argument must be a string or a real number, not 'dict'
+2025-06-21 18:00:06,362 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 19
+2025-06-21 18:00:06,370 - api_matching - ERROR - Erreur lors de l'analyse: float() argument must be a string or a real number, not 'dict'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 81, in analyser_compatibilite
+    completion_score = float(results["completion"]["global"])
+TypeError: float() argument must be a string or a real number, not 'dict'
+2025-06-21 18:52:41,943 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 19
+2025-06-21 18:53:10,507 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 21
+2025-06-21 18:53:21,371 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 23
+2025-06-21 18:56:55,454 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 23
+2025-06-21 18:59:00,494 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 22
+2025-06-21 19:29:37,739 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 22
+2025-06-21 19:30:48,881 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 23
+2025-06-21 19:39:30,009 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 23
+2025-06-21 19:40:13,673 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 24
+2025-06-21 19:49:53,335 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 22
+2025-06-21 19:49:54,916 - api_matching - ERROR - Erreur lors de l'analyse: 3 validation errors for MatchingResponse
+completion
+  Field required [type=missing, input_value={'global_score': 36, 'exe..._confiance': 'moyenne'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses
+  Field required [type=missing, input_value={'global_score': 36, 'exe..._confiance': 'moyenne'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+adequation_globale
+  Field required [type=missing, input_value={'global_score': 36, 'exe..._confiance': 'moyenne'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 88, in analyser_compatibilite
+    return MatchingResponse(**results)
+  File "C:\Users\oyono\OneDrive\Bureau\Nouveau dossier\env\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 3 validation errors for MatchingResponse
+completion
+  Field required [type=missing, input_value={'global_score': 36, 'exe..._confiance': 'moyenne'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses
+  Field required [type=missing, input_value={'global_score': 36, 'exe..._confiance': 'moyenne'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+adequation_globale
+  Field required [type=missing, input_value={'global_score': 36, 'exe..._confiance': 'moyenne'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-06-21 19:53:24,806 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 22
+2025-06-21 19:53:55,375 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 40
+2025-06-21 19:54:41,237 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 73
+2025-06-21 19:54:43,357 - api_matching - ERROR - Erreur lors de l'analyse: 5 validation errors for MatchingResponse
+analyses.formation.titre
+  Field required [type=missing, input_value={'score': 60.0, 'points_f...t, ssii, informatique"]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses.experience.titre
+  Field required [type=missing, input_value={'score': 25.0, 'points_f...ysql, sql, postgresql']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses.competences.titre
+  Field required [type=missing, input_value={'score': 66.7, 'points_f... : Linux, Postgresql.']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses.langues.titre
+  Field required [type=missing, input_value={'score': 100.0, 'points_..., 'recommandations': []}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+synthesis
+  Field required [type=missing, input_value={'global_score': 55.4, 'c...au_confiance': 'haute'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 88, in analyser_compatibilite
+    return MatchingResponse(**results)
+  File "C:\Users\oyono\OneDrive\Bureau\Nouveau dossier\env\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for MatchingResponse
+analyses.formation.titre
+  Field required [type=missing, input_value={'score': 60.0, 'points_f...t, ssii, informatique"]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses.experience.titre
+  Field required [type=missing, input_value={'score': 25.0, 'points_f...ysql, sql, postgresql']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses.competences.titre
+  Field required [type=missing, input_value={'score': 66.7, 'points_f... : Linux, Postgresql.']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+analyses.langues.titre
+  Field required [type=missing, input_value={'score': 100.0, 'points_..., 'recommandations': []}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+synthesis
+  Field required [type=missing, input_value={'global_score': 55.4, 'c...au_confiance': 'haute'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-06-21 19:57:17,411 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 40
+2025-06-21 20:04:45,281 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 40
+2025-06-21 22:55:03,816 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 5
+2025-06-21 22:55:48,588 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 5
+2025-06-21 22:56:23,506 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 5
+2025-06-21 22:57:42,129 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 5
+2025-06-21 22:59:01,683 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 4
+2025-06-21 23:00:28,530 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 13
+2025-06-22 08:28:46,826 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 13
+2025-06-22 08:29:56,938 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 40

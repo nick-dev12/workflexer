@@ -1,0 +1,531 @@
+.containerBox {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* =================================
+   Compatibility Section General
+   ================================= */
+.compatibility-section {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.compatibility-section h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+/* =================================
+   Main Analysis Layout (Score + Radar)
+   ================================= */
+.main-analysis {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+/* =================================
+   Circular Score
+   ================================= */
+.compatibility-score {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.score-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #4caf50 0% var(--score-percent, 0%),
+    #e0e0e0 var(--score-percent, 0%) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: --score-percent 1s ease-in-out;
+}
+
+.score-circle::before {
+  content: "";
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  background: #f9f9f9;
+  border-radius: 50%;
+}
+
+.score-value {
+  position: relative;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.compatibility-score p {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #555;
+  font-weight: 500;
+}
+
+/* =================================
+   Radar Chart
+   ================================= */
+.radar-chart-container {
+  max-width: 400px;
+  flex-grow: 1;
+}
+
+/* =================================
+   Analysis Details (Tabs)
+   ================================= */
+.analysis-details {
+  margin-top: 20px;
+}
+
+.details-tabs {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.tab-link {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  font-size: 1.1em;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-link.active,
+.tab-link:hover {
+  color: #007bff;
+  border-bottom: 3px solid #007bff;
+}
+
+.tab-content {
+  display: none;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tab-content h3 {
+  color: #444;
+  margin-top: 0;
+}
+
+.tab-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-content li {
+  background-color: #fff;
+  border-left: 4px solid #007bff;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Priority Span Styles */
+.priority {
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 10px;
+  color: #fff;
+}
+
+.priority-haute {
+  background-color: #dc3545;
+}
+.priority-moyenne {
+  background-color: #ffc107;
+  color: #333;
+}
+.priority-normale {
+  background-color: #28a745;
+}
+
+/* =================================
+   Helper & Specific Classes
+   ================================= */
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.login-message a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-message a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .compatibility-section {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score-circle::before {
+    width: 90px;
+    height: 90px;
+  }
+
+  .score-value {
+    font-size: 1.5rem;
+  }
+
+  .detailed-scores li {
+    grid-template-columns: 1fr 1.5fr auto;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .compatibility-section {
+    padding: 0.8rem;
+  }
+
+  .detailed-scores li {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .progress-bar {
+    grid-column: 1 / -1;
+  }
+
+  .score {
+    text-align: left;
+  }
+}
+
+/* Animation du score au chargement */
+.score-circle {
+  --percentage: 0%;
+}
+
+.score-circle[data-score] {
+  --percentage: calc(var(--score) * 1%);
+}
+
+/* Effet de survol */
+.compatibility-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Transitions fluides */
+.progress {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Style pour les petits écrans en mode portrait */
+@media screen and (max-width: 380px) {
+  .compatibility-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .strengths h3,
+  .improvements h3,
+  .detailed-scores h3 {
+    font-size: 1rem;
+  }
+
+  .strengths li,
+  .improvements li {
+    font-size: 0.9rem;
+  }
+}
+
+/* =================================
+   Nouveau Design - 2025
+   ================================= */
+.new-design {
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.score-main-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+.score-visual {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.score-visual .score-value {
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-visual .score-label {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* Couleurs dynamiques */
+.score-green {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+.score-orange {
+  background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+.score-red {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.score-summary h2 {
+  font-size: 1.6em;
+  margin: 0 0 0.5rem 0;
+  color: #343a40;
+  border: none;
+}
+
+.score-summary p {
+  font-size: 1.1em;
+  color: #6c757d;
+  margin: 0;
+}
+
+.strengths-section,
+.improvements-section {
+  margin-bottom: 1.5rem;
+}
+
+.strengths-section h3,
+.improvements-section h3 {
+  font-size: 1.3em;
+  color: #495057;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 0.75rem;
+  font-size: 1.2em;
+}
+
+.strengths-section .icon {
+  color: #28a745;
+}
+.improvements-section .icon {
+  color: #ffc107;
+}
+
+.strengths-section ul,
+.improvements-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.strengths-section li,
+.improvements-section li {
+  background-color: #f8f9fa;
+  border-left: 5px solid;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0 8px 8px 0;
+  color: #495057;
+}
+
+.strengths-section li {
+  border-color: #28a745;
+}
+.improvements-section li {
+  border-color: #ffc107;
+}
+
+/* =================================
+   Rapport de Compatibilité - Design Minimaliste
+   ================================= */
+
+.compatibility-section.new-design {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+/* --- Section Synthèse --- */
+.synthesis-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.synthesis-section .score-display {
+    display: inline-block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Couleurs dynamiques */
+.score-green { background: linear-gradient(135deg, #28a745, #218838); }
+.score-orange { background: linear-gradient(135deg, #ffc107, #e0a800); }
+.score-red { background: linear-gradient(135deg, #dc3545, #c82333); }
+
+.synthesis-section .synthesis-text {
+    font-size: 1.1rem;
+    color: #495057;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Grille des Cartes d'Analyse --- */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.analysis-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.analysis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #212529;
+}
+
+.card-header .score {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-body h4 {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #495057;
+    margin: 0 0 0.75rem 0;
+}
+
+.card-body .icon {
+    margin-right: 0.5rem;
+}
+
+.card-body .icon-plus { color: #28a745; }
+.card-body .icon-minus { color: #dc3545; }
+
+.card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-body li {
+    font-size: 0.9rem;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.card-body li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #007bff;
+}
+
+.no-items {
+    font-style: italic;
+    color: #6c757d;
+}

@@ -1,0 +1,116 @@
+2025-06-21 10:26:44 - Début du traitement de la page emploi_details1.php
+2025-06-21 10:26:44 - ID de l'offre reçu
+Data: 2
+2025-06-21 10:26:44 - Détails de l'offre récupérés
+Data: Array
+(
+    [offre_id] => 2
+    [titre] => Assistant(e) de Direction - Dakar
+    [description_poste] => <div class="job-description"><p> <br/>
+<strong>Missions :</strong><br/>
+<strong>Organisation de l'agenda du dirigeant et acceuil</strong></p>
+<ul>
+<li>Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)</li>
+</ul>
+<ol>
+<li value="24760748"> </li>
+</ol>
+<ul>
+<li>Réceptionner et filtrer les appels téléphoniques.</li>
+<li>Accueillir physiquement les rendez-vous.</li>
+</ul>
+<p><strong>Support opérationnel</strong></p>
+<ul>
+<li>Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).</li>
+<li>Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).</li>
+<li>Assurer en amont la préparation et le suivi des dossiers.</li>
+<li>Gestion et suivi et archivage des comptes rendus et documentation du dirigeant</li>
+<li>Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.</li>
+<li>Assister aux réunions et en rédiger les comptes rendus.</li>
+</ul>
+<p><strong>Archivage, documentation et compte rendu régulier</strong></p>
+<ul>
+<li>Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).</li>
+<li>Gérer et actualiser la documentation professionnelle et réglementaire.</li>
+<li>Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.</li>
+<li>Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).</li>
+</ul>
+<p><strong>Comptabilité gestion</strong></p>
+<ul>
+<li>Gérer les notes de frais.</li>
+<li>Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.</li>
+<li>Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).</li>
+<li>Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).</li>
+<li>Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).</li>
+</ul>
+<p><strong>Autres activités complémentaires</strong></p>
+<ul>
+<li>Participer à l’organisation de la logistique des recrutements et des formations.</li>
+<li>Réaliser un suivi administratif du personnel.</li>
+<li>Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.</li>
+<li>Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).</li>
+<li>Suivre les procédures d’appels d’offres.</li>
+<li>Déplacements de missions, pour achat ou pour représentation</li>
+<li>Contact et démarches administratives pour dépôt documentaires etc…</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p> </p>
+<ul>
+<li>Agent administratif de niveau élevé ou assistant de direction</li>
+<li>Formation de niveau Bac +2/3 : BTS, DUT ou licence en assistanat de direction/manager, gestion administrative et commerciale, gestion PME-PMI</li>
+<li>Licence (économie, gestion, lettres, langues ou droit)</li>
+<li>Diplôme d’école de commerce</li>
+<li>Une expérience minimum de 5 ans en assistanat de direction ou commercial est habituellement requise. La connaissance du domaine d’activité de l’entreprise peut également être demandée.</li>
+<li>Maîtrise de la bureautique : pack Office (Outlook, PowerPoint, Excel, Word)</li>
+<li>Maîtrise de l’utilisation d’outils collaboratifs et de communication (Internet, messagerie, planning partagé, web conférence, réseau social d’entreprise…)</li>
+<li>Connaissances en gestion administrative</li>
+<li>Connaissance des normes rédactionnelles</li>
+<li>Connaissance des techniques de prise de notes (éventuellement sténographie)</li>
+<li>Maîtrise des méthodes de classement et d’archivage et des techniques de numérisation</li>
+<li>Connaissance des techniques et outils de veille informationnelle et réglementaire</li>
+<li>Maîtrise de l’organisation d’événements</li>
+<li>Connaissances en droit du travail et législation sociale</li>
+<li>Connaissances en gestion administrative du personnel et en gestion budgétaire</li>
+<li>Maîtrise de la construction d’outils de reporting et de tableaux de bord</li>
+<li>Connaissance ou bonne notion d’un ERP (type SAP)</li>
+<li>Bon niveau du français, de l’anglais, du wolof et éventuellement d’autres langues.</li>
+</ul>
+<p>Savoir être et soft skills</p>
+<ul>
+<li>Dynamisme</li>
+<li>Esprit d’initiative</li>
+<li>Discrétion</li>
+<li>Organisation et rigueur</li>
+<li>Polyvalence</li>
+<li>Réactivité et autonomie</li>
+<li>Esprit de synthèse et d’analyse</li>
+<li>Aisance relationnelle</li>
+<li>Esprit d’équipe</li>
+<li>Capacités rédactionnelles</li>
+<li>Sens de l’écoute et de la communication</li>
+<li>Disponibilité</li>
+<li>Capacité à travailler dans des délais contraints</li>
+<li>Capacités à gérer les situations de crise</li>
+<li>Capacité à prioriser</li>
+<li>Capacité d’adaptation</li>
+<li>Travail en mode projet</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar
+    [lien_offre] => https://www.emploisenegal.com/offre-emploi-senegal/assistante-direction-dakar-1256376
+    [source] => emploisenegal.com
+    [date_publication] => 2025-01-18
+    [date_creation] => 2025-01-19 00:06:57.738492
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+    [type_contrat] => Contrat proposé
+                             :CDD
+    [competences] => Documentation, Suivi des Dossiers, Archivage, Assistanat, Bureautique, Gestion Administrative, Dossiers, POWERPOINT, Suivi Administratif, Support, Pack Office, Administration, Prise de RDV, Secrétaria
+    [secteur_activite] => Intérim, recrutement
+    [site_internet] => https://www.tectra.sn
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+2025-06-21 10:26:44 - Utilisateur non connecté
+2025-06-21 10:26:44 - Aucun résultat de compatibilité disponible

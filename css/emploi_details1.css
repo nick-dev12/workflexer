@@ -25,13 +25,11 @@ body {
 
 /* Conteneur principal avec mise en page flexible */
 .containerBox {
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  transition: all var(--transition-speed) ease;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem auto;
+  max-width: 1200px;
 }
 
 /* Titres avec effets de survol */
@@ -55,11 +53,11 @@ body {
 /* Sections avec design moderne */
 .containerBox .box1,
 .containerBox .box2 {
-  background-color: var(--background-light);
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: all var(--transition-speed) ease;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .containerBox .box1:hover,
@@ -70,43 +68,43 @@ body {
 
 /* Liens stylisés avec effets interactifs */
 .containerBox .liens {
-  color: var(--soft-orange);
-  text-decoration: none;
-  transition: all var(--transition-speed) ease;
-  font-weight: 600;
-  padding: 10px 30px;
-  font-size: 1.5em;
-  background-color: var(--primary-blue);
+  display: inline-block;
+  background: #4caf50;
+  color: white;
+  padding: 0.8rem 2rem;
   border-radius: 5px;
-  margin: 0 auto;
-  display: block;
-  width: 60%;
-  text-align: center;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .containerBox .liens:hover {
-  color: var(--warm-brown);
-  text-decoration: underline;
+  background: #45a049;
 }
 
 .containerBox #message {
-  color: red;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 1.1em;
-  padding: 10px;
+  background: #fff3e0;
+  color: #f57c00;
+  padding: 1rem;
   border-radius: 5px;
-  background-color: #b9b9b9;
-  display: block;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .containerBox {
-    width: 95%;
-    padding: 15px;
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .box1,
+  .box2 {
+    padding: 1rem;
+  }
+
+  .box1 h1 {
+    font-size: 1.5rem;
   }
 }
 

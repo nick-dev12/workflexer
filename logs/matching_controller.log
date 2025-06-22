@@ -1,0 +1,1811 @@
+2025-06-21 23:00:28 - MatchingController initialisé
+2025-06-21 23:00:28 - Début de l'analyse de compatibilité
+Data: Array
+(
+    [users_id] => 5
+    [offre_id] => 13
+)
+
+2025-06-21 23:00:28 - Données préparées pour l'API
+Data: Array
+(
+    [candidate] => Array
+        (
+            [id] => 5
+            [formations] => Array
+                (
+                    [0] => Array
+                        (
+                            [niveau] => Licence1
+                            [domaine] => Géni informatiques 
+                            [etablissement] => Ecole Supérieure Multinationale des Télécommunications (ESMT)
+                            [annee_obtention] => 2021
+                            [description] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [niveau] => Secondaire
+                            [domaine] => Terminal D
+                            [etablissement] => lycee pole emane eyegue(Libreville)
+                            [annee_obtention] => 2020
+                            [description] => 
+                        )
+
+                )
+
+            [experiences] => Array
+                (
+                    [0] => Array
+                        (
+                            [titre_poste] => Développeur Web – Site web pour entreprise numérique: https://advantech-group.space
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce
+                            [competences] => Array
+                                (
+                                    [0] => PHP
+                                    [1] => HTML
+                                    [2] => CSS
+                                    [3] => JavaScript
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [1] => Array
+                        (
+                            [titre_poste] => Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com
+                            [entreprise] => 
+                            [duree_mois] => 12
+                            [description] => https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.
+                            [competences] => Array
+                                (
+                                    [0] => PHP (architecture MVC)
+                                    [1] => JavaScript
+                                    [2] => MySQL.
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [2] => Array
+                        (
+                            [titre_poste] => je ne suis pas daccord
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd
+                            [competences] => Array
+                                (
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => esprit d'équipe
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => python
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => git github
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => javascript
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => maintenance des serveurs web
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion de base de données
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => mysql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => wordpress
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => git
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => django
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => sql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => php
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => java
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => api
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [14] => Array
+                        (
+                            [nom] => rest
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [15] => Array
+                        (
+                            [nom] => html
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [16] => Array
+                        (
+                            [nom] => css
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => Français
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => Anglais
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => bbbbbb
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [centres_interet] => Array
+                (
+                )
+
+            [projets] => Array
+                (
+                )
+
+            [disponibilite] => Immédiate
+        )
+
+    [job_offer] => Array
+        (
+            [id] => 13
+            [titre] => Directeur Commercial Pays F/H - Sénégal
+            [description] => GAFI GROUP est une entreprise innovante, leader dans le recrutement, la gestion d’intérim, la formation professionnelle et l’audit social. Nous opérons à l’échelle continentale et internationale, avec une approche collaborative axée sur les normes internationales et les meilleures pratiques. Dans le cadre de notre développement, nous recherchons un(e) Directeur Commercial Pays dynamique et expérimenté(e) pour rejoindre notre équipe.
+Missions principales
+
+
+Élaborer et mettre en œuvre la stratégie commerciale du pays.
+
+
+Identifier et développer de nouvelles opportunités d’affaires pour accroître la part de marché de GAFI GROUP.
+
+
+Piloter les négociations commerciales avec les partenaires et les clients stratégiques.
+
+
+Superviser et dynamiser l’équipe commerciale pour atteindre et dépasser les objectifs de vente.
+
+
+Assurer un reporting régulier à la direction générale sur les performances commerciales et les tendances du marché.
+
+
+
+            [formation_requise] => Array
+                (
+                    [niveau_minimum] => Non spécifié
+                    [domaines_acceptes] => Array
+                        (
+                            [0] => Activités associatives
+                        )
+
+                    [formation_obligatoire] => 
+                )
+
+            [experience_requise] => Array
+                (
+                    [duree_minimum_mois] => 60
+                    [secteurs_acceptes] => Array
+                        (
+                            [0] => Activités associatives
+                        )
+
+                    [competences_requises] => Array
+                        (
+                            [0] => développement commercial
+                            [1] => commercialisation
+                            [2] => négociation
+                            [3] => crm
+                            [4] => formation
+                            [5] => marketing
+                            [6] => stratégie commerciale
+                            [7] => vente
+                        )
+
+                )
+
+            [competences_requises] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => développement commercial
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => commercialisation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => négociation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => crm
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => formation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => marketing
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => stratégie commerciale
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => vente
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues_requises] => Array
+                (
+                )
+
+            [secteur] => Activités associatives
+            [type_contrat] => Contrat proposé
+                             :CDI, CDD & Freelance
+            [localisation] => Région de :International
+        )
+
+)
+
+2025-06-21 23:00:28 - Début de l'appel API
+2025-06-21 23:00:28 - Envoi de la requête à l'API
+Data: Array
+(
+    [url] => http://localhost:8000/analyser
+    [data] => {"candidate":{"id":5,"formations":[{"niveau":"Licence1","domaine":"G\u00e9ni informatiques ","etablissement":"Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT)","annee_obtention":2021,"description":null},{"niveau":"Secondaire","domaine":"Terminal D","etablissement":"lycee pole emane eyegue(Libreville)","annee_obtention":2020,"description":null}],"experiences":[{"titre_poste":"D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space","entreprise":null,"duree_mois":0,"description":"Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce","competences":["PHP","HTML","CSS","JavaScript"],"secteur":"Informatique"},{"titre_poste":"D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com","entreprise":null,"duree_mois":12,"description":"https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.","competences":["PHP (architecture MVC)","JavaScript","MySQL."],"secteur":"Informatique"},{"titre_poste":"je ne suis pas daccord","entreprise":null,"duree_mois":0,"description":"je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd","competences":[],"secteur":"Informatique"}],"competences":[{"nom":"esprit d'\u00e9quipe","niveau":3,"annees_experience":1},{"nom":"python","niveau":3,"annees_experience":1},{"nom":"git github","niveau":3,"annees_experience":1},{"nom":"javascript","niveau":3,"annees_experience":1},{"nom":"maintenance des serveurs web","niveau":3,"annees_experience":1},{"nom":"gestion de base de donn\u00e9es","niveau":3,"annees_experience":1},{"nom":"mysql","niveau":3,"annees_experience":1},{"nom":"wordpress","niveau":3,"annees_experience":1},{"nom":"git","niveau":3,"annees_experience":1},{"nom":"django","niveau":3,"annees_experience":1},{"nom":"sql","niveau":3,"annees_experience":1},{"nom":"php","niveau":3,"annees_experience":1},{"nom":"java","niveau":3,"annees_experience":1},{"nom":"api","niveau":3,"annees_experience":1},{"nom":"rest","niveau":3,"annees_experience":1},{"nom":"html","niveau":3,"annees_experience":1},{"nom":"css","niveau":3,"annees_experience":1}],"langues":[{"nom":"Fran\u00e7ais","niveau":"B1","certifications":[]},{"nom":"Anglais","niveau":"B1","certifications":[]},{"nom":"bbbbbb","niveau":"B1","certifications":[]}],"centres_interet":[],"projets":[],"disponibilite":"Imm\u00e9diate"},"job_offer":{"id":13,"titre":"Directeur Commercial Pays F\/H - S\u00e9n\u00e9gal","description":"GAFI GROUP est une entreprise innovante, leader dans le recrutement, la gestion d\u2019int\u00e9rim, la formation professionnelle et l\u2019audit social. Nous op\u00e9rons \u00e0 l\u2019\u00e9chelle continentale et internationale, avec une approche collaborative ax\u00e9e sur les normes internationales et les meilleures pratiques. Dans le cadre de notre d\u00e9veloppement, nous recherchons un(e)\u00a0Directeur Commercial Pays\u00a0dynamique et exp\u00e9riment\u00e9(e) pour rejoindre notre \u00e9quipe.\nMissions principales\n\n\n\u00c9laborer et mettre en \u0153uvre la strat\u00e9gie commerciale du pays.\n\n\nIdentifier et d\u00e9velopper de nouvelles opportunit\u00e9s d\u2019affaires pour accro\u00eetre la part de march\u00e9 de GAFI GROUP.\n\n\nPiloter les n\u00e9gociations commerciales avec les partenaires et les clients strat\u00e9giques.\n\n\nSuperviser et dynamiser l\u2019\u00e9quipe commerciale pour atteindre et d\u00e9passer les objectifs de vente.\n\n\nAssurer un reporting r\u00e9gulier \u00e0 la direction g\u00e9n\u00e9rale sur les performances commerciales et les tendances du march\u00e9.\n\n\n","formation_requise":{"niveau_minimum":"Non sp\u00e9cifi\u00e9","domaines_acceptes":["Activit\u00e9s associatives"],"formation_obligatoire":false},"experience_requise":{"duree_minimum_mois":60,"secteurs_acceptes":["Activit\u00e9s associatives"],"competences_requises":["d\u00e9veloppement commercial","commercialisation","n\u00e9gociation","crm","formation","marketing","strat\u00e9gie commerciale","vente"]},"competences_requises":[{"nom":"d\u00e9veloppement commercial","niveau":3,"annees_experience":1},{"nom":"commercialisation","niveau":3,"annees_experience":1},{"nom":"n\u00e9gociation","niveau":3,"annees_experience":1},{"nom":"crm","niveau":3,"annees_experience":1},{"nom":"formation","niveau":3,"annees_experience":1},{"nom":"marketing","niveau":3,"annees_experience":1},{"nom":"strat\u00e9gie commerciale","niveau":3,"annees_experience":1},{"nom":"vente","niveau":3,"annees_experience":1}],"langues_requises":[],"secteur":"Activit\u00e9s associatives","type_contrat":"Contrat propos\u00e9\n                             :CDI, CDD & Freelance","localisation":"R\u00e9gion de :International"}}
+)
+
+2025-06-21 23:00:29 - Logs CURL détaillés
+Data: * Host localhost:8000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8000...
+*   Trying 127.0.0.1:8000...
+* Connected to localhost (127.0.0.1) port 8000
+> POST /analyser HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Accept: application/json
+Content-Length: 5267
+
+* upload completely sent off: 5267 bytes
+< HTTP/1.1 200 OK
+< date: Sat, 21 Jun 2025 23:00:27 GMT
+< server: uvicorn
+< content-length: 1565
+< content-type: application/json
+< 
+* Connection #0 to host localhost left intact
+
+2025-06-21 23:00:29 - Réponse API décodée avec succès
+Data: Array
+(
+    [global_score] => 36.6
+    [completion] => Array
+        (
+            [score] => 0.9
+            [details] => Array
+                (
+                    [formations] => 1
+                    [experiences] => 0.66666666666667
+                    [competences] => 1
+                    [langues] => 1
+                )
+
+        )
+
+    [analyses] => Array
+        (
+            [formation] => Array
+                (
+                    [titre] => Formation
+                    [score] => 60
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Une formation dans l'un de ces domaines serait un plus : activités associatives
+                        )
+
+                )
+
+            [experience] => Array
+                (
+                    [titre] => Expérience Professionnelle
+                    [score] => 10
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Il manque 4.0 ans d'expérience pour atteindre le minimum requis
+                            [1] => Compétences à développer : négociation, formation, stratégie commerciale, commercialisation, développement commercial, crm, marketing, vente
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [titre] => Compétences
+                    [score] => 12
+                    [points_forts] => Array
+                        (
+                            [0] => Compétence requise 'vente' couverte par votre compétence 'git'.
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer ou à mieux décrire : Formation, Commercialisation, Développement commercial, Stratégie commerciale, Crm, Négociation, Marketing.
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [titre] => Langues
+                    [score] => 100
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_faibles] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [synthesis] => Votre profil correspond à 37%. Il existe des écarts notables avec les exigences du poste. Vos principaux atouts sont compétence requise 'vente' couverte par votre compétence 'git'., aucune exigence linguistique spécifique. Considérez les pistes d'amélioration pour renforcer votre profil pour ce type de rôle.
+    [adequation_globale] => À améliorer
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-21T23:00:29.237595
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+        )
+
+)
+
+2025-06-21 23:00:29 - Réponse de l'API reçue
+Data: Array
+(
+    [global_score] => 36.6
+    [completion] => Array
+        (
+            [score] => 0.9
+            [details] => Array
+                (
+                    [formations] => 1
+                    [experiences] => 0.66666666666667
+                    [competences] => 1
+                    [langues] => 1
+                )
+
+        )
+
+    [analyses] => Array
+        (
+            [formation] => Array
+                (
+                    [titre] => Formation
+                    [score] => 60
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Une formation dans l'un de ces domaines serait un plus : activités associatives
+                        )
+
+                )
+
+            [experience] => Array
+                (
+                    [titre] => Expérience Professionnelle
+                    [score] => 10
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Il manque 4.0 ans d'expérience pour atteindre le minimum requis
+                            [1] => Compétences à développer : négociation, formation, stratégie commerciale, commercialisation, développement commercial, crm, marketing, vente
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [titre] => Compétences
+                    [score] => 12
+                    [points_forts] => Array
+                        (
+                            [0] => Compétence requise 'vente' couverte par votre compétence 'git'.
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer ou à mieux décrire : Formation, Commercialisation, Développement commercial, Stratégie commerciale, Crm, Négociation, Marketing.
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [titre] => Langues
+                    [score] => 100
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_faibles] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [synthesis] => Votre profil correspond à 37%. Il existe des écarts notables avec les exigences du poste. Vos principaux atouts sont compétence requise 'vente' couverte par votre compétence 'git'., aucune exigence linguistique spécifique. Considérez les pistes d'amélioration pour renforcer votre profil pour ce type de rôle.
+    [adequation_globale] => À améliorer
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-21T23:00:29.237595
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+        )
+
+)
+
+2025-06-22 08:28:46 - MatchingController initialisé
+2025-06-22 08:28:46 - Début de l'analyse de compatibilité
+Data: Array
+(
+    [users_id] => 5
+    [offre_id] => 13
+)
+
+2025-06-22 08:28:46 - Données préparées pour l'API
+Data: Array
+(
+    [candidate] => Array
+        (
+            [id] => 5
+            [formations] => Array
+                (
+                    [0] => Array
+                        (
+                            [niveau] => Licence1
+                            [domaine] => Géni informatiques 
+                            [etablissement] => Ecole Supérieure Multinationale des Télécommunications (ESMT)
+                            [annee_obtention] => 2021
+                            [description] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [niveau] => Secondaire
+                            [domaine] => Terminal D
+                            [etablissement] => lycee pole emane eyegue(Libreville)
+                            [annee_obtention] => 2020
+                            [description] => 
+                        )
+
+                )
+
+            [experiences] => Array
+                (
+                    [0] => Array
+                        (
+                            [titre_poste] => Développeur Web – Site web pour entreprise numérique: https://advantech-group.space
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce
+                            [competences] => Array
+                                (
+                                    [0] => PHP
+                                    [1] => HTML
+                                    [2] => CSS
+                                    [3] => JavaScript
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [1] => Array
+                        (
+                            [titre_poste] => Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com
+                            [entreprise] => 
+                            [duree_mois] => 12
+                            [description] => https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.
+                            [competences] => Array
+                                (
+                                    [0] => PHP (architecture MVC)
+                                    [1] => JavaScript
+                                    [2] => MySQL.
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [2] => Array
+                        (
+                            [titre_poste] => je ne suis pas daccord
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd
+                            [competences] => Array
+                                (
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => esprit d'équipe
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => python
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => git github
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => javascript
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => maintenance des serveurs web
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion de base de données
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => mysql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => wordpress
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => git
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => django
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => sql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => php
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => java
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => api
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [14] => Array
+                        (
+                            [nom] => rest
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [15] => Array
+                        (
+                            [nom] => html
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [16] => Array
+                        (
+                            [nom] => css
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => Français
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => Anglais
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => bbbbbb
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [centres_interet] => Array
+                (
+                )
+
+            [projets] => Array
+                (
+                )
+
+            [disponibilite] => Immédiate
+        )
+
+    [job_offer] => Array
+        (
+            [id] => 13
+            [titre] => Directeur Commercial Pays F/H - Sénégal
+            [description] => GAFI GROUP est une entreprise innovante, leader dans le recrutement, la gestion d’intérim, la formation professionnelle et l’audit social. Nous opérons à l’échelle continentale et internationale, avec une approche collaborative axée sur les normes internationales et les meilleures pratiques. Dans le cadre de notre développement, nous recherchons un(e) Directeur Commercial Pays dynamique et expérimenté(e) pour rejoindre notre équipe.
+Missions principales
+
+
+Élaborer et mettre en œuvre la stratégie commerciale du pays.
+
+
+Identifier et développer de nouvelles opportunités d’affaires pour accroître la part de marché de GAFI GROUP.
+
+
+Piloter les négociations commerciales avec les partenaires et les clients stratégiques.
+
+
+Superviser et dynamiser l’équipe commerciale pour atteindre et dépasser les objectifs de vente.
+
+
+Assurer un reporting régulier à la direction générale sur les performances commerciales et les tendances du marché.
+
+
+
+            [formation_requise] => Array
+                (
+                    [niveau_minimum] => Non spécifié
+                    [domaines_acceptes] => Array
+                        (
+                            [0] => Activités associatives
+                        )
+
+                    [formation_obligatoire] => 
+                )
+
+            [experience_requise] => Array
+                (
+                    [duree_minimum_mois] => 60
+                    [secteurs_acceptes] => Array
+                        (
+                            [0] => Activités associatives
+                        )
+
+                    [competences_requises] => Array
+                        (
+                            [0] => développement commercial
+                            [1] => commercialisation
+                            [2] => négociation
+                            [3] => crm
+                            [4] => formation
+                            [5] => marketing
+                            [6] => stratégie commerciale
+                            [7] => vente
+                        )
+
+                )
+
+            [competences_requises] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => développement commercial
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => commercialisation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => négociation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => crm
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => formation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => marketing
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => stratégie commerciale
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => vente
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues_requises] => Array
+                (
+                )
+
+            [secteur] => Activités associatives
+            [type_contrat] => Contrat proposé
+                             :CDI, CDD & Freelance
+            [localisation] => Région de :International
+        )
+
+)
+
+2025-06-22 08:28:46 - Début de l'appel API
+2025-06-22 08:28:46 - Envoi de la requête à l'API
+Data: Array
+(
+    [url] => http://localhost:8000/analyser
+    [data] => {"candidate":{"id":5,"formations":[{"niveau":"Licence1","domaine":"G\u00e9ni informatiques ","etablissement":"Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT)","annee_obtention":2021,"description":null},{"niveau":"Secondaire","domaine":"Terminal D","etablissement":"lycee pole emane eyegue(Libreville)","annee_obtention":2020,"description":null}],"experiences":[{"titre_poste":"D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space","entreprise":null,"duree_mois":0,"description":"Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce","competences":["PHP","HTML","CSS","JavaScript"],"secteur":"Informatique"},{"titre_poste":"D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com","entreprise":null,"duree_mois":12,"description":"https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.","competences":["PHP (architecture MVC)","JavaScript","MySQL."],"secteur":"Informatique"},{"titre_poste":"je ne suis pas daccord","entreprise":null,"duree_mois":0,"description":"je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd","competences":[],"secteur":"Informatique"}],"competences":[{"nom":"esprit d'\u00e9quipe","niveau":3,"annees_experience":1},{"nom":"python","niveau":3,"annees_experience":1},{"nom":"git github","niveau":3,"annees_experience":1},{"nom":"javascript","niveau":3,"annees_experience":1},{"nom":"maintenance des serveurs web","niveau":3,"annees_experience":1},{"nom":"gestion de base de donn\u00e9es","niveau":3,"annees_experience":1},{"nom":"mysql","niveau":3,"annees_experience":1},{"nom":"wordpress","niveau":3,"annees_experience":1},{"nom":"git","niveau":3,"annees_experience":1},{"nom":"django","niveau":3,"annees_experience":1},{"nom":"sql","niveau":3,"annees_experience":1},{"nom":"php","niveau":3,"annees_experience":1},{"nom":"java","niveau":3,"annees_experience":1},{"nom":"api","niveau":3,"annees_experience":1},{"nom":"rest","niveau":3,"annees_experience":1},{"nom":"html","niveau":3,"annees_experience":1},{"nom":"css","niveau":3,"annees_experience":1}],"langues":[{"nom":"Fran\u00e7ais","niveau":"B1","certifications":[]},{"nom":"Anglais","niveau":"B1","certifications":[]},{"nom":"bbbbbb","niveau":"B1","certifications":[]}],"centres_interet":[],"projets":[],"disponibilite":"Imm\u00e9diate"},"job_offer":{"id":13,"titre":"Directeur Commercial Pays F\/H - S\u00e9n\u00e9gal","description":"GAFI GROUP est une entreprise innovante, leader dans le recrutement, la gestion d\u2019int\u00e9rim, la formation professionnelle et l\u2019audit social. Nous op\u00e9rons \u00e0 l\u2019\u00e9chelle continentale et internationale, avec une approche collaborative ax\u00e9e sur les normes internationales et les meilleures pratiques. Dans le cadre de notre d\u00e9veloppement, nous recherchons un(e)\u00a0Directeur Commercial Pays\u00a0dynamique et exp\u00e9riment\u00e9(e) pour rejoindre notre \u00e9quipe.\nMissions principales\n\n\n\u00c9laborer et mettre en \u0153uvre la strat\u00e9gie commerciale du pays.\n\n\nIdentifier et d\u00e9velopper de nouvelles opportunit\u00e9s d\u2019affaires pour accro\u00eetre la part de march\u00e9 de GAFI GROUP.\n\n\nPiloter les n\u00e9gociations commerciales avec les partenaires et les clients strat\u00e9giques.\n\n\nSuperviser et dynamiser l\u2019\u00e9quipe commerciale pour atteindre et d\u00e9passer les objectifs de vente.\n\n\nAssurer un reporting r\u00e9gulier \u00e0 la direction g\u00e9n\u00e9rale sur les performances commerciales et les tendances du march\u00e9.\n\n\n","formation_requise":{"niveau_minimum":"Non sp\u00e9cifi\u00e9","domaines_acceptes":["Activit\u00e9s associatives"],"formation_obligatoire":false},"experience_requise":{"duree_minimum_mois":60,"secteurs_acceptes":["Activit\u00e9s associatives"],"competences_requises":["d\u00e9veloppement commercial","commercialisation","n\u00e9gociation","crm","formation","marketing","strat\u00e9gie commerciale","vente"]},"competences_requises":[{"nom":"d\u00e9veloppement commercial","niveau":3,"annees_experience":1},{"nom":"commercialisation","niveau":3,"annees_experience":1},{"nom":"n\u00e9gociation","niveau":3,"annees_experience":1},{"nom":"crm","niveau":3,"annees_experience":1},{"nom":"formation","niveau":3,"annees_experience":1},{"nom":"marketing","niveau":3,"annees_experience":1},{"nom":"strat\u00e9gie commerciale","niveau":3,"annees_experience":1},{"nom":"vente","niveau":3,"annees_experience":1}],"langues_requises":[],"secteur":"Activit\u00e9s associatives","type_contrat":"Contrat propos\u00e9\n                             :CDI, CDD & Freelance","localisation":"R\u00e9gion de :International"}}
+)
+
+2025-06-22 08:28:48 - Logs CURL détaillés
+Data: * Host localhost:8000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8000...
+*   Trying 127.0.0.1:8000...
+* Connected to localhost (127.0.0.1) port 8000
+> POST /analyser HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Accept: application/json
+Content-Length: 5267
+
+* upload completely sent off: 5267 bytes
+< HTTP/1.1 200 OK
+< date: Sun, 22 Jun 2025 08:28:46 GMT
+< server: uvicorn
+< content-length: 1437
+< content-type: application/json
+< 
+* Connection #0 to host localhost left intact
+
+2025-06-22 08:28:48 - Réponse API décodée avec succès
+Data: Array
+(
+    [global_score] => 31
+    [completion] => Array
+        (
+            [score] => 0.9
+            [details] => Array
+                (
+                    [formations] => 1
+                    [experiences] => 0.66666666666667
+                    [competences] => 1
+                    [langues] => 1
+                )
+
+        )
+
+    [analyses] => Array
+        (
+            [formation] => Array
+                (
+                    [titre] => Formation
+                    [score] => 50
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Une formation dans l'un de ces domaines serait un plus : activités associatives
+                        )
+
+                )
+
+            [experience] => Array
+                (
+                    [titre] => Expérience Professionnelle
+                    [score] => 10
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Il manque 4.0 ans d'expérience pour atteindre le minimum requis
+                            [1] => Compétences à développer : marketing, vente, développement commercial, crm, négociation, stratégie commerciale, commercialisation, formation
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [titre] => Compétences
+                    [score] => 0
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer ou à mieux décrire : Marketing, Vente, Développement commercial, Crm, Négociation, Stratégie commerciale, Commercialisation, Formation.
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [titre] => Langues
+                    [score] => 100
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_faibles] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [synthesis] => Votre profil correspond à 31%. Il existe des écarts notables avec les exigences du poste. Vos principaux atouts sont aucune exigence linguistique spécifique. Considérez les pistes d'amélioration pour renforcer votre profil pour ce type de rôle.
+    [adequation_globale] => À améliorer
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-22T08:28:48.375025
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+        )
+
+)
+
+2025-06-22 08:28:48 - Réponse de l'API reçue
+Data: Array
+(
+    [global_score] => 31
+    [completion] => Array
+        (
+            [score] => 0.9
+            [details] => Array
+                (
+                    [formations] => 1
+                    [experiences] => 0.66666666666667
+                    [competences] => 1
+                    [langues] => 1
+                )
+
+        )
+
+    [analyses] => Array
+        (
+            [formation] => Array
+                (
+                    [titre] => Formation
+                    [score] => 50
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Une formation dans l'un de ces domaines serait un plus : activités associatives
+                        )
+
+                )
+
+            [experience] => Array
+                (
+                    [titre] => Expérience Professionnelle
+                    [score] => 10
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Il manque 4.0 ans d'expérience pour atteindre le minimum requis
+                            [1] => Compétences à développer : marketing, vente, développement commercial, crm, négociation, stratégie commerciale, commercialisation, formation
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [titre] => Compétences
+                    [score] => 0
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer ou à mieux décrire : Marketing, Vente, Développement commercial, Crm, Négociation, Stratégie commerciale, Commercialisation, Formation.
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [titre] => Langues
+                    [score] => 100
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_faibles] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [synthesis] => Votre profil correspond à 31%. Il existe des écarts notables avec les exigences du poste. Vos principaux atouts sont aucune exigence linguistique spécifique. Considérez les pistes d'amélioration pour renforcer votre profil pour ce type de rôle.
+    [adequation_globale] => À améliorer
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-22T08:28:48.375025
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+        )
+
+)
+
+2025-06-22 08:29:56 - MatchingController initialisé
+2025-06-22 08:29:56 - Début de l'analyse de compatibilité
+Data: Array
+(
+    [users_id] => 5
+    [offre_id] => 40
+)
+
+2025-06-22 08:29:56 - Données préparées pour l'API
+Data: Array
+(
+    [candidate] => Array
+        (
+            [id] => 5
+            [formations] => Array
+                (
+                    [0] => Array
+                        (
+                            [niveau] => Licence1
+                            [domaine] => Géni informatiques 
+                            [etablissement] => Ecole Supérieure Multinationale des Télécommunications (ESMT)
+                            [annee_obtention] => 2021
+                            [description] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [niveau] => Secondaire
+                            [domaine] => Terminal D
+                            [etablissement] => lycee pole emane eyegue(Libreville)
+                            [annee_obtention] => 2020
+                            [description] => 
+                        )
+
+                )
+
+            [experiences] => Array
+                (
+                    [0] => Array
+                        (
+                            [titre_poste] => Développeur Web – Site web pour entreprise numérique: https://advantech-group.space
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce
+                            [competences] => Array
+                                (
+                                    [0] => PHP
+                                    [1] => HTML
+                                    [2] => CSS
+                                    [3] => JavaScript
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [1] => Array
+                        (
+                            [titre_poste] => Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com
+                            [entreprise] => 
+                            [duree_mois] => 12
+                            [description] => https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.
+                            [competences] => Array
+                                (
+                                    [0] => PHP (architecture MVC)
+                                    [1] => JavaScript
+                                    [2] => MySQL.
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [2] => Array
+                        (
+                            [titre_poste] => je ne suis pas daccord
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd
+                            [competences] => Array
+                                (
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => esprit d'équipe
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => python
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => git github
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => javascript
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => maintenance des serveurs web
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion de base de données
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => mysql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => wordpress
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => git
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => django
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => sql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => php
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => java
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => api
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [14] => Array
+                        (
+                            [nom] => rest
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [15] => Array
+                        (
+                            [nom] => html
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [16] => Array
+                        (
+                            [nom] => css
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => Français
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => Anglais
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => bbbbbb
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [centres_interet] => Array
+                (
+                )
+
+            [projets] => Array
+                (
+                )
+
+            [disponibilite] => Immédiate
+        )
+
+    [job_offer] => Array
+        (
+            [id] => 40
+            [titre] => Stagiaire Développeur Wordpress (H/F)  - Hann Maristes
+            [description] => Wanekoo est une entreprise qui propose des solutions d’hébergement web et Cloud, création de nom domaine, site web, logiciel ERP avec un service client très apprécié. Nous sommes à la recherche d'un(e) Développeur Wordpress (H/F)
+ Missions :
+
+Intégration/développement front-end HTML/JS/CSS sur CMS Wordpress sur la base des demandes des clients
+Mise en place des animations (GSAP, etc.)
+Installation / Configuration / Override de modules existants
+Personnalisation du back-office pour une prise en main facilitée pour le client
+Éventuellement : développements avancés (modules sur mesure, interfaçages, simulateurs, etc.
+
+
+            [formation_requise] => Array
+                (
+                    [niveau_minimum] => Non spécifié
+                    [domaines_acceptes] => Array
+                        (
+                            [0] => Informatique
+                            [1] => SSII
+                            [2] => Internet
+                        )
+
+                    [formation_obligatoire] => 
+                )
+
+            [experience_requise] => Array
+                (
+                    [duree_minimum_mois] => 0
+                    [secteurs_acceptes] => Array
+                        (
+                            [0] => Informatique
+                            [1] => SSII
+                            [2] => Internet
+                        )
+
+                    [competences_requises] => Array
+                        (
+                            [0] => git
+                            [1] => cms
+                            [2] => wordpress
+                            [3] => css
+                            [4] => html
+                            [5] => api
+                        )
+
+                )
+
+            [competences_requises] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => git
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => cms
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => wordpress
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => css
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => html
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => api
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues_requises] => Array
+                (
+                )
+
+            [secteur] => Informatique, SSII, Internet
+            [type_contrat] => Contrat proposé
+                             :Stage
+            [localisation] => Région de :Dakar
+        )
+
+)
+
+2025-06-22 08:29:56 - Début de l'appel API
+2025-06-22 08:29:56 - Envoi de la requête à l'API
+Data: Array
+(
+    [url] => http://localhost:8000/analyser
+    [data] => {"candidate":{"id":5,"formations":[{"niveau":"Licence1","domaine":"G\u00e9ni informatiques ","etablissement":"Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT)","annee_obtention":2021,"description":null},{"niveau":"Secondaire","domaine":"Terminal D","etablissement":"lycee pole emane eyegue(Libreville)","annee_obtention":2020,"description":null}],"experiences":[{"titre_poste":"D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space","entreprise":null,"duree_mois":0,"description":"Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce","competences":["PHP","HTML","CSS","JavaScript"],"secteur":"Informatique"},{"titre_poste":"D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com","entreprise":null,"duree_mois":12,"description":"https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.","competences":["PHP (architecture MVC)","JavaScript","MySQL."],"secteur":"Informatique"},{"titre_poste":"je ne suis pas daccord","entreprise":null,"duree_mois":0,"description":"je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd","competences":[],"secteur":"Informatique"}],"competences":[{"nom":"esprit d'\u00e9quipe","niveau":3,"annees_experience":1},{"nom":"python","niveau":3,"annees_experience":1},{"nom":"git github","niveau":3,"annees_experience":1},{"nom":"javascript","niveau":3,"annees_experience":1},{"nom":"maintenance des serveurs web","niveau":3,"annees_experience":1},{"nom":"gestion de base de donn\u00e9es","niveau":3,"annees_experience":1},{"nom":"mysql","niveau":3,"annees_experience":1},{"nom":"wordpress","niveau":3,"annees_experience":1},{"nom":"git","niveau":3,"annees_experience":1},{"nom":"django","niveau":3,"annees_experience":1},{"nom":"sql","niveau":3,"annees_experience":1},{"nom":"php","niveau":3,"annees_experience":1},{"nom":"java","niveau":3,"annees_experience":1},{"nom":"api","niveau":3,"annees_experience":1},{"nom":"rest","niveau":3,"annees_experience":1},{"nom":"html","niveau":3,"annees_experience":1},{"nom":"css","niveau":3,"annees_experience":1}],"langues":[{"nom":"Fran\u00e7ais","niveau":"B1","certifications":[]},{"nom":"Anglais","niveau":"B1","certifications":[]},{"nom":"bbbbbb","niveau":"B1","certifications":[]}],"centres_interet":[],"projets":[],"disponibilite":"Imm\u00e9diate"},"job_offer":{"id":40,"titre":"Stagiaire D\u00e9veloppeur Wordpress (H\/F)  - Hann Maristes","description":"Wanekoo est une entreprise qui propose des solutions d\u2019h\u00e9bergement web et Cloud, cr\u00e9ation de nom domaine, site web, logiciel ERP\u00a0avec un service client tr\u00e8s appr\u00e9ci\u00e9. Nous sommes \u00e0 la recherche d'un(e)\u00a0D\u00e9veloppeur Wordpress (H\/F)\n\u00a0Missions :\n\nInt\u00e9gration\/d\u00e9veloppement front-end HTML\/JS\/CSS sur CMS Wordpress sur la base des demandes des clients\nMise en place des animations (GSAP, etc.)\nInstallation \/ Configuration \/ Override de modules existants\nPersonnalisation du back-office pour une prise en main facilit\u00e9e pour le client\n\u00c9ventuellement : d\u00e9veloppements avanc\u00e9s (modules sur mesure, interfa\u00e7ages, simulateurs, etc.\n\n","formation_requise":{"niveau_minimum":"Non sp\u00e9cifi\u00e9","domaines_acceptes":["Informatique","SSII","Internet"],"formation_obligatoire":false},"experience_requise":{"duree_minimum_mois":0,"secteurs_acceptes":["Informatique","SSII","Internet"],"competences_requises":["git","cms","wordpress","css","html","api"]},"competences_requises":[{"nom":"git","niveau":3,"annees_experience":1},{"nom":"cms","niveau":3,"annees_experience":1},{"nom":"wordpress","niveau":3,"annees_experience":1},{"nom":"css","niveau":3,"annees_experience":1},{"nom":"html","niveau":3,"annees_experience":1},{"nom":"api","niveau":3,"annees_experience":1}],"langues_requises":[],"secteur":"Informatique, SSII, Internet","type_contrat":"Contrat propos\u00e9\n                             :Stage","localisation":"R\u00e9gion de :Dakar"}}
+)
+
+2025-06-22 08:29:57 - Logs CURL détaillés
+Data: * Host localhost:8000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8000...
+*   Trying 127.0.0.1:8000...
+* Connected to localhost (127.0.0.1) port 8000
+> POST /analyser HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Accept: application/json
+Content-Length: 4595
+
+* upload completely sent off: 4595 bytes
+< HTTP/1.1 200 OK
+< date: Sun, 22 Jun 2025 08:29:56 GMT
+< server: uvicorn
+< content-length: 1122
+< content-type: application/json
+< 
+* Connection #0 to host localhost left intact
+
+2025-06-22 08:29:57 - Réponse API décodée avec succès
+Data: Array
+(
+    [global_score] => 67.9
+    [completion] => Array
+        (
+            [score] => 0.9
+            [details] => Array
+                (
+                    [formations] => 1
+                    [experiences] => 0.66666666666667
+                    [competences] => 1
+                    [langues] => 1
+                )
+
+        )
+
+    [analyses] => Array
+        (
+            [formation] => Array
+                (
+                    [titre] => Formation
+                    [score] => 58
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Une formation dans l'un de ces domaines serait un plus : internet, ssii
+                        )
+
+                )
+
+            [experience] => Array
+                (
+                    [titre] => Expérience Professionnelle
+                    [score] => 50
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer : api, git, cms, html, wordpress, css
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [titre] => Compétences
+                    [score] => 83
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer ou à mieux décrire : Cms.
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [titre] => Langues
+                    [score] => 100
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_faibles] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [synthesis] => Votre profil correspond à 68%, ce qui représente une bonne base. Vos principaux atouts sont aucune exigence linguistique spécifique. Avec quelques ajustements, votre candidature pourrait être encore plus forte.
+    [adequation_globale] => Bon
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-22T08:29:57.369787
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+        )
+
+)
+
+2025-06-22 08:29:57 - Réponse de l'API reçue
+Data: Array
+(
+    [global_score] => 67.9
+    [completion] => Array
+        (
+            [score] => 0.9
+            [details] => Array
+                (
+                    [formations] => 1
+                    [experiences] => 0.66666666666667
+                    [competences] => 1
+                    [langues] => 1
+                )
+
+        )
+
+    [analyses] => Array
+        (
+            [formation] => Array
+                (
+                    [titre] => Formation
+                    [score] => 58
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Une formation dans l'un de ces domaines serait un plus : internet, ssii
+                        )
+
+                )
+
+            [experience] => Array
+                (
+                    [titre] => Expérience Professionnelle
+                    [score] => 50
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer : api, git, cms, html, wordpress, css
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [titre] => Compétences
+                    [score] => 83
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_faibles] => Array
+                        (
+                            [0] => Compétences à développer ou à mieux décrire : Cms.
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [titre] => Langues
+                    [score] => 100
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_faibles] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [synthesis] => Votre profil correspond à 68%, ce qui représente une bonne base. Vos principaux atouts sont aucune exigence linguistique spécifique. Avec quelques ajustements, votre candidature pourrait être encore plus forte.
+    [adequation_globale] => Bon
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-22T08:29:57.369787
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+        )
+
+)
+
