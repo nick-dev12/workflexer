@@ -19,14 +19,22 @@ include_once('controller/controller_users.php');
         content="Work-Flexer, la plateforme de mise en relation professionnelle qui connecte entreprises et talents. Recrutement simplifié, CV virtuels, offres d'emploi dans tous les domaines : informatique, marketing, finance, ingénierie. Inscription gratuite pour recruter ou trouver votre prochain emploi.">
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+    </script>
     <!-- End Google Tag Manager -->
 
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
@@ -425,185 +433,214 @@ include_once('controller/controller_users.php');
     </section>
 
     <script>
-        $(document).ready(function () {
-            // Configuration du slider principal
-            $('.slider-area').owlCarousel({
-                items: 1,
-                loop: true,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 8000,
-                smartSpeed: 800, // Vitesse optimisée
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                margin: 0,
-                nav: true,
-                navText: ['<span></span>', '<span></span>'],
-                mouseDrag: true,
-                touchDrag: true,
-                onInitialized: initSlider,
-                onTranslate: resetProgress,
-                onTranslated: startProgress
+    $(document).ready(function() {
+        // Configuration du slider principal
+        $('.slider-area').owlCarousel({
+            items: 1,
+            loop: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 8000,
+            smartSpeed: 800, // Vitesse optimisée
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            margin: 0,
+            nav: true,
+            navText: ['<span></span>', '<span></span>'],
+            mouseDrag: true,
+            touchDrag: true,
+            onInitialized: initSlider,
+            onTranslate: resetProgress,
+            onTranslated: startProgress
+        });
+
+        // Initialisation du slider
+        function initSlider() {
+            // Créer la barre de progression si elle n'existe pas
+            if ($('.slide-progress').length === 0) {
+                $('.slider-area').append('<div class="slide-progress"></div>');
+            }
+
+            // Initialiser le premier slide avec le numéro actif
+            updateSlideNumbers(0);
+
+            // Démarrer la progression
+            startProgress();
+        }
+
+        // Démarrer la progression de la barre
+        function startProgress() {
+            var currentSlide = $('.slider-area .owl-item.active').index();
+            updateSlideNumbers(currentSlide);
+
+            $('.slide-progress').css({
+                width: '0%',
+                transition: 'none'
+            }).animate({
+                width: '100%'
+            }, 8000, 'linear');
+        }
+
+        // Réinitialiser la progression lors du changement de slide
+        function resetProgress() {
+            $('.slide-progress').stop().css({
+                width: '0%'
             });
+        }
 
-            // Initialisation du slider
-            function initSlider() {
-                // Créer la barre de progression si elle n'existe pas
-                if ($('.slide-progress').length === 0) {
-                    $('.slider-area').append('<div class="slide-progress"></div>');
-                }
+        // Mettre à jour les numéros de slide
+        function updateSlideNumbers(currentIndex) {
+            // Obtenir l'index réel (en tenant compte des clones)
+            var realIndex = $('.slider-area .owl-item.active').find('.slider-item').attr('data-slide-index');
+            if (!realIndex) realIndex = currentIndex + 1;
 
-                // Initialiser le premier slide avec le numéro actif
-                updateSlideNumbers(0);
+            // Formater le numéro avec un zéro devant si nécessaire
+            var formattedNumber = (realIndex < 10) ? '0' + realIndex : realIndex;
+            $('.slide-indicator').text(formattedNumber);
+        }
 
-                // Démarrer la progression
-                startProgress();
+        // Optimisation de l'animation parallaxe au scroll
+        let ticking = false;
+        $(window).scroll(function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    var scrollPosition = $(window).scrollTop();
+                    if (scrollPosition < 800) {
+                        $('.slider-image-container img').css({
+                            'transform': 'scale(1.05) translateY(' + (scrollPosition *
+                                0.05) + 'px)'
+                        });
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
+        });
 
-            // Démarrer la progression de la barre
-            function startProgress() {
-                var currentSlide = $('.slider-area .owl-item.active').index();
-                updateSlideNumbers(currentSlide);
+        // Autres sliders
+        $('.slider1').owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            smartSpeed: 800,
+            nav: true,
+        });
 
-                $('.slide-progress').css({
-                    width: '0%',
-                    transition: 'none'
-                }).animate({
-                    width: '100%'
-                }, 8000, 'linear');
-            }
+        // Code existant pour les autres carrousels
+        $('.carousel1').owlCarousel({
+            items: 5,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 6000,
+            animateOut: 'slideOutDown',
+            animateIn: 'flipInX',
+            stagePadding: 10,
+            smartSpeed: 450,
+            margin: 10,
+            nav: true,
+            navText: ['<i class="fa-solid fa-chevron-left"></i>',
+                '<i class="fa-solid fa-chevron-right"></i>'
+            ]
+        });
 
-            // Réinitialiser la progression lors du changement de slide
-            function resetProgress() {
-                $('.slide-progress').stop().css({
-                    width: '0%'
+        var carousel1 = $('.carousel1').owlCarousel();
+
+        $('.owl-next').click(function() {
+            carousel1.trigger('next.owl.carousel');
+        });
+
+        $('.owl-prev').click(function() {
+            carousel1.trigger('prev.owl.carousel');
+        });
+
+        // Configuration de la section "temoin"
+        var sectionTemoin = document.querySelector('.temoin');
+        if (sectionTemoin) {
+            var enfantsSection = sectionTemoin.children;
+            if (enfantsSection.length > 3) {
+                $('.temoin').addClass('owl-carousel').owlCarousel({
+                    items: 4,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    animateOut: 'slideOutDown',
+                    animateIn: 'flipInX',
+                    stagePadding: 10,
+                    smartSpeed: 650,
+                    margin: 100,
+                    nav: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            margin: 20
+                        },
+                        550: {
+                            items: 2
+                        },
+                        690: {
+                            items: 3
+                        },
+                        890: {
+                            items: 3
+                        },
+                        1200: {
+                            items: 4
+                        },
+                        1400: {
+                            items: 4
+                        }
+                    }
                 });
             }
+        }
 
-            // Mettre à jour les numéros de slide
-            function updateSlideNumbers(currentIndex) {
-                // Obtenir l'index réel (en tenant compte des clones)
-                var realIndex = $('.slider-area .owl-item.active').find('.slider-item').attr('data-slide-index');
-                if (!realIndex) realIndex = currentIndex + 1;
-
-                // Formater le numéro avec un zéro devant si nécessaire
-                var formattedNumber = (realIndex < 10) ? '0' + realIndex : realIndex;
-                $('.slide-indicator').text(formattedNumber);
-            }
-
-            // Optimisation de l'animation parallaxe au scroll
-            let ticking = false;
-            $(window).scroll(function () {
-                if (!ticking) {
-                    window.requestAnimationFrame(function () {
-                        var scrollPosition = $(window).scrollTop();
-                        if (scrollPosition < 800) {
-                            $('.slider-image-container img').css({
-                                'transform': 'scale(1.05) translateY(' + (scrollPosition * 0.05) + 'px)'
-                            });
+        // Configuration pour owl-slider
+        var owlSlider = document.querySelector('.owl-slider');
+        if (owlSlider) {
+            var enfantSection = owlSlider.children;
+            if (enfantSection.length > 2) {
+                $('.owl-slider').addClass('owl-carousel').owlCarousel({
+                    items: 3,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    animateOut: 'slideOutDown',
+                    animateIn: 'flipInX',
+                    stagePadding: 10,
+                    smartSpeed: 450,
+                    margin: 100,
+                    nav: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            margin: 0
+                        },
+                        460: {
+                            items: 2
+                        },
+                        550: {
+                            items: 2
+                        },
+                        890: {
+                            items: 2
+                        },
+                        1200: {
+                            items: 3
+                        },
+                        1400: {
+                            items: 3
                         }
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-
-            // Autres sliders
-            $('.slider1').owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                smartSpeed: 800,
-                nav: true,
-            });
-
-            // Code existant pour les autres carrousels
-            $('.carousel1').owlCarousel({
-                items: 5,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 6000,
-                animateOut: 'slideOutDown',
-                animateIn: 'flipInX',
-                stagePadding: 10,
-                smartSpeed: 450,
-                margin: 10,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>']
-            });
-
-            var carousel1 = $('.carousel1').owlCarousel();
-
-            $('.owl-next').click(function () {
-                carousel1.trigger('next.owl.carousel');
-            });
-
-            $('.owl-prev').click(function () {
-                carousel1.trigger('prev.owl.carousel');
-            });
-
-            // Configuration de la section "temoin"
-            var sectionTemoin = document.querySelector('.temoin');
-            if (sectionTemoin) {
-                var enfantsSection = sectionTemoin.children;
-                if (enfantsSection.length > 3) {
-                    $('.temoin').addClass('owl-carousel').owlCarousel({
-                        items: 4,
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        animateOut: 'slideOutDown',
-                        animateIn: 'flipInX',
-                        stagePadding: 10,
-                        smartSpeed: 650,
-                        margin: 100,
-                        nav: true,
-                        responsive: {
-                            0: { items: 1, margin: 20 },
-                            550: { items: 2 },
-                            690: { items: 3 },
-                            890: { items: 3 },
-                            1200: { items: 4 },
-                            1400: { items: 4 }
-                        }
-                    });
-                }
+                    }
+                });
             }
+        }
 
-            // Configuration pour owl-slider
-            var owlSlider = document.querySelector('.owl-slider');
-            if (owlSlider) {
-                var enfantSection = owlSlider.children;
-                if (enfantSection.length > 2) {
-                    $('.owl-slider').addClass('owl-carousel').owlCarousel({
-                        items: 3,
-                        loop: true,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        animateOut: 'slideOutDown',
-                        animateIn: 'flipInX',
-                        stagePadding: 10,
-                        smartSpeed: 450,
-                        margin: 100,
-                        nav: true,
-                        responsive: {
-                            0: { items: 1, margin: 0 },
-                            460: { items: 2 },
-                            550: { items: 2 },
-                            890: { items: 2 },
-                            1200: { items: 3 },
-                            1400: { items: 3 }
-                        }
-                    });
-                }
-            }
-
-            // Ajouter des attributs data-slide-index aux sliders
-            $('.slider-area .slider-item').each(function (index) {
-                $(this).attr('data-slide-index', index + 1);
-            });
+        // Ajouter des attributs data-slide-index aux sliders
+        $('.slider-area .slider-item').each(function(index) {
+            $(this).attr('data-slide-index', index + 1);
         });
+    });
     </script>
 
     <section class="explore">
@@ -615,21 +652,21 @@ include_once('controller/controller_users.php');
             <div class="owl-slider owl-carousel ">
                 <?php foreach ($afficheUsersLimit20 as $user): ?>
 
-                    <?php $name_users = $user['nom'];
+                <?php $name_users = $user['nom'];
                     $explode_name_users = explode(' ', $name_users);
                     $name = $explode_name_users[0] . " " . $explode_name_users[1];
                     ?>
-                    <div class="item">
-                        <a href="/page/candidats.php?id=<?= $user['id'] ?>">
-                            <img src="/upload/<?= $user['images']; ?>" alt="">
-                            <h3>
-                                <?= $name; ?>
-                            </h3>
-                            <p>
-                                <?= $user['competences']; ?>
-                            </p>
-                        </a>
-                    </div>
+                <div class="item">
+                    <a href="/page/candidats.php?id=<?= $user['id'] ?>">
+                        <img src="/upload/<?= $user['images']; ?>" alt="">
+                        <h3>
+                            <?= $name; ?>
+                        </h3>
+                        <p>
+                            <?= $user['competences']; ?>
+                        </p>
+                    </a>
+                </div>
                 <?php endforeach; ?>
 
             </div>
@@ -661,154 +698,156 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
     <div></div>
 
     <script>
-        $(document).ready(function () {
-            // Initialisation du carousel principal
-            $('.slider-area').owlCarousel({
-                items: 1,
-                loop: true,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 7000,
-                smartSpeed: 1200,
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                margin: 0,
-                nav: true,
-                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>'],
-                mouseDrag: true,
-                touchDrag: true,
-                pullDrag: true,
-                freeDrag: false,
-                onInitialized: startProgressBar,
-                onTranslate: resetProgressBar,
-                onTranslated: startProgressBar
-            });
+    $(document).ready(function() {
+        // Initialisation du carousel principal
+        $('.slider-area').owlCarousel({
+            items: 1,
+            loop: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 7000,
+            smartSpeed: 1200,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            margin: 0,
+            nav: true,
+            navText: ['<i class="fa-solid fa-chevron-left"></i>',
+                '<i class="fa-solid fa-chevron-right"></i>'
+            ],
+            mouseDrag: true,
+            touchDrag: true,
+            pullDrag: true,
+            freeDrag: false,
+            onInitialized: startProgressBar,
+            onTranslate: resetProgressBar,
+            onTranslated: startProgressBar
+        });
 
-            // Animation de la barre de progression
-            function startProgressBar() {
-                // On crée la barre de progression si elle n'existe pas
-                if ($('.slide-progress').length === 0) {
-                    $('.slider-area').append('<div class="slide-progress"></div>');
-                }
-
-                // On anime la barre de progression
-                $('.slide-progress').css({
-                    width: '0%',
-                    transition: 'none'
-                }).animate({
-                    width: '100%'
-                }, 7000, 'linear');
+        // Animation de la barre de progression
+        function startProgressBar() {
+            // On crée la barre de progression si elle n'existe pas
+            if ($('.slide-progress').length === 0) {
+                $('.slider-area').append('<div class="slide-progress"></div>');
             }
 
-            // Réinitialisation de la barre de progression
-            function resetProgressBar() {
-                $('.slide-progress').css({
-                    width: '0%',
-                    transition: 'width 0s'
-                });
-            }
-
-            // Effets de parallaxe au défilement
-            $(window).scroll(function () {
-                var scrollPosition = $(this).scrollTop();
-
-                // Parallaxe sur les images du slider
-                $('.slider-item img').css({
-                    'transform': 'translateY(' + (scrollPosition * 0.15) + 'px)'
-                });
-            });
-
-            // Animation des textes au chargement
-            setTimeout(function () {
-                $('.slider-area .slider-item:first-child h1').addClass('animated');
-                $('.slider-area .slider-item:first-child p').addClass('animated');
-                $('.slider-area .slider-item:first-child a').addClass('animated');
-            }, 500);
-        });
-    </script>
-
-    <script>
-        AOS.init();
-
-
-        // Animation au scroll
-        document.addEventListener('DOMContentLoaded', function () {
-            const elements = document.querySelectorAll('.scroll-fade-left, .scroll-fade-right, .scroll-fade-top, .scroll-fade-bottom, .scroll-fade-center');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    } else {
-                        entry.target.classList.remove('animate');
-                    }
-                });
-            });
-
-            elements.forEach(element => {
-                observer.observe(element);
-            });
-        });
-
-        // Animation au survol
-        document.querySelectorAll('.hover-animation').forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.classList.add('hovered');
-            });
-            item.addEventListener('mouseout', () => {
-                item.classList.remove('hovered');
-            });
-        });
-
-
-    </script>
-
-    <script>
-        // Fonction pour gérer les animations au défilement
-        function handleScrollAnimations() {
-            const scrollElements = document.querySelectorAll('.scroll-fade-left, .scroll-fade-right');
-
-            const elementInView = (el, percentageScroll = 100) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (
-                    elementTop <=
-                    ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100))
-                );
-            };
-
-            const displayScrollElement = (element) => {
-                element.classList.add('animate');
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 70)) {
-                        displayScrollElement(el);
-                    }
-                });
-            };
-
-            // Throttle pour optimiser les performances
-            let throttleTimer;
-            const throttle = (callback, time) => {
-                if (throttleTimer) return;
-                throttleTimer = true;
-                setTimeout(() => {
-                    callback();
-                    throttleTimer = false;
-                }, time);
-            };
-
-            // Event listener pour le scroll
-            window.addEventListener('scroll', () => {
-                throttle(handleScrollAnimation, 250);
-            });
-
-            // Vérification initiale des éléments
-            handleScrollAnimation();
+            // On anime la barre de progression
+            $('.slide-progress').css({
+                width: '0%',
+                transition: 'none'
+            }).animate({
+                width: '100%'
+            }, 7000, 'linear');
         }
 
-        // Initialisation une fois que le DOM est chargé
-        document.addEventListener('DOMContentLoaded', handleScrollAnimations);
+        // Réinitialisation de la barre de progression
+        function resetProgressBar() {
+            $('.slide-progress').css({
+                width: '0%',
+                transition: 'width 0s'
+            });
+        }
+
+        // Effets de parallaxe au défilement
+        $(window).scroll(function() {
+            var scrollPosition = $(this).scrollTop();
+
+            // Parallaxe sur les images du slider
+            $('.slider-item img').css({
+                'transform': 'translateY(' + (scrollPosition * 0.15) + 'px)'
+            });
+        });
+
+        // Animation des textes au chargement
+        setTimeout(function() {
+            $('.slider-area .slider-item:first-child h1').addClass('animated');
+            $('.slider-area .slider-item:first-child p').addClass('animated');
+            $('.slider-area .slider-item:first-child a').addClass('animated');
+        }, 500);
+    });
+    </script>
+
+    <script>
+    AOS.init();
+
+
+    // Animation au scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll(
+            '.scroll-fade-left, .scroll-fade-right, .scroll-fade-top, .scroll-fade-bottom, .scroll-fade-center'
+        );
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+
+    // Animation au survol
+    document.querySelectorAll('.hover-animation').forEach(item => {
+        item.addEventListener('mouseover', () => {
+            item.classList.add('hovered');
+        });
+        item.addEventListener('mouseout', () => {
+            item.classList.remove('hovered');
+        });
+    });
+    </script>
+
+    <script>
+    // Fonction pour gérer les animations au défilement
+    function handleScrollAnimations() {
+        const scrollElements = document.querySelectorAll('.scroll-fade-left, .scroll-fade-right');
+
+        const elementInView = (el, percentageScroll = 100) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <=
+                ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100))
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('animate');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 70)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+
+        // Throttle pour optimiser les performances
+        let throttleTimer;
+        const throttle = (callback, time) => {
+            if (throttleTimer) return;
+            throttleTimer = true;
+            setTimeout(() => {
+                callback();
+                throttleTimer = false;
+            }, time);
+        };
+
+        // Event listener pour le scroll
+        window.addEventListener('scroll', () => {
+            throttle(handleScrollAnimation, 250);
+        });
+
+        // Vérification initiale des éléments
+        handleScrollAnimation();
+    }
+
+    // Initialisation une fois que le DOM est chargé
+    document.addEventListener('DOMContentLoaded', handleScrollAnimations);
     </script>
 
 </body>

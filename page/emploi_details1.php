@@ -8,8 +8,10 @@ require_once '../controller/MatchingController.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+
 // Fonction de log personnalisée
-function debug_log($message, $data = null) {
+function debug_log($message, $data = null)
+{
     $log = date('Y-m-d H:i:s') . " - " . $message;
     if ($data !== null) {
         $log .= "\nData: " . print_r($data, true);
@@ -28,23 +30,23 @@ debug_log("État de la session", [
 if (isset($_GET['id'])) {
     $offre_id = $_GET['id'];
     debug_log("ID de l'offre reçu", $offre_id);
-    
+
     try {
-    $details_offre = getDetails_emploi($db, $offre_id);
+        $details_offre = getDetails_emploi($db, $offre_id);
         debug_log("Détails de l'offre récupérés", $details_offre);
 
         // Si l'utilisateur est connecté, on analyse la compatibilité
         $compatibilite = null;
         if (isset($_SESSION['users_id'])) {
             debug_log("Tentative d'analyse de compatibilité pour l'utilisateur", $_SESSION['users_id']);
-            
+
             try {
                 $matchingController = new MatchingController($db);
                 debug_log("MatchingController initialisé");
-                
+
                 $compatibilite = $matchingController->analyserCompatibilite($_SESSION['users_id'], $offre_id);
                 debug_log("Résultat de l'analyse de compatibilité", $compatibilite);
-                
+
             } catch (Exception $e) {
                 debug_log("ERREUR lors de l'analyse de compatibilité", [
                     'message' => $e->getMessage(),
@@ -75,130 +77,279 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/emploi_details1.css">
-    <link rel="stylesheet" href="../css/compatibility_section.css">
+    <link rel="stylesheet" href="../api1/css/compatibility.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Détails de l'offre d'emploi</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/compatibility_section.js" defer></script>
 </head>
 
 <body>
-<?php include '../navbare.php'; ?>
+    <?php include '../navbare.php'; ?>
 
     <?php if (isset($details_offre)): ?>
-        <div class="containerBox">
-            <!-- Section de compatibilité -->
-            <?php if (isset($_SESSION['users_id']) && $compatibilite && isset($compatibilite['global_score'])): ?>
-                <?php
-                    // Logique pour les couleurs et textes dynamiques
-                    $score = round($compatibilite['global_score']);
-                    $score_color_class = 'score-red';
-                    if ($score >= 70) { $score_color_class = 'score-green'; } 
-                    elseif ($score >= 50) { $score_color_class = 'score-orange'; }
+    <div class="containerBox">
+        <!-- Section de compatibilité -->
+        <?php if (isset($_SESSION['users_id']) && $compatibilite && isset($compatibilite['score_global'])): ?>
+        <?php
+                // Logique pour les couleurs et textes dynamiques
+                $score = round($compatibilite['score_global']);
+                $score_class = $score >= 70 ? 'excellent' : ($score >= 50 ? 'good' : ($score >= 30 ? 'moderate' : 'low'));
+
+                // Extraction des compétences requises par l'offre mais manquantes
+                $competences_manquantes = [];
+                if (isset($compatibilite['analyse_detaillee']['competences']['elements_manquants'])) {
+                    foreach ($compatibilite['analyse_detaillee']['competences']['elements_manquants'] as $element) {
+                        $competences_manquantes[] = $element['description'];
+                    }
+                }
+
+                // Points communs (compétences correspondantes)
+                $competences_correspondantes = [];
+                if (isset($compatibilite['points_forts'])) {
+                    foreach ($compatibilite['points_forts'] as $point) {
+                        if ($point['categorie'] === 'competence') {
+                            $competences_correspondantes[] = $point['description'];
+                        }
+                    }
+                }
+
+                // Points à améliorer
+                $points_amelioration = [];
+                if (isset($compatibilite['points_amelioration'])) {
+                    foreach ($compatibilite['points_amelioration'] as $point) {
+                        $points_amelioration[] = $point['description'];
+                    }
+                }
+
+                // Suggestions
+                $suggestions = [];
+                if (isset($compatibilite['suggestions'])) {
+                    foreach ($compatibilite['suggestions'] as $suggestion) {
+                        $suggestions[] = $suggestion['description'];
+                    }
+                }
+
+                // Niveau d'étude et expérience
+                $niveau_etude = isset($compatibilite['niveau_etude']) ? $compatibilite['niveau_etude'] : 'Non spécifié';
+                $niveau_etude_valeur = isset($compatibilite['niveau_etude_valeur']) ? $compatibilite['niveau_etude_valeur'] : 0;
+
+                $niveau_experience = isset($compatibilite['niveau_experience']) ? $compatibilite['niveau_experience'] : 'Non spécifié';
+                $niveau_experience_valeur = isset($compatibilite['niveau_experience_valeur']) ? $compatibilite['niveau_experience_valeur'] : 0;
+
+                // Exigences de l'offre
+                $niveau_etude_requis = isset($details_offre['niveau_etude']) ? $details_offre['niveau_etude'] : 'Non spécifié';
+                $niveau_experience_requis = isset($details_offre['niveau_experience']) ? $details_offre['niveau_experience'] : 'Non spécifié';
+
+                // Vérifier si le niveau d'étude correspond
+                $etude_match = false;
+                if (preg_match('/bac\s*\+\s*(\d+)/i', $niveau_etude_requis, $matches)) {
+                    $niveau_requis = intval($matches[1]);
+                    $etude_match = $niveau_etude_valeur >= $niveau_requis;
+                }
+
+                // Vérifier si l'expérience correspond
+                $experience_match = false;
+                if (preg_match('/(\d+)\s*an/i', $niveau_experience_requis, $matches)) {
+                    $annees_requises = intval($matches[1]);
+                    $experience_match = $niveau_experience_valeur >= $annees_requises;
+                }
+
+                // Déterminer le message principal en fonction du score
+                if ($score >= 70) {
+                    $message_principal = "Votre profil est en excellente adéquation avec cette offre.";
+                } elseif ($score >= 50) {
+                    $message_principal = "Votre profil correspond globalement à cette offre, avec quelques points à améliorer.";
+                } elseif ($score >= 30) {
+                    $message_principal = "Votre profil présente une adéquation moyenne avec cette offre. Des améliorations significatives sont recommandées.";
+                } else {
+                    $message_principal = "Votre profil ne correspond pas suffisamment aux exigences de cette offre.";
+                }
                 ?>
-                <div class="compatibility-section new-design">
-                    <!-- Section Synthèse -->
-                    <div class="synthesis-section">
-                        <div class="score-display <?= $score_color_class ?>"><?= $score ?>%</div>
-                        <p class="synthesis-text"><?= htmlspecialchars($compatibilite['synthesis']) ?></p>
+
+        <div class="compatibility-analysis">
+            <div class="compatibility-header <?= $score_class ?>">
+                <h2>Analyse de compatibilité</h2>
+                <div class="score"><?= $score ?>%</div>
+                <div class="niveau">
+                    <?= $score >= 70 ? 'Excellente adéquation' : ($score >= 50 ? 'Bonne adéquation' : ($score >= 30 ? 'Adéquation moyenne' : 'Adéquation insuffisante')) ?>
+                </div>
+                <p class="resume"><?= htmlspecialchars($compatibilite['resume']) ?></p>
+            </div>
+
+            <div class="compatibility-content">
+                <section class="compatibility-summary">
+                    <h3>Synthèse de l'analyse</h3>
+                    <p class="main-message"><?= $message_principal ?></p>
+
+                    <div class="criteria-overview">
+                        <div class="criteria-item <?= $etude_match ? 'criteria-match' : 'criteria-mismatch' ?>">
+                            <h4><i class="fas fa-graduation-cap"></i> Formation</h4>
+                            <?php if ($etude_match): ?>
+                            <p class="criteria-status success"><i class="fas fa-check-circle"></i> Niveau d'études
+                                suffisant</p>
+                            <?php else: ?>
+                            <p class="criteria-status warning"><i class="fas fa-exclamation-triangle"></i> Niveau
+                                d'études à évaluer</p>
+                            <?php endif; ?>
+                            <p>Votre niveau : <?= htmlspecialchars($niveau_etude) ?></p>
+                            <?php if ($niveau_etude_requis !== "Non spécifié"): ?>
+                            <p>Requis : <?= htmlspecialchars($niveau_etude_requis) ?></p>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="criteria-item <?= $experience_match ? 'criteria-match' : 'criteria-mismatch' ?>">
+                            <h4><i class="fas fa-briefcase"></i> Expérience</h4>
+                            <?php if ($experience_match): ?>
+                            <p class="criteria-status success"><i class="fas fa-check-circle"></i> Expérience suffisante
+                            </p>
+                            <?php else: ?>
+                            <p class="criteria-status warning"><i class="fas fa-exclamation-triangle"></i> Expérience à
+                                évaluer</p>
+                            <?php endif; ?>
+                            <p>Votre expérience : <?= htmlspecialchars($niveau_experience) ?></p>
+                            <?php if ($niveau_experience_requis !== "Non spécifié"): ?>
+                            <p>Requis : <?= htmlspecialchars($niveau_experience_requis) ?></p>
+                            <?php endif; ?>
+                        </div>
                     </div>
+                </section>
 
-                    <!-- Grille des Cartes d'Analyse -->
-                    <div class="analysis-grid">
-                        <?php foreach ($compatibilite['analyses'] as $analysis): ?>
-                            <div class="analysis-card">
-                                <div class="card-header">
-                                    <h3><?= htmlspecialchars($analysis['titre']) ?></h3>
-                                    <span class="score"><?= htmlspecialchars($analysis['score']) ?>%</span>
-                                </div>
-                                <div class="card-body">
-                                    <h4><span class="icon icon-plus">&#10004;</span>Points Forts</h4>
-                                    <ul>
-                                        <?php if (!empty($analysis['points_forts'])): ?>
-                                            <?php foreach ($analysis['points_forts'] as $point): ?>
-                                                <li><?= htmlspecialchars($point) ?></li>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
-                                            <li class="no-items">Aucun point fort spécifique détecté.</li>
-                                        <?php endif; ?>
-                                    </ul>
-
-                                    <h4 style="margin-top: 1.5rem;"><span class="icon icon-minus">&#9888;</span>Axes d'Amélioration</h4>
-                                    <ul>
-                                        <?php if (!empty($analysis['points_faibles'])): ?>
-                                            <?php foreach ($analysis['points_faibles'] as $point): ?>
-                                                <li><?= htmlspecialchars($point) ?></li>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
-                                             <li class="no-items">Aucun axe d'amélioration direct.</li>
-                                        <?php endif; ?>
-                                    </ul>
-                                </div>
-                            </div>
+                <?php if (!empty($competences_correspondantes)): ?>
+                <section class="compatibility-strengths">
+                    <h3><i class="fas fa-star"></i> Points forts</h3>
+                    <ul>
+                        <?php foreach ($competences_correspondantes as $competence): ?>
+                        <li><i class="fas fa-check"></i> <?= htmlspecialchars($competence) ?></li>
                         <?php endforeach; ?>
-                    </div>
-                </div>
+                    </ul>
+                </section>
+                <?php endif; ?>
+
+                <?php if (!empty($competences_manquantes)): ?>
+                <section class="compatibility-gaps">
+                    <h3><i class="fas fa-exclamation-circle"></i> Compétences à développer</h3>
+                    <ul>
+                        <?php foreach ($competences_manquantes as $competence): ?>
+                        <li><i class="fas fa-times"></i> <?= htmlspecialchars($competence) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </section>
+                <?php endif; ?>
+
+                <?php if (!empty($suggestions)): ?>
+                <section class="compatibility-suggestions">
+                    <h3><i class="fas fa-lightbulb"></i> Recommandations</h3>
+                    <ul>
+                        <?php foreach ($suggestions as $suggestion): ?>
+                        <li><i class="fas fa-arrow-right"></i> <?= htmlspecialchars($suggestion) ?></li>
+                <?php endforeach; ?>
+                    </ul>
+                </section>
+                <?php endif; ?>
+
+                <section class="compatibility-conclusion">
+                    <h3><i class="fas fa-flag-checkered"></i> Conclusion</h3>
+                    <p>
+                        <?php if ($score >= 70): ?>
+                        <i class="fas fa-thumbs-up"></i> Votre profil correspond parfaitement à cette offre. N'hésitez
+                        pas à postuler !
+                        <?php elseif ($score >= 50): ?>
+                        <i class="fas fa-thumbs-up"></i> Votre profil est globalement adapté. Mettez en avant vos points
+                        forts !
+                        <?php elseif ($score >= 30): ?>
+                        <i class="fas fa-info-circle"></i> Quelques points à améliorer avant de postuler.
+                        <?php else: ?>
+                        <i class="fas fa-info-circle"></i> Cette offre ne correspond pas à votre profil actuel.
+                        <?php endif; ?>
+                    </p>
+                </section>
+            </div>
+        </div>
+        <?php else: ?>
+        <div class="compatibility-section">
+            <h2><i class="fas fa-chart-bar"></i> Analyse de compatibilité</h2>
+            <?php if (isset($_SESSION['users_id'])): ?>
+            <p class="error-message"><i class="fas fa-exclamation-triangle"></i> Veuillez compléter votre profil pour
+                voir l'analyse.</p>
             <?php else: ?>
-                 <div class="compatibility-section">
-                    <h2>Analyse de compatibilité</h2>
-                     <?php if(isset($_SESSION['users_id'])): ?>
-                        <p class="error-message">L'analyse de compatibilité n'a pas pu être effectuée. Veuillez compléter votre profil ou réessayer plus tard.</p>
-                     <?php else: ?>
-                        <p class="login-message"><a href="/connexion.php">Connectez-vous</a> pour voir votre compatibilité avec cette offre.</p>
-                     <?php endif; ?>
-                </div>
+            <p class="login-message"><i class="fas fa-user"></i> <a href="/connexion.php">Connectez-vous</a> pour voir
+                votre compatibilité.</p>
             <?php endif; ?>
+        </div>
+        <?php endif; ?>
 
-            <!-- Détails de l'offre existants -->
-        <div class="box1">
+        <!-- Détails de l'offre avec design amélioré -->
+        <div class="job-details">
+            <div class="job-header">
             <h1><?= htmlspecialchars($details_offre['titre'] ?? 'Titre non disponible') ?></h1>
-            <div><strong>Entreprise :</strong> <?= htmlspecialchars($details_offre['entreprise'] ?? 'Non spécifiée') ?></div>
-            <p><strong>Localisation :</strong> <?= htmlspecialchars($details_offre['localisation'] ?? 'Non spécifiée') ?></p>
-            <p><strong>Description de l'entreprise :</strong> <?= htmlspecialchars($details_offre['description_entreprise'] ?? 'Non fournie') ?></p>
-            <p><strong>Site internet :</strong> <a href="<?= htmlspecialchars($details_offre['site_internet'] ?? '#') ?>" target="_blank"><?= htmlspecialchars($details_offre['site_internet'] ?? 'Non fourni') ?></a></p>
-            <p><strong>Source :</strong> <?= htmlspecialchars($details_offre['source'] ?? 'Non spécifiée') ?></p>
-            <p><strong>Date de publication :</strong> <?= htmlspecialchars($details_offre['date_publication'] ?? 'Non spécifiée') ?></p>
+                <div class="company-info">
+                    <span><i class="fas fa-building"></i>
+                        <?= htmlspecialchars($details_offre['entreprise'] ?? 'Non spécifiée') ?></span>
+                    <span><i class="fas fa-map-marker-alt"></i>
+                        <?= htmlspecialchars($details_offre['localisation'] ?? 'Non spécifiée') ?></span>
+                </div>
+            </div>
+
+            <div class="job-content">
+                <div class="job-section">
+                    <h3><i class="fas fa-info-circle"></i> À propos de l'entreprise</h3>
+                    <p><?= htmlspecialchars($details_offre['description_entreprise'] ?? 'Non fournie') ?></p>
+                    <p><i class="fas fa-globe"></i> <a
+                    href="<?= htmlspecialchars($details_offre['site_internet'] ?? '#') ?>"
+                            target="_blank"><?= htmlspecialchars($details_offre['site_internet'] ?? 'Non fourni') ?></a>
+                    </p>
         </div>
 
-        <div>
-            <strong>Description du poste :</strong> <?= $details_offre['description_poste'] ?? 'Non fournie' ?>
-        </div>
-        <div>
-            <strong>Profil recherché :</strong> <?= $details_offre['profil_recherche'] ?? 'Non fourni' ?>
+                <div class="job-section">
+                    <h3><i class="fas fa-tasks"></i> Description du poste</h3>
+                    <div class="job-description"><?= $details_offre['description_poste'] ?? 'Non fournie' ?></div>
         </div>
 
-        <div class="box2">
-            <p><strong>Date de création :</strong> <?= htmlspecialchars($details_offre['date_creation'] ?? 'Non spécifiée') ?></p>
-            <p><strong>Niveau d'étude :</strong> <?= htmlspecialchars($details_offre['niveau_etude'] ?? 'Non spécifié') ?></p>
-            <p><strong>Niveau d'expérience :</strong> <?= htmlspecialchars($details_offre['niveau_experience'] ?? 'Non spécifié') ?></p>
-            <p><strong>Type de contrat :</strong> <?= htmlspecialchars($details_offre['type_contrat'] ?? 'Non spécifié') ?></p>
-            <p><strong>Compétences :</strong> <?= htmlspecialchars($details_offre['competences'] ?? 'Non spécifiées') ?></p>
-            <p><strong>Secteur d'activité :</strong> <?= htmlspecialchars($details_offre['secteur_activite'] ?? 'Non spécifié') ?></p>
+                <div class="job-section">
+                    <h3><i class="fas fa-user-tie"></i> Profil recherché</h3>
+                    <div class="job-profile"><?= $details_offre['profil_recherche'] ?? 'Non fourni' ?></div>
+        </div>
+
+                <div class="job-details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Date de création :</span>
+                        <strong><?= htmlspecialchars($details_offre['date_creation'] ?? 'Non spécifiée') ?></strong>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Niveau d'étude :</span>
+                        <strong><?= htmlspecialchars($details_offre['niveau_etude'] ?? 'Non spécifié') ?></strong>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Expérience :</span>
+                        <strong><?= htmlspecialchars($details_offre['niveau_experience'] ?? 'Non spécifié') ?></strong>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-file-contract"></i>
+                        <span>Type de contrat :</span>
+                        <strong><?= htmlspecialchars($details_offre['type_contrat'] ?? 'Non spécifié') ?></strong>
+                    </div>
         </div>
 
         <?php if (isset($_SESSION['users_id'])): ?>
-                <p><a class="liens" href="<?= $details_offre['lien_offre'] ?>">Postuler</a></p>
+                <div class="apply-section">
+                    <a class="apply-button" href="<?= $details_offre['lien_offre'] ?>">
+                        <i class="fas fa-paper-plane"></i> Postuler maintenant
+                    </a>
+                </div>
         <?php else: ?>
-            <p id="message">Vous devez vous connecter à un compte professionnel pour postuler à cette offre d'emploi.</p>
+                <p class="login-required">
+                    <i class="fas fa-lock"></i> Connectez-vous pour postuler à cette offre d'emploi
+                </p>
         <?php endif; ?>
+            </div>
         </div>
+    </div>
     <?php else: ?>
-        <?php debug_log("Aucun détail d'offre trouvé"); ?>
-        <p>Aucune offre trouvée.</p>
-<?php endif; ?>
-
-    <!-- Script de débogage -->
-    <script>
-    console.log('Chargement de la page de détails de l\'offre');
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM chargé');
-        const scoreCircle = document.querySelector('.score-circle');
-        if (scoreCircle) {
-            console.log('Score circle trouvé avec data-score:', scoreCircle.dataset.score);
-        } else {
-            console.log('Score circle non trouvé');
-        }
-    });
-    </script>
+    <?php debug_log("Aucun détail d'offre trouvé"); ?>
+    <p>Aucune offre trouvée.</p>
+    <?php endif; ?>
 </body>
 
 </html>

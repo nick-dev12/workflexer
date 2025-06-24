@@ -1,13 +1,33 @@
 @echo off
-echo Demarrage de l'API de matching...
+echo ===================================
+echo WorkFlexer Matching API - Démarrage
+echo ===================================
 
 REM Activation de l'environnement virtuel
-call venv\Scripts\activate.bat
+call env\Scripts\activate
 
-REM Lancement de l'API
-echo L'API sera accessible a l'adresse http://localhost:8000
-echo Pour arreter l'API, appuyez sur CTRL+C
-echo.
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+REM Vérification de l'activation
+if errorlevel 1 (
+    echo Erreur lors de l'activation de l'environnement virtuel.
+    echo Veuillez exécuter la commande suivante manuellement :
+    echo python -m venv env
+    echo env\Scripts\activate
+    echo pip install -r requirements.txt
+    exit /b 1
+)
+
+echo Environnement virtuel activé avec succès.
+
+REM Démarrage de l'API
+echo Démarrage de l'API...
+python main.py
+
+REM En cas d'erreur
+if errorlevel 1 (
+    echo Erreur lors du démarrage de l'API.
+    echo Veuillez vérifier les logs pour plus d'informations.
+    pause
+    exit /b 1
+)
 
 pause 

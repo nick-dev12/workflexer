@@ -1,0 +1,88 @@
+Metadata-Version: 2.4
+Name: workflexer-api
+Version: 2.0.0
+Summary: API de matching pour WorkFlexer
+Home-page: https://workflexer.com
+Author: WorkFlexer
+Author-email: contact@workflexer.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.68.0
+Requires-Dist: uvicorn>=0.15.0
+Requires-Dist: python-dotenv>=0.19.0
+Requires-Dist: sentence-transformers>=2.2.0
+Requires-Dist: scikit-learn>=0.24.0
+Requires-Dist: numpy>=1.19.0
+Requires-Dist: pandas>=1.3.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# WorkFlexer API de Matching
+
+API d'analyse de compatibilitÃ© entre profils de candidats et offres d'emploi.
+
+## Installation
+
+```bash
+pip install -e .
+```
+
+## Configuration
+
+1. CrÃ©er un fichier `.env` dans le dossier `api1` avec les variables suivantes :
+```
+API_KEY=votre_clÃ©_api
+MODEL_PATH=chemin_vers_le_modÃ¨le
+```
+
+2. Installer les dÃ©pendances :
+```bash
+pip install -r requirements.txt
+```
+
+## Utilisation
+
+1. DÃ©marrer l'API :
+```bash
+uvicorn main:app --reload
+```
+
+2. AccÃ©der Ã  la documentation :
+- Swagger UI : http://localhost:8000/docs
+- ReDoc : http://localhost:8000/redoc
+
+## Structure du projet
+
+```
+api1/
+â”œâ”€â”€ __init__.py
+â”œâ”€â”€ main.py
+â”œâ”€â”€ config.py
+â”œâ”€â”€ models.py
+â”œâ”€â”€ utils.py
+â”œâ”€â”€ tests/
+â””â”€â”€ README.md
+```
+
+## FonctionnalitÃ©s
+
+- Analyse de compatibilitÃ© entre profils et offres
+- Extraction de mots-clÃ©s
+- Suggestions personnalisÃ©es
+- Analyse dÃ©taillÃ©e par catÃ©gorie
+- Support multilingue

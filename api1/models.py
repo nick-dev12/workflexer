@@ -1,7 +1,7 @@
 """
 Modèles de données pour l'API de matching
 """
-from typing import List, Optional, Dict, Union
+from typing import List, Optional, Dict, Union, Any
 from pydantic import BaseModel, Field, validator
 from datetime import datetime
 
@@ -109,10 +109,13 @@ class CandidatProfile(BaseModel):
     github_username: Optional[str] = None
     niveau_etude: Optional[str] = None
     niveau_experience: Optional[str] = None
+    niveau_etude_valeur: Optional[int] = None
+    niveau_experience_valeur: Optional[int] = None
 
 
 class ExigenceFormation(BaseModel):
     niveau_minimum: str = "Non spécifié"
+    niveau_valeur: int = 0
     domaines_acceptes: List[str] = Field(default_factory=list)
     formation_obligatoire: bool = False
     formations_alternatives: List[str] = Field(default_factory=list)
@@ -121,6 +124,7 @@ class ExigenceFormation(BaseModel):
 
 
 class ExigenceExperience(BaseModel):
+    niveau: str = "Non spécifié"
     duree_minimum_mois: int = 0
     secteurs_acceptes: List[str] = Field(default_factory=list)
     competences_requises: List[str] = Field(default_factory=list)
@@ -212,7 +216,138 @@ class ProfileCompletionScore(BaseModel):
     details: ProfileCompletionDetails
 
 
+# Nouveaux modèles pour une meilleure structuration des résultats
+
+class PointFort(BaseModel):
+    """Représente un point fort du candidat par rapport à l'offre"""
+    description: str
+    categorie: str  # formation, experience, competence, langue
+    importance: str = "normal"  # critique, important, normal
+    details: Optional[str] = None
+    impact_score: Optional[float] = None  # Impact sur le score global (0-1)
+
+
+class PointAmelioration(BaseModel):
+    """Représente un point à améliorer pour le candidat"""
+    description: str
+    categorie: str  # formation, experience, competence, langue
+    priorite: str = "normale"  # haute, moyenne, normale
+    suggestion: Optional[str] = None
+    impact_potentiel: Optional[float] = None  # Impact potentiel sur le score (0-1)
+    ressources: Optional[List[Dict[str, str]]] = None  # Ressources pour s'améliorer
+
+
+class CorrespondanceItem(BaseModel):
+    """Élément de correspondance entre le profil et l'offre"""
+    element_profil: str
+    element_offre: str
+    niveau_correspondance: float  # 0 à 1
+    categorie: str  # formation, experience, competence, langue
+    details_correspondance: Optional[str] = None
+    similarite_semantique: Optional[float] = None  # Pour les correspondances sémantiques
+
+
+class ElementManquant(BaseModel):
+    """Élément requis par l'offre mais absent du profil"""
+    description: str
+    categorie: str
+    importance: str = "normale"  # critique, importante, normale
+    suggestion_acquisition: Optional[str] = None
+    impact_sur_score: Optional[float] = None  # Impact sur le score global (0-1)
+    difficulte_acquisition: Optional[str] = None  # facile, modérée, difficile
+
+
+class AnalyseCategorielle(BaseModel):
+    """Analyse détaillée d'une catégorie (formation, expérience, etc.)"""
+    categorie: str
+    score: float
+    elements_correspondants: List[CorrespondanceItem] = Field(default_factory=list)
+    elements_manquants: List[ElementManquant] = Field(default_factory=list)
+    points_forts: List[str] = Field(default_factory=list)
+    points_amelioration: List[str] = Field(default_factory=list)
+    resume: str = ""
+    poids_dans_score_global: Optional[float] = None  # Poids de cette catégorie (0-1)
+    details_techniques: Optional[Dict[str, Any]] = None  # Détails techniques supplémentaires
+
+
+class AnalyseDetaillee(BaseModel):
+    """Analyse détaillée de la compatibilité"""
+    formation: AnalyseCategorielle
+    experience: AnalyseCategorielle
+    competences: AnalyseCategorielle
+    langues: AnalyseCategorielle
+    facteurs_bonus: Optional[Dict[str, float]] = None  # Facteurs bonus (ex: mobilité)
+    facteurs_malus: Optional[Dict[str, float]] = None  # Facteurs malus (ex: disponibilité)
+
+
+class Suggestion(BaseModel):
+    """Suggestion d'amélioration pour le candidat"""
+    categorie: str
+    description: str
+    priorite: str = "normale"  # haute, moyenne, normale
+    impact_estime: str = "moyen"  # fort, moyen, faible
+    ressources_recommandees: Optional[List[Dict[str, str]]] = None
+    temps_acquisition_estime: Optional[str] = None  # court, moyen, long terme
+    cout_acquisition_estime: Optional[str] = None  # faible, modéré, élevé
+
+
+class ContexteAnalyse(BaseModel):
+    """Contexte de l'analyse effectuée"""
+    timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())
+    version_api: str = "2.0.0"
+    niveau_confiance: str = "haute"
+    modeles_utilises: Optional[Dict[str, str]] = None  # Modèles NLP utilisés
+    parametres_analyse: Optional[Dict[str, Any]] = None  # Paramètres utilisés
+    temps_analyse_ms: Optional[int] = None  # Temps d'analyse en millisecondes
+    source_donnees: Optional[str] = None  # Source des données analysées
+
+
+class MatchingResponseV2(BaseModel):
+    """Nouvelle version du modèle de réponse pour l'API"""
+    score_global: float
+    niveau_adequation: str  # Excellent, Bon, Moyen, À améliorer
+    resume: str
+    points_forts: List[PointFort] = Field(default_factory=list)
+    points_amelioration: List[PointAmelioration] = Field(default_factory=list)
+    analyse_detaillee: AnalyseDetaillee
+    suggestions: List[Suggestion] = Field(default_factory=list)
+    contexte_analyse: ContexteAnalyse = Field(default_factory=ContexteAnalyse)
+    
+    # Nouvelles sections pour une analyse plus détaillée
+    competences_correspondantes: Optional[List[Dict[str, Any]]] = None
+    competences_manquantes: Optional[List[Dict[str, Any]]] = None
+    niveau_etude_analyse: Optional[Dict[str, Any]] = None
+    niveau_experience_analyse: Optional[Dict[str, Any]] = None
+    compatibilite_sectorielle: Optional[Dict[str, Any]] = None
+    compatibilite_geographique: Optional[Dict[str, Any]] = None
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "score_global": 75.5,
+                "niveau_adequation": "Bon",
+                "resume": "Votre profil correspond à 75.5%, ce qui représente une bonne adéquation avec cette offre...",
+                "points_forts": [
+                    {
+                        "description": "Niveau d'études supérieur au minimum requis (Bac+5 vs Bac+3)",
+                        "categorie": "formation",
+                        "importance": "important"
+                    }
+                ],
+                "points_amelioration": [
+                    {
+                        "description": "Développer la compétence en gestion de contrats",
+                        "categorie": "competence",
+                        "priorite": "haute",
+                        "suggestion": "Suivre une formation spécialisée en droit des contrats"
+                    }
+                ]
+            }
+        }
+
+
 class MatchingResponse(BaseModel):
+    """Modèle de réponse pour l'API (version actuelle)"""
     global_score: float
     completion: ProfileCompletionScore
     analyses: Dict[str, ReportSection]
@@ -225,3 +360,35 @@ class MatchingResponse(BaseModel):
             "niveau_confiance": "haute"
         }
     ) 
+    # Nouveaux champs pour une meilleure structuration
+    resume_correspondance: Optional[str] = None
+    atouts_majeurs: List[Dict[str, str]] = Field(default_factory=list)
+    elements_manquants: List[Dict[str, str]] = Field(default_factory=list)
+    suggestions_amelioration: List[Dict[str, str]] = Field(default_factory=list)
+    correspondances_detaillees: Optional[Dict[str, List[Dict[str, Any]]]] = None
+
+
+# Options avancées pour l'analyse
+class AnalysisOptions(BaseModel):
+    """Options avancées pour personnaliser l'analyse"""
+    poids_formation: float = 0.25
+    poids_experience: float = 0.30
+    poids_competences: float = 0.35
+    poids_langues: float = 0.10
+    seuil_similarite_semantique: float = 0.75
+    activer_analyse_semantique: bool = True
+    activer_suggestions_personnalisees: bool = True
+    niveau_detail_analyse: str = "complet"  # simple, standard, complet
+    inclure_ressources_apprentissage: bool = False
+    max_suggestions: int = 5
+    max_points_forts: int = 5
+    max_points_amelioration: int = 5
+    mode_strict: bool = False  # Mode strict pour l'évaluation des critères obligatoires
+
+
+# Requête avec options avancées
+class MatchingRequestV2(BaseModel):
+    """Requête d'analyse avec options avancées"""
+    candidate: CandidatProfile
+    job_offer: JobOffer
+    options: Optional[AnalysisOptions] = Field(default_factory=AnalysisOptions) 

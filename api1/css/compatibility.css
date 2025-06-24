@@ -1,208 +1,217 @@
 /**
- * Styles pour l'affichage des résultats de compatibilité
- * API de matching WorkFlexer
+ * Styles pour l'affichage des résultats d'analyse de compatibilité
+ * WorkFlexer - API de matching - Version texte explicative
  */
 
-.compatibility-section {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+/* Variables de couleurs modernes et élégantes */
+:root {
+    --color-excellent: #2ecc71;
+    --color-good: #3498db;
+    --color-moderate: #f39c12;
+    --color-low: #e74c3c;
+    --color-bg-light: #f5f6fa;
+    --color-bg-white: #ffffff;
+    --color-text-dark: #2c3e50;
+    --color-text-muted: #7f8c8d;
+    --color-border-light: #ecf0f1;
+    --color-success-light: #d5f5e3;
+    --color-warning-light: #fef5e7;
+    --color-success-dark: #27ae60;
+    --color-warning-dark: #d35400;
 }
 
-.compatibility-section h2 {
-  color: #333;
-  margin-bottom: 1.5rem;
+/* Conteneur principal plus compact */
+.compatibility-analysis {
+    font-family: 'Roboto', Arial, sans-serif;
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 0;
+    background-color: var(--color-bg-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* En-tête avec design moderne */
+.compatibility-header {
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
   text-align: center;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
 
-.compatibility-results h3 {
-  margin-top: 0;
-  color: #333;
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.compatibility-header h2 {
   font-size: 22px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 10px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
 }
 
-.compatibility-results h4 {
-  font-size: 18px;
-  color: #444;
-  margin: 15px 0 10px;
+.compatibility-header .score {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Score global */
-.compatibility-score {
-  text-align: center;
-  margin-bottom: 2rem;
+.compatibility-header .niveau {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.score-circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 10px solid #e9ecef;
-  margin: 0 auto 1rem;
-  position: relative;
-  transition: all 0.3s ease;
+.compatibility-header .resume {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
 }
 
-.score-circle::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 10px solid transparent;
-  border-top-color: #4caf50;
-  transform: rotate(-90deg);
-  transition: all 0.3s ease;
+/* Classes de couleur avec gradients modernes */
+.compatibility-header.excellent {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
 }
 
-.score-value {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
+.compatibility-header.good {
+    background: linear-gradient(135deg, #3498db, #2980b9);
 }
 
-.compatibility-message {
-  font-size: 20px;
-  margin: 0;
-  color: #555;
-  line-height: 1.4;
+.compatibility-header.moderate {
+    background: linear-gradient(135deg, #f39c12, #d35400);
 }
 
-/* Scores par catégorie */
-.detailed-scores {
-  margin-bottom: 2rem;
+.compatibility-header.low {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
 }
 
-.detailed-scores h3 {
-  color: #555;
-  margin-bottom: 1rem;
+/* Contenu principal plus compact */
+.compatibility-content {
+    padding: 20px;
+    background-color: var(--color-bg-white);
 }
 
-.detailed-scores ul {
-  list-style: none;
-  padding: 0;
+/* Sections plus compactes */
+.compatibility-content section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-border-light);
 }
 
-.detailed-scores li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+.compatibility-content h3 {
+    font-size: 18px;
+    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-border-light);
 }
 
-.category {
-  width: 150px;
-  font-weight: 500;
+.compatibility-content h4 {
+    font-size: 16px;
+    margin: 15px 0 8px 0;
 }
 
-.progress-bar {
-  flex: 1;
-  height: 10px;
-  background: #e9ecef;
-  border-radius: 5px;
-  margin: 0 1rem;
-  overflow: hidden;
+.compatibility-content p {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    line-height: 1.5;
 }
 
-.progress {
-  height: 100%;
-  background: #4caf50;
-  border-radius: 5px;
-  transition: width 0.3s ease;
+/* Critères de formation et expérience */
+.criteria-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.score {
-  width: 50px;
-  text-align: right;
+.criteria-item {
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
 }
 
-/* Points forts et à améliorer */
-.strengths,
-.improvements {
-  margin-bottom: 1.5rem;
+.criteria-item:hover {
+    transform: translateY(-2px);
 }
 
-.strengths h3 {
-  color: #4caf50;
+.criteria-match {
+    background-color: var(--color-success-light);
+    border-left: 3px solid var(--color-excellent);
 }
 
-.improvements h3 {
-  color: #f44336;
+.criteria-mismatch {
+    background-color: var(--color-warning-light);
+    border-left: 3px solid var(--color-moderate);
 }
 
-.strengths ul,
-.improvements ul {
-  list-style: none;
-  padding-left: 1.5rem;
+/* Listes plus compactes */
+.compatibility-content ul {
+    margin: 10px 0;
 }
 
-.strengths li,
-.improvements li {
-  margin-bottom: 0.5rem;
-  position: relative;
+.compatibility-content li {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background-color: var(--color-bg-light);
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
 }
 
-.strengths li::before {
-  content: "✓";
-  color: #4caf50;
-  position: absolute;
-  left: -1.5rem;
+.compatibility-content li:hover {
+    background-color: #eef2f7;
 }
 
-.improvements li::before {
-  content: "!";
-  color: #f44336;
-  position: absolute;
-  left: -1.5rem;
+/* Icônes avec animations */
+.compatibility-content li i {
+    margin-right: 8px;
+    transition: transform 0.2s ease;
 }
 
-/* Message d'erreur */
-.error-message {
+.compatibility-content li:hover i {
+    transform: scale(1.1);
+}
+
+/* Section conclusion */
+.compatibility-conclusion {
+    background-color: var(--color-bg-light);
   padding: 15px;
-  background-color: #ffebee;
-  color: #c62828;
-  border-radius: 4px;
-  margin: 20px 0;
-  border-left: 4px solid #c62828;
+    border-radius: 6px;
+    margin-top: 20px;
 }
 
-/* Responsive */
+.compatibility-conclusion p {
+    font-size: 15px;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
-  .compatibility-score {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .score-circle {
-    margin-bottom: 15px;
-  }
-
-  .strengths-improvements {
-    flex-direction: column;
-  }
-
-  .strengths,
-  .improvements {
-    margin-bottom: 15px;
-  }
-}
-
-/* Animation du cercle de score */
-@keyframes fillCircle {
-  from {
-    stroke-dasharray: 0 100;
-  }
-  to {
-    stroke-dasharray: var(--score) 100;
+    .compatibility-analysis {
+        margin: 10px;
+    }
+    
+    .compatibility-header {
+        padding: 15px;
+    }
+    
+    .compatibility-header .score {
+        font-size: 32px;
+    }
+    
+    .compatibility-content {
+        padding: 15px;
+    }
+    
+    .criteria-overview {
+        grid-template-columns: 1fr;
   }
 }

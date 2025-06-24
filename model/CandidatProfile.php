@@ -7,11 +7,13 @@ require_once(__DIR__ . '/metier_users.php');
 require_once(__DIR__ . '/outil_users.php');
 require_once(__DIR__ . '/langue_users.php');
 
-class CandidatProfile {
+class CandidatProfile
+{
     private $db;
     private $users_id;
 
-    public function __construct($db, $users_id) {
+    public function __construct($db, $users_id)
+    {
         $this->db = $db;
         $this->users_id = $users_id;
     }
@@ -20,7 +22,8 @@ class CandidatProfile {
      * Récupère toutes les informations du profil candidat
      * @return array
      */
-    public function getFullProfile() {
+    public function getFullProfile()
+    {
         try {
             // Informations de base du candidat
             $basicInfo = $this->getBasicInfo();
@@ -57,7 +60,8 @@ class CandidatProfile {
     /**
      * Récupère les informations de base du candidat
      */
-    private function getBasicInfo() {
+    private function getBasicInfo()
+    {
         $sql = "SELECT id, nom, mail, phone, ville, profession, categorie, images 
                 FROM users WHERE id = :users_id";
         $stmt = $this->db->prepare($sql);
@@ -69,29 +73,38 @@ class CandidatProfile {
     /**
      * Récupère le niveau d'étude et d'expérience
      */
-    private function getNiveauEtudeExperience() {
-        $sql = "SELECT etude, experience, n_etude, n_experience 
-                FROM niveau_etude WHERE users_id = :users_id";
+    public function getNiveauEtudeExperience(): array
+    {
+        $sql = "SELECT etude, experience, n_etude, n_experience FROM niveau_etude WHERE users_id = :users_id ORDER BY date DESC LIMIT 1";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':users_id', $this->users_id);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return [
+            'niveau_etude' => $result['etude'] ?? 'Non spécifié',
+            'niveau_experience' => $result['experience'] ?? 'Non spécifié',
+            'niveau_etude_valeur' => $result['n_etude'] ?? 0,
+            'niveau_experience_valeur' => $result['n_experience'] ?? 0
+        ];
     }
 
     /**
      * Formate les données pour l'API de matching
      */
-    public function formatForMatching() {
+    public function formatForMatching()
+    {
         $profile = $this->getFullProfile();
-        if (!$profile) return null;
+        if (!$profile)
+            return null;
 
         // Formatage des compétences
-        $competences = array_map(function($comp) {
+        $competences = array_map(function ($comp) {
             return $comp['competence'];
         }, $profile['competences']['all']);
 
         // Formatage des formations
-        $formations = array_map(function($form) {
+        $formations = array_map(function ($form) {
             return [
                 'diplome' => $form['Filiere'],
                 'etablissement' => $form['etablissement'],
@@ -103,7 +116,7 @@ class CandidatProfile {
         }, $profile['formations']);
 
         // Formatage des expériences
-        $experiences = array_map(function($exp) {
+        $experiences = array_map(function ($exp) {
             return [
                 'poste' => $exp['metier'],
                 'entreprise' => null,
@@ -115,7 +128,7 @@ class CandidatProfile {
         }, $profile['experiences']['all']);
 
         // Formatage des langues
-        $langues = array_map(function($langue) {
+        $langues = array_map(function ($langue) {
             return [
                 'nom' => $langue['langue'],
                 'niveau' => $this->normalizeLanguageLevel($langue['niveau'])
@@ -123,7 +136,7 @@ class CandidatProfile {
         }, $profile['langues']);
 
         // Formatage des outils
-        $outils = array_map(function($outil) {
+        $outils = array_map(function ($outil) {
             return $outil['outil'];
         }, $profile['outils']);
 
@@ -140,6 +153,19 @@ class CandidatProfile {
             $description = $profile['description'];
         }
 
+        // Récupérer les niveaux d'étude et d'expérience
+        $niveau_etude = null;
+        $niveau_etude_valeur = null;
+        $niveau_experience = null;
+        $niveau_experience_valeur = null;
+
+        if (isset($profile['niveau']) && is_array($profile['niveau'])) {
+            $niveau_etude = isset($profile['niveau']['etude']) ? $profile['niveau']['etude'] : null;
+            $niveau_etude_valeur = isset($profile['niveau']['n_etude']) ? intval($profile['niveau']['n_etude']) : null;
+            $niveau_experience = isset($profile['niveau']['experience']) ? $profile['niveau']['experience'] : null;
+            $niveau_experience_valeur = isset($profile['niveau']['n_experience']) ? intval($profile['niveau']['n_experience']) : null;
+        }
+
         return [
             'id' => $profile['id'],
             'nom' => $nom,
@@ -153,14 +179,19 @@ class CandidatProfile {
             'experiences' => $experiences,
             'langues' => $langues,
             'outils' => $outils,
-            'certifications' => []
+            'certifications' => [],
+            'niveau_etude' => $niveau_etude,
+            'niveau_etude_valeur' => $niveau_etude_valeur,
+            'niveau_experience' => $niveau_experience,
+            'niveau_experience_valeur' => $niveau_experience_valeur
         ];
     }
 
     /**
      * Calcule la durée d'une expérience en années
      */
-    private function calculateDuration($debut, $fin, $en_cours) {
+    private function calculateDuration($debut, $fin, $en_cours)
+    {
         $fin = $en_cours ? date('Y') : $fin;
         return floatval($fin) - floatval($debut);
     }
@@ -168,7 +199,8 @@ class CandidatProfile {
     /**
      * Normalise le niveau de langue selon les standards
      */
-    private function normalizeLanguageLevel($niveau) {
+    private function normalizeLanguageLevel($niveau)
+    {
         $niveaux = [
             'Débutant' => 'Débutant',
             'Intermédiaire' => 'Intermédiaire',
@@ -176,7 +208,7 @@ class CandidatProfile {
             'Courant' => 'Courant',
             'Natif' => 'Natif'
         ];
-        
+
         return $niveaux[$niveau] ?? 'Intermédiaire';
     }
-} 
+}

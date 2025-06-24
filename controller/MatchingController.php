@@ -2,17 +2,20 @@
 require_once(__DIR__ . '/../model/CandidatProfile.php');
 require_once(__DIR__ . '/../model/OffreEmploi.php');
 
-class MatchingController {
+class MatchingController
+{
     private $db;
-    private $api_url = "http://localhost:8000/analyser";
+    private $api_url = "http://localhost:8000/analyze/v2";
     private $debug = true;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
         $this->log("MatchingController initialisé");
     }
 
-    private function log($message, $data = null) {
+    private function log($message, $data = null)
+    {
         if ($this->debug) {
             $log = date('Y-m-d H:i:s') . " - " . $message;
             if ($data !== null) {
@@ -22,18 +25,19 @@ class MatchingController {
         }
     }
 
-    private function formatCompetence($competence) {
+    private function formatCompetence($competence)
+    {
         // Si c'est une chaîne simple, la convertir en tableau associatif
         if (is_string($competence)) {
             $competence = ['competence' => $competence, 'mis_en_avant' => 0];
         }
-        
+
         // Normalisation du nom de la compétence
         $nom = strtolower(trim($competence['competence']));
-        
+
         // Définir un niveau par défaut basé sur mis_en_avant
         $niveau = isset($competence['mis_en_avant']) && $competence['mis_en_avant'] ? 4 : 3;
-        
+
         return [
             'nom' => $nom,
             'niveau' => $niveau,
@@ -41,35 +45,73 @@ class MatchingController {
         ];
     }
 
-    private function extractCompetencesFromText($text) {
+    private function extractCompetencesFromText($text)
+    {
         if (empty($text)) {
             return [];
         }
-        
+
         $competences = [];
-        
+
         // Liste des mots-clés techniques courants
         $keywords = [
             // Langages de programmation
-            'php', 'python', 'javascript', 'java', 'c++', 'ruby', 'swift',
+            'php',
+            'python',
+            'javascript',
+            'java',
+            'c++',
+            'ruby',
+            'swift',
             // Frameworks
-            'laravel', 'symfony', 'django', 'flask', 'react', 'angular', 'vue',
+            'laravel',
+            'symfony',
+            'django',
+            'flask',
+            'react',
+            'angular',
+            'vue',
             // Base de données
-            'mysql', 'postgresql', 'mongodb', 'sql', 'nosql', 'oracle',
+            'mysql',
+            'postgresql',
+            'mongodb',
+            'sql',
+            'nosql',
+            'oracle',
             // CMS
-            'wordpress', 'drupal', 'joomla',
+            'wordpress',
+            'drupal',
+            'joomla',
             // Outils
-            'git', 'docker', 'kubernetes', 'jenkins', 'aws', 'azure',
+            'git',
+            'docker',
+            'kubernetes',
+            'jenkins',
+            'aws',
+            'azure',
             // Méthodologies
-            'agile', 'scrum', 'devops',
+            'agile',
+            'scrum',
+            'devops',
             // Autres compétences techniques
-            'api', 'rest', 'soap', 'html', 'css', 'sass', 'less',
-            'jquery', 'bootstrap', 'tailwind', 'nodejs', 'npm', 'webpack'
+            'api',
+            'rest',
+            'soap',
+            'html',
+            'css',
+            'sass',
+            'less',
+            'jquery',
+            'bootstrap',
+            'tailwind',
+            'nodejs',
+            'npm',
+            'webpack'
         ];
-        
+
         // Convertir le texte en minuscules pour la comparaison
         $text = strtolower($text);
-        
+
         // Rechercher chaque mot-clé dans le texte
         foreach ($keywords as $keyword) {
             if (strpos($text, $keyword) !== false) {
@@ -80,13 +122,14 @@ class MatchingController {
                 ];
             }
         }
-        
+
         return array_unique($competences, SORT_REGULAR);
     }
 
-    private function getAllCompetences($candidatData) {
+    private function getAllCompetences($candidatData)
+    {
         $competences = [];
-        
+
         // Compétences déclarées
         if (isset($candidatData['competences']) && is_array($candidatData['competences'])) {
             foreach ($candidatData['competences'] as $comp) {
@@ -100,13 +143,13 @@ class MatchingController {
                 }
             }
         }
-        
+
         // Extraire les compétences de la description
         if (!empty($candidatData['description'])) {
-            $description_text = is_array($candidatData['description']) ? 
-                              ($candidatData['description']['description'] ?? '') : 
-                              $candidatData['description'];
-            
+            $description_text = is_array($candidatData['description']) ?
+                ($candidatData['description']['description'] ?? '') :
+                $candidatData['description'];
+
             if (!empty($description_text)) {
                 $competences = array_merge(
                     $competences,
@@ -114,7 +157,7 @@ class MatchingController {
                 );
             }
         }
-        
+
         // Extraire les compétences des expériences
         if (isset($candidatData['experiences']) && is_array($candidatData['experiences'])) {
             foreach ($candidatData['experiences'] as $exp) {
@@ -126,7 +169,7 @@ class MatchingController {
                 }
             }
         }
-        
+
         // Extraire les compétences des formations
         if (isset($candidatData['formations']) && is_array($candidatData['formations'])) {
             foreach ($candidatData['formations'] as $formation) {
@@ -138,7 +181,7 @@ class MatchingController {
                 }
             }
         }
-        
+
         // Supprimer les doublons en conservant la version avec le niveau le plus élevé
         $uniqueCompetences = [];
         foreach ($competences as $comp) {
@@ -147,11 +190,12 @@ class MatchingController {
                 $uniqueCompetences[$nom] = $comp;
             }
         }
-        
+
         return array_values($uniqueCompetences);
     }
 
-    private function formatFormation($formation) {
+    private function formatFormation($formation)
+    {
         return [
             "niveau" => $formation['niveau'],
             "domaine" => $formation['diplome'] ?? "Non spécifié",
@@ -161,7 +205,8 @@ class MatchingController {
         ];
     }
 
-    private function formatExperience($experience) {
+    private function formatExperience($experience)
+    {
         // Extraire les compétences du texte de description
         $competences = [];
         if (!empty($experience['description'])) {
@@ -188,7 +233,8 @@ class MatchingController {
         ];
     }
 
-    private function formatLangue($langue) {
+    private function formatLangue($langue)
+    {
         $niveaux_mapping = [
             "Débutant" => "A1",
             "Intermédiaire" => "B1",
@@ -204,13 +250,14 @@ class MatchingController {
         ];
     }
 
-    private function formatOffreEmploi($offre) {
+    private function formatOffreEmploi($offre)
+    {
         // Formater les compétences requises
         $competences_requises = [];
-        
+
         // Ajouter les compétences explicitement listées
         if (!empty($offre['competences'])) {
-            $competences_listees = array_map(function($comp) {
+            $competences_listees = array_map(function ($comp) {
                 return [
                     "nom" => strtolower(trim($comp)),
                     "niveau" => 3,
@@ -219,12 +266,12 @@ class MatchingController {
             }, explode(',', $offre['competences']));
             $competences_requises = array_merge($competences_requises, $competences_listees);
         }
-        
+
         // Ajouter les compétences extraites de la description
         if (!empty($offre['competences_requises'])) {
             $competences_requises = array_merge($competences_requises, $offre['competences_requises']);
         }
-        
+
         // Supprimer les doublons
         $competences_uniques = [];
         foreach ($competences_requises as $comp) {
@@ -235,19 +282,42 @@ class MatchingController {
         }
         $competences_requises = array_values($competences_uniques);
 
+        // Extraire le niveau d'étude requis et sa valeur numérique
+        $niveau_etude = $offre['niveau_etude'] ?? "Non spécifié";
+        $niveau_etude_valeur = 0;
+
+        if (preg_match('/bac\s*\+\s*(\d+)/i', $niveau_etude, $matches)) {
+            $niveau_etude_valeur = intval($matches[1]);
+        } elseif (stripos($niveau_etude, 'bac') !== false) {
+            $niveau_etude_valeur = 0;
+        } elseif (stripos($niveau_etude, 'licence') !== false) {
+            $niveau_etude_valeur = 3;
+        } elseif (stripos($niveau_etude, 'master') !== false) {
+            $niveau_etude_valeur = 5;
+        } elseif (stripos($niveau_etude, 'doctorat') !== false) {
+            $niveau_etude_valeur = 8;
+        }
+
         // Exigences de formation
         $formation_requise = [
-            "niveau_minimum" => $offre['niveau_etude'] ?? "Non spécifié",
+            "niveau_minimum" => $niveau_etude,
+            "niveau_valeur" => $niveau_etude_valeur,
             "domaines_acceptes" => !empty($offre['secteur_activite']) ? array_map('trim', explode(',', $offre['secteur_activite'])) : [],
             "formation_obligatoire" => strpos(strtolower($offre['profil_recherche'] ?? ''), 'obligatoire') !== false
         ];
 
         // Exigences d'expérience
-        preg_match('/(\d+)\s*an/i', $offre['niveau_experience'] ?? '', $matches);
-        $duree_minimum_mois = isset($matches[1]) ? intval($matches[1]) * 12 : 0;
+        $niveau_experience = $offre['niveau_experience'] ?? "Non spécifié";
+        $duree_minimum_mois = 0;
+
+        if (preg_match('/(\d+)\s*an/i', $niveau_experience, $matches)) {
+            $duree_minimum_mois = intval($matches[1]) * 12;
+        }
 
         $experience_requise = [
+            "niveau" => $niveau_experience,
             "duree_minimum_mois" => $duree_minimum_mois,
+            "annees" => $duree_minimum_mois / 12,
             "secteurs_acceptes" => !empty($offre['secteur_activite']) ? array_map('trim', explode(',', $offre['secteur_activite'])) : [],
             "competences_requises" => array_column($competences_requises, 'nom')
         ];
@@ -272,7 +342,8 @@ class MatchingController {
      * @param int $offre_id
      * @return array|null
      */
-    public function analyserCompatibilite($users_id, $offre_id) {
+    public function analyserCompatibilite($users_id, $offre_id)
+    {
         try {
             $this->log("Début de l'analyse de compatibilité", [
                 'users_id' => $users_id,
@@ -287,6 +358,11 @@ class MatchingController {
                 throw new Exception("Impossible de récupérer les données du candidat");
             }
 
+            // Récupération des niveaux d'études et d'expérience
+            $niveaux = $candidatProfile->getNiveauEtudeExperience();
+            $candidatData['niveau_etude'] = $niveaux['niveau_etude'];
+            $candidatData['niveau_experience'] = $niveaux['niveau_experience'];
+
             // Enrichir les compétences avec l'extraction depuis les descriptions
             $candidatData['competences'] = $this->getAllCompetences($candidatData);
 
@@ -299,7 +375,9 @@ class MatchingController {
                 "langues" => array_map([$this, 'formatLangue'], $candidatData['langues']),
                 "centres_interet" => [],
                 "projets" => [],
-                "disponibilite" => "Immédiate"
+                "disponibilite" => "Immédiate",
+                "niveau_etude" => $candidatData['niveau_etude'],
+                "niveau_experience" => $candidatData['niveau_experience']
             ];
 
             // Récupération des données de l'offre
@@ -333,7 +411,7 @@ class MatchingController {
 
             // Appel à l'API
             $response = $this->callMatchingAPI($requestData);
-            
+
             if (!$response) {
                 $this->log("Erreur: Réponse API nulle");
                 throw new Exception("Erreur lors de l'appel à l'API de matching");
@@ -384,15 +462,16 @@ class MatchingController {
      * @param array $data
      * @return array|null
      */
-    private function callMatchingAPI($data) {
+    private function callMatchingAPI($data)
+    {
         $this->log("Début de l'appel API");
-        
+
         $ch = curl_init($this->api_url);
         if (!$ch) {
             $this->log("Erreur: Impossible d'initialiser CURL");
             return null;
         }
-        
+
         $jsonData = json_encode($data);
         if (json_last_error() !== JSON_ERROR_NONE) {
             $this->log("Erreur d'encodage JSON", [
@@ -430,7 +509,7 @@ class MatchingController {
         rewind($verbose);
         $verboseLog = stream_get_contents($verbose);
         $this->log("Logs CURL détaillés", $verboseLog);
-        
+
         curl_close($ch);
         fclose($verbose);
 
@@ -460,6 +539,21 @@ class MatchingController {
         }
 
         $this->log("Réponse API décodée avec succès", $decoded);
+
+        // Adapter le format de la réponse pour la version v2 de l'API
+        if (isset($decoded['version']) && $decoded['version'] === 'v2') {
+            return [
+                'score_global' => $decoded['score_global'],
+                'niveau_adequation' => $decoded['niveau_adequation'],
+                'resume' => $decoded['resume'],
+                'points_forts' => $decoded['points_forts'],
+                'points_amelioration' => $decoded['points_amelioration'],
+                'analyse_detaillee' => $decoded['analyse_detaillee'],
+                'suggestions' => $decoded['suggestions']
+            ];
+        }
+
+        // Compatibilité avec l'ancien format si nécessaire
         return $decoded;
     }
-} 
+}

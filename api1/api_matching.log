@@ -168,3 +168,484 @@ synthesis
 2025-06-21 23:00:28,530 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 13
 2025-06-22 08:28:46,826 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 13
 2025-06-22 08:29:56,938 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 40
+2025-06-23 16:56:48,740 - api_matching - INFO - Analyse demandée pour candidat ID: 5 et offre ID: 2
+2025-06-23 18:05:24,293 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 18:05:25,810 - api_matching - INFO - Analyse V2 terminée avec un score global de 22.0
+2025-06-23 18:36:18,046 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 18:36:19,149 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 18:53:09,942 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 18:53:11,148 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 19:06:12,363 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 19:06:14,403 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 19:07:12,439 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 19:07:13,588 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 19:08:50,962 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 19:08:52,037 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 19:13:18,701 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 6
+2025-06-23 19:13:19,303 - api_matching - INFO - Analyse V2 terminée avec un score global de 35.7
+2025-06-23 19:20:14,326 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 19:20:15,106 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 19:32:30,142 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 19:32:31,158 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 19:42:55,100 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 19:42:56,219 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 20:29:42,358 - api_matching - ERROR - Erreur de validation: [{'loc': ('body', 'candidate', 'formations', 0, 'domaine'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'candidate', 'formations', 1, 'domaine'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'candidate', 'experiences', 0, 'titre_poste'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'candidate', 'experiences', 1, 'titre_poste'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'candidate', 'experiences', 2, 'titre_poste'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'candidate', 'competences', 0), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 1), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 2), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 3), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 4), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 5), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 6), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 7), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 8), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 9), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 10), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'competences', 11), 'msg': 'value is not a valid dict', 'type': 'type_error.dict'}, {'loc': ('body', 'candidate', 'langues', 0, 'niveau'), 'msg': "Le niveau doit être l'un des suivants : A1, A2, B1, B2, C1, C2", 'type': 'value_error'}, {'loc': ('body', 'candidate', 'langues', 1, 'niveau'), 'msg': "Le niveau doit être l'un des suivants : A1, A2, B1, B2, C1, C2", 'type': 'value_error'}, {'loc': ('body', 'candidate', 'langues', 2, 'niveau'), 'msg': "Le niveau doit être l'un des suivants : A1, A2, B1, B2, C1, C2", 'type': 'value_error'}]
+2025-06-23 20:42:35,536 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 20:42:36,826 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 20:42:52,899 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 3
+2025-06-23 20:42:53,923 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-23 20:43:20,179 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 5
+2025-06-23 20:43:21,285 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.0
+2025-06-23 20:44:21,132 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 1
+2025-06-23 20:44:24,041 - api_matching - INFO - Analyse V2 terminée avec un score global de 56.0
+2025-06-23 20:47:53,144 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 20:47:54,129 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 20:50:32,707 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 1
+2025-06-23 20:50:33,298 - api_matching - INFO - Analyse V2 terminée avec un score global de 56.0
+2025-06-23 21:20:57,736 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 1
+2025-06-23 21:20:58,462 - api_matching - INFO - Analyse V2 terminée avec un score global de 56.0
+2025-06-23 22:11:37,591 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 22:11:38,920 - api_matching - INFO - Analyse V2 terminée avec un score global de 32.5
+2025-06-23 22:49:12,833 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 22:49:32,057 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 23:05:43,395 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 23:05:47,373 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 23:29:55,822 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-23 23:29:58,936 - api_matching - INFO - Analyse V2 terminée avec un score global de 30.0
+2025-06-23 23:31:44,825 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-23 23:31:45,913 - api_matching - INFO - Analyse V2 terminée avec un score global de 63.3
+2025-06-23 23:55:41,965 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-23 23:55:43,262 - utils - ERROR - Erreur lors de l'analyse: 'str' object has no attribute 'nom'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1032, in analyze_compatibility
+    experience_score, e_details, e_reco = analyze_experience_compatibility(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 467, in analyze_experience_compatibility
+    if comp.nom not in competences_par_experience:
+       ^^^^^^^^
+AttributeError: 'str' object has no attribute 'nom'
+2025-06-23 23:55:43,267 - api_matching - ERROR - Erreur lors de l'analyse V2: 'str' object has no attribute 'nom'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1032, in analyze_compatibility
+    experience_score, e_details, e_reco = analyze_experience_compatibility(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 467, in analyze_experience_compatibility
+    if comp.nom not in competences_par_experience:
+       ^^^^^^^^
+AttributeError: 'str' object has no attribute 'nom'
+2025-06-24 00:05:52,164 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 00:05:53,704 - utils - ERROR - Erreur lors de l'analyse: 'float' object has no attribute 'get'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1220, in analyze_compatibility
+    resume=generate_synthesis(global_score, {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 994, in generate_synthesis
+    if section.get("points_forts"):
+       ^^^^^^^^^^^
+AttributeError: 'float' object has no attribute 'get'
+2025-06-24 00:05:53,708 - api_matching - ERROR - Erreur lors de l'analyse V2: 'float' object has no attribute 'get'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1220, in analyze_compatibility
+    resume=generate_synthesis(global_score, {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 994, in generate_synthesis
+    if section.get("points_forts"):
+       ^^^^^^^^^^^
+AttributeError: 'float' object has no attribute 'get'
+2025-06-24 00:21:59,345 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 00:21:59,354 - api1.utils - ERROR - Erreur lors de l'analyse: '>' not supported between instances of 'NoneType' and 'float'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1019, in analyze_compatibility
+    formation_score, f_details, f_reco = analyze_formation_compatibility(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 359, in analyze_formation_compatibility
+    if similarity_score > config.SIMILARITY_THRESHOLD:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+2025-06-24 00:21:59,357 - api_matching - ERROR - Erreur lors de l'analyse V2: '>' not supported between instances of 'NoneType' and 'float'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1019, in analyze_compatibility
+    formation_score, f_details, f_reco = analyze_formation_compatibility(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 359, in analyze_formation_compatibility
+    if similarity_score > config.SIMILARITY_THRESHOLD:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'float'
+2025-06-24 00:30:41,704 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 00:30:41,710 - api1.utils - ERROR - Erreur lors de l'analyse: 'ExigenceExperience' object has no attribute 'niveau'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 959, in analyze_compatibility
+    experience_score, e_details, e_reco = analyze_experience_compatibility(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 406, in analyze_experience_compatibility
+    if exigence.niveau == "Etudiant, jeune diplômé et plus":
+       ^^^^^^^^^^^^^^^
+AttributeError: 'ExigenceExperience' object has no attribute 'niveau'
+2025-06-24 00:30:41,713 - api_matching - ERROR - Erreur lors de l'analyse V2: 'ExigenceExperience' object has no attribute 'niveau'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 959, in analyze_compatibility
+    experience_score, e_details, e_reco = analyze_experience_compatibility(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 406, in analyze_experience_compatibility
+    if exigence.niveau == "Etudiant, jeune diplômé et plus":
+       ^^^^^^^^^^^^^^^
+AttributeError: 'ExigenceExperience' object has no attribute 'niveau'
+2025-06-24 00:35:15,023 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 00:35:15,756 - api_matching - INFO - Analyse V2 terminée avec un score global de 73.3
+2025-06-24 00:43:13,199 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 15
+2025-06-24 00:43:13,209 - api_matching - INFO - Analyse V2 terminée avec un score global de 80.0
+2025-06-24 00:45:36,215 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 73
+2025-06-24 00:45:36,909 - api_matching - INFO - Analyse V2 terminée avec un score global de 66.7
+2025-06-24 00:46:52,569 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 171
+2025-06-24 00:46:53,197 - api_matching - INFO - Analyse V2 terminée avec un score global de 67.7
+2025-06-24 01:01:02,587 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 171
+2025-06-24 01:01:03,317 - api_matching - INFO - Analyse V2 terminée avec un score global de 57.4
+2025-06-24 01:04:40,801 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 171
+2025-06-24 01:04:41,728 - api_matching - INFO - Analyse V2 terminée avec un score global de 67.7
+2025-06-24 01:14:25,703 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 171
+2025-06-24 01:14:26,647 - api_matching - INFO - Analyse V2 terminée avec un score global de 67.7
+2025-06-24 01:16:10,341 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 120
+2025-06-24 01:16:11,169 - api_matching - INFO - Analyse V2 terminée avec un score global de 45.0
+2025-06-24 01:34:05,317 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 120
+2025-06-24 01:34:06,244 - api_matching - INFO - Analyse V2 terminée avec un score global de 45.0
+2025-06-24 01:49:36,287 - api_matching - ERROR - Erreur de validation: [{'loc': ('body', 'candidate', 'id'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'job_offer', 'id'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'job_offer', 'titre'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'job_offer', 'secteur'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'job_offer', 'type_contrat'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'job_offer', 'localisation'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'job_offer', 'niveau_etude_requis', 'users_id'), 'msg': 'field required', 'type': 'value_error.missing'}, {'loc': ('body', 'job_offer', 'niveau_etude_requis', 'date'), 'msg': 'field required', 'type': 'value_error.missing'}]
+2025-06-24 01:53:09,992 - api_matching - ERROR - Erreur lors de l'analyse : 'CandidatProfile' object has no attribute 'get'
+2025-06-24 01:55:51,990 - api1.utils - INFO - Analyse de matching effectuée
+2025-06-24 01:57:11,890 - api1.utils - INFO - Analyse de matching effectuée
+2025-06-24 02:00:19,085 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 120
+2025-06-24 02:00:19,746 - api_matching - INFO - Analyse V2 terminée avec un score global de 35.0
+2025-06-24 02:01:27,992 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 02:01:28,399 - api_matching - INFO - Analyse V2 terminée avec un score global de 73.3
+2025-06-24 02:18:33,370 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 02:18:34,566 - api_matching - INFO - Analyse V2 terminée avec un score global de 73.3
+2025-06-24 02:24:54,121 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 02:24:54,787 - api_matching - INFO - Analyse V2 terminée avec un score global de 83.3
+2025-06-24 02:36:06,663 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 02:36:07,428 - api_matching - INFO - Analyse V2 terminée avec un score global de 83.3
+2025-06-24 02:42:11,073 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 15
+2025-06-24 02:42:11,087 - api_matching - INFO - Analyse V2 terminée avec un score global de 74.0
+2025-06-24 02:43:34,058 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 73
+2025-06-24 02:43:35,159 - api_matching - INFO - Analyse V2 terminée avec un score global de 66.7
+2025-06-24 02:45:47,501 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 9
+2025-06-24 02:45:48,701 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.0
+2025-06-24 02:46:59,148 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 7
+2025-06-24 02:46:59,879 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.0
+2025-06-24 02:47:06,357 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 02:47:07,092 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 02:48:20,269 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 02:48:21,533 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 07:15:36,545 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 07:15:38,345 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 07:15:40,743 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 07:15:41,781 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 07:15:43,909 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 07:15:44,910 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 07:18:15,475 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 07:18:16,846 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 07:18:17,324 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 07:18:18,194 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 07:18:21,275 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 8
+2025-06-24 07:18:22,758 - api_matching - INFO - Analyse V2 terminée avec un score global de 46.7
+2025-06-24 07:20:30,171 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 12
+2025-06-24 07:20:30,850 - api_matching - INFO - Analyse V2 terminée avec un score global de 32.0
+2025-06-24 08:13:42,790 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 12
+2025-06-24 08:13:49,887 - api_matching - INFO - Analyse V2 terminée avec un score global de 32.0
+2025-06-24 09:05:58,751 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 12
+2025-06-24 09:05:59,900 - api_matching - INFO - Analyse V2 terminée avec un score global de 62.95
+2025-06-24 09:05:59,901 - api_matching - ERROR - Exception non gérée: 5 validation errors:
+  {'type': 'missing', 'loc': ('response', 'niveau_adequation'), 'msg': 'Field required', 'input': {'score_global': 62.95, 'resume': "Votre profil correspond à 62.95% de l'offre", 'niveau_etude': 'Bac+1an', 'niveau_experience': 'Non spécifié', 'analyse_detaillee': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'suggestions': [], 'points_amelioration': []}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+  {'type': 'missing', 'loc': ('response', 'analyse_detaillee', 'formation'), 'msg': 'Field required', 'input': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+  {'type': 'model_attributes_type', 'loc': ('response', 'analyse_detaillee', 'experience'), 'msg': 'Input should be a valid dictionary or object to extract fields from', 'input': 1.0, 'url': 'https://errors.pydantic.dev/2.4/v/model_attributes_type'}
+  {'type': 'missing', 'loc': ('response', 'analyse_detaillee', 'competences'), 'msg': 'Field required', 'input': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+  {'type': 'missing', 'loc': ('response', 'analyse_detaillee', 'langues'), 'msg': 'Field required', 'input': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\fastapi\routing.py", line 292, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\fastapi\routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 5 validation errors:
+  {'type': 'missing', 'loc': ('response', 'niveau_adequation'), 'msg': 'Field required', 'input': {'score_global': 62.95, 'resume': "Votre profil correspond à 62.95% de l'offre", 'niveau_etude': 'Bac+1an', 'niveau_experience': 'Non spécifié', 'analyse_detaillee': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'suggestions': [], 'points_amelioration': []}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+  {'type': 'missing', 'loc': ('response', 'analyse_detaillee', 'formation'), 'msg': 'Field required', 'input': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+  {'type': 'model_attributes_type', 'loc': ('response', 'analyse_detaillee', 'experience'), 'msg': 'Input should be a valid dictionary or object to extract fields from', 'input': 1.0, 'url': 'https://errors.pydantic.dev/2.4/v/model_attributes_type'}
+  {'type': 'missing', 'loc': ('response', 'analyse_detaillee', 'competences'), 'msg': 'Field required', 'input': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+  {'type': 'missing', 'loc': ('response', 'analyse_detaillee', 'langues'), 'msg': 'Field required', 'input': {'similarite_semantique': 0.07373271889400922, 'niveau_etudes': 1.0, 'experience': 1.0}, 'url': 'https://errors.pydantic.dev/2.4/v/missing'}
+
+2025-06-24 09:28:10,905 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 12
+2025-06-24 09:28:10,924 - api_matching - INFO - Analyse V2 terminée avec un score global de 32.0
+2025-06-24 09:32:54,672 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 12
+2025-06-24 09:32:54,673 - api_matching - INFO - Analyse V2 terminée avec un score global de 10.0
+2025-06-24 09:34:06,916 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 11
+2025-06-24 09:34:06,917 - api_matching - INFO - Analyse V2 terminée avec un score global de 10.0
+2025-06-24 09:34:38,433 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 18
+2025-06-24 09:34:38,437 - api_matching - INFO - Analyse V2 terminée avec un score global de 10.0
+2025-06-24 09:35:23,178 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 09:35:23,179 - api_matching - INFO - Analyse V2 terminée avec un score global de 35.0
+2025-06-24 09:43:28,973 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 09:43:29,940 - api_matching - INFO - Analyse V2 terminée avec un score global de 35.000000298023224
+2025-06-24 09:44:39,477 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 73
+2025-06-24 09:44:40,258 - api_matching - INFO - Analyse V2 terminée avec un score global de 28.80865573883057
+2025-06-24 09:45:46,424 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 5
+2025-06-24 09:45:47,578 - api_matching - INFO - Analyse V2 terminée avec un score global de 17.05741286277771
+2025-06-24 09:48:28,845 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 5
+2025-06-24 09:48:31,352 - api_matching - INFO - Analyse V2 terminée avec un score global de 17.05741286277771
+2025-06-24 09:58:01,161 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 5
+2025-06-24 09:58:02,146 - api_matching - ERROR - Erreur lors de l'analyse V2: name 'analyses' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility_v2(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 742, in analyze_compatibility_v2
+    score_global = (sum(analyses[cat].score * WEIGHTS[cat] for cat in WEIGHTS)) * 100
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 742, in <genexpr>
+    score_global = (sum(analyses[cat].score * WEIGHTS[cat] for cat in WEIGHTS)) * 100
+                        ^^^^^^^^
+NameError: name 'analyses' is not defined
+2025-06-24 10:10:28,258 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 5
+2025-06-24 10:10:28,987 - api_matching - INFO - Analyse V2 terminée avec un score global de 1.705741286277771
+2025-06-24 10:11:58,955 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 4
+2025-06-24 10:12:00,013 - api_matching - INFO - Analyse V2 terminée avec un score global de 1.0
+2025-06-24 10:12:32,840 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 12
+2025-06-24 10:12:33,283 - api_matching - INFO - Analyse V2 terminée avec un score global de 1.0
+2025-06-24 10:12:51,070 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 10
+2025-06-24 10:12:52,556 - api_matching - INFO - Analyse V2 terminée avec un score global de 7.686733404795329
+2025-06-24 10:13:43,929 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 10:13:44,370 - api_matching - INFO - Analyse V2 terminée avec un score global de 35.000000298023224
+2025-06-24 10:14:26,598 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 10:14:27,309 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.00000029802323
+2025-06-24 10:25:02,343 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 10:25:03,316 - api_matching - ERROR - Erreur lors de l'analyse V2: 'CandidatProfile' object has no attribute 'titre'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility_v2(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 852, in analyze_compatibility_v2
+    resume_candidat=_create_candidate_summary(candidate),
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 691, in _create_candidate_summary
+    if candidate.titre:
+       ^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\pydantic\main.py", line 759, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'CandidatProfile' object has no attribute 'titre'
+2025-06-24 10:28:18,794 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 10:28:19,732 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.00000029802323
+2025-06-24 11:30:34,079 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 2
+2025-06-24 11:30:35,725 - api_matching - INFO - Analyse V2 terminée avec un score global de 1.1599572896957397
+2025-06-24 11:31:42,795 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 11:31:48,195 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.00000029802323
+2025-06-24 12:21:18,201 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 12:21:18,203 - api_matching - ERROR - Erreur lors de l'analyse V2: 'dict' object has no attribute 'niveau_etude_valeur'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 593, in analyze_compatibility_v2
+    etude_candidat_val = candidate.niveau_etude_valeur or 0
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'niveau_etude_valeur'
+2025-06-24 12:21:44,953 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 12:21:44,954 - api_matching - ERROR - Erreur lors de l'analyse V2: 'dict' object has no attribute 'niveau_etude_valeur'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 593, in analyze_compatibility_v2
+    etude_candidat_val = candidate.niveau_etude_valeur or 0
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'niveau_etude_valeur'
+2025-06-24 12:21:47,919 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 15
+2025-06-24 12:21:47,919 - api_matching - ERROR - Erreur lors de l'analyse V2: 'dict' object has no attribute 'niveau_etude_valeur'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 593, in analyze_compatibility_v2
+    etude_candidat_val = candidate.niveau_etude_valeur or 0
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'niveau_etude_valeur'
+2025-06-24 12:22:16,775 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 15
+2025-06-24 12:22:16,942 - api_matching - ERROR - Erreur lors de l'analyse V2: 'dict' object has no attribute 'niveau_etude_valeur'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 593, in analyze_compatibility_v2
+    etude_candidat_val = candidate.niveau_etude_valeur or 0
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'niveau_etude_valeur'
+2025-06-24 12:25:17,886 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 12:25:18,756 - api_matching - ERROR - Erreur lors de l'analyse V2: 'MatchingResponseV2' object has no attribute 'get'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 147, in analyze_v2
+    logger.info(f"Analyse V2 terminée avec un score global de {result.get('score_global', 0)}")
+                                                               ^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\env\Lib\site-packages\pydantic\main.py", line 759, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'MatchingResponseV2' object has no attribute 'get'
+2025-06-24 12:43:59,158 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 40
+2025-06-24 12:43:59,164 - api_matching - ERROR - Erreur lors de l'analyse V2: name 'analyze_compatibility_v2' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility_v2(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'analyze_compatibility_v2' is not defined
+2025-06-24 12:49:06,755 - api_matching - WARNING - L'endpoint /analyze est obsolète et sera supprimé.
+2025-06-24 12:59:19,860 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 12:59:19,873 - api1.utils - ERROR - Erreur lors de l'analyse de compatibilité: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 823, in analyze_compatibility
+    formation_score, f_details, f_reco = analyze_formation_compatibility(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+2025-06-24 12:59:19,881 - api_matching - ERROR - Erreur lors de l'analyse: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 823, in analyze_compatibility
+    formation_score, f_details, f_reco = analyze_formation_compatibility(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+2025-06-24 13:07:37,971 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:07:37,975 - api1.utils - ERROR - Erreur lors de l'analyse de compatibilité: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 823, in analyze_compatibility
+    formation_score, f_details, f_reco = analyze_formation_compatibility(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+2025-06-24 13:07:37,977 - api_matching - ERROR - Erreur lors de l'analyse: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 823, in analyze_compatibility
+    formation_score, f_details, f_reco = analyze_formation_compatibility(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+2025-06-24 13:11:09,012 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:11:09,015 - api1.utils - ERROR - Erreur lors de l'analyse de compatibilité: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 823, in analyze_compatibility
+    return intro + conclusion
+                              
+TypeError: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+2025-06-24 13:11:09,018 - api_matching - ERROR - Erreur lors de l'analyse: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 823, in analyze_compatibility
+    return intro + conclusion
+                              
+TypeError: analyze_formation_compatibility() missing 1 required positional argument: 'niveau_etude_profil'
+2025-06-24 13:11:48,559 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:11:48,575 - api1.utils - ERROR - Erreur lors de l'analyse de compatibilité: name 'AnalyseSection' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 873, in analyze_compatibility
+    formation_analyse = AnalyseSection(
+                        ^^^^^^^^^^^^^^
+NameError: name 'AnalyseSection' is not defined
+2025-06-24 13:11:48,575 - api_matching - ERROR - Erreur lors de l'analyse: name 'AnalyseSection' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 873, in analyze_compatibility
+    formation_analyse = AnalyseSection(
+                        ^^^^^^^^^^^^^^
+NameError: name 'AnalyseSection' is not defined
+2025-06-24 13:15:22,950 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:15:22,997 - api1.utils - ERROR - Erreur lors de l'analyse de compatibilité: name 'AnalyseSection' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 873, in analyze_compatibility
+    score=formation_score,
+                    ^^^^^^^
+NameError: name 'AnalyseSection' is not defined
+2025-06-24 13:15:22,999 - api_matching - ERROR - Erreur lors de l'analyse: name 'AnalyseSection' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 873, in analyze_compatibility
+    score=formation_score,
+                    ^^^^^^^
+NameError: name 'AnalyseSection' is not defined
+2025-06-24 13:30:53,857 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:30:53,859 - api1.utils - ERROR - Erreur lors de l'analyse: too many values to unpack (expected 2)
+2025-06-24 13:30:53,859 - api_matching - ERROR - Erreur lors de l'analyse: Erreur lors de l'analyse: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 851, in analyze_compatibility
+    formation_score, f_details = analyze_formation_compatibility(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1014, in analyze_compatibility
+    raise Exception(f"Erreur lors de l'analyse: {str(e)}")
+Exception: Erreur lors de l'analyse: too many values to unpack (expected 2)
+2025-06-24 13:31:33,238 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:31:33,259 - api1.utils - ERROR - Erreur lors de l'analyse: too many values to unpack (expected 2)
+2025-06-24 13:31:33,296 - api_matching - ERROR - Erreur lors de l'analyse: Erreur lors de l'analyse: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 851, in analyze_compatibility
+    formation_score, f_details = analyze_formation_compatibility(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 117, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 1014, in analyze_compatibility
+    raise Exception(f"Erreur lors de l'analyse: {str(e)}")
+Exception: Erreur lors de l'analyse: too many values to unpack (expected 2)
+2025-06-24 13:35:56,926 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:35:56,928 - api_matching - INFO - Analyse terminée avec un score global de 99.99999999999999
+2025-06-24 13:38:27,059 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-06-24 13:38:27,062 - api_matching - INFO - Analyse terminée avec un score global de 99.99999999999999
+2025-06-24 13:39:25,729 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 15
+2025-06-24 13:39:26,051 - api_matching - INFO - Analyse V2 terminée avec un score global de 74.0
+2025-06-24 13:40:00,078 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 27
+2025-06-24 13:40:00,948 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.0
+2025-06-24 13:40:17,816 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
+2025-06-24 13:40:18,647 - api_matching - INFO - Analyse V2 terminée avec un score global de 50.0

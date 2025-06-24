@@ -1,153 +1,218 @@
 <?php
 /**
- * Exemple d'intégration de l'API de matching dans WorkFlexer
- * Ce fichier montre comment appeler l'API Python depuis PHP
+ * Exemple d'utilisation de l'API de matching WorkFlexer
+ * 
+ * Ce script montre comment appeler l'API de matching pour analyser
+ * la compatibilité entre un profil candidat et une offre d'emploi.
  */
+
+// Configuration
+$api_url = "http://localhost:8000"; // URL de l'API
+$endpoint = "/analyze/v2"; // Endpoint pour la nouvelle version de l'API
 
 /**
  * Fonction pour appeler l'API de matching
  * 
- * @param array $candidateData Données du profil du candidat
- * @param array $jobOfferData Données de l'offre d'emploi
- * @return array|false Résultats de l'analyse ou false en cas d'erreur
+ * @param string $url URL complète de l'API
+ * @param array $data Données à envoyer à l'API
+ * @return array Réponse de l'API
  */
-function analyserCompatibilite($candidateData, $jobOfferData) {
-    // URL de l'API (à adapter selon votre configuration)
-    $apiUrl = 'http://localhost:8000/analyser';
-    
-    // Préparation des données
-    $postData = json_encode([
-        'candidate' => $candidateData,
-        'job_offer' => $jobOfferData
-    ]);
-    
-    // Configuration de la requête cURL
-    $ch = curl_init($apiUrl);
+function callMatchingAPI($url, $data)
+{
+    $ch = curl_init($url);
+
+    $payload = json_encode($data);
+
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($postData)
-    ]);
-    
-    // Exécution de la requête
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    $result = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
     curl_close($ch);
-    
-    // Vérification de la réponse
-    if ($httpCode == 200) {
-        return json_decode($response, true);
-    } else {
-        error_log("Erreur API de matching: $httpCode - $response");
-        return false;
+
+    if ($httpcode != 200) {
+        return [
+            'success' => false,
+            'error' => "Erreur HTTP $httpcode",
+            'response' => $result
+        ];
     }
+
+    return [
+        'success' => true,
+        'response' => json_decode($result, true)
+    ];
 }
 
-// Exemple d'utilisation
-// --------------------------------------------------
-
-// Exemple de données de profil candidat
-$candidateData = [
-    'id' => 1,
-    'nom' => 'Dupont',
-    'prenom' => 'Jean',
-    'email' => 'jean.dupont@example.com',
-    'competences' => [
-        'PHP', 'JavaScript', 'HTML', 'CSS', 'MySQL'
-    ],
+// Exemple de données pour un candidat
+$candidat = [
+    'id' => 123,
     'formations' => [
         [
-            'diplome' => 'Master en Informatique',
-            'etablissement' => 'Université de Paris',
-            'niveau' => 'Bac+5',
-            'annee_debut' => '2018',
-            'annee_fin' => '2020'
-        ],
-        [
-            'diplome' => 'Licence en Informatique',
-            'etablissement' => 'Université de Lyon',
             'niveau' => 'Bac+3',
-            'annee_debut' => '2015',
-            'annee_fin' => '2018'
+            'domaine' => 'Informatique',
+            'etablissement' => 'Université Paris 8',
+            'annee_obtention' => 2020
         ]
     ],
     'experiences' => [
         [
-            'poste' => 'Développeur Web',
+            'titre_poste' => 'Développeur Web',
             'entreprise' => 'TechCorp',
-            'date_debut' => '2020-09-01',
-            'date_fin' => '2023-08-31',
-            'duree' => 3.0,
-            'description' => 'Développement d\'applications web avec PHP et JavaScript'
+            'duree_mois' => 18,
+            'description' => 'Développement d\'applications web',
+            'competences' => ['PHP', 'JavaScript', 'HTML', 'CSS']
+        ]
+    ],
+    'competences' => [
+        [
+            'nom' => 'PHP',
+            'niveau' => 4,
+            'annees_experience' => 2.5
+        ],
+        [
+            'nom' => 'JavaScript',
+            'niveau' => 3,
+            'annees_experience' => 2.0
+        ],
+        [
+            'nom' => 'HTML',
+            'niveau' => 4,
+            'annees_experience' => 3.0
         ]
     ],
     'langues' => [
         [
             'nom' => 'Français',
-            'niveau' => 'Natif'
+            'niveau' => 'C2'
         ],
         [
             'nom' => 'Anglais',
-            'niveau' => 'Courant'
+            'niveau' => 'B2'
+        ]
+    ]
+];
+
+// Exemple de données pour une offre d'emploi
+$offre = [
+    'id' => 456,
+    'titre' => 'Développeur PHP Full Stack',
+    'description' => 'Nous recherchons un développeur PHP expérimenté pour rejoindre notre équipe.',
+    'formation_requise' => [
+        'niveau_minimum' => 'Bac+2',
+        'domaines_acceptes' => ['Informatique', 'Développement Web']
+    ],
+    'experience_requise' => [
+        'duree_minimum_mois' => 12,
+        'competences_requises' => ['PHP', 'MySQL', 'JavaScript']
+    ],
+    'competences_requises' => [
+        [
+            'nom' => 'PHP',
+            'niveau' => 3
+        ],
+        [
+            'nom' => 'JavaScript',
+            'niveau' => 3
+        ],
+        [
+            'nom' => 'MySQL',
+            'niveau' => 2
         ]
     ],
-    'outils' => [
-        'Visual Studio Code', 'Git', 'Docker', 'Jira'
-    ]
-];
-
-// Exemple de données d'offre d'emploi
-$jobOfferData = [
-    'id' => 42,
-    'titre' => 'Développeur Full Stack',
-    'entreprise' => 'Innovatech',
-    'description' => 'Nous recherchons un développeur full stack expérimenté pour rejoindre notre équipe.',
-    'competences_requises' => [
-        'PHP', 'JavaScript', 'React', 'Node.js', 'SQL'
-    ],
-    'niveau_etudes' => 'Bac+5',
-    'annees_experience' => 2.0,
     'langues_requises' => [
-        'Français', 'Anglais'
+        [
+            'nom' => 'Français',
+            'niveau' => 'B2'
+        ],
+        [
+            'nom' => 'Anglais',
+            'niveau' => 'B1'
+        ]
     ],
-    'outils_requis' => [
-        'Git', 'Docker', 'Jenkins'
+    'secteur' => 'Informatique',
+    'type_contrat' => 'CDI',
+    'localisation' => 'Paris'
+];
+
+// Construction des données pour l'API
+$data = [
+    'candidate' => $candidat,
+    'job_offer' => $offre,
+    'options' => [
+        'include_details' => true
     ]
 ];
 
-// Appel à l'API de matching
-$resultats = analyserCompatibilite($candidateData, $jobOfferData);
+// Appel à l'API
+$result = callMatchingAPI($api_url . $endpoint, $data);
 
 // Affichage des résultats
-if ($resultats !== false) {
-    echo "<h2>Résultats de l'analyse de compatibilité</h2>";
-    
-    echo "<h3>Score global: " . $resultats['global_score'] . "%</h3>";
-    echo "<p><strong>Niveau de compatibilité:</strong> " . $resultats['compatibility_message'] . "</p>";
-    
-    echo "<h3>Scores par catégorie:</h3>";
+if ($result['success']) {
+    $response = $result['response'];
+
+    echo "<h1>Résultat de l'analyse de compatibilité</h1>";
+
+    // Affichage du score global et du résumé
+    echo "<h2>Score global: " . $response['score_global'] . "% - " . $response['niveau_adequation'] . "</h2>";
+    echo "<p><strong>Résumé:</strong> " . $response['resume'] . "</p>";
+
+    // Affichage des points forts
+    echo "<h2>Points forts</h2>";
     echo "<ul>";
-    foreach ($resultats['scores_by_category'] as $category => $score) {
-        echo "<li>$category: $score%</li>";
+    foreach ($response['points_forts'] as $point) {
+        $importance = $point['importance'] == 'important' ? ' <span style="color: green;">(Important)</span>' : '';
+        echo "<li><strong>" . ucfirst($point['categorie']) . ":</strong> " . $point['description'] . $importance . "</li>";
     }
     echo "</ul>";
-    
-    echo "<h3>Points forts:</h3>";
+
+    // Affichage des points à améliorer
+    echo "<h2>Points à améliorer</h2>";
     echo "<ul>";
-    foreach ($resultats['strengths'] as $strength) {
-        echo "<li>$strength</li>";
+    foreach ($response['points_amelioration'] as $point) {
+        $priorite = $point['priorite'] == 'haute' ? ' <span style="color: red;">(Priorité haute)</span>' : '';
+        echo "<li><strong>" . ucfirst($point['categorie']) . ":</strong> " . $point['description'] . $priorite;
+        if (!empty($point['suggestion'])) {
+            echo "<br><em>Suggestion: " . $point['suggestion'] . "</em>";
+        }
+        echo "</li>";
     }
     echo "</ul>";
-    
-    echo "<h3>Points à améliorer:</h3>";
-    echo "<ul>";
-    foreach ($resultats['improvements'] as $improvement) {
-        echo "<li>$improvement</li>";
+
+    // Affichage des analyses détaillées
+    echo "<h2>Analyse détaillée par catégorie</h2>";
+
+    // Formation
+    echo "<h3>Formation - " . $response['analyse_detaillee']['formation']['score'] . "%</h3>";
+    echo "<p>" . $response['analyse_detaillee']['formation']['resume'] . "</p>";
+
+    // Expérience
+    echo "<h3>Expérience - " . $response['analyse_detaillee']['experience']['score'] . "%</h3>";
+    echo "<p>" . $response['analyse_detaillee']['experience']['resume'] . "</p>";
+
+    // Compétences
+    echo "<h3>Compétences - " . $response['analyse_detaillee']['competences']['score'] . "%</h3>";
+    echo "<p>" . $response['analyse_detaillee']['competences']['resume'] . "</p>";
+
+    // Langues
+    echo "<h3>Langues - " . $response['analyse_detaillee']['langues']['score'] . "%</h3>";
+    echo "<p>" . $response['analyse_detaillee']['langues']['resume'] . "</p>";
+
+    // Suggestions d'amélioration
+    if (!empty($response['suggestions'])) {
+        echo "<h2>Suggestions d'amélioration</h2>";
+        echo "<ul>";
+        foreach ($response['suggestions'] as $suggestion) {
+            $impact = $suggestion['impact_estime'] == 'fort' ? ' <span style="color: green;">(Impact fort)</span>' : '';
+            echo "<li><strong>" . ucfirst($suggestion['categorie']) . ":</strong> " . $suggestion['description'] . $impact . "</li>";
+        }
+        echo "</ul>";
     }
-    echo "</ul>";
 } else {
-    echo "<p>Erreur lors de l'analyse de compatibilité.</p>";
+    echo "<h1>Erreur lors de l'appel à l'API</h1>";
+    echo "<p>" . $result['error'] . "</p>";
+    echo "<pre>" . print_r($result['response'], true) . "</pre>";
 }
 ?>

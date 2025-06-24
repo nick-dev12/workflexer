@@ -1,10 +1,12 @@
 <?php
 require_once(__DIR__ . '/../conn/conn.php');
 
-class OffreEmploi {
+class OffreEmploi
+{
     private $db;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
 
@@ -13,7 +15,8 @@ class OffreEmploi {
      * @param int $offre_id
      * @return array|null
      */
-    public function getOffreDetails($offre_id) {
+    public function getOffreDetails($offre_id)
+    {
         try {
             $sql = "SELECT offre_id, titre, description_poste, profil_recherche, 
                            entreprise, localisation, lien_offre, source, 
@@ -26,7 +29,7 @@ class OffreEmploi {
             $stmt = $this->db->prepare($sql);
             $stmt->bindValue(':offre_id', $offre_id);
             $stmt->execute();
-            
+
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             error_log("Erreur lors de la récupération de l'offre : " . $e->getMessage());
@@ -39,10 +42,11 @@ class OffreEmploi {
      * @param array $offre
      * @return array
      */
-    public function formatForMatching($offre) {
+    public function formatForMatching($offre)
+    {
         // Extraction des compétences
         $competences = array_map('trim', explode(',', $offre['competences']));
-        
+
         // Extraction des compétences supplémentaires du profil recherché
         $competences_supplementaires = $this->extractSkillsFromText($offre['profil_recherche']);
         $competences = array_unique(array_merge($competences, $competences_supplementaires));
@@ -75,7 +79,8 @@ class OffreEmploi {
     /**
      * Extrait le nombre d'années d'expérience à partir du texte
      */
-    private function extractExperienceYears($experience_text) {
+    private function extractExperienceYears($experience_text)
+    {
         if (preg_match('/(\d+)/', $experience_text, $matches)) {
             return floatval($matches[1]);
         }
@@ -85,7 +90,8 @@ class OffreEmploi {
     /**
      * Extrait les langues requises du profil recherché
      */
-    private function extractLanguages($profil_text) {
+    private function extractLanguages($profil_text)
+    {
         $langues = [];
         $langues_possibles = [
             'français' => ['français', 'french', 'francais'],
@@ -94,7 +100,7 @@ class OffreEmploi {
             'arabe' => ['arabe', 'arabic'],
             'wolof' => ['wolof']
         ];
-        
+
         foreach ($langues_possibles as $langue => $variations) {
             foreach ($variations as $variation) {
                 if (stripos($profil_text, $variation) !== false) {
@@ -103,57 +109,94 @@ class OffreEmploi {
                 }
             }
         }
-        
+
         return array_unique($langues);
     }
 
     /**
      * Extrait les outils requis du profil recherché
      */
-    private function extractTools($profil_text) {
+    private function extractTools($profil_text)
+    {
         $outils = [];
         $outils_possibles = [
             // Bureautique
-            'word', 'excel', 'powerpoint', 'office', 'outlook',
+            'word',
+            'excel',
+            'powerpoint',
+            'office',
+            'outlook',
             // Design
-            'photoshop', 'illustrator', 'indesign', 'figma', 'sketch',
+            'photoshop',
+            'illustrator',
+            'indesign',
+            'figma',
+            'sketch',
             // CAO/DAO
-            'autocad', 'solidworks', 'sketchup', 'revit', 'catia',
+            'autocad',
+            'solidworks',
+            'sketchup',
+            'revit',
+            'catia',
             // Développement
-            'java', 'python', 'javascript', 'php', 'html', 'css',
+            'java',
+            'python',
+            'javascript',
+            'php',
+            'html',
+            'css',
             // Base de données
-            'sql', 'mysql', 'postgresql', 'oracle', 'mongodb',
+            'sql',
+            'mysql',
+            'postgresql',
+            'oracle',
+            'mongodb',
             // Gestion de projet
-            'git', 'github', 'gitlab', 'bitbucket',
-            'jira', 'trello', 'asana', 'slack',
+            'git',
+            'github',
+            'gitlab',
+            'bitbucket',
+            'jira',
+            'trello',
+            'asana',
+            'slack',
             // ERP/CRM
-            'sap', 'salesforce', 'sage', 'oracle'
+            'sap',
+            'salesforce',
+            'sage',
+            'oracle'
         ];
-        
+
         foreach ($outils_possibles as $outil) {
             if (stripos($profil_text, $outil) !== false) {
                 $outils[] = $outil;
             }
         }
-        
+
         return array_unique($outils);
     }
 
     /**
      * Extrait les compétences supplémentaires du texte du profil
      */
-    private function extractSkillsFromText($text) {
+    private function extractSkillsFromText($text)
+    {
         $competences = [];
-        
+
         // Liste de mots-clés indiquant des compétences
         $indicateurs = [
-            'compétences', 'maîtrise', 'connaissance', 'expertise',
-            'savoir-faire', 'capacité', 'expérience en'
+            'compétences',
+            'maîtrise',
+            'connaissance',
+            'expertise',
+            'savoir-faire',
+            'capacité',
+            'expérience en'
         ];
-        
+
         // Découpage du texte en phrases
         $phrases = preg_split('/[.!?]+/', $text);
-        
+
         foreach ($phrases as $phrase) {
             foreach ($indicateurs as $indicateur) {
                 if (stripos($phrase, $indicateur) !== false) {
@@ -163,38 +206,40 @@ class OffreEmploi {
                 }
             }
         }
-        
+
         return array_unique($competences);
     }
 
     /**
      * Extrait les expressions clés d'une phrase
      */
-    private function extractKeyPhrases($phrase) {
+    private function extractKeyPhrases($phrase)
+    {
         $expressions = [];
-        
+
         // Suppression des balises HTML
         $phrase = strip_tags($phrase);
-        
+
         // Découpage sur les virgules et les points-virgules
         $parties = preg_split('/[,;]/', $phrase);
-        
+
         foreach ($parties as $partie) {
             $partie = trim($partie);
             if (strlen($partie) > 3 && !preg_match('/^(de|du|des|le|la|les|un|une|et|ou)$/i', $partie)) {
                 $expressions[] = $partie;
             }
         }
-        
+
         return $expressions;
     }
 
     /**
      * Normalise le niveau d'études
      */
-    private function normalizeEducationLevel($niveau) {
+    private function normalizeEducationLevel($niveau)
+    {
         $niveau = strtolower(trim($niveau));
-        
+
         $equivalences = [
             'bac' => 'Bac',
             'bac+2' => 'Bac+2',
@@ -207,13 +252,13 @@ class OffreEmploi {
             'doctorat' => 'Bac+8',
             'phd' => 'Bac+8'
         ];
-        
+
         foreach ($equivalences as $pattern => $normalized) {
             if (stripos($niveau, $pattern) !== false) {
                 return $normalized;
             }
         }
-        
+
         return $niveau;
     }
-} 
+}
