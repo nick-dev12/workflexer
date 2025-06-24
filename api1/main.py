@@ -20,7 +20,7 @@ from api1.models import (
     MatchingRequestV2,
     ContexteAnalyse
 )
-from api1.utils import analyze_compatibility, extract_keywords_from_description
+from api1.utils import analyze_compatibility, normalize_text
 import api1.config as config
 
 # Chargement des variables d'environnement
@@ -208,13 +208,13 @@ async def analyze_v3(request: MatchingRequestV2):
 @app.post("/extract-keywords", tags=["Utilitaires"])
 async def extract_keywords(data: Dict[str, str]):
     """
-    Extrait les mots-clés pertinents d'une description de poste.
+    Normalise et extrait les lemmes pertinents d'une description de poste.
     
     Args:
         data: Dictionnaire contenant la description du poste
         
     Returns:
-        Liste des mots-clés extraits
+        Liste des lemmes normalisés
     """
     try:
         if "description" not in data:
@@ -223,7 +223,7 @@ async def extract_keywords(data: Dict[str, str]):
                 detail="La description est requise",
             )
         
-        keywords = extract_keywords_from_description(data["description"])
+        keywords = normalize_text(data["description"])
         return {"keywords": keywords}
     
     except Exception as e:

@@ -31,7 +31,7 @@ function callMatchingAPI($url, $data)
     $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
     curl_close($ch);
-
+    
     if ($httpcode != 200) {
         return [
             'success' => false,
@@ -154,11 +154,11 @@ if ($result['success']) {
     $response = $result['response'];
 
     echo "<h1>Résultat de l'analyse de compatibilité</h1>";
-
+    
     // Affichage du score global et du résumé
     echo "<h2>Score global: " . $response['score_global'] . "% - " . $response['niveau_adequation'] . "</h2>";
     echo "<p><strong>Résumé:</strong> " . $response['resume'] . "</p>";
-
+    
     // Affichage des points forts
     echo "<h2>Points forts</h2>";
     echo "<ul>";
@@ -167,7 +167,7 @@ if ($result['success']) {
         echo "<li><strong>" . ucfirst($point['categorie']) . ":</strong> " . $point['description'] . $importance . "</li>";
     }
     echo "</ul>";
-
+    
     // Affichage des points à améliorer
     echo "<h2>Points à améliorer</h2>";
     echo "<ul>";
@@ -180,7 +180,7 @@ if ($result['success']) {
         echo "</li>";
     }
     echo "</ul>";
-
+    
     // Affichage des analyses détaillées
     echo "<h2>Analyse détaillée par catégorie</h2>";
 
@@ -203,12 +203,12 @@ if ($result['success']) {
     // Suggestions d'amélioration
     if (!empty($response['suggestions'])) {
         echo "<h2>Suggestions d'amélioration</h2>";
-        echo "<ul>";
+    echo "<ul>";
         foreach ($response['suggestions'] as $suggestion) {
             $impact = $suggestion['impact_estime'] == 'fort' ? ' <span style="color: green;">(Impact fort)</span>' : '';
             echo "<li><strong>" . ucfirst($suggestion['categorie']) . ":</strong> " . $suggestion['description'] . $impact . "</li>";
-        }
-        echo "</ul>";
+    }
+    echo "</ul>";
     }
 } else {
     echo "<h1>Erreur lors de l'appel à l'API</h1>";

@@ -267,7 +267,7 @@
         "documentation": {}
     },
     {
-        "label": "extract_keywords_from_description",
+        "label": "normalize_text",
         "importPath": "api1.utils",
         "description": "api1.utils",
         "isExtraImport": true,
@@ -324,6 +324,33 @@
         "documentation": {}
     },
     {
+        "label": "spacy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "spacy",
+        "description": "spacy",
+        "detail": "spacy",
+        "documentation": {}
+    },
+    {
+        "label": "nltk",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "nltk",
+        "description": "nltk",
+        "detail": "nltk",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -364,6 +391,23 @@
         "description": "sentence_transformers",
         "isExtraImport": true,
         "detail": "sentence_transformers",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "stopwords",
+        "importPath": "nltk.corpus",
+        "description": "nltk.corpus",
+        "isExtraImport": true,
+        "detail": "nltk.corpus",
         "documentation": {}
     },
     {
@@ -543,7 +587,7 @@
         "kind": 5,
         "importPath": "api1.config",
         "description": "api1.config",
-        "peekOfCode": "MAX_STRENGTHS = int(os.getenv(\"MAX_STRENGTHS\", 5))\nMAX_IMPROVEMENTS = int(os.getenv(\"MAX_IMPROVEMENTS\", 5))\n# Configuration de l'API\nAPI_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": os.getenv(\"API_VERSION\", \"2.0.0\"),\n    \"docs_url\": \"/docs\",\n    \"redoc_url\": \"/redoc\",\n}",
+        "peekOfCode": "MAX_STRENGTHS = int(os.getenv(\"MAX_STRENGTHS\", 5))\nMAX_IMPROVEMENTS = int(os.getenv(\"MAX_IMPROVEMENTS\", 5))\n# Nouveaux seuils de similarité par catégorie\nSIMILARITY_THRESHOLDS = {\n    \"competences\": float(os.getenv(\"COMPETENCES_SIMILARITY_THRESHOLD\", 0.75)),\n    \"domaines_formation\": float(os.getenv(\"FORMATION_SIMILARITY_THRESHOLD\", 0.65)),\n}\n# Configuration de l'API\nAPI_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",",
         "detail": "api1.config",
         "documentation": {}
     },
@@ -552,7 +596,16 @@
         "kind": 5,
         "importPath": "api1.config",
         "description": "api1.config",
-        "peekOfCode": "MAX_IMPROVEMENTS = int(os.getenv(\"MAX_IMPROVEMENTS\", 5))\n# Configuration de l'API\nAPI_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": os.getenv(\"API_VERSION\", \"2.0.0\"),\n    \"docs_url\": \"/docs\",\n    \"redoc_url\": \"/redoc\",\n}\n# Seuil de similarité pour considérer deux compétences comme équivalentes",
+        "peekOfCode": "MAX_IMPROVEMENTS = int(os.getenv(\"MAX_IMPROVEMENTS\", 5))\n# Nouveaux seuils de similarité par catégorie\nSIMILARITY_THRESHOLDS = {\n    \"competences\": float(os.getenv(\"COMPETENCES_SIMILARITY_THRESHOLD\", 0.75)),\n    \"domaines_formation\": float(os.getenv(\"FORMATION_SIMILARITY_THRESHOLD\", 0.65)),\n}\n# Configuration de l'API\nAPI_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",",
+        "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "SIMILARITY_THRESHOLDS",
+        "kind": 5,
+        "importPath": "api1.config",
+        "description": "api1.config",
+        "peekOfCode": "SIMILARITY_THRESHOLDS = {\n    \"competences\": float(os.getenv(\"COMPETENCES_SIMILARITY_THRESHOLD\", 0.75)),\n    \"domaines_formation\": float(os.getenv(\"FORMATION_SIMILARITY_THRESHOLD\", 0.65)),\n}\n# Configuration de l'API\nAPI_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": os.getenv(\"API_VERSION\", \"2.0.0\"),\n    \"docs_url\": \"/docs\",",
         "detail": "api1.config",
         "documentation": {}
     },
@@ -561,16 +614,7 @@
         "kind": 5,
         "importPath": "api1.config",
         "description": "api1.config",
-        "peekOfCode": "API_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": os.getenv(\"API_VERSION\", \"2.0.0\"),\n    \"docs_url\": \"/docs\",\n    \"redoc_url\": \"/redoc\",\n}\n# Seuil de similarité pour considérer deux compétences comme équivalentes\nSIMILARITY_THRESHOLD = float(os.getenv(\"MODEL_SIMILARITY_THRESHOLD\", 0.75))\n# Configuration du logging",
-        "detail": "api1.config",
-        "documentation": {}
-    },
-    {
-        "label": "SIMILARITY_THRESHOLD",
-        "kind": 5,
-        "importPath": "api1.config",
-        "description": "api1.config",
-        "peekOfCode": "SIMILARITY_THRESHOLD = float(os.getenv(\"MODEL_SIMILARITY_THRESHOLD\", 0.75))\n# Configuration du logging\nLOG_CONFIG = {\n    \"level\": os.getenv(\"LOG_LEVEL\", \"INFO\"),\n    \"format\": \"%(asctime)s - %(name)s - %(levelname)s - %(message)s\",\n    \"filename\": os.getenv(\"LOG_FILE\", \"api_matching.log\"),\n}\n# Configuration CORS\nCORS_CONFIG = {\n    \"allow_origins\": os.getenv(\"CORS_ALLOWED_ORIGINS\", \"*\").split(\",\"),",
+        "peekOfCode": "API_CONFIG = {\n    \"title\": \"API de Matching WorkFlexer\",\n    \"description\": \"API pour analyser la compatibilité entre un profil candidat et une offre d'emploi\",\n    \"version\": os.getenv(\"API_VERSION\", \"2.0.0\"),\n    \"docs_url\": \"/docs\",\n    \"redoc_url\": \"/redoc\",\n}\n# Configuration du logging\nLOG_CONFIG = {\n    \"level\": os.getenv(\"LOG_LEVEL\", \"INFO\"),",
         "detail": "api1.config",
         "documentation": {}
     },
@@ -881,6 +925,24 @@
         "documentation": {}
     },
     {
+        "label": "install_spacy_model",
+        "kind": 2,
+        "importPath": "api1.setup_models",
+        "description": "api1.setup_models",
+        "peekOfCode": "def install_spacy_model(model_name=\"fr_core_news_sm\"):\n    \"\"\"\n    Downloads and installs a spaCy model if it's not already installed.\n    \"\"\"\n    try:\n        print(f\"Checking for spaCy model: {model_name}...\")\n        spacy.load(model_name)\n        print(f\"Model '{model_name}' is already installed.\")\n    except OSError:\n        print(f\"Model '{model_name}' not found. Downloading...\")",
+        "detail": "api1.setup_models",
+        "documentation": {}
+    },
+    {
+        "label": "download_nltk_data",
+        "kind": 2,
+        "importPath": "api1.setup_models",
+        "description": "api1.setup_models",
+        "peekOfCode": "def download_nltk_data():\n    \"\"\"\n    Downloads required NLTK data if not already present.\n    \"\"\"\n    try:\n        print(\"Checking for NLTK 'punkt' tokenizer...\")\n        nltk.data.find('tokenizers/punkt')\n        print(\"'punkt' is already downloaded.\")\n    except nltk.downloader.DownloadError:\n        print(\"NLTK 'punkt' not found. Downloading...\")",
+        "detail": "api1.setup_models",
+        "documentation": {}
+    },
+    {
         "label": "start_api",
         "kind": 2,
         "importPath": "api1.start_api",
@@ -890,11 +952,20 @@
         "documentation": {}
     },
     {
-        "label": "extract_keywords_from_description",
+        "label": "normalize_text",
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits\n    \"\"\"\n    # Liste de mots à ignorer\n    stop_words = {",
+        "peekOfCode": "def normalize_text(text: str) -> List[str]:\n    \"\"\"\n    Nettoie, tokenise, lemmatise le texte et supprime les mots vides en utilisant spaCy.\n    Retourne une liste de lemmes normalisés pour une comparaison sémantique efficace.\n    \"\"\"\n    if not nlp or not text or not isinstance(text, str):\n        return []\n    # 1. Mise en minuscules et suppression de la ponctuation non pertinente\n    text = text.lower()\n    text = re.sub(r'[^\\w\\s]', ' ', text)",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_semantic_similarity",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def get_semantic_similarity(text1: str, text2: str) -> float:\n    \"\"\"\n    Calcule la similarité sémantique entre deux textes en utilisant le SentenceTransformer chargé.\n    \"\"\"\n    if not sentence_model or not text1 or not text2:\n        return 0.0\n    try:\n        # L'encodage et la comparaison sont plus efficaces ainsi\n        embeddings = sentence_model.encode([text1, text2], convert_to_tensor=True, show_progress_bar=False)\n        cosine_score = util.pytorch_cos_sim(embeddings[0], embeddings[1])",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -939,7 +1010,7 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def analyze_experience_compatibility(\n    experiences: List[Experience],\n    exigence: ExigenceExperience,\n    niveau_experience_valeur: Optional[int] = None\n) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse approfondie de la compatibilité des expériences professionnelles.\"\"\"\n    points_forts = []\n    recommendations = []\n    # Analyse de la durée d'expérience\n    if niveau_experience_valeur is not None:",
+        "peekOfCode": "def analyze_experience_compatibility(\n    experiences: List[Experience],\n    exigence: ExigenceExperience,\n    job_description: str,\n    niveau_experience_valeur: Optional[int] = None\n) -> Tuple[float, List[str], List[str]]:\n    \"\"\"\n    Analyse la compatibilité de l'expérience, en combinant la durée et la pertinence sémantique.\n    \"\"\"\n    points_forts = []",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -948,7 +1019,7 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def analyze_competences_compatibility(\n    candidate_competences: List[Competence], required_competences: List[Competence]\n) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse sémantique de la compatibilité des compétences en utilisant le traitement par lots.\"\"\"\n    details, recommendations, points_forts = [], [], []\n    if not required_competences:\n        return 1.0, [\"Aucune compétence spécifique n'est requise.\"], []\n    if not candidate_competences:\n        reco_text = (\n            f\"Le profil ne liste aucune compétence. Compétences à ajouter : \"",
+        "peekOfCode": "def analyze_competences_compatibility(\n    candidate_competences: List[Competence], required_competences: List[Competence]\n) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:\n    \"\"\"\n    Analyse sémantique de la compatibilité des compétences.\n    Retourne: score, correspondances, manquants, points forts (strings), recommandations (strings)\n    \"\"\"\n    if not required_competences:\n        return 1.0, [], [], [\"Aucune compétence spécifique n'est requise.\"], []\n    if not candidate_competences:",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1011,7 +1082,7 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def generate_synthesis(global_score: float, analyses: Dict) -> str:\n    \"\"\"Génère une synthèse textuelle à partir des résultats de l'analyse.\"\"\"\n    score = round(global_score)\n    if score >= 75:\n        intro = f\"Avec un score de {score}%, votre profil est en excellente adéquation avec cette offre. \"\n        conclusion = \"Vous êtes un candidat très prometteur pour ce poste.\"\n    elif score >= 50:\n        intro = (\n            f\"Votre profil correspond à {score}%, ce qui représente une bonne base. \"\n        )",
+        "peekOfCode": "def generate_synthesis(global_score: float, analyses: Dict) -> str:\n    \"\"\"Génère une synthèse textuelle basée sur le score global et les analyses.\"\"\"\n    if global_score > 0.8:\n        level = \"Excellente\"\n    elif global_score > 0.6:\n        level = \"Bonne\"\n    elif global_score > 0.4:\n        level = \"Moyenne\"\n    else:\n        level = \"Faible\"",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1020,7 +1091,16 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"Analyse complète et génère un rapport structuré.\"\"\"\n    try:\n        # Validation et nettoyage des données d'entrée\n        candidate_data = {k: v for k, v in candidate_data.items() if v is not None}\n        job_offer_data = {k: v for k, v in job_offer_data.items() if v is not None}\n        # Initialisation des objets avec gestion des valeurs par défaut\n        profile = CandidatProfile(**candidate_data)\n        offer = JobOffer(**job_offer_data)\n        # S'assurer que les listes ne sont pas None",
+        "peekOfCode": "def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"\n    Analyse complète et nouvelle génération de rapport structuré V2,\n    en s'appuyant sur l'analyse sémantique.\n    \"\"\"\n    try:\n        # Validation et initialisation des objets Pydantic\n        profile = CandidatProfile(**candidate_data)\n        offer = JobOffer(**job_offer_data)\n        # --- Analyses détaillées par catégorie ---",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_main_resume",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def generate_main_resume(global_score: float, niveau_adequation: str, strongest_category: str, points_amelioration: List[PointAmelioration]) -> str:\n    \"\"\"Génère un résumé principal personnalisé et engageant.\"\"\"\n    score = round(global_score)\n    # Ensure \"Compétences\" has the accent for display\n    strongest_category_fr = strongest_category.lower().replace('competences', 'compétences')\n    if score > 85:\n        resume = f\"Félicitations ! Votre profil est en parfaite adéquation ({score}%) avec cette offre. Vos compétences et votre expérience semblent correspondre exactement à ce que l'entreprise recherche.\"\n    elif score > 70:\n        resume = f\"Très prometteur ! Votre profil correspond très bien ({score}%) à cette offre. Vous avez de solides atouts, notamment dans le domaine '{strongest_category_fr}'. Quelques ajustements pourraient vous rendre irrésistible.\"\n    elif score > 50:",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1029,16 +1109,7 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def generate_section_resume(categorie: str, score: float, details: List[str], recommandations: List[str]) -> str:\n    \"\"\"Génère un résumé textuel pour une section d'analyse.\"\"\"\n    score_pct = round(score * 100)\n    if score_pct >= 80:\n        niveau = \"excellente\"\n    elif score_pct >= 60:\n        niveau = \"bonne\"\n    elif score_pct >= 40:\n        niveau = \"moyenne\"\n    else:",
-        "detail": "api1.utils",
-        "documentation": {}
-    },
-    {
-        "label": "semantic_model",
-        "kind": 5,
-        "importPath": "api1.utils",
-        "description": "api1.utils",
-        "peekOfCode": "semantic_model = SentenceTransformer(\"paraphrase-multilingual-MiniLM-L12-v2\")\nlogger = logging.getLogger(__name__)\n# Constantes pour l'analyse\nCOMPLETION_THRESHOLD = config.WEIGHTS.get(\"completion_threshold\", 0.7)\nEXPERIENCE_WEIGHT = config.WEIGHTS.get(\"experience\", 0.35)\nFORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"",
+        "peekOfCode": "def generate_section_resume(categorie: str, score: float) -> str:\n    \"\"\"Génère un résumé engageant pour une catégorie spécifique.\"\"\"\n    score_pct = round(score * 100)\n    resumes = {\n        \"formation\": {\n            \"excellent\": f\"Votre parcours académique ({score_pct}%) est un atout majeur pour ce poste.\",\n            \"bon\": f\"Votre formation ({score_pct}%) est solide et pertinente pour ce rôle.\",\n            \"moyen\": f\"Votre formation ({score_pct}%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.\",\n            \"faible\": f\"Votre parcours de formation ({score_pct}%) semble assez éloigné des prérequis pour ce poste. Mettez en avant vos expériences concrètes.\",\n        },",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1047,7 +1118,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "logger = logging.getLogger(__name__)\n# Constantes pour l'analyse\nCOMPLETION_THRESHOLD = config.WEIGHTS.get(\"completion_threshold\", 0.7)\nEXPERIENCE_WEIGHT = config.WEIGHTS.get(\"experience\", 0.35)\nFORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# --- Chargement des modèles et ressources NLP (une seule fois) ---\ntry:\n    logger.info(\"Loading NLP models as requested...\")\n    # Chargement du modèle spaCy pour le français\n    nlp = spacy.load(\"fr_core_news_sm\")\n    logger.info(\"spaCy model 'fr_core_news_sm' loaded successfully.\")\n    # Chargement du modèle SentenceTransformer pour les embeddings sémantiques\n    sentence_model = SentenceTransformer('distiluse-base-multilingual-cased-v1')\n    logger.info(\"SentenceTransformer model 'distiluse-base-multilingual-cased-v1' loaded successfully.\")",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1056,7 +1127,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "COMPLETION_THRESHOLD = config.WEIGHTS.get(\"completion_threshold\", 0.7)\nEXPERIENCE_WEIGHT = config.WEIGHTS.get(\"experience\", 0.35)\nFORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste",
+        "peekOfCode": "COMPLETION_THRESHOLD = config.WEIGHTS.get(\"completion_threshold\", 0.7)\nEXPERIENCE_WEIGHT = config.WEIGHTS.get(\"experience\", 0.35)\nFORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef normalize_text(text: str) -> List[str]:\n    \"\"\"\n    Nettoie, tokenise, lemmatise le texte et supprime les mots vides en utilisant spaCy.\n    Retourne une liste de lemmes normalisés pour une comparaison sémantique efficace.\n    \"\"\"",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1065,7 +1136,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "EXPERIENCE_WEIGHT = config.WEIGHTS.get(\"experience\", 0.35)\nFORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:",
+        "peekOfCode": "EXPERIENCE_WEIGHT = config.WEIGHTS.get(\"experience\", 0.35)\nFORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef normalize_text(text: str) -> List[str]:\n    \"\"\"\n    Nettoie, tokenise, lemmatise le texte et supprime les mots vides en utilisant spaCy.\n    Retourne une liste de lemmes normalisés pour une comparaison sémantique efficace.\n    \"\"\"\n    if not nlp or not text or not isinstance(text, str):",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1074,7 +1145,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "FORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits",
+        "peekOfCode": "FORMATION_WEIGHT = config.WEIGHTS.get(\"formation\", 0.25)\nCOMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef normalize_text(text: str) -> List[str]:\n    \"\"\"\n    Nettoie, tokenise, lemmatise le texte et supprime les mots vides en utilisant spaCy.\n    Retourne une liste de lemmes normalisés pour une comparaison sémantique efficace.\n    \"\"\"\n    if not nlp or not text or not isinstance(text, str):\n        return []",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1083,7 +1154,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "COMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits\n    \"\"\"",
+        "peekOfCode": "COMPETENCES_WEIGHT = config.WEIGHTS.get(\"competences\", 0.25)\nLANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef normalize_text(text: str) -> List[str]:\n    \"\"\"\n    Nettoie, tokenise, lemmatise le texte et supprime les mots vides en utilisant spaCy.\n    Retourne une liste de lemmes normalisés pour une comparaison sémantique efficace.\n    \"\"\"\n    if not nlp or not text or not isinstance(text, str):\n        return []\n    # 1. Mise en minuscules et suppression de la ponctuation non pertinente",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1092,7 +1163,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "LANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef extract_keywords_from_description(description: str) -> List[str]:\n    \"\"\"\n    Extrait les mots-clés pertinents d'une description de poste.\n    Args:\n        description (str): Description du poste\n    Returns:\n        List[str]: Liste des mots-clés extraits\n    \"\"\"\n    # Liste de mots à ignorer",
+        "peekOfCode": "LANGUES_WEIGHT = config.WEIGHTS.get(\"langues\", 0.15)\ndef normalize_text(text: str) -> List[str]:\n    \"\"\"\n    Nettoie, tokenise, lemmatise le texte et supprime les mots vides en utilisant spaCy.\n    Retourne une liste de lemmes normalisés pour une comparaison sémantique efficace.\n    \"\"\"\n    if not nlp or not text or not isinstance(text, str):\n        return []\n    # 1. Mise en minuscules et suppression de la ponctuation non pertinente\n    text = text.lower()",
         "detail": "api1.utils",
         "documentation": {}
     },

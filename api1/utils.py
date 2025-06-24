@@ -5,7 +5,14 @@ Fonctions utilitaires pour l'analyse de compatibilité
 import logging
 import re
 from typing import Dict, List, Tuple, Set, Optional
+
+# Nouveaux imports pour NLP avancé
+import spacy
 from sentence_transformers import SentenceTransformer, util
+import numpy as np
+from nltk.corpus import stopwords
+import nltk
+
 import config
 from models import (
     CandidatProfile,
@@ -27,9 +34,39 @@ from models import (
     ElementManquant,
 )
 
-# Charger le modèle pour l'analyse sémantique (multilingue)
-semantic_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+# --- Configuration du Logging ---
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# --- Chargement des modèles et ressources NLP (une seule fois) ---
+try:
+    logger.info("Loading NLP models as requested...")
+    # Chargement du modèle spaCy pour le français
+    nlp = spacy.load("fr_core_news_sm")
+    logger.info("spaCy model 'fr_core_news_sm' loaded successfully.")
+    
+    # Chargement du modèle SentenceTransformer pour les embeddings sémantiques
+    sentence_model = SentenceTransformer('distiluse-base-multilingual-cased-v1')
+    logger.info("SentenceTransformer model 'distiluse-base-multilingual-cased-v1' loaded successfully.")
+
+    # Assurer que les données NLTK nécessaires sont téléchargées
+    try:
+        nltk.data.find('corpora/stopwords')
+        nltk.data.find('tokenizers/punkt')
+    except LookupError:
+        logger.info("NLTK data not found. Downloading 'stopwords' and 'punkt'...")
+        nltk.download('stopwords')
+        nltk.download('punkt')
+        
+    stop_words = set(stopwords.words('french'))
+    logger.info("NLTK French stopwords loaded.")
+
+except Exception as e:
+    logger.error(f"Critical error loading NLP models: {e}", exc_info=True)
+    nlp = None
+    sentence_model = None
+    stop_words = set()
+
 
 # Constantes pour l'analyse
 COMPLETION_THRESHOLD = config.WEIGHTS.get("completion_threshold", 0.7)
@@ -39,132 +76,42 @@ COMPETENCES_WEIGHT = config.WEIGHTS.get("competences", 0.25)
 LANGUES_WEIGHT = config.WEIGHTS.get("langues", 0.15)
 
 
-def extract_keywords_from_description(description: str) -> List[str]:
+def normalize_text(text: str) -> List[str]:
     """
-    Extrait les mots-clés pertinents d'une description de poste.
-    
-    Args:
-        description (str): Description du poste
-        
-    Returns:
-        List[str]: Liste des mots-clés extraits
+    Nettoie, tokenise, lemmatise le texte et supprime les mots vides en utilisant spaCy.
+    Retourne une liste de lemmes normalisés pour une comparaison sémantique efficace.
     """
-    # Liste de mots à ignorer
-    stop_words = {
-        "le",
-        "la",
-        "les",
-        "un",
-        "une",
-        "des",
-        "ce",
-        "ces",
-        "son",
-        "sa",
-        "ses",
-        "et",
-        "ou",
-        "mais",
-        "donc",
-        "car",
-        "ni",
-        "que",
-        "qui",
-        "quoi",
-        "dont",
-        "où",
-        "pour",
-        "dans",
-        "sur",
-        "avec",
-        "sans",
-        "par",
-        "de",
-        "à",
-        "au",
-        "aux",
-        "en",
-        "nous",
-        "vous",
-        "ils",
-        "elles",
-        "notre",
-        "votre",
-        "leur",
-        "être",
-        "avoir",
-        "faire",
-        "pouvoir",
-        "devoir",
-        "aller",
-        "venir",
-        "plus",
-        "moins",
-        "très",
-        "peu",
-        "beaucoup",
-        "trop",
-        "assez",
-    }
+    if not nlp or not text or not isinstance(text, str):
+        return []
+    # 1. Mise en minuscules et suppression de la ponctuation non pertinente
+    text = text.lower()
+    text = re.sub(r'[^\w\s]', ' ', text)
     
-    # Patterns pour extraire les compétences et technologies
-    tech_patterns = [
-        r"\b[A-Za-z]+[\+\#]?(?:\.[A-Za-z]+)*\b",  # Langages de programmation et technologies
-        r"\b[A-Z][A-Za-z]*(?:\s*[A-Z][A-Za-z]*)*\b",  # Frameworks et outils
-        r"[A-Za-z]+\s*(?:\d+(?:\.\d+)*)",  # Versions de technologies
+    # 2. Traitement avec spaCy pour la lemmatisation et le filtrage
+    doc = nlp(text)
+    lemmas = [
+        token.lemma_ 
+        for token in doc 
+        if token.is_alpha and token.lemma_ not in stop_words
     ]
     
-    # Extraction des sections importantes
-    sections = {
-        "missions": r"(?:Missions|Responsabilités|Tâches)\s*:?\s*(.*?)(?:\n\n|\Z)",
-        "profil": r"(?:Profil|Compétences|Prérequis)\s*:?\s*(.*?)(?:\n\n|\Z)",
-        "technologies": r"(?:Technologies|Stack|Environnement technique)\s*:?\s*(.*?)(?:\n\n|\Z)",
-    }
+    return lemmas
+
+def get_semantic_similarity(text1: str, text2: str) -> float:
+    """
+    Calcule la similarité sémantique entre deux textes en utilisant le SentenceTransformer chargé.
+    """
+    if not sentence_model or not text1 or not text2:
+        return 0.0
     
-    keywords = set()
-    
-    # Nettoyage du texte
-    text = description.lower()
-    text = re.sub(r"[^\w\s\-\.]", " ", text)
-    
-    # Extraction des mots-clés par section
-    for section_name, pattern in sections.items():
-        matches = re.findall(pattern, description, re.IGNORECASE | re.DOTALL)
-        for match in matches:
-            # Extraction des technologies
-            for tech_pattern in tech_patterns:
-                techs = re.findall(tech_pattern, match)
-                keywords.update(tech.strip() for tech in techs if len(tech.strip()) > 2)
-            
-            # Extraction des autres mots-clés
-            words = match.lower().split()
-            keywords.update(
-                word for word in words if word not in stop_words and len(word) > 2
-            )
-    
-    # Extraction des compétences spécifiques
-    competences_patterns = [
-        r"(?:maîtrise|connaissance|expertise)\s+(?:de|en|du|des)?\s+([^,\.;]+)",
-        r"(?:expérience\s+(?:en|avec|sur))\s+([^,\.;]+)",
-        r"(?:compétences?\s+(?:en|sur|avec))\s+([^,\.;]+)",
-    ]
-    
-    for pattern in competences_patterns:
-        matches = re.findall(pattern, description, re.IGNORECASE)
-        for match in matches:
-            words = match.lower().split()
-            keywords.update(
-                word for word in words if word not in stop_words and len(word) > 2
-            )
-    
-    # Filtrage et nettoyage final
-    cleaned_keywords = {
-        keyword.strip()
-        for keyword in keywords
-        if len(keyword.strip()) > 2 and not keyword.strip().isdigit()
-    }
-    
-    return list(cleaned_keywords)
+    try:
+        # L'encodage et la comparaison sont plus efficaces ainsi
+        embeddings = sentence_model.encode([text1, text2], convert_to_tensor=True, show_progress_bar=False)
+        cosine_score = util.pytorch_cos_sim(embeddings[0], embeddings[1])
+        return cosine_score.item()
+    except Exception as e:
+        logger.error(f"Error calculating semantic similarity for texts ('{text1[:30]}...', '{text2[:30]}...'): {e}", exc_info=False)
+        return 0.0
 
 
 # Mapping des niveaux d'études standardisés
@@ -319,8 +266,8 @@ def calculate_domain_similarity(domain1: str, domain2: str) -> float:
     
     # Utiliser le modèle sémantique pour les cas plus complexes
     try:
-        embeddings1 = semantic_model.encode([domain1], convert_to_tensor=True, show_progress_bar=False)
-        embeddings2 = semantic_model.encode([domain2], convert_to_tensor=True, show_progress_bar=False)
+        embeddings1 = sentence_model.encode([domain1], convert_to_tensor=True, show_progress_bar=False)
+        embeddings2 = sentence_model.encode([domain2], convert_to_tensor=True, show_progress_bar=False)
         
         # Calculer la similarité cosinus
         cosine_similarity = util.pytorch_cos_sim(embeddings1, embeddings2).item()
@@ -340,187 +287,130 @@ def calculate_domain_similarity(domain1: str, domain2: str) -> float:
 def analyze_experience_compatibility(
     experiences: List[Experience],
     exigence: ExigenceExperience,
+    job_description: str,
     niveau_experience_valeur: Optional[int] = None
 ) -> Tuple[float, List[str], List[str]]:
-    """Analyse approfondie de la compatibilité des expériences professionnelles."""
+    """
+    Analyse la compatibilité de l'expérience, en combinant la durée et la pertinence sémantique.
+    """
     points_forts = []
     recommendations = []
     
-    # Analyse de la durée d'expérience
-    if niveau_experience_valeur is not None:
-        duree_totale_annees = niveau_experience_valeur
-        duree_totale = duree_totale_annees * 12
-    else:
-        duree_totale = sum(exp.duree_mois for exp in experiences)
-        duree_totale_annees = duree_totale / 12
+    # 1. Analyse de la durée de l'expérience
+    total_experience_months = sum(e.duree_mois for e in experiences if e.duree_mois)
+    required_experience_months = exigence.duree_minimum_mois or 0
     
-    # Analyse des exigences d'expérience
-    if exigence.niveau == "Non spécifié":
-        return 1.0, ["Aucune expérience spécifique requise."], []
-    elif exigence.niveau == "Etudiant, jeune diplômé":
-        # Pas d'expérience minimale requise
-        if duree_totale > 0:
-            msg = f"Vous avez {duree_totale_annees:.1f} ans d'expérience, ce qui est un plus."
-            points_forts.append(msg)
-            return 1.0, points_forts, []
-        else:
-            return 0.8, [], ["Une première expérience serait un plus."]
+    if required_experience_months == 0:
+        score_duree = 1.0 # Pas d'exigence de durée, le candidat est compatible sur ce point
+        points_forts.append("La durée de votre expérience correspond aux attentes (aucune durée minimale requise).")
+    elif total_experience_months >= required_experience_months:
+        score_duree = 1.0
+        points_forts.append(f"Vous avez {total_experience_months / 12:.1f} ans d'expérience, ce qui est supérieur ou égal aux {required_experience_months / 12:.1f} ans requis.")
     else:
-        # Convertir l'exigence en mois
-        duree_requise = exigence.duree_minimum_mois
-        
-        if duree_totale >= duree_requise:
-            msg = f"Vous avez {duree_totale_annees:.1f} ans d'expérience, ce qui répond aux exigences."
-            points_forts.append(msg)
-            score = 1.0
+        score_duree = total_experience_months / required_experience_months
+        recommendations.append(f"L'offre requiert {required_experience_months / 12:.1f} ans d'expérience, et vous en avez {total_experience_months / 12:.1f}.")
+
+    # 2. Analyse de la pertinence sémantique
+    all_lemmas = [
+        lemma
+        for e in experiences if e.description
+        for lemma in normalize_text(e.description)
+    ]
+    candidate_experience_text = " ".join(all_lemmas)
+    offer_description_normalized = " ".join(normalize_text(job_description))
+
+    score_semantique = 0.0
+    if candidate_experience_text and offer_description_normalized:
+        score_semantique = get_semantic_similarity(candidate_experience_text, offer_description_normalized)
+        if score_semantique > 0.6:
+            points_forts.append(f"La description de vos expériences est sémantiquement proche de l'offre (similarité de {score_semantique:.2f}).")
         else:
-            manque_mois = duree_requise - duree_totale
-            manque_annees = manque_mois / 12
-            recommendations.append(
-                f"Il vous manque {manque_annees:.1f} ans d'expérience par rapport au minimum requis."
-            )
-            score = min(0.8, duree_totale / duree_requise)
+            recommendations.append("Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.")
+            
+    # 3. Calcul du score final pondéré
+    # Pondération : 40% durée, 60% sémantique
+    WEIGHT_DUREE = 0.4
+    WEIGHT_SEMANTIQUE = 0.6
     
-    return score, points_forts, recommendations
+    final_score = (score_duree * WEIGHT_DUREE) + (score_semantique * WEIGHT_SEMANTIQUE)
+    
+    return final_score, points_forts, recommendations
 
 
 def analyze_competences_compatibility(
     candidate_competences: List[Competence], required_competences: List[Competence]
-) -> Tuple[float, List[str], List[str]]:
-    """Analyse sémantique de la compatibilité des compétences en utilisant le traitement par lots."""
-    details, recommendations, points_forts = [], [], []
-
+) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:
+    """
+    Analyse sémantique de la compatibilité des compétences.
+    Retourne: score, correspondances, manquants, points forts (strings), recommandations (strings)
+    """
     if not required_competences:
-        return 1.0, ["Aucune compétence spécifique n'est requise."], []
+        return 1.0, [], [], ["Aucune compétence spécifique n'est requise."], []
 
     if not candidate_competences:
+        manquants = [ElementManquant(description=c.nom, categorie='competence', importance='importante') for c in required_competences]
         reco_text = (
             f"Le profil ne liste aucune compétence. Compétences à ajouter : "
             f"{', '.join([c.nom for c in required_competences])}"
         )
-        recommendations.append(reco_text)
-        return 0.0, [], recommendations
+        return 0.0, [], manquants, [], [reco_text]
 
-    # Extraire les noms des compétences
-    req_comp_names = [c.nom for c in required_competences]
-    cand_comp_names = [c.nom for c in candidate_competences]
-
-    # Créer des groupes de compétences similaires
-    competences_groupes = {
-        "developpement": [
-            "git",
-            "python",
-            "java",
-            "javascript",
-            "php",
-            "c++",
-            "ruby",
-            "swift",
-        ],
-        "vente": ["vente", "négociation", "commercial", "prospection", "crm"],
-        "marketing": [
-            "marketing",
-            "communication",
-            "publicité",
-            "réseaux sociaux",
-            "seo",
-        ],
-        "gestion": ["gestion de projet", "management", "planification", "organisation"],
-        "design": ["design", "ui", "ux", "photoshop", "illustrator", "figma"],
-    }
-
-    # Vérifier d'abord les correspondances exactes
-    competences_correspondantes = set()
-    competences_manquantes = set(r.lower() for r in req_comp_names)
+    # Normalisation des compétences du candidat et de l'offre
+    cand_skills_normalized = { " ".join(normalize_text(c.nom)): c for c in candidate_competences if c.nom }
+    req_skills_normalized = { " ".join(normalize_text(c.nom)): c for c in required_competences if c.nom }
     
-    # 1. Correspondance exacte
-    for req_comp in req_comp_names:
-        req_comp_lower = req_comp.lower()
-        for cand_comp in cand_comp_names:
-            if cand_comp.lower() == req_comp_lower:
-                competences_correspondantes.add(req_comp)
-                if req_comp_lower in competences_manquantes:
-                    competences_manquantes.remove(req_comp_lower)
-                points_forts.append(f"Compétence requise '{req_comp}' maîtrisée.")
+    correspondances = []
+    manquants = []
+    points_forts = []
+    total_score = 0.0
+    
+    # Utilisation d'un seuil de similarité configurable
+    SIMILARITY_THRESHOLD = config.SIMILARITY_THRESHOLDS.get('competences', 0.75)
 
-    # 2. Correspondance par groupe
-    for req_comp in req_comp_names:
-        if req_comp.lower() not in competences_correspondantes:
-            req_groupe = None
-            for groupe, comps in competences_groupes.items():
-                if req_comp.lower() in [c.lower() for c in comps]:
-                    req_groupe = groupe
-                    break
+    for req_norm, req_orig_obj in req_skills_normalized.items():
+        if not req_norm.strip():
+            continue
+
+        best_match_score = 0
+        best_cand_obj = None
+
+        # Recherche de la meilleure correspondance sémantique
+        for cand_norm, cand_obj in cand_skills_normalized.items():
+            if not cand_norm.strip():
+                continue
             
-            if req_groupe:
-                for cand_comp in cand_comp_names:
-                    if cand_comp.lower() in [
-                        c.lower() for c in competences_groupes[req_groupe]
-                    ]:
-                        competences_correspondantes.add(req_comp)
-                        if req_comp.lower() in competences_manquantes:
-                            competences_manquantes.remove(req_comp.lower())
-                        points_forts.append(
-                            f"Compétence requise '{req_comp}' couverte par votre compétence "
-                            f"'{cand_comp}' (même domaine)."
-                        )
-                        break
-
-    # 3. Correspondance sémantique uniquement pour les compétences restantes
-    if competences_manquantes:
-        # Encoder les compétences restantes
-        remaining_req = [
-            c for c in req_comp_names if c.lower() in competences_manquantes
-        ]
-        if remaining_req:
-            req_embeddings = semantic_model.encode(
-                remaining_req, convert_to_tensor=True, show_progress_bar=False
-            )
-            cand_embeddings = semantic_model.encode(
-                cand_comp_names, convert_to_tensor=True, show_progress_bar=False
-            )
-            
-            # Augmenter le seuil de similarité
-            cosine_scores = util.pytorch_cos_sim(req_embeddings, cand_embeddings)
-            for i, req_comp in enumerate(remaining_req):
-                best_match_score = cosine_scores[i].max().item()
-                
-                # Utiliser le seuil de similarité configuré
-                if best_match_score > config.SIMILARITY_THRESHOLD:
-                    matched_cand_index = cosine_scores[i].argmax().item()
-                    matched_cand_name = cand_comp_names[matched_cand_index]
-                    
-                    competences_correspondantes.add(req_comp)
-                    if req_comp.lower() in competences_manquantes:
-                        competences_manquantes.remove(req_comp.lower())
-                    points_forts.append(
-                        f"Compétence requise '{req_comp}' similaire à votre compétence "
-                        f"'{matched_cand_name}'."
-                    )
-
-    # Générer les détails et recommandations
-    if competences_correspondantes:
-        details.append(
-            f"Compétences maîtrisées : {', '.join(competences_correspondantes)}."
-        )
-
-    if competences_manquantes:
-        recommendations.append(
-            f"Compétences à développer ou à mieux décrire : "
-            f"{', '.join(c.capitalize() for c in competences_manquantes)}."
-        )
-
-    score = (
-        len(competences_correspondantes) / len(required_competences)
-        if required_competences
-        else 1.0
-    )
-
-    # Ne retourner les points forts que si le score est suffisant
-    if score < 0.3:  # Moins de 30% de correspondance
-        points_forts = []  # Réinitialiser les points forts si le score est trop faible
+            # La similarité est calculée sur les textes normalisés pour plus de pertinence
+            similarity = get_semantic_similarity(req_norm, cand_norm)
+            if similarity > best_match_score:
+                best_match_score = similarity
+                best_cand_obj = cand_obj
         
-    return score, details + points_forts, recommendations
+        if best_match_score > SIMILARITY_THRESHOLD:
+            # On considère la compétence comme acquise
+            total_score += best_match_score
+            item = CorrespondanceItem(
+                element_profil=best_cand_obj.nom,
+                element_offre=req_orig_obj.nom,
+                niveau_correspondance=best_match_score,
+                categorie='competence',
+                similarite_semantique=best_match_score
+            )
+            correspondances.append(item)
+            if best_match_score < 0.98: # Si ce n'est pas une correspondance quasi parfaite
+                 points_forts.append(f"{req_orig_obj.nom} (similaire à votre compétence '{best_cand_obj.nom}')")
+            else:
+                 points_forts.append(req_orig_obj.nom)
+        else:
+            manquants.append(ElementManquant(description=req_orig_obj.nom, categorie='competence', importance='importante'))
+
+    score = (total_score / len(req_skills_normalized)) if req_skills_normalized else 1.0
+    
+    recommendations = []
+    if manquants:
+        missing_list = [m.description for m in manquants]
+        recommendations.append(f"Compétences manquantes ou non identifiées : {', '.join(missing_list)}. Pensez à les ajouter ou à reformuler vos compétences actuelles.")
+
+    return score, correspondances, manquants, points_forts, recommendations
 
 
 def analyze_langues_compatibility(
@@ -817,328 +707,212 @@ def niveau_satisfait_exigence(niveau_candidat: str, niveau_requis: str) -> bool:
 
 
 def generate_synthesis(global_score: float, analyses: Dict) -> str:
-    """Génère une synthèse textuelle à partir des résultats de l'analyse."""
-    score = round(global_score)
-    
-    if score >= 75:
-        intro = f"Avec un score de {score}%, votre profil est en excellente adéquation avec cette offre. "
-        conclusion = "Vous êtes un candidat très prometteur pour ce poste."
-    elif score >= 50:
-        intro = (
-            f"Votre profil correspond à {score}%, ce qui représente une bonne base. "
-        )
-        conclusion = "Avec quelques ajustements, votre candidature pourrait être encore plus forte."
+    """Génère une synthèse textuelle basée sur le score global et les analyses."""
+    if global_score > 0.8:
+        level = "Excellente"
+    elif global_score > 0.6:
+        level = "Bonne"
+    elif global_score > 0.4:
+        level = "Moyenne"
     else:
-        intro = f"Votre profil correspond à {score}%. Il existe des écarts notables avec les exigences du poste. "
-        conclusion = "Considérez les pistes d'amélioration pour renforcer votre profil pour ce type de rôle."
+        level = "Faible"
 
-    points_forts = []
-    for section in analyses.values():
-        if section.get("points_forts"):
-            points_forts.extend(
-                section["points_forts"][:1]
-            )  # On prend le 1er point fort de chaque section
+    # Trouver les points forts et faibles
+    points_forts = [
+        analyses[cat]["titre"]
+        for cat, data in analyses.items()
+        if data["score"] > 70
+    ]
+    points_faibles = [
+        analyses[cat]["titre"]
+        for cat, data in analyses.items()
+        if data["score"] < 50
+    ]
 
+    synthesis = f"Adéquation globale : {level} ({global_score * 100:.0f}%). "
     if points_forts:
-        intro += f"Vos principaux atouts sont {', '.join(points_forts).lower()}. "
-    
-    return intro + conclusion
+        synthesis += f"Points forts détectés en {', '.join(points_forts)}. "
+    if points_faibles:
+        synthesis += (
+            f"Des améliorations sont possibles en {', '.join(points_faibles)}."
+        )
+
+    return synthesis
 
 
 def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
-    """Analyse complète et génère un rapport structuré."""
+    """
+    Analyse complète et nouvelle génération de rapport structuré V2,
+    en s'appuyant sur l'analyse sémantique.
+    """
     try:
-        # Validation et nettoyage des données d'entrée
-        candidate_data = {k: v for k, v in candidate_data.items() if v is not None}
-        job_offer_data = {k: v for k, v in job_offer_data.items() if v is not None}
-        
-        # Initialisation des objets avec gestion des valeurs par défaut
+        # Validation et initialisation des objets Pydantic
         profile = CandidatProfile(**candidate_data)
         offer = JobOffer(**job_offer_data)
         
-        # S'assurer que les listes ne sont pas None
-        profile.formations = profile.formations or []
-        profile.experiences = profile.experiences or []
-        profile.competences = profile.competences or []
-        profile.langues = profile.langues or []
+        # --- Analyses détaillées par catégorie ---
         
-        # S'assurer que les listes requises ne sont pas None dans l'offre
-        if not hasattr(offer.formation_requise, "domaines_acceptes"):
-            offer.formation_requise.domaines_acceptes = []
-        if not hasattr(offer.experience_requise, "competences_requises"):
-            offer.experience_requise.competences_requises = []
-        if not hasattr(offer.experience_requise, "mots_cles_poste"):
-            offer.experience_requise.mots_cles_poste = []
-        
-        # Analyse de la complétion du profil
-        completion = analyze_profile_completion(profile)
-        
-        # Analyses détaillées par catégorie
+        # 1. Formation
         formation_score, f_details, f_reco = analyze_formation_compatibility(
             profile.formations, offer.formation_requise, profile.niveau_etude, profile.niveau_etude_valeur
         )
         
+        # 2. Expérience (avec analyse sémantique)
         experience_score, e_details, e_reco = analyze_experience_compatibility(
-            profile.experiences, offer.experience_requise, profile.niveau_experience_valeur
+            profile.experiences, offer.experience_requise, offer.description, profile.niveau_experience_valeur
         )
         
-        competences_score, c_details, c_reco = analyze_competences_compatibility(
+        # 3. Compétences (avec analyse sémantique)
+        competences_score, c_corresp, c_manquants, c_details, c_reco = analyze_competences_compatibility(
             profile.competences, offer.competences_requises
         )
         
+        # 4. Langues
         langues_score, l_details, l_reco = analyze_langues_compatibility(
-            profile.langues, offer.langues_requises or []
+            profile.langues, offer.langues_requises
         )
         
-        # Calcul du score global pondéré
+        # --- Calcul du score global pondéré ---
+        weights = config.WEIGHTS
         global_score = (
-            formation_score * FORMATION_WEIGHT
-            + experience_score * EXPERIENCE_WEIGHT
-            + competences_score * COMPETENCES_WEIGHT
-            + langues_score * LANGUES_WEIGHT
+            formation_score * weights.get("formation", 0.25) +
+            experience_score * weights.get("experience", 0.35) +
+            competences_score * weights.get("competences", 0.25) +
+            langues_score * weights.get("langues", 0.15)
         ) * 100
         
-        # Identification des lacunes critiques
-        gaps = identify_critical_gaps(profile, offer)
+        # --- Construction de la réponse structurée (V2) ---
         
-        # Génération des suggestions d'amélioration
-        suggestions = generate_improvement_suggestions(
-            profile,
-            offer,
-            {
-            "formation_reco": f_reco,
-            "experience_reco": e_reco,
-            "competences_reco": c_reco,
-                "langues_reco": l_reco,
-            },
-        )
+        points_forts = [PointFort(description=d, categorie=c) for c, details in [("formation", f_details), ("experience", e_details), ("competences", c_details), ("langues", l_details)] for d in details]
+        points_amelioration = [PointAmelioration(description=r, categorie=c) for c, recos in [("formation", f_reco), ("experience", e_reco), ("competences", c_reco), ("langues", l_reco)] for r in recos]
         
-        # Construction de la nouvelle structure de réponse
+        # Génération des suggestions
+        all_recommendations = {
+            "formation_reco": f_reco, "experience_reco": e_reco, 
+            "competences_reco": c_reco, "langues_reco": l_reco
+        }
+        raw_suggestions = generate_improvement_suggestions(profile, offer, all_recommendations)
+        suggestions = [
+            Suggestion(
+                categorie=s.get("type", "générale"),
+                description=s.get("suggestion", ""),
+                priorite=s.get("priorite", "normale")
+            ) for s in raw_suggestions
+        ]
+
+        analyse_detaillee = {
+            "formation": AnalyseCategorielle(categorie="Formation", score=round(formation_score * 100), points_forts=f_details, points_amelioration=f_reco, resume=generate_section_resume("formation", formation_score)),
+            "experience": AnalyseCategorielle(categorie="Expérience", score=round(experience_score * 100), points_forts=e_details, points_amelioration=e_reco, resume=generate_section_resume("experience", experience_score)),
+            "competences": AnalyseCategorielle(
+                categorie="Compétences", 
+                score=round(competences_score * 100), 
+                elements_correspondants=c_corresp,
+                elements_manquants=c_manquants,
+                points_forts=c_details, 
+                points_amelioration=c_reco,
+                resume=generate_section_resume("competences", competences_score)
+            ),
+            "langues": AnalyseCategorielle(categorie="Langues", score=round(langues_score * 100), points_forts=l_details, points_amelioration=l_reco, resume=generate_section_resume("langues", langues_score)),
+        }
+
+        def get_adequation_level(score):
+            if score > 85: return "Excellent"
+            if score > 70: return "Très bon"
+            if score > 50: return "Bon"
+            if score > 30: return "Passable"
+            return "Faible"
+            
+        niveau_adequation = get_adequation_level(global_score)
         
-        # 1. Création des analyses catégorielles
-        formation_analyse = AnalyseCategorielle(
-            categorie="Formation",
-            score=round(formation_score * 100),
-            points_forts=[d for d in f_details if "supérieur" in d.lower() or "adéquation" in d.lower()],
-            points_amelioration=f_reco,
-            resume=generate_section_resume("formation", formation_score, f_details, f_reco)
-        )
-        
-        experience_analyse = AnalyseCategorielle(
-            categorie="Expérience Professionnelle",
-            score=round(experience_score * 100),
-            points_forts=[d for d in e_details if "similaires" in d.lower() or "supérieure" in d.lower()],
-            points_amelioration=e_reco,
-            resume=generate_section_resume("expérience", experience_score, e_details, e_reco)
-        )
-        
-        competences_analyse = AnalyseCategorielle(
-            categorie="Compétences",
-            score=round(competences_score * 100),
-            points_forts=[d for d in c_details if "couverte par" in d.lower() or "maîtrisée" in d.lower()],
-            points_amelioration=c_reco,
-            resume=generate_section_resume("compétences", competences_score, c_details, c_reco)
-        )
-        
-        langues_analyse = AnalyseCategorielle(
-            categorie="Langues",
-            score=round(langues_score * 100),
-            points_forts=l_details,
-            points_amelioration=l_reco,
-            resume=generate_section_resume("langues", langues_score, l_details, l_reco)
-        )
-        
-        analyse_detaillee = AnalyseDetaillee(
-            formation=formation_analyse,
-            experience=experience_analyse,
-            competences=competences_analyse,
-            langues=langues_analyse
-        )
-        
-        # 2. Extraction des points forts globaux
-        points_forts = []
-        
-        # Points forts de formation
-        for detail in f_details:
-            if "supérieur" in detail.lower() or "adéquation" in detail.lower():
-                points_forts.append(PointFort(
-                    description=detail,
-                    categorie="formation",
-                    importance="important" if "supérieur" in detail.lower() else "normal"
-                ))
-        
-        # Points forts d'expérience
-        for detail in e_details:
-            if "similaires" in detail.lower() or "supérieure" in detail.lower():
-                points_forts.append(PointFort(
-                    description=detail,
-                    categorie="experience",
-                    importance="important"
-                ))
-        
-        # Points forts de compétences
-        for detail in c_details:
-            if "maîtrisée" in detail.lower() or "couverte par" in detail.lower():
-                points_forts.append(PointFort(
-                    description=detail,
-                    categorie="competence",
-                    importance="important" if "maîtrisée" in detail.lower() else "normal"
-                ))
-        
-        # Points forts de langues
-        for detail in l_details:
-            if detail != "Aucune exigence linguistique spécifique":
-                points_forts.append(PointFort(
-                    description=detail,
-                    categorie="langue",
-                    importance="normal"
-                ))
-        
-        # 3. Extraction des points d'amélioration
-        points_amelioration = []
-        
-        # Améliorations de formation
-        for reco in f_reco:
-            points_amelioration.append(PointAmelioration(
-                description=reco,
-                categorie="formation",
-                priorite="haute" if "requis" in reco.lower() else "normale",
-                suggestion=f"Envisager une formation complémentaire dans ce domaine"
-            ))
-        
-        # Améliorations d'expérience
-        for reco in e_reco:
-            priorite = "haute" if "minimum requis" in reco.lower() else "normale"
-            points_amelioration.append(PointAmelioration(
-                description=reco,
-                categorie="experience",
-                priorite=priorite,
-                suggestion=f"Valoriser vos projets et stages en lien avec ces compétences"
-            ))
-        
-        # Améliorations de compétences
-        for reco in c_reco:
-            points_amelioration.append(PointAmelioration(
-                description=reco,
-                categorie="competence",
-                priorite="haute",
-                suggestion=f"Suivre des formations ou réaliser des projets personnels"
-            ))
-        
-        # Améliorations de langues
-        for reco in l_reco:
-            points_amelioration.append(PointAmelioration(
-                description=reco,
-                categorie="langue",
-                priorite="moyenne",
-                suggestion=f"Pratiquer régulièrement cette langue"
-            ))
-        
-        # 4. Génération des suggestions personnalisées
-        suggestions_list = []
-        for sugg in suggestions:
-            suggestions_list.append(Suggestion(
-                categorie=sugg.get("type", "general"),
-                description=sugg.get("suggestion", ""),
-                priorite=sugg.get("priorite", "normale"),
-                impact_estime="fort" if sugg.get("priorite") == "haute" else "moyen"
-            ))
-        
-        # 5. Génération du résumé global
-        resume = generate_synthesis(global_score, {
-            "formation": {"points_forts": formation_analyse.points_forts},
-            "experience": {"points_forts": experience_analyse.points_forts},
-            "competences": {"points_forts": competences_analyse.points_forts},
-            "langues": {"points_forts": langues_analyse.points_forts}
-        })
-        
-        # 6. Détermination du niveau d'adéquation
-        niveau_adequation = "Excellent" if global_score >= 75 else "Bon" if global_score >= 50 else "Moyen" if global_score >= 30 else "À améliorer"
-        
-        # Création de la réponse au nouveau format
-        response_v2 = MatchingResponseV2(
-            score_global=round(global_score, 1),
+        strongest_category = max(analyse_detaillee, key=lambda k: analyse_detaillee[k].score) if analyse_detaillee else "N/A"
+        resume = generate_main_resume(global_score, niveau_adequation, strongest_category, points_amelioration)
+
+        response_data = MatchingResponseV2(
+            score_global=round(global_score),
             niveau_adequation=niveau_adequation,
             resume=resume,
             points_forts=points_forts,
             points_amelioration=points_amelioration,
+            suggestions=suggestions,
             analyse_detaillee=analyse_detaillee,
-            suggestions=suggestions_list
         )
         
-        # Pour la compatibilité avec l'ancien format
-        analyses = {
-            "formation": {
-                "titre": "Formation",
-                "score": round(formation_score * 100),
-                "points_forts": formation_analyse.points_forts,
-                "points_faibles": formation_analyse.points_amelioration,
-            },
-            "experience": {
-                "titre": "Expérience Professionnelle",
-                "score": round(experience_score * 100),
-                "points_forts": experience_analyse.points_forts,
-                "points_faibles": experience_analyse.points_amelioration,
-            },
-            "competences": {
-                "titre": "Compétences",
-                "score": round(competences_score * 100),
-                "points_forts": competences_analyse.points_forts,
-                "points_faibles": competences_analyse.points_amelioration,
-            },
-            "langues": {
-                "titre": "Langues",
-                "score": round(langues_score * 100),
-                "points_forts": langues_analyse.points_forts,
-                "points_faibles": langues_analyse.points_amelioration,
-            },
-        }
-        
-        # Conversion du nouveau format vers l'ancien format pour la rétrocompatibilité
-        response = {
-            "global_score": round(global_score, 1),
-            "completion": completion,
-            "analyses": analyses,
-            "synthesis": resume,
-            "adequation_globale": niveau_adequation,
-            # Nouveaux champs pour une meilleure structuration
-            "resume_correspondance": resume,
-            "atouts_majeurs": [{"categorie": pf.categorie, "description": pf.description} for pf in points_forts],
-            "elements_manquants": [{"categorie": pa.categorie, "description": pa.description} for pa in points_amelioration],
-            "suggestions_amelioration": [{"categorie": s.categorie, "description": s.description} for s in suggestions_list],
-        }
-        
-        # Retourner la réponse au format souhaité (nouveau format V2)
-        return response_v2.dict()
-        
+        return response_data.dict(exclude_none=True)
+
     except Exception as e:
-        logger.error(f"Erreur lors de l'analyse: {str(e)}", exc_info=True)
-        raise
+        logger.error(f"Erreur majeure dans analyze_compatibility: {e}", exc_info=True)
+        return {
+            "score_global": 0,
+            "niveau_adequation": "Erreur",
+            "resume": f"Une erreur est survenue lors de l'analyse: {e}",
+        }
 
 
-def generate_section_resume(categorie: str, score: float, details: List[str], recommandations: List[str]) -> str:
-    """Génère un résumé textuel pour une section d'analyse."""
+def generate_main_resume(global_score: float, niveau_adequation: str, strongest_category: str, points_amelioration: List[PointAmelioration]) -> str:
+    """Génère un résumé principal personnalisé et engageant."""
+    score = round(global_score)
+    # Ensure "Compétences" has the accent for display
+    strongest_category_fr = strongest_category.lower().replace('competences', 'compétences')
+
+    if score > 85:
+        resume = f"Félicitations ! Votre profil est en parfaite adéquation ({score}%) avec cette offre. Vos compétences et votre expérience semblent correspondre exactement à ce que l'entreprise recherche."
+    elif score > 70:
+        resume = f"Très prometteur ! Votre profil correspond très bien ({score}%) à cette offre. Vous avez de solides atouts, notamment dans le domaine '{strongest_category_fr}'. Quelques ajustements pourraient vous rendre irrésistible."
+    elif score > 50:
+        resume = f"C'est un bon début ! Votre profil a retenu notre attention ({score}%). Votre principal point fort est la section '{strongest_category_fr}'. Nous vous conseillons de regarder les points d'amélioration pour maximiser vos chances."
+    elif score > 30:
+        resume = f"Il y a du potentiel. Votre profil présente quelques correspondances ({score}%) avec l'offre, mais des écarts sont à noter. Concentrez-vous sur les axes d'amélioration pour des offres similaires à l'avenir."
+    else:
+        resume = f"Cette offre ne semble pas être la plus adaptée pour vous pour le moment ({score}%). Ne vous découragez pas ! Voyez cela comme une piste pour identifier les compétences à développer pour votre prochaine candidature."
+
+    if points_amelioration:
+        resume += f" Le premier point à regarder serait : {points_amelioration[0].description}"
+
+    return resume
+
+
+def generate_section_resume(categorie: str, score: float) -> str:
+    """Génère un résumé engageant pour une catégorie spécifique."""
     score_pct = round(score * 100)
     
-    if score_pct >= 80:
-        niveau = "excellente"
-    elif score_pct >= 60:
-        niveau = "bonne"
-    elif score_pct >= 40:
-        niveau = "moyenne"
-    else:
-        niveau = "faible"
+    resumes = {
+        "formation": {
+            "excellent": f"Votre parcours académique ({score_pct}%) est un atout majeur pour ce poste.",
+            "bon": f"Votre formation ({score_pct}%) est solide et pertinente pour ce rôle.",
+            "moyen": f"Votre formation ({score_pct}%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.",
+            "faible": f"Votre parcours de formation ({score_pct}%) semble assez éloigné des prérequis pour ce poste. Mettez en avant vos expériences concrètes.",
+        },
+        "experience": {
+            "excellent": f"Votre expérience professionnelle ({score_pct}%) est en parfaite adéquation avec les missions proposées.",
+            "bon": f"Vous avez une expérience très pertinente ({score_pct}%) pour ce poste. Pensez à bien la détailler.",
+            "moyen": f"Votre expérience ({score_pct}%) est intéressante. Essayez de mettre en avant les projets les plus similaires à ceux de l'offre.",
+            "faible": f"Il semble vous manquer une expérience significative ({score_pct}%) pour ce poste. Valorisez vos stages, projets personnels ou formations.",
+        },
+        "competences": {
+            "excellent": f"Vos compétences ({score_pct}%) correspondent parfaitement aux attentes. Vous êtes prêt pour les défis techniques de ce poste.",
+            "bon": f"Vous possédez un solide éventail de compétences ({score_pct}%) pour cette mission.",
+            "moyen": f"Vous avez les compétences de base ({score_pct}%), mais certaines expertises demandées mériteraient d'être renforcées.",
+            "faible": f"Un décalage important est noté sur les compétences clés ({score_pct}%). C'est un bon axe de progression pour votre carrière.",
+        },
+        "langues": {
+            "excellent": f"Vos compétences linguistiques ({score_pct}%) sont un véritable plus pour cette opportunité.",
+            "bon": f"Vous maîtrisez les langues requises ({score_pct}%) pour ce poste.",
+            "moyen": f"Votre niveau en langues ({score_pct}%) est correct, mais une amélioration pourrait être un avantage.",
+            "faible": f"Les exigences linguistiques ({score_pct}%) pour ce poste ne semblent pas être atteintes.",
+        }
+    }
+
+    if score_pct >= 85: level = "excellent"
+    elif score_pct >= 60: level = "bon"
+    elif score_pct >= 40: level = "moyen"
+    else: level = "faible"
+
+    # Fallback for unknown categories
+    default_resume = {
+        "excellent": f"Votre profil est excellent ({score_pct}%) sur ce point.",
+        "bon": f"Votre profil est bon ({score_pct}%) sur ce point.",
+        "moyen": f"Votre profil est moyen ({score_pct}%) sur ce point.",
+        "faible": f"Votre profil est faible ({score_pct}%) sur ce point.",
+    }
     
-    resume = f"Votre profil présente une {niveau} adéquation ({score_pct}%) en termes de {categorie}. "
-    
-    # Ajouter les points forts s'il y en a
-    points_forts_significatifs = [d for d in details if len(d) > 5][:2]  # Limiter à 2 points forts
-    if points_forts_significatifs:
-        resume += f"Points forts : {' '.join(points_forts_significatifs)}. "
-    
-    # Ajouter les recommandations principales s'il y en a
-    if recommandations and score < 0.7:  # Ne montrer les recommandations que si le score est inférieur à 70%
-        recommandations_principales = recommandations[:1]  # Limiter à 1 recommandation
-        resume += f"Suggestion : {' '.join(recommandations_principales)}."
-    
-    return resume
+    return resumes.get(categorie.lower(), default_resume).get(level, "")

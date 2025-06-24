@@ -94,25 +94,15 @@ if (isset($_GET['id'])) {
                 $score = round($compatibilite['score_global']);
                 $score_class = $score >= 70 ? 'excellent' : ($score >= 50 ? 'good' : ($score >= 30 ? 'moderate' : 'low'));
 
-                // Extraction des compétences requises par l'offre mais manquantes
-                $competences_manquantes = [];
-                if (isset($compatibilite['analyse_detaillee']['competences']['elements_manquants'])) {
-                    foreach ($compatibilite['analyse_detaillee']['competences']['elements_manquants'] as $element) {
-                        $competences_manquantes[] = $element['description'];
-                    }
-                }
-
-                // Points communs (compétences correspondantes)
-                $competences_correspondantes = [];
+                // Extraction des points forts (toutes catégories confondues)
+                $points_forts = [];
                 if (isset($compatibilite['points_forts'])) {
                     foreach ($compatibilite['points_forts'] as $point) {
-                        if ($point['categorie'] === 'competence') {
-                            $competences_correspondantes[] = $point['description'];
-                        }
+                        $points_forts[] = $point['description'];
                     }
                 }
 
-                // Points à améliorer
+                // Extraction des points à améliorer (toutes catégories confondues)
                 $points_amelioration = [];
                 if (isset($compatibilite['points_amelioration'])) {
                     foreach ($compatibilite['points_amelioration'] as $point) {
@@ -127,32 +117,18 @@ if (isset($_GET['id'])) {
                         $suggestions[] = $suggestion['description'];
                     }
                 }
-
-                // Niveau d'étude et expérience
-                $niveau_etude = isset($compatibilite['niveau_etude']) ? $compatibilite['niveau_etude'] : 'Non spécifié';
-                $niveau_etude_valeur = isset($compatibilite['niveau_etude_valeur']) ? $compatibilite['niveau_etude_valeur'] : 0;
-
-                $niveau_experience = isset($compatibilite['niveau_experience']) ? $compatibilite['niveau_experience'] : 'Non spécifié';
-                $niveau_experience_valeur = isset($compatibilite['niveau_experience_valeur']) ? $compatibilite['niveau_experience_valeur'] : 0;
-
+                
+                // Niveau d'étude et expérience (pour la section résumé)
+                $niveau_etude = $compatibilite['analyse_detaillee']['formation']['resume'] ?? 'Analyse non disponible';
+                $experience = $compatibilite['analyse_detaillee']['experience']['resume'] ?? 'Analyse non disponible';
+                
                 // Exigences de l'offre
                 $niveau_etude_requis = isset($details_offre['niveau_etude']) ? $details_offre['niveau_etude'] : 'Non spécifié';
                 $niveau_experience_requis = isset($details_offre['niveau_experience']) ? $details_offre['niveau_experience'] : 'Non spécifié';
 
-                // Vérifier si le niveau d'étude correspond
-                $etude_match = false;
-                if (preg_match('/bac\s*\+\s*(\d+)/i', $niveau_etude_requis, $matches)) {
-                    $niveau_requis = intval($matches[1]);
-                    $etude_match = $niveau_etude_valeur >= $niveau_requis;
-                }
-
-                // Vérifier si l'expérience correspond
-                $experience_match = false;
-                if (preg_match('/(\d+)\s*an/i', $niveau_experience_requis, $matches)) {
-                    $annees_requises = intval($matches[1]);
-                    $experience_match = $niveau_experience_valeur >= $annees_requises;
-                }
-
+                $etude_match = ($compatibilite['analyse_detaillee']['formation']['score'] ?? 0) > 50;
+                $experience_match = ($compatibilite['analyse_detaillee']['experience']['score'] ?? 0) > 50;
+                
                 // Déterminer le message principal en fonction du score
                 if ($score >= 70) {
                     $message_principal = "Votre profil est en excellente adéquation avec cette offre.";
@@ -183,53 +159,47 @@ if (isset($_GET['id'])) {
                     <div class="criteria-overview">
                         <div class="criteria-item <?= $etude_match ? 'criteria-match' : 'criteria-mismatch' ?>">
                             <h4><i class="fas fa-graduation-cap"></i> Formation</h4>
+                             <p class="score-details">Score: <?= $compatibilite['analyse_detaillee']['formation']['score'] ?? 'N/A' ?>%</p>
                             <?php if ($etude_match): ?>
                             <p class="criteria-status success"><i class="fas fa-check-circle"></i> Niveau d'études
-                                suffisant</p>
+                                adéquat</p>
                             <?php else: ?>
                             <p class="criteria-status warning"><i class="fas fa-exclamation-triangle"></i> Niveau
-                                d'études à évaluer</p>
-                            <?php endif; ?>
-                            <p>Votre niveau : <?= htmlspecialchars($niveau_etude) ?></p>
-                            <?php if ($niveau_etude_requis !== "Non spécifié"): ?>
-                            <p>Requis : <?= htmlspecialchars($niveau_etude_requis) ?></p>
+                                d'études à améliorer</p>
                             <?php endif; ?>
                         </div>
 
                         <div class="criteria-item <?= $experience_match ? 'criteria-match' : 'criteria-mismatch' ?>">
                             <h4><i class="fas fa-briefcase"></i> Expérience</h4>
+                             <p class="score-details">Score: <?= $compatibilite['analyse_detaillee']['experience']['score'] ?? 'N/A' ?>%</p>
                             <?php if ($experience_match): ?>
                             <p class="criteria-status success"><i class="fas fa-check-circle"></i> Expérience suffisante
                             </p>
                             <?php else: ?>
                             <p class="criteria-status warning"><i class="fas fa-exclamation-triangle"></i> Expérience à
-                                évaluer</p>
-                            <?php endif; ?>
-                            <p>Votre expérience : <?= htmlspecialchars($niveau_experience) ?></p>
-                            <?php if ($niveau_experience_requis !== "Non spécifié"): ?>
-                            <p>Requis : <?= htmlspecialchars($niveau_experience_requis) ?></p>
+                                développer</p>
                             <?php endif; ?>
                         </div>
                     </div>
                 </section>
 
-                <?php if (!empty($competences_correspondantes)): ?>
+                <?php if (!empty($points_forts)): ?>
                 <section class="compatibility-strengths">
-                    <h3><i class="fas fa-star"></i> Points forts</h3>
+                    <h3><i class="fas fa-star"></i> Vos Points Forts</h3>
                     <ul>
-                        <?php foreach ($competences_correspondantes as $competence): ?>
-                        <li><i class="fas fa-check"></i> <?= htmlspecialchars($competence) ?></li>
+                        <?php foreach ($points_forts as $point_fort): ?>
+                        <li><i class="fas fa-check-circle"></i> <?= htmlspecialchars($point_fort) ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </section>
                 <?php endif; ?>
 
-                <?php if (!empty($competences_manquantes)): ?>
+                <?php if (!empty($points_amelioration)): ?>
                 <section class="compatibility-gaps">
-                    <h3><i class="fas fa-exclamation-circle"></i> Compétences à développer</h3>
+                    <h3><i class="fas fa-exclamation-circle"></i> Axes d'Amélioration</h3>
                     <ul>
-                        <?php foreach ($competences_manquantes as $competence): ?>
-                        <li><i class="fas fa-times"></i> <?= htmlspecialchars($competence) ?></li>
+                        <?php foreach ($points_amelioration as $point_amelioration): ?>
+                        <li><i class="fas fa-times-circle"></i> <?= htmlspecialchars($point_amelioration) ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </section>
@@ -237,7 +207,7 @@ if (isset($_GET['id'])) {
 
                 <?php if (!empty($suggestions)): ?>
                 <section class="compatibility-suggestions">
-                    <h3><i class="fas fa-lightbulb"></i> Recommandations</h3>
+                    <h3><i class="fas fa-lightbulb"></i> Recommandations Personnalisées</h3>
                     <ul>
                         <?php foreach ($suggestions as $suggestion): ?>
                         <li><i class="fas fa-arrow-right"></i> <?= htmlspecialchars($suggestion) ?></li>

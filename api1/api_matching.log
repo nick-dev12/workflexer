@@ -649,3 +649,59 @@ Exception: Erreur lors de l'analyse: too many values to unpack (expected 2)
 2025-06-24 13:40:00,948 - api_matching - INFO - Analyse V2 terminée avec un score global de 40.0
 2025-06-24 13:40:17,816 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
 2025-06-24 13:40:18,647 - api_matching - INFO - Analyse V2 terminée avec un score global de 50.0
+2025-06-24 13:54:21,969 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
+2025-06-24 13:54:22,799 - api_matching - INFO - Analyse V2 terminée avec un score global de 50.0
+2025-06-24 14:07:53,187 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
+2025-06-24 14:07:54,035 - api1.utils - ERROR - Erreur lors de l'analyse: name 'seuils' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 944, in analyze_compatibility
+    if global_score > seuils['parfait']:
+                      ^^^^^^
+NameError: name 'seuils' is not defined
+2025-06-24 14:07:54,038 - api_matching - ERROR - Erreur lors de l'analyse V2: name 'seuils' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 944, in analyze_compatibility
+    if global_score > seuils['parfait']:
+                      ^^^^^^
+NameError: name 'seuils' is not defined
+2025-06-24 14:10:52,300 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
+2025-06-24 14:10:52,302 - api1.utils - ERROR - Erreur lors de l'analyse: module 'config' has no attribute 'SEUILS_SCORE'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 878, in analyze_compatibility
+    seuils = config.SEUILS_SCORE
+             ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'config' has no attribute 'SEUILS_SCORE'
+2025-06-24 14:10:52,305 - api_matching - ERROR - Erreur lors de l'analyse V2: module 'config' has no attribute 'SEUILS_SCORE'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 878, in analyze_compatibility
+    seuils = config.SEUILS_SCORE
+             ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'config' has no attribute 'SEUILS_SCORE'
+2025-06-24 14:12:12,319 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
+2025-06-24 14:12:12,321 - api1.utils - ERROR - Erreur lors de l'analyse: module 'config' has no attribute 'SEUILS_SCORE'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 878, in analyze_compatibility
+    seuils = config.SEUILS_SCORE
+             ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'config' has no attribute 'SEUILS_SCORE'
+2025-06-24 14:12:12,324 - api_matching - ERROR - Erreur lors de l'analyse V2: module 'config' has no attribute 'SEUILS_SCORE'
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\main.py", line 142, in analyze_v2
+    result = analyze_compatibility(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\wamp64\www\workflexer\api1\utils.py", line 878, in analyze_compatibility
+    seuils = config.SEUILS_SCORE
+             ^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'config' has no attribute 'SEUILS_SCORE'
+2025-06-24 14:13:23,696 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
+2025-06-24 14:13:24,504 - api_matching - INFO - Analyse V2 terminée avec un score global de 50.0
+2025-06-24 14:14:28,964 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 26
+2025-06-24 14:14:29,986 - api_matching - INFO - Analyse V2 terminée avec un score global de 50.0
+2025-06-24 14:14:51,234 - api_matching - INFO - Analyse V2 demandée pour le candidat 5 et l'offre 29
+2025-06-24 14:14:52,375 - api_matching - INFO - Analyse V2 terminée avec un score global de 50.0

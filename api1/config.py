@@ -56,6 +56,12 @@ COMPATIBILITY_MESSAGES = {
 MAX_STRENGTHS = int(os.getenv("MAX_STRENGTHS", 5))
 MAX_IMPROVEMENTS = int(os.getenv("MAX_IMPROVEMENTS", 5))
 
+# Nouveaux seuils de similarité par catégorie
+SIMILARITY_THRESHOLDS = {
+    "competences": float(os.getenv("COMPETENCES_SIMILARITY_THRESHOLD", 0.75)),
+    "domaines_formation": float(os.getenv("FORMATION_SIMILARITY_THRESHOLD", 0.65)),
+}
+
 # Configuration de l'API
 API_CONFIG = {
     "title": "API de Matching WorkFlexer",
@@ -64,9 +70,6 @@ API_CONFIG = {
     "docs_url": "/docs",
     "redoc_url": "/redoc",
 }
-
-# Seuil de similarité pour considérer deux compétences comme équivalentes
-SIMILARITY_THRESHOLD = float(os.getenv("MODEL_SIMILARITY_THRESHOLD", 0.75))
 
 # Configuration du logging
 LOG_CONFIG = {

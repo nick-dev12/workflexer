@@ -31,13 +31,13 @@ class MatchingController
         if (is_string($competence)) {
             $competence = ['competence' => $competence, 'mis_en_avant' => 0];
         }
-
+        
         // Normalisation du nom de la compétence
         $nom = strtolower(trim($competence['competence']));
-
+        
         // Définir un niveau par défaut basé sur mis_en_avant
         $niveau = isset($competence['mis_en_avant']) && $competence['mis_en_avant'] ? 4 : 3;
-
+        
         return [
             'nom' => $nom,
             'niveau' => $niveau,
@@ -50,9 +50,9 @@ class MatchingController
         if (empty($text)) {
             return [];
         }
-
+        
         $competences = [];
-
+        
         // Liste des mots-clés techniques courants
         $keywords = [
             // Langages de programmation
@@ -108,10 +108,10 @@ class MatchingController
             'npm',
             'webpack'
         ];
-
+        
         // Convertir le texte en minuscules pour la comparaison
         $text = strtolower($text);
-
+        
         // Rechercher chaque mot-clé dans le texte
         foreach ($keywords as $keyword) {
             if (strpos($text, $keyword) !== false) {
@@ -122,14 +122,14 @@ class MatchingController
                 ];
             }
         }
-
+        
         return array_unique($competences, SORT_REGULAR);
     }
 
     private function getAllCompetences($candidatData)
     {
         $competences = [];
-
+        
         // Compétences déclarées
         if (isset($candidatData['competences']) && is_array($candidatData['competences'])) {
             foreach ($candidatData['competences'] as $comp) {
@@ -143,13 +143,13 @@ class MatchingController
                 }
             }
         }
-
+        
         // Extraire les compétences de la description
         if (!empty($candidatData['description'])) {
-            $description_text = is_array($candidatData['description']) ?
-                ($candidatData['description']['description'] ?? '') :
-                $candidatData['description'];
-
+            $description_text = is_array($candidatData['description']) ? 
+                              ($candidatData['description']['description'] ?? '') : 
+                              $candidatData['description'];
+            
             if (!empty($description_text)) {
                 $competences = array_merge(
                     $competences,
@@ -157,7 +157,7 @@ class MatchingController
                 );
             }
         }
-
+        
         // Extraire les compétences des expériences
         if (isset($candidatData['experiences']) && is_array($candidatData['experiences'])) {
             foreach ($candidatData['experiences'] as $exp) {
@@ -169,7 +169,7 @@ class MatchingController
                 }
             }
         }
-
+        
         // Extraire les compétences des formations
         if (isset($candidatData['formations']) && is_array($candidatData['formations'])) {
             foreach ($candidatData['formations'] as $formation) {
@@ -181,7 +181,7 @@ class MatchingController
                 }
             }
         }
-
+        
         // Supprimer les doublons en conservant la version avec le niveau le plus élevé
         $uniqueCompetences = [];
         foreach ($competences as $comp) {
@@ -190,7 +190,7 @@ class MatchingController
                 $uniqueCompetences[$nom] = $comp;
             }
         }
-
+        
         return array_values($uniqueCompetences);
     }
 
@@ -254,7 +254,7 @@ class MatchingController
     {
         // Formater les compétences requises
         $competences_requises = [];
-
+        
         // Ajouter les compétences explicitement listées
         if (!empty($offre['competences'])) {
             $competences_listees = array_map(function ($comp) {
@@ -266,12 +266,12 @@ class MatchingController
             }, explode(',', $offre['competences']));
             $competences_requises = array_merge($competences_requises, $competences_listees);
         }
-
+        
         // Ajouter les compétences extraites de la description
         if (!empty($offre['competences_requises'])) {
             $competences_requises = array_merge($competences_requises, $offre['competences_requises']);
         }
-
+        
         // Supprimer les doublons
         $competences_uniques = [];
         foreach ($competences_requises as $comp) {
@@ -411,7 +411,7 @@ class MatchingController
 
             // Appel à l'API
             $response = $this->callMatchingAPI($requestData);
-
+            
             if (!$response) {
                 $this->log("Erreur: Réponse API nulle");
                 throw new Exception("Erreur lors de l'appel à l'API de matching");
@@ -465,13 +465,13 @@ class MatchingController
     private function callMatchingAPI($data)
     {
         $this->log("Début de l'appel API");
-
+        
         $ch = curl_init($this->api_url);
         if (!$ch) {
             $this->log("Erreur: Impossible d'initialiser CURL");
             return null;
         }
-
+        
         $jsonData = json_encode($data);
         if (json_last_error() !== JSON_ERROR_NONE) {
             $this->log("Erreur d'encodage JSON", [
@@ -509,7 +509,7 @@ class MatchingController
         rewind($verbose);
         $verboseLog = stream_get_contents($verbose);
         $this->log("Logs CURL détaillés", $verboseLog);
-
+        
         curl_close($ch);
         fclose($verbose);
 
@@ -556,4 +556,4 @@ class MatchingController
         // Compatibilité avec l'ancien format si nécessaire
         return $decoded;
     }
-}
+} 
