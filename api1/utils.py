@@ -75,6 +75,7 @@ EXPERIENCE_WEIGHT = config.WEIGHTS.get("experience", 0.35)
 FORMATION_WEIGHT = config.WEIGHTS.get("formation", 0.25)
 COMPETENCES_WEIGHT = config.WEIGHTS.get("competences", 0.25)
 LANGUES_WEIGHT = config.WEIGHTS.get("langues", 0.15)
+OUTILS_WEIGHT = config.WEIGHTS.get("outils", 0.10)
 
 
 def normalize_text(text: str) -> List[str]:
@@ -349,59 +350,63 @@ def analyze_competences_compatibility(
         )
         return 0.0, [], manquants, [], [reco_text]
 
-    # Normalisation des compétences du candidat et de l'offre
-    cand_skills_normalized = { " ".join(normalize_text(c.nom)): c for c in candidate_competences if c.nom }
-    req_skills_normalized = { " ".join(normalize_text(c.nom)): c for c in required_competences if c.nom }
-    
+    # OPTIMISATION : Encodage par lots
+    # 1. Préparer les listes de compétences à encoder
+    req_skill_names = [s.nom for s in required_competences if s.nom]
+    cand_skill_names = [s.nom for s in candidate_competences if s.nom]
+
+    if not req_skill_names or not cand_skill_names:
+        return 0.0, [], [ElementManquant(description=c.nom, categorie='competence', importance='importante') for c in required_competences], [], ["Le profil ou l'offre ne contient aucune compétence valide à comparer."]
+
+    # 2. Encoder toutes les compétences en une seule fois
+    try:
+        req_embeddings = sentence_model.encode(req_skill_names, convert_to_tensor=True, show_progress_bar=False)
+        cand_embeddings = sentence_model.encode(cand_skill_names, convert_to_tensor=True, show_progress_bar=False)
+        
+        # 3. Calculer la matrice de similarité cosinus
+        cosine_scores = util.pytorch_cos_sim(req_embeddings, cand_embeddings)
+    except Exception as e:
+        logger.error(f"Erreur lors de l'encodage par lot des compétences : {e}")
+        return 0.0, [], [], [], ["Erreur lors de l'analyse sémantique des compétences."]
+
     correspondances = []
     manquants = []
     points_forts = []
-    total_score = 0.0
+    matched_req_indices = set()
     
-    # Utilisation d'un seuil de similarité configurable et plus strict
-    SIMILARITY_THRESHOLD = 0.80 # Seuil augmenté pour plus de rigueur
-    
-    # Variable pour compter les compétences requises qui ont été trouvées
-    matched_skills_count = 0
+    SIMILARITY_THRESHOLD = 0.80
 
-    for req_norm, req_orig_obj in req_skills_normalized.items():
-        if not req_norm.strip():
-            continue
-
-        best_match_score = 0
-        best_cand_obj = None
-
-        # Recherche de la meilleure correspondance sémantique
-        for cand_norm, cand_obj in cand_skills_normalized.items():
-            if not cand_norm.strip():
-                continue
+    # 4. Traiter la matrice de similarité
+    for i, req_skill in enumerate(required_competences):
+        # Trouver le meilleur score de similarité pour la compétence requise i
+        if i < len(cosine_scores):
+            best_match_score, best_cand_index = cosine_scores[i].max(), cosine_scores[i].argmax()
             
-            # La similarité est calculée sur les textes normalisés pour plus de pertinence
-            similarity = get_semantic_similarity(req_norm, cand_norm)
-            if similarity > best_match_score:
-                best_match_score = similarity
-                best_cand_obj = cand_obj
-        
-        if best_match_score > SIMILARITY_THRESHOLD:
-            # On considère la compétence comme acquise
-            matched_skills_count += 1
-            item = CorrespondanceItem(
-                element_profil=best_cand_obj.nom,
-                element_offre=req_orig_obj.nom,
-                niveau_correspondance=best_match_score,
-                categorie='competence',
-                similarite_semantique=best_match_score
-            )
-            correspondances.append(item)
-            if best_match_score < 0.98: # Si ce n'est pas une correspondance quasi parfaite
-                 points_forts.append(f"{req_orig_obj.nom} (similaire à votre compétence '{best_cand_obj.nom}')")
+            if best_match_score > SIMILARITY_THRESHOLD:
+                best_cand_obj = candidate_competences[best_cand_index]
+                matched_req_indices.add(i)
+
+                item = CorrespondanceItem(
+                    element_profil=best_cand_obj.nom,
+                    element_offre=req_skill.nom,
+                    niveau_correspondance=best_match_score.item(),
+                    categorie='competence',
+                    similarite_semantique=best_match_score.item()
+                )
+                correspondances.append(item)
+
+                if best_match_score < 0.98:
+                    points_forts.append(f"{req_skill.nom} (similaire à votre compétence '{best_cand_obj.nom}')")
+                else:
+                    points_forts.append(req_skill.nom)
             else:
-                 points_forts.append(req_orig_obj.nom)
+                manquants.append(ElementManquant(description=req_skill.nom, categorie='competence', importance='importante'))
         else:
-            manquants.append(ElementManquant(description=req_orig_obj.nom, categorie='competence', importance='importante'))
+             manquants.append(ElementManquant(description=req_skill.nom, categorie='competence', importance='importante'))
+
 
     # Nouveau calcul du score : un ratio strict de couverture des compétences requises
-    score = (matched_skills_count / len(req_skills_normalized)) if req_skills_normalized else 1.0
+    score = len(matched_req_indices) / len(required_competences) if required_competences else 1.0
     
     recommendations = []
     if manquants:
@@ -468,6 +473,25 @@ def analyze_langues_compatibility(
     
     score_final = score / len(requises)
     return score_final, details + points_forts, recommendations
+
+
+def analyze_outils_compatibility(outils: List[str], offer_text: str) -> Tuple[float, List[str], List[str]]:
+    """Analyse la compatibilité des outils en recherchant des correspondances de mots-clés."""
+    if not outils:
+        return 1.0, [], []
+
+    points_forts = []
+    offer_text_lower = offer_text.lower()
+    
+    found_outils = {outil.strip() for outil in outils if len(outil.strip()) > 2 and outil.strip().lower() in offer_text_lower}
+
+    if found_outils:
+        for outil in found_outils:
+            points_forts.append(f"Votre maîtrise de l'outil '{outil}' est un atout pour cette offre.")
+            
+    score = len(found_outils) / len(outils) if outils else 0.0
+    
+    return score, points_forts, []
 
 
 def identify_critical_gaps(
@@ -829,6 +853,11 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
             profile.langues, offer.langues_requises
         )
         
+        # 5. Outils (Nouveau)
+        outils_score, o_details, o_reco = analyze_outils_compatibility(
+            profile.outils, offer.texte_integral
+        )
+        
         # 5. Analyse des projets personnels (nouveau)
         p_details, p_reco = analyze_projets_candidat(profile.projets, offer)
         
@@ -839,7 +868,8 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
             formation_score * FORMATION_WEIGHT +
             experience_score * EXPERIENCE_WEIGHT +
             competences_score * COMPETENCES_WEIGHT +
-            langues_score * LANGUES_WEIGHT
+            langues_score * LANGUES_WEIGHT +
+            outils_score * OUTILS_WEIGHT
         )
         logger.info(f"Score composite granulaire calculé : {granular_composite_score:.2f}")
 
@@ -864,6 +894,7 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
             ("experience", e_details), 
             ("competences", c_details), 
             ("langues", l_details),
+            ("outils", o_details),
             ("projets", p_details)
         ] for d in details]
         
@@ -872,6 +903,7 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
             ("experience", e_reco), 
             ("competences", c_reco), 
             ("langues", l_reco),
+            ("outils", o_reco),
             ("projets", p_reco)
         ] for r in recos]
         
@@ -880,6 +912,7 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
             "experience_reco": e_reco,
             "competences_reco": c_reco,
             "langues_reco": l_reco,
+            "outils_reco": o_reco,
             "projets_reco": p_reco
         }
         raw_suggestions = generate_improvement_suggestions(profile, offer, all_recommendations)
@@ -907,6 +940,7 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
                 resume=generate_section_resume("competences", competences_score)
             ),
             "langues": AnalyseCategorielle(categorie="Langues", score=round(langues_score * 100), points_forts=l_details, points_amelioration=l_reco, resume=generate_section_resume("langues", langues_score)),
+            "outils": AnalyseCategorielle(categorie="Outils", score=round(outils_score * 100), points_forts=o_details, points_amelioration=o_reco, resume=generate_section_resume("outils", outils_score)),
             "projets": AnalyseCategorielle(categorie="Projets", score=round(projets_score * 100), points_forts=p_details, points_amelioration=p_reco, resume=projets_resume)
         }
 
@@ -991,6 +1025,12 @@ def generate_section_resume(categorie: str, score: float) -> str:
             "bon": f"Vous maîtrisez les langues requises ({score_pct}%) pour ce poste.",
             "moyen": f"Votre niveau en langues ({score_pct}%) est correct, mais une amélioration pourrait être un avantage.",
             "faible": f"Les exigences linguistiques ({score_pct}%) pour ce poste ne semblent pas être atteintes.",
+        },
+        "outils": {
+            "excellent": f"Votre maîtrise des outils informatiques ({score_pct}%) est un avantage certain.",
+            "bon": f"Les outils que vous maîtrisez ({score_pct}%) sont pertinents pour cette mission.",
+            "moyen": f"Certains outils que vous mentionnez ({score_pct}%) sont utiles, mais l'offre pourrait en requérir d'autres.",
+            "faible": f"Pensez à lister les outils informatiques (logiciels, langages, etc.) que vous maîtrisez pour enrichir votre profil ({score_pct}%).",
         },
         "projets": {
             "excellent": f"Vos projets personnels ({score_pct}%) illustrent parfaitement vos compétences et votre motivation pour ce type de poste.",

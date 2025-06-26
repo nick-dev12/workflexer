@@ -7,7 +7,7 @@ require_once __DIR__ . '/../model/CandidatProfile.php';
 if (isset($_GET['id'])) {
     $offre_id = $_GET['id'];
     // On récupère les détails de l'offre pour l'affichage de base
-    $details_offre2 = getDetails_emploi2($db, $offre_id);
+    $details_offre2 = getDetails_emploi3($db, $offre_id);
     
     // On pré-charge le titre du candidat si connecté, pour la phrase d'intro
     $candidat_titre = null;

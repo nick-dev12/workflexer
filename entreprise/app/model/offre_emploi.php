@@ -387,7 +387,25 @@ function getDetails_emploi($db, $offre_id)
 
 function getDetails_emploi2($db, $offre_id)
 {
-    $sql = "SELECT * FROM scrap_emploi_emploidakar WHERE offre_id = :offre_id";
+    $sql = "SELECT 
+                oe.offre_id,
+                oe.poste AS titre,
+                ce.nom AS entreprise_nom,
+                oe.localite AS localisation,
+                oe.contrat AS type_contrat,
+                oe.date AS date_publication,
+                oe.mission AS description_poste,
+                oe.profil,
+                oe.etudes,
+                oe.experience,
+                oe.langues
+            FROM 
+                offre_emploi oe
+            JOIN 
+                compte_entreprise ce ON oe.entreprise_id = ce.id
+            WHERE 
+                oe.offre_id = :offre_id";
+
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
     $stmt->execute();
@@ -395,6 +413,35 @@ function getDetails_emploi2($db, $offre_id)
 }
 
 function getDetails_emploi3($db, $offre_id)
+{
+    $sql = "SELECT 
+                se.offre_id,
+                se.titre,
+                se.entreprise,
+                se.localisation,
+                se.type_contrat,
+                se.date_publication,
+                se.lien_offre,
+                se.description_poste
+            FROM 
+                scrap_emploi_emploidakar se
+            WHERE 
+                se.offre_id = :offre_id";
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+/**
+ * Récupère les détails d'une offre d'emploi depuis la table `senjob`.
+ *
+ * @param PDO $db L'objet de connexion à la base de données.
+ * @param int $offre_id L'ID de l'offre à récupérer.
+ * @return array|false Les détails de l'offre ou false si non trouvée.
+ */
+function getDetails_emploi_senjob($db, $offre_id)
 {
     $sql = "SELECT * FROM senjob WHERE offre_id = :offre_id";
     $stmt = $db->prepare($sql);
@@ -427,10 +474,9 @@ function getDetails_emploi3($db, $offre_id)
  */
 function post_offre($db, $entreprise_id, $poste, $mission, $profil, $contrat, $etudes, $experience, $n_etudes, $n_experience, $localite, $langues, $places, $date_expiration, $categorie, $date, $ville, $images)
 {
-    $sql = "INSERT INTO offre_emploi (entreprise_id, poste, mission, profil, contrat, etudes, experience, n_etudes, n_experience, localite, langues, places, date_expiration, categorie, date, ville, images)
-    VALUES (:entreprise_id, :poste, :mission, :profil, :contrat, :etudes, :experience, :n_etudes, :n_experience, :localite, :langues, :places, :date_expiration, :categorie, :date, :ville, :images)";
+    $sql = "INSERT INTO offre_emploi (entreprise_id,poste,mission,profil,contrat,etudes,experience,n_etudes,n_experience,localite,langues, places, date_expiration,categorie,date,ville,images)
+    VALUES (:entreprise_id, :poste,:mission,:profil,:contrat,:etudes,:experience,:n_etudes,:n_experience,:localite,:langues, :places, :date_expiration,:categorie,:date,:ville,:images)";
     $stmt = $db->prepare($sql);
-    // Bind de chaque paramètre
     $stmt->bindParam(':entreprise_id', $entreprise_id);
     $stmt->bindParam(':poste', $poste);
     $stmt->bindParam(':mission', $mission);

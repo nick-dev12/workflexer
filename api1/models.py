@@ -138,6 +138,7 @@ class CandidatProfile(BaseModel):
     niveau_etude_valeur: Optional[int] = None
     niveau_experience_valeur: Optional[int] = None
     texte_integral: Optional[str] = None
+    outils: List[str] = []
 
 
 class ExigenceFormation(BaseModel):

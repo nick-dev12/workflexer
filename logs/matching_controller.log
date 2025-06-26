@@ -1,0 +1,3719 @@
+2025-06-26 13:01:15 - MatchingController initialisé
+2025-06-26 13:01:15 - Début de l'analyse de compatibilité
+Data: Array
+(
+    [users_id] => 5
+    [offre_id] => 2
+)
+
+2025-06-26 13:01:15 - Données préparées pour l'API
+Data: Array
+(
+    [candidate] => Array
+        (
+            [id] => 5
+            [nom] => EFFE Nick Ludvann
+            [email] => webgeniuses12@gmail.com
+            [telephone] => 785303879
+            [ville] => 
+            [domaine_competence] =>   Développeur Web Full Stack 
+            [profession] =>   Développeur Web Full Stack 
+            [categorie] => 
+            [description] => Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.
+            [formations] => Array
+                (
+                    [0] => Array
+                        (
+                            [niveau] => Licence1
+                            [domaine] => Géni informatiques 
+                            [etablissement] => Ecole Supérieure Multinationale des Télécommunications (ESMT)
+                            [annee_obtention] => 2021
+                            [description] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [niveau] => Secondaire
+                            [domaine] => Terminal D
+                            [etablissement] => lycee pole emane eyegue(Libreville)
+                            [annee_obtention] => 2020
+                            [description] => 
+                        )
+
+                )
+
+            [experiences] => Array
+                (
+                    [0] => Array
+                        (
+                            [titre_poste] => Développeur Web – Site web pour entreprise numérique: https://advantech-group.space
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce
+                            [competences] => Array
+                                (
+                                    [0] => PHP
+                                    [1] => HTML
+                                    [2] => CSS
+                                    [3] => JavaScript
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [1] => Array
+                        (
+                            [titre_poste] => Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com
+                            [entreprise] => 
+                            [duree_mois] => 12
+                            [description] => https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.
+                            [competences] => Array
+                                (
+                                    [0] => PHP (architecture MVC)
+                                    [1] => JavaScript
+                                    [2] => MySQL.
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [2] => Array
+                        (
+                            [titre_poste] => je ne suis pas daccord
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd
+                            [competences] => Array
+                                (
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => esprit d'équipe
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => python
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => git github
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => javascript
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => maintenance des serveurs web
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion de base de données
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => mysql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => cms
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => wordpress
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => git
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => django
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => sql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => php
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => java
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [14] => Array
+                        (
+                            [nom] => api
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [15] => Array
+                        (
+                            [nom] => rest
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [16] => Array
+                        (
+                            [nom] => html
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [17] => Array
+                        (
+                            [nom] => css
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => Français
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => Anglais
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => bbbbbb
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [outils] => Array
+                (
+                    [0] => Cursor
+                    [1] => Git
+                    [2] => VS code
+                    [3] => Wamp Server
+                    [4] => word
+                )
+
+            [centres_interet] => Array
+                (
+                )
+
+            [projets] => Array
+                (
+                )
+
+            [disponibilite] => Immédiate
+            [niveau_etude] => Bac+1an
+            [niveau_experience] => 1an
+            [niveau_etude_valeur] => 1
+            [niveau_experience_valeur] => 1
+            [texte_integral] => Profil du candidat : EFFE Nick Ludvann
+Profession :   Développeur Web Full Stack 
+Description : Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.
+Formations: Licence1 en Géni informatiques  à Ecole Supérieure Multinationale des Télécommunications (ESMT); Secondaire en Terminal D à lycee pole emane eyegue(Libreville); 
+Expériences: Développeur Web – Site web pour entreprise numérique: https://advantech-group.space - Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce; Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com - https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.; je ne suis pas daccord - je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd; 
+Compétences: esprit d'équipe, python, git github, javascript, maintenance des serveurs web, gestion de base de données, mysql, cms, wordpress, git, django, sql, php, java, api, rest, html, css
+Outils: Cursor, Git, VS code, Wamp Server, word
+        )
+
+    [job_offer] => Array
+        (
+            [id] => 2
+            [titre] => Assistant(e) de Direction - Dakar
+            [description] =>  
+Missions :
+Organisation de l'agenda du dirigeant et acceuil
+
+Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)
+
+
+ 
+
+
+Réceptionner et filtrer les appels téléphoniques.
+Accueillir physiquement les rendez-vous.
+
+Support opérationnel
+
+Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).
+Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).
+Assurer en amont la préparation et le suivi des dossiers.
+Gestion et suivi et archivage des comptes rendus et documentation du dirigeant
+Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.
+Assister aux réunions et en rédiger les comptes rendus.
+
+Archivage, documentation et compte rendu régulier
+
+Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).
+Gérer et actualiser la documentation professionnelle et réglementaire.
+Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.
+Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).
+
+Comptabilité gestion
+
+Gérer les notes de frais.
+Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.
+Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).
+Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).
+Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).
+
+Autres activités complémentaires
+
+Participer à l’organisation de la logistique des recrutements et des formations.
+Réaliser un suivi administratif du personnel.
+Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.
+Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).
+Suivre les procédures d’appels d’offres.
+Déplacements de missions, pour achat ou pour représentation
+Contact et démarches administratives pour dépôt documentaires etc…
+
+
+            [formation_requise] => Array
+                (
+                    [niveau_minimum] => Non spécifié
+                    [niveau_valeur] => 2
+                    [domaines_acceptes] => Array
+                        (
+                            [0] => Intérim
+                            [1] => recrutement
+                        )
+
+                    [formation_obligatoire] => 
+                )
+
+            [experience_requise] => Array
+                (
+                    [niveau] => Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+                    [duree_minimum_mois] => 60
+                    [annees] => 5
+                    [secteurs_acceptes] => Array
+                        (
+                            [0] => Intérim
+                            [1] => recrutement
+                        )
+
+                    [competences_requises] => Array
+                        (
+                            [0] => documentation
+                            [1] => suivi des dossiers
+                            [2] => archivage
+                            [3] => assistanat
+                            [4] => bureautique
+                            [5] => gestion administrative
+                            [6] => dossiers
+                            [7] => powerpoint
+                            [8] => suivi administratif
+                            [9] => support
+                            [10] => pack office
+                            [11] => administration
+                            [12] => prise de rdv
+                            [13] => secrétaria
+                        )
+
+                )
+
+            [competences_requises] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => documentation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => suivi des dossiers
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => archivage
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => assistanat
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => bureautique
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion administrative
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => dossiers
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => powerpoint
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => suivi administratif
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => support
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => pack office
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => administration
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => prise de rdv
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => secrétaria
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues_requises] => Array
+                (
+                )
+
+            [secteur] => Intérim, recrutement
+            [type_contrat] => Contrat proposé
+                             :CDD
+            [localisation] => Région de :Dakar
+            [texte_integral] => Offre d'emploi : Assistant(e) de Direction - Dakar
+Secteur : Intérim, recrutement
+Description du poste :  
+Missions :
+Organisation de l'agenda du dirigeant et acceuil
+
+Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)
+
+
+ 
+
+
+Réceptionner et filtrer les appels téléphoniques.
+Accueillir physiquement les rendez-vous.
+
+Support opérationnel
+
+Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).
+Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).
+Assurer en amont la préparation et le suivi des dossiers.
+Gestion et suivi et archivage des comptes rendus et documentation du dirigeant
+Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.
+Assister aux réunions et en rédiger les comptes rendus.
+
+Archivage, documentation et compte rendu régulier
+
+Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).
+Gérer et actualiser la documentation professionnelle et réglementaire.
+Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.
+Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).
+
+Comptabilité gestion
+
+Gérer les notes de frais.
+Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.
+Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).
+Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).
+Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).
+
+Autres activités complémentaires
+
+Participer à l’organisation de la logistique des recrutements et des formations.
+Réaliser un suivi administratif du personnel.
+Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.
+Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).
+Suivre les procédures d’appels d’offres.
+Déplacements de missions, pour achat ou pour représentation
+Contact et démarches administratives pour dépôt documentaires etc…
+
+
+Compétences requises: documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria
+Niveau d'étude requis: Non spécifié
+Niveau d'expérience requis: Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+        )
+
+)
+
+2025-06-26 13:01:15 - Début de l'appel API
+2025-06-26 13:01:15 - Envoi de la requête à l'API
+Data: Array
+(
+    [url] => http://localhost:8000/analyze/v2
+    [data] => {"candidate":{"id":5,"nom":"EFFE Nick Ludvann","email":"webgeniuses12@gmail.com","telephone":"785303879","ville":"","domaine_competence":"  D\u00e9veloppeur Web Full Stack ","profession":"  D\u00e9veloppeur Web Full Stack ","categorie":"","description":"D\u00e9veloppeur Web Full Stack passionn\u00e9, je ma\u00eetrise un large \u00e9ventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d\u2019une solide exp\u00e9rience dans la conception et le d\u00e9veloppement de projets web, je suis \u00e9galement comp\u00e9tent dans la maintenance de serveurs, le d\u00e9ploiement d\u2019applications, la gestion efficace de bases de donn\u00e9es, ainsi que la cr\u00e9ation d\u2019API REST.","formations":[{"niveau":"Licence1","domaine":"G\u00e9ni informatiques ","etablissement":"Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT)","annee_obtention":2021,"description":null},{"niveau":"Secondaire","domaine":"Terminal D","etablissement":"lycee pole emane eyegue(Libreville)","annee_obtention":2020,"description":null}],"experiences":[{"titre_poste":"D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space","entreprise":null,"duree_mois":0,"description":"Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce","competences":["PHP","HTML","CSS","JavaScript"],"secteur":"Informatique"},{"titre_poste":"D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com","entreprise":null,"duree_mois":12,"description":"https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.","competences":["PHP (architecture MVC)","JavaScript","MySQL."],"secteur":"Informatique"},{"titre_poste":"je ne suis pas daccord","entreprise":null,"duree_mois":0,"description":"je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd","competences":[],"secteur":"Informatique"}],"competences":[{"nom":"esprit d'\u00e9quipe","niveau":3,"annees_experience":1},{"nom":"python","niveau":3,"annees_experience":1},{"nom":"git github","niveau":3,"annees_experience":1},{"nom":"javascript","niveau":3,"annees_experience":1},{"nom":"maintenance des serveurs web","niveau":3,"annees_experience":1},{"nom":"gestion de base de donn\u00e9es","niveau":3,"annees_experience":1},{"nom":"mysql","niveau":3,"annees_experience":1},{"nom":"cms","niveau":3,"annees_experience":1},{"nom":"wordpress","niveau":3,"annees_experience":1},{"nom":"git","niveau":3,"annees_experience":1},{"nom":"django","niveau":3,"annees_experience":1},{"nom":"sql","niveau":3,"annees_experience":1},{"nom":"php","niveau":3,"annees_experience":1},{"nom":"java","niveau":3,"annees_experience":1},{"nom":"api","niveau":3,"annees_experience":1},{"nom":"rest","niveau":3,"annees_experience":1},{"nom":"html","niveau":3,"annees_experience":1},{"nom":"css","niveau":3,"annees_experience":1}],"langues":[{"nom":"Fran\u00e7ais","niveau":"B1","certifications":[]},{"nom":"Anglais","niveau":"B1","certifications":[]},{"nom":"bbbbbb","niveau":"B1","certifications":[]}],"outils":["Cursor","Git","VS code","Wamp Server","word"],"centres_interet":[],"projets":[],"disponibilite":"Imm\u00e9diate","niveau_etude":"Bac+1an","niveau_experience":"1an","niveau_etude_valeur":"1","niveau_experience_valeur":"1","texte_integral":"Profil du candidat : EFFE Nick Ludvann\nProfession :   D\u00e9veloppeur Web Full Stack \nDescription : D\u00e9veloppeur Web Full Stack passionn\u00e9, je ma\u00eetrise un large \u00e9ventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d\u2019une solide exp\u00e9rience dans la conception et le d\u00e9veloppement de projets web, je suis \u00e9galement comp\u00e9tent dans la maintenance de serveurs, le d\u00e9ploiement d\u2019applications, la gestion efficace de bases de donn\u00e9es, ainsi que la cr\u00e9ation d\u2019API REST.\nFormations: Licence1 en G\u00e9ni informatiques  \u00e0 Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT); Secondaire en Terminal D \u00e0 lycee pole emane eyegue(Libreville); \nExp\u00e9riences: D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space - Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce; D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com - https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.; je ne suis pas daccord - je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd; \nComp\u00e9tences: esprit d'\u00e9quipe, python, git github, javascript, maintenance des serveurs web, gestion de base de donn\u00e9es, mysql, cms, wordpress, git, django, sql, php, java, api, rest, html, css\nOutils: Cursor, Git, VS code, Wamp Server, word"},"job_offer":{"id":2,"titre":"Assistant(e) de Direction - Dakar","description":"\u00a0\nMissions :\nOrganisation de l'agenda du dirigeant et acceuil\n\nG\u00e9rer l\u2019agenda et l\u2019emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, cong\u00e9s\u2026)\n\n\n\u00a0\n\n\nR\u00e9ceptionner et filtrer les appels t\u00e9l\u00e9phoniques.\nAccueillir physiquement les rendez-vous.\n\nSupport op\u00e9rationnel\n\nPr\u00e9parer et organiser la logistique des diff\u00e9rents \u00e9v\u00e9nements professionnels (r\u00e9unions, d\u00e9placements, interventions orales, s\u00e9minaires, salons professionnels, conf\u00e9rences t\u00e9l\u00e9phoniques\u2026).\nPr\u00e9parer et contr\u00f4ler les dossiers n\u00e9cessaires \u00e0 la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les r\u00e9unions\u2026).\nAssurer en amont la pr\u00e9paration et le suivi des dossiers.\nGestion et suivi et archivage des comptes rendus et documentation du dirigeant\nR\u00e9ceptionner et trier le courrier pour ne pr\u00e9senter \u00e0 son dirigeant que les informations essentielles.\nAssister aux r\u00e9unions et en r\u00e9diger les comptes rendus.\n\nArchivage, documentation et compte rendu r\u00e9gulier\n\nOrganiser le tri et l\u2019archivage des documents importants (collecter, traiter, classer et mettre \u00e0 jour l\u2019information).\nG\u00e9rer et actualiser la documentation professionnelle et r\u00e9glementaire.\nRendre compte \u00e0 travers des points r\u00e9guliers de l\u2019avancement de son travail, des rendez-vous pr\u00e9vus et des courriers \u00e0 envoyer.\nRassembler et mettre en forme des \u00e9l\u00e9ments de suivi (tableaux de bord, indicateurs, reporting\u2026).\n\nComptabilit\u00e9 gestion\n\nG\u00e9rer les notes de frais.\nR\u00e9aliser des commandes de mat\u00e9riel, de fournitures, de consommables et v\u00e9rifier la conformit\u00e9 des livraisons.\nAssurer le suivi des conditions d\u2019ex\u00e9cution d\u2019un contrat, \u00eatre le support ponctuel \u00e0 l\u2019administration des ventes (commandes clients, factures clients, BL\u2026).\nR\u00e9diger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus\u2026).\nStructurer et assurer la transmission des informations en interne et en externe (documents provenant des diff\u00e9rents services de l\u2019entreprise ou de l\u2019ext\u00e9rieur aux services concern\u00e9s \u00e0 partir des consignes de son dirigeant).\n\nAutres activit\u00e9s compl\u00e9mentaires\n\nParticiper \u00e0 l\u2019organisation de la logistique des recrutements et des formations.\nR\u00e9aliser un suivi administratif du personnel.\n\u00c9tablir et g\u00e9rer des budgets ou r\u00e9aliser le traitement des dossiers comptables.\nAssurer la gestion et le suivi complet de certains dossiers (n\u00e9gociations avec les fournisseurs, pr\u00e9paration d\u2019un budget, relance clients\u2026).\nSuivre les proc\u00e9dures d\u2019appels d\u2019offres.\nD\u00e9placements de missions, pour achat ou pour repr\u00e9sentation\nContact et d\u00e9marches administratives pour d\u00e9p\u00f4t documentaires etc\u2026\n\n","formation_requise":{"niveau_minimum":"Non sp\u00e9cifi\u00e9","niveau_valeur":2,"domaines_acceptes":["Int\u00e9rim","recrutement"],"formation_obligatoire":false},"experience_requise":{"niveau":"Exp\u00e9rience entre 5 ans et 10 ans & Exp\u00e9rience > 10 ans","duree_minimum_mois":60,"annees":5,"secteurs_acceptes":["Int\u00e9rim","recrutement"],"competences_requises":["documentation","suivi des dossiers","archivage","assistanat","bureautique","gestion administrative","dossiers","powerpoint","suivi administratif","support","pack office","administration","prise de rdv","secr\u00e9taria"]},"competences_requises":[{"nom":"documentation","niveau":3,"annees_experience":1},{"nom":"suivi des dossiers","niveau":3,"annees_experience":1},{"nom":"archivage","niveau":3,"annees_experience":1},{"nom":"assistanat","niveau":3,"annees_experience":1},{"nom":"bureautique","niveau":3,"annees_experience":1},{"nom":"gestion administrative","niveau":3,"annees_experience":1},{"nom":"dossiers","niveau":3,"annees_experience":1},{"nom":"powerpoint","niveau":3,"annees_experience":1},{"nom":"suivi administratif","niveau":3,"annees_experience":1},{"nom":"support","niveau":3,"annees_experience":1},{"nom":"pack office","niveau":3,"annees_experience":1},{"nom":"administration","niveau":3,"annees_experience":1},{"nom":"prise de rdv","niveau":3,"annees_experience":1},{"nom":"secr\u00e9taria","niveau":3,"annees_experience":1}],"langues_requises":[],"secteur":"Int\u00e9rim, recrutement","type_contrat":"Contrat propos\u00e9\n                             :CDD","localisation":"R\u00e9gion de :Dakar","texte_integral":"Offre d'emploi : Assistant(e) de Direction - Dakar\nSecteur : Int\u00e9rim, recrutement\nDescription du poste : \u00a0\nMissions :\nOrganisation de l'agenda du dirigeant et acceuil\n\nG\u00e9rer l\u2019agenda et l\u2019emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, cong\u00e9s\u2026)\n\n\n\u00a0\n\n\nR\u00e9ceptionner et filtrer les appels t\u00e9l\u00e9phoniques.\nAccueillir physiquement les rendez-vous.\n\nSupport op\u00e9rationnel\n\nPr\u00e9parer et organiser la logistique des diff\u00e9rents \u00e9v\u00e9nements professionnels (r\u00e9unions, d\u00e9placements, interventions orales, s\u00e9minaires, salons professionnels, conf\u00e9rences t\u00e9l\u00e9phoniques\u2026).\nPr\u00e9parer et contr\u00f4ler les dossiers n\u00e9cessaires \u00e0 la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les r\u00e9unions\u2026).\nAssurer en amont la pr\u00e9paration et le suivi des dossiers.\nGestion et suivi et archivage des comptes rendus et documentation du dirigeant\nR\u00e9ceptionner et trier le courrier pour ne pr\u00e9senter \u00e0 son dirigeant que les informations essentielles.\nAssister aux r\u00e9unions et en r\u00e9diger les comptes rendus.\n\nArchivage, documentation et compte rendu r\u00e9gulier\n\nOrganiser le tri et l\u2019archivage des documents importants (collecter, traiter, classer et mettre \u00e0 jour l\u2019information).\nG\u00e9rer et actualiser la documentation professionnelle et r\u00e9glementaire.\nRendre compte \u00e0 travers des points r\u00e9guliers de l\u2019avancement de son travail, des rendez-vous pr\u00e9vus et des courriers \u00e0 envoyer.\nRassembler et mettre en forme des \u00e9l\u00e9ments de suivi (tableaux de bord, indicateurs, reporting\u2026).\n\nComptabilit\u00e9 gestion\n\nG\u00e9rer les notes de frais.\nR\u00e9aliser des commandes de mat\u00e9riel, de fournitures, de consommables et v\u00e9rifier la conformit\u00e9 des livraisons.\nAssurer le suivi des conditions d\u2019ex\u00e9cution d\u2019un contrat, \u00eatre le support ponctuel \u00e0 l\u2019administration des ventes (commandes clients, factures clients, BL\u2026).\nR\u00e9diger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus\u2026).\nStructurer et assurer la transmission des informations en interne et en externe (documents provenant des diff\u00e9rents services de l\u2019entreprise ou de l\u2019ext\u00e9rieur aux services concern\u00e9s \u00e0 partir des consignes de son dirigeant).\n\nAutres activit\u00e9s compl\u00e9mentaires\n\nParticiper \u00e0 l\u2019organisation de la logistique des recrutements et des formations.\nR\u00e9aliser un suivi administratif du personnel.\n\u00c9tablir et g\u00e9rer des budgets ou r\u00e9aliser le traitement des dossiers comptables.\nAssurer la gestion et le suivi complet de certains dossiers (n\u00e9gociations avec les fournisseurs, pr\u00e9paration d\u2019un budget, relance clients\u2026).\nSuivre les proc\u00e9dures d\u2019appels d\u2019offres.\nD\u00e9placements de missions, pour achat ou pour repr\u00e9sentation\nContact et d\u00e9marches administratives pour d\u00e9p\u00f4t documentaires etc\u2026\n\n\nComp\u00e9tences requises: documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secr\u00e9taria\nNiveau d'\u00e9tude requis: Non sp\u00e9cifi\u00e9\nNiveau d'exp\u00e9rience requis: Exp\u00e9rience entre 5 ans et 10 ans & Exp\u00e9rience > 10 ans"}}
+)
+
+2025-06-26 13:01:45 - Logs CURL détaillés
+Data: * Host localhost:8000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8000...
+*   Trying 127.0.0.1:8000...
+* Connected to localhost (127.0.0.1) port 8000
+> POST /analyze/v2 HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Accept: application/json
+Content-Length: 14302
+
+* upload completely sent off: 14302 bytes
+* Operation timed out after 30008 milliseconds with 0 bytes received
+* Closing connection
+
+2025-06-26 13:01:45 - Erreur CURL
+Data: Array
+(
+    [error] => Operation timed out after 30008 milliseconds with 0 bytes received
+    [httpCode] => 0
+)
+
+2025-06-26 13:01:45 - Erreur: Réponse API nulle
+2025-06-26 13:01:45 - Exception dans analyserCompatibilite
+Data: Array
+(
+    [message] => Erreur lors de l'appel à l'API de matching
+    [trace] => #0 C:\wamp64\www\workflexer\ajax\get_compatibility_analysis.php(38): MatchingController->analyserCompatibilite(5, '2')
+#1 {main}
+)
+
+2025-06-26 13:08:35 - MatchingController initialisé
+2025-06-26 13:08:35 - Début de l'analyse de compatibilité
+Data: Array
+(
+    [users_id] => 5
+    [offre_id] => 2
+)
+
+2025-06-26 13:08:35 - Données préparées pour l'API
+Data: Array
+(
+    [candidate] => Array
+        (
+            [id] => 5
+            [nom] => EFFE Nick Ludvann
+            [email] => webgeniuses12@gmail.com
+            [telephone] => 785303879
+            [ville] => 
+            [domaine_competence] =>   Développeur Web Full Stack 
+            [profession] =>   Développeur Web Full Stack 
+            [categorie] => 
+            [description] => Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.
+            [formations] => Array
+                (
+                    [0] => Array
+                        (
+                            [niveau] => Licence1
+                            [domaine] => Géni informatiques 
+                            [etablissement] => Ecole Supérieure Multinationale des Télécommunications (ESMT)
+                            [annee_obtention] => 2021
+                            [description] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [niveau] => Secondaire
+                            [domaine] => Terminal D
+                            [etablissement] => lycee pole emane eyegue(Libreville)
+                            [annee_obtention] => 2020
+                            [description] => 
+                        )
+
+                )
+
+            [experiences] => Array
+                (
+                    [0] => Array
+                        (
+                            [titre_poste] => Développeur Web – Site web pour entreprise numérique: https://advantech-group.space
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce
+                            [competences] => Array
+                                (
+                                    [0] => PHP
+                                    [1] => HTML
+                                    [2] => CSS
+                                    [3] => JavaScript
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [1] => Array
+                        (
+                            [titre_poste] => Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com
+                            [entreprise] => 
+                            [duree_mois] => 12
+                            [description] => https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.
+                            [competences] => Array
+                                (
+                                    [0] => PHP (architecture MVC)
+                                    [1] => JavaScript
+                                    [2] => MySQL.
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [2] => Array
+                        (
+                            [titre_poste] => je ne suis pas daccord
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd
+                            [competences] => Array
+                                (
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => esprit d'équipe
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => python
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => git github
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => javascript
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => maintenance des serveurs web
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion de base de données
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => mysql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => cms
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => wordpress
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => git
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => django
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => sql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => php
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => java
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [14] => Array
+                        (
+                            [nom] => api
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [15] => Array
+                        (
+                            [nom] => rest
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [16] => Array
+                        (
+                            [nom] => html
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [17] => Array
+                        (
+                            [nom] => css
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => Français
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => Anglais
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => bbbbbb
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [outils] => Array
+                (
+                    [0] => Cursor
+                    [1] => Git
+                    [2] => VS code
+                    [3] => Wamp Server
+                    [4] => word
+                )
+
+            [centres_interet] => Array
+                (
+                )
+
+            [projets] => Array
+                (
+                )
+
+            [disponibilite] => Immédiate
+            [niveau_etude] => Bac+1an
+            [niveau_experience] => 1an
+            [niveau_etude_valeur] => 1
+            [niveau_experience_valeur] => 1
+            [texte_integral] => Profil du candidat : EFFE Nick Ludvann
+Profession :   Développeur Web Full Stack 
+Description : Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.
+Formations: Licence1 en Géni informatiques  à Ecole Supérieure Multinationale des Télécommunications (ESMT); Secondaire en Terminal D à lycee pole emane eyegue(Libreville); 
+Expériences: Développeur Web – Site web pour entreprise numérique: https://advantech-group.space - Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce; Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com - https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.; je ne suis pas daccord - je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd; 
+Compétences: esprit d'équipe, python, git github, javascript, maintenance des serveurs web, gestion de base de données, mysql, cms, wordpress, git, django, sql, php, java, api, rest, html, css
+Outils: Cursor, Git, VS code, Wamp Server, word
+        )
+
+    [job_offer] => Array
+        (
+            [id] => 2
+            [titre] => Assistant(e) de Direction - Dakar
+            [description] =>  
+Missions :
+Organisation de l'agenda du dirigeant et acceuil
+
+Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)
+
+
+ 
+
+
+Réceptionner et filtrer les appels téléphoniques.
+Accueillir physiquement les rendez-vous.
+
+Support opérationnel
+
+Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).
+Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).
+Assurer en amont la préparation et le suivi des dossiers.
+Gestion et suivi et archivage des comptes rendus et documentation du dirigeant
+Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.
+Assister aux réunions et en rédiger les comptes rendus.
+
+Archivage, documentation et compte rendu régulier
+
+Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).
+Gérer et actualiser la documentation professionnelle et réglementaire.
+Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.
+Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).
+
+Comptabilité gestion
+
+Gérer les notes de frais.
+Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.
+Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).
+Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).
+Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).
+
+Autres activités complémentaires
+
+Participer à l’organisation de la logistique des recrutements et des formations.
+Réaliser un suivi administratif du personnel.
+Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.
+Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).
+Suivre les procédures d’appels d’offres.
+Déplacements de missions, pour achat ou pour représentation
+Contact et démarches administratives pour dépôt documentaires etc…
+
+
+            [formation_requise] => Array
+                (
+                    [niveau_minimum] => Non spécifié
+                    [niveau_valeur] => 2
+                    [domaines_acceptes] => Array
+                        (
+                            [0] => Intérim
+                            [1] => recrutement
+                        )
+
+                    [formation_obligatoire] => 
+                )
+
+            [experience_requise] => Array
+                (
+                    [niveau] => Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+                    [duree_minimum_mois] => 60
+                    [annees] => 5
+                    [secteurs_acceptes] => Array
+                        (
+                            [0] => Intérim
+                            [1] => recrutement
+                        )
+
+                    [competences_requises] => Array
+                        (
+                            [0] => documentation
+                            [1] => suivi des dossiers
+                            [2] => archivage
+                            [3] => assistanat
+                            [4] => bureautique
+                            [5] => gestion administrative
+                            [6] => dossiers
+                            [7] => powerpoint
+                            [8] => suivi administratif
+                            [9] => support
+                            [10] => pack office
+                            [11] => administration
+                            [12] => prise de rdv
+                            [13] => secrétaria
+                        )
+
+                )
+
+            [competences_requises] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => documentation
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => suivi des dossiers
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => archivage
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => assistanat
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => bureautique
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion administrative
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => dossiers
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => powerpoint
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => suivi administratif
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => support
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => pack office
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => administration
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => prise de rdv
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => secrétaria
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues_requises] => Array
+                (
+                )
+
+            [secteur] => Intérim, recrutement
+            [type_contrat] => Contrat proposé
+                             :CDD
+            [localisation] => Région de :Dakar
+            [texte_integral] => Offre d'emploi : Assistant(e) de Direction - Dakar
+Secteur : Intérim, recrutement
+Description du poste :  
+Missions :
+Organisation de l'agenda du dirigeant et acceuil
+
+Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)
+
+
+ 
+
+
+Réceptionner et filtrer les appels téléphoniques.
+Accueillir physiquement les rendez-vous.
+
+Support opérationnel
+
+Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).
+Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).
+Assurer en amont la préparation et le suivi des dossiers.
+Gestion et suivi et archivage des comptes rendus et documentation du dirigeant
+Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.
+Assister aux réunions et en rédiger les comptes rendus.
+
+Archivage, documentation et compte rendu régulier
+
+Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).
+Gérer et actualiser la documentation professionnelle et réglementaire.
+Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.
+Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).
+
+Comptabilité gestion
+
+Gérer les notes de frais.
+Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.
+Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).
+Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).
+Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).
+
+Autres activités complémentaires
+
+Participer à l’organisation de la logistique des recrutements et des formations.
+Réaliser un suivi administratif du personnel.
+Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.
+Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).
+Suivre les procédures d’appels d’offres.
+Déplacements de missions, pour achat ou pour représentation
+Contact et démarches administratives pour dépôt documentaires etc…
+
+
+Compétences requises: documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria
+Niveau d'étude requis: Non spécifié
+Niveau d'expérience requis: Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+        )
+
+)
+
+2025-06-26 13:08:35 - Début de l'appel API
+2025-06-26 13:08:35 - Envoi de la requête à l'API
+Data: Array
+(
+    [url] => http://localhost:8000/analyze/v2
+    [data] => {"candidate":{"id":5,"nom":"EFFE Nick Ludvann","email":"webgeniuses12@gmail.com","telephone":"785303879","ville":"","domaine_competence":"  D\u00e9veloppeur Web Full Stack ","profession":"  D\u00e9veloppeur Web Full Stack ","categorie":"","description":"D\u00e9veloppeur Web Full Stack passionn\u00e9, je ma\u00eetrise un large \u00e9ventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d\u2019une solide exp\u00e9rience dans la conception et le d\u00e9veloppement de projets web, je suis \u00e9galement comp\u00e9tent dans la maintenance de serveurs, le d\u00e9ploiement d\u2019applications, la gestion efficace de bases de donn\u00e9es, ainsi que la cr\u00e9ation d\u2019API REST.","formations":[{"niveau":"Licence1","domaine":"G\u00e9ni informatiques ","etablissement":"Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT)","annee_obtention":2021,"description":null},{"niveau":"Secondaire","domaine":"Terminal D","etablissement":"lycee pole emane eyegue(Libreville)","annee_obtention":2020,"description":null}],"experiences":[{"titre_poste":"D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space","entreprise":null,"duree_mois":0,"description":"Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce","competences":["PHP","HTML","CSS","JavaScript"],"secteur":"Informatique"},{"titre_poste":"D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com","entreprise":null,"duree_mois":12,"description":"https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.","competences":["PHP (architecture MVC)","JavaScript","MySQL."],"secteur":"Informatique"},{"titre_poste":"je ne suis pas daccord","entreprise":null,"duree_mois":0,"description":"je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd","competences":[],"secteur":"Informatique"}],"competences":[{"nom":"esprit d'\u00e9quipe","niveau":3,"annees_experience":1},{"nom":"python","niveau":3,"annees_experience":1},{"nom":"git github","niveau":3,"annees_experience":1},{"nom":"javascript","niveau":3,"annees_experience":1},{"nom":"maintenance des serveurs web","niveau":3,"annees_experience":1},{"nom":"gestion de base de donn\u00e9es","niveau":3,"annees_experience":1},{"nom":"mysql","niveau":3,"annees_experience":1},{"nom":"cms","niveau":3,"annees_experience":1},{"nom":"wordpress","niveau":3,"annees_experience":1},{"nom":"git","niveau":3,"annees_experience":1},{"nom":"django","niveau":3,"annees_experience":1},{"nom":"sql","niveau":3,"annees_experience":1},{"nom":"php","niveau":3,"annees_experience":1},{"nom":"java","niveau":3,"annees_experience":1},{"nom":"api","niveau":3,"annees_experience":1},{"nom":"rest","niveau":3,"annees_experience":1},{"nom":"html","niveau":3,"annees_experience":1},{"nom":"css","niveau":3,"annees_experience":1}],"langues":[{"nom":"Fran\u00e7ais","niveau":"B1","certifications":[]},{"nom":"Anglais","niveau":"B1","certifications":[]},{"nom":"bbbbbb","niveau":"B1","certifications":[]}],"outils":["Cursor","Git","VS code","Wamp Server","word"],"centres_interet":[],"projets":[],"disponibilite":"Imm\u00e9diate","niveau_etude":"Bac+1an","niveau_experience":"1an","niveau_etude_valeur":"1","niveau_experience_valeur":"1","texte_integral":"Profil du candidat : EFFE Nick Ludvann\nProfession :   D\u00e9veloppeur Web Full Stack \nDescription : D\u00e9veloppeur Web Full Stack passionn\u00e9, je ma\u00eetrise un large \u00e9ventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d\u2019une solide exp\u00e9rience dans la conception et le d\u00e9veloppement de projets web, je suis \u00e9galement comp\u00e9tent dans la maintenance de serveurs, le d\u00e9ploiement d\u2019applications, la gestion efficace de bases de donn\u00e9es, ainsi que la cr\u00e9ation d\u2019API REST.\nFormations: Licence1 en G\u00e9ni informatiques  \u00e0 Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT); Secondaire en Terminal D \u00e0 lycee pole emane eyegue(Libreville); \nExp\u00e9riences: D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space - Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce; D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com - https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.; je ne suis pas daccord - je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd; \nComp\u00e9tences: esprit d'\u00e9quipe, python, git github, javascript, maintenance des serveurs web, gestion de base de donn\u00e9es, mysql, cms, wordpress, git, django, sql, php, java, api, rest, html, css\nOutils: Cursor, Git, VS code, Wamp Server, word"},"job_offer":{"id":2,"titre":"Assistant(e) de Direction - Dakar","description":"\u00a0\nMissions :\nOrganisation de l'agenda du dirigeant et acceuil\n\nG\u00e9rer l\u2019agenda et l\u2019emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, cong\u00e9s\u2026)\n\n\n\u00a0\n\n\nR\u00e9ceptionner et filtrer les appels t\u00e9l\u00e9phoniques.\nAccueillir physiquement les rendez-vous.\n\nSupport op\u00e9rationnel\n\nPr\u00e9parer et organiser la logistique des diff\u00e9rents \u00e9v\u00e9nements professionnels (r\u00e9unions, d\u00e9placements, interventions orales, s\u00e9minaires, salons professionnels, conf\u00e9rences t\u00e9l\u00e9phoniques\u2026).\nPr\u00e9parer et contr\u00f4ler les dossiers n\u00e9cessaires \u00e0 la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les r\u00e9unions\u2026).\nAssurer en amont la pr\u00e9paration et le suivi des dossiers.\nGestion et suivi et archivage des comptes rendus et documentation du dirigeant\nR\u00e9ceptionner et trier le courrier pour ne pr\u00e9senter \u00e0 son dirigeant que les informations essentielles.\nAssister aux r\u00e9unions et en r\u00e9diger les comptes rendus.\n\nArchivage, documentation et compte rendu r\u00e9gulier\n\nOrganiser le tri et l\u2019archivage des documents importants (collecter, traiter, classer et mettre \u00e0 jour l\u2019information).\nG\u00e9rer et actualiser la documentation professionnelle et r\u00e9glementaire.\nRendre compte \u00e0 travers des points r\u00e9guliers de l\u2019avancement de son travail, des rendez-vous pr\u00e9vus et des courriers \u00e0 envoyer.\nRassembler et mettre en forme des \u00e9l\u00e9ments de suivi (tableaux de bord, indicateurs, reporting\u2026).\n\nComptabilit\u00e9 gestion\n\nG\u00e9rer les notes de frais.\nR\u00e9aliser des commandes de mat\u00e9riel, de fournitures, de consommables et v\u00e9rifier la conformit\u00e9 des livraisons.\nAssurer le suivi des conditions d\u2019ex\u00e9cution d\u2019un contrat, \u00eatre le support ponctuel \u00e0 l\u2019administration des ventes (commandes clients, factures clients, BL\u2026).\nR\u00e9diger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus\u2026).\nStructurer et assurer la transmission des informations en interne et en externe (documents provenant des diff\u00e9rents services de l\u2019entreprise ou de l\u2019ext\u00e9rieur aux services concern\u00e9s \u00e0 partir des consignes de son dirigeant).\n\nAutres activit\u00e9s compl\u00e9mentaires\n\nParticiper \u00e0 l\u2019organisation de la logistique des recrutements et des formations.\nR\u00e9aliser un suivi administratif du personnel.\n\u00c9tablir et g\u00e9rer des budgets ou r\u00e9aliser le traitement des dossiers comptables.\nAssurer la gestion et le suivi complet de certains dossiers (n\u00e9gociations avec les fournisseurs, pr\u00e9paration d\u2019un budget, relance clients\u2026).\nSuivre les proc\u00e9dures d\u2019appels d\u2019offres.\nD\u00e9placements de missions, pour achat ou pour repr\u00e9sentation\nContact et d\u00e9marches administratives pour d\u00e9p\u00f4t documentaires etc\u2026\n\n","formation_requise":{"niveau_minimum":"Non sp\u00e9cifi\u00e9","niveau_valeur":2,"domaines_acceptes":["Int\u00e9rim","recrutement"],"formation_obligatoire":false},"experience_requise":{"niveau":"Exp\u00e9rience entre 5 ans et 10 ans & Exp\u00e9rience > 10 ans","duree_minimum_mois":60,"annees":5,"secteurs_acceptes":["Int\u00e9rim","recrutement"],"competences_requises":["documentation","suivi des dossiers","archivage","assistanat","bureautique","gestion administrative","dossiers","powerpoint","suivi administratif","support","pack office","administration","prise de rdv","secr\u00e9taria"]},"competences_requises":[{"nom":"documentation","niveau":3,"annees_experience":1},{"nom":"suivi des dossiers","niveau":3,"annees_experience":1},{"nom":"archivage","niveau":3,"annees_experience":1},{"nom":"assistanat","niveau":3,"annees_experience":1},{"nom":"bureautique","niveau":3,"annees_experience":1},{"nom":"gestion administrative","niveau":3,"annees_experience":1},{"nom":"dossiers","niveau":3,"annees_experience":1},{"nom":"powerpoint","niveau":3,"annees_experience":1},{"nom":"suivi administratif","niveau":3,"annees_experience":1},{"nom":"support","niveau":3,"annees_experience":1},{"nom":"pack office","niveau":3,"annees_experience":1},{"nom":"administration","niveau":3,"annees_experience":1},{"nom":"prise de rdv","niveau":3,"annees_experience":1},{"nom":"secr\u00e9taria","niveau":3,"annees_experience":1}],"langues_requises":[],"secteur":"Int\u00e9rim, recrutement","type_contrat":"Contrat propos\u00e9\n                             :CDD","localisation":"R\u00e9gion de :Dakar","texte_integral":"Offre d'emploi : Assistant(e) de Direction - Dakar\nSecteur : Int\u00e9rim, recrutement\nDescription du poste : \u00a0\nMissions :\nOrganisation de l'agenda du dirigeant et acceuil\n\nG\u00e9rer l\u2019agenda et l\u2019emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, cong\u00e9s\u2026)\n\n\n\u00a0\n\n\nR\u00e9ceptionner et filtrer les appels t\u00e9l\u00e9phoniques.\nAccueillir physiquement les rendez-vous.\n\nSupport op\u00e9rationnel\n\nPr\u00e9parer et organiser la logistique des diff\u00e9rents \u00e9v\u00e9nements professionnels (r\u00e9unions, d\u00e9placements, interventions orales, s\u00e9minaires, salons professionnels, conf\u00e9rences t\u00e9l\u00e9phoniques\u2026).\nPr\u00e9parer et contr\u00f4ler les dossiers n\u00e9cessaires \u00e0 la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les r\u00e9unions\u2026).\nAssurer en amont la pr\u00e9paration et le suivi des dossiers.\nGestion et suivi et archivage des comptes rendus et documentation du dirigeant\nR\u00e9ceptionner et trier le courrier pour ne pr\u00e9senter \u00e0 son dirigeant que les informations essentielles.\nAssister aux r\u00e9unions et en r\u00e9diger les comptes rendus.\n\nArchivage, documentation et compte rendu r\u00e9gulier\n\nOrganiser le tri et l\u2019archivage des documents importants (collecter, traiter, classer et mettre \u00e0 jour l\u2019information).\nG\u00e9rer et actualiser la documentation professionnelle et r\u00e9glementaire.\nRendre compte \u00e0 travers des points r\u00e9guliers de l\u2019avancement de son travail, des rendez-vous pr\u00e9vus et des courriers \u00e0 envoyer.\nRassembler et mettre en forme des \u00e9l\u00e9ments de suivi (tableaux de bord, indicateurs, reporting\u2026).\n\nComptabilit\u00e9 gestion\n\nG\u00e9rer les notes de frais.\nR\u00e9aliser des commandes de mat\u00e9riel, de fournitures, de consommables et v\u00e9rifier la conformit\u00e9 des livraisons.\nAssurer le suivi des conditions d\u2019ex\u00e9cution d\u2019un contrat, \u00eatre le support ponctuel \u00e0 l\u2019administration des ventes (commandes clients, factures clients, BL\u2026).\nR\u00e9diger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus\u2026).\nStructurer et assurer la transmission des informations en interne et en externe (documents provenant des diff\u00e9rents services de l\u2019entreprise ou de l\u2019ext\u00e9rieur aux services concern\u00e9s \u00e0 partir des consignes de son dirigeant).\n\nAutres activit\u00e9s compl\u00e9mentaires\n\nParticiper \u00e0 l\u2019organisation de la logistique des recrutements et des formations.\nR\u00e9aliser un suivi administratif du personnel.\n\u00c9tablir et g\u00e9rer des budgets ou r\u00e9aliser le traitement des dossiers comptables.\nAssurer la gestion et le suivi complet de certains dossiers (n\u00e9gociations avec les fournisseurs, pr\u00e9paration d\u2019un budget, relance clients\u2026).\nSuivre les proc\u00e9dures d\u2019appels d\u2019offres.\nD\u00e9placements de missions, pour achat ou pour repr\u00e9sentation\nContact et d\u00e9marches administratives pour d\u00e9p\u00f4t documentaires etc\u2026\n\n\nComp\u00e9tences requises: documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secr\u00e9taria\nNiveau d'\u00e9tude requis: Non sp\u00e9cifi\u00e9\nNiveau d'exp\u00e9rience requis: Exp\u00e9rience entre 5 ans et 10 ans & Exp\u00e9rience > 10 ans"}}
+)
+
+2025-06-26 13:08:43 - Logs CURL détaillés
+Data: * Host localhost:8000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8000...
+*   Trying 127.0.0.1:8000...
+* Connected to localhost (127.0.0.1) port 8000
+> POST /analyze/v2 HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Accept: application/json
+Content-Length: 14302
+
+* upload completely sent off: 14302 bytes
+< HTTP/1.1 200 OK
+< date: Thu, 26 Jun 2025 13:08:35 GMT
+< server: uvicorn
+< content-length: 11713
+< content-type: application/json
+< 
+* Connection #0 to host localhost left intact
+
+2025-06-26 13:08:43 - Réponse API décodée avec succès
+Data: Array
+(
+    [score_global] => 30
+    [score_global_semantique] => 33
+    [niveau_adequation] => Passable
+    [resume] => Pour l'instant, ça ne matche pas trop (30%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.
+    [points_forts] => Array
+        (
+            [0] => Array
+                (
+                    [description] => Aucune exigence linguistique spécifique
+                    [categorie] => langues
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+        )
+
+    [points_amelioration] => Array
+        (
+            [0] => Array
+                (
+                    [description] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                    [categorie] => formation
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [2] => Array
+                (
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [3] => Array
+                (
+                    [description] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [categorie] => competences
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [4] => Array
+                (
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [categorie] => projets
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+        )
+
+    [analyse_detaillee] => Array
+        (
+            [formation] => Array
+                (
+                    [categorie] => Formation
+                    [score] => 50
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                        )
+
+                    [resume] => Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [experience] => Array
+                (
+                    [categorie] => Expérience
+                    [score] => 27
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                            [1] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                        )
+
+                    [resume] => Il semble vous manquer une expérience significative (27%) pour ce poste. Valorisez vos stages, projets personnels ou formations.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [competences] => Array
+                (
+                    [categorie] => Compétences
+                    [score] => 0
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [description] => documentation
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [description] => suivi des dossiers
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [description] => archivage
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [3] => Array
+                                (
+                                    [description] => assistanat
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [4] => Array
+                                (
+                                    [description] => bureautique
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [5] => Array
+                                (
+                                    [description] => gestion administrative
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [6] => Array
+                                (
+                                    [description] => dossiers
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [7] => Array
+                                (
+                                    [description] => powerpoint
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [8] => Array
+                                (
+                                    [description] => suivi administratif
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [9] => Array
+                                (
+                                    [description] => support
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [10] => Array
+                                (
+                                    [description] => pack office
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [11] => Array
+                                (
+                                    [description] => administration
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [12] => Array
+                                (
+                                    [description] => prise de rdv
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [13] => Array
+                                (
+                                    [description] => secrétaria
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                        )
+
+                    [resume] => Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [langues] => Array
+                (
+                    [categorie] => Langues
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Vos compétences linguistiques (100%) sont un véritable plus pour cette opportunité.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [facteurs_bonus] => 
+            [facteurs_malus] => 
+        )
+
+    [suggestions] => Array
+        (
+            [0] => Array
+                (
+                    [categorie] => experience
+                    [description] => Acquérir de l'expérience dans le secteur Intérim, recrutement
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [1] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : support
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [2] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : archivage
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [3] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : pack office
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [4] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : dossiers
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [5] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : suivi administratif
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [6] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : bureautique
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [7] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : administration
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [8] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : prise de rdv
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [9] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : secrétaria
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [10] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : documentation
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [11] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : gestion administrative
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [12] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : assistanat
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [13] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : suivi des dossiers
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [14] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : powerpoint
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [15] => Array
+                (
+                    [categorie] => formation
+                    [description] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [16] => Array
+                (
+                    [categorie] => experience
+                    [description] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [17] => Array
+                (
+                    [categorie] => experience
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [18] => Array
+                (
+                    [categorie] => competences
+                    [description] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [19] => Array
+                (
+                    [categorie] => projets
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+        )
+
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-26T13:08:43.617699
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+            [modeles_utilises] => 
+            [parametres_analyse] => 
+            [temps_analyse_ms] => 
+            [source_donnees] => 
+        )
+
+    [competences_manquantes] => Array
+        (
+            [0] => documentation
+            [1] => suivi des dossiers
+            [2] => archivage
+            [3] => assistanat
+            [4] => bureautique
+            [5] => gestion administrative
+            [6] => dossiers
+            [7] => powerpoint
+            [8] => suivi administratif
+            [9] => support
+            [10] => pack office
+            [11] => administration
+            [12] => prise de rdv
+            [13] => secrétaria
+        )
+
+    [competences_correspondantes] => 
+    [niveau_etude_analyse] => 
+    [niveau_experience_analyse] => 
+    [compatibilite_sectorielle] => 
+    [compatibilite_geographique] => 
+)
+
+2025-06-26 13:08:43 - Réponse de l'API reçue
+Data: Array
+(
+    [score_global] => 30
+    [score_global_semantique] => 33
+    [niveau_adequation] => Passable
+    [resume] => Pour l'instant, ça ne matche pas trop (30%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.
+    [points_forts] => Array
+        (
+            [0] => Array
+                (
+                    [description] => Aucune exigence linguistique spécifique
+                    [categorie] => langues
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+        )
+
+    [points_amelioration] => Array
+        (
+            [0] => Array
+                (
+                    [description] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                    [categorie] => formation
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [2] => Array
+                (
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [3] => Array
+                (
+                    [description] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [categorie] => competences
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [4] => Array
+                (
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [categorie] => projets
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+        )
+
+    [analyse_detaillee] => Array
+        (
+            [formation] => Array
+                (
+                    [categorie] => Formation
+                    [score] => 50
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                        )
+
+                    [resume] => Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [experience] => Array
+                (
+                    [categorie] => Expérience
+                    [score] => 27
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                            [1] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                        )
+
+                    [resume] => Il semble vous manquer une expérience significative (27%) pour ce poste. Valorisez vos stages, projets personnels ou formations.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [competences] => Array
+                (
+                    [categorie] => Compétences
+                    [score] => 0
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [description] => documentation
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [description] => suivi des dossiers
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [description] => archivage
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [3] => Array
+                                (
+                                    [description] => assistanat
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [4] => Array
+                                (
+                                    [description] => bureautique
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [5] => Array
+                                (
+                                    [description] => gestion administrative
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [6] => Array
+                                (
+                                    [description] => dossiers
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [7] => Array
+                                (
+                                    [description] => powerpoint
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [8] => Array
+                                (
+                                    [description] => suivi administratif
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [9] => Array
+                                (
+                                    [description] => support
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [10] => Array
+                                (
+                                    [description] => pack office
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [11] => Array
+                                (
+                                    [description] => administration
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [12] => Array
+                                (
+                                    [description] => prise de rdv
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [13] => Array
+                                (
+                                    [description] => secrétaria
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                        )
+
+                    [resume] => Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [langues] => Array
+                (
+                    [categorie] => Langues
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Vos compétences linguistiques (100%) sont un véritable plus pour cette opportunité.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [facteurs_bonus] => 
+            [facteurs_malus] => 
+        )
+
+    [suggestions] => Array
+        (
+            [0] => Array
+                (
+                    [categorie] => experience
+                    [description] => Acquérir de l'expérience dans le secteur Intérim, recrutement
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [1] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : support
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [2] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : archivage
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [3] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : pack office
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [4] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : dossiers
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [5] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : suivi administratif
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [6] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : bureautique
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [7] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : administration
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [8] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : prise de rdv
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [9] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : secrétaria
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [10] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : documentation
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [11] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : gestion administrative
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [12] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : assistanat
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [13] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : suivi des dossiers
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [14] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : powerpoint
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [15] => Array
+                (
+                    [categorie] => formation
+                    [description] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [16] => Array
+                (
+                    [categorie] => experience
+                    [description] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [17] => Array
+                (
+                    [categorie] => experience
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [18] => Array
+                (
+                    [categorie] => competences
+                    [description] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [19] => Array
+                (
+                    [categorie] => projets
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+        )
+
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-26T13:08:43.617699
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+            [modeles_utilises] => 
+            [parametres_analyse] => 
+            [temps_analyse_ms] => 
+            [source_donnees] => 
+        )
+
+    [competences_manquantes] => Array
+        (
+            [0] => documentation
+            [1] => suivi des dossiers
+            [2] => archivage
+            [3] => assistanat
+            [4] => bureautique
+            [5] => gestion administrative
+            [6] => dossiers
+            [7] => powerpoint
+            [8] => suivi administratif
+            [9] => support
+            [10] => pack office
+            [11] => administration
+            [12] => prise de rdv
+            [13] => secrétaria
+        )
+
+    [competences_correspondantes] => 
+    [niveau_etude_analyse] => 
+    [niveau_experience_analyse] => 
+    [compatibilite_sectorielle] => 
+    [compatibilite_geographique] => 
+)
+
+2025-06-26 13:09:24 - MatchingController initialisé
+2025-06-26 13:09:24 - Début de l'analyse de compatibilité
+Data: Array
+(
+    [users_id] => 5
+    [offre_id] => 3
+)
+
+2025-06-26 13:09:24 - Données préparées pour l'API
+Data: Array
+(
+    [candidate] => Array
+        (
+            [id] => 5
+            [nom] => EFFE Nick Ludvann
+            [email] => webgeniuses12@gmail.com
+            [telephone] => 785303879
+            [ville] => 
+            [domaine_competence] =>   Développeur Web Full Stack 
+            [profession] =>   Développeur Web Full Stack 
+            [categorie] => 
+            [description] => Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.
+            [formations] => Array
+                (
+                    [0] => Array
+                        (
+                            [niveau] => Licence1
+                            [domaine] => Géni informatiques 
+                            [etablissement] => Ecole Supérieure Multinationale des Télécommunications (ESMT)
+                            [annee_obtention] => 2021
+                            [description] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [niveau] => Secondaire
+                            [domaine] => Terminal D
+                            [etablissement] => lycee pole emane eyegue(Libreville)
+                            [annee_obtention] => 2020
+                            [description] => 
+                        )
+
+                )
+
+            [experiences] => Array
+                (
+                    [0] => Array
+                        (
+                            [titre_poste] => Développeur Web – Site web pour entreprise numérique: https://advantech-group.space
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce
+                            [competences] => Array
+                                (
+                                    [0] => PHP
+                                    [1] => HTML
+                                    [2] => CSS
+                                    [3] => JavaScript
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [1] => Array
+                        (
+                            [titre_poste] => Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com
+                            [entreprise] => 
+                            [duree_mois] => 12
+                            [description] => https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.
+                            [competences] => Array
+                                (
+                                    [0] => PHP (architecture MVC)
+                                    [1] => JavaScript
+                                    [2] => MySQL.
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                    [2] => Array
+                        (
+                            [titre_poste] => je ne suis pas daccord
+                            [entreprise] => 
+                            [duree_mois] => 0
+                            [description] => je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd
+                            [competences] => Array
+                                (
+                                )
+
+                            [secteur] => Informatique
+                        )
+
+                )
+
+            [competences] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => esprit d'équipe
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => python
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => git github
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => javascript
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => maintenance des serveurs web
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => gestion de base de données
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [nom] => mysql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [7] => Array
+                        (
+                            [nom] => cms
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [8] => Array
+                        (
+                            [nom] => wordpress
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [9] => Array
+                        (
+                            [nom] => git
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [10] => Array
+                        (
+                            [nom] => django
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [11] => Array
+                        (
+                            [nom] => sql
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [12] => Array
+                        (
+                            [nom] => php
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [13] => Array
+                        (
+                            [nom] => java
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [14] => Array
+                        (
+                            [nom] => api
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [15] => Array
+                        (
+                            [nom] => rest
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [16] => Array
+                        (
+                            [nom] => html
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [17] => Array
+                        (
+                            [nom] => css
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => Français
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => Anglais
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => bbbbbb
+                            [niveau] => B1
+                            [certifications] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [outils] => Array
+                (
+                    [0] => Cursor
+                    [1] => Git
+                    [2] => VS code
+                    [3] => Wamp Server
+                    [4] => word
+                )
+
+            [centres_interet] => Array
+                (
+                )
+
+            [projets] => Array
+                (
+                )
+
+            [disponibilite] => Immédiate
+            [niveau_etude] => Bac+1an
+            [niveau_experience] => 1an
+            [niveau_etude_valeur] => 1
+            [niveau_experience_valeur] => 1
+            [texte_integral] => Profil du candidat : EFFE Nick Ludvann
+Profession :   Développeur Web Full Stack 
+Description : Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.
+Formations: Licence1 en Géni informatiques  à Ecole Supérieure Multinationale des Télécommunications (ESMT); Secondaire en Terminal D à lycee pole emane eyegue(Libreville); 
+Expériences: Développeur Web – Site web pour entreprise numérique: https://advantech-group.space - Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques
+Intégration d’un design moderne, responsive et optimisé pour le SEO
+Technologies : PHP, HTML, CSS, JavaScript
+Déploiement sur hébergement mutualisé, gestion de la base de données,
+je suis ce; Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com - https://work-flexer.com 
+Création d’une plateforme web permettant la mise en relation entre recruteurs et candidats
+Fonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée
+Technologies : PHP (architecture MVC), JavaScript, MySQL.; je ne suis pas daccord - je 
+ne veux
+pas qye
+tu memdb
+mandhd
+ksjd; 
+Compétences: esprit d'équipe, python, git github, javascript, maintenance des serveurs web, gestion de base de données, mysql, cms, wordpress, git, django, sql, php, java, api, rest, html, css
+Outils: Cursor, Git, VS code, Wamp Server, word
+        )
+
+    [job_offer] => Array
+        (
+            [id] => 3
+            [titre] => Directeur D´Hôtel (H/F) - Dakar
+            [description] => Dans le cadre d'une mission de recrutement pour un de ses clients évoluant dans le secteur de l'hôtellerie, Tectra Sénégal cherche un Directeur d'Hôtel (H/F).
+Missions principales :
+Gestion administrative et financière :
+
+Participer au contrôle de gestion, au suivi et à l’évaluation de la rentabilité de l'établissement
+Superviser et valider l’élaboration des budgets
+Participer au suivi comptable global et de chaque département (Hébergement, Cuisine, Bar et Activités)
+Aider et promouvoir le déploiement d’outils de reporting adaptés afin d’assurer la rentabilité de l’établissement.
+Aide et participation à l’élaboration et l’exploitation de tableaux de bord de suivi de l'activité
+Émettre des propositions d’investissements
+
+Gestion marketing et commerciale :
+
+Adaptation permanente de l'offre de services et d’activités aux évolutions de la clientèle
+Analyse du marché et de la concurrence locale
+Contrôle et évaluation de la qualité du service rendu
+Élaboration et/ou application d'une politique commerciale
+Fixation des prix
+Mise en place d'actions de promotion de l'établissement
+Relations commerciales internes et externes
+
+Concevoir et organiser les services :
+
+Concevoir et mettre en place un organigramme
+Définir et rédiger les fiches de poste pour l’ensemble des différents membres des services dans l’optique de garantir aux clients une expérience d’excellence de bout en bout et de fidéliser la clientèle.
+La restauration et le plus large éventail d’activités en plein air font aussi partie des axes de gestion et de développement souhaités.
+Organisation et supervision de l'approvisionnement en matériels, équipements, fournitures, … 
+
+Management des équipes :
+
+Coordination de toutes les équipes de l'hôtel
+Évaluation des besoins en formation
+Évaluation des compétences nécessaires à la qualité du service
+Supervision de l'ensemble des activités de l'hôtel, soit en direct soit par délégation
+Rédaction des plannings :
+Formation et développement des talents au sein de l’établissement.
+Suivi de l’élaboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.
+
+Planifier et coordonner l’activité des différents services de l’hôtel :
+
+Contrôler la conformité des opérations, aux standards d’hygiène, de qualité et de sécurité
+Être garant de l’amélioration continue de ces axes en tenant compte des retours clients.
+Être garant de la bonne utilisation et de la maintenance de l’ensemble des biens de l’entreprise.
+
+Supervision des relations avec les partenaires et fournisseurs :
+
+Émettre des avis et participer au choix de ceux-ci en fonction de leurs critères de coûts et de qualités.
+
+Définir et garantir la mise en œuvre de stratégies commerciales et marketing, pour promouvoir l’hôtel et atteindre les objectifs :
+
+Responsable de la stratégie commerciale
+Participation à l’élaboration de la communication
+Responsable du suivi de la communication
+
+
+            [formation_requise] => Array
+                (
+                    [niveau_minimum] => Non spécifié
+                    [niveau_valeur] => 0
+                    [domaines_acceptes] => Array
+                        (
+                            [0] => Intérim
+                            [1] => recrutement
+                        )
+
+                    [formation_obligatoire] => 
+                )
+
+            [experience_requise] => Array
+                (
+                    [niveau] => Expérience entre 2 ans et 5 ans et plus
+                    [duree_minimum_mois] => 24
+                    [annees] => 2
+                    [secteurs_acceptes] => Array
+                        (
+                            [0] => Intérim
+                            [1] => recrutement
+                        )
+
+                    [competences_requises] => Array
+                        (
+                            [0] => cuisine
+                            [1] => tourisme
+                            [2] => gestion hôtelière
+                            [3] => hôtellerie
+                            [4] => restauration
+                            [5] => rest
+                        )
+
+                )
+
+            [competences_requises] => Array
+                (
+                    [0] => Array
+                        (
+                            [nom] => cuisine
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [nom] => tourisme
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [2] => Array
+                        (
+                            [nom] => gestion hôtelière
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [3] => Array
+                        (
+                            [nom] => hôtellerie
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [4] => Array
+                        (
+                            [nom] => restauration
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                    [5] => Array
+                        (
+                            [nom] => rest
+                            [niveau] => 3
+                            [annees_experience] => 1
+                        )
+
+                )
+
+            [langues_requises] => Array
+                (
+                )
+
+            [secteur] => Intérim, recrutement
+            [type_contrat] => Contrat proposé
+                             :CDI
+            [localisation] => Région de :Dakar & Thiès
+            [texte_integral] => Offre d'emploi : Directeur D´Hôtel (H/F) - Dakar
+Secteur : Intérim, recrutement
+Description du poste : Dans le cadre d'une mission de recrutement pour un de ses clients évoluant dans le secteur de l'hôtellerie, Tectra Sénégal cherche un Directeur d'Hôtel (H/F).
+Missions principales :
+Gestion administrative et financière :
+
+Participer au contrôle de gestion, au suivi et à l’évaluation de la rentabilité de l'établissement
+Superviser et valider l’élaboration des budgets
+Participer au suivi comptable global et de chaque département (Hébergement, Cuisine, Bar et Activités)
+Aider et promouvoir le déploiement d’outils de reporting adaptés afin d’assurer la rentabilité de l’établissement.
+Aide et participation à l’élaboration et l’exploitation de tableaux de bord de suivi de l'activité
+Émettre des propositions d’investissements
+
+Gestion marketing et commerciale :
+
+Adaptation permanente de l'offre de services et d’activités aux évolutions de la clientèle
+Analyse du marché et de la concurrence locale
+Contrôle et évaluation de la qualité du service rendu
+Élaboration et/ou application d'une politique commerciale
+Fixation des prix
+Mise en place d'actions de promotion de l'établissement
+Relations commerciales internes et externes
+
+Concevoir et organiser les services :
+
+Concevoir et mettre en place un organigramme
+Définir et rédiger les fiches de poste pour l’ensemble des différents membres des services dans l’optique de garantir aux clients une expérience d’excellence de bout en bout et de fidéliser la clientèle.
+La restauration et le plus large éventail d’activités en plein air font aussi partie des axes de gestion et de développement souhaités.
+Organisation et supervision de l'approvisionnement en matériels, équipements, fournitures, … 
+
+Management des équipes :
+
+Coordination de toutes les équipes de l'hôtel
+Évaluation des besoins en formation
+Évaluation des compétences nécessaires à la qualité du service
+Supervision de l'ensemble des activités de l'hôtel, soit en direct soit par délégation
+Rédaction des plannings :
+Formation et développement des talents au sein de l’établissement.
+Suivi de l’élaboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.
+
+Planifier et coordonner l’activité des différents services de l’hôtel :
+
+Contrôler la conformité des opérations, aux standards d’hygiène, de qualité et de sécurité
+Être garant de l’amélioration continue de ces axes en tenant compte des retours clients.
+Être garant de la bonne utilisation et de la maintenance de l’ensemble des biens de l’entreprise.
+
+Supervision des relations avec les partenaires et fournisseurs :
+
+Émettre des avis et participer au choix de ceux-ci en fonction de leurs critères de coûts et de qualités.
+
+Définir et garantir la mise en œuvre de stratégies commerciales et marketing, pour promouvoir l’hôtel et atteindre les objectifs :
+
+Responsable de la stratégie commerciale
+Participation à l’élaboration de la communication
+Responsable du suivi de la communication
+
+
+Compétences requises: cuisine, tourisme, gestion hôtelière, hôtellerie, restauration, rest
+Niveau d'étude requis: Non spécifié
+Niveau d'expérience requis: Expérience entre 2 ans et 5 ans et plus
+        )
+
+)
+
+2025-06-26 13:09:24 - Début de l'appel API
+2025-06-26 13:09:24 - Envoi de la requête à l'API
+Data: Array
+(
+    [url] => http://localhost:8000/analyze/v2
+    [data] => {"candidate":{"id":5,"nom":"EFFE Nick Ludvann","email":"webgeniuses12@gmail.com","telephone":"785303879","ville":"","domaine_competence":"  D\u00e9veloppeur Web Full Stack ","profession":"  D\u00e9veloppeur Web Full Stack ","categorie":"","description":"D\u00e9veloppeur Web Full Stack passionn\u00e9, je ma\u00eetrise un large \u00e9ventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d\u2019une solide exp\u00e9rience dans la conception et le d\u00e9veloppement de projets web, je suis \u00e9galement comp\u00e9tent dans la maintenance de serveurs, le d\u00e9ploiement d\u2019applications, la gestion efficace de bases de donn\u00e9es, ainsi que la cr\u00e9ation d\u2019API REST.","formations":[{"niveau":"Licence1","domaine":"G\u00e9ni informatiques ","etablissement":"Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT)","annee_obtention":2021,"description":null},{"niveau":"Secondaire","domaine":"Terminal D","etablissement":"lycee pole emane eyegue(Libreville)","annee_obtention":2020,"description":null}],"experiences":[{"titre_poste":"D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space","entreprise":null,"duree_mois":0,"description":"Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce","competences":["PHP","HTML","CSS","JavaScript"],"secteur":"Informatique"},{"titre_poste":"D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com","entreprise":null,"duree_mois":12,"description":"https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.","competences":["PHP (architecture MVC)","JavaScript","MySQL."],"secteur":"Informatique"},{"titre_poste":"je ne suis pas daccord","entreprise":null,"duree_mois":0,"description":"je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd","competences":[],"secteur":"Informatique"}],"competences":[{"nom":"esprit d'\u00e9quipe","niveau":3,"annees_experience":1},{"nom":"python","niveau":3,"annees_experience":1},{"nom":"git github","niveau":3,"annees_experience":1},{"nom":"javascript","niveau":3,"annees_experience":1},{"nom":"maintenance des serveurs web","niveau":3,"annees_experience":1},{"nom":"gestion de base de donn\u00e9es","niveau":3,"annees_experience":1},{"nom":"mysql","niveau":3,"annees_experience":1},{"nom":"cms","niveau":3,"annees_experience":1},{"nom":"wordpress","niveau":3,"annees_experience":1},{"nom":"git","niveau":3,"annees_experience":1},{"nom":"django","niveau":3,"annees_experience":1},{"nom":"sql","niveau":3,"annees_experience":1},{"nom":"php","niveau":3,"annees_experience":1},{"nom":"java","niveau":3,"annees_experience":1},{"nom":"api","niveau":3,"annees_experience":1},{"nom":"rest","niveau":3,"annees_experience":1},{"nom":"html","niveau":3,"annees_experience":1},{"nom":"css","niveau":3,"annees_experience":1}],"langues":[{"nom":"Fran\u00e7ais","niveau":"B1","certifications":[]},{"nom":"Anglais","niveau":"B1","certifications":[]},{"nom":"bbbbbb","niveau":"B1","certifications":[]}],"outils":["Cursor","Git","VS code","Wamp Server","word"],"centres_interet":[],"projets":[],"disponibilite":"Imm\u00e9diate","niveau_etude":"Bac+1an","niveau_experience":"1an","niveau_etude_valeur":"1","niveau_experience_valeur":"1","texte_integral":"Profil du candidat : EFFE Nick Ludvann\nProfession :   D\u00e9veloppeur Web Full Stack \nDescription : D\u00e9veloppeur Web Full Stack passionn\u00e9, je ma\u00eetrise un large \u00e9ventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d\u2019une solide exp\u00e9rience dans la conception et le d\u00e9veloppement de projets web, je suis \u00e9galement comp\u00e9tent dans la maintenance de serveurs, le d\u00e9ploiement d\u2019applications, la gestion efficace de bases de donn\u00e9es, ainsi que la cr\u00e9ation d\u2019API REST.\nFormations: Licence1 en G\u00e9ni informatiques  \u00e0 Ecole Sup\u00e9rieure Multinationale des T\u00e9l\u00e9communications (ESMT); Secondaire en Terminal D \u00e0 lycee pole emane eyegue(Libreville); \nExp\u00e9riences: D\u00e9veloppeur Web \u2013 Site web pour entreprise num\u00e9rique: https:\/\/advantech-group.space - Conception compl\u00e8te du site vitrine d&#039;une entreprise sp\u00e9cialis\u00e9e dans les services num\u00e9riques\r\nInt\u00e9gration d\u2019un design moderne, responsive et optimis\u00e9 pour le SEO\r\nTechnologies : PHP, HTML, CSS, JavaScript\r\nD\u00e9ploiement sur h\u00e9bergement mutualis\u00e9, gestion de la base de donn\u00e9es,\r\nje suis ce; D\u00e9veloppeur Full Stack \u2013 Plateforme de recrutement en ligne https:\/\/work-flexer.com - https:\/\/work-flexer.com \r\nCr\u00e9ation d\u2019une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalit\u00e9s : cr\u00e9ation de profil, g\u00e9n\u00e9ration de CV en ligne, publication et gestion d\u2019offres d\u2019emploi, messagerie int\u00e9gr\u00e9e\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.; je ne suis pas daccord - je \r\nne veux\r\npas qye\r\ntu memdb\r\nmandhd\r\nksjd; \nComp\u00e9tences: esprit d'\u00e9quipe, python, git github, javascript, maintenance des serveurs web, gestion de base de donn\u00e9es, mysql, cms, wordpress, git, django, sql, php, java, api, rest, html, css\nOutils: Cursor, Git, VS code, Wamp Server, word"},"job_offer":{"id":3,"titre":"Directeur D\u00b4H\u00f4tel (H\/F) - Dakar","description":"Dans le cadre d'une mission de recrutement pour un de ses clients \u00e9voluant dans le secteur de l'h\u00f4tellerie, Tectra S\u00e9n\u00e9gal cherche un Directeur d'H\u00f4tel (H\/F).\nMissions principales\u00a0:\nGestion administrative et financi\u00e8re\u00a0:\n\nParticiper au contr\u00f4le de gestion, au suivi et \u00e0 l\u2019\u00e9valuation de la rentabilit\u00e9 de l'\u00e9tablissement\nSuperviser et valider l\u2019\u00e9laboration des budgets\nParticiper au suivi comptable global et de chaque d\u00e9partement (H\u00e9bergement, Cuisine, Bar et Activit\u00e9s)\nAider et promouvoir le d\u00e9ploiement d\u2019outils de reporting adapt\u00e9s afin d\u2019assurer la rentabilit\u00e9 de l\u2019\u00e9tablissement.\nAide et participation \u00e0 l\u2019\u00e9laboration et l\u2019exploitation de tableaux de bord de suivi de l'activit\u00e9\n\u00c9mettre des propositions d\u2019investissements\n\nGestion marketing et commerciale\u00a0:\n\nAdaptation permanente de l'offre de services et d\u2019activit\u00e9s aux \u00e9volutions\u00a0de la client\u00e8le\nAnalyse du march\u00e9 et de la concurrence locale\nContr\u00f4le et \u00e9valuation de la qualit\u00e9 du service rendu\n\u00c9laboration et\/ou application d'une politique commerciale\nFixation des prix\nMise en place d'actions de promotion de l'\u00e9tablissement\nRelations commerciales internes et externes\n\nConcevoir et organiser les services\u00a0:\n\nConcevoir et mettre en place un organigramme\nD\u00e9finir et r\u00e9diger les fiches de poste pour l\u2019ensemble des diff\u00e9rents membres des services dans l\u2019optique de garantir aux clients une exp\u00e9rience d\u2019excellence de bout en bout et de fid\u00e9liser la client\u00e8le.\nLa restauration et le plus large \u00e9ventail d\u2019activit\u00e9s en plein air font aussi partie des axes de gestion et de d\u00e9veloppement souhait\u00e9s.\nOrganisation et supervision de l'approvisionnement en mat\u00e9riels, \u00e9quipements, fournitures, \u2026\u00a0\n\nManagement des \u00e9quipes\u00a0:\n\nCoordination de toutes les \u00e9quipes de l'h\u00f4tel\n\u00c9valuation des besoins en formation\n\u00c9valuation des comp\u00e9tences n\u00e9cessaires \u00e0 la qualit\u00e9 du service\nSupervision de l'ensemble des activit\u00e9s de l'h\u00f4tel,\u00a0soit en direct soit par d\u00e9l\u00e9gation\nR\u00e9daction des plannings\u00a0:\nFormation et d\u00e9veloppement des talents au sein de l\u2019\u00e9tablissement.\nSuivi de l\u2019\u00e9laboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.\n\nPlanifier et coordonner l\u2019activit\u00e9 des diff\u00e9rents services de l\u2019h\u00f4tel\u00a0:\n\nContr\u00f4ler la conformit\u00e9 des op\u00e9rations, aux standards d\u2019hygi\u00e8ne, de qualit\u00e9 et de s\u00e9curit\u00e9\n\u00catre garant de l\u2019am\u00e9lioration continue de ces axes en tenant compte des retours clients.\n\u00catre garant de la bonne utilisation et de la maintenance de l\u2019ensemble des biens de l\u2019entreprise.\n\nSupervision des relations avec les partenaires et fournisseurs\u00a0:\n\n\u00c9mettre des avis et participer au choix de ceux-ci en fonction de leurs crit\u00e8res de co\u00fbts et de qualit\u00e9s.\n\nD\u00e9finir et garantir la mise en \u0153uvre de strat\u00e9gies commerciales et marketing, pour promouvoir l\u2019h\u00f4tel et atteindre les objectifs\u00a0:\n\nResponsable de la strat\u00e9gie commerciale\nParticipation \u00e0 l\u2019\u00e9laboration de la communication\nResponsable du suivi de la communication\n\n","formation_requise":{"niveau_minimum":"Non sp\u00e9cifi\u00e9","niveau_valeur":0,"domaines_acceptes":["Int\u00e9rim","recrutement"],"formation_obligatoire":false},"experience_requise":{"niveau":"Exp\u00e9rience entre 2 ans et 5 ans et plus","duree_minimum_mois":24,"annees":2,"secteurs_acceptes":["Int\u00e9rim","recrutement"],"competences_requises":["cuisine","tourisme","gestion h\u00f4teli\u00e8re","h\u00f4tellerie","restauration","rest"]},"competences_requises":[{"nom":"cuisine","niveau":3,"annees_experience":1},{"nom":"tourisme","niveau":3,"annees_experience":1},{"nom":"gestion h\u00f4teli\u00e8re","niveau":3,"annees_experience":1},{"nom":"h\u00f4tellerie","niveau":3,"annees_experience":1},{"nom":"restauration","niveau":3,"annees_experience":1},{"nom":"rest","niveau":3,"annees_experience":1}],"langues_requises":[],"secteur":"Int\u00e9rim, recrutement","type_contrat":"Contrat propos\u00e9\n                             :CDI","localisation":"R\u00e9gion de :Dakar & Thi\u00e8s","texte_integral":"Offre d'emploi : Directeur D\u00b4H\u00f4tel (H\/F) - Dakar\nSecteur : Int\u00e9rim, recrutement\nDescription du poste : Dans le cadre d'une mission de recrutement pour un de ses clients \u00e9voluant dans le secteur de l'h\u00f4tellerie, Tectra S\u00e9n\u00e9gal cherche un Directeur d'H\u00f4tel (H\/F).\nMissions principales\u00a0:\nGestion administrative et financi\u00e8re\u00a0:\n\nParticiper au contr\u00f4le de gestion, au suivi et \u00e0 l\u2019\u00e9valuation de la rentabilit\u00e9 de l'\u00e9tablissement\nSuperviser et valider l\u2019\u00e9laboration des budgets\nParticiper au suivi comptable global et de chaque d\u00e9partement (H\u00e9bergement, Cuisine, Bar et Activit\u00e9s)\nAider et promouvoir le d\u00e9ploiement d\u2019outils de reporting adapt\u00e9s afin d\u2019assurer la rentabilit\u00e9 de l\u2019\u00e9tablissement.\nAide et participation \u00e0 l\u2019\u00e9laboration et l\u2019exploitation de tableaux de bord de suivi de l'activit\u00e9\n\u00c9mettre des propositions d\u2019investissements\n\nGestion marketing et commerciale\u00a0:\n\nAdaptation permanente de l'offre de services et d\u2019activit\u00e9s aux \u00e9volutions\u00a0de la client\u00e8le\nAnalyse du march\u00e9 et de la concurrence locale\nContr\u00f4le et \u00e9valuation de la qualit\u00e9 du service rendu\n\u00c9laboration et\/ou application d'une politique commerciale\nFixation des prix\nMise en place d'actions de promotion de l'\u00e9tablissement\nRelations commerciales internes et externes\n\nConcevoir et organiser les services\u00a0:\n\nConcevoir et mettre en place un organigramme\nD\u00e9finir et r\u00e9diger les fiches de poste pour l\u2019ensemble des diff\u00e9rents membres des services dans l\u2019optique de garantir aux clients une exp\u00e9rience d\u2019excellence de bout en bout et de fid\u00e9liser la client\u00e8le.\nLa restauration et le plus large \u00e9ventail d\u2019activit\u00e9s en plein air font aussi partie des axes de gestion et de d\u00e9veloppement souhait\u00e9s.\nOrganisation et supervision de l'approvisionnement en mat\u00e9riels, \u00e9quipements, fournitures, \u2026\u00a0\n\nManagement des \u00e9quipes\u00a0:\n\nCoordination de toutes les \u00e9quipes de l'h\u00f4tel\n\u00c9valuation des besoins en formation\n\u00c9valuation des comp\u00e9tences n\u00e9cessaires \u00e0 la qualit\u00e9 du service\nSupervision de l'ensemble des activit\u00e9s de l'h\u00f4tel,\u00a0soit en direct soit par d\u00e9l\u00e9gation\nR\u00e9daction des plannings\u00a0:\nFormation et d\u00e9veloppement des talents au sein de l\u2019\u00e9tablissement.\nSuivi de l\u2019\u00e9laboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.\n\nPlanifier et coordonner l\u2019activit\u00e9 des diff\u00e9rents services de l\u2019h\u00f4tel\u00a0:\n\nContr\u00f4ler la conformit\u00e9 des op\u00e9rations, aux standards d\u2019hygi\u00e8ne, de qualit\u00e9 et de s\u00e9curit\u00e9\n\u00catre garant de l\u2019am\u00e9lioration continue de ces axes en tenant compte des retours clients.\n\u00catre garant de la bonne utilisation et de la maintenance de l\u2019ensemble des biens de l\u2019entreprise.\n\nSupervision des relations avec les partenaires et fournisseurs\u00a0:\n\n\u00c9mettre des avis et participer au choix de ceux-ci en fonction de leurs crit\u00e8res de co\u00fbts et de qualit\u00e9s.\n\nD\u00e9finir et garantir la mise en \u0153uvre de strat\u00e9gies commerciales et marketing, pour promouvoir l\u2019h\u00f4tel et atteindre les objectifs\u00a0:\n\nResponsable de la strat\u00e9gie commerciale\nParticipation \u00e0 l\u2019\u00e9laboration de la communication\nResponsable du suivi de la communication\n\n\nComp\u00e9tences requises: cuisine, tourisme, gestion h\u00f4teli\u00e8re, h\u00f4tellerie, restauration, rest\nNiveau d'\u00e9tude requis: Non sp\u00e9cifi\u00e9\nNiveau d'exp\u00e9rience requis: Exp\u00e9rience entre 2 ans et 5 ans et plus"}}
+)
+
+2025-06-26 13:09:29 - Logs CURL détaillés
+Data: * Host localhost:8000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8000...
+*   Trying 127.0.0.1:8000...
+* Connected to localhost (127.0.0.1) port 8000
+> POST /analyze/v2 HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Accept: application/json
+Content-Length: 14527
+
+* upload completely sent off: 14527 bytes
+< HTTP/1.1 200 OK
+< date: Thu, 26 Jun 2025 13:09:23 GMT
+< server: uvicorn
+< content-length: 7299
+< content-type: application/json
+< 
+* Connection #0 to host localhost left intact
+
+2025-06-26 13:09:29 - Réponse API décodée avec succès
+Data: Array
+(
+    [score_global] => 37
+    [score_global_semantique] => 31
+    [niveau_adequation] => Passable
+    [resume] => Il y a du potentiel. (37%) Il y a des points qui matchent, mais aussi des écarts. Concentrez-vous sur les suggestions pour les prochaines fois.
+    [points_forts] => Array
+        (
+            [0] => Array
+                (
+                    [description] => rest
+                    [categorie] => competences
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => Aucune exigence linguistique spécifique
+                    [categorie] => langues
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+        )
+
+    [points_amelioration] => Array
+        (
+            [0] => Array
+                (
+                    [description] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [2] => Array
+                (
+                    [description] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [categorie] => competences
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [3] => Array
+                (
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [categorie] => projets
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+        )
+
+    [analyse_detaillee] => Array
+        (
+            [formation] => Array
+                (
+                    [categorie] => Formation
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Votre parcours académique (100%) est un atout majeur pour ce poste.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [experience] => Array
+                (
+                    [categorie] => Expérience
+                    [score] => 45
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                            [1] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                        )
+
+                    [resume] => Votre expérience (45%) est intéressante. Essayez de mettre en avant les projets les plus similaires à ceux de l'offre.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [competences] => Array
+                (
+                    [categorie] => Compétences
+                    [score] => 17
+                    [elements_correspondants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [element_profil] => rest
+                                    [element_offre] => rest
+                                    [niveau_correspondance] => 1
+                                    [categorie] => competence
+                                    [details_correspondance] => 
+                                    [similarite_semantique] => 1
+                                )
+
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [description] => cuisine
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [description] => tourisme
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [description] => gestion hôtelière
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [3] => Array
+                                (
+                                    [description] => hôtellerie
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [4] => Array
+                                (
+                                    [description] => restauration
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => rest
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                        )
+
+                    [resume] => Un décalage important est noté sur les compétences clés (17%). C'est un bon axe de progression pour votre carrière.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [langues] => Array
+                (
+                    [categorie] => Langues
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Vos compétences linguistiques (100%) sont un véritable plus pour cette opportunité.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [facteurs_bonus] => 
+            [facteurs_malus] => 
+        )
+
+    [suggestions] => Array
+        (
+            [0] => Array
+                (
+                    [categorie] => experience
+                    [description] => Acquérir de l'expérience dans le secteur Intérim, recrutement
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [1] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : hôtellerie
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [2] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : gestion hôtelière
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [3] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : tourisme
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [4] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : cuisine
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [5] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : restauration
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [6] => Array
+                (
+                    [categorie] => experience
+                    [description] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [7] => Array
+                (
+                    [categorie] => experience
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [8] => Array
+                (
+                    [categorie] => competences
+                    [description] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [9] => Array
+                (
+                    [categorie] => projets
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+        )
+
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-26T13:09:29.435680
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+            [modeles_utilises] => 
+            [parametres_analyse] => 
+            [temps_analyse_ms] => 
+            [source_donnees] => 
+        )
+
+    [competences_manquantes] => Array
+        (
+            [0] => cuisine
+            [1] => tourisme
+            [2] => gestion hôtelière
+            [3] => hôtellerie
+            [4] => restauration
+        )
+
+    [competences_correspondantes] => 
+    [niveau_etude_analyse] => 
+    [niveau_experience_analyse] => 
+    [compatibilite_sectorielle] => 
+    [compatibilite_geographique] => 
+)
+
+2025-06-26 13:09:29 - Réponse de l'API reçue
+Data: Array
+(
+    [score_global] => 37
+    [score_global_semantique] => 31
+    [niveau_adequation] => Passable
+    [resume] => Il y a du potentiel. (37%) Il y a des points qui matchent, mais aussi des écarts. Concentrez-vous sur les suggestions pour les prochaines fois.
+    [points_forts] => Array
+        (
+            [0] => Array
+                (
+                    [description] => rest
+                    [categorie] => competences
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => Aucune exigence linguistique spécifique
+                    [categorie] => langues
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+        )
+
+    [points_amelioration] => Array
+        (
+            [0] => Array
+                (
+                    [description] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [2] => Array
+                (
+                    [description] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [categorie] => competences
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [3] => Array
+                (
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [categorie] => projets
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+        )
+
+    [analyse_detaillee] => Array
+        (
+            [formation] => Array
+                (
+                    [categorie] => Formation
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Votre parcours académique (100%) est un atout majeur pour ce poste.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [experience] => Array
+                (
+                    [categorie] => Expérience
+                    [score] => 45
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                            [1] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                        )
+
+                    [resume] => Votre expérience (45%) est intéressante. Essayez de mettre en avant les projets les plus similaires à ceux de l'offre.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [competences] => Array
+                (
+                    [categorie] => Compétences
+                    [score] => 17
+                    [elements_correspondants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [element_profil] => rest
+                                    [element_offre] => rest
+                                    [niveau_correspondance] => 1
+                                    [categorie] => competence
+                                    [details_correspondance] => 
+                                    [similarite_semantique] => 1
+                                )
+
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [description] => cuisine
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [description] => tourisme
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [description] => gestion hôtelière
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [3] => Array
+                                (
+                                    [description] => hôtellerie
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [4] => Array
+                                (
+                                    [description] => restauration
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => rest
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                        )
+
+                    [resume] => Un décalage important est noté sur les compétences clés (17%). C'est un bon axe de progression pour votre carrière.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [langues] => Array
+                (
+                    [categorie] => Langues
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Vos compétences linguistiques (100%) sont un véritable plus pour cette opportunité.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [facteurs_bonus] => 
+            [facteurs_malus] => 
+        )
+
+    [suggestions] => Array
+        (
+            [0] => Array
+                (
+                    [categorie] => experience
+                    [description] => Acquérir de l'expérience dans le secteur Intérim, recrutement
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [1] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : hôtellerie
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [2] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : gestion hôtelière
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [3] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : tourisme
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [4] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : cuisine
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [5] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : restauration
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [6] => Array
+                (
+                    [categorie] => experience
+                    [description] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [7] => Array
+                (
+                    [categorie] => experience
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [8] => Array
+                (
+                    [categorie] => competences
+                    [description] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [9] => Array
+                (
+                    [categorie] => projets
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+        )
+
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-26T13:09:29.435680
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+            [modeles_utilises] => 
+            [parametres_analyse] => 
+            [temps_analyse_ms] => 
+            [source_donnees] => 
+        )
+
+    [competences_manquantes] => Array
+        (
+            [0] => cuisine
+            [1] => tourisme
+            [2] => gestion hôtelière
+            [3] => hôtellerie
+            [4] => restauration
+        )
+
+    [competences_correspondantes] => 
+    [niveau_etude_analyse] => 
+    [niveau_experience_analyse] => 
+    [compatibilite_sectorielle] => 
+    [compatibilite_geographique] => 
+)
+

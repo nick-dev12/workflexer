@@ -2,69 +2,54 @@
 
 require_once(__DIR__ . '/../model/description_users.php');
 
-
-// Vérification si le bouton valider est cliqué
+// Traitement de l'ajout de description
 if (isset($_POST['ajouter'])) {
-    // Récupération des données du formulaire
-    // Déclaration des variables 
-    $description = '';
+    if (isset($_SESSION['users_id'])) {
+        $users_id = $_SESSION['users_id'];
+        $description = isset($_POST['description']) ? trim($_POST['description']) : '';
 
-    $users_id = $_SESSION['users_id'];
-
-    // Vérification du nom
-    if (empty($_POST['description'])) {
-        $erreurs = "Veiller saisir votre description";
-    } else {
-        $description = htmlspecialchars(nl2br($_POST['description'])); // Échapper les caractères spéciaux
-    }
-
-
-    // Si aucune erreur n'est détectée, procédez à l'insertion
-    if (empty($erreurs)) {
-        if (insertDescription($db, $users_id, $description)) {
-
+        if (empty($description)) {
+            $_SESSION['error_message'] = "Veuillez saisir votre description.";
+        } else {
+            $description = htmlspecialchars(nl2br($description), ENT_QUOTES, 'UTF-8');
+            if (insertDescription($db, $users_id, $description)) {
+                $_SESSION['success_message'] = "Description ajoutée avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de l'ajout de la description.";
+            }
         }
-        ;
-
-        // Redirection vers une page de confirmation
-        header('Location: user_profil.php');
-        exit;
+    } else {
+        $_SESSION['error_message'] = "Utilisateur non authentifié.";
     }
+    header('Location: user_profil.php#a-propos-section');
+    exit;
 }
 
-
-// Vérification si le bouton valider est cliqué
+// Traitement de la modification de description
 if (isset($_POST['Modifier'])) {
-    // Récupération des données du formulaire
-    // Déclaration des variables 
-    $nouvelleDescription = ''; // Correction ici
+    if (isset($_SESSION['users_id'])) {
+        $users_id = $_SESSION['users_id'];
+        $nouvelleDescription = isset($_POST['nouvelleDescription']) ? trim($_POST['nouvelleDescription']) : '';
 
-    $users_id = $_SESSION['users_id'];
-
-    // Vérification du nom
-    if (empty($_POST['nouvelleDescription'])) {
-        $_SESSION['error_message'] = " Veuillez saisir votre description";
-        // Correction ici
-    } else {
-        $nouvelleDescription = htmlspecialchars(nl2br($_POST['nouvelleDescription'])); // Correction ici, en enlevant l'espace après 'nouvelleDescription'
-    }
-
-    // Si aucune erreur n'est détectée, procédez à l'insertion
-    if (empty($_SESSION['error_message'])) {
-        if (modifierDescription($db, $users_id, $nouvelleDescription)) {
-            $_SESSION['success_message'] = " success!";
+        if (empty($nouvelleDescription)) {
+            $_SESSION['error_message'] = "Veuillez saisir votre nouvelle description.";
+        } else {
+            $nouvelleDescription = htmlspecialchars(nl2br($nouvelleDescription), ENT_QUOTES, 'UTF-8');
+            if (modifierDescription($db, $users_id, $nouvelleDescription)) {
+                $_SESSION['success_message'] = "Description modifiée avec succès.";
+            } else {
+                $_SESSION['error_message'] = "Erreur lors de la modification de la description.";
+            }
         }
-
-
-        // Redirection vers une page de confirmation
-        header('Location: user_profil.php');
-        exit;
+    } else {
+        $_SESSION['error_message'] = "Utilisateur non authentifié.";
     }
+    header('Location: user_profil.php#a-propos-section');
+    exit;
 }
 
 if (isset($_GET['id'])) {
     $descriptions = afficheDescription($db, $_GET['id']);
-
 } else {
     $descriptions = afficheDescription($db, $_SESSION['users_id']);
 }

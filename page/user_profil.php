@@ -425,7 +425,7 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box1">
+        <div class="container_box1" id="a-propos-section">
             <div class="box1">
                 <h2 class="about-header">
                     <div class="about-title">
@@ -674,7 +674,7 @@ if (isset($_GET['id'])) {
                     Expertise et compétences
                 </h1>
             </div>
-            <div class="box2">
+            <div class="box2" id="experience-section">
                 <h2 class="header-with-icon">
                     <div class="header-icon-wrapper">
                         <i class="fas fa-briefcase"></i>
@@ -688,6 +688,7 @@ if (isset($_GET['id'])) {
                         <?php if (isset($_SESSION['users_id'])): ?>
                                 <div class="highlight-instructions">
                                     <p>Sélectionnez les expériences professionnelles que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur une expérience pour commencer la sélection.</p>
+                                    <p><em>NB: Une fois le mode sélection activé, cliquez sur une expérience pour la mettre en avant ou la retirer. N'oubliez pas d'enregistrer vos changements.</em></p>
                                     <div class="highlight-actions">
                                         <button class="cancel-btn">Annuler</button>
                                         <button class="save-btn">Enregistrer</button>
@@ -1059,7 +1060,7 @@ if (isset($_GET['id'])) {
 
 
 
-            <div class="box3">
+            <div class="box3" id="competences-section">
                 <h2 class="header-with-icon">
                     <div class="header-icon-wrapper">
                         <i class="fas fa-tools"></i>
@@ -1152,7 +1153,7 @@ if (isset($_GET['id'])) {
                 </script>
             </div>
 
-            <div class="box3">
+            <div class="box3" id="niveau-section">
                 <h2 class="header-with-icon">
                     <div class="header-icon-wrapper">
                         <i class="fas fa-chart-line"></i>
@@ -1274,7 +1275,7 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box3">
+        <div class="container_box3" id="formation-section">
 
             <div class="box4">
                 <h1 class="header-with-icon">
@@ -1672,7 +1673,7 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box5 tools-section">
+        <div class="container_box5 tools-section" id="outils-section">
             <div class="box1">
                 <h1 class="header-with-icon">
                     <div class="header-icon-wrapper">
@@ -1794,7 +1795,7 @@ if (isset($_GET['id'])) {
             </script>
         </div>
 
-        <div class="container_box5 languages-section">
+        <div class="container_box5 languages-section" id="langues-section">
             <div class="box1">
                 <h1 class="header-with-icon">
                     <div class="header-icon-wrapper">
@@ -1876,7 +1877,7 @@ if (isset($_GET['id'])) {
         </div>
 
 
-        <div class="container_box7">
+        <div class="container_box7" id="projets-section">
 
             <div class="box1">
                 <h1 class="header-with-icon">
@@ -1892,7 +1893,7 @@ if (isset($_GET['id'])) {
             <?php endif; ?>
             <div class="form_projet">
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="" method="post" enctype="multipart/form-data" id="projet-form">
                     <img class="im" src="../image/croix.png" alt="">
                     <div class="box">
                         <label for="titre">Titre</label>
@@ -1939,7 +1940,49 @@ if (isset($_GET['id'])) {
                     <button type="submit" name="valider" value="Enregister" id="ajouters">Enregister</button>
                 </form>
 
+                <div class="loader-overlay" id="loader-overlay">
+                    <div class="loader"></div>
+                    <p>Téléchargement de l'image en cours...</p>
+                </div>
+
             </div>
+            
+            <style>
+                .loader-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(255, 255, 255, 0.8);
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    z-index: 10;
+                    border-radius: 10px;
+                }
+
+                .loader {
+                    border: 8px solid #f3f3f3;
+                    border-top: 8px solid #3498db;
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
+                    animation: spin 1.5s linear infinite;
+                }
+                
+                .loader-overlay p {
+                    margin-top: 15px;
+                    color: #333;
+                    font-weight: 500;
+                }
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
 
             <script>
                 let ajout = document.querySelector('.ajout')
@@ -1955,6 +1998,15 @@ if (isset($_GET['id'])) {
                     form_projet.style.display = 'none';
                     ajout.style.display = 'block';
                 })
+
+                document.getElementById('projet-form').addEventListener('submit', function() {
+                    // Vérifier si un fichier est sélectionné
+                    const imageInput = document.getElementById('images');
+                    if (imageInput.files.length > 0) {
+                        // Afficher le loader
+                        document.getElementById('loader-overlay').style.display = 'flex';
+                    }
+                });
             </script>
             <div class="box2">
 
@@ -1994,7 +2046,7 @@ if (isset($_GET['id'])) {
 
 
 
-        <div class="container_box8">
+        <div class="container_box8" id="interet-section">
             <div class="box1">
                 <h1 class="header-with-icon">
                     <div class="header-icon-wrapper">

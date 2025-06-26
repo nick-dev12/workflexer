@@ -87163,3 +87163,1705 @@ Data: Array
 
 )
 
+2025-06-26 12:58:49 - État de la session
+Data: Array
+(
+    [session_id] => 9v0hslkahlnhhlun8j1bn8tnif
+    [users_id] => 5
+    [is_connected] => oui
+)
+
+2025-06-26 12:58:49 - ID de l'offre reçu
+Data: 2
+2025-06-26 12:58:49 - Détails de l'offre récupérés
+Data: Array
+(
+    [offre_id] => 2
+    [titre] => Assistant(e) de Direction - Dakar
+    [description_poste] => <div class="job-description"><p> <br/>
+<strong>Missions :</strong><br/>
+<strong>Organisation de l'agenda du dirigeant et acceuil</strong></p>
+<ul>
+<li>Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)</li>
+</ul>
+<ol>
+<li value="24760748"> </li>
+</ol>
+<ul>
+<li>Réceptionner et filtrer les appels téléphoniques.</li>
+<li>Accueillir physiquement les rendez-vous.</li>
+</ul>
+<p><strong>Support opérationnel</strong></p>
+<ul>
+<li>Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).</li>
+<li>Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).</li>
+<li>Assurer en amont la préparation et le suivi des dossiers.</li>
+<li>Gestion et suivi et archivage des comptes rendus et documentation du dirigeant</li>
+<li>Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.</li>
+<li>Assister aux réunions et en rédiger les comptes rendus.</li>
+</ul>
+<p><strong>Archivage, documentation et compte rendu régulier</strong></p>
+<ul>
+<li>Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).</li>
+<li>Gérer et actualiser la documentation professionnelle et réglementaire.</li>
+<li>Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.</li>
+<li>Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).</li>
+</ul>
+<p><strong>Comptabilité gestion</strong></p>
+<ul>
+<li>Gérer les notes de frais.</li>
+<li>Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.</li>
+<li>Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).</li>
+<li>Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).</li>
+<li>Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).</li>
+</ul>
+<p><strong>Autres activités complémentaires</strong></p>
+<ul>
+<li>Participer à l’organisation de la logistique des recrutements et des formations.</li>
+<li>Réaliser un suivi administratif du personnel.</li>
+<li>Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.</li>
+<li>Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).</li>
+<li>Suivre les procédures d’appels d’offres.</li>
+<li>Déplacements de missions, pour achat ou pour représentation</li>
+<li>Contact et démarches administratives pour dépôt documentaires etc…</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p> </p>
+<ul>
+<li>Agent administratif de niveau élevé ou assistant de direction</li>
+<li>Formation de niveau Bac +2/3 : BTS, DUT ou licence en assistanat de direction/manager, gestion administrative et commerciale, gestion PME-PMI</li>
+<li>Licence (économie, gestion, lettres, langues ou droit)</li>
+<li>Diplôme d’école de commerce</li>
+<li>Une expérience minimum de 5 ans en assistanat de direction ou commercial est habituellement requise. La connaissance du domaine d’activité de l’entreprise peut également être demandée.</li>
+<li>Maîtrise de la bureautique : pack Office (Outlook, PowerPoint, Excel, Word)</li>
+<li>Maîtrise de l’utilisation d’outils collaboratifs et de communication (Internet, messagerie, planning partagé, web conférence, réseau social d’entreprise…)</li>
+<li>Connaissances en gestion administrative</li>
+<li>Connaissance des normes rédactionnelles</li>
+<li>Connaissance des techniques de prise de notes (éventuellement sténographie)</li>
+<li>Maîtrise des méthodes de classement et d’archivage et des techniques de numérisation</li>
+<li>Connaissance des techniques et outils de veille informationnelle et réglementaire</li>
+<li>Maîtrise de l’organisation d’événements</li>
+<li>Connaissances en droit du travail et législation sociale</li>
+<li>Connaissances en gestion administrative du personnel et en gestion budgétaire</li>
+<li>Maîtrise de la construction d’outils de reporting et de tableaux de bord</li>
+<li>Connaissance ou bonne notion d’un ERP (type SAP)</li>
+<li>Bon niveau du français, de l’anglais, du wolof et éventuellement d’autres langues.</li>
+</ul>
+<p>Savoir être et soft skills</p>
+<ul>
+<li>Dynamisme</li>
+<li>Esprit d’initiative</li>
+<li>Discrétion</li>
+<li>Organisation et rigueur</li>
+<li>Polyvalence</li>
+<li>Réactivité et autonomie</li>
+<li>Esprit de synthèse et d’analyse</li>
+<li>Aisance relationnelle</li>
+<li>Esprit d’équipe</li>
+<li>Capacités rédactionnelles</li>
+<li>Sens de l’écoute et de la communication</li>
+<li>Disponibilité</li>
+<li>Capacité à travailler dans des délais contraints</li>
+<li>Capacités à gérer les situations de crise</li>
+<li>Capacité à prioriser</li>
+<li>Capacité d’adaptation</li>
+<li>Travail en mode projet</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar
+    [lien_offre] => https://www.emploisenegal.com/offre-emploi-senegal/assistante-direction-dakar-1256376
+    [source] => emploisenegal.com
+    [date_publication] => 2025-01-18
+    [date_creation] => 2025-01-19 00:06:57.738492
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+    [type_contrat] => Contrat proposé
+                             :CDD
+    [competences] => Documentation, Suivi des Dossiers, Archivage, Assistanat, Bureautique, Gestion Administrative, Dossiers, POWERPOINT, Suivi Administratif, Support, Pack Office, Administration, Prise de RDV, Secrétaria
+    [secteur_activite] => Intérim, recrutement
+    [site_internet] => https://www.tectra.sn
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+2025-06-26 12:58:49 [ASYNC] - Début de l'analyse asynchrone
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 2
+)
+
+2025-06-26 12:59:19 [ASYNC] - ERREUR lors de l'analyse asynchrone
+Data: Array
+(
+    [message] => Erreur lors de l'appel à l'API de matching
+    [trace] => #0 C:\wamp64\www\workflexer\ajax\get_compatibility_analysis.php(38): MatchingController->analyserCompatibilite(5, '2')
+#1 {main}
+)
+
+2025-06-26 12:59:46 - État de la session
+Data: Array
+(
+    [session_id] => 9v0hslkahlnhhlun8j1bn8tnif
+    [users_id] => 5
+    [is_connected] => oui
+)
+
+2025-06-26 12:59:46 - ID de l'offre reçu
+Data: 2
+2025-06-26 12:59:46 - Détails de l'offre récupérés
+Data: Array
+(
+    [offre_id] => 2
+    [titre] => Assistant(e) de Direction - Dakar
+    [description_poste] => <div class="job-description"><p> <br/>
+<strong>Missions :</strong><br/>
+<strong>Organisation de l'agenda du dirigeant et acceuil</strong></p>
+<ul>
+<li>Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)</li>
+</ul>
+<ol>
+<li value="24760748"> </li>
+</ol>
+<ul>
+<li>Réceptionner et filtrer les appels téléphoniques.</li>
+<li>Accueillir physiquement les rendez-vous.</li>
+</ul>
+<p><strong>Support opérationnel</strong></p>
+<ul>
+<li>Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).</li>
+<li>Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).</li>
+<li>Assurer en amont la préparation et le suivi des dossiers.</li>
+<li>Gestion et suivi et archivage des comptes rendus et documentation du dirigeant</li>
+<li>Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.</li>
+<li>Assister aux réunions et en rédiger les comptes rendus.</li>
+</ul>
+<p><strong>Archivage, documentation et compte rendu régulier</strong></p>
+<ul>
+<li>Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).</li>
+<li>Gérer et actualiser la documentation professionnelle et réglementaire.</li>
+<li>Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.</li>
+<li>Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).</li>
+</ul>
+<p><strong>Comptabilité gestion</strong></p>
+<ul>
+<li>Gérer les notes de frais.</li>
+<li>Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.</li>
+<li>Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).</li>
+<li>Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).</li>
+<li>Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).</li>
+</ul>
+<p><strong>Autres activités complémentaires</strong></p>
+<ul>
+<li>Participer à l’organisation de la logistique des recrutements et des formations.</li>
+<li>Réaliser un suivi administratif du personnel.</li>
+<li>Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.</li>
+<li>Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).</li>
+<li>Suivre les procédures d’appels d’offres.</li>
+<li>Déplacements de missions, pour achat ou pour représentation</li>
+<li>Contact et démarches administratives pour dépôt documentaires etc…</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p> </p>
+<ul>
+<li>Agent administratif de niveau élevé ou assistant de direction</li>
+<li>Formation de niveau Bac +2/3 : BTS, DUT ou licence en assistanat de direction/manager, gestion administrative et commerciale, gestion PME-PMI</li>
+<li>Licence (économie, gestion, lettres, langues ou droit)</li>
+<li>Diplôme d’école de commerce</li>
+<li>Une expérience minimum de 5 ans en assistanat de direction ou commercial est habituellement requise. La connaissance du domaine d’activité de l’entreprise peut également être demandée.</li>
+<li>Maîtrise de la bureautique : pack Office (Outlook, PowerPoint, Excel, Word)</li>
+<li>Maîtrise de l’utilisation d’outils collaboratifs et de communication (Internet, messagerie, planning partagé, web conférence, réseau social d’entreprise…)</li>
+<li>Connaissances en gestion administrative</li>
+<li>Connaissance des normes rédactionnelles</li>
+<li>Connaissance des techniques de prise de notes (éventuellement sténographie)</li>
+<li>Maîtrise des méthodes de classement et d’archivage et des techniques de numérisation</li>
+<li>Connaissance des techniques et outils de veille informationnelle et réglementaire</li>
+<li>Maîtrise de l’organisation d’événements</li>
+<li>Connaissances en droit du travail et législation sociale</li>
+<li>Connaissances en gestion administrative du personnel et en gestion budgétaire</li>
+<li>Maîtrise de la construction d’outils de reporting et de tableaux de bord</li>
+<li>Connaissance ou bonne notion d’un ERP (type SAP)</li>
+<li>Bon niveau du français, de l’anglais, du wolof et éventuellement d’autres langues.</li>
+</ul>
+<p>Savoir être et soft skills</p>
+<ul>
+<li>Dynamisme</li>
+<li>Esprit d’initiative</li>
+<li>Discrétion</li>
+<li>Organisation et rigueur</li>
+<li>Polyvalence</li>
+<li>Réactivité et autonomie</li>
+<li>Esprit de synthèse et d’analyse</li>
+<li>Aisance relationnelle</li>
+<li>Esprit d’équipe</li>
+<li>Capacités rédactionnelles</li>
+<li>Sens de l’écoute et de la communication</li>
+<li>Disponibilité</li>
+<li>Capacité à travailler dans des délais contraints</li>
+<li>Capacités à gérer les situations de crise</li>
+<li>Capacité à prioriser</li>
+<li>Capacité d’adaptation</li>
+<li>Travail en mode projet</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar
+    [lien_offre] => https://www.emploisenegal.com/offre-emploi-senegal/assistante-direction-dakar-1256376
+    [source] => emploisenegal.com
+    [date_publication] => 2025-01-18
+    [date_creation] => 2025-01-19 00:06:57.738492
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+    [type_contrat] => Contrat proposé
+                             :CDD
+    [competences] => Documentation, Suivi des Dossiers, Archivage, Assistanat, Bureautique, Gestion Administrative, Dossiers, POWERPOINT, Suivi Administratif, Support, Pack Office, Administration, Prise de RDV, Secrétaria
+    [secteur_activite] => Intérim, recrutement
+    [site_internet] => https://www.tectra.sn
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+2025-06-26 12:59:47 [ASYNC] - Début de l'analyse asynchrone
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 2
+)
+
+2025-06-26 13:00:17 [ASYNC] - ERREUR lors de l'analyse asynchrone
+Data: Array
+(
+    [message] => Erreur lors de l'appel à l'API de matching
+    [trace] => #0 C:\wamp64\www\workflexer\ajax\get_compatibility_analysis.php(38): MatchingController->analyserCompatibilite(5, '2')
+#1 {main}
+)
+
+2025-06-26 13:01:15 - État de la session
+Data: Array
+(
+    [session_id] => 9v0hslkahlnhhlun8j1bn8tnif
+    [users_id] => 5
+    [is_connected] => oui
+)
+
+2025-06-26 13:01:15 - ID de l'offre reçu
+Data: 2
+2025-06-26 13:01:15 - Détails de l'offre récupérés
+Data: Array
+(
+    [offre_id] => 2
+    [titre] => Assistant(e) de Direction - Dakar
+    [description_poste] => <div class="job-description"><p> <br/>
+<strong>Missions :</strong><br/>
+<strong>Organisation de l'agenda du dirigeant et acceuil</strong></p>
+<ul>
+<li>Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)</li>
+</ul>
+<ol>
+<li value="24760748"> </li>
+</ol>
+<ul>
+<li>Réceptionner et filtrer les appels téléphoniques.</li>
+<li>Accueillir physiquement les rendez-vous.</li>
+</ul>
+<p><strong>Support opérationnel</strong></p>
+<ul>
+<li>Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).</li>
+<li>Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).</li>
+<li>Assurer en amont la préparation et le suivi des dossiers.</li>
+<li>Gestion et suivi et archivage des comptes rendus et documentation du dirigeant</li>
+<li>Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.</li>
+<li>Assister aux réunions et en rédiger les comptes rendus.</li>
+</ul>
+<p><strong>Archivage, documentation et compte rendu régulier</strong></p>
+<ul>
+<li>Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).</li>
+<li>Gérer et actualiser la documentation professionnelle et réglementaire.</li>
+<li>Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.</li>
+<li>Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).</li>
+</ul>
+<p><strong>Comptabilité gestion</strong></p>
+<ul>
+<li>Gérer les notes de frais.</li>
+<li>Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.</li>
+<li>Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).</li>
+<li>Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).</li>
+<li>Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).</li>
+</ul>
+<p><strong>Autres activités complémentaires</strong></p>
+<ul>
+<li>Participer à l’organisation de la logistique des recrutements et des formations.</li>
+<li>Réaliser un suivi administratif du personnel.</li>
+<li>Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.</li>
+<li>Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).</li>
+<li>Suivre les procédures d’appels d’offres.</li>
+<li>Déplacements de missions, pour achat ou pour représentation</li>
+<li>Contact et démarches administratives pour dépôt documentaires etc…</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p> </p>
+<ul>
+<li>Agent administratif de niveau élevé ou assistant de direction</li>
+<li>Formation de niveau Bac +2/3 : BTS, DUT ou licence en assistanat de direction/manager, gestion administrative et commerciale, gestion PME-PMI</li>
+<li>Licence (économie, gestion, lettres, langues ou droit)</li>
+<li>Diplôme d’école de commerce</li>
+<li>Une expérience minimum de 5 ans en assistanat de direction ou commercial est habituellement requise. La connaissance du domaine d’activité de l’entreprise peut également être demandée.</li>
+<li>Maîtrise de la bureautique : pack Office (Outlook, PowerPoint, Excel, Word)</li>
+<li>Maîtrise de l’utilisation d’outils collaboratifs et de communication (Internet, messagerie, planning partagé, web conférence, réseau social d’entreprise…)</li>
+<li>Connaissances en gestion administrative</li>
+<li>Connaissance des normes rédactionnelles</li>
+<li>Connaissance des techniques de prise de notes (éventuellement sténographie)</li>
+<li>Maîtrise des méthodes de classement et d’archivage et des techniques de numérisation</li>
+<li>Connaissance des techniques et outils de veille informationnelle et réglementaire</li>
+<li>Maîtrise de l’organisation d’événements</li>
+<li>Connaissances en droit du travail et législation sociale</li>
+<li>Connaissances en gestion administrative du personnel et en gestion budgétaire</li>
+<li>Maîtrise de la construction d’outils de reporting et de tableaux de bord</li>
+<li>Connaissance ou bonne notion d’un ERP (type SAP)</li>
+<li>Bon niveau du français, de l’anglais, du wolof et éventuellement d’autres langues.</li>
+</ul>
+<p>Savoir être et soft skills</p>
+<ul>
+<li>Dynamisme</li>
+<li>Esprit d’initiative</li>
+<li>Discrétion</li>
+<li>Organisation et rigueur</li>
+<li>Polyvalence</li>
+<li>Réactivité et autonomie</li>
+<li>Esprit de synthèse et d’analyse</li>
+<li>Aisance relationnelle</li>
+<li>Esprit d’équipe</li>
+<li>Capacités rédactionnelles</li>
+<li>Sens de l’écoute et de la communication</li>
+<li>Disponibilité</li>
+<li>Capacité à travailler dans des délais contraints</li>
+<li>Capacités à gérer les situations de crise</li>
+<li>Capacité à prioriser</li>
+<li>Capacité d’adaptation</li>
+<li>Travail en mode projet</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar
+    [lien_offre] => https://www.emploisenegal.com/offre-emploi-senegal/assistante-direction-dakar-1256376
+    [source] => emploisenegal.com
+    [date_publication] => 2025-01-18
+    [date_creation] => 2025-01-19 00:06:57.738492
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+    [type_contrat] => Contrat proposé
+                             :CDD
+    [competences] => Documentation, Suivi des Dossiers, Archivage, Assistanat, Bureautique, Gestion Administrative, Dossiers, POWERPOINT, Suivi Administratif, Support, Pack Office, Administration, Prise de RDV, Secrétaria
+    [secteur_activite] => Intérim, recrutement
+    [site_internet] => https://www.tectra.sn
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+2025-06-26 13:01:15 [ASYNC] - Début de l'analyse asynchrone
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 2
+)
+
+2025-06-26 13:01:45 [ASYNC] - ERREUR lors de l'analyse asynchrone
+Data: Array
+(
+    [message] => Erreur lors de l'appel à l'API de matching
+    [trace] => #0 C:\wamp64\www\workflexer\ajax\get_compatibility_analysis.php(38): MatchingController->analyserCompatibilite(5, '2')
+#1 {main}
+)
+
+2025-06-26 13:08:35 - État de la session
+Data: Array
+(
+    [session_id] => 9v0hslkahlnhhlun8j1bn8tnif
+    [users_id] => 5
+    [is_connected] => oui
+)
+
+2025-06-26 13:08:35 - ID de l'offre reçu
+Data: 2
+2025-06-26 13:08:35 - Détails de l'offre récupérés
+Data: Array
+(
+    [offre_id] => 2
+    [titre] => Assistant(e) de Direction - Dakar
+    [description_poste] => <div class="job-description"><p> <br/>
+<strong>Missions :</strong><br/>
+<strong>Organisation de l'agenda du dirigeant et acceuil</strong></p>
+<ul>
+<li>Gérer l’agenda et l’emploi du temps quotidien du dirigeant (prise de RDV, courriers, e-mails, congés…)</li>
+</ul>
+<ol>
+<li value="24760748"> </li>
+</ol>
+<ul>
+<li>Réceptionner et filtrer les appels téléphoniques.</li>
+<li>Accueillir physiquement les rendez-vous.</li>
+</ul>
+<p><strong>Support opérationnel</strong></p>
+<ul>
+<li>Préparer et organiser la logistique des différents événements professionnels (réunions, déplacements, interventions orales, séminaires, salons professionnels, conférences téléphoniques…).</li>
+<li>Préparer et contrôler les dossiers nécessaires à la mission du dirigeant (documentation, rapports, supports de communication, notes diverses pour les réunions…).</li>
+<li>Assurer en amont la préparation et le suivi des dossiers.</li>
+<li>Gestion et suivi et archivage des comptes rendus et documentation du dirigeant</li>
+<li>Réceptionner et trier le courrier pour ne présenter à son dirigeant que les informations essentielles.</li>
+<li>Assister aux réunions et en rédiger les comptes rendus.</li>
+</ul>
+<p><strong>Archivage, documentation et compte rendu régulier</strong></p>
+<ul>
+<li>Organiser le tri et l’archivage des documents importants (collecter, traiter, classer et mettre à jour l’information).</li>
+<li>Gérer et actualiser la documentation professionnelle et réglementaire.</li>
+<li>Rendre compte à travers des points réguliers de l’avancement de son travail, des rendez-vous prévus et des courriers à envoyer.</li>
+<li>Rassembler et mettre en forme des éléments de suivi (tableaux de bord, indicateurs, reporting…).</li>
+</ul>
+<p><strong>Comptabilité gestion</strong></p>
+<ul>
+<li>Gérer les notes de frais.</li>
+<li>Réaliser des commandes de matériel, de fournitures, de consommables et vérifier la conformité des livraisons.</li>
+<li>Assurer le suivi des conditions d’exécution d’un contrat, être le support ponctuel à l’administration des ventes (commandes clients, factures clients, BL…).</li>
+<li>Rédiger des supports de communication (notes, correspondances, reporting, rapports, comptes rendus…).</li>
+<li>Structurer et assurer la transmission des informations en interne et en externe (documents provenant des différents services de l’entreprise ou de l’extérieur aux services concernés à partir des consignes de son dirigeant).</li>
+</ul>
+<p><strong>Autres activités complémentaires</strong></p>
+<ul>
+<li>Participer à l’organisation de la logistique des recrutements et des formations.</li>
+<li>Réaliser un suivi administratif du personnel.</li>
+<li>Établir et gérer des budgets ou réaliser le traitement des dossiers comptables.</li>
+<li>Assurer la gestion et le suivi complet de certains dossiers (négociations avec les fournisseurs, préparation d’un budget, relance clients…).</li>
+<li>Suivre les procédures d’appels d’offres.</li>
+<li>Déplacements de missions, pour achat ou pour représentation</li>
+<li>Contact et démarches administratives pour dépôt documentaires etc…</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p> </p>
+<ul>
+<li>Agent administratif de niveau élevé ou assistant de direction</li>
+<li>Formation de niveau Bac +2/3 : BTS, DUT ou licence en assistanat de direction/manager, gestion administrative et commerciale, gestion PME-PMI</li>
+<li>Licence (économie, gestion, lettres, langues ou droit)</li>
+<li>Diplôme d’école de commerce</li>
+<li>Une expérience minimum de 5 ans en assistanat de direction ou commercial est habituellement requise. La connaissance du domaine d’activité de l’entreprise peut également être demandée.</li>
+<li>Maîtrise de la bureautique : pack Office (Outlook, PowerPoint, Excel, Word)</li>
+<li>Maîtrise de l’utilisation d’outils collaboratifs et de communication (Internet, messagerie, planning partagé, web conférence, réseau social d’entreprise…)</li>
+<li>Connaissances en gestion administrative</li>
+<li>Connaissance des normes rédactionnelles</li>
+<li>Connaissance des techniques de prise de notes (éventuellement sténographie)</li>
+<li>Maîtrise des méthodes de classement et d’archivage et des techniques de numérisation</li>
+<li>Connaissance des techniques et outils de veille informationnelle et réglementaire</li>
+<li>Maîtrise de l’organisation d’événements</li>
+<li>Connaissances en droit du travail et législation sociale</li>
+<li>Connaissances en gestion administrative du personnel et en gestion budgétaire</li>
+<li>Maîtrise de la construction d’outils de reporting et de tableaux de bord</li>
+<li>Connaissance ou bonne notion d’un ERP (type SAP)</li>
+<li>Bon niveau du français, de l’anglais, du wolof et éventuellement d’autres langues.</li>
+</ul>
+<p>Savoir être et soft skills</p>
+<ul>
+<li>Dynamisme</li>
+<li>Esprit d’initiative</li>
+<li>Discrétion</li>
+<li>Organisation et rigueur</li>
+<li>Polyvalence</li>
+<li>Réactivité et autonomie</li>
+<li>Esprit de synthèse et d’analyse</li>
+<li>Aisance relationnelle</li>
+<li>Esprit d’équipe</li>
+<li>Capacités rédactionnelles</li>
+<li>Sens de l’écoute et de la communication</li>
+<li>Disponibilité</li>
+<li>Capacité à travailler dans des délais contraints</li>
+<li>Capacités à gérer les situations de crise</li>
+<li>Capacité à prioriser</li>
+<li>Capacité d’adaptation</li>
+<li>Travail en mode projet</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar
+    [lien_offre] => https://www.emploisenegal.com/offre-emploi-senegal/assistante-direction-dakar-1256376
+    [source] => emploisenegal.com
+    [date_publication] => 2025-01-18
+    [date_creation] => 2025-01-19 00:06:57.738492
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 5 ans et 10 ans & Expérience > 10 ans
+    [type_contrat] => Contrat proposé
+                             :CDD
+    [competences] => Documentation, Suivi des Dossiers, Archivage, Assistanat, Bureautique, Gestion Administrative, Dossiers, POWERPOINT, Suivi Administratif, Support, Pack Office, Administration, Prise de RDV, Secrétaria
+    [secteur_activite] => Intérim, recrutement
+    [site_internet] => https://www.tectra.sn
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+2025-06-26 13:08:35 [ASYNC] - Début de l'analyse asynchrone
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 2
+)
+
+2025-06-26 13:08:43 [ASYNC] - Analyse de compatibilité terminée
+Data: Array
+(
+    [score_global] => 30
+    [score_global_semantique] => 33
+    [niveau_adequation] => Passable
+    [resume] => Pour l'instant, ça ne matche pas trop (30%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.
+    [points_forts] => Array
+        (
+            [0] => Array
+                (
+                    [description] => Aucune exigence linguistique spécifique
+                    [categorie] => langues
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+        )
+
+    [points_amelioration] => Array
+        (
+            [0] => Array
+                (
+                    [description] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                    [categorie] => formation
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [2] => Array
+                (
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [3] => Array
+                (
+                    [description] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [categorie] => competences
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [4] => Array
+                (
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [categorie] => projets
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+        )
+
+    [analyse_detaillee] => Array
+        (
+            [formation] => Array
+                (
+                    [categorie] => Formation
+                    [score] => 50
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                        )
+
+                    [resume] => Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [experience] => Array
+                (
+                    [categorie] => Expérience
+                    [score] => 27
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                            [1] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                        )
+
+                    [resume] => Il semble vous manquer une expérience significative (27%) pour ce poste. Valorisez vos stages, projets personnels ou formations.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [competences] => Array
+                (
+                    [categorie] => Compétences
+                    [score] => 0
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [description] => documentation
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [description] => suivi des dossiers
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [description] => archivage
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [3] => Array
+                                (
+                                    [description] => assistanat
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [4] => Array
+                                (
+                                    [description] => bureautique
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [5] => Array
+                                (
+                                    [description] => gestion administrative
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [6] => Array
+                                (
+                                    [description] => dossiers
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [7] => Array
+                                (
+                                    [description] => powerpoint
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [8] => Array
+                                (
+                                    [description] => suivi administratif
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [9] => Array
+                                (
+                                    [description] => support
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [10] => Array
+                                (
+                                    [description] => pack office
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [11] => Array
+                                (
+                                    [description] => administration
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [12] => Array
+                                (
+                                    [description] => prise de rdv
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [13] => Array
+                                (
+                                    [description] => secrétaria
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                        )
+
+                    [resume] => Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [langues] => Array
+                (
+                    [categorie] => Langues
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Vos compétences linguistiques (100%) sont un véritable plus pour cette opportunité.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [facteurs_bonus] => 
+            [facteurs_malus] => 
+        )
+
+    [suggestions] => Array
+        (
+            [0] => Array
+                (
+                    [categorie] => experience
+                    [description] => Acquérir de l'expérience dans le secteur Intérim, recrutement
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [1] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : support
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [2] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : archivage
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [3] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : pack office
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [4] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : dossiers
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [5] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : suivi administratif
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [6] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : bureautique
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [7] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : administration
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [8] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : prise de rdv
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [9] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : secrétaria
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [10] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : documentation
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [11] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : gestion administrative
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [12] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : assistanat
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [13] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : suivi des dossiers
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [14] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : powerpoint
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [15] => Array
+                (
+                    [categorie] => formation
+                    [description] => Le niveau d'études requis (Non spécifié) est supérieur à votre niveau actuel (Bac+1an).
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [16] => Array
+                (
+                    [categorie] => experience
+                    [description] => L'offre requiert 5.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [17] => Array
+                (
+                    [categorie] => experience
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [18] => Array
+                (
+                    [categorie] => competences
+                    [description] => Compétences manquantes ou non identifiées : documentation, suivi des dossiers, archivage, assistanat, bureautique, gestion administrative, dossiers, powerpoint, suivi administratif, support, pack office, administration, prise de rdv, secrétaria. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [19] => Array
+                (
+                    [categorie] => projets
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+        )
+
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-26T13:08:43.617699
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+            [modeles_utilises] => 
+            [parametres_analyse] => 
+            [temps_analyse_ms] => 
+            [source_donnees] => 
+        )
+
+    [competences_manquantes] => Array
+        (
+            [0] => documentation
+            [1] => suivi des dossiers
+            [2] => archivage
+            [3] => assistanat
+            [4] => bureautique
+            [5] => gestion administrative
+            [6] => dossiers
+            [7] => powerpoint
+            [8] => suivi administratif
+            [9] => support
+            [10] => pack office
+            [11] => administration
+            [12] => prise de rdv
+            [13] => secrétaria
+        )
+
+    [competences_correspondantes] => 
+    [niveau_etude_analyse] => 
+    [niveau_experience_analyse] => 
+    [compatibilite_sectorielle] => 
+    [compatibilite_geographique] => 
+)
+
+2025-06-26 13:09:23 - État de la session
+Data: Array
+(
+    [session_id] => 9v0hslkahlnhhlun8j1bn8tnif
+    [users_id] => 5
+    [is_connected] => oui
+)
+
+2025-06-26 13:09:23 - ID de l'offre reçu
+Data: 3
+2025-06-26 13:09:23 - Détails de l'offre récupérés
+Data: Array
+(
+    [offre_id] => 3
+    [titre] => Directeur D´Hôtel (H/F) - Dakar
+    [description_poste] => <div class="job-description"><p>Dans le cadre d'une mission de recrutement pour un de ses clients évoluant dans le secteur de l'hôtellerie, Tectra Sénégal cherche un <strong>Directeur d'Hôtel (H/F).</strong><br/>
+<strong>Missions principales :</strong><br/>
+<strong>Gestion administrative et financière :</strong></p>
+<ul>
+<li>Participer au contrôle de gestion, au suivi et à l’évaluation de la rentabilité de l'établissement</li>
+<li>Superviser et valider l’élaboration des budgets</li>
+<li>Participer au suivi comptable global et de chaque département (Hébergement, Cuisine, Bar et Activités)</li>
+<li>Aider et promouvoir le déploiement d’outils de reporting adaptés afin d’assurer la rentabilité de l’établissement.</li>
+<li>Aide et participation à l’élaboration et l’exploitation de tableaux de bord de suivi de l'activité</li>
+<li>Émettre des propositions d’investissements</li>
+</ul>
+<p><strong>Gestion marketing et commerciale :</strong></p>
+<ul>
+<li>Adaptation permanente de l'offre de services et d’activités aux évolutions de la clientèle</li>
+<li>Analyse du marché et de la concurrence locale</li>
+<li>Contrôle et évaluation de la qualité du service rendu</li>
+<li>Élaboration et/ou application d'une politique commerciale</li>
+<li>Fixation des prix</li>
+<li>Mise en place d'actions de promotion de l'établissement</li>
+<li>Relations commerciales internes et externes</li>
+</ul>
+<p><strong>Concevoir et organiser les services :</strong></p>
+<ul>
+<li>Concevoir et mettre en place un organigramme</li>
+<li>Définir et rédiger les fiches de poste pour l’ensemble des différents membres des services dans l’optique de garantir aux clients une expérience d’excellence de bout en bout et de fidéliser la clientèle.</li>
+<li>La restauration et le plus large éventail d’activités en plein air font aussi partie des axes de gestion et de développement souhaités.</li>
+<li>Organisation et supervision de l'approvisionnement en matériels, équipements, fournitures, … </li>
+</ul>
+<p><strong>Management des équipes :</strong></p>
+<ul>
+<li>Coordination de toutes les équipes de l'hôtel</li>
+<li>Évaluation des besoins en formation</li>
+<li>Évaluation des compétences nécessaires à la qualité du service</li>
+<li>Supervision de l'ensemble des activités de l'hôtel, soit en direct soit par délégation</li>
+<li>Rédaction des plannings :</li>
+<li>Formation et développement des talents au sein de l’établissement.</li>
+<li>Suivi de l’élaboration, de la mise en place et du fonctionnement continu des fiches techniques de cuisine.</li>
+</ul>
+<p><strong>Planifier et coordonner l’activité des différents services de l’hôtel :</strong></p>
+<ul>
+<li>Contrôler la conformité des opérations, aux standards d’hygiène, de qualité et de sécurité</li>
+<li>Être garant de l’amélioration continue de ces axes en tenant compte des retours clients.</li>
+<li>Être garant de la bonne utilisation et de la maintenance de l’ensemble des biens de l’entreprise.</li>
+</ul>
+<p><strong>Supervision des relations avec les partenaires et fournisseurs :</strong></p>
+<ul>
+<li>Émettre des avis et participer au choix de ceux-ci en fonction de leurs critères de coûts et de qualités.</li>
+</ul>
+<p><strong>Définir et garantir la mise en œuvre de stratégies commerciales et marketing, pour promouvoir l’hôtel et atteindre les objectifs :</strong></p>
+<ul>
+<li>Responsable de la stratégie commerciale</li>
+<li>Participation à l’élaboration de la communication</li>
+<li>Responsable du suivi de la communication</li>
+</ul>
+</div>
+    [profil_recherche] => <div class="job-qualifications"><p><strong>Compétences techniques :</strong></p>
+<ul>
+<li>Connaissances approfondies de la gestion hôtelière, incluant les opérations, la finance et le marketing</li>
+<li>Maîtrise des outils de gestion et logiciels spécifiques à l’industrie hôtelière</li>
+<li>Connaissance des normes de sécurité et d’hygiène en vigueur dans l’industrie hôtelière</li>
+<li>Évaluation des ressources matérielles et immatérielles nécessaires à la bonne marche de l'établissement</li>
+<li>Connaissances mécaniques de base pour pouvoir appréhender et prévenir la maintenance des matériels et machines utilisés dans l’ensemble de la structure.</li>
+</ul>
+<p><strong>Compétences en gestion financière et Marketing :</strong></p>
+<ul>
+<li>Capacité à élaborer et suivre les budgets</li>
+<li>Émettre des avis et choix pour développer des stratégies marketing efficaces et de fidélisation de la clientèle.</li>
+</ul>
+<p><strong>Compétences relationnelles et humaines :</strong></p>
+<ul>
+<li>Leadership et capacité à inspirer une équipe, motivant le personnel à atteindre l’excellence</li>
+<li>Excellentes compétences en communication, essentielles pour interagir avec les clients, le personnel et les partenaires</li>
+<li>Sens du service client développé, avec un engagement envers la satisfaction et la fidélisation des clients</li>
+<li>Capacité à gérer le stress et à prendre des décisions judicieuses dans un environnement dynamique</li>
+<li>Compétences en résolution de conflits, permettant de gérer efficacement les différends internes et externes</li>
+</ul>
+<p><strong>Formation :</strong> École hôtelière ou diplôme équivalent.</p>
+<ul>
+<li>B. E. P. C. ou diplôme équivalent. Connaissance parfaite du Français, de l’anglais et si possible d’une autre langue</li>
+<li>Expérience professionnelle minimale : 2 ans comme sous-directeur ou 3 ans comme chef de service.</li>
+</ul>
+</div>
+    [entreprise] => TECTRA SÉNÉGAL
+    [localisation] => Région de :Dakar & Thiès
+    [lien_offre] => https://www.emploisenegal.com/offre-emploi-senegal/directeur-hotel-hf-dakar-1256603
+    [source] => emploisenegal.com
+    [date_publication] => 2025-01-18
+    [date_creation] => 2025-01-19 00:06:59.086155
+    [niveau_etude] => Non spécifié
+    [niveau_experience] => Expérience entre 2 ans et 5 ans et plus
+    [type_contrat] => Contrat proposé
+                             :CDI
+    [competences] => Cuisine, Tourisme, Gestion Hôtelière, Hôtellerie, Restauration
+    [secteur_activite] => Intérim, recrutement
+    [site_internet] => https://www.tectra.sn
+    [description_entreprise] => Tectra Sénégal votre partenaire ressources humaines.  NOS SERVICES : Des prestations sur mesure : Solutions adaptées et diverses formules de...lire la suite
+)
+
+2025-06-26 13:09:24 [ASYNC] - Début de l'analyse asynchrone
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 3
+)
+
+2025-06-26 13:09:29 [ASYNC] - Analyse de compatibilité terminée
+Data: Array
+(
+    [score_global] => 37
+    [score_global_semantique] => 31
+    [niveau_adequation] => Passable
+    [resume] => Il y a du potentiel. (37%) Il y a des points qui matchent, mais aussi des écarts. Concentrez-vous sur les suggestions pour les prochaines fois.
+    [points_forts] => Array
+        (
+            [0] => Array
+                (
+                    [description] => rest
+                    [categorie] => competences
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => Aucune exigence linguistique spécifique
+                    [categorie] => langues
+                    [importance] => normal
+                    [details] => 
+                    [impact_score] => 
+                )
+
+        )
+
+    [points_amelioration] => Array
+        (
+            [0] => Array
+                (
+                    [description] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [1] => Array
+                (
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [categorie] => experience
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [2] => Array
+                (
+                    [description] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [categorie] => competences
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+            [3] => Array
+                (
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [categorie] => projets
+                    [priorite] => normale
+                    [suggestion] => 
+                    [impact_potentiel] => 
+                    [ressources] => 
+                )
+
+        )
+
+    [analyse_detaillee] => Array
+        (
+            [formation] => Array
+                (
+                    [categorie] => Formation
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Votre parcours académique (100%) est un atout majeur pour ce poste.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [experience] => Array
+                (
+                    [categorie] => Expérience
+                    [score] => 45
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                            [1] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                        )
+
+                    [resume] => Votre expérience (45%) est intéressante. Essayez de mettre en avant les projets les plus similaires à ceux de l'offre.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [competences] => Array
+                (
+                    [categorie] => Compétences
+                    [score] => 17
+                    [elements_correspondants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [element_profil] => rest
+                                    [element_offre] => rest
+                                    [niveau_correspondance] => 1
+                                    [categorie] => competence
+                                    [details_correspondance] => 
+                                    [similarite_semantique] => 1
+                                )
+
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [description] => cuisine
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [1] => Array
+                                (
+                                    [description] => tourisme
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [2] => Array
+                                (
+                                    [description] => gestion hôtelière
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [3] => Array
+                                (
+                                    [description] => hôtellerie
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                            [4] => Array
+                                (
+                                    [description] => restauration
+                                    [categorie] => competence
+                                    [importance] => importante
+                                    [suggestion_acquisition] => 
+                                    [impact_sur_score] => 
+                                    [difficulte_acquisition] => 
+                                )
+
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => rest
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                            [0] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                        )
+
+                    [resume] => Un décalage important est noté sur les compétences clés (17%). C'est un bon axe de progression pour votre carrière.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [langues] => Array
+                (
+                    [categorie] => Langues
+                    [score] => 100
+                    [elements_correspondants] => Array
+                        (
+                        )
+
+                    [elements_manquants] => Array
+                        (
+                        )
+
+                    [points_forts] => Array
+                        (
+                            [0] => Aucune exigence linguistique spécifique
+                        )
+
+                    [points_amelioration] => Array
+                        (
+                        )
+
+                    [resume] => Vos compétences linguistiques (100%) sont un véritable plus pour cette opportunité.
+                    [poids_dans_score_global] => 
+                    [details_techniques] => 
+                )
+
+            [facteurs_bonus] => 
+            [facteurs_malus] => 
+        )
+
+    [suggestions] => Array
+        (
+            [0] => Array
+                (
+                    [categorie] => experience
+                    [description] => Acquérir de l'expérience dans le secteur Intérim, recrutement
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [1] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : hôtellerie
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [2] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : gestion hôtelière
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [3] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : tourisme
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [4] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : cuisine
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [5] => Array
+                (
+                    [categorie] => competence
+                    [description] => Développer la compétence : restauration
+                    [priorite] => haute
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [6] => Array
+                (
+                    [categorie] => experience
+                    [description] => L'offre requiert 2.0 ans d'expérience, mais votre profil en indique 1.0.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [7] => Array
+                (
+                    [categorie] => experience
+                    [description] => Le contenu de vos expériences pourrait être plus aligné avec la description du poste. Pensez à mettre en avant les tâches et projets pertinents.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [8] => Array
+                (
+                    [categorie] => competences
+                    [description] => Compétences manquantes ou non identifiées : cuisine, tourisme, gestion hôtelière, hôtellerie, restauration. Pensez à les ajouter ou à reformuler vos compétences actuelles.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+            [9] => Array
+                (
+                    [categorie] => projets
+                    [description] => Ajouter des projets personnels pourrait renforcer votre candidature.
+                    [priorite] => normale
+                    [impact_estime] => moyen
+                    [ressources_recommandees] => 
+                    [temps_acquisition_estime] => 
+                    [cout_acquisition_estime] => 
+                )
+
+        )
+
+    [contexte_analyse] => Array
+        (
+            [timestamp] => 2025-06-26T13:09:29.435680
+            [version_api] => 2.0.0
+            [niveau_confiance] => haute
+            [modeles_utilises] => 
+            [parametres_analyse] => 
+            [temps_analyse_ms] => 
+            [source_donnees] => 
+        )
+
+    [competences_manquantes] => Array
+        (
+            [0] => cuisine
+            [1] => tourisme
+            [2] => gestion hôtelière
+            [3] => hôtellerie
+            [4] => restauration
+        )
+
+    [competences_correspondantes] => 
+    [niveau_etude_analyse] => 
+    [niveau_experience_analyse] => 
+    [compatibilite_sectorielle] => 
+    [compatibilite_geographique] => 
+)
+
+2025-06-26 13:39:36 [DAKAR ASYNC] - Début de l'analyse asynchrone pour l'offre Dakar
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 272
+)
+
+2025-06-26 13:40:23 [DAKAR ASYNC] - Analyse Dakar terminée
+Data: Array
+(
+    [score_global] => 0
+    [niveau_adequation] => Erreur
+    [resume] => Une erreur critique est survenue lors de l'analyse : name 'analyse_detaillee' is not defined
+)
+
+2025-06-26 13:40:32 [DAKAR ASYNC] - Début de l'analyse asynchrone pour l'offre Dakar
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 272
+)
+
+2025-06-26 13:40:38 [DAKAR ASYNC] - Analyse Dakar terminée
+Data: Array
+(
+    [score_global] => 0
+    [niveau_adequation] => Erreur
+    [resume] => Une erreur critique est survenue lors de l'analyse : name 'analyse_detaillee' is not defined
+)
+
+2025-06-26 13:40:51 [DAKAR ASYNC] - Début de l'analyse asynchrone pour l'offre Dakar
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 275
+)
+
+2025-06-26 13:40:58 [DAKAR ASYNC] - Analyse Dakar terminée
+Data: Array
+(
+    [score_global] => 0
+    [niveau_adequation] => Erreur
+    [resume] => Une erreur critique est survenue lors de l'analyse : name 'analyse_detaillee' is not defined
+)
+
+2025-06-26 13:46:39 [DAKAR ASYNC] - Début de l'analyse asynchrone pour l'offre Dakar
+Data: Array
+(
+    [user_id] => 5
+    [offre_id] => 271
+)
+
+2025-06-26 13:46:41 [DAKAR ASYNC] - ERREUR lors de l'analyse asynchrone Dakar
+Data: Array
+(
+    [message] => cURL error 7: Failed to connect to 127.0.0.1 port 8000 after 2034 ms: Couldn't connect to server (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for http://127.0.0.1:8000/analyze_dakar/
+    [trace] => #0 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(205): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), Array)
+#1 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(157): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#2 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Handler\CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#3 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Handler\Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#4 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Handler\Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#5 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#6 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#7 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#8 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#9 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#10 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#11 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Client.php(169): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), Array)
+#12 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#13 C:\wamp64\www\workflexer\vendor\guzzlehttp\guzzle\src\ClientTrait.php(95): GuzzleHttp\Client->request('POST', 'http://127.0.0....', Array)
+#14 C:\wamp64\www\workflexer\controller\MatchingControllerDakar.php(44): GuzzleHttp\Client->post('http://127.0.0....', Array)
+#15 C:\wamp64\www\workflexer\controller\MatchingControllerDakar.php(35): MatchingControllerDakar->callMatchingAPI(Array, Array)
+#16 C:\wamp64\www\workflexer\ajax\get_compatibility_analysis_dakar.php(35): MatchingControllerDakar->analyserCompatibilite(5, '271')
+#17 {main}
+)
+

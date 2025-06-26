@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let experienceCards = [];
     let originalHighlightState = {};
 
+    // Variables pour la gestion du "long press"
+    let pressTimer = null;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const longPressDuration = 500; // 500ms
+    const moveThreshold = 10; // Seuil de mouvement en pixels pour considérer comme un scroll
+
     // Initialisation
     function init() {
         if (!experiencesList || !highlightToggleBtn) return;
@@ -46,13 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Ajouter le conteneur à la carte
             card.appendChild(checkboxContainer);
 
-            // Ajouter l'écouteur d'événements pour le maintien long
+            // Ajouter les écouteurs d'événements pour le maintien long
             card.addEventListener('mousedown', handleLongPress);
             card.addEventListener('touchstart', handleLongPress);
             card.addEventListener('mouseup', cancelLongPress);
             card.addEventListener('mouseleave', cancelLongPress);
             card.addEventListener('touchend', cancelLongPress);
             card.addEventListener('touchcancel', cancelLongPress);
+            card.addEventListener('touchmove', handleTouchMove); // Gérer le scroll
         });
 
         // Ajouter les écouteurs d'événements aux boutons
@@ -61,23 +69,36 @@ document.addEventListener('DOMContentLoaded', function () {
         if (cancelBtn) cancelBtn.addEventListener('click', cancelHighlighting);
     }
 
-    // Variable pour suivre le temps de pression
-    let pressTimer;
-
     // Gestionnaire pour le maintien long
     function handleLongPress(e) {
-        // Empêcher le comportement par défaut pour les événements tactiles
         if (e.type === 'touchstart') {
-            e.preventDefault();
+            // Enregistrer les coordonnées de départ pour différencier clic et scroll
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
         }
-
+        
         // Démarrer un minuteur
         pressTimer = window.setTimeout(() => {
             // Activer le mode sélection si pas déjà actif
             if (!selectionMode) {
                 toggleSelectionMode();
             }
-        }, 500); // 500ms pour un maintien long
+        }, longPressDuration);
+    }
+
+    // Gestionnaire de mouvement pour annuler le "long press" en cas de scroll
+    function handleTouchMove(e) {
+        if (!pressTimer) {
+            return;
+        }
+
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+
+        // Si le doigt a bougé au-delà du seuil, c'est un scroll, pas un "long press"
+        if (Math.abs(touchX - touchStartX) > moveThreshold || Math.abs(touchY - touchStartY) > moveThreshold) {
+            cancelLongPress();
+        }
     }
 
     // Annuler le minuteur si l'utilisateur relâche avant la fin

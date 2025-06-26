@@ -53,6 +53,7 @@ class CandidatProfileDakar(BaseModel):
     formations: List[FormationCandidatDakar] = Field(default_factory=list)
     experiences: List[ExperienceCandidatDakar] = Field(default_factory=list)
     langues: List[LangueCandidatDakar] = Field(default_factory=list)
+    outils: List[str] = Field(default_factory=list)
     
     # Ce champ est construit en PHP et est crucial pour l'analyse
     texte_integral: Optional[str] = None

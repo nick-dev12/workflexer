@@ -3628,3 +3628,587 @@
 2025-06-26 08:27:27,668 - INFO - Fin de l'analyse.
 2025-06-26 08:27:27,669 - INFO - ==================================================
 
+2025-06-26 09:08:04,271 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-06-26 10:34:05,896 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-06-26 12:25:18,391 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-06-26 13:07:55,361 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-06-26 13:40:17,355 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-06-26 13:40:17,486 - INFO - ==================================================
+2025-06-26 13:40:17,486 - INFO - Début de l'analyse pour l'offre ID: 272 et candidat ID: 5
+2025-06-26 13:40:17,487 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-26 13:40:17,488 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 272,
+  "titre": "Formation Professionnelle aux Métiers des Industries Agro-alimentaires",
+  "description": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Type non spécifié",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+3"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 36
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-26 13:40:17,488 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-26 13:40:17,489 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 272,
+  "titre": "Formation Professionnelle aux Métiers des Industries Agro-alimentaires",
+  "description": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Type non spécifié",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+3"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 36
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-26 13:40:23,079 - ERROR - Erreur majeure dans analyze_compatibility_dakar: name 'analyse_detaillee' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils_dakar.py", line 356, in analyze_compatibility_dakar
+    strongest_category = max(analyse_detaillee, key=lambda k: analyse_detaillee[k].score) if analyse_detaillee else "N/A"
+                                                                                             ^^^^^^^^^^^^^^^^^
+NameError: name 'analyse_detaillee' is not defined
+2025-06-26 13:40:32,687 - INFO - ==================================================
+2025-06-26 13:40:32,688 - INFO - Début de l'analyse pour l'offre ID: 272 et candidat ID: 5
+2025-06-26 13:40:32,689 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-26 13:40:32,690 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 272,
+  "titre": "Formation Professionnelle aux Métiers des Industries Agro-alimentaires",
+  "description": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Type non spécifié",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+3"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 36
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-26 13:40:32,692 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-26 13:40:32,693 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 272,
+  "titre": "Formation Professionnelle aux Métiers des Industries Agro-alimentaires",
+  "description": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Type non spécifié",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p>Le CSFPIAA, premier centre de formation professionnelle aux métiers des industries agro-alimentaires en Afrique de l’ouest, recrute des candidats pour une formation en licence professionnelle en Génie des Procédés Agro-alimentaires.</p><ul><li>Conditions d’admission : bac série S</li><li>Compétences acquises : prérequis en agro-alimentaire</li><li>Durée de la formation : 3 ans</li><li>Début des enseignements : le 14 février 2025</li><li>Coût de la formation : inscription à 200.000 f CFA / mensualité a 100.000 f CFA</li><li>Informations : Inscriptions en cours, nombre de places limité</li></ul><p><strong>Mail</strong> : <a href=\"mailto:csfpiaa@orange.sn\">csfpiaa@orange.sn</a></p><p>Téléphone : 33 822 63 08 / 76 600 02 78</p><p>Site web : <a href=\"http://www.csfp-iaa.com\" rel=\"noopener\" target=\"_blank\">www.csfp-iaa.com</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+3"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 36
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-26 13:40:38,533 - ERROR - Erreur majeure dans analyze_compatibility_dakar: name 'analyse_detaillee' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils_dakar.py", line 356, in analyze_compatibility_dakar
+    strongest_category = max(analyse_detaillee, key=lambda k: analyse_detaillee[k].score) if analyse_detaillee else "N/A"
+                                                                                             ^^^^^^^^^^^^^^^^^
+NameError: name 'analyse_detaillee' is not defined
+2025-06-26 13:40:51,113 - INFO - ==================================================
+2025-06-26 13:40:51,114 - INFO - Début de l'analyse pour l'offre ID: 275 et candidat ID: 5
+2025-06-26 13:40:51,115 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-26 13:40:51,117 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 275,
+  "titre": "ESG & Impact Manager (Fund-of-Funds)",
+  "description": "<div class=\"job_description\"><p><strong>About Investisseurs &amp; Partenaires</strong></p><p>Investisseurs &amp; Partenaires (I&amp;P) is an impact investment group exclusively focused on Africa’s SMEs with EUR 400M in assets under management. Since 2002, I&amp;P has financed and supported 250 entrepreneurs in 16 countries in Sub-Saharan Africa, and sponsored 8 African SME funds; I&amp;P’s team is based in 10 countries including Ghana, Kenya, Senegal, Mali, Niger, Burkina Faso, Ivory Coast, Cameroon, Madagascar, etc. (see our website: www.ietp.com/en).</p><p>Our mission is to foster the emergence of entrepreneurs and SMEs, which are at the core of an inclusive growth and sustainable development in Africa. I&amp;P manages several investment funds supported by development finance institutions, corporates and HNWIs.</p><p><strong>Background on FASA</strong></p><p>“Financing for Agri-SMEs in Africa” or “FASA” is a multi-donor fund-of-funds that aims to mobilize capital for agricultural Small and Medium Enterprises in Africa. With an initial investment of $70M, Norway and USAID launched FASA with the objective to reach $200M to be capitalized by additional public and private donors. Those contributions will then be utilized as subordinated investment capital and technical assistance support to investment funds, active in the agricultural sector across the continent.</p><p>I&amp;P is the Fund Manager for this fund-of-funds, in charge of sourcing, assessing, and supporting the portfolio of investment funds.</p><p>As a fund-of-funds, FASA’s activities will primarily focus on investment fund managers, who will then provide funding and support for agri-SMEs aligned with FASA’s vision to contribute to transform African agriculture, by enhancing food security and nutrition, improving livelihoods, and promoting climate-smart value chains.</p><p>More information is available on https://www.fasafund.com/</p><p><strong>About the role</strong></p><p>I&amp;P is seeking an ESG &amp; Impact Manager who will implement FASA’s ESG &amp; Impact Policy. Under the supervision of FASA’s Managing Director and with the guidance of I&amp;P’s ESG &amp; Impact Director, the ESG &amp; Impact Manager will work closely with the entire FASA investment team and might travel regularly across the continent to contribute to due diligence on investment funds, monitoring of performance and capacity building for investment fund managers in FASA’s portfolio.</p><p><strong>Specific tasks and responsibilities</strong></p><p>Screening and due diligence of investment opportunities</p><ul><li>Support the investment team from screening to due diligence and assessment of investment funds, particularly regarding their ESG methodology, impact thesis and gender frameworks. This includes comprehensive analysis of investment and impact strategy, track record, pipeline, processes and governance, as well as potential participation to due diligence trips across the continent.</li><li>Identify ESG &amp; impact and gender gaps, and define corresponding post-investment action plans.</li><li>Identify any fund managers’ technical assistance needs related to ESG &amp; impact and gender topics, and define corresponding post-investment capacity building plan.</li><li>Contribute to the drafting of investment memos.</li><li>Support investment fund managers</li><li>Support FASA’s investment funds with the elaboration of their ESG &amp; impact framework, aiming at ensuring they adhere to FASA’s minimum requirements about ESG &amp; impact practises, while increasing their attractiveness to investors. This includes a considerable capacity building element, in the context where most investment fund managers need to enhance their tools and processes.</li><li>Provide adequate trainings about ESG standards and other related topics.</li><li>Conduct gender knowledge assessments for fund managers and provide necessary trainings.</li></ul><p>Monitoring and reporting</p><ul><li>Maintain a system for monitoring ESG &amp; impact progress, risks and opportunities across the portfolio.</li><li>Monitor and report on the ESG and impact performance of the portfolio, against each defined action plan, and according to FASA’s key performance metrics.</li><li>Potentially conduct in-depth impact evaluations for certain investment funds in FASA’s portfolio.</li><li>Lead the production of the annual impact report and present the results to FASA’s relevant committees.</li></ul><p>Team participation</p><ul><li>Support and build the capacity of FASA’s investment team on its ESG &amp; impact frameworks and methodologies, and act as a resource person for the team.</li><li>Liaise with FASA’s Agri-Climate Partner (CGIAR Hub for Sustainable Finance (ImpactSF)) to ensure smooth implementation of FASA’s ESG &amp; Impact Policy pre- and post-investment.</li><li>Support with FASA’s donors’ ad-hoc requests about ESG &amp; impact.</li><li>Participate at building FASA’s learning materials.</li><li>Represent FASA and I&amp;P in the ecosystem as a FASA team member.</li></ul><p><strong>Qualifications</strong></p><ul><li>Minimum 4 years of experience in ESG &amp; impact due diligence, monitoring, evaluation and reporting for impact funds or SMEs in Africa.</li><li>Strong exposure to ESG &amp; impact, including gender-lens, in the African fund ecosystem. Experience in climate is a plus.</li><li>Passion for agricultural and SME finance in Africa.</li><li>Working experience and strong networks in East Africa or West Africa.</li><li>Working experience with international donors and development institutions.</li><li>University degree, MBA or equivalent, with a specialization in entrepreneurship, finance, management, business strategy or project management.</li><li>Open-mindedness, strong ability to adapt and learn in a fast-paced environment.</li><li>Excellent analytical, synthesis, and writing skills.</li><li>Full spoken and written English required; fluency in French or at least an interest in learning French would be an advantage as I&amp;P’s pan-African team is bilingual.</li><li>Mastery of Office suite.</li><li>Fit with I&amp;P’s values: entrepreneurial spirit, commitment to development, integrity and high standards.</li></ul><p><strong>Position details</strong></p><p>The position is full time and based in I&amp;P’s office in Nairobi, Dakar, Accra or Abidjan. The start date will be as soon as possible from February 3rd 2025. The role will begin with intensive training on ESG &amp; impact and gender frameworks in the context of FASA, together with I&amp;P’s ESG &amp; Impact Director. Remuneration package commensurate with experience.</p><p><strong>How to apply</strong></p><p>Please email <a href=\"mailto:recruitment@ietp.com\">recruitment@ietp.com</a> with the subject ESG &amp; Impact Manager, LAST NAME, attaching your <a href=\"https://www.emploidakar.com/service-de-redaction-de-cv-professionnel/\">CV</a> (no more than two pages) and a one-page cover letter, both in English, as well as your salary expectation and at least three professional references.</p><p>Please note that only shortlisted candidates will be contacted. We thank you for your application.*</p><p>Country: Nairobi / Dakar / Accra / Abidjan.</p><p>Contrat text: Full-time position.</p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "CDD",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p><strong>About Investisseurs &amp; Partenaires</strong></p><p>Investisseurs &amp; Partenaires (I&amp;P) is an impact investment group exclusively focused on Africa’s SMEs with EUR 400M in assets under management. Since 2002, I&amp;P has financed and supported 250 entrepreneurs in 16 countries in Sub-Saharan Africa, and sponsored 8 African SME funds; I&amp;P’s team is based in 10 countries including Ghana, Kenya, Senegal, Mali, Niger, Burkina Faso, Ivory Coast, Cameroon, Madagascar, etc. (see our website: www.ietp.com/en).</p><p>Our mission is to foster the emergence of entrepreneurs and SMEs, which are at the core of an inclusive growth and sustainable development in Africa. I&amp;P manages several investment funds supported by development finance institutions, corporates and HNWIs.</p><p><strong>Background on FASA</strong></p><p>“Financing for Agri-SMEs in Africa” or “FASA” is a multi-donor fund-of-funds that aims to mobilize capital for agricultural Small and Medium Enterprises in Africa. With an initial investment of $70M, Norway and USAID launched FASA with the objective to reach $200M to be capitalized by additional public and private donors. Those contributions will then be utilized as subordinated investment capital and technical assistance support to investment funds, active in the agricultural sector across the continent.</p><p>I&amp;P is the Fund Manager for this fund-of-funds, in charge of sourcing, assessing, and supporting the portfolio of investment funds.</p><p>As a fund-of-funds, FASA’s activities will primarily focus on investment fund managers, who will then provide funding and support for agri-SMEs aligned with FASA’s vision to contribute to transform African agriculture, by enhancing food security and nutrition, improving livelihoods, and promoting climate-smart value chains.</p><p>More information is available on https://www.fasafund.com/</p><p><strong>About the role</strong></p><p>I&amp;P is seeking an ESG &amp; Impact Manager who will implement FASA’s ESG &amp; Impact Policy. Under the supervision of FASA’s Managing Director and with the guidance of I&amp;P’s ESG &amp; Impact Director, the ESG &amp; Impact Manager will work closely with the entire FASA investment team and might travel regularly across the continent to contribute to due diligence on investment funds, monitoring of performance and capacity building for investment fund managers in FASA’s portfolio.</p><p><strong>Specific tasks and responsibilities</strong></p><p>Screening and due diligence of investment opportunities</p><ul><li>Support the investment team from screening to due diligence and assessment of investment funds, particularly regarding their ESG methodology, impact thesis and gender frameworks. This includes comprehensive analysis of investment and impact strategy, track record, pipeline, processes and governance, as well as potential participation to due diligence trips across the continent.</li><li>Identify ESG &amp; impact and gender gaps, and define corresponding post-investment action plans.</li><li>Identify any fund managers’ technical assistance needs related to ESG &amp; impact and gender topics, and define corresponding post-investment capacity building plan.</li><li>Contribute to the drafting of investment memos.</li><li>Support investment fund managers</li><li>Support FASA’s investment funds with the elaboration of their ESG &amp; impact framework, aiming at ensuring they adhere to FASA’s minimum requirements about ESG &amp; impact practises, while increasing their attractiveness to investors. This includes a considerable capacity building element, in the context where most investment fund managers need to enhance their tools and processes.</li><li>Provide adequate trainings about ESG standards and other related topics.</li><li>Conduct gender knowledge assessments for fund managers and provide necessary trainings.</li></ul><p>Monitoring and reporting</p><ul><li>Maintain a system for monitoring ESG &amp; impact progress, risks and opportunities across the portfolio.</li><li>Monitor and report on the ESG and impact performance of the portfolio, against each defined action plan, and according to FASA’s key performance metrics.</li><li>Potentially conduct in-depth impact evaluations for certain investment funds in FASA’s portfolio.</li><li>Lead the production of the annual impact report and present the results to FASA’s relevant committees.</li></ul><p>Team participation</p><ul><li>Support and build the capacity of FASA’s investment team on its ESG &amp; impact frameworks and methodologies, and act as a resource person for the team.</li><li>Liaise with FASA’s Agri-Climate Partner (CGIAR Hub for Sustainable Finance (ImpactSF)) to ensure smooth implementation of FASA’s ESG &amp; Impact Policy pre- and post-investment.</li><li>Support with FASA’s donors’ ad-hoc requests about ESG &amp; impact.</li><li>Participate at building FASA’s learning materials.</li><li>Represent FASA and I&amp;P in the ecosystem as a FASA team member.</li></ul><p><strong>Qualifications</strong></p><ul><li>Minimum 4 years of experience in ESG &amp; impact due diligence, monitoring, evaluation and reporting for impact funds or SMEs in Africa.</li><li>Strong exposure to ESG &amp; impact, including gender-lens, in the African fund ecosystem. Experience in climate is a plus.</li><li>Passion for agricultural and SME finance in Africa.</li><li>Working experience and strong networks in East Africa or West Africa.</li><li>Working experience with international donors and development institutions.</li><li>University degree, MBA or equivalent, with a specialization in entrepreneurship, finance, management, business strategy or project management.</li><li>Open-mindedness, strong ability to adapt and learn in a fast-paced environment.</li><li>Excellent analytical, synthesis, and writing skills.</li><li>Full spoken and written English required; fluency in French or at least an interest in learning French would be an advantage as I&amp;P’s pan-African team is bilingual.</li><li>Mastery of Office suite.</li><li>Fit with I&amp;P’s values: entrepreneurial spirit, commitment to development, integrity and high standards.</li></ul><p><strong>Position details</strong></p><p>The position is full time and based in I&amp;P’s office in Nairobi, Dakar, Accra or Abidjan. The start date will be as soon as possible from February 3rd 2025. The role will begin with intensive training on ESG &amp; impact and gender frameworks in the context of FASA, together with I&amp;P’s ESG &amp; Impact Director. Remuneration package commensurate with experience.</p><p><strong>How to apply</strong></p><p>Please email <a href=\"mailto:recruitment@ietp.com\">recruitment@ietp.com</a> with the subject ESG &amp; Impact Manager, LAST NAME, attaching your <a href=\"https://www.emploidakar.com/service-de-redaction-de-cv-professionnel/\">CV</a> (no more than two pages) and a one-page cover letter, both in English, as well as your salary expectation and at least three professional references.</p><p>Please note that only shortlisted candidates will be contacted. We thank you for your application.*</p><p>Country: Nairobi / Dakar / Accra / Abidjan.</p><p>Contrat text: Full-time position.</p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+5"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-26 13:40:51,118 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-26 13:40:51,119 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 275,
+  "titre": "ESG & Impact Manager (Fund-of-Funds)",
+  "description": "<div class=\"job_description\"><p><strong>About Investisseurs &amp; Partenaires</strong></p><p>Investisseurs &amp; Partenaires (I&amp;P) is an impact investment group exclusively focused on Africa’s SMEs with EUR 400M in assets under management. Since 2002, I&amp;P has financed and supported 250 entrepreneurs in 16 countries in Sub-Saharan Africa, and sponsored 8 African SME funds; I&amp;P’s team is based in 10 countries including Ghana, Kenya, Senegal, Mali, Niger, Burkina Faso, Ivory Coast, Cameroon, Madagascar, etc. (see our website: www.ietp.com/en).</p><p>Our mission is to foster the emergence of entrepreneurs and SMEs, which are at the core of an inclusive growth and sustainable development in Africa. I&amp;P manages several investment funds supported by development finance institutions, corporates and HNWIs.</p><p><strong>Background on FASA</strong></p><p>“Financing for Agri-SMEs in Africa” or “FASA” is a multi-donor fund-of-funds that aims to mobilize capital for agricultural Small and Medium Enterprises in Africa. With an initial investment of $70M, Norway and USAID launched FASA with the objective to reach $200M to be capitalized by additional public and private donors. Those contributions will then be utilized as subordinated investment capital and technical assistance support to investment funds, active in the agricultural sector across the continent.</p><p>I&amp;P is the Fund Manager for this fund-of-funds, in charge of sourcing, assessing, and supporting the portfolio of investment funds.</p><p>As a fund-of-funds, FASA’s activities will primarily focus on investment fund managers, who will then provide funding and support for agri-SMEs aligned with FASA’s vision to contribute to transform African agriculture, by enhancing food security and nutrition, improving livelihoods, and promoting climate-smart value chains.</p><p>More information is available on https://www.fasafund.com/</p><p><strong>About the role</strong></p><p>I&amp;P is seeking an ESG &amp; Impact Manager who will implement FASA’s ESG &amp; Impact Policy. Under the supervision of FASA’s Managing Director and with the guidance of I&amp;P’s ESG &amp; Impact Director, the ESG &amp; Impact Manager will work closely with the entire FASA investment team and might travel regularly across the continent to contribute to due diligence on investment funds, monitoring of performance and capacity building for investment fund managers in FASA’s portfolio.</p><p><strong>Specific tasks and responsibilities</strong></p><p>Screening and due diligence of investment opportunities</p><ul><li>Support the investment team from screening to due diligence and assessment of investment funds, particularly regarding their ESG methodology, impact thesis and gender frameworks. This includes comprehensive analysis of investment and impact strategy, track record, pipeline, processes and governance, as well as potential participation to due diligence trips across the continent.</li><li>Identify ESG &amp; impact and gender gaps, and define corresponding post-investment action plans.</li><li>Identify any fund managers’ technical assistance needs related to ESG &amp; impact and gender topics, and define corresponding post-investment capacity building plan.</li><li>Contribute to the drafting of investment memos.</li><li>Support investment fund managers</li><li>Support FASA’s investment funds with the elaboration of their ESG &amp; impact framework, aiming at ensuring they adhere to FASA’s minimum requirements about ESG &amp; impact practises, while increasing their attractiveness to investors. This includes a considerable capacity building element, in the context where most investment fund managers need to enhance their tools and processes.</li><li>Provide adequate trainings about ESG standards and other related topics.</li><li>Conduct gender knowledge assessments for fund managers and provide necessary trainings.</li></ul><p>Monitoring and reporting</p><ul><li>Maintain a system for monitoring ESG &amp; impact progress, risks and opportunities across the portfolio.</li><li>Monitor and report on the ESG and impact performance of the portfolio, against each defined action plan, and according to FASA’s key performance metrics.</li><li>Potentially conduct in-depth impact evaluations for certain investment funds in FASA’s portfolio.</li><li>Lead the production of the annual impact report and present the results to FASA’s relevant committees.</li></ul><p>Team participation</p><ul><li>Support and build the capacity of FASA’s investment team on its ESG &amp; impact frameworks and methodologies, and act as a resource person for the team.</li><li>Liaise with FASA’s Agri-Climate Partner (CGIAR Hub for Sustainable Finance (ImpactSF)) to ensure smooth implementation of FASA’s ESG &amp; Impact Policy pre- and post-investment.</li><li>Support with FASA’s donors’ ad-hoc requests about ESG &amp; impact.</li><li>Participate at building FASA’s learning materials.</li><li>Represent FASA and I&amp;P in the ecosystem as a FASA team member.</li></ul><p><strong>Qualifications</strong></p><ul><li>Minimum 4 years of experience in ESG &amp; impact due diligence, monitoring, evaluation and reporting for impact funds or SMEs in Africa.</li><li>Strong exposure to ESG &amp; impact, including gender-lens, in the African fund ecosystem. Experience in climate is a plus.</li><li>Passion for agricultural and SME finance in Africa.</li><li>Working experience and strong networks in East Africa or West Africa.</li><li>Working experience with international donors and development institutions.</li><li>University degree, MBA or equivalent, with a specialization in entrepreneurship, finance, management, business strategy or project management.</li><li>Open-mindedness, strong ability to adapt and learn in a fast-paced environment.</li><li>Excellent analytical, synthesis, and writing skills.</li><li>Full spoken and written English required; fluency in French or at least an interest in learning French would be an advantage as I&amp;P’s pan-African team is bilingual.</li><li>Mastery of Office suite.</li><li>Fit with I&amp;P’s values: entrepreneurial spirit, commitment to development, integrity and high standards.</li></ul><p><strong>Position details</strong></p><p>The position is full time and based in I&amp;P’s office in Nairobi, Dakar, Accra or Abidjan. The start date will be as soon as possible from February 3rd 2025. The role will begin with intensive training on ESG &amp; impact and gender frameworks in the context of FASA, together with I&amp;P’s ESG &amp; Impact Director. Remuneration package commensurate with experience.</p><p><strong>How to apply</strong></p><p>Please email <a href=\"mailto:recruitment@ietp.com\">recruitment@ietp.com</a> with the subject ESG &amp; Impact Manager, LAST NAME, attaching your <a href=\"https://www.emploidakar.com/service-de-redaction-de-cv-professionnel/\">CV</a> (no more than two pages) and a one-page cover letter, both in English, as well as your salary expectation and at least three professional references.</p><p>Please note that only shortlisted candidates will be contacted. We thank you for your application.*</p><p>Country: Nairobi / Dakar / Accra / Abidjan.</p><p>Contrat text: Full-time position.</p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "CDD",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p><strong>About Investisseurs &amp; Partenaires</strong></p><p>Investisseurs &amp; Partenaires (I&amp;P) is an impact investment group exclusively focused on Africa’s SMEs with EUR 400M in assets under management. Since 2002, I&amp;P has financed and supported 250 entrepreneurs in 16 countries in Sub-Saharan Africa, and sponsored 8 African SME funds; I&amp;P’s team is based in 10 countries including Ghana, Kenya, Senegal, Mali, Niger, Burkina Faso, Ivory Coast, Cameroon, Madagascar, etc. (see our website: www.ietp.com/en).</p><p>Our mission is to foster the emergence of entrepreneurs and SMEs, which are at the core of an inclusive growth and sustainable development in Africa. I&amp;P manages several investment funds supported by development finance institutions, corporates and HNWIs.</p><p><strong>Background on FASA</strong></p><p>“Financing for Agri-SMEs in Africa” or “FASA” is a multi-donor fund-of-funds that aims to mobilize capital for agricultural Small and Medium Enterprises in Africa. With an initial investment of $70M, Norway and USAID launched FASA with the objective to reach $200M to be capitalized by additional public and private donors. Those contributions will then be utilized as subordinated investment capital and technical assistance support to investment funds, active in the agricultural sector across the continent.</p><p>I&amp;P is the Fund Manager for this fund-of-funds, in charge of sourcing, assessing, and supporting the portfolio of investment funds.</p><p>As a fund-of-funds, FASA’s activities will primarily focus on investment fund managers, who will then provide funding and support for agri-SMEs aligned with FASA’s vision to contribute to transform African agriculture, by enhancing food security and nutrition, improving livelihoods, and promoting climate-smart value chains.</p><p>More information is available on https://www.fasafund.com/</p><p><strong>About the role</strong></p><p>I&amp;P is seeking an ESG &amp; Impact Manager who will implement FASA’s ESG &amp; Impact Policy. Under the supervision of FASA’s Managing Director and with the guidance of I&amp;P’s ESG &amp; Impact Director, the ESG &amp; Impact Manager will work closely with the entire FASA investment team and might travel regularly across the continent to contribute to due diligence on investment funds, monitoring of performance and capacity building for investment fund managers in FASA’s portfolio.</p><p><strong>Specific tasks and responsibilities</strong></p><p>Screening and due diligence of investment opportunities</p><ul><li>Support the investment team from screening to due diligence and assessment of investment funds, particularly regarding their ESG methodology, impact thesis and gender frameworks. This includes comprehensive analysis of investment and impact strategy, track record, pipeline, processes and governance, as well as potential participation to due diligence trips across the continent.</li><li>Identify ESG &amp; impact and gender gaps, and define corresponding post-investment action plans.</li><li>Identify any fund managers’ technical assistance needs related to ESG &amp; impact and gender topics, and define corresponding post-investment capacity building plan.</li><li>Contribute to the drafting of investment memos.</li><li>Support investment fund managers</li><li>Support FASA’s investment funds with the elaboration of their ESG &amp; impact framework, aiming at ensuring they adhere to FASA’s minimum requirements about ESG &amp; impact practises, while increasing their attractiveness to investors. This includes a considerable capacity building element, in the context where most investment fund managers need to enhance their tools and processes.</li><li>Provide adequate trainings about ESG standards and other related topics.</li><li>Conduct gender knowledge assessments for fund managers and provide necessary trainings.</li></ul><p>Monitoring and reporting</p><ul><li>Maintain a system for monitoring ESG &amp; impact progress, risks and opportunities across the portfolio.</li><li>Monitor and report on the ESG and impact performance of the portfolio, against each defined action plan, and according to FASA’s key performance metrics.</li><li>Potentially conduct in-depth impact evaluations for certain investment funds in FASA’s portfolio.</li><li>Lead the production of the annual impact report and present the results to FASA’s relevant committees.</li></ul><p>Team participation</p><ul><li>Support and build the capacity of FASA’s investment team on its ESG &amp; impact frameworks and methodologies, and act as a resource person for the team.</li><li>Liaise with FASA’s Agri-Climate Partner (CGIAR Hub for Sustainable Finance (ImpactSF)) to ensure smooth implementation of FASA’s ESG &amp; Impact Policy pre- and post-investment.</li><li>Support with FASA’s donors’ ad-hoc requests about ESG &amp; impact.</li><li>Participate at building FASA’s learning materials.</li><li>Represent FASA and I&amp;P in the ecosystem as a FASA team member.</li></ul><p><strong>Qualifications</strong></p><ul><li>Minimum 4 years of experience in ESG &amp; impact due diligence, monitoring, evaluation and reporting for impact funds or SMEs in Africa.</li><li>Strong exposure to ESG &amp; impact, including gender-lens, in the African fund ecosystem. Experience in climate is a plus.</li><li>Passion for agricultural and SME finance in Africa.</li><li>Working experience and strong networks in East Africa or West Africa.</li><li>Working experience with international donors and development institutions.</li><li>University degree, MBA or equivalent, with a specialization in entrepreneurship, finance, management, business strategy or project management.</li><li>Open-mindedness, strong ability to adapt and learn in a fast-paced environment.</li><li>Excellent analytical, synthesis, and writing skills.</li><li>Full spoken and written English required; fluency in French or at least an interest in learning French would be an advantage as I&amp;P’s pan-African team is bilingual.</li><li>Mastery of Office suite.</li><li>Fit with I&amp;P’s values: entrepreneurial spirit, commitment to development, integrity and high standards.</li></ul><p><strong>Position details</strong></p><p>The position is full time and based in I&amp;P’s office in Nairobi, Dakar, Accra or Abidjan. The start date will be as soon as possible from February 3rd 2025. The role will begin with intensive training on ESG &amp; impact and gender frameworks in the context of FASA, together with I&amp;P’s ESG &amp; Impact Director. Remuneration package commensurate with experience.</p><p><strong>How to apply</strong></p><p>Please email <a href=\"mailto:recruitment@ietp.com\">recruitment@ietp.com</a> with the subject ESG &amp; Impact Manager, LAST NAME, attaching your <a href=\"https://www.emploidakar.com/service-de-redaction-de-cv-professionnel/\">CV</a> (no more than two pages) and a one-page cover letter, both in English, as well as your salary expectation and at least three professional references.</p><p>Please note that only shortlisted candidates will be contacted. We thank you for your application.*</p><p>Country: Nairobi / Dakar / Accra / Abidjan.</p><p>Contrat text: Full-time position.</p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+5"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-26 13:40:58,198 - ERROR - Erreur majeure dans analyze_compatibility_dakar: name 'analyse_detaillee' is not defined
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\api1\utils_dakar.py", line 356, in analyze_compatibility_dakar
+    strongest_category = max(analyse_detaillee, key=lambda k: analyse_detaillee[k].score) if analyse_detaillee else "N/A"
+                                                                                             ^^^^^^^^^^^^^^^^^
+NameError: name 'analyse_detaillee' is not defined

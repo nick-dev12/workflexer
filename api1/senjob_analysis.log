@@ -1,0 +1,1642 @@
+2025-06-26 09:08:04,286 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-26 10:34:05,902 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-26 10:34:43,492 - INFO - ==================================================
+2025-06-26 10:34:43,492 - INFO - Début de l'analyse pour l'offre ID: 756 et candidat ID: 5
+2025-06-26 10:34:43,493 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ]
+}
+2025-06-26 10:34:43,494 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 756,
+  "titre": "Coordonnateur d’Unité de Gestion et de Planification (UGP) pour la  zone de la Vallée du Fleuve Sénégal (VFS)",
+  "entreprise": "Non spécifié",
+  "localisation": "Saint-Louis",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>USAID/Senegal Water Resources Management Activity<br>\nGestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE)</br></b><br>\n<br>\nChemonics International Inc., une société de conseil en développement international basée aux États-Unis, est à la recherche d'un coordonnateur d’Unité de Gestion et de Planification (UGP) pour la zone de la Vallée du Fleuve Sénégal (VFS) pour le projet de Gestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE). USAID GIRE est une activité de quatre ans, attribué en mai 2023, visant à accroître la croissance économique inclusive grâce à une gestion améliorée et plus équitable des ressources en eau pour les générations actuelles et futures. Le projet renforcera la capacité des acteurs du secteur de l'eau du Sénégal à rendre opérationnelle le nouveau cadre de Gestion intégrée des ressources en eau (GIRE) en veillant à ce que l'accès à l'eau soit alloué de manière transparente et équitable et rendu durable et résilient au changement climatique afin de soutenir le développement économique.<br>\n<br>\nNous recherchons des personnes qui ont la passion de faire une différence dans la vie des gens du monde entier. Ce poste à long terme sera basé dans la <b>région de Saint-Louis, au Sénégal.<br/>\n<br/>\n1. Principales fonctions et responsabilités</b><br/>\n• Servir comme liaison principale entre l'équipe technique principale du projet USAID GIRE basée à Dakar et les partenaires mettant en œuvre des activités dans l’UGP de la Vallée du fleuve Sénégal (VFS) afin d'assurer une coordination efficace et la réalisation des résultats de l'activité.<br/>\n• Faciliter le travail de mobilisation des parties prenantes de la GIRE au niveau de l’UGP VFS et des communes d’intervention (société civile, ONG, collectivités territoriales, autorités administratives, services techniques déconcentrés etc.).<br/>\n• Identifier les opportunités de mobilisation des ressources et de co-investissement des activités du projet USAID GIRE pour la durabilité financière et technique.<br/>\n• Coordonner avec les partenaires du consortium du projet USAID GIRE pour soutenir les comités communaux de l'eau (CCE) afin d'engager de manière proactive les communautés touchées et de responsabiliser les agents de changement (personnes, entreprises, organisations) dans l'analyse et la planification des allocations de ressources en eau.<br/>\n• Assurer le suivi des opérations techniques dans l’UGP VFS en accompagnant le dispositif local de renforcement de capacités et le déploiement d’agents communautaires de services d’eau dans les communes d’intervention.<br/>\n• Elaborer et valider avec les CCE cibles les plans de travail mensuels des agents communautaires de services d’eau et s’assurer de leur conformité avec le plan de travail annuel du projet.<br/>\n• Superviser, suivre et évaluer le travail des agents communautaires de service d’eau et assurer la cohérence et l’articulation de leur intervention avec les plans d’action des CCE.<br/>\n• Coordonner l’exécution et le suivi de la mise en œuvre opérationnel des plans d’actions des CCE tout en veillant à l’amélioration de leurs performances.<br/>\n• Représenter le projet dans les plateformes de gouvernance sur l’eau existantes dans la zone VFS.<br/>\n• Contribuer à la mise en œuvre opérationnelle du plan de renforcement de capacités locales du projet et des autres plans contractuels avec USAID.<br/>\n<br/>\n<b>2. Qualifications</b><br/>\n• Technicien supérieur / Master ou diplôme équivalent en sciences sociales, Génie Rural ou dans un domaine pertinent<br/>\n• Au moins cinq ans d'expérience dans le renforcement de capacités des acteurs locaux sur les questions de l’eau, la participation et la mobilisation des collectivités territoriales<br/>\n• Expérience avérée en ingénierie sociale, dynamique de groupe, approches participatives sensibilisation de multiples intervenants<br/>\n• Expérience de la coordination avec la société civile, le secteur privé et les établissements universitaires et de recherche souhaitée<br/>\n• Expérience en coordination de réseau d’animateurs communautaires souhaitée<br/>\n• Connaissance approfondie du Sénégal et du tissu communautaire<br/>\n• Solide expertise en gestion du personnel et excellentes compétences en communication et négociation<br/>\n• Maîtrise du français (parler, lire et écrire) requise et les langues locales pertinentes<br/>\n<br/>\n<b>3. Durée de la mission</b><br/>\nCette mission sera pour la durée du projet.\n\n      \n      </br></br></br></br></div>",
+  "texte_integral": "Coordonnateur d’Unité de Gestion et de Planification (UGP) pour la  zone de la Vallée du Fleuve Sénégal (VFS) \nUSAID/Senegal Water Resources Management Activity\nGestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE)\n\nChemonics International Inc., une société de conseil en développement international basée aux États-Unis, est à la recherche d'un coordonnateur d’Unité de Gestion et de Planification (UGP) pour la zone de la Vallée du Fleuve Sénégal (VFS) pour le projet de Gestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE). USAID GIRE est une activité de quatre ans, attribué en mai 2023, visant à accroître la croissance économique inclusive grâce à une gestion améliorée et plus équitable des ressources en eau pour les générations actuelles et futures. Le projet renforcera la capacité des acteurs du secteur de l'eau du Sénégal à rendre opérationnelle le nouveau cadre de Gestion intégrée des ressources en eau (GIRE) en veillant à ce que l'accès à l'eau soit alloué de manière transparente et équitable et rendu durable et résilient au changement climatique afin de soutenir le développement économique.\n\nNous recherchons des personnes qui ont la passion de faire une différence dans la vie des gens du monde entier. Ce poste à long terme sera basé dans la région de Saint-Louis, au Sénégal.\n\n1. Principales fonctions et responsabilités\n• Servir comme liaison principale entre l'équipe technique principale du projet USAID GIRE basée à Dakar et les partenaires mettant en œuvre des activités dans l’UGP de la Vallée du fleuve Sénégal (VFS) afin d'assurer une coordination efficace et la réalisation des résultats de l'activité.\n• Faciliter le travail de mobilisation des parties prenantes de la GIRE au niveau de l’UGP VFS et des communes d’intervention (société civile, ONG, collectivités territoriales, autorités administratives, services techniques déconcentrés etc.).\n• Identifier les opportunités de mobilisation des ressources et de co-investissement des activités du projet USAID GIRE pour la durabilité financière et technique.\n• Coordonner avec les partenaires du consortium du projet USAID GIRE pour soutenir les comités communaux de l'eau (CCE) afin d'engager de manière proactive les communautés touchées et de responsabiliser les agents de changement (personnes, entreprises, organisations) dans l'analyse et la planification des allocations de ressources en eau.\n• Assurer le suivi des opérations techniques dans l’UGP VFS en accompagnant le dispositif local de renforcement de capacités et le déploiement d’agents communautaires de services d’eau dans les communes d’intervention.\n• Elaborer et valider avec les CCE cibles les plans de travail mensuels des agents communautaires de services d’eau et s’assurer de leur conformité avec le plan de travail annuel du projet.\n• Superviser, suivre et évaluer le travail des agents communautaires de service d’eau et assurer la cohérence et l’articulation de leur intervention avec les plans d’action des CCE.\n• Coordonner l’exécution et le suivi de la mise en œuvre opérationnel des plans d’actions des CCE tout en veillant à l’amélioration de leurs performances.\n• Représenter le projet dans les plateformes de gouvernance sur l’eau existantes dans la zone VFS.\n• Contribuer à la mise en œuvre opérationnelle du plan de renforcement de capacités locales du projet et des autres plans contractuels avec USAID.\n\n2. Qualifications\n• Technicien supérieur / Master ou diplôme équivalent en sciences sociales, Génie Rural ou dans un domaine pertinent\n• Au moins cinq ans d'expérience dans le renforcement de capacités des acteurs locaux sur les questions de l’eau, la participation et la mobilisation des collectivités territoriales\n• Expérience avérée en ingénierie sociale, dynamique de groupe, approches participatives sensibilisation de multiples intervenants\n• Expérience de la coordination avec la société civile, le secteur privé et les établissements universitaires et de recherche souhaitée\n• Expérience en coordination de réseau d’animateurs communautaires souhaitée\n• Connaissance approfondie du Sénégal et du tissu communautaire\n• Solide expertise en gestion du personnel et excellentes compétences en communication et négociation\n• Maîtrise du français (parler, lire et écrire) requise et les langues locales pertinentes\n\n3. Durée de la mission\nCette mission sera pour la durée du projet.\n\n      \n       Non spécifié Saint-Louis Non spécifié"
+}
+2025-06-26 10:34:43,495 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "texte_integral": null
+}
+2025-06-26 10:34:43,496 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 756,
+  "titre": "Coordonnateur d’Unité de Gestion et de Planification (UGP) pour la  zone de la Vallée du Fleuve Sénégal (VFS)",
+  "entreprise": "Non spécifié",
+  "localisation": "Saint-Louis",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>USAID/Senegal Water Resources Management Activity<br>\nGestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE)</br></b><br>\n<br>\nChemonics International Inc., une société de conseil en développement international basée aux États-Unis, est à la recherche d'un coordonnateur d’Unité de Gestion et de Planification (UGP) pour la zone de la Vallée du Fleuve Sénégal (VFS) pour le projet de Gestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE). USAID GIRE est une activité de quatre ans, attribué en mai 2023, visant à accroître la croissance économique inclusive grâce à une gestion améliorée et plus équitable des ressources en eau pour les générations actuelles et futures. Le projet renforcera la capacité des acteurs du secteur de l'eau du Sénégal à rendre opérationnelle le nouveau cadre de Gestion intégrée des ressources en eau (GIRE) en veillant à ce que l'accès à l'eau soit alloué de manière transparente et équitable et rendu durable et résilient au changement climatique afin de soutenir le développement économique.<br>\n<br>\nNous recherchons des personnes qui ont la passion de faire une différence dans la vie des gens du monde entier. Ce poste à long terme sera basé dans la <b>région de Saint-Louis, au Sénégal.<br/>\n<br/>\n1. Principales fonctions et responsabilités</b><br/>\n• Servir comme liaison principale entre l'équipe technique principale du projet USAID GIRE basée à Dakar et les partenaires mettant en œuvre des activités dans l’UGP de la Vallée du fleuve Sénégal (VFS) afin d'assurer une coordination efficace et la réalisation des résultats de l'activité.<br/>\n• Faciliter le travail de mobilisation des parties prenantes de la GIRE au niveau de l’UGP VFS et des communes d’intervention (société civile, ONG, collectivités territoriales, autorités administratives, services techniques déconcentrés etc.).<br/>\n• Identifier les opportunités de mobilisation des ressources et de co-investissement des activités du projet USAID GIRE pour la durabilité financière et technique.<br/>\n• Coordonner avec les partenaires du consortium du projet USAID GIRE pour soutenir les comités communaux de l'eau (CCE) afin d'engager de manière proactive les communautés touchées et de responsabiliser les agents de changement (personnes, entreprises, organisations) dans l'analyse et la planification des allocations de ressources en eau.<br/>\n• Assurer le suivi des opérations techniques dans l’UGP VFS en accompagnant le dispositif local de renforcement de capacités et le déploiement d’agents communautaires de services d’eau dans les communes d’intervention.<br/>\n• Elaborer et valider avec les CCE cibles les plans de travail mensuels des agents communautaires de services d’eau et s’assurer de leur conformité avec le plan de travail annuel du projet.<br/>\n• Superviser, suivre et évaluer le travail des agents communautaires de service d’eau et assurer la cohérence et l’articulation de leur intervention avec les plans d’action des CCE.<br/>\n• Coordonner l’exécution et le suivi de la mise en œuvre opérationnel des plans d’actions des CCE tout en veillant à l’amélioration de leurs performances.<br/>\n• Représenter le projet dans les plateformes de gouvernance sur l’eau existantes dans la zone VFS.<br/>\n• Contribuer à la mise en œuvre opérationnelle du plan de renforcement de capacités locales du projet et des autres plans contractuels avec USAID.<br/>\n<br/>\n<b>2. Qualifications</b><br/>\n• Technicien supérieur / Master ou diplôme équivalent en sciences sociales, Génie Rural ou dans un domaine pertinent<br/>\n• Au moins cinq ans d'expérience dans le renforcement de capacités des acteurs locaux sur les questions de l’eau, la participation et la mobilisation des collectivités territoriales<br/>\n• Expérience avérée en ingénierie sociale, dynamique de groupe, approches participatives sensibilisation de multiples intervenants<br/>\n• Expérience de la coordination avec la société civile, le secteur privé et les établissements universitaires et de recherche souhaitée<br/>\n• Expérience en coordination de réseau d’animateurs communautaires souhaitée<br/>\n• Connaissance approfondie du Sénégal et du tissu communautaire<br/>\n• Solide expertise en gestion du personnel et excellentes compétences en communication et négociation<br/>\n• Maîtrise du français (parler, lire et écrire) requise et les langues locales pertinentes<br/>\n<br/>\n<b>3. Durée de la mission</b><br/>\nCette mission sera pour la durée du projet.\n\n      \n      </br></br></br></br></div>",
+  "texte_integral": "Coordonnateur d’Unité de Gestion et de Planification (UGP) pour la  zone de la Vallée du Fleuve Sénégal (VFS) \nUSAID/Senegal Water Resources Management Activity\nGestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE)\n\nChemonics International Inc., une société de conseil en développement international basée aux États-Unis, est à la recherche d'un coordonnateur d’Unité de Gestion et de Planification (UGP) pour la zone de la Vallée du Fleuve Sénégal (VFS) pour le projet de Gestion intégrée des ressources en eau de l'USAID au Sénégal (USAID GIRE). USAID GIRE est une activité de quatre ans, attribué en mai 2023, visant à accroître la croissance économique inclusive grâce à une gestion améliorée et plus équitable des ressources en eau pour les générations actuelles et futures. Le projet renforcera la capacité des acteurs du secteur de l'eau du Sénégal à rendre opérationnelle le nouveau cadre de Gestion intégrée des ressources en eau (GIRE) en veillant à ce que l'accès à l'eau soit alloué de manière transparente et équitable et rendu durable et résilient au changement climatique afin de soutenir le développement économique.\n\nNous recherchons des personnes qui ont la passion de faire une différence dans la vie des gens du monde entier. Ce poste à long terme sera basé dans la région de Saint-Louis, au Sénégal.\n\n1. Principales fonctions et responsabilités\n• Servir comme liaison principale entre l'équipe technique principale du projet USAID GIRE basée à Dakar et les partenaires mettant en œuvre des activités dans l’UGP de la Vallée du fleuve Sénégal (VFS) afin d'assurer une coordination efficace et la réalisation des résultats de l'activité.\n• Faciliter le travail de mobilisation des parties prenantes de la GIRE au niveau de l’UGP VFS et des communes d’intervention (société civile, ONG, collectivités territoriales, autorités administratives, services techniques déconcentrés etc.).\n• Identifier les opportunités de mobilisation des ressources et de co-investissement des activités du projet USAID GIRE pour la durabilité financière et technique.\n• Coordonner avec les partenaires du consortium du projet USAID GIRE pour soutenir les comités communaux de l'eau (CCE) afin d'engager de manière proactive les communautés touchées et de responsabiliser les agents de changement (personnes, entreprises, organisations) dans l'analyse et la planification des allocations de ressources en eau.\n• Assurer le suivi des opérations techniques dans l’UGP VFS en accompagnant le dispositif local de renforcement de capacités et le déploiement d’agents communautaires de services d’eau dans les communes d’intervention.\n• Elaborer et valider avec les CCE cibles les plans de travail mensuels des agents communautaires de services d’eau et s’assurer de leur conformité avec le plan de travail annuel du projet.\n• Superviser, suivre et évaluer le travail des agents communautaires de service d’eau et assurer la cohérence et l’articulation de leur intervention avec les plans d’action des CCE.\n• Coordonner l’exécution et le suivi de la mise en œuvre opérationnel des plans d’actions des CCE tout en veillant à l’amélioration de leurs performances.\n• Représenter le projet dans les plateformes de gouvernance sur l’eau existantes dans la zone VFS.\n• Contribuer à la mise en œuvre opérationnelle du plan de renforcement de capacités locales du projet et des autres plans contractuels avec USAID.\n\n2. Qualifications\n• Technicien supérieur / Master ou diplôme équivalent en sciences sociales, Génie Rural ou dans un domaine pertinent\n• Au moins cinq ans d'expérience dans le renforcement de capacités des acteurs locaux sur les questions de l’eau, la participation et la mobilisation des collectivités territoriales\n• Expérience avérée en ingénierie sociale, dynamique de groupe, approches participatives sensibilisation de multiples intervenants\n• Expérience de la coordination avec la société civile, le secteur privé et les établissements universitaires et de recherche souhaitée\n• Expérience en coordination de réseau d’animateurs communautaires souhaitée\n• Connaissance approfondie du Sénégal et du tissu communautaire\n• Solide expertise en gestion du personnel et excellentes compétences en communication et négociation\n• Maîtrise du français (parler, lire et écrire) requise et les langues locales pertinentes\n\n3. Durée de la mission\nCette mission sera pour la durée du projet.\n\n      \n       Non spécifié Saint-Louis Non spécifié"
+}
+2025-06-26 10:34:49,602 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 21.0,
+  "score_global_semantique": 21.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (21%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    },
+    {
+      "description": "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "categorie": "competences",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 28.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (28%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 0.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre."
+      ],
+      "resume": "Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "competences",
+      "description": "Pour renforcer votre profil, considérez : Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-26T10:34:49.601372",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-26 10:34:49,602 - INFO - Fin de l'analyse.
+2025-06-26 10:34:49,603 - INFO - ==================================================
+
+2025-06-26 10:46:12,160 - INFO - ==================================================
+2025-06-26 10:46:12,160 - INFO - Début de l'analyse pour l'offre ID: 746 et candidat ID: 5
+2025-06-26 10:46:12,161 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ]
+}
+2025-06-26 10:46:12,162 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 746,
+  "titre": "Stagiaire",
+  "entreprise": "Non spécifié",
+  "localisation": "Tambacounda",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>Date: le 13 Janvier 2025<br>\nPosition : Stagiaire<br>\nResponsable Hiérarchique : Charges de projets<br>\nCoordonne avec : Charge de projets et Assistants<br>\nLocation : Sénégal Tambacounda<br>\nType de contrat : 06 mois Février-Juillet 2025<br/>\n<br/>\nA PROPROS TREES FOR THE FUTURE:</br></br></br></br></br></b><br/>\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.<br/>\n<br/>\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.<br/>\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.<br/>\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.<br/>\n<br/>\n<b>DESCRIPTION DU POSTE</b><br/>\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.<br/>\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.<br/>\n<br/>\n<b>PRINCIPLES TACHES :</b><br/>\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :<br/>\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;<br/>\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;<br/>\n• Appuyer les chargés de projets aux différentes formation programmées sur ;<br/>\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.<br/>\n<br/>\n<b>SAVOIR FAIRE :</b><br/>\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :<br/>\n• Être sociable<br/>\n• Être patient et avoir une bonne capacité d’écoute<br/>\n• Être humble, engagé et disponible<br/>\n• Ouvert (e) aux critiques et aux nouvelles idées ;<br/>\n<br/>\n<b>COMPÉTENCES-QUALIFICATIONS :</b><br/>\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :<br/>\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;<br/>\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;<br/>\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;<br/>\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.<br/>\n<br/>\n<b>NB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.</b>\n</div>",
+  "texte_integral": "Stagiaire \nDate: le 13 Janvier 2025\nPosition : Stagiaire\nResponsable Hiérarchique : Charges de projets\nCoordonne avec : Charge de projets et Assistants\nLocation : Sénégal Tambacounda\nType de contrat : 06 mois Février-Juillet 2025\n\nA PROPROS TREES FOR THE FUTURE:\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.\n\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.\n\nDESCRIPTION DU POSTE\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.\n\nPRINCIPLES TACHES :\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;\n• Appuyer les chargés de projets aux différentes formation programmées sur ;\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.\n\nSAVOIR FAIRE :\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :\n• Être sociable\n• Être patient et avoir une bonne capacité d’écoute\n• Être humble, engagé et disponible\n• Ouvert (e) aux critiques et aux nouvelles idées ;\n\nCOMPÉTENCES-QUALIFICATIONS :\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.\n\nNB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.\n Non spécifié Tambacounda Non spécifié"
+}
+2025-06-26 10:46:12,163 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "texte_integral": null
+}
+2025-06-26 10:46:12,164 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 746,
+  "titre": "Stagiaire",
+  "entreprise": "Non spécifié",
+  "localisation": "Tambacounda",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>Date: le 13 Janvier 2025<br>\nPosition : Stagiaire<br>\nResponsable Hiérarchique : Charges de projets<br>\nCoordonne avec : Charge de projets et Assistants<br>\nLocation : Sénégal Tambacounda<br>\nType de contrat : 06 mois Février-Juillet 2025<br/>\n<br/>\nA PROPROS TREES FOR THE FUTURE:</br></br></br></br></br></b><br/>\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.<br/>\n<br/>\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.<br/>\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.<br/>\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.<br/>\n<br/>\n<b>DESCRIPTION DU POSTE</b><br/>\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.<br/>\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.<br/>\n<br/>\n<b>PRINCIPLES TACHES :</b><br/>\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :<br/>\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;<br/>\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;<br/>\n• Appuyer les chargés de projets aux différentes formation programmées sur ;<br/>\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.<br/>\n<br/>\n<b>SAVOIR FAIRE :</b><br/>\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :<br/>\n• Être sociable<br/>\n• Être patient et avoir une bonne capacité d’écoute<br/>\n• Être humble, engagé et disponible<br/>\n• Ouvert (e) aux critiques et aux nouvelles idées ;<br/>\n<br/>\n<b>COMPÉTENCES-QUALIFICATIONS :</b><br/>\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :<br/>\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;<br/>\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;<br/>\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;<br/>\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.<br/>\n<br/>\n<b>NB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.</b>\n</div>",
+  "texte_integral": "Stagiaire \nDate: le 13 Janvier 2025\nPosition : Stagiaire\nResponsable Hiérarchique : Charges de projets\nCoordonne avec : Charge de projets et Assistants\nLocation : Sénégal Tambacounda\nType de contrat : 06 mois Février-Juillet 2025\n\nA PROPROS TREES FOR THE FUTURE:\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.\n\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.\n\nDESCRIPTION DU POSTE\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.\n\nPRINCIPLES TACHES :\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;\n• Appuyer les chargés de projets aux différentes formation programmées sur ;\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.\n\nSAVOIR FAIRE :\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :\n• Être sociable\n• Être patient et avoir une bonne capacité d’écoute\n• Être humble, engagé et disponible\n• Ouvert (e) aux critiques et aux nouvelles idées ;\n\nCOMPÉTENCES-QUALIFICATIONS :\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.\n\nNB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.\n Non spécifié Tambacounda Non spécifié"
+}
+2025-06-26 10:46:17,474 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 20.0,
+  "score_global_semantique": 20.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (20%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    },
+    {
+      "description": "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "categorie": "competences",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 25.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (25%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 0.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre."
+      ],
+      "resume": "Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "competences",
+      "description": "Pour renforcer votre profil, considérez : Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-26T10:46:17.473677",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-26 10:46:17,474 - INFO - Fin de l'analyse.
+2025-06-26 10:46:17,475 - INFO - ==================================================
+
+2025-06-26 10:51:52,770 - INFO - ==================================================
+2025-06-26 10:51:52,770 - INFO - Début de l'analyse pour l'offre ID: 746 et candidat ID: 5
+2025-06-26 10:51:52,771 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ]
+}
+2025-06-26 10:51:52,772 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 746,
+  "titre": "Stagiaire",
+  "entreprise": "Non spécifié",
+  "localisation": "Tambacounda",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>Date: le 13 Janvier 2025<br>\nPosition : Stagiaire<br>\nResponsable Hiérarchique : Charges de projets<br>\nCoordonne avec : Charge de projets et Assistants<br>\nLocation : Sénégal Tambacounda<br>\nType de contrat : 06 mois Février-Juillet 2025<br/>\n<br/>\nA PROPROS TREES FOR THE FUTURE:</br></br></br></br></br></b><br/>\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.<br/>\n<br/>\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.<br/>\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.<br/>\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.<br/>\n<br/>\n<b>DESCRIPTION DU POSTE</b><br/>\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.<br/>\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.<br/>\n<br/>\n<b>PRINCIPLES TACHES :</b><br/>\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :<br/>\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;<br/>\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;<br/>\n• Appuyer les chargés de projets aux différentes formation programmées sur ;<br/>\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.<br/>\n<br/>\n<b>SAVOIR FAIRE :</b><br/>\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :<br/>\n• Être sociable<br/>\n• Être patient et avoir une bonne capacité d’écoute<br/>\n• Être humble, engagé et disponible<br/>\n• Ouvert (e) aux critiques et aux nouvelles idées ;<br/>\n<br/>\n<b>COMPÉTENCES-QUALIFICATIONS :</b><br/>\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :<br/>\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;<br/>\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;<br/>\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;<br/>\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.<br/>\n<br/>\n<b>NB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.</b>\n</div>",
+  "texte_integral": "Stagiaire \nDate: le 13 Janvier 2025\nPosition : Stagiaire\nResponsable Hiérarchique : Charges de projets\nCoordonne avec : Charge de projets et Assistants\nLocation : Sénégal Tambacounda\nType de contrat : 06 mois Février-Juillet 2025\n\nA PROPROS TREES FOR THE FUTURE:\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.\n\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.\n\nDESCRIPTION DU POSTE\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.\n\nPRINCIPLES TACHES :\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;\n• Appuyer les chargés de projets aux différentes formation programmées sur ;\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.\n\nSAVOIR FAIRE :\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :\n• Être sociable\n• Être patient et avoir une bonne capacité d’écoute\n• Être humble, engagé et disponible\n• Ouvert (e) aux critiques et aux nouvelles idées ;\n\nCOMPÉTENCES-QUALIFICATIONS :\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.\n\nNB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.\n Non spécifié Tambacounda Non spécifié"
+}
+2025-06-26 10:51:52,773 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "texte_integral": null
+}
+2025-06-26 10:51:52,774 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 746,
+  "titre": "Stagiaire",
+  "entreprise": "Non spécifié",
+  "localisation": "Tambacounda",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>Date: le 13 Janvier 2025<br>\nPosition : Stagiaire<br>\nResponsable Hiérarchique : Charges de projets<br>\nCoordonne avec : Charge de projets et Assistants<br>\nLocation : Sénégal Tambacounda<br>\nType de contrat : 06 mois Février-Juillet 2025<br/>\n<br/>\nA PROPROS TREES FOR THE FUTURE:</br></br></br></br></br></b><br/>\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.<br/>\n<br/>\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.<br/>\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.<br/>\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.<br/>\n<br/>\n<b>DESCRIPTION DU POSTE</b><br/>\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.<br/>\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.<br/>\n<br/>\n<b>PRINCIPLES TACHES :</b><br/>\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :<br/>\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;<br/>\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;<br/>\n• Appuyer les chargés de projets aux différentes formation programmées sur ;<br/>\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.<br/>\n<br/>\n<b>SAVOIR FAIRE :</b><br/>\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :<br/>\n• Être sociable<br/>\n• Être patient et avoir une bonne capacité d’écoute<br/>\n• Être humble, engagé et disponible<br/>\n• Ouvert (e) aux critiques et aux nouvelles idées ;<br/>\n<br/>\n<b>COMPÉTENCES-QUALIFICATIONS :</b><br/>\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :<br/>\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;<br/>\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;<br/>\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;<br/>\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.<br/>\n<br/>\n<b>NB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.</b>\n</div>",
+  "texte_integral": "Stagiaire \nDate: le 13 Janvier 2025\nPosition : Stagiaire\nResponsable Hiérarchique : Charges de projets\nCoordonne avec : Charge de projets et Assistants\nLocation : Sénégal Tambacounda\nType de contrat : 06 mois Février-Juillet 2025\n\nA PROPROS TREES FOR THE FUTURE:\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.\n\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.\n\nDESCRIPTION DU POSTE\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.\n\nPRINCIPLES TACHES :\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;\n• Appuyer les chargés de projets aux différentes formation programmées sur ;\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.\n\nSAVOIR FAIRE :\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :\n• Être sociable\n• Être patient et avoir une bonne capacité d’écoute\n• Être humble, engagé et disponible\n• Ouvert (e) aux critiques et aux nouvelles idées ;\n\nCOMPÉTENCES-QUALIFICATIONS :\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.\n\nNB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.\n Non spécifié Tambacounda Non spécifié"
+}
+2025-06-26 10:51:59,248 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 20.0,
+  "score_global_semantique": 20.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (20%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    },
+    {
+      "description": "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "categorie": "competences",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 25.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (25%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 0.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre."
+      ],
+      "resume": "Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "competences",
+      "description": "Pour renforcer votre profil, considérez : Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-26T10:51:59.247616",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-26 10:51:59,248 - INFO - Fin de l'analyse.
+2025-06-26 10:51:59,249 - INFO - ==================================================
+
+2025-06-26 10:52:24,365 - INFO - ==================================================
+2025-06-26 10:52:24,365 - INFO - Début de l'analyse pour l'offre ID: 852 et candidat ID: 5
+2025-06-26 10:52:24,365 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ]
+}
+2025-06-26 10:52:24,365 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 852,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOffre de recrutement<br>\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F<br>\r\n•\tReference : SPECOMMDIGCOMM/IPD2025<br>\r\n•\tDépartement : Partenariats &amp; communication<br>\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse<br>\r\n•\tLieu : Institut pasteur de dakar<br/>\r\n•\tContrat : CDD / CDI<br/>\r\n•\tDébut souhaité : Dans l’immédiat<br/>\n<br/>\r\nA Propos de l’institut<br/>\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :<br/>\n<br/>\r\n•\tRecherche &amp; Développement<br/>\r\n•\tDiagnostic, vaccination, alimentation et environnement<br/>\r\n•\tÉducation, formation et développement des talents<br/>\r\n•\tExpertise et orientation stratégique en santé publique<br/>\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.<br/>\n<br/>\n<br/>\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.<br/>\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !<br/>\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !<br/>\n<br/>\n<br/>\r\nActivités du poste<br/>\r\nDescription de poste<br/>\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :<br/>\r\nUn spécialiste polyvalent en communication digitale h/f.<br/>\n<br/>\r\nMissions générales <br/>\r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.<br/>\n<br/>\r\nActivités principales <br/>\r\nInfographie:<br/>\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).<br/>\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.<br/>\r\n•\tRéaliser des illustrations et des animations graphiques.<br/>\r\nCréation de Contenus:<br/>\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.<br/>\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.<br/>\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.<br/>\n<br/>\n<br/>\r\nGestion de Réseaux Sociaux:<br/>\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.<br/>\r\n•\tPlanifier et publier des contenus réguliers et engageants.<br/>\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.<br/>\r\n•\tAnalyser les performances des<br/>\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:<br/>\r\n•\tAssurer la création de pages par projet et rattachée au site web principal<br/>\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.<br/>\r\n•\tOptimiser le site pour le référencement (SEO).<br/>\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.<br/>\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.<br/>\n<br/>\n<br/>\r\nProfil recherché<br/>\r\nFormation<br/>\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.<br/>\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.<br/>\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.<br/>\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.<br/>\n<br/>\r\nCompétences<br/>\r\nTechniques<br/>\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).<br/>\r\n•\tExcellentes compétences rédactionnelles et éditoriales.<br/>\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).<br/>\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).<br/>\r\n•\tCompétences en SEO et en analyse web.<br/>\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.<br/>\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.<br/>\n<br/>\r\nPersonnelles<br/>\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.<br/>\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.<br/>\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:<br/>\r\n•\tBilingue (français et anglais)<br/>\r\nInformatique<br/>\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)<br/>\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.<br/>\n<br/>\n<br/>\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Spécialiste polyvalent en communication digitale \n\nOffre de recrutement\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F\r\n•\tReference : SPECOMMDIGCOMM/IPD2025\r\n•\tDépartement : Partenariats &amp; communication\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse\r\n•\tLieu : Institut pasteur de dakar\r\n•\tContrat : CDD / CDI\r\n•\tDébut souhaité : Dans l’immédiat\n\r\nA Propos de l’institut\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :\n\r\n•\tRecherche &amp; Développement\r\n•\tDiagnostic, vaccination, alimentation et environnement\r\n•\tÉducation, formation et développement des talents\r\n•\tExpertise et orientation stratégique en santé publique\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.\n\n\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !\n\n\r\nActivités du poste\r\nDescription de poste\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :\r\nUn spécialiste polyvalent en communication digitale h/f.\n\r\nMissions générales \r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.\n\r\nActivités principales \r\nInfographie:\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.\r\n•\tRéaliser des illustrations et des animations graphiques.\r\nCréation de Contenus:\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.\n\n\r\nGestion de Réseaux Sociaux:\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.\r\n•\tPlanifier et publier des contenus réguliers et engageants.\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.\r\n•\tAnalyser les performances des\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:\r\n•\tAssurer la création de pages par projet et rattachée au site web principal\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.\r\n•\tOptimiser le site pour le référencement (SEO).\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.\n\n\r\nProfil recherché\r\nFormation\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.\n\r\nCompétences\r\nTechniques\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).\r\n•\tExcellentes compétences rédactionnelles et éditoriales.\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).\r\n•\tCompétences en SEO et en analyse web.\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.\n\r\nPersonnelles\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:\r\n•\tBilingue (français et anglais)\r\nInformatique\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.\n\n\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t\n Non spécifié Dakar Non spécifié"
+}
+2025-06-26 10:52:24,365 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "texte_integral": null
+}
+2025-06-26 10:52:24,365 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 852,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOffre de recrutement<br>\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F<br>\r\n•\tReference : SPECOMMDIGCOMM/IPD2025<br>\r\n•\tDépartement : Partenariats &amp; communication<br>\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse<br>\r\n•\tLieu : Institut pasteur de dakar<br/>\r\n•\tContrat : CDD / CDI<br/>\r\n•\tDébut souhaité : Dans l’immédiat<br/>\n<br/>\r\nA Propos de l’institut<br/>\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :<br/>\n<br/>\r\n•\tRecherche &amp; Développement<br/>\r\n•\tDiagnostic, vaccination, alimentation et environnement<br/>\r\n•\tÉducation, formation et développement des talents<br/>\r\n•\tExpertise et orientation stratégique en santé publique<br/>\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.<br/>\n<br/>\n<br/>\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.<br/>\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !<br/>\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !<br/>\n<br/>\n<br/>\r\nActivités du poste<br/>\r\nDescription de poste<br/>\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :<br/>\r\nUn spécialiste polyvalent en communication digitale h/f.<br/>\n<br/>\r\nMissions générales <br/>\r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.<br/>\n<br/>\r\nActivités principales <br/>\r\nInfographie:<br/>\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).<br/>\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.<br/>\r\n•\tRéaliser des illustrations et des animations graphiques.<br/>\r\nCréation de Contenus:<br/>\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.<br/>\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.<br/>\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.<br/>\n<br/>\n<br/>\r\nGestion de Réseaux Sociaux:<br/>\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.<br/>\r\n•\tPlanifier et publier des contenus réguliers et engageants.<br/>\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.<br/>\r\n•\tAnalyser les performances des<br/>\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:<br/>\r\n•\tAssurer la création de pages par projet et rattachée au site web principal<br/>\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.<br/>\r\n•\tOptimiser le site pour le référencement (SEO).<br/>\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.<br/>\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.<br/>\n<br/>\n<br/>\r\nProfil recherché<br/>\r\nFormation<br/>\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.<br/>\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.<br/>\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.<br/>\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.<br/>\n<br/>\r\nCompétences<br/>\r\nTechniques<br/>\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).<br/>\r\n•\tExcellentes compétences rédactionnelles et éditoriales.<br/>\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).<br/>\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).<br/>\r\n•\tCompétences en SEO et en analyse web.<br/>\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.<br/>\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.<br/>\n<br/>\r\nPersonnelles<br/>\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.<br/>\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.<br/>\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:<br/>\r\n•\tBilingue (français et anglais)<br/>\r\nInformatique<br/>\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)<br/>\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.<br/>\n<br/>\n<br/>\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Spécialiste polyvalent en communication digitale \n\nOffre de recrutement\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F\r\n•\tReference : SPECOMMDIGCOMM/IPD2025\r\n•\tDépartement : Partenariats &amp; communication\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse\r\n•\tLieu : Institut pasteur de dakar\r\n•\tContrat : CDD / CDI\r\n•\tDébut souhaité : Dans l’immédiat\n\r\nA Propos de l’institut\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :\n\r\n•\tRecherche &amp; Développement\r\n•\tDiagnostic, vaccination, alimentation et environnement\r\n•\tÉducation, formation et développement des talents\r\n•\tExpertise et orientation stratégique en santé publique\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.\n\n\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !\n\n\r\nActivités du poste\r\nDescription de poste\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :\r\nUn spécialiste polyvalent en communication digitale h/f.\n\r\nMissions générales \r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.\n\r\nActivités principales \r\nInfographie:\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.\r\n•\tRéaliser des illustrations et des animations graphiques.\r\nCréation de Contenus:\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.\n\n\r\nGestion de Réseaux Sociaux:\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.\r\n•\tPlanifier et publier des contenus réguliers et engageants.\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.\r\n•\tAnalyser les performances des\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:\r\n•\tAssurer la création de pages par projet et rattachée au site web principal\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.\r\n•\tOptimiser le site pour le référencement (SEO).\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.\n\n\r\nProfil recherché\r\nFormation\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.\n\r\nCompétences\r\nTechniques\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).\r\n•\tExcellentes compétences rédactionnelles et éditoriales.\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).\r\n•\tCompétences en SEO et en analyse web.\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.\n\r\nPersonnelles\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:\r\n•\tBilingue (français et anglais)\r\nInformatique\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.\n\n\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t\n Non spécifié Dakar Non spécifié"
+}
+2025-06-26 10:52:30,247 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 21.0,
+  "score_global_semantique": 14.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (21%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre compétence 'git' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'JavaScript' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Anglais' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 38.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (38%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 23.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [
+        "Votre compétence 'git' est mentionnée dans l'offre.",
+        "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+        "Votre compétence 'JavaScript' est mentionnée dans l'offre."
+      ],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (23%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-26T10:52:30.246985",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-26 10:52:30,247 - INFO - Fin de l'analyse.
+2025-06-26 10:52:30,248 - INFO - ==================================================
+
+2025-06-26 12:25:18,409 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-26 12:26:42,919 - INFO - ==================================================
+2025-06-26 12:26:42,919 - INFO - Début de l'analyse pour l'offre ID: 852 et candidat ID: 5
+2025-06-26 12:26:42,920 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-26 12:26:42,921 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 852,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOffre de recrutement<br>\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F<br>\r\n•\tReference : SPECOMMDIGCOMM/IPD2025<br>\r\n•\tDépartement : Partenariats &amp; communication<br>\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse<br>\r\n•\tLieu : Institut pasteur de dakar<br/>\r\n•\tContrat : CDD / CDI<br/>\r\n•\tDébut souhaité : Dans l’immédiat<br/>\n<br/>\r\nA Propos de l’institut<br/>\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :<br/>\n<br/>\r\n•\tRecherche &amp; Développement<br/>\r\n•\tDiagnostic, vaccination, alimentation et environnement<br/>\r\n•\tÉducation, formation et développement des talents<br/>\r\n•\tExpertise et orientation stratégique en santé publique<br/>\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.<br/>\n<br/>\n<br/>\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.<br/>\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !<br/>\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !<br/>\n<br/>\n<br/>\r\nActivités du poste<br/>\r\nDescription de poste<br/>\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :<br/>\r\nUn spécialiste polyvalent en communication digitale h/f.<br/>\n<br/>\r\nMissions générales <br/>\r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.<br/>\n<br/>\r\nActivités principales <br/>\r\nInfographie:<br/>\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).<br/>\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.<br/>\r\n•\tRéaliser des illustrations et des animations graphiques.<br/>\r\nCréation de Contenus:<br/>\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.<br/>\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.<br/>\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.<br/>\n<br/>\n<br/>\r\nGestion de Réseaux Sociaux:<br/>\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.<br/>\r\n•\tPlanifier et publier des contenus réguliers et engageants.<br/>\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.<br/>\r\n•\tAnalyser les performances des<br/>\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:<br/>\r\n•\tAssurer la création de pages par projet et rattachée au site web principal<br/>\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.<br/>\r\n•\tOptimiser le site pour le référencement (SEO).<br/>\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.<br/>\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.<br/>\n<br/>\n<br/>\r\nProfil recherché<br/>\r\nFormation<br/>\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.<br/>\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.<br/>\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.<br/>\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.<br/>\n<br/>\r\nCompétences<br/>\r\nTechniques<br/>\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).<br/>\r\n•\tExcellentes compétences rédactionnelles et éditoriales.<br/>\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).<br/>\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).<br/>\r\n•\tCompétences en SEO et en analyse web.<br/>\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.<br/>\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.<br/>\n<br/>\r\nPersonnelles<br/>\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.<br/>\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.<br/>\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:<br/>\r\n•\tBilingue (français et anglais)<br/>\r\nInformatique<br/>\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)<br/>\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.<br/>\n<br/>\n<br/>\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Spécialiste polyvalent en communication digitale \n\nOffre de recrutement\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F\r\n•\tReference : SPECOMMDIGCOMM/IPD2025\r\n•\tDépartement : Partenariats &amp; communication\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse\r\n•\tLieu : Institut pasteur de dakar\r\n•\tContrat : CDD / CDI\r\n•\tDébut souhaité : Dans l’immédiat\n\r\nA Propos de l’institut\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :\n\r\n•\tRecherche &amp; Développement\r\n•\tDiagnostic, vaccination, alimentation et environnement\r\n•\tÉducation, formation et développement des talents\r\n•\tExpertise et orientation stratégique en santé publique\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.\n\n\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !\n\n\r\nActivités du poste\r\nDescription de poste\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :\r\nUn spécialiste polyvalent en communication digitale h/f.\n\r\nMissions générales \r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.\n\r\nActivités principales \r\nInfographie:\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.\r\n•\tRéaliser des illustrations et des animations graphiques.\r\nCréation de Contenus:\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.\n\n\r\nGestion de Réseaux Sociaux:\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.\r\n•\tPlanifier et publier des contenus réguliers et engageants.\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.\r\n•\tAnalyser les performances des\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:\r\n•\tAssurer la création de pages par projet et rattachée au site web principal\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.\r\n•\tOptimiser le site pour le référencement (SEO).\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.\n\n\r\nProfil recherché\r\nFormation\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.\n\r\nCompétences\r\nTechniques\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).\r\n•\tExcellentes compétences rédactionnelles et éditoriales.\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).\r\n•\tCompétences en SEO et en analyse web.\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.\n\r\nPersonnelles\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:\r\n•\tBilingue (français et anglais)\r\nInformatique\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.\n\n\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t\n Non spécifié Dakar Non spécifié"
+}
+2025-06-26 12:26:42,922 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-26 12:26:42,923 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 852,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOffre de recrutement<br>\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F<br>\r\n•\tReference : SPECOMMDIGCOMM/IPD2025<br>\r\n•\tDépartement : Partenariats &amp; communication<br>\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse<br>\r\n•\tLieu : Institut pasteur de dakar<br/>\r\n•\tContrat : CDD / CDI<br/>\r\n•\tDébut souhaité : Dans l’immédiat<br/>\n<br/>\r\nA Propos de l’institut<br/>\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :<br/>\n<br/>\r\n•\tRecherche &amp; Développement<br/>\r\n•\tDiagnostic, vaccination, alimentation et environnement<br/>\r\n•\tÉducation, formation et développement des talents<br/>\r\n•\tExpertise et orientation stratégique en santé publique<br/>\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.<br/>\n<br/>\n<br/>\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.<br/>\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !<br/>\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !<br/>\n<br/>\n<br/>\r\nActivités du poste<br/>\r\nDescription de poste<br/>\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :<br/>\r\nUn spécialiste polyvalent en communication digitale h/f.<br/>\n<br/>\r\nMissions générales <br/>\r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.<br/>\n<br/>\r\nActivités principales <br/>\r\nInfographie:<br/>\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).<br/>\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.<br/>\r\n•\tRéaliser des illustrations et des animations graphiques.<br/>\r\nCréation de Contenus:<br/>\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.<br/>\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.<br/>\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.<br/>\n<br/>\n<br/>\r\nGestion de Réseaux Sociaux:<br/>\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.<br/>\r\n•\tPlanifier et publier des contenus réguliers et engageants.<br/>\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.<br/>\r\n•\tAnalyser les performances des<br/>\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:<br/>\r\n•\tAssurer la création de pages par projet et rattachée au site web principal<br/>\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.<br/>\r\n•\tOptimiser le site pour le référencement (SEO).<br/>\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.<br/>\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.<br/>\n<br/>\n<br/>\r\nProfil recherché<br/>\r\nFormation<br/>\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.<br/>\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.<br/>\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.<br/>\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.<br/>\n<br/>\r\nCompétences<br/>\r\nTechniques<br/>\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).<br/>\r\n•\tExcellentes compétences rédactionnelles et éditoriales.<br/>\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).<br/>\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).<br/>\r\n•\tCompétences en SEO et en analyse web.<br/>\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.<br/>\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.<br/>\n<br/>\r\nPersonnelles<br/>\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.<br/>\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.<br/>\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:<br/>\r\n•\tBilingue (français et anglais)<br/>\r\nInformatique<br/>\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)<br/>\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.<br/>\n<br/>\n<br/>\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Spécialiste polyvalent en communication digitale \n\nOffre de recrutement\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F\r\n•\tReference : SPECOMMDIGCOMM/IPD2025\r\n•\tDépartement : Partenariats &amp; communication\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse\r\n•\tLieu : Institut pasteur de dakar\r\n•\tContrat : CDD / CDI\r\n•\tDébut souhaité : Dans l’immédiat\n\r\nA Propos de l’institut\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :\n\r\n•\tRecherche &amp; Développement\r\n•\tDiagnostic, vaccination, alimentation et environnement\r\n•\tÉducation, formation et développement des talents\r\n•\tExpertise et orientation stratégique en santé publique\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.\n\n\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !\n\n\r\nActivités du poste\r\nDescription de poste\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :\r\nUn spécialiste polyvalent en communication digitale h/f.\n\r\nMissions générales \r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.\n\r\nActivités principales \r\nInfographie:\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.\r\n•\tRéaliser des illustrations et des animations graphiques.\r\nCréation de Contenus:\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.\n\n\r\nGestion de Réseaux Sociaux:\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.\r\n•\tPlanifier et publier des contenus réguliers et engageants.\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.\r\n•\tAnalyser les performances des\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:\r\n•\tAssurer la création de pages par projet et rattachée au site web principal\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.\r\n•\tOptimiser le site pour le référencement (SEO).\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.\n\n\r\nProfil recherché\r\nFormation\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.\n\r\nCompétences\r\nTechniques\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).\r\n•\tExcellentes compétences rédactionnelles et éditoriales.\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).\r\n•\tCompétences en SEO et en analyse web.\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.\n\r\nPersonnelles\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:\r\n•\tBilingue (français et anglais)\r\nInformatique\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.\n\n\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t\n Non spécifié Dakar Non spécifié"
+}
+2025-06-26 12:26:50,153 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 21.0,
+  "score_global_semantique": 14.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (21%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'JavaScript' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'git' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Anglais' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre outil 'word' est en lien avec l'offre.",
+      "categorie": "outils",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 38.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (38%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 23.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [
+        "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+        "Votre compétence 'JavaScript' est mentionnée dans l'offre.",
+        "Votre compétence 'git' est mentionnée dans l'offre."
+      ],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (23%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-26T12:26:50.149115",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-26 12:26:50,154 - INFO - Fin de l'analyse.
+2025-06-26 12:26:50,154 - INFO - ==================================================
+
+2025-06-26 13:07:55,377 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-26 13:39:09,516 - INFO - ==================================================
+2025-06-26 13:39:09,516 - INFO - Début de l'analyse pour l'offre ID: 852 et candidat ID: 5
+2025-06-26 13:39:09,516 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-26 13:39:09,516 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 852,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOffre de recrutement<br>\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F<br>\r\n•\tReference : SPECOMMDIGCOMM/IPD2025<br>\r\n•\tDépartement : Partenariats &amp; communication<br>\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse<br>\r\n•\tLieu : Institut pasteur de dakar<br/>\r\n•\tContrat : CDD / CDI<br/>\r\n•\tDébut souhaité : Dans l’immédiat<br/>\n<br/>\r\nA Propos de l’institut<br/>\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :<br/>\n<br/>\r\n•\tRecherche &amp; Développement<br/>\r\n•\tDiagnostic, vaccination, alimentation et environnement<br/>\r\n•\tÉducation, formation et développement des talents<br/>\r\n•\tExpertise et orientation stratégique en santé publique<br/>\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.<br/>\n<br/>\n<br/>\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.<br/>\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !<br/>\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !<br/>\n<br/>\n<br/>\r\nActivités du poste<br/>\r\nDescription de poste<br/>\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :<br/>\r\nUn spécialiste polyvalent en communication digitale h/f.<br/>\n<br/>\r\nMissions générales <br/>\r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.<br/>\n<br/>\r\nActivités principales <br/>\r\nInfographie:<br/>\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).<br/>\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.<br/>\r\n•\tRéaliser des illustrations et des animations graphiques.<br/>\r\nCréation de Contenus:<br/>\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.<br/>\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.<br/>\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.<br/>\n<br/>\n<br/>\r\nGestion de Réseaux Sociaux:<br/>\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.<br/>\r\n•\tPlanifier et publier des contenus réguliers et engageants.<br/>\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.<br/>\r\n•\tAnalyser les performances des<br/>\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:<br/>\r\n•\tAssurer la création de pages par projet et rattachée au site web principal<br/>\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.<br/>\r\n•\tOptimiser le site pour le référencement (SEO).<br/>\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.<br/>\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.<br/>\n<br/>\n<br/>\r\nProfil recherché<br/>\r\nFormation<br/>\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.<br/>\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.<br/>\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.<br/>\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.<br/>\n<br/>\r\nCompétences<br/>\r\nTechniques<br/>\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).<br/>\r\n•\tExcellentes compétences rédactionnelles et éditoriales.<br/>\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).<br/>\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).<br/>\r\n•\tCompétences en SEO et en analyse web.<br/>\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.<br/>\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.<br/>\n<br/>\r\nPersonnelles<br/>\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.<br/>\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.<br/>\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:<br/>\r\n•\tBilingue (français et anglais)<br/>\r\nInformatique<br/>\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)<br/>\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.<br/>\n<br/>\n<br/>\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Spécialiste polyvalent en communication digitale \n\nOffre de recrutement\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F\r\n•\tReference : SPECOMMDIGCOMM/IPD2025\r\n•\tDépartement : Partenariats &amp; communication\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse\r\n•\tLieu : Institut pasteur de dakar\r\n•\tContrat : CDD / CDI\r\n•\tDébut souhaité : Dans l’immédiat\n\r\nA Propos de l’institut\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :\n\r\n•\tRecherche &amp; Développement\r\n•\tDiagnostic, vaccination, alimentation et environnement\r\n•\tÉducation, formation et développement des talents\r\n•\tExpertise et orientation stratégique en santé publique\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.\n\n\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !\n\n\r\nActivités du poste\r\nDescription de poste\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :\r\nUn spécialiste polyvalent en communication digitale h/f.\n\r\nMissions générales \r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.\n\r\nActivités principales \r\nInfographie:\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.\r\n•\tRéaliser des illustrations et des animations graphiques.\r\nCréation de Contenus:\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.\n\n\r\nGestion de Réseaux Sociaux:\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.\r\n•\tPlanifier et publier des contenus réguliers et engageants.\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.\r\n•\tAnalyser les performances des\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:\r\n•\tAssurer la création de pages par projet et rattachée au site web principal\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.\r\n•\tOptimiser le site pour le référencement (SEO).\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.\n\n\r\nProfil recherché\r\nFormation\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.\n\r\nCompétences\r\nTechniques\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).\r\n•\tExcellentes compétences rédactionnelles et éditoriales.\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).\r\n•\tCompétences en SEO et en analyse web.\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.\n\r\nPersonnelles\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:\r\n•\tBilingue (français et anglais)\r\nInformatique\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.\n\n\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t\n Non spécifié Dakar Non spécifié"
+}
+2025-06-26 13:39:09,531 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-26 13:39:09,531 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 852,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOffre de recrutement<br>\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F<br>\r\n•\tReference : SPECOMMDIGCOMM/IPD2025<br>\r\n•\tDépartement : Partenariats &amp; communication<br>\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse<br>\r\n•\tLieu : Institut pasteur de dakar<br/>\r\n•\tContrat : CDD / CDI<br/>\r\n•\tDébut souhaité : Dans l’immédiat<br/>\n<br/>\r\nA Propos de l’institut<br/>\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :<br/>\n<br/>\r\n•\tRecherche &amp; Développement<br/>\r\n•\tDiagnostic, vaccination, alimentation et environnement<br/>\r\n•\tÉducation, formation et développement des talents<br/>\r\n•\tExpertise et orientation stratégique en santé publique<br/>\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.<br/>\n<br/>\n<br/>\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.<br/>\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !<br/>\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !<br/>\n<br/>\n<br/>\r\nActivités du poste<br/>\r\nDescription de poste<br/>\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :<br/>\r\nUn spécialiste polyvalent en communication digitale h/f.<br/>\n<br/>\r\nMissions générales <br/>\r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.<br/>\n<br/>\r\nActivités principales <br/>\r\nInfographie:<br/>\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).<br/>\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.<br/>\r\n•\tRéaliser des illustrations et des animations graphiques.<br/>\r\nCréation de Contenus:<br/>\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.<br/>\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.<br/>\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.<br/>\n<br/>\n<br/>\r\nGestion de Réseaux Sociaux:<br/>\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.<br/>\r\n•\tPlanifier et publier des contenus réguliers et engageants.<br/>\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.<br/>\r\n•\tAnalyser les performances des<br/>\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:<br/>\r\n•\tAssurer la création de pages par projet et rattachée au site web principal<br/>\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.<br/>\r\n•\tOptimiser le site pour le référencement (SEO).<br/>\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.<br/>\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.<br/>\n<br/>\n<br/>\r\nProfil recherché<br/>\r\nFormation<br/>\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.<br/>\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.<br/>\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.<br/>\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.<br/>\n<br/>\r\nCompétences<br/>\r\nTechniques<br/>\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).<br/>\r\n•\tExcellentes compétences rédactionnelles et éditoriales.<br/>\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).<br/>\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).<br/>\r\n•\tCompétences en SEO et en analyse web.<br/>\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.<br/>\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.<br/>\n<br/>\r\nPersonnelles<br/>\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.<br/>\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.<br/>\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:<br/>\r\n•\tBilingue (français et anglais)<br/>\r\nInformatique<br/>\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)<br/>\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.<br/>\n<br/>\n<br/>\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Spécialiste polyvalent en communication digitale \n\nOffre de recrutement\r\n•\tTitre : Spécialiste polyvalent en communication digitale H/F\r\n•\tReference : SPECOMMDIGCOMM/IPD2025\r\n•\tDépartement : Partenariats &amp; communication\r\n•\tHiérarchie N+1 : Responsable de la division communication, evénements et relations presse\r\n•\tLieu : Institut pasteur de dakar\r\n•\tContrat : CDD / CDI\r\n•\tDébut souhaité : Dans l’immédiat\n\r\nA Propos de l’institut\r\nL’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :\n\r\n•\tRecherche &amp; Développement\r\n•\tDiagnostic, vaccination, alimentation et environnement\r\n•\tÉducation, formation et développement des talents\r\n•\tExpertise et orientation stratégique en santé publique\r\n•\tProduction et distribution de vaccins et de dispositifs médicaux.\n\n\r\nDe manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.\r\nA l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !\r\nNotre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.\r\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !\n\n\r\nActivités du poste\r\nDescription de poste\r\nDans le cadre de l’accroissement de nos activités, l’IPD recrute :\r\nUn spécialiste polyvalent en communication digitale h/f.\n\r\nMissions générales \r\nLe spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.\n\r\nActivités principales \r\nInfographie:\r\n•\tConcevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).\r\n•\tAssurer la cohérence visuelle de la marque sur tous les supports.\r\n•\tRéaliser des illustrations et des animations graphiques.\r\nCréation de Contenus:\r\n•\tRédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.\r\n•\tDévelopper des scripts pour des vidéos et des podcasts.\r\n•\tCollaborer avec les équipes de marketing et de design pour créer des contenus engageants.\n\n\r\nGestion de Réseaux Sociaux:\r\n•\tGérer et animer les comptes de réseaux sociaux de l’entreprise.\r\n•\tPlanifier et publier des contenus réguliers et engageants.\r\n•\tInteragir avec la communauté et répondre aux commentaires et messages.\r\n•\tAnalyser les performances des\r\n•\tcampagnes et proposer des améliorations. Gestion de Site Web:\r\n•\tAssurer la création de pages par projet et rattachée au site web principal\r\n•\tAssurer la maintenance et la mise à jour du site web de l’entreprise.\r\n•\tOptimiser le site pour le référencement (SEO).\r\n•\tCollaborer avec les développeurs pour améliorer les fonctionnalités du site.\r\n•\tSurveiller les performances du site et résoudre les problèmes techniques.\n\n\r\nProfil recherché\r\nFormation\r\n•\tDiplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.\r\n•\tExpérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.\r\n•\tMaîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.\r\n•\tConnaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.\n\r\nCompétences\r\nTechniques\r\n•\tMaîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).\r\n•\tExcellentes compétences rédactionnelles et éditoriales.\r\n•\tBonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).\r\n•\tConnaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (WordPress, Joomla).\r\n•\tCompétences en SEO et en analyse web.\r\n•\tCréativité, sens artistique et capacité à travailler en équipe.\r\n•\tCapacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.\n\r\nPersonnelles\r\n•\tProactivité: Capacité à anticiper les besoins et à prendre des initiatives.\r\n•\tFlexibilité: Adaptabilité face aux changements et aux imprévus.\r\n•\tEsprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:\r\n•\tBilingue (français et anglais)\r\nInformatique\r\n•\tUne maîtrise des outils bureautiques (Word, Excel, PowerPoint)\r\n•\tL’Institut Pasteur de  Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.\n\n\r\nDu fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.\t\n Non spécifié Dakar Non spécifié"
+}
+2025-06-26 13:39:15,912 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 21.0,
+  "score_global_semantique": 14.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (21%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre compétence 'JavaScript' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'git' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Anglais' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre outil 'word' est en lien avec l'offre.",
+      "categorie": "outils",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 38.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (38%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 23.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [
+        "Votre compétence 'JavaScript' est mentionnée dans l'offre.",
+        "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+        "Votre compétence 'git' est mentionnée dans l'offre."
+      ],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (23%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-26T13:39:15.911335",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-26 13:39:15,913 - INFO - Fin de l'analyse.
+2025-06-26 13:39:15,913 - INFO - ==================================================
+
+2025-06-26 13:40:17,372 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log

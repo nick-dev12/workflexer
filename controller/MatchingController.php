@@ -382,6 +382,11 @@ class MatchingController
             $text[] = rtrim($competences_text, ', ');
         }
         
+        if (!empty($candidatData['outils'])) {
+            $outils_text = "Outils: " . implode(', ', $candidatData['outils']);
+            $text[] = $outils_text;
+        }
+        
         if (!empty($candidatData['projets'])) {
             $projets_text = "Projets: ";
             foreach ($candidatData['projets'] as $p) {
@@ -473,6 +478,7 @@ class MatchingController
                 "experiences" => array_map([$this, 'formatExperience'], $candidatData['experiences']),
                 "competences" => $candidatData['competences'],
                 "langues" => array_map([$this, 'formatLangue'], $candidatData['langues']),
+                "outils" => $candidatData['outils'] ?? [],
                 "centres_interet" => [],
                 "projets" => $formatted_projets,
                 "disponibilite" => "Immédiate",
@@ -601,7 +607,7 @@ class MatchingController
             CURLOPT_POSTFIELDS => $jsonData,
             CURLOPT_VERBOSE => true,
             CURLOPT_STDERR => $verbose,
-            CURLOPT_TIMEOUT => 30
+            CURLOPT_TIMEOUT => 60
         ]);
 
         $this->log("Envoi de la requête à l'API", [
