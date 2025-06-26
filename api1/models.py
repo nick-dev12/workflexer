@@ -81,25 +81,51 @@ class Langue(BaseModel):
 
 
 class ProjetPersonnel(BaseModel):
+    id: Optional[int] = None
+    users_id: Optional[int] = None
     titre: str
+    liens: Optional[str] = None
     description: str = ""
+    images: Optional[str] = None
+    date: Optional[str] = None
     technologies: List[str] = Field(default_factory=list)
     date_debut: Optional[str] = None
     date_fin: Optional[str] = None
     en_cours: bool = False
     url: Optional[str] = None
-    images: List[str] = Field(default_factory=list)
     competences_developpees: List[str] = Field(default_factory=list)
 
 
 class CandidatProfile(BaseModel):
     id: int
+    # Informations de base de l'utilisateur (table users)
+    nom: str
+    email: str = ""
+    telephone: str = ""
+    ville: Optional[str] = None
+    domaine_competence: Optional[str] = None  # Correspond à 'competences' dans la table users
+    profession: Optional[str] = None
+    categorie: Optional[str] = None
+    images: Optional[str] = None
+    statut: Optional[str] = None
+    verification: Optional[str] = None
+    verification_statut: Optional[str] = None
+    date_inscription: Optional[str] = None
+    
+    # Description du profil (table description_users)
+    description: Optional[str] = None  # Description "à propos de moi" du CV
+    
+    # Données de formation et expérience
     formations: List[Formation] = Field(default_factory=list)
     experiences: List[Experience] = Field(default_factory=list)
     competences: List[Competence] = Field(default_factory=list)
     langues: List[Langue] = Field(default_factory=list)
     centres_interet: List[str] = Field(default_factory=list)
+    
+    # Projets personnels (table projet_users)
     projets: List[ProjetPersonnel] = Field(default_factory=list)
+    
+    # Autres informations
     disponibilite: Optional[str] = None
     mobilite: Dict[str, Union[bool, List[str]]] = Field(default_factory=dict)
     preferences_travail: Dict[str, Union[bool, str, List[str]]] = Field(default_factory=dict)
@@ -111,6 +137,7 @@ class CandidatProfile(BaseModel):
     niveau_experience: Optional[str] = None
     niveau_etude_valeur: Optional[int] = None
     niveau_experience_valeur: Optional[int] = None
+    texte_integral: Optional[str] = None
 
 
 class ExigenceFormation(BaseModel):
@@ -155,6 +182,7 @@ class JobOffer(BaseModel):
     environnement_technique: Dict[str, List[str]] = Field(default_factory=dict)
     methodologie: List[str] = Field(default_factory=list)
     taille_equipe: Optional[int] = None
+    texte_integral: Optional[str] = None
 
 
 class CompetenceAnalysis(BaseModel):
@@ -305,6 +333,7 @@ class ContexteAnalyse(BaseModel):
 class MatchingResponseV2(BaseModel):
     """Nouvelle version du modèle de réponse pour l'API"""
     score_global: float
+    score_global_semantique: Optional[float] = None
     niveau_adequation: str  # Excellent, Bon, Moyen, À améliorer
     resume: str
     points_forts: List[PointFort] = Field(default_factory=list)
@@ -312,10 +341,10 @@ class MatchingResponseV2(BaseModel):
     analyse_detaillee: AnalyseDetaillee
     suggestions: List[Suggestion] = Field(default_factory=list)
     contexte_analyse: ContexteAnalyse = Field(default_factory=ContexteAnalyse)
+    competences_manquantes: Optional[List[str]] = None
     
     # Nouvelles sections pour une analyse plus détaillée
     competences_correspondantes: Optional[List[Dict[str, Any]]] = None
-    competences_manquantes: Optional[List[Dict[str, Any]]] = None
     niveau_etude_analyse: Optional[Dict[str, Any]] = None
     niveau_experience_analyse: Optional[Dict[str, Any]] = None
     compatibilite_sectorielle: Optional[Dict[str, Any]] = None

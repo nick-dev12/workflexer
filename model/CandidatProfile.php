@@ -62,7 +62,7 @@ class CandidatProfile
      */
     private function getBasicInfo()
     {
-        $sql = "SELECT id, nom, mail, phone, ville, profession, categorie, images 
+        $sql = "SELECT id, nom, mail, phone, ville, profession, categorie, images, competences 
                 FROM users WHERE id = :users_id";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':users_id', $this->users_id);
@@ -87,6 +87,22 @@ class CandidatProfile
             'niveau_etude_valeur' => $result['n_etude'] ?? 0,
             'niveau_experience_valeur' => $result['n_experience'] ?? 0
         ];
+    }
+
+    /**
+     * Récupère le titre (domaine de compétence) du candidat
+     */
+    public function getTitre()
+    {
+        $sql = "SELECT profession, competences FROM users WHERE id = :users_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':users_id', $this->users_id);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result['competences'] ?? $result['profession'];
+        }
+        return null;
     }
 
     /**
@@ -172,7 +188,7 @@ class CandidatProfile
             'prenom' => $prenom,
             'email' => $profile['basic_info']['mail'],
             'telephone' => $profile['basic_info']['phone'],
-            'titre' => $profile['basic_info']['profession'],
+            'titre' => $profile['basic_info']['competences'] ?? $profile['basic_info']['profession'],
             'description' => $description,
             'competences' => $competences,
             'formations' => $formations,
@@ -208,7 +224,7 @@ class CandidatProfile
             'Courant' => 'Courant',
             'Natif' => 'Natif'
         ];
-
+        
         return $niveaux[$niveau] ?? 'Intermédiaire';
     }
-}
+} 

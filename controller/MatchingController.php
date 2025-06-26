@@ -194,6 +194,29 @@ class MatchingController
         return array_values($uniqueCompetences);
     }
 
+    private function extractEducationLevelValue(string $text): int
+    {
+        // Recherche de "bac+\d" ou "master", "licence", etc.
+        if (preg_match('/(?:bac\s*\+\s*|master\s*pro\s*)(\d+)/i', $text, $matches)) {
+            return intval($matches[1]);
+        }
+        $lowerText = strtolower($text);
+        if (strpos($lowerText, 'doctorat') !== false) return 8;
+        if (strpos($lowerText, 'master') !== false) return 5;
+        if (strpos($lowerText, 'licence') !== false) return 3;
+        if (strpos($lowerText, 'bac') !== false) return 0;
+        return 0;
+    }
+
+    private function extractExperienceYearsFromText(string $text): int
+    {
+        // Recherche de "X ans", "entre X et Y ans"
+        if (preg_match('/(?:entre\s*)?(\d+)\s*(?:à|et|-)?\s*(?:\d+\s*)?an/i', $text, $matches)) {
+            return intval($matches[1]); // On prend le minimum requis
+        }
+        return 0;
+    }
+
     private function formatFormation($formation)
     {
         return [
@@ -282,20 +305,11 @@ class MatchingController
         }
         $competences_requises = array_values($competences_uniques);
 
-        // Extraire le niveau d'étude requis et sa valeur numérique
+        // Extraction du niveau d'étude requis et sa valeur numérique
         $niveau_etude = $offre['niveau_etude'] ?? "Non spécifié";
-        $niveau_etude_valeur = 0;
-
-        if (preg_match('/bac\s*\+\s*(\d+)/i', $niveau_etude, $matches)) {
-            $niveau_etude_valeur = intval($matches[1]);
-        } elseif (stripos($niveau_etude, 'bac') !== false) {
-            $niveau_etude_valeur = 0;
-        } elseif (stripos($niveau_etude, 'licence') !== false) {
-            $niveau_etude_valeur = 3;
-        } elseif (stripos($niveau_etude, 'master') !== false) {
-            $niveau_etude_valeur = 5;
-        } elseif (stripos($niveau_etude, 'doctorat') !== false) {
-            $niveau_etude_valeur = 8;
+        $niveau_etude_valeur = $this->extractEducationLevelValue($offre['profil_recherche'] ?? '');
+        if ($niveau_etude_valeur === 0) {
+            $niveau_etude_valeur = $this->extractEducationLevelValue($niveau_etude);
         }
 
         // Exigences de formation
@@ -308,10 +322,9 @@ class MatchingController
 
         // Exigences d'expérience
         $niveau_experience = $offre['niveau_experience'] ?? "Non spécifié";
-        $duree_minimum_mois = 0;
-
-        if (preg_match('/(\d+)\s*an/i', $niveau_experience, $matches)) {
-            $duree_minimum_mois = intval($matches[1]) * 12;
+        $duree_minimum_mois = $this->extractExperienceYearsFromText($niveau_experience) * 12;
+        if ($duree_minimum_mois === 0) {
+             $duree_minimum_mois = $this->extractExperienceYearsFromText($offre['profil_recherche'] ?? '') * 12;
         }
 
         $experience_requise = [
@@ -334,6 +347,74 @@ class MatchingController
             "type_contrat" => $offre['type_contrat'],
             "localisation" => $offre['localisation']
         ];
+    }
+
+    private function concatenateCandidateData(array $candidatData): string
+    {
+        $text = [];
+        $text[] = "Profil du candidat : " . ($candidatData['nom'] ?? '');
+        $text[] = "Profession : " . ($candidatData['profession'] ?? '');
+        if (!empty($candidatData['description'])) {
+            $text[] = "Description : " . strip_tags($candidatData['description']);
+        }
+
+        if (!empty($candidatData['formations'])) {
+            $formations_text = "Formations: ";
+            foreach ($candidatData['formations'] as $f) {
+                $formations_text .= "{$f['niveau']} en {$f['domaine']} à {$f['etablissement']}; ";
+            }
+            $text[] = $formations_text;
+        }
+
+        if (!empty($candidatData['experiences'])) {
+            $experiences_text = "Expériences: ";
+            foreach ($candidatData['experiences'] as $e) {
+                $experiences_text .= "{$e['titre_poste']} - " . strip_tags($e['description']) . "; ";
+            }
+            $text[] = $experiences_text;
+        }
+
+        if (!empty($candidatData['competences'])) {
+            $competences_text = "Compétences: ";
+            foreach ($candidatData['competences'] as $c) {
+                $competences_text .= "{$c['nom']}, ";
+            }
+            $text[] = rtrim($competences_text, ', ');
+        }
+        
+        if (!empty($candidatData['projets'])) {
+            $projets_text = "Projets: ";
+            foreach ($candidatData['projets'] as $p) {
+                $projets_text .= "{$p['titre']} - " . strip_tags($p['description']) . "; ";
+            }
+            $text[] = $projets_text;
+        }
+
+        return implode("\n", $text);
+    }
+
+    private function concatenateOfferData(array $offreData): string
+    {
+        $text = [];
+        $text[] = "Offre d'emploi : " . ($offreData['titre'] ?? '');
+        $text[] = "Secteur : " . ($offreData['secteur'] ?? '');
+        if (!empty($offreData['description'])) {
+            $text[] = "Description du poste : " . strip_tags($offreData['description']);
+        }
+
+        if (!empty($offreData['competences_requises'])) {
+            $text[] = "Compétences requises: " . implode(', ', array_column($offreData['competences_requises'], 'nom'));
+        }
+        
+        if (isset($offreData['formation_requise']) && !empty($offreData['formation_requise']['niveau_minimum'])) {
+            $text[] = "Niveau d'étude requis: " . $offreData['formation_requise']['niveau_minimum'];
+        }
+        
+        if (isset($offreData['experience_requise']) && !empty($offreData['experience_requise']['niveau'])) {
+            $text[] = "Niveau d'expérience requis: " . $offreData['experience_requise']['niveau'];
+        }
+
+        return implode("\n", $text);
     }
 
     /**
@@ -362,6 +443,17 @@ class MatchingController
             $niveaux = $candidatProfile->getNiveauEtudeExperience();
             $candidatData['niveau_etude'] = $niveaux['niveau_etude'];
             $candidatData['niveau_experience'] = $niveaux['niveau_experience'];
+            $candidatData['niveau_etude_valeur'] = $niveaux['niveau_etude_valeur'];
+            $candidatData['niveau_experience_valeur'] = $niveaux['niveau_experience_valeur'];
+
+            // Récupération de la description du candidat si non présente
+            if (empty($candidatData['description'])) {
+                $candidatData['description'] = $this->getDescriptionCandidat($users_id);
+            }
+
+            // Récupération des projets du candidat
+            $projets = $this->getProjetsCandidat($users_id);
+            $formatted_projets = array_map([$this, 'formatProjet'], $projets);
 
             // Enrichir les compétences avec l'extraction depuis les descriptions
             $candidatData['competences'] = $this->getAllCompetences($candidatData);
@@ -369,15 +461,25 @@ class MatchingController
             // Formatage des données du candidat
             $formatted_candidat = [
                 "id" => intval($candidatData['id']),
+                "nom" => $candidatData['nom'] ?? '',
+                "email" => $candidatData['email'] ?? '',
+                "telephone" => $candidatData['telephone'] ?? '',
+                "ville" => $candidatData['ville'] ?? '',
+                "domaine_competence" => $candidatData['titre'] ?? '',  // Le titre professionnel représente le domaine de compétence
+                "profession" => $candidatData['titre'] ?? '',
+                "categorie" => $candidatData['categorie'] ?? '',
+                "description" => $candidatData['description'] ?? '',
                 "formations" => array_map([$this, 'formatFormation'], $candidatData['formations']),
                 "experiences" => array_map([$this, 'formatExperience'], $candidatData['experiences']),
                 "competences" => $candidatData['competences'],
                 "langues" => array_map([$this, 'formatLangue'], $candidatData['langues']),
                 "centres_interet" => [],
-                "projets" => [],
+                "projets" => $formatted_projets,
                 "disponibilite" => "Immédiate",
                 "niveau_etude" => $candidatData['niveau_etude'],
-                "niveau_experience" => $candidatData['niveau_experience']
+                "niveau_experience" => $candidatData['niveau_experience'],
+                "niveau_etude_valeur" => $candidatData['niveau_etude_valeur'],
+                "niveau_experience_valeur" => $candidatData['niveau_experience_valeur']
             ];
 
             // Récupération des données de l'offre
@@ -388,18 +490,24 @@ class MatchingController
                 throw new Exception("Impossible de récupérer les données de l'offre");
             }
 
-            // Enrichir les compétences requises avec l'extraction depuis la description
-            $competences_from_description = $this->extractCompetencesFromText($offreData['description_poste']);
+            // Enrichir les compétences requises avec l'extraction depuis la description et le profil recherché
+            $texte_offre_pour_extraction = ($offreData['description_poste'] ?? '') . ' ' . ($offreData['profil_recherche'] ?? '');
+            $competences_from_text = $this->extractCompetencesFromText($texte_offre_pour_extraction);
+            
             if (!isset($offreData['competences_requises'])) {
                 $offreData['competences_requises'] = [];
             }
             $offreData['competences_requises'] = array_merge(
                 $offreData['competences_requises'],
-                $competences_from_description
+                $competences_from_text
             );
 
             // Formatage des données de l'offre
             $formatted_offre = $this->formatOffreEmploi($offreData);
+
+            // Concaténation des données pour l'analyse globale (hybride)
+            $formatted_candidat['texte_integral'] = $this->concatenateCandidateData($formatted_candidat);
+            $formatted_offre['texte_integral'] = $this->concatenateOfferData($formatted_offre);
 
             // Préparation des données pour l'API
             $requestData = [
@@ -540,20 +648,90 @@ class MatchingController
 
         $this->log("Réponse API décodée avec succès", $decoded);
 
-        // Adapter le format de la réponse pour la version v2 de l'API
-        if (isset($decoded['version']) && $decoded['version'] === 'v2') {
-            return [
-                'score_global' => $decoded['score_global'],
-                'niveau_adequation' => $decoded['niveau_adequation'],
-                'resume' => $decoded['resume'],
-                'points_forts' => $decoded['points_forts'],
-                'points_amelioration' => $decoded['points_amelioration'],
-                'analyse_detaillee' => $decoded['analyse_detaillee'],
-                'suggestions' => $decoded['suggestions']
-            ];
-        }
-
-        // Compatibilité avec l'ancien format si nécessaire
+        // Retourner directement la réponse décodée
         return $decoded;
+    }
+
+    private function formatProjet($projet)
+    {
+        return [
+            "id" => intval($projet['id']),
+            "users_id" => intval($projet['users_id']),
+            "titre" => $projet['titre'],
+            "liens" => $projet['liens'] ?? null,
+            "description" => !empty($projet['projetdescription']) ? strip_tags($projet['projetdescription']) : "",
+            "images" => $projet['images'] ?? null,
+            "date" => $projet['date'] ?? null,
+            "technologies" => $this->extractTechnologiesFromText($projet['projetdescription'] ?? ""),
+            "competences_developpees" => $this->extractCompetencesFromText($projet['projetdescription'] ?? "")
+        ];
+    }
+
+    private function getProjetsCandidat($users_id)
+    {
+        try {
+            $sql = "SELECT id, users_id, titre, liens, projetdescription, images, date 
+                    FROM projet_users 
+                    WHERE users_id = :users_id";
+            
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(':users_id', $users_id);
+            $stmt->execute();
+            
+            $projets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $projets ? $projets : [];
+        } catch (Exception $e) {
+            $this->log("Erreur lors de la récupération des projets", [
+                'users_id' => $users_id,
+                'error' => $e->getMessage()
+            ]);
+            return [];
+        }
+    }
+
+    private function getDescriptionCandidat($users_id)
+    {
+        try {
+            $sql = "SELECT description 
+                    FROM description_users 
+                    WHERE users_id = :users_id 
+                    ORDER BY date DESC LIMIT 1";
+            
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(':users_id', $users_id);
+            $stmt->execute();
+            
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result ? $result['description'] : '';
+        } catch (Exception $e) {
+            $this->log("Erreur lors de la récupération de la description", [
+                'users_id' => $users_id,
+                'error' => $e->getMessage()
+            ]);
+            return '';
+        }
+    }
+
+    private function extractTechnologiesFromText($text)
+    {
+        if (empty($text)) {
+            return [];
+        }
+        
+        $technologies = [];
+        
+        // Recherche des technologies mentionnées
+        if (preg_match('/Technologies?(?:\s+utilisées)?(?:\s*:|\s*utilisées\s*:)([^<\n\.]+)/i', $text, $matches)) {
+            $techs = explode(',', $matches[1]);
+            $technologies = array_map('trim', $techs);
+        }
+        
+        // Si aucune technologie n'a été trouvée avec le pattern précédent, utiliser extractCompetencesFromText
+        if (empty($technologies)) {
+            $competences = $this->extractCompetencesFromText($text);
+            $technologies = array_column($competences, 'nom');
+        }
+        
+        return array_filter($technologies);
     }
 } 

@@ -32,6 +32,7 @@ from models import (
     Suggestion,
     CorrespondanceItem,
     ElementManquant,
+    ProjetPersonnel,
 )
 
 # --- Configuration du Logging ---
@@ -209,27 +210,20 @@ def analyze_formation_compatibility(
     if not exigence.domaines_acceptes and exigence.niveau_minimum == "Non spécifié":
         return 1.0, ["Aucune exigence de formation spécifique."], []
 
-    # Analyse du niveau d'études
-    niveau_requis = exigence.niveau_valeur if hasattr(exigence, 'niveau_valeur') else get_niveau_etudes_value(exigence.niveau_minimum)
-    
-    # Utiliser directement la valeur numérique du niveau d'étude si disponible
-    if niveau_etude_valeur is not None:
-        niveau_max_candidat = niveau_etude_valeur
-    else:
-        # Extraire le niveau d'études du texte
-        niveau_max_candidat = get_niveau_etudes_value(niveau_etude_profil) if niveau_etude_profil else 0
+    # Analyse du niveau d'études - Données maintenant normalisées et fiables
+    niveau_requis_val = exigence.niveau_valeur
+    niveau_candidat_val = niveau_etude_valeur if niveau_etude_valeur is not None else 0
 
-    # Comparaison des niveaux
-    if niveau_max_candidat >= niveau_requis:
+    # Comparaison stricte des niveaux
+    if niveau_candidat_val >= niveau_requis_val:
         score_niveau = 1.0
-        if niveau_etude_profil:
-            points_forts.append(f"Niveau d'études ({niveau_etude_profil}) supérieur ou égal au niveau requis ({exigence.niveau_minimum})")
+        if niveau_etude_profil and niveau_requis_val > 0:
+            points_forts.append(f"Niveau d'études ({niveau_etude_profil}) adéquat pour le niveau requis ({exigence.niveau_minimum}).")
     else:
-        score_niveau = max(0, 0.5 * (niveau_max_candidat / niveau_requis if niveau_requis > 0 else 1))
-        if niveau_requis > 0:
+        score_niveau = (niveau_candidat_val / niveau_requis_val) if niveau_requis_val > 0 else 0
+        if niveau_requis_val > 0:
             recommendations.append(
-                f"Le niveau d'études requis est {exigence.niveau_minimum}, "
-                f"alors que votre niveau actuel est {niveau_etude_profil or 'Non spécifié'}"
+                f"Le niveau d'études requis ({exigence.niveau_minimum}) est supérieur à votre niveau actuel ({niveau_etude_profil or 'Non spécifié'})."
             )
 
     score_total = score_niveau
@@ -296,19 +290,19 @@ def analyze_experience_compatibility(
     points_forts = []
     recommendations = []
     
-    # 1. Analyse de la durée de l'expérience
+    # 1. Analyse de la durée de l'expérience - Données maintenant normalisées et fiables
     total_experience_months = sum(e.duree_mois for e in experiences if e.duree_mois)
-    required_experience_months = exigence.duree_minimum_mois or 0
-    
+    required_experience_months = exigence.duree_minimum_mois
+
     if required_experience_months == 0:
         score_duree = 1.0 # Pas d'exigence de durée, le candidat est compatible sur ce point
-        points_forts.append("La durée de votre expérience correspond aux attentes (aucune durée minimale requise).")
+        points_forts.append("La durée d'expérience n'est pas un critère principal pour cette offre.")
     elif total_experience_months >= required_experience_months:
         score_duree = 1.0
-        points_forts.append(f"Vous avez {total_experience_months / 12:.1f} ans d'expérience, ce qui est supérieur ou égal aux {required_experience_months / 12:.1f} ans requis.")
+        points_forts.append(f"Vous avez {total_experience_months / 12:.1f} ans d'expérience, ce qui correspond ou dépasse les {required_experience_months / 12:.1f} ans requis.")
     else:
-        score_duree = total_experience_months / required_experience_months
-        recommendations.append(f"L'offre requiert {required_experience_months / 12:.1f} ans d'expérience, et vous en avez {total_experience_months / 12:.1f}.")
+        score_duree = total_experience_months / required_experience_months if required_experience_months > 0 else 0
+        recommendations.append(f"L'offre requiert {required_experience_months / 12:.1f} ans d'expérience, mais votre profil en indique {total_experience_months / 12:.1f}.")
 
     # 2. Analyse de la pertinence sémantique
     all_lemmas = [
@@ -364,8 +358,11 @@ def analyze_competences_compatibility(
     points_forts = []
     total_score = 0.0
     
-    # Utilisation d'un seuil de similarité configurable
-    SIMILARITY_THRESHOLD = config.SIMILARITY_THRESHOLDS.get('competences', 0.75)
+    # Utilisation d'un seuil de similarité configurable et plus strict
+    SIMILARITY_THRESHOLD = 0.80 # Seuil augmenté pour plus de rigueur
+    
+    # Variable pour compter les compétences requises qui ont été trouvées
+    matched_skills_count = 0
 
     for req_norm, req_orig_obj in req_skills_normalized.items():
         if not req_norm.strip():
@@ -387,7 +384,7 @@ def analyze_competences_compatibility(
         
         if best_match_score > SIMILARITY_THRESHOLD:
             # On considère la compétence comme acquise
-            total_score += best_match_score
+            matched_skills_count += 1
             item = CorrespondanceItem(
                 element_profil=best_cand_obj.nom,
                 element_offre=req_orig_obj.nom,
@@ -403,7 +400,8 @@ def analyze_competences_compatibility(
         else:
             manquants.append(ElementManquant(description=req_orig_obj.nom, categorie='competence', importance='importante'))
 
-    score = (total_score / len(req_skills_normalized)) if req_skills_normalized else 1.0
+    # Nouveau calcul du score : un ratio strict de couverture des compétences requises
+    score = (matched_skills_count / len(req_skills_normalized)) if req_skills_normalized else 1.0
     
     recommendations = []
     if manquants:
@@ -740,17 +738,76 @@ def generate_synthesis(global_score: float, analyses: Dict) -> str:
     return synthesis
 
 
+def create_focused_candidate_text(candidate_text: str, offer_keywords: Set[str]) -> str:
+    """
+    Crée une version focalisée du texte du candidat, ne gardant que les phrases
+    contenant des mots-clés de l'offre pour une comparaison plus pertinente.
+    """
+    if not offer_keywords:
+        return candidate_text # Retourne le texte complet si pas de mots-clés
+
+    focused_sentences = []
+    # Utilise NLTK pour segmenter le texte en phrases
+    sentences = nltk.sent_tokenize(candidate_text, language='french')
+    
+    for sentence in sentences:
+        # Normalise la phrase pour la recherche
+        normalized_sentence_words = set(normalize_text(sentence))
+        # Si une phrase contient au moins un mot-clé de l'offre, on la garde
+        if not normalized_sentence_words.isdisjoint(offer_keywords):
+            focused_sentences.append(sentence)
+            
+    if not focused_sentences:
+        return candidate_text # Fallback au texte complet si aucune phrase ne correspond
+
+    return " ".join(focused_sentences)
+
+
+def analyze_global_compatibility(candidate_text: Optional[str], offer_text: Optional[str]) -> float:
+    """
+    Analyse la compatibilité globale en comparant une version focalisée du profil
+    avec le texte de l'offre pour donner la priorité aux exigences de l'offre.
+    """
+    if not candidate_text or not offer_text:
+        return 0.0
+    
+    logger.info("Début de l'analyse sémantique globale avec focalisation.")
+    
+    # Extrait les mots-clés de l'offre pour guider la focalisation
+    offer_keywords = set(normalize_text(offer_text))
+    
+    # Crée une version du texte candidat focalisée sur les mots-clés de l'offre
+    focused_candidate_text = create_focused_candidate_text(candidate_text, offer_keywords)
+    
+    logger.info("Texte candidat focalisé créé. Lancement de la comparaison.")
+    
+    similarity = get_semantic_similarity(focused_candidate_text, offer_text)
+    logger.info(f"Similarité sémantique globale (focalisée) calculée : {similarity:.2f}")
+    return similarity
+
+
 def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
     """
     Analyse complète et nouvelle génération de rapport structuré V2,
-    en s'appuyant sur l'analyse sémantique.
+    en s'appuyant sur une approche hybride (sémantique globale + analyse granulaire).
     """
     try:
         # Validation et initialisation des objets Pydantic
         profile = CandidatProfile(**candidate_data)
         offer = JobOffer(**job_offer_data)
         
-        # --- Analyses détaillées par catégorie ---
+        # Vérifier si l'offre a suffisamment de contenu pour une analyse pertinente
+        MIN_OFFER_LENGTH = 100  # En nombre de caractères
+        if not offer.texte_integral or len(offer.texte_integral) < MIN_OFFER_LENGTH:
+            return {
+                "error": "insufficient_data",
+                "message": "La description de l'offre est trop courte pour une analyse de compatibilité détaillée. Nous vous invitons à consulter directement les détails de l'offre."
+            }
+        
+        # --- Analyse Globale : le score principal est UNIQUEMENT basé sur cette analyse ---
+        global_semantic_score = analyze_global_compatibility(profile.texte_integral, offer.texte_integral)
+        
+        # --- Analyses Détaillées / Granulaires : utilisées pour le contenu du rapport ---
         
         # 1. Formation
         formation_score, f_details, f_reco = analyze_formation_compatibility(
@@ -772,24 +829,58 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
             profile.langues, offer.langues_requises
         )
         
-        # --- Calcul du score global pondéré ---
-        weights = config.WEIGHTS
-        global_score = (
-            formation_score * weights.get("formation", 0.25) +
-            experience_score * weights.get("experience", 0.35) +
-            competences_score * weights.get("competences", 0.25) +
-            langues_score * weights.get("langues", 0.15)
-        ) * 100
+        # 5. Analyse des projets personnels (nouveau)
+        p_details, p_reco = analyze_projets_candidat(profile.projets, offer)
         
+        # --- Calcul du score global : Approche Hybride Pondérée ---
+
+        # 1. Calculer le score composite de l'analyse granulaire
+        granular_composite_score = (
+            formation_score * FORMATION_WEIGHT +
+            experience_score * EXPERIENCE_WEIGHT +
+            competences_score * COMPETENCES_WEIGHT +
+            langues_score * LANGUES_WEIGHT
+        )
+        logger.info(f"Score composite granulaire calculé : {granular_composite_score:.2f}")
+
+        # 2. Définir les poids pour l'hybridation finale
+        WEIGHT_GLOBAL_SEMANTIC = 0.6  # 60% du score vient de l'analyse globale
+        WEIGHT_GRANULAR = 0.4         # 40% du score vient de l'analyse détaillée
+
+        # 3. Calculer le score final hybride
+        # Assurer que les scores sont bien entre 0 et 1 avant de les pondérer
+        final_hybrid_score = (
+            (global_semantic_score * WEIGHT_GLOBAL_SEMANTIC) +
+            (granular_composite_score * WEIGHT_GRANULAR)
+        )
+        
+        final_global_score = max(0, min(1, final_hybrid_score)) * 100
+        logger.info(f"Score final hybride calculé : {final_global_score:.0f}")
+
         # --- Construction de la réponse structurée (V2) ---
         
-        points_forts = [PointFort(description=d, categorie=c) for c, details in [("formation", f_details), ("experience", e_details), ("competences", c_details), ("langues", l_details)] for d in details]
-        points_amelioration = [PointAmelioration(description=r, categorie=c) for c, recos in [("formation", f_reco), ("experience", e_reco), ("competences", c_reco), ("langues", l_reco)] for r in recos]
+        points_forts = [PointFort(description=d, categorie=c) for c, details in [
+            ("formation", f_details), 
+            ("experience", e_details), 
+            ("competences", c_details), 
+            ("langues", l_details),
+            ("projets", p_details)
+        ] for d in details]
         
-        # Génération des suggestions
+        points_amelioration = [PointAmelioration(description=r, categorie=c) for c, recos in [
+            ("formation", f_reco), 
+            ("experience", e_reco), 
+            ("competences", c_reco), 
+            ("langues", l_reco),
+            ("projets", p_reco)
+        ] for r in recos]
+        
         all_recommendations = {
-            "formation_reco": f_reco, "experience_reco": e_reco, 
-            "competences_reco": c_reco, "langues_reco": l_reco
+            "formation_reco": f_reco,
+            "experience_reco": e_reco,
+            "competences_reco": c_reco,
+            "langues_reco": l_reco,
+            "projets_reco": p_reco
         }
         raw_suggestions = generate_improvement_suggestions(profile, offer, all_recommendations)
         suggestions = [
@@ -799,7 +890,10 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
                 priorite=s.get("priorite", "normale")
             ) for s in raw_suggestions
         ]
-
+        
+        projets_score = len(p_details) / max(3, len(profile.projets) if profile.projets else 1)
+        projets_resume = generate_section_resume("projets", projets_score)
+        
         analyse_detaillee = {
             "formation": AnalyseCategorielle(categorie="Formation", score=round(formation_score * 100), points_forts=f_details, points_amelioration=f_reco, resume=generate_section_resume("formation", formation_score)),
             "experience": AnalyseCategorielle(categorie="Expérience", score=round(experience_score * 100), points_forts=e_details, points_amelioration=e_reco, resume=generate_section_resume("experience", experience_score)),
@@ -813,6 +907,7 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
                 resume=generate_section_resume("competences", competences_score)
             ),
             "langues": AnalyseCategorielle(categorie="Langues", score=round(langues_score * 100), points_forts=l_details, points_amelioration=l_reco, resume=generate_section_resume("langues", langues_score)),
+            "projets": AnalyseCategorielle(categorie="Projets", score=round(projets_score * 100), points_forts=p_details, points_amelioration=p_reco, resume=projets_resume)
         }
 
         def get_adequation_level(score):
@@ -822,19 +917,21 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
             if score > 30: return "Passable"
             return "Faible"
             
-        niveau_adequation = get_adequation_level(global_score)
+        niveau_adequation = get_adequation_level(final_global_score)
         
         strongest_category = max(analyse_detaillee, key=lambda k: analyse_detaillee[k].score) if analyse_detaillee else "N/A"
-        resume = generate_main_resume(global_score, niveau_adequation, strongest_category, points_amelioration)
+        resume = generate_main_resume(final_global_score, niveau_adequation, strongest_category, points_amelioration)
 
         response_data = MatchingResponseV2(
-            score_global=round(global_score),
+            score_global=round(final_global_score),
+            score_global_semantique=round(global_semantic_score * 100),
             niveau_adequation=niveau_adequation,
             resume=resume,
             points_forts=points_forts,
             points_amelioration=points_amelioration,
             suggestions=suggestions,
             analyse_detaillee=analyse_detaillee,
+            competences_manquantes=[m.description for m in c_manquants]
         )
         
         return response_data.dict(exclude_none=True)
@@ -851,22 +948,17 @@ def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
 def generate_main_resume(global_score: float, niveau_adequation: str, strongest_category: str, points_amelioration: List[PointAmelioration]) -> str:
     """Génère un résumé principal personnalisé et engageant."""
     score = round(global_score)
-    # Ensure "Compétences" has the accent for display
-    strongest_category_fr = strongest_category.lower().replace('competences', 'compétences')
 
     if score > 85:
-        resume = f"Félicitations ! Votre profil est en parfaite adéquation ({score}%) avec cette offre. Vos compétences et votre expérience semblent correspondre exactement à ce que l'entreprise recherche."
+        resume = f"Excellent ! ({score}%) Votre profil matche parfaitement avec cette offre. C'est un grand oui !"
     elif score > 70:
-        resume = f"Très prometteur ! Votre profil correspond très bien ({score}%) à cette offre. Vous avez de solides atouts, notamment dans le domaine '{strongest_category_fr}'. Quelques ajustements pourraient vous rendre irrésistible."
+        resume = f"Très bon profil ! ({score}%) Vous avez de solides atouts pour ce poste. Quelques petits ajustements et ce sera parfait."
     elif score > 50:
-        resume = f"C'est un bon début ! Votre profil a retenu notre attention ({score}%). Votre principal point fort est la section '{strongest_category_fr}'. Nous vous conseillons de regarder les points d'amélioration pour maximiser vos chances."
+        resume = f"Pas mal du tout ! ({score}%) Votre profil a de bons atouts. Jetez un oeil aux suggestions pour faire la différence."
     elif score > 30:
-        resume = f"Il y a du potentiel. Votre profil présente quelques correspondances ({score}%) avec l'offre, mais des écarts sont à noter. Concentrez-vous sur les axes d'amélioration pour des offres similaires à l'avenir."
+        resume = f"Il y a du potentiel. ({score}%) Il y a des points qui matchent, mais aussi des écarts. Concentrez-vous sur les suggestions pour les prochaines fois."
     else:
-        resume = f"Cette offre ne semble pas être la plus adaptée pour vous pour le moment ({score}%). Ne vous découragez pas ! Voyez cela comme une piste pour identifier les compétences à développer pour votre prochaine candidature."
-
-    if points_amelioration:
-        resume += f" Le premier point à regarder serait : {points_amelioration[0].description}"
+        resume = f"Pour l'instant, ça ne matche pas trop ({score}%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler."
 
     return resume
 
@@ -876,29 +968,35 @@ def generate_section_resume(categorie: str, score: float) -> str:
     score_pct = round(score * 100)
     
     resumes = {
-        "formation": {
+            "formation": {
             "excellent": f"Votre parcours académique ({score_pct}%) est un atout majeur pour ce poste.",
             "bon": f"Votre formation ({score_pct}%) est solide et pertinente pour ce rôle.",
             "moyen": f"Votre formation ({score_pct}%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.",
             "faible": f"Votre parcours de formation ({score_pct}%) semble assez éloigné des prérequis pour ce poste. Mettez en avant vos expériences concrètes.",
-        },
-        "experience": {
+            },
+            "experience": {
             "excellent": f"Votre expérience professionnelle ({score_pct}%) est en parfaite adéquation avec les missions proposées.",
             "bon": f"Vous avez une expérience très pertinente ({score_pct}%) pour ce poste. Pensez à bien la détailler.",
             "moyen": f"Votre expérience ({score_pct}%) est intéressante. Essayez de mettre en avant les projets les plus similaires à ceux de l'offre.",
             "faible": f"Il semble vous manquer une expérience significative ({score_pct}%) pour ce poste. Valorisez vos stages, projets personnels ou formations.",
-        },
-        "competences": {
+            },
+            "competences": {
             "excellent": f"Vos compétences ({score_pct}%) correspondent parfaitement aux attentes. Vous êtes prêt pour les défis techniques de ce poste.",
             "bon": f"Vous possédez un solide éventail de compétences ({score_pct}%) pour cette mission.",
             "moyen": f"Vous avez les compétences de base ({score_pct}%), mais certaines expertises demandées mériteraient d'être renforcées.",
             "faible": f"Un décalage important est noté sur les compétences clés ({score_pct}%). C'est un bon axe de progression pour votre carrière.",
-        },
-        "langues": {
+            },
+            "langues": {
             "excellent": f"Vos compétences linguistiques ({score_pct}%) sont un véritable plus pour cette opportunité.",
             "bon": f"Vous maîtrisez les langues requises ({score_pct}%) pour ce poste.",
             "moyen": f"Votre niveau en langues ({score_pct}%) est correct, mais une amélioration pourrait être un avantage.",
             "faible": f"Les exigences linguistiques ({score_pct}%) pour ce poste ne semblent pas être atteintes.",
+        },
+        "projets": {
+            "excellent": f"Vos projets personnels ({score_pct}%) illustrent parfaitement vos compétences et votre motivation pour ce type de poste.",
+            "bon": f"Vos projets ({score_pct}%) sont un bon complément à votre profil et démontrent votre intérêt pour le domaine.",
+            "moyen": f"Vos projets personnels ({score_pct}%) sont intéressants, mais pourraient être mieux alignés avec cette offre spécifique.",
+            "faible": f"Ajouter ou mettre en avant des projets plus pertinents ({score_pct}%) renforcerait significativement votre candidature."
         }
     }
 
@@ -916,3 +1014,82 @@ def generate_section_resume(categorie: str, score: float) -> str:
     }
     
     return resumes.get(categorie.lower(), default_resume).get(level, "")
+
+
+def analyze_projets_candidat(projets: List[ProjetPersonnel], offre: JobOffer) -> Tuple[List[str], List[str]]:
+    """
+    Analyse les projets personnels du candidat par rapport à l'offre d'emploi.
+    
+    Args:
+        projets: Liste des projets personnels du candidat
+        offre: Offre d'emploi analysée
+        
+    Returns:
+        points_forts: Liste des points forts liés aux projets
+        recommendations: Liste des recommandations d'amélioration
+    """
+    if not projets:
+        return [], ["Ajouter des projets personnels pourrait renforcer votre candidature."]
+    
+    points_forts = []
+    recommendations = []
+    
+    # Extraction des mots-clés pertinents depuis l'offre
+    mots_cles_offre = set()
+    if offre.description:
+        mots_cles_offre.update(normalize_text(offre.description))
+    
+    # Ajout des compétences requises aux mots-clés
+    for comp in offre.competences_requises:
+        if comp.nom:
+            mots_cles_offre.update(normalize_text(comp.nom))
+    
+    # Analyse de chaque projet
+    projets_pertinents = []
+    for projet in projets:
+        pertinence_score = 0.0
+        
+        # Vérification de la description du projet
+        if projet.description:
+            mots_cles_projet = set(normalize_text(projet.description))
+            # Calcul du nombre de mots-clés communs
+            mots_communs = mots_cles_projet.intersection(mots_cles_offre)
+            if mots_communs:
+                pertinence_score += 0.5 * (len(mots_communs) / len(mots_cles_offre)) if mots_cles_offre else 0
+        
+        # Vérification des technologies utilisées
+        if projet.technologies:
+            for tech in projet.technologies:
+                tech_normalized = normalize_text(tech)
+                if any(kw in tech_normalized for kw in mots_cles_offre):
+                    pertinence_score += 0.3
+                    break
+        
+        # Vérification des compétences développées
+        if projet.competences_developpees:
+            for comp in projet.competences_developpees:
+                comp_normalized = normalize_text(comp)
+                if any(kw in comp_normalized for kw in mots_cles_offre):
+                    pertinence_score += 0.3
+                    break
+        
+        # Si le projet est pertinent, l'ajouter à la liste
+        if pertinence_score > 0.4:
+            projets_pertinents.append((projet, pertinence_score))
+    
+    # Tri des projets par pertinence
+    projets_pertinents.sort(key=lambda x: x[1], reverse=True)
+    
+    # Génération des points forts et recommandations
+    if projets_pertinents:
+        # Prendre les 3 projets les plus pertinents
+        for projet, score in projets_pertinents[:3]:
+            points_forts.append(f"Projet '{projet.titre}' pertinent pour cette offre")
+    else:
+        recommendations.append("Vos projets actuels ne semblent pas directement liés à cette offre. Envisagez d'ajouter des projets plus pertinents.")
+    
+    # Recommandations générales si peu de projets
+    if len(projets) < 3:
+        recommendations.append("Enrichir votre profil avec plus de projets personnels démontrera votre motivation et vos compétences pratiques.")
+    
+    return points_forts, recommendations

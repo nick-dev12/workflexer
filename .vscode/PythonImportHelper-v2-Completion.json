@@ -179,6 +179,30 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Dict",
         "importPath": "typing",
         "description": "typing",
@@ -212,6 +236,46 @@
     },
     {
         "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -259,6 +323,14 @@
         "documentation": {}
     },
     {
+        "label": "CandidatProfile",
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "isExtraImport": true,
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
         "label": "analyze_compatibility",
         "importPath": "api1.utils",
         "description": "api1.utils",
@@ -281,6 +353,38 @@
         "importPath": "api1.config",
         "description": "api1.config",
         "detail": "api1.config",
+        "documentation": {}
+    },
+    {
+        "label": "JobOfferDakar",
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "isExtraImport": true,
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatProfileDakar",
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "isExtraImport": true,
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_compatibility_dakar",
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "isExtraImport": true,
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -308,115 +412,43 @@
         "documentation": {}
     },
     {
-        "label": "setup",
-        "importPath": "setuptools",
-        "description": "setuptools",
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
         "isExtraImport": true,
-        "detail": "setuptools",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
-        "label": "find_packages",
-        "importPath": "setuptools",
-        "description": "setuptools",
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
         "isExtraImport": true,
-        "detail": "setuptools",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
-        "label": "spacy",
-        "kind": 6,
+        "label": "validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
         "isExtraImport": true,
-        "importPath": "spacy",
-        "description": "spacy",
-        "detail": "spacy",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
-        "label": "nltk",
-        "kind": 6,
+        "label": "CandidatProfile",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "importPath": "nltk",
-        "description": "nltk",
-        "detail": "nltk",
+        "detail": "models",
         "documentation": {}
     },
     {
-        "label": "subprocess",
-        "kind": 6,
+        "label": "MatchingResponseV2",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "importPath": "subprocess",
-        "description": "subprocess",
-        "detail": "subprocess",
-        "documentation": {}
-    },
-    {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "uvicorn",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "uvicorn",
-        "description": "uvicorn",
-        "detail": "uvicorn",
-        "documentation": {}
-    },
-    {
-        "label": "re",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "re",
-        "description": "re",
-        "detail": "re",
-        "documentation": {}
-    },
-    {
-        "label": "SentenceTransformer",
-        "importPath": "sentence_transformers",
-        "description": "sentence_transformers",
-        "isExtraImport": true,
-        "detail": "sentence_transformers",
-        "documentation": {}
-    },
-    {
-        "label": "util",
-        "importPath": "sentence_transformers",
-        "description": "sentence_transformers",
-        "isExtraImport": true,
-        "detail": "sentence_transformers",
-        "documentation": {}
-    },
-    {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "stopwords",
-        "importPath": "nltk.corpus",
-        "description": "nltk.corpus",
-        "isExtraImport": true,
-        "detail": "nltk.corpus",
-        "documentation": {}
-    },
-    {
-        "label": "config",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "config",
-        "description": "config",
-        "detail": "config",
+        "detail": "models",
         "documentation": {}
     },
     {
@@ -556,6 +588,335 @@
         "documentation": {}
     },
     {
+        "label": "ProjetPersonnel",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatProfile",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingResponseV2",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "PointFort",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "PointAmelioration",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Suggestion",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyseCategorielle",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "ElementManquant",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "CorrespondanceItem",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyseDetaillee",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "spacy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "spacy",
+        "description": "spacy",
+        "detail": "spacy",
+        "documentation": {}
+    },
+    {
+        "label": "nltk",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "nltk",
+        "description": "nltk",
+        "detail": "nltk",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "uvicorn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uvicorn",
+        "description": "uvicorn",
+        "detail": "uvicorn",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "SentenceTransformer",
+        "importPath": "sentence_transformers",
+        "description": "sentence_transformers",
+        "isExtraImport": true,
+        "detail": "sentence_transformers",
+        "documentation": {}
+    },
+    {
+        "label": "util",
+        "importPath": "sentence_transformers",
+        "description": "sentence_transformers",
+        "isExtraImport": true,
+        "detail": "sentence_transformers",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "stopwords",
+        "importPath": "nltk.corpus",
+        "description": "nltk.corpus",
+        "isExtraImport": true,
+        "detail": "nltk.corpus",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "config",
+        "description": "config",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "RotatingFileHandler",
+        "importPath": "logging.handlers",
+        "description": "logging.handlers",
+        "isExtraImport": true,
+        "detail": "logging.handlers",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "nlp",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "sentence_model",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "stop_words",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_semantic_similarity",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "create_focused_candidate_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_global_compatibility",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_main_resume",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_section_resume",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "JobOfferDakar",
+        "importPath": "models_dakar",
+        "description": "models_dakar",
+        "isExtraImport": true,
+        "detail": "models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatProfileDakar",
+        "importPath": "models_dakar",
+        "description": "models_dakar",
+        "isExtraImport": true,
+        "detail": "models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "FormationCandidatDakar",
+        "importPath": "models_dakar",
+        "description": "models_dakar",
+        "isExtraImport": true,
+        "detail": "models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "ExperienceCandidatDakar",
+        "importPath": "models_dakar",
+        "description": "models_dakar",
+        "isExtraImport": true,
+        "detail": "models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "LangueCandidatDakar",
+        "importPath": "models_dakar",
+        "description": "models_dakar",
+        "isExtraImport": true,
+        "detail": "models_dakar",
+        "documentation": {}
+    },
+    {
         "label": "WEIGHTS",
         "kind": 5,
         "importPath": "api1.config",
@@ -655,6 +1016,15 @@
         "documentation": {}
     },
     {
+        "label": "DakarMatchingRequest",
+        "kind": 6,
+        "importPath": "api1.main",
+        "description": "api1.main",
+        "peekOfCode": "class DakarMatchingRequest(BaseModel):\n    candidate_data: CandidatProfileDakar\n    job_offer_data: JobOfferDakar\n# Chargement des variables d'environnement\nload_dotenv()\n# Configuration du logging\nlogging.basicConfig(\n    level=getattr(logging, config.LOG_CONFIG[\"level\"]),\n    format=config.LOG_CONFIG[\"format\"],\n    handlers=[",
+        "detail": "api1.main",
+        "documentation": {}
+    },
+    {
         "label": "logger",
         "kind": 5,
         "importPath": "api1.main",
@@ -713,7 +1083,7 @@
         "kind": 6,
         "importPath": "api1.models",
         "description": "api1.models",
-        "peekOfCode": "class ProjetPersonnel(BaseModel):\n    titre: str\n    description: str = \"\"\n    technologies: List[str] = Field(default_factory=list)\n    date_debut: Optional[str] = None\n    date_fin: Optional[str] = None\n    en_cours: bool = False\n    url: Optional[str] = None\n    images: List[str] = Field(default_factory=list)\n    competences_developpees: List[str] = Field(default_factory=list)",
+        "peekOfCode": "class ProjetPersonnel(BaseModel):\n    id: Optional[int] = None\n    users_id: Optional[int] = None\n    titre: str\n    liens: Optional[str] = None\n    description: str = \"\"\n    images: Optional[str] = None\n    date: Optional[str] = None\n    technologies: List[str] = Field(default_factory=list)\n    date_debut: Optional[str] = None",
         "detail": "api1.models",
         "documentation": {}
     },
@@ -722,7 +1092,7 @@
         "kind": 6,
         "importPath": "api1.models",
         "description": "api1.models",
-        "peekOfCode": "class CandidatProfile(BaseModel):\n    id: int\n    formations: List[Formation] = Field(default_factory=list)\n    experiences: List[Experience] = Field(default_factory=list)\n    competences: List[Competence] = Field(default_factory=list)\n    langues: List[Langue] = Field(default_factory=list)\n    centres_interet: List[str] = Field(default_factory=list)\n    projets: List[ProjetPersonnel] = Field(default_factory=list)\n    disponibilite: Optional[str] = None\n    mobilite: Dict[str, Union[bool, List[str]]] = Field(default_factory=dict)",
+        "peekOfCode": "class CandidatProfile(BaseModel):\n    id: int\n    # Informations de base de l'utilisateur (table users)\n    nom: str\n    email: str = \"\"\n    telephone: str = \"\"\n    ville: Optional[str] = None\n    domaine_competence: Optional[str] = None  # Correspond à 'competences' dans la table users\n    profession: Optional[str] = None\n    categorie: Optional[str] = None",
         "detail": "api1.models",
         "documentation": {}
     },
@@ -893,7 +1263,7 @@
         "kind": 6,
         "importPath": "api1.models",
         "description": "api1.models",
-        "peekOfCode": "class MatchingResponseV2(BaseModel):\n    \"\"\"Nouvelle version du modèle de réponse pour l'API\"\"\"\n    score_global: float\n    niveau_adequation: str  # Excellent, Bon, Moyen, À améliorer\n    resume: str\n    points_forts: List[PointFort] = Field(default_factory=list)\n    points_amelioration: List[PointAmelioration] = Field(default_factory=list)\n    analyse_detaillee: AnalyseDetaillee\n    suggestions: List[Suggestion] = Field(default_factory=list)\n    contexte_analyse: ContexteAnalyse = Field(default_factory=ContexteAnalyse)",
+        "peekOfCode": "class MatchingResponseV2(BaseModel):\n    \"\"\"Nouvelle version du modèle de réponse pour l'API\"\"\"\n    score_global: float\n    score_global_semantique: Optional[float] = None\n    niveau_adequation: str  # Excellent, Bon, Moyen, À améliorer\n    resume: str\n    points_forts: List[PointFort] = Field(default_factory=list)\n    points_amelioration: List[PointAmelioration] = Field(default_factory=list)\n    analyse_detaillee: AnalyseDetaillee\n    suggestions: List[Suggestion] = Field(default_factory=list)",
         "detail": "api1.models",
         "documentation": {}
     },
@@ -922,6 +1292,87 @@
         "description": "api1.models",
         "peekOfCode": "class MatchingRequestV2(BaseModel):\n    \"\"\"Requête d'analyse avec options avancées\"\"\"\n    candidate: CandidatProfile\n    job_offer: JobOffer\n    options: Optional[AnalysisOptions] = Field(default_factory=AnalysisOptions)",
         "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "FormationCandidatDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class FormationCandidatDakar(BaseModel):\n    \"\"\"Modèle flexible pour la formation du candidat.\"\"\"\n    diplome: Optional[str] = None\n    etablissement: Optional[str] = None\n    niveau: Optional[str] = None\n    class Config:\n        extra = \"ignore\"\nclass ExperienceCandidatDakar(BaseModel):\n    \"\"\"Modèle flexible pour l'expérience du candidat.\"\"\"\n    poste: Optional[str] = None",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "ExperienceCandidatDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class ExperienceCandidatDakar(BaseModel):\n    \"\"\"Modèle flexible pour l'expérience du candidat.\"\"\"\n    poste: Optional[str] = None\n    description: Optional[str] = None\n    duree: Optional[float] = None\n    class Config:\n        extra = \"ignore\"\nclass LangueCandidatDakar(BaseModel):\n    \"\"\"Modèle flexible pour la langue du candidat.\"\"\"\n    nom: str",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "LangueCandidatDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class LangueCandidatDakar(BaseModel):\n    \"\"\"Modèle flexible pour la langue du candidat.\"\"\"\n    nom: str\n    niveau: str # Accepte \"Intermédiaire\", \"Débutant\", etc.\nclass CandidatProfileDakar(BaseModel):\n    \"\"\"\n    Modèle de données pour un profil candidat adapté à la structure\n    envoyée par le script `CandidatProfile.php`.\n    \"\"\"\n    id: int",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatProfileDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class CandidatProfileDakar(BaseModel):\n    \"\"\"\n    Modèle de données pour un profil candidat adapté à la structure\n    envoyée par le script `CandidatProfile.php`.\n    \"\"\"\n    id: int\n    nom: Optional[str] = None\n    email: Optional[str] = None\n    telephone: Optional[str] = None\n    titre: Optional[str] = None",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "ExigenceFormationDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class ExigenceFormationDakar(BaseModel):\n    \"\"\"Exigence de formation simplifiée.\"\"\"\n    niveau_minimum: Optional[str] = \"Non spécifié\"\nclass ExigenceExperienceDakar(BaseModel):\n    \"\"\"Exigence d'expérience simplifiée.\"\"\"\n    duree_minimum_mois: Optional[int] = 0\nclass CompetenceDakar(BaseModel):\n    \"\"\"Compétence requise simplifiée.\"\"\"\n    nom: str\n    niveau: Optional[int] = 3",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "ExigenceExperienceDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class ExigenceExperienceDakar(BaseModel):\n    \"\"\"Exigence d'expérience simplifiée.\"\"\"\n    duree_minimum_mois: Optional[int] = 0\nclass CompetenceDakar(BaseModel):\n    \"\"\"Compétence requise simplifiée.\"\"\"\n    nom: str\n    niveau: Optional[int] = 3\nclass LangueDakar(BaseModel):\n    \"\"\"Langue requise simplifiée.\"\"\"\n    nom: str",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "CompetenceDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class CompetenceDakar(BaseModel):\n    \"\"\"Compétence requise simplifiée.\"\"\"\n    nom: str\n    niveau: Optional[int] = 3\nclass LangueDakar(BaseModel):\n    \"\"\"Langue requise simplifiée.\"\"\"\n    nom: str\n    niveau: Optional[str] = \"B2\"\nclass JobOfferDakar(BaseModel):\n    \"\"\"",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "LangueDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class LangueDakar(BaseModel):\n    \"\"\"Langue requise simplifiée.\"\"\"\n    nom: str\n    niveau: Optional[str] = \"B2\"\nclass JobOfferDakar(BaseModel):\n    \"\"\"\n    Modèle de données pour une offre d'emploi de la source \"Dakar\".\n    \"\"\"\n    id: int\n    titre: str",
+        "detail": "api1.models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "JobOfferDakar",
+        "kind": 6,
+        "importPath": "api1.models_dakar",
+        "description": "api1.models_dakar",
+        "peekOfCode": "class JobOfferDakar(BaseModel):\n    \"\"\"\n    Modèle de données pour une offre d'emploi de la source \"Dakar\".\n    \"\"\"\n    id: int\n    titre: str\n    description: Optional[str] = \"\"\n    secteur: Optional[str] = \"Non spécifié\"\n    type_contrat: Optional[str] = \"Non spécifié\"\n    localisation: Optional[str] = \"Non spécifiée\"",
+        "detail": "api1.models_dakar",
         "documentation": {}
     },
     {
@@ -1087,11 +1538,29 @@
         "documentation": {}
     },
     {
+        "label": "create_focused_candidate_text",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def create_focused_candidate_text(candidate_text: str, offer_keywords: Set[str]) -> str:\n    \"\"\"\n    Crée une version focalisée du texte du candidat, ne gardant que les phrases\n    contenant des mots-clés de l'offre pour une comparaison plus pertinente.\n    \"\"\"\n    if not offer_keywords:\n        return candidate_text # Retourne le texte complet si pas de mots-clés\n    focused_sentences = []\n    # Utilise NLTK pour segmenter le texte en phrases\n    sentences = nltk.sent_tokenize(candidate_text, language='french')",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_global_compatibility",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_global_compatibility(candidate_text: Optional[str], offer_text: Optional[str]) -> float:\n    \"\"\"\n    Analyse la compatibilité globale en comparant une version focalisée du profil\n    avec le texte de l'offre pour donner la priorité aux exigences de l'offre.\n    \"\"\"\n    if not candidate_text or not offer_text:\n        return 0.0\n    logger.info(\"Début de l'analyse sémantique globale avec focalisation.\")\n    # Extrait les mots-clés de l'offre pour guider la focalisation\n    offer_keywords = set(normalize_text(offer_text))",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
         "label": "analyze_compatibility",
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"\n    Analyse complète et nouvelle génération de rapport structuré V2,\n    en s'appuyant sur l'analyse sémantique.\n    \"\"\"\n    try:\n        # Validation et initialisation des objets Pydantic\n        profile = CandidatProfile(**candidate_data)\n        offer = JobOffer(**job_offer_data)\n        # --- Analyses détaillées par catégorie ---",
+        "peekOfCode": "def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"\n    Analyse complète et nouvelle génération de rapport structuré V2,\n    en s'appuyant sur une approche hybride (sémantique globale + analyse granulaire).\n    \"\"\"\n    try:\n        # Validation et initialisation des objets Pydantic\n        profile = CandidatProfile(**candidate_data)\n        offer = JobOffer(**job_offer_data)\n        # Vérifier si l'offre a suffisamment de contenu pour une analyse pertinente",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1100,7 +1569,7 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def generate_main_resume(global_score: float, niveau_adequation: str, strongest_category: str, points_amelioration: List[PointAmelioration]) -> str:\n    \"\"\"Génère un résumé principal personnalisé et engageant.\"\"\"\n    score = round(global_score)\n    # Ensure \"Compétences\" has the accent for display\n    strongest_category_fr = strongest_category.lower().replace('competences', 'compétences')\n    if score > 85:\n        resume = f\"Félicitations ! Votre profil est en parfaite adéquation ({score}%) avec cette offre. Vos compétences et votre expérience semblent correspondre exactement à ce que l'entreprise recherche.\"\n    elif score > 70:\n        resume = f\"Très prometteur ! Votre profil correspond très bien ({score}%) à cette offre. Vous avez de solides atouts, notamment dans le domaine '{strongest_category_fr}'. Quelques ajustements pourraient vous rendre irrésistible.\"\n    elif score > 50:",
+        "peekOfCode": "def generate_main_resume(global_score: float, niveau_adequation: str, strongest_category: str, points_amelioration: List[PointAmelioration]) -> str:\n    \"\"\"Génère un résumé principal personnalisé et engageant.\"\"\"\n    score = round(global_score)\n    if score > 85:\n        resume = f\"Excellent ! ({score}%) Votre profil matche parfaitement avec cette offre. C'est un grand oui !\"\n    elif score > 70:\n        resume = f\"Très bon profil ! ({score}%) Vous avez de solides atouts pour ce poste. Quelques petits ajustements et ce sera parfait.\"\n    elif score > 50:\n        resume = f\"Pas mal du tout ! ({score}%) Votre profil a de bons atouts. Jetez un oeil aux suggestions pour faire la différence.\"\n    elif score > 30:",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1109,7 +1578,16 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def generate_section_resume(categorie: str, score: float) -> str:\n    \"\"\"Génère un résumé engageant pour une catégorie spécifique.\"\"\"\n    score_pct = round(score * 100)\n    resumes = {\n        \"formation\": {\n            \"excellent\": f\"Votre parcours académique ({score_pct}%) est un atout majeur pour ce poste.\",\n            \"bon\": f\"Votre formation ({score_pct}%) est solide et pertinente pour ce rôle.\",\n            \"moyen\": f\"Votre formation ({score_pct}%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.\",\n            \"faible\": f\"Votre parcours de formation ({score_pct}%) semble assez éloigné des prérequis pour ce poste. Mettez en avant vos expériences concrètes.\",\n        },",
+        "peekOfCode": "def generate_section_resume(categorie: str, score: float) -> str:\n    \"\"\"Génère un résumé engageant pour une catégorie spécifique.\"\"\"\n    score_pct = round(score * 100)\n    resumes = {\n            \"formation\": {\n            \"excellent\": f\"Votre parcours académique ({score_pct}%) est un atout majeur pour ce poste.\",\n            \"bon\": f\"Votre formation ({score_pct}%) est solide et pertinente pour ce rôle.\",\n            \"moyen\": f\"Votre formation ({score_pct}%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre.\",\n            \"faible\": f\"Votre parcours de formation ({score_pct}%) semble assez éloigné des prérequis pour ce poste. Mettez en avant vos expériences concrètes.\",\n            },",
+        "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_projets_candidat",
+        "kind": 2,
+        "importPath": "api1.utils",
+        "description": "api1.utils",
+        "peekOfCode": "def analyze_projets_candidat(projets: List[ProjetPersonnel], offre: JobOffer) -> Tuple[List[str], List[str]]:\n    \"\"\"\n    Analyse les projets personnels du candidat par rapport à l'offre d'emploi.\n    Args:\n        projets: Liste des projets personnels du candidat\n        offre: Offre d'emploi analysée\n    Returns:\n        points_forts: Liste des points forts liés aux projets\n        recommendations: Liste des recommandations d'amélioration\n    \"\"\"",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -1174,6 +1652,141 @@
         "description": "api1.utils",
         "peekOfCode": "NIVEAU_ETUDES_MAP = {\n    \"Bac\": {\"niveau\": 1, \"equivalents\": [\"Baccalauréat\", \"High School\"]},\n    \"Bac+2\": {\"niveau\": 2, \"equivalents\": [\"DUT\", \"BTS\", \"DEUG\"]},\n    \"Bac+3\": {\"niveau\": 3, \"equivalents\": [\"Licence\", \"Bachelor\"]},\n    \"Bac+4\": {\"niveau\": 4, \"equivalents\": [\"Maîtrise\", \"Master 1\"]},\n    \"Bac+5\": {\"niveau\": 5, \"equivalents\": [\"Master\", \"Ingénieur\", \"MBA\"]},\n    \"Doctorat\": {\"niveau\": 8, \"equivalents\": [\"PhD\", \"Doctorate\"]},\n}\ndef get_niveau_etudes_value(niveau: str) -> int:\n    \"\"\"Convertit un niveau d'études en valeur numérique standardisée.\"\"\"",
         "detail": "api1.utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_competences_dakar",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def analyze_competences_dakar(candidate_competences: List[str], offer_text: str) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:\n    \"\"\"\n    Analyse les compétences du candidat en les recherchant directement dans le texte de l'offre.\n    Ne retourne plus les compétences du candidat non trouvées, car ce n'est pas pertinent.\n    \"\"\"\n    if not candidate_competences:\n        return 0.0, [], [], [], [\"Le profil du candidat ne liste aucune compétence à analyser.\"]\n    points_forts = []\n    recommandations = []\n    offer_text_lower = offer_text.lower()",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "generate_detailed_report_dakar",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def generate_detailed_report_dakar(profile: CandidatProfileDakar, offer: JobOfferDakar, manquants: List[ElementManquant], recos: List[str]) -> Tuple[List[PointFort], List[PointAmelioration], List[Suggestion]]:\n    \"\"\"\n    Génère un rapport détaillé (points forts, améliorations, suggestions)\n    pour les offres Dakar.\n    \"\"\"\n    points_forts = []\n    points_amelioration = []\n    suggestions = []\n    # --- Points Forts ---\n    # Ajouter les compétences correspondantes",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "find_keyword_matches",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def find_keyword_matches(items: List[str], offer_text: str, category: str) -> List[str]:\n    \"\"\"\n    Recherche des correspondances de mots-clés entre une liste d'items et le texte de l'offre.\n    Args:\n        items: Liste de chaînes (ex: titres de poste, diplômes).\n        offer_text: Texte de l'offre.\n        category: Catégorie pour le message du point fort.\n    Returns:\n        Une liste de points forts (chaînes de caractères).\n    \"\"\"",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_description_dakar",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def analyze_description_dakar(description: Optional[str], offer_text: str) -> Tuple[float, List[str]]:\n    \"\"\"Analyse la description du candidat par rapport à l'offre.\"\"\"\n    if not description:\n        return 0.0, []\n    # L'analyse sémantique est la plus adaptée pour une description\n    score = get_semantic_similarity(description, offer_text)\n    points_forts = []\n    if score > 0.6:\n        points_forts.append(\"Votre description personnelle présente une bonne adéquation sémantique avec l'offre.\")\n    return score, points_forts",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_langues_dakar",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def analyze_langues_dakar(langues: List[LangueCandidatDakar], offer_text: str) -> List[str]:\n    \"\"\"Recherche les langues du candidat dans le texte de l'offre.\"\"\"\n    langue_items = [langue.nom for langue in langues]\n    return find_keyword_matches(langue_items, offer_text, \"langue\")\ndef analyze_formation_dakar(formations: List[FormationCandidatDakar], offre_texte: str) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse de la formation en cherchant des correspondances de mots-clés.\"\"\"\n    points_forts = []\n    recommandations = []\n    diplomes = [f.diplome for f in formations if f.diplome]\n    etablissements = [f.etablissement for f in formations if f.etablissement]",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_formation_dakar",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def analyze_formation_dakar(formations: List[FormationCandidatDakar], offre_texte: str) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse de la formation en cherchant des correspondances de mots-clés.\"\"\"\n    points_forts = []\n    recommandations = []\n    diplomes = [f.diplome for f in formations if f.diplome]\n    etablissements = [f.etablissement for f in formations if f.etablissement]\n    points_forts.extend(find_keyword_matches(diplomes, offre_texte, \"diplôme\"))\n    points_forts.extend(find_keyword_matches(etablissements, offre_texte, \"établissement\"))\n    score = 0.75 if points_forts else 0.5\n    if not points_forts:",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_experience_dakar",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def analyze_experience_dakar(experiences: List[ExperienceCandidatDakar], offre_texte: str) -> Tuple[float, List[str], List[str]]:\n    \"\"\"Analyse de l'expérience en combinant sémantique et mots-clés.\"\"\"\n    points_forts = []\n    recommandations = []\n    if not experiences:\n        return 0.0, [], [\"Le profil ne contient aucune expérience professionnelle à analyser.\"]\n    # Recherche par mots-clés sur les titres de poste\n    postes = [exp.poste for exp in experiences if exp.poste]\n    points_forts.extend(find_keyword_matches(postes, offre_texte, \"poste\"))\n    candidate_experience_text = \" \".join([exp.description for exp in experiences if exp.description])",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_compatibility_dakar",
+        "kind": 2,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "def analyze_compatibility_dakar(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"\n    Analyse de compatibilité complète utilisant une approche HYBRIDE :\n    1. Une analyse sémantique GLOBALE du profil vs l'offre.\n    2. Une analyse GRANULAIRE section par section (compétences, expérience...).\n    3. Un score final PONDÉRÉ combinant les deux approches.\n    \"\"\"\n    try:\n        # --- LOG : Données brutes entrantes ---\n        dakar_logger.info(\"=\"*50)",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# --- Configuration du Logging Détaillé pour Dakar ---\ndakar_logger = logging.getLogger('dakar_analysis')\ndakar_logger.setLevel(logging.INFO)\ndakar_logger.propagate = False\n# Construire un chemin absolu pour le fichier de log pour plus de robustesse\nlog_directory = os.path.dirname(os.path.abspath(__file__))\nlog_file_path = os.path.join(log_directory, 'dakar_analysis.log')\nhandler = RotatingFileHandler(log_file_path, maxBytes=1_000_000, backupCount=3, encoding='utf-8')\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "dakar_logger",
+        "kind": 5,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "dakar_logger = logging.getLogger('dakar_analysis')\ndakar_logger.setLevel(logging.INFO)\ndakar_logger.propagate = False\n# Construire un chemin absolu pour le fichier de log pour plus de robustesse\nlog_directory = os.path.dirname(os.path.abspath(__file__))\nlog_file_path = os.path.join(log_directory, 'dakar_analysis.log')\nhandler = RotatingFileHandler(log_file_path, maxBytes=1_000_000, backupCount=3, encoding='utf-8')\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nhandler.setFormatter(formatter)\nif not dakar_logger.hasHandlers():",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "dakar_logger.propagate",
+        "kind": 5,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "dakar_logger.propagate = False\n# Construire un chemin absolu pour le fichier de log pour plus de robustesse\nlog_directory = os.path.dirname(os.path.abspath(__file__))\nlog_file_path = os.path.join(log_directory, 'dakar_analysis.log')\nhandler = RotatingFileHandler(log_file_path, maxBytes=1_000_000, backupCount=3, encoding='utf-8')\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nhandler.setFormatter(formatter)\nif not dakar_logger.hasHandlers():\n    dakar_logger.addHandler(handler)\n    # Log de confirmation dans la console",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "log_directory",
+        "kind": 5,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "log_directory = os.path.dirname(os.path.abspath(__file__))\nlog_file_path = os.path.join(log_directory, 'dakar_analysis.log')\nhandler = RotatingFileHandler(log_file_path, maxBytes=1_000_000, backupCount=3, encoding='utf-8')\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nhandler.setFormatter(formatter)\nif not dakar_logger.hasHandlers():\n    dakar_logger.addHandler(handler)\n    # Log de confirmation dans la console\n    dakar_logger.info(\"Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : %s\", log_file_path)\ndef analyze_competences_dakar(candidate_competences: List[str], offer_text: str) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "log_file_path",
+        "kind": 5,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "log_file_path = os.path.join(log_directory, 'dakar_analysis.log')\nhandler = RotatingFileHandler(log_file_path, maxBytes=1_000_000, backupCount=3, encoding='utf-8')\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nhandler.setFormatter(formatter)\nif not dakar_logger.hasHandlers():\n    dakar_logger.addHandler(handler)\n    # Log de confirmation dans la console\n    dakar_logger.info(\"Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : %s\", log_file_path)\ndef analyze_competences_dakar(candidate_competences: List[str], offer_text: str) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:\n    \"\"\"",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "handler",
+        "kind": 5,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "handler = RotatingFileHandler(log_file_path, maxBytes=1_000_000, backupCount=3, encoding='utf-8')\nformatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nhandler.setFormatter(formatter)\nif not dakar_logger.hasHandlers():\n    dakar_logger.addHandler(handler)\n    # Log de confirmation dans la console\n    dakar_logger.info(\"Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : %s\", log_file_path)\ndef analyze_competences_dakar(candidate_competences: List[str], offer_text: str) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:\n    \"\"\"\n    Analyse les compétences du candidat en les recherchant directement dans le texte de l'offre.",
+        "detail": "api1.utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "formatter",
+        "kind": 5,
+        "importPath": "api1.utils_dakar",
+        "description": "api1.utils_dakar",
+        "peekOfCode": "formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')\nhandler.setFormatter(formatter)\nif not dakar_logger.hasHandlers():\n    dakar_logger.addHandler(handler)\n    # Log de confirmation dans la console\n    dakar_logger.info(\"Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : %s\", log_file_path)\ndef analyze_competences_dakar(candidate_competences: List[str], offer_text: str) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:\n    \"\"\"\n    Analyse les compétences du candidat en les recherchant directement dans le texte de l'offre.\n    Ne retourne plus les compétences du candidat non trouvées, car ce n'est pas pertinent.",
+        "detail": "api1.utils_dakar",
         "documentation": {}
     }
 ]

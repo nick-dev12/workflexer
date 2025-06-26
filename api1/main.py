@@ -18,10 +18,22 @@ from api1.models import (
     MatchingResponse, 
     MatchingResponseV2, 
     MatchingRequestV2,
-    ContexteAnalyse
+    ContexteAnalyse,
+    CandidatProfile
 )
 from api1.utils import analyze_compatibility, normalize_text
 import api1.config as config
+
+# Imports pour la nouvelle route Dakar
+from api1.models_dakar import JobOfferDakar, CandidatProfileDakar
+from api1.utils_dakar import analyze_compatibility_dakar
+from pydantic import BaseModel
+
+# --- Modèle de requête pour la route Dakar ---
+class DakarMatchingRequest(BaseModel):
+    candidate_data: CandidatProfileDakar
+    job_offer_data: JobOfferDakar
+
 
 # Chargement des variables d'environnement
 load_dotenv()
@@ -252,7 +264,40 @@ async def get_config():
         "thresholds": config.COMPATIBILITY_THRESHOLDS,
         "similarity_threshold": config.SIMILARITY_THRESHOLD,
         "version": config.API_CONFIG["version"],
+        "database": {
+            "host": os.getenv("DB_HOST"),
+            "port": os.getenv("DB_PORT"),
+            "user": os.getenv("DB_USER"),
+            "name": os.getenv("DB_NAME"),
+        }
     }
+
+
+# --- Nouvelle route pour les offres Dakar ---
+@app.post("/analyze_dakar", response_model=Dict, tags=["Analyse Dakar"])
+async def analyze_dakar(request: DakarMatchingRequest):
+    """
+    Analyse la compatibilité pour les offres d'emploi "Dakar",
+    qui ont une structure de données moins détaillée.
+    """
+    try:
+        logger.info(f"Analyse Dakar demandée pour le candidat {request.candidate_data.id} et l'offre {request.job_offer_data.id}")
+        
+        # Appel de la fonction d'analyse spécifique à Dakar
+        result = analyze_compatibility_dakar(
+            request.candidate_data.dict(exclude_none=True),
+            request.job_offer_data.dict(exclude_none=True),
+        )
+        
+        logger.info(f"Analyse Dakar terminée avec un score global de {result.get('score_global', 0)}")
+        return result
+        
+    except Exception as e:
+        logger.error(f"Erreur lors de l'analyse Dakar: {str(e)}", exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail=f"Erreur lors de l'analyse (Dakar): {str(e)}",
+        )
 
 
 if __name__ == "__main__":

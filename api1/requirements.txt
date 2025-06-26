@@ -9,3 +9,5 @@ numpy
 scikit-learn
 nltk
 pandas
+beautifulsoup4
+lxml

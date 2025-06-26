@@ -5,213 +5,299 @@
 
 /* Variables de couleurs modernes et élégantes */
 :root {
-    --color-excellent: #2ecc71;
-    --color-good: #3498db;
-    --color-moderate: #f39c12;
-    --color-low: #e74c3c;
-    --color-bg-light: #f5f6fa;
-    --color-bg-white: #ffffff;
-    --color-text-dark: #2c3e50;
-    --color-text-muted: #7f8c8d;
-    --color-border-light: #ecf0f1;
-    --color-success-light: #d5f5e3;
-    --color-warning-light: #fef5e7;
-    --color-success-dark: #27ae60;
-    --color-warning-dark: #d35400;
+  --color-excellent: #2ecc71;
+  --color-good: #3498db;
+  --color-moderate: #f39c12;
+  --color-low: #e74c3c;
+  --color-bg-light: #f5f6fa;
+  --color-bg-white: #ffffff;
+  --color-text-dark: #2c3e50;
+  --color-text-muted: #7f8c8d;
+  --color-border-light: #ecf0f1;
+
+  --color-success-light: #e8f8f5;
+  --color-success-border: #2ecc71;
+  --color-success-text: #1d8348;
+
+  --color-danger-light: #fdedec;
+  --color-danger-border: #e74c3c;
+  --color-danger-text: #c0392b;
+
+  --color-info-light: #eaf2f8;
+  --color-info-border: #3498db;
+  --color-info-text: #21618c;
+
+  --color-success-dark: #27ae60;
+  --color-warning-light: #fef5e7;
+  --color-warning-dark: #d35400;
 }
 
 /* Conteneur principal plus compact */
 .compatibility-analysis {
-    font-family: 'Roboto', Arial, sans-serif;
-    max-width: 800px;
-    margin: 15px auto;
-    padding: 0;
-    background-color: var(--color-bg-light);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+  font-family: "Roboto", Arial, sans-serif;
+  max-width: 800px;
+  margin: 15px auto;
+  padding: 0;
+  background-color: var(--color-bg-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 /* En-tête avec design moderne */
 .compatibility-header {
-    padding: 20px;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
+  padding: 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
   text-align: center;
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
 @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .compatibility-header h2 {
   font-size: 22px;
-    font-weight: 600;
-    margin: 0 0 10px 0;
+  font-weight: 600;
+  margin: 0 0 10px 0;
 }
 
 .compatibility-header .score {
-    font-size: 36px;
-    font-weight: 700;
-    margin: 10px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 36px;
+  font-weight: 700;
+  margin: 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .compatibility-header .niveau {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .compatibility-header .resume {
-    font-size: 14px;
-    line-height: 1.5;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.9;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
 }
 
 /* Classes de couleur avec gradients modernes */
 .compatibility-header.excellent {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
 }
 
 .compatibility-header.good {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+  background: linear-gradient(135deg, #3498db, #2980b9);
 }
 
 .compatibility-header.moderate {
-    background: linear-gradient(135deg, #f39c12, #d35400);
+  background: linear-gradient(135deg, #f39c12, #d35400);
 }
 
 .compatibility-header.low {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
 }
 
 /* Contenu principal plus compact */
 .compatibility-content {
-    padding: 20px;
-    background-color: var(--color-bg-white);
+  padding: 20px;
+  background-color: var(--color-bg-white);
 }
 
 /* Sections plus compactes */
 .compatibility-content section {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .compatibility-content h3 {
-    font-size: 18px;
-    margin: 0 0 12px 0;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--color-border-light);
+  font-size: 18px;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-border-light);
 }
 
 .compatibility-content h4 {
-    font-size: 16px;
-    margin: 15px 0 8px 0;
+  font-size: 16px;
+  margin: 15px 0 8px 0;
 }
 
 .compatibility-content p {
-    font-size: 14px;
-    margin: 0 0 10px 0;
-    line-height: 1.5;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  line-height: 1.5;
 }
 
 /* Critères de formation et expérience */
 .criteria-overview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .criteria-item {
-    padding: 15px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
 
 .criteria-item:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .criteria-match {
-    background-color: var(--color-success-light);
-    border-left: 3px solid var(--color-excellent);
+  background-color: var(--color-success-light);
+  border-left: 3px solid var(--color-excellent);
 }
 
 .criteria-mismatch {
-    background-color: var(--color-warning-light);
-    border-left: 3px solid var(--color-moderate);
+  background-color: var(--color-warning-light);
+  border-left: 3px solid var(--color-moderate);
+}
+
+/* Styles for detailed sections: Strengths, Missing Skills, Gaps */
+.compatibility-strengths,
+.compatibility-missing-skills,
+.compatibility-gaps {
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+.compatibility-strengths h3,
+.compatibility-missing-skills h3,
+.compatibility-gaps h3 {
+  margin-top: 0;
+  border-bottom: none;
+  padding-bottom: 5px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+}
+
+/* Strengths (Green) */
+.compatibility-strengths {
+  background-color: var(--color-success-light);
+  border-left-color: var(--color-success-border);
+}
+.compatibility-strengths h3,
+.compatibility-strengths li i {
+  color: var(--color-success-text);
+}
+
+/* Missing Skills (Red) */
+.compatibility-missing-skills {
+  background-color: var(--color-danger-light);
+  border-left-color: var(--color-danger-border);
+}
+.compatibility-missing-skills h3,
+.compatibility-missing-skills li i {
+  color: var(--color-danger-text);
+}
+
+/* Gaps / Improvements (Blue) */
+.compatibility-gaps {
+  background-color: var(--color-info-light);
+  border-left-color: var(--color-info-border);
+}
+.compatibility-gaps h3,
+.compatibility-gaps li i {
+  color: var(--color-info-text);
 }
 
 /* Listes plus compactes */
 .compatibility-content ul {
-    margin: 10px 0;
+  margin: 10px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.compatibility-strengths li,
+.compatibility-missing-skills li,
+.compatibility-gaps li {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-left: 0;
+}
+
+.compatibility-strengths li:last-child,
+.compatibility-missing-skills li:last-child,
+.compatibility-gaps li:last-child {
+  border-bottom: none;
 }
 
 .compatibility-content li {
-    padding: 8px 12px;
-    margin-bottom: 6px;
-    background-color: var(--color-bg-light);
-    border-radius: 4px;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background-color: var(--color-bg-light);
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
 }
 
 .compatibility-content li:hover {
-    background-color: #eef2f7;
+  background-color: #eef2f7;
 }
 
 /* Icônes avec animations */
 .compatibility-content li i {
-    margin-right: 8px;
-    transition: transform 0.2s ease;
+  margin-right: 8px;
+  transition: transform 0.2s ease;
 }
 
 .compatibility-content li:hover i {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Section conclusion */
 .compatibility-conclusion {
-    background-color: var(--color-bg-light);
+  background-color: var(--color-bg-light);
   padding: 15px;
-    border-radius: 6px;
-    margin-top: 20px;
+  border-radius: 6px;
+  margin-top: 20px;
 }
 
 .compatibility-conclusion p {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .compatibility-analysis {
-        margin: 10px;
-    }
-    
-    .compatibility-header {
-        padding: 15px;
-    }
-    
-    .compatibility-header .score {
-        font-size: 32px;
-    }
-    
-    .compatibility-content {
-        padding: 15px;
-    }
-    
-    .criteria-overview {
-        grid-template-columns: 1fr;
+  .compatibility-analysis {
+    margin: 10px;
+  }
+
+  .compatibility-header {
+    padding: 15px;
+  }
+
+  .compatibility-header .score {
+    font-size: 32px;
+  }
+
+  .compatibility-content {
+    padding: 15px;
+  }
+
+  .criteria-overview {
+    grid-template-columns: 1fr;
   }
 }

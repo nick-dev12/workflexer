@@ -1,0 +1,296 @@
+2025-06-25 20:39:58,594 - INFO - ==================================================
+2025-06-25 20:39:58,595 - INFO - Début de l'analyse pour l'offre ID: 373 et candidat ID: 5
+2025-06-25 20:39:58,596 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ]
+}
+2025-06-25 20:39:58,598 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 373,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "description": "<div class=\"job_description\"><p><strong>Offre de recrutement</strong></p><ul><li>Titre : Spécialiste polyvalent en communication digitale H/F</li><li>Reference : SPECOMMDIGCOMM/IPD2025</li><li>Département : Partenariats &amp; communication</li><li>Hiérarchie N+1 : Responsable de la division communication, evénements et relations presse</li><li>Lieu : Institut pasteur de dakar</li><li>Contrat : CDD / CDI</li><li>Début souhaité : Dans l’immédiat</li></ul><p><strong>A Propos de l’institut</strong></p><p>L’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :</p><ul><li>Recherche &amp; Développement</li><li>Diagnostic, vaccination, alimentation et environnement</li><li>Éducation, formation et développement des talents</li><li>Expertise et orientation stratégique en santé publique</li><li>Production et distribution de vaccins et de dispositifs médicaux.</li></ul><p>De manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.</p><p>A l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !</p><p>Notre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !</p><p><strong>Activités du poste </strong></p><p><strong>Description de poste</strong></p><p>Dans le cadre de l’accroissement de nos activités, l’IPD recrute :</p><p>Un spécialiste polyvalent en communication digitale h/f.</p><p><strong>Missions générales </strong></p><p>Le spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.</p><p><strong>Activités principales </strong></p><p>Infographie:</p><ul><li>Concevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).</li><li>Assurer la cohérence visuelle de la marque sur tous les supports.</li><li>Réaliser des illustrations et des animations graphiques.</li></ul><p>Création de Contenus:</p><ul><li>Rédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.</li><li>Développer des scripts pour des vidéos et des podcasts.</li><li>Collaborer avec les équipes de marketing et de design pour créer des contenus engageants.</li></ul><p>Gestion de Réseaux Sociaux:</p><ul><li>Gérer et animer les comptes de réseaux sociaux de l’entreprise.</li><li>Planifier et publier des contenus réguliers et engageants.</li><li>Interagir avec la communauté et répondre aux commentaires et messages.</li><li>Analyser les performances des</li><li>campagnes et proposer des améliorations. Gestion de Site Web:</li><li>Assurer la création de pages par projet et rattachée au site web principal</li><li>Assurer la maintenance et la mise à jour du site web de l’entreprise.</li><li>Optimiser le site pour le référencement (SEO).</li><li>Collaborer avec les développeurs pour améliorer les fonctionnalités du site.</li><li>Surveiller les performances du site et résoudre les problèmes techniques.</li></ul><p><strong>Profil recherché</strong></p><p><strong>Formation</strong></p><ul><li>Diplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.</li><li>Expérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.</li><li>Maîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.</li><li>Connaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.</li></ul><p><strong>Compétences </strong></p><p><strong>Techniques</strong></p><ul><li>Maîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).</li><li>Excellentes compétences rédactionnelles et éditoriales.</li><li>Bonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).</li><li>Connaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (<a href=\"https://www.emploidakar.com/mooc-wordpress/\">WordPress</a>, Joomla).</li><li>Compétences en SEO et en analyse web.</li><li>Créativité, sens artistique et capacité à travailler en équipe.</li><li>Capacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.</li></ul><p><strong>Personnelles</strong></p><ul><li>Proactivité: Capacité à anticiper les besoins et à prendre des initiatives.</li><li>Flexibilité: Adaptabilité face aux changements et aux imprévus.</li><li>Esprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:</li><li>Bilingue (français et anglais)</li></ul><p>Informatique</p><ul><li>Une maîtrise des outils bureautiques (Word, <a href=\"https://www.emploidakar.com/maitrisez-les-fondamentaux-dexcel-formation-gratuite-a-distance/\">Excel</a>, PowerPoint)</li><li>L’Institut Pasteur de Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.</li></ul><p>Si vous êtes intéressé, vous pouvez postuler en envoyant votre CV à l’adresse: <a href=\"mailto:talents@pasteur.sn\">talents@pasteur.sn</a> en y ajoutant en objet la référence: SPECOMMDIGCOMM/IPD2025.</p><p>Du fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.</p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "CDD",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p><strong>Offre de recrutement</strong></p><ul><li>Titre : Spécialiste polyvalent en communication digitale H/F</li><li>Reference : SPECOMMDIGCOMM/IPD2025</li><li>Département : Partenariats &amp; communication</li><li>Hiérarchie N+1 : Responsable de la division communication, evénements et relations presse</li><li>Lieu : Institut pasteur de dakar</li><li>Contrat : CDD / CDI</li><li>Début souhaité : Dans l’immédiat</li></ul><p><strong>A Propos de l’institut</strong></p><p>L’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :</p><ul><li>Recherche &amp; Développement</li><li>Diagnostic, vaccination, alimentation et environnement</li><li>Éducation, formation et développement des talents</li><li>Expertise et orientation stratégique en santé publique</li><li>Production et distribution de vaccins et de dispositifs médicaux.</li></ul><p>De manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.</p><p>A l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !</p><p>Notre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !</p><p><strong>Activités du poste </strong></p><p><strong>Description de poste</strong></p><p>Dans le cadre de l’accroissement de nos activités, l’IPD recrute :</p><p>Un spécialiste polyvalent en communication digitale h/f.</p><p><strong>Missions générales </strong></p><p>Le spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.</p><p><strong>Activités principales </strong></p><p>Infographie:</p><ul><li>Concevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).</li><li>Assurer la cohérence visuelle de la marque sur tous les supports.</li><li>Réaliser des illustrations et des animations graphiques.</li></ul><p>Création de Contenus:</p><ul><li>Rédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.</li><li>Développer des scripts pour des vidéos et des podcasts.</li><li>Collaborer avec les équipes de marketing et de design pour créer des contenus engageants.</li></ul><p>Gestion de Réseaux Sociaux:</p><ul><li>Gérer et animer les comptes de réseaux sociaux de l’entreprise.</li><li>Planifier et publier des contenus réguliers et engageants.</li><li>Interagir avec la communauté et répondre aux commentaires et messages.</li><li>Analyser les performances des</li><li>campagnes et proposer des améliorations. Gestion de Site Web:</li><li>Assurer la création de pages par projet et rattachée au site web principal</li><li>Assurer la maintenance et la mise à jour du site web de l’entreprise.</li><li>Optimiser le site pour le référencement (SEO).</li><li>Collaborer avec les développeurs pour améliorer les fonctionnalités du site.</li><li>Surveiller les performances du site et résoudre les problèmes techniques.</li></ul><p><strong>Profil recherché</strong></p><p><strong>Formation</strong></p><ul><li>Diplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.</li><li>Expérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.</li><li>Maîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.</li><li>Connaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.</li></ul><p><strong>Compétences </strong></p><p><strong>Techniques</strong></p><ul><li>Maîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).</li><li>Excellentes compétences rédactionnelles et éditoriales.</li><li>Bonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).</li><li>Connaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (<a href=\"https://www.emploidakar.com/mooc-wordpress/\">WordPress</a>, Joomla).</li><li>Compétences en SEO et en analyse web.</li><li>Créativité, sens artistique et capacité à travailler en équipe.</li><li>Capacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.</li></ul><p><strong>Personnelles</strong></p><ul><li>Proactivité: Capacité à anticiper les besoins et à prendre des initiatives.</li><li>Flexibilité: Adaptabilité face aux changements et aux imprévus.</li><li>Esprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:</li><li>Bilingue (français et anglais)</li></ul><p>Informatique</p><ul><li>Une maîtrise des outils bureautiques (Word, <a href=\"https://www.emploidakar.com/maitrisez-les-fondamentaux-dexcel-formation-gratuite-a-distance/\">Excel</a>, PowerPoint)</li><li>L’Institut Pasteur de Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.</li></ul><p>Si vous êtes intéressé, vous pouvez postuler en envoyant votre CV à l’adresse: <a href=\"mailto:talents@pasteur.sn\">talents@pasteur.sn</a> en y ajoutant en objet la référence: SPECOMMDIGCOMM/IPD2025.</p><p>Du fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.</p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+3"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 60
+  },
+  "competences_requises": [],
+  "langues_requises": [
+    {
+      "nom": "Anglais",
+      "niveau": "B2"
+    },
+    {
+      "nom": "Français",
+      "niveau": "B2"
+    }
+  ]
+}
+2025-06-25 20:39:58,603 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "texte_integral": null
+}
+2025-06-25 20:39:58,604 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 373,
+  "titre": "Spécialiste polyvalent en communication digitale",
+  "description": "<div class=\"job_description\"><p><strong>Offre de recrutement</strong></p><ul><li>Titre : Spécialiste polyvalent en communication digitale H/F</li><li>Reference : SPECOMMDIGCOMM/IPD2025</li><li>Département : Partenariats &amp; communication</li><li>Hiérarchie N+1 : Responsable de la division communication, evénements et relations presse</li><li>Lieu : Institut pasteur de dakar</li><li>Contrat : CDD / CDI</li><li>Début souhaité : Dans l’immédiat</li></ul><p><strong>A Propos de l’institut</strong></p><p>L’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :</p><ul><li>Recherche &amp; Développement</li><li>Diagnostic, vaccination, alimentation et environnement</li><li>Éducation, formation et développement des talents</li><li>Expertise et orientation stratégique en santé publique</li><li>Production et distribution de vaccins et de dispositifs médicaux.</li></ul><p>De manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.</p><p>A l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !</p><p>Notre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !</p><p><strong>Activités du poste </strong></p><p><strong>Description de poste</strong></p><p>Dans le cadre de l’accroissement de nos activités, l’IPD recrute :</p><p>Un spécialiste polyvalent en communication digitale h/f.</p><p><strong>Missions générales </strong></p><p>Le spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.</p><p><strong>Activités principales </strong></p><p>Infographie:</p><ul><li>Concevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).</li><li>Assurer la cohérence visuelle de la marque sur tous les supports.</li><li>Réaliser des illustrations et des animations graphiques.</li></ul><p>Création de Contenus:</p><ul><li>Rédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.</li><li>Développer des scripts pour des vidéos et des podcasts.</li><li>Collaborer avec les équipes de marketing et de design pour créer des contenus engageants.</li></ul><p>Gestion de Réseaux Sociaux:</p><ul><li>Gérer et animer les comptes de réseaux sociaux de l’entreprise.</li><li>Planifier et publier des contenus réguliers et engageants.</li><li>Interagir avec la communauté et répondre aux commentaires et messages.</li><li>Analyser les performances des</li><li>campagnes et proposer des améliorations. Gestion de Site Web:</li><li>Assurer la création de pages par projet et rattachée au site web principal</li><li>Assurer la maintenance et la mise à jour du site web de l’entreprise.</li><li>Optimiser le site pour le référencement (SEO).</li><li>Collaborer avec les développeurs pour améliorer les fonctionnalités du site.</li><li>Surveiller les performances du site et résoudre les problèmes techniques.</li></ul><p><strong>Profil recherché</strong></p><p><strong>Formation</strong></p><ul><li>Diplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.</li><li>Expérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.</li><li>Maîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.</li><li>Connaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.</li></ul><p><strong>Compétences </strong></p><p><strong>Techniques</strong></p><ul><li>Maîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).</li><li>Excellentes compétences rédactionnelles et éditoriales.</li><li>Bonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).</li><li>Connaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (<a href=\"https://www.emploidakar.com/mooc-wordpress/\">WordPress</a>, Joomla).</li><li>Compétences en SEO et en analyse web.</li><li>Créativité, sens artistique et capacité à travailler en équipe.</li><li>Capacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.</li></ul><p><strong>Personnelles</strong></p><ul><li>Proactivité: Capacité à anticiper les besoins et à prendre des initiatives.</li><li>Flexibilité: Adaptabilité face aux changements et aux imprévus.</li><li>Esprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:</li><li>Bilingue (français et anglais)</li></ul><p>Informatique</p><ul><li>Une maîtrise des outils bureautiques (Word, <a href=\"https://www.emploidakar.com/maitrisez-les-fondamentaux-dexcel-formation-gratuite-a-distance/\">Excel</a>, PowerPoint)</li><li>L’Institut Pasteur de Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.</li></ul><p>Si vous êtes intéressé, vous pouvez postuler en envoyant votre CV à l’adresse: <a href=\"mailto:talents@pasteur.sn\">talents@pasteur.sn</a> en y ajoutant en objet la référence: SPECOMMDIGCOMM/IPD2025.</p><p>Du fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.</p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "CDD",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p><strong>Offre de recrutement</strong></p><ul><li>Titre : Spécialiste polyvalent en communication digitale H/F</li><li>Reference : SPECOMMDIGCOMM/IPD2025</li><li>Département : Partenariats &amp; communication</li><li>Hiérarchie N+1 : Responsable de la division communication, evénements et relations presse</li><li>Lieu : Institut pasteur de dakar</li><li>Contrat : CDD / CDI</li><li>Début souhaité : Dans l’immédiat</li></ul><p><strong>A Propos de l’institut</strong></p><p>L’Institut Pasteur de Dakar (IPD) est une fondation d’utilité publique sénégalaise dédiée à la santé publique, la recherche, l’innovation et l’éducation en Afrique. Depuis sa fondation en 1896, l’institut n’a cessé de se développer pour le bénéfice des populations et est aujourd’hui spécialisée dans les 5 domaines suivants :</p><ul><li>Recherche &amp; Développement</li><li>Diagnostic, vaccination, alimentation et environnement</li><li>Éducation, formation et développement des talents</li><li>Expertise et orientation stratégique en santé publique</li><li>Production et distribution de vaccins et de dispositifs médicaux.</li></ul><p>De manière unique, l’IPD rassemble ainsi des capacités et des fonctions clés pour relever les défis de santé publique et les menaces mondiales et joue un rôle régional important dans ses partenariats avec l’OMS et la lutte contre les maladies infectieuses.</p><p>A l’IPD, nous inspirons, nous éduquons et nous attirons des Femmes et des Hommes de sciences passionnés et visionnaires pour développer des solutions significatives et efficaces aux problèmes de santé publique en Afrique !</p><p>Notre Ambition est de diriger, influencer et améliorer la santé humaine, chaque jour, de manière sûre et durable.<br/>\nSi vous avez l’esprit Pasteurien, comme nous, Rejoignez-Nous !</p><p><strong>Activités du poste </strong></p><p><strong>Description de poste</strong></p><p>Dans le cadre de l’accroissement de nos activités, l’IPD recrute :</p><p>Un spécialiste polyvalent en communication digitale h/f.</p><p><strong>Missions générales </strong></p><p>Le spécialiste polyvalent en communication digitale est responsable de la conception graphique, de la création de contenus, de la gestion des réseaux sociaux et de la maintenance du site web de l’entreprise. Ce rôle exige une combinaison unique de compétences créatives, techniques et analytiques pour assurer une communication cohérente et efficace à travers tous les canaux numériques.</p><p><strong>Activités principales </strong></p><p>Infographie:</p><ul><li>Concevoir des visuels pour les supports de communication (affiches, brochures, bannières web, etc.).</li><li>Assurer la cohérence visuelle de la marque sur tous les supports.</li><li>Réaliser des illustrations et des animations graphiques.</li></ul><p>Création de Contenus:</p><ul><li>Rédiger et éditer des articles, des blogs, et des contenus pour les réseaux sociaux.</li><li>Développer des scripts pour des vidéos et des podcasts.</li><li>Collaborer avec les équipes de marketing et de design pour créer des contenus engageants.</li></ul><p>Gestion de Réseaux Sociaux:</p><ul><li>Gérer et animer les comptes de réseaux sociaux de l’entreprise.</li><li>Planifier et publier des contenus réguliers et engageants.</li><li>Interagir avec la communauté et répondre aux commentaires et messages.</li><li>Analyser les performances des</li><li>campagnes et proposer des améliorations. Gestion de Site Web:</li><li>Assurer la création de pages par projet et rattachée au site web principal</li><li>Assurer la maintenance et la mise à jour du site web de l’entreprise.</li><li>Optimiser le site pour le référencement (SEO).</li><li>Collaborer avec les développeurs pour améliorer les fonctionnalités du site.</li><li>Surveiller les performances du site et résoudre les problèmes techniques.</li></ul><p><strong>Profil recherché</strong></p><p><strong>Formation</strong></p><ul><li>Diplôme de licence en communication, relations publiques, journalisme ou domaine connexe. Au moins 5 ans d’expérience pertinente dans des rôles de communication, de préférence dans des environnements basés sur des projets.</li><li>Expérience avérée dans le développement et l’exécution de stratégies de communication spécifiques aux projets.</li><li>Maîtrise de la gestion de la communication pour les événements liés au projet, tant physiques que virtuels.</li><li>Connaissance de l’engagement médiatique et des pratiques de gestion de la communication en cas de crise.</li></ul><p><strong>Compétences </strong></p><p><strong>Techniques</strong></p><ul><li>Maîtrise des logiciels de design graphique (Adobe Photoshop, Illustrator, InDesign).</li><li>Excellentes compétences rédactionnelles et éditoriales.</li><li>Bonne connaissance des plateformes de réseaux sociaux (Facebook, Twitter, Instagram, LinkedIn).</li><li>Connaissance des langages de programmation web (HTML, CSS, JavaScript). Expérience avec des systèmes de gestion de contenu (<a href=\"https://www.emploidakar.com/mooc-wordpress/\">WordPress</a>, Joomla).</li><li>Compétences en SEO et en analyse web.</li><li>Créativité, sens artistique et capacité à travailler en équipe.</li><li>Capacité à analyser les données et à utiliser des outils de gestion des réseaux sociaux.</li></ul><p><strong>Personnelles</strong></p><ul><li>Proactivité: Capacité à anticiper les besoins et à prendre des initiatives.</li><li>Flexibilité: Adaptabilité face aux changements et aux imprévus.</li><li>Esprit d’Équipe: Capacité à travailler en collaboration avec diverses équipes. Linguistique:</li><li>Bilingue (français et anglais)</li></ul><p>Informatique</p><ul><li>Une maîtrise des outils bureautiques (Word, <a href=\"https://www.emploidakar.com/maitrisez-les-fondamentaux-dexcel-formation-gratuite-a-distance/\">Excel</a>, PowerPoint)</li><li>L’Institut Pasteur de Dakar est un employeur de référence qui propose des conditions de travail favorables à l’épanouissement professionnel.</li></ul><p>Si vous êtes intéressé, vous pouvez postuler en envoyant votre CV à l’adresse: <a href=\"mailto:talents@pasteur.sn\">talents@pasteur.sn</a> en y ajoutant en objet la référence: SPECOMMDIGCOMM/IPD2025.</p><p>Du fait de la quantité des candidatures, seuls les candidats shortlistés seront contactés.</p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Bac+3"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 60
+  },
+  "competences_requises": [],
+  "langues_requises": [
+    {
+      "nom": "Anglais",
+      "niveau": "B2"
+    },
+    {
+      "nom": "Français",
+      "niveau": "B2"
+    }
+  ]
+}
+2025-06-25 20:40:04,094 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 23.0,
+  "score_global_semantique": 19.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (23%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre compétence 'JavaScript' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre compétence 'git' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Vérifiez manuellement que votre niveau de formation correspond aux attentes de l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre. Pensez à mettre en avant les tâches et projets pertinents.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Vérifiez manuellement que votre niveau de formation correspond aux attentes de l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 27.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre. Pensez à mettre en avant les tâches et projets pertinents."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (27%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 23.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [
+        "Votre compétence 'JavaScript' est mentionnée dans l'offre.",
+        "Votre compétence 'wordpress' est mentionnée dans l'offre.",
+        "Votre compétence 'git' est mentionnée dans l'offre."
+      ],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (23%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Vérifiez manuellement que votre niveau de formation correspond aux attentes de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre. Pensez à mettre en avant les tâches et projets pertinents.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-25T20:40:04.094910",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-25 20:40:04,095 - INFO - Fin de l'analyse.
+2025-06-25 20:40:04,096 - INFO - ==================================================
+
