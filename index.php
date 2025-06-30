@@ -42,8 +42,8 @@ include_once('controller/controller_users.php');
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/aos.css" />
     <script src="../js/aos.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -689,10 +689,10 @@ ScrollSmoother.min.js, InertiaPlugin.min.js, ScrambleTextPlugin.min.js, and Spli
 
 Sign up at https://greensock.com/club or try them for free on CodePen or CodeSandbox
 -->
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/owl.carousel.js"></script>
-    <script src="/js/owl.animate.js"></script>
-    <script src="/js/owl.autoplay.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/owl.animate.js"></script>
+    <script src="js/owl.autoplay.js"></script>
 
 
     <div></div>

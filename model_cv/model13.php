@@ -5,12 +5,12 @@ include_once('check_device.php');
 session_start();
 
 // Check if user is on desktop
-$isDesktop = isDesktop();
+/* $isDesktop = isDesktop();
 if (!$isDesktop) {
     // If not on desktop, redirect to mobile message page
     header("Location: mobile_message.php");
     exit;
-}
+} */
 
 if (isset($_GET['id'])) {
     include '../conn/conn.php';
@@ -54,9 +54,9 @@ if (isset($_SESSION['users_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modèle 13 - CV Moderne Grid</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -64,6 +64,7 @@ if (isset($_SESSION['users_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="css/model13.css">
+    <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="image_customizer.js" defer></script>
     <script src="cv_customizer.js" defer></script>
 
@@ -91,8 +92,18 @@ if (isset($_SESSION['users_id'])) {
 </head>
 
 <body>
+    <button id="toggle-customization-btn" class="button12">
+        <i class="fa-solid fa-palette"></i> Personnaliser
+    </button>
+
+    <!-- Bouton de téléchargement fixe toujours visible -->
+    <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
+        <i class="fa-solid fa-download"></i>
+        <span>Télécharger PDF</span>
+    </button>
     <section class="section3">
-        <div class="personnalisation">
+        <div class="personnalisation" id="customization-panel">
+            <button id="close-panel-btn" class="close-panel-btn">&times;</button>
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
             <script>
                 // Fonction pour précharger les polices avant la génération du PDF
@@ -197,13 +208,14 @@ if (isset($_SESSION['users_id'])) {
                         console.log(`${iconsReplaced} icônes remplacées par des SVG`);
 
                         const { jsPDF } = window.jspdf;
-                        const element = document.querySelector(".cv13");
+                        const element = document.querySelector("#container-for-pdf");
 
-                        // Définir une échelle plus élevée pour une meilleure qualité
-                        const scale = 2;
+                        // Optimisations légères pour une meilleure qualité
+                        const scale = 2.2;
                         const options = {
                             scale: scale,
-                            quality: 2,
+                            quality: 0.95,
+                            bgcolor: '#ffffff',
                             width: element.offsetWidth * scale,
                             height: element.offsetHeight * scale,
                             style: {
@@ -212,9 +224,6 @@ if (isset($_SESSION['users_id'])) {
                                 width: element.offsetWidth + "px",
                                 height: element.offsetHeight + "px"
                             },
-                            // Assurez-vous que les polices et les icônes sont chargées avant de générer l'image
-                            fontFaces: true,
-                            // Inclure les styles externes
                             useCORS: true
                         };
 
@@ -236,16 +245,20 @@ if (isset($_SESSION['users_id'])) {
                         `;
                         document.head.appendChild(fontAwesomeStyle);
 
-                        // Attendre un court instant pour que les styles soient appliqués
+                        // Attendre un délai optimisé pour la stabilité
                         setTimeout(() => {
                             domtoimage.toJpeg(element, options)
                                 .then(function (dataUrl) {
                                     // Supprimer la classe temporaire
                                     element.classList.remove('pdf-rendering');
                                     // Supprimer le style temporaire
-                                    document.head.removeChild(fontAwesomeStyle);
+                                    if (document.head.contains(fontAwesomeStyle)) {
+                                        document.head.removeChild(fontAwesomeStyle);
+                                    }
                                     // Supprimer le message d'attente
-                                    document.body.removeChild(loadingMessage);
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
                                     // Restaurer les icônes originales
                                     restoreIcons();
 
@@ -254,21 +267,25 @@ if (isset($_SESSION['users_id'])) {
                                     const pdfWidth = pdf.internal.pageSize.getWidth();
                                     const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                                    pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                                    pdf.save("cv.pdf");
+                                    pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                                    pdf.save("cv-model13-" + Date.now() + ".pdf");
                                 })
                                 .catch(function (error) {
                                     // Nettoyer en cas d'erreur
                                     element.classList.remove('pdf-rendering');
-                                    document.head.removeChild(fontAwesomeStyle);
-                                    document.body.removeChild(loadingMessage);
+                                    if (document.head.contains(fontAwesomeStyle)) {
+                                        document.head.removeChild(fontAwesomeStyle);
+                                    }
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
                                     // Restaurer les icônes originales
                                     restoreIcons();
 
                                     console.error('Une erreur est survenue lors de la génération du PDF:', error);
                                     alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
                                 });
-                        }, 300);
+                        }, 600);
                     });
                 }
             </script>
@@ -347,6 +364,49 @@ if (isset($_SESSION['users_id'])) {
                             <span>Rubis</span>
                         </div>
                     </div>
+                    <h4>Nouveaux Thèmes Originaux</h4>
+                     <div class="themes-container">
+                        <div class="theme-card" data-theme="graphite-gold">
+                            <div class="theme-preview">
+                                <div style="background-color: #343a40; height: 20px;"></div>
+                                <div style="background-color: #c9a445; height: 20px;"></div>
+                                <div style="background-color: #f8f9fa; height: 20px;"></div>
+                            </div>
+                            <span>Or Graphite</span>
+                        </div>
+                        <div class="theme-card" data-theme="teal-coral">
+                            <div class="theme-preview">
+                                <div style="background-color: #008080; height: 20px;"></div>
+                                <div style="background-color: #FF6F61; height: 20px;"></div>
+                                <div style="background-color: #F0F8FF; height: 20px;"></div>
+                            </div>
+                            <span>Corail & Sarcelle</span>
+                        </div>
+                        <div class="theme-card" data-theme="indigo-cream">
+                            <div class="theme-preview">
+                                <div style="background-color: #3949AB; height: 20px;"></div>
+                                <div style="background-color: #9E9D24; height: 20px;"></div>
+                                <div style="background-color: #FFF8E1; height: 20px;"></div>
+                            </div>
+                            <span>Indigo & Crème</span>
+                        </div>
+                        <div class="theme-card" data-theme="forest-rust">
+                            <div class="theme-preview">
+                                <div style="background-color: #2F4F4F; height: 20px;"></div>
+                                <div style="background-color: #B7410E; height: 20px;"></div>
+                                <div style="background-color: #F5F5F5; height: 20px;"></div>
+                            </div>
+                            <span>Forêt & Rouille</span>
+                        </div>
+                         <div class="theme-card" data-theme="plum-sage">
+                            <div class="theme-preview">
+                                <div style="background-color: #5D3A55; height: 20px;"></div>
+                                <div style="background-color: #8A9A5B; height: 20px;"></div>
+                                <div style="background-color: #FDFCFB; height: 20px;"></div>
+                            </div>
+                            <span>Prune & Sauge</span>
+                        </div>
+                    </div>
                 </div>
 
                 <h3>Couleur des dates</h3>
@@ -393,13 +453,201 @@ if (isset($_SESSION['users_id'])) {
                     <div class="font-card" data-font="Poppins">
                         <span style="font-family: Poppins;">Poppins</span>
                     </div>
+                    <div class="font-card" data-font="Lato">
+                        <span style="font-family: Lato;">Lato</span>
+                </div>
+                    <div class="font-card" data-font="Raleway">
+                        <span style="font-family: Raleway;">Raleway</span>
+                    </div>
+                    <div class="font-card" data-font="Merriweather">
+                        <span style="font-family: Merriweather;">Merriweather</span>
+                    </div>
                 </div>
             </div>
         </div>
 
 
+        <div id="box">
         <div class="container-model">
             <div class="cv13 theme-blue">
+                    <!-- CV Header -->
+                    <div class="cv-header">
+                        <div class="profile-container">
+                            <img src="../upload/<?= isset($userss['images']) && $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
+                                alt="Photo de profil" class="profile-photo cv-editable-image">
+                        </div>
+                        <div class="identity-container">
+                            <h1 class="name cv-editable">
+                                <?= $userss['nom'] ?>
+                            </h1>
+                            <p class="job-title cv-editable">
+                                <?= isset($userss['competences']) ? $userss['competences'] : "Développeur Full Stack" ?>
+                            </p>
+                            <p class="summary cv-editable">
+                                <?= $descriptions['description'] ?>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CV Body -->
+                    <div class="cv-body">
+                        <!-- Left Column -->
+                        <div class="left-column">
+                            <!-- Contact Information -->
+                            <div class="contact-info">
+                                <h2 class="section-title cv-editable">Contact</h2>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <span
+                                        class="contact-text cv-editable"><?= isset($userss['mail']) ? $userss['mail'] : "thomas.dupont@gmail.com" ?></span>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <span
+                                        class="contact-text cv-editable"><?= isset($userss['phone']) ? $userss['phone'] : "06 12 34 56 78" ?></span>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <span
+                                        class="contact-text cv-editable"><?= isset($userss['ville']) ? $userss['ville'] : "Paris, France" ?></span>
+                                </div>
+                            </div>
+
+                            <!-- Skills Section -->
+                            <div class="skills-section">
+                                <h2 class="section-title cv-editable">Compétences</h2>
+
+                                <?php if (isset($competencesUtilisateurLimit7) && !empty($competencesUtilisateurLimit7)): ?>
+                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                        <div class="skill-item">
+                                            <span class="skill-name cv-editable"><?= $competence['competence'] ?></span>
+                                            <div class="skill-level">
+                                                <div class="skill-progress p-<?= rand(60, 95) ?>"></div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p class="texte">Aucune compétence trouvée</p>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Languages Section -->
+                            <div class="languages-section">
+                                <h2 class="section-title cv-editable">Langues</h2>
+
+                                <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
+                                    <?php foreach ($afficheLangue as $langue): ?>
+                                        <div class="language-item">
+                                            <span class="language-name cv-editable"><?= $langue['langue'] ?></span>
+                                            <div class="language-level">
+                                                <div class="language-progress p-<?= rand(60, 95) ?>"></div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p class="texte">Aucune langue trouvée</p>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Interests Section -->
+                            <div class="interests-section">
+                                <h2 class="section-title cv-editable">Centres d'intérêt</h2>
+                                <div class="interests-list">
+                                    <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
+                                        <?php foreach ($afficheCentreInteret as $interet): ?>
+                                            <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <p class="texte">Aucun centre d'intérêt trouvé</p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="right-column">
+                            <!-- Experience Section -->
+                            <div class="experience-section">
+                                <h2 class="section-title cv-editable">Expérience professionnelle</h2>
+
+                                <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
+                                    <?php 
+                                    // Limiter l'affichage aux 3 premiers métiers
+                                    $count = 0;
+                                    foreach ($afficheMetier as $metier): 
+                                        if ($count >= 3) break;
+                                        $count++;
+                                    ?>
+                                        <div class="timeline-item">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-header">
+                                                <h3 class="timeline-title cv-editable"><?= $metier['metier'] ?></h3>
+                                                <span
+                                                    class="timeline-date cv-editable"><?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?>
+                                                    -
+                                                    <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?></span>
+                                            </div>
+                                            <div class="timeline-content cv-editable">
+                                                <?= $metier['description'] ?>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <!-- Placeholder experiences -->
+                                    <p class="texte">Aucune expérience professionnelle trouvée</p>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Education Section -->
+                            <div class="education-section">
+                                <h2 class="section-title cv-editable">Formation</h2>
+
+                                <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
+                                    <?php
+                                    // Limiter l'affichage aux 3 premières formations
+                                    $count = 0;
+                                    foreach ($formationUsers as $formation):
+                                        if ($count >= 3) break;
+                                        $count++;
+                                    ?>
+                                        <div class="timeline-item">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-header">
+                                                <h3 class="timeline-title cv-editable"><?= $formation['Filiere'] ?></h3>
+                                                <span class="timeline-date cv-editable">
+                                                    <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
+                                                    <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
+                                                </span>
+                                                <p class="timeline-subtitle cv-editable">
+                                                    <?= $formation['etablissement'] ?>
+                                                    <strong><?= $formation['niveau'] ?></strong>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <!-- Placeholder education -->
+                                    <p class="texte">Aucune formation trouvée</p>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Projects Section -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteneur caché pour le clone PDF -->
+    <div style="position: absolute; left: -9999px; top:0;">
+        <div id="container-for-pdf" class="cv13 theme-blue">
                 <!-- CV Header -->
                 <div class="cv-header">
                     <div class="profile-container">
@@ -577,7 +825,6 @@ if (isset($_SESSION['users_id'])) {
     <script>
         // Script for color theme switching
         document.addEventListener('DOMContentLoaded', function () {
-            // Functions to save and load preferences from localStorage
             function savePreference(key, value) {
                 localStorage.setItem('cv13_' + key, value);
             }
@@ -586,137 +833,53 @@ if (isset($_SESSION['users_id'])) {
                 return localStorage.getItem('cv13_' + key) || defaultValue;
             }
 
-            // Convertit une couleur hex CSS en composantes RGB et retourne l'objet
-            function hexToRgb(hex) {
-                // On enlève le # si présent
-                hex = hex.replace(/^#/, '');
-
-                // Convertit les raccourcis (ex: #abc) en forme complète (ex: #aabbcc)
-                if (hex.length === 3) {
-                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-                }
-
-                // Convertit en valeurs décimales
-                const r = parseInt(hex.substring(0, 2), 16);
-                const g = parseInt(hex.substring(2, 4), 16);
-                const b = parseInt(hex.substring(4, 6), 16);
-
-                // Retourne un objet avec les valeurs r, g, b
-                return { r, g, b };
-            }
-
-            // Convertit des composantes RGB en notation hexadécimale
-            function rgbToHex(r, g, b) {
-                return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-            }
-
-            // Theme cards
             const themeCards = document.querySelectorAll('.theme-card');
-            const cv = document.querySelector('.cv13');
+        const cvContainers = document.querySelectorAll('.cv13');
 
-            // Initialize color pickers
             const primaryColorPicker = document.getElementById('primary-color');
             const accentColorPicker = document.getElementById('accent-color');
             const secondaryColorPicker = document.getElementById('secondary-color');
             const dateColorPicker = document.getElementById('date-color');
 
-            // Theme color maps
             const themeColors = {
-                'classic': {
-                    primary: '#4A4A4A',
-                    accent: '#7A7A7A',
-                    secondary: '#F5F5F5',
-                    date: '#7A7A7A'
-                },
-                'marine': {
-                    primary: '#1D3557',
-                    accent: '#457B9D',
-                    secondary: '#F1FAEE',
-                    date: '#457B9D'
-                },
-                'corporate': {
-                    primary: '#1A237E',
-                    accent: '#5C6BC0',
-                    secondary: '#FFFFFF',
-                    date: '#5C6BC0'
-                },
-                'slate': {
-                    primary: '#2F4F4F',
-                    accent: '#708090',
-                    secondary: '#E8ECEE',
-                    date: '#708090'
-                },
-                'emerald': {
-                    primary: '#0E3B43',
-                    accent: '#328590',
-                    secondary: '#F0F0F0',
-                    date: '#328590'
-                },
-                'violet': {
-                    primary: '#845EC2',
-                    accent: '#B39CD0',
-                    secondary: '#FBEAFF',
-                    date: '#B39CD0'
-                },
-                'ocean': {
-                    primary: '#3D5A80',
-                    accent: '#98C1D9',
-                    secondary: '#E0FBFC',
-                    date: '#98C1D9'
-                },
-                'ruby': {
-                    primary: '#A31621',
-                    accent: '#DB5461',
-                    secondary: '#F0EFF4',
-                    date: '#DB5461'
-                }
-            };
+            'classic': { primary: '#4A4A4A', accent: '#7A7A7A', secondary: '#F5F5F5', date: '#7A7A7A' },
+            'marine': { primary: '#1D3557', accent: '#457B9D', secondary: '#F1FAEE', date: '#457B9D' },
+            'corporate': { primary: '#1A237E', accent: '#5C6BC0', secondary: '#FFFFFF', date: '#5C6BC0' },
+            'slate': { primary: '#2F4F4F', accent: '#708090', secondary: '#E8ECEE', date: '#708090' },
+            'emerald': { primary: '#0E3B43', accent: '#328590', secondary: '#F0F0F0', date: '#328590' },
+            'violet': { primary: '#845EC2', accent: '#B39CD0', secondary: '#FBEAFF', date: '#B39CD0' },
+            'ocean': { primary: '#3D5A80', accent: '#98C1D9', secondary: '#E0FBFC', date: '#98C1D9' },
+            'ruby': { primary: '#A31621', accent: '#DB5461', secondary: '#F0EFF4', date: '#DB5461' },
+            'graphite-gold': { primary: '#343a40', accent: '#c9a445', secondary: '#f8f9fa', date: '#c9a445' },
+            'teal-coral': { primary: '#008080', accent: '#FF6F61', secondary: '#F0F8FF', date: '#FF6F61' },
+            'indigo-cream': { primary: '#3949AB', accent: '#9E9D24', secondary: '#FFF8E1', date: '#9E9D24' },
+            'forest-rust': { primary: '#2F4F4F', accent: '#B7410E', secondary: '#F5F5F5', date: '#B7410E' },
+            'plum-sage': { primary: '#5D3A55', accent: '#8A9A5B', secondary: '#FDFCFB', date: '#8A9A5B' }
+        };
 
-            // Function to apply colors to the CV
             function applyColors(primary, accent, secondary, dateColor) {
-                // Vérification que les couleurs sont au format hexadécimal
-                if (!primary.startsWith('#')) primary = '#' + primary;
-                if (!accent.startsWith('#')) accent = '#' + accent;
-                if (!secondary.startsWith('#')) secondary = '#' + secondary;
-                if (!dateColor.startsWith('#')) dateColor = '#' + dateColor;
-
                 document.documentElement.style.setProperty('--primary-color', primary);
                 document.documentElement.style.setProperty('--accent-color', accent);
                 document.documentElement.style.setProperty('--secondary-color', secondary);
 
-                const headerBg = document.querySelector('.cv-header');
-                const leftColumnBg = document.querySelector('.left-column');
+            cvContainers.forEach(cv => {
+                const headerBg = cv.querySelector('.cv-header');
+                const leftColumnBg = cv.querySelector('.left-column');
+                if (headerBg) headerBg.style.backgroundColor = primary;
+                if (leftColumnBg) leftColumnBg.style.backgroundColor = secondary;
 
-                if (headerBg) {
-                    headerBg.style.backgroundColor = primary;
-                }
-
-                if (leftColumnBg) {
-                    leftColumnBg.style.backgroundColor = secondary;
-                }
-
-                // Apply accent color to all accent elements
-                const accentElements = document.querySelectorAll('.timeline-dot, .skill-progress, .language-progress, .contact-icon');
-                accentElements.forEach(el => {
-                    el.style.backgroundColor = accent;
-                });
-
-                // Apply accent color to pseudo-elements with CSS variable
-                document.documentElement.style.setProperty('--accent-color', accent);
-
-                // Apply date color
-                const dateElements = document.querySelectorAll('.timeline-date');
-                dateElements.forEach(el => {
-                    el.style.color = dateColor;
-                });
-
-                // Update color pickers (sans déclencher d'événements)
+                const accentElements = cv.querySelectorAll('.timeline-dot, .skill-progress, .language-progress, .contact-icon');
+                accentElements.forEach(el => el.style.backgroundColor = accent);
+                
+                const dateElements = cv.querySelectorAll('.timeline-date');
+                dateElements.forEach(el => el.style.color = dateColor);
+            });
+            
                 if (primaryColorPicker) primaryColorPicker.value = primary;
                 if (accentColorPicker) accentColorPicker.value = accent;
                 if (secondaryColorPicker) secondaryColorPicker.value = secondary;
                 if (dateColorPicker) dateColorPicker.value = dateColor;
 
-                // Save colors
                 savePreference('primary-color', primary);
                 savePreference('accent-color', accent);
                 savePreference('secondary-color', secondary);
@@ -726,22 +889,16 @@ if (isset($_SESSION['users_id'])) {
             themeCards.forEach(card => {
                 card.addEventListener('click', function () {
                     const theme = this.getAttribute('data-theme');
-
-                    // Remove all theme classes
                     themeCards.forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
 
-                    // Remove all theme classes from CV
-                    cv.classList.remove('theme-classic', 'theme-marine', 'theme-corporate', 'theme-slate',
-                        'theme-emerald', 'theme-violet', 'theme-ocean', 'theme-ruby');
-
-                    // Add the selected theme class
+                cvContainers.forEach(cv => {
+                    Object.keys(themeColors).forEach(t => cv.classList.remove(`theme-${t}`));
                     cv.classList.add('theme-' + theme);
+                });
 
-                    // Save the selected theme
                     savePreference('theme', theme);
 
-                    // Apply theme colors
                     if (themeColors[theme]) {
                         const colors = themeColors[theme];
                         applyColors(colors.primary, colors.accent, colors.secondary, colors.date);
@@ -749,191 +906,142 @@ if (isset($_SESSION['users_id'])) {
                 });
             });
 
-            // Manual color customization
-            if (primaryColorPicker) {
-                primaryColorPicker.addEventListener('input', function () {
-                    const primary = this.value;
-                    const accent = accentColorPicker ? accentColorPicker.value : '#7A7A7A';
-                    const secondary = secondaryColorPicker ? secondaryColorPicker.value : '#F5F5F5';
-                    const dateColor = dateColorPicker ? dateColorPicker.value : accent;
-
-                    // Remove theme selection
+        function setupManualColorPickers() {
+            const pickers = [
+                { picker: primaryColorPicker, key: 'primary-color' },
+                { picker: accentColorPicker, key: 'accent-color' },
+                { picker: secondaryColorPicker, key: 'secondary-color' },
+                { picker: dateColorPicker, key: 'date-color' }
+            ];
+            
+            pickers.forEach(({ picker, key }) => {
+                if(picker) {
+                    picker.addEventListener('input', () => {
+                        const newColors = {
+                            'primary-color': primaryColorPicker.value,
+                            'accent-color': accentColorPicker.value,
+                            'secondary-color': secondaryColorPicker.value,
+                            'date-color': dateColorPicker.value,
+                        };
+                        
+                        applyColors(
+                            newColors['primary-color'],
+                            newColors['accent-color'],
+                            newColors['secondary-color'],
+                            newColors['date-color']
+                        );
+                        
                     themeCards.forEach(c => c.classList.remove('active'));
-
-                    // Apply custom colors
-                    applyColors(primary, accent, secondary, dateColor);
-
-                    // Save custom mode
                     savePreference('theme', 'custom');
                 });
             }
+            });
+        }
+        setupManualColorPickers();
 
-            if (accentColorPicker) {
-                accentColorPicker.addEventListener('input', function () {
-                    const primary = primaryColorPicker ? primaryColorPicker.value : '#4A4A4A';
-                    const accent = this.value;
-                    const secondary = secondaryColorPicker ? secondaryColorPicker.value : '#F5F5F5';
-                    const dateColor = dateColorPicker ? dateColorPicker.value : accent;
-
-                    // Remove theme selection
-                    themeCards.forEach(c => c.classList.remove('active'));
-
-                    // Apply custom colors
-                    applyColors(primary, accent, secondary, dateColor);
-
-                    // Save custom mode
-                    savePreference('theme', 'custom');
-                });
-            }
-
-            if (secondaryColorPicker) {
-                secondaryColorPicker.addEventListener('input', function () {
-                    const primary = primaryColorPicker ? primaryColorPicker.value : '#4A4A4A';
-                    const accent = accentColorPicker ? accentColorPicker.value : '#7A7A7A';
-                    const secondary = this.value;
-                    const dateColor = dateColorPicker ? dateColorPicker.value : accent;
-
-                    // Remove theme selection
-                    themeCards.forEach(c => c.classList.remove('active'));
-
-                    // Apply custom colors
-                    applyColors(primary, accent, secondary, dateColor);
-
-                    // Save custom mode
-                    savePreference('theme', 'custom');
-                });
-            }
-
-            if (dateColorPicker) {
-                dateColorPicker.addEventListener('input', function () {
-                    const primary = primaryColorPicker ? primaryColorPicker.value : '#4A4A4A';
-                    const accent = accentColorPicker ? accentColorPicker.value : '#7A7A7A';
-                    const secondary = secondaryColorPicker ? secondaryColorPicker.value : '#F5F5F5';
-                    const dateColor = this.value;
-
-                    // Remove theme selection
-                    themeCards.forEach(c => c.classList.remove('active'));
-
-                    // Apply custom colors
-                    applyColors(primary, accent, secondary, dateColor);
-
-                    // Save custom mode
-                    savePreference('theme', 'custom');
-                });
-            }
-
-            // Reset colors button
             const resetColorsButton = document.getElementById('resetColors');
             if (resetColorsButton) {
-                resetColorsButton.addEventListener('click', function () {
-                    // Reset to classic theme
+            resetColorsButton.addEventListener('click', () => {
                     const classicThemeCard = document.querySelector('.theme-card[data-theme="classic"]');
-                    if (classicThemeCard) {
-                        classicThemeCard.click();
-                    } else {
-                        // Fallback if button not found
-                        applyColors('#4A4A4A', '#7A7A7A', '#F5F5F5', '#7A7A7A');
-                        savePreference('theme', 'classic');
-                    }
-                });
-            }
+                if (classicThemeCard) classicThemeCard.click();
+            });
+        }
 
-            // Accent color selection
             const colorOptions = document.querySelectorAll('.date-color-selector .color-option');
-
             colorOptions.forEach(option => {
                 option.addEventListener('click', function () {
                     const color = this.getAttribute('data-color');
-
-                    // Remove active class from all options
                     colorOptions.forEach(o => o.classList.remove('active'));
                     this.classList.add('active');
 
-                    // Save the selected date color
-                    savePreference('dateColor', color);
-
-                    // Apply the selected color to date elements
-                    const dateElements = document.querySelectorAll('.timeline-date');
-                    dateElements.forEach(el => {
-                        el.style.color = color;
-                    });
-
-                    // Update the date color picker
-                    document.getElementById('date-color').value = color;
-                    savePreference('date-color', color);
+                if (dateColorPicker) dateColorPicker.value = color;
+                
+                applyColors(
+                    getPreference('primary-color'),
+                    getPreference('accent-color'),
+                    getPreference('secondary-color'),
+                    color
+                );
+                
+                themeCards.forEach(c => c.classList.remove('active'));
+                savePreference('theme', 'custom');
                 });
             });
 
-            // Font selection
             const fontCards = document.querySelectorAll('.font-card');
-
             fontCards.forEach(card => {
                 card.addEventListener('click', function () {
                     const font = this.getAttribute('data-font');
-
-                    // Remove active class from all cards
                     fontCards.forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
-
-                    // Save the selected font
                     savePreference('font', font);
 
-                    // Apply the font to the CV
-                    document.querySelector('.cv13').style.fontFamily = `'${font}', sans-serif`;
+                const fontValue = `'${font}', sans-serif`;
+                if(font === 'Merriweather') {
+                    fontValue = `'${font}', serif`;
+                }
 
-                    // Apply the font to headers specifically
-                    const headerElements = document.querySelectorAll('.name, .job-title, .section-title, .timeline-title');
-                    headerElements.forEach(el => {
-                        el.style.fontFamily = `'${font}', sans-serif`;
+                cvContainers.forEach(cv => {
+                    cv.style.fontFamily = fontValue;
+                    cv.querySelectorAll('.name, .job-title, .section-title, .timeline-title').forEach(el => {
+                        el.style.fontFamily = fontValue;
+                    });
                     });
                 });
             });
 
-            // Load saved preferences or initialize with defaults
+        function loadPreferences() {
             const savedTheme = getPreference('theme', 'classic');
-            const savedDateColor = getPreference('dateColor', '#777');
             const savedFont = getPreference('font', 'Montserrat');
 
-            // Load saved custom colors
-            const savedPrimaryColor = getPreference('primary-color', '#4A4A4A');
-            const savedAccentColor = getPreference('accent-color', '#7A7A7A');
-            const savedSecondaryColor = getPreference('secondary-color', '#F5F5F5');
-            const savedDateColorValue = getPreference('date-color', '#7A7A7A');
-
-            // Apply saved theme or custom colors
             if (savedTheme === 'custom') {
-                // Apply custom colors
-                applyColors(savedPrimaryColor, savedAccentColor, savedSecondaryColor, savedDateColorValue);
+                const savedPrimary = getPreference('primary-color', '#4A4A4A');
+                const savedAccent = getPreference('accent-color', '#7A7A7A');
+                const savedSecondary = getPreference('secondary-color', '#F5F5F5');
+                const savedDate = getPreference('date-color', '#7A7A7A');
+                applyColors(savedPrimary, savedAccent, savedSecondary, savedDate);
             } else {
-                // Apply saved theme
                 const themeCard = document.querySelector(`.theme-card[data-theme="${savedTheme}"]`);
-                if (themeCard) {
-                    themeCard.click();
-                } else {
-                    document.querySelector('.theme-card[data-theme="classic"]').click();
-                }
+                if (themeCard) themeCard.click();
             }
 
-            // Apply saved date color from predefined options
-            const colorOption = document.querySelector(`.color-option[data-color="${savedDateColor}"]`);
-            if (colorOption) {
-                colorOption.click();
-            } else {
-                const activeColorOption = document.querySelector('.color-option.active');
-                if (activeColorOption) {
-                    activeColorOption.click();
-                }
-            }
-
-            // Apply saved font
             const fontCard = document.querySelector(`.font-card[data-font="${savedFont}"]`);
-            if (fontCard) {
-                fontCard.click();
-            } else {
-                const activeFontCard = document.querySelector('.font-card.active');
-                if (activeFontCard) {
-                    activeFontCard.click();
+            if (fontCard) fontCard.click();
+            
+            const savedDateColor = getPreference('date-color');
+            const colorOption = document.querySelector(`.date-color-selector .color-option[data-color="${savedDateColor}"]`);
+            if(colorOption) {
+                 colorOptions.forEach(o => o.classList.remove('active'));
+                 colorOption.classList.add('active');
+            }
+        }
+        
+        loadPreferences();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('toggle-customization-btn');
+        const customPanel = document.getElementById('customization-panel');
+        const closeBtn = document.getElementById('close-panel-btn');
+
+        if (toggleBtn && customPanel && closeBtn) {
+            // Ouvre le panneau
+            toggleBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                customPanel.classList.add('active');
+            });
+
+            // Ferme le panneau avec la croix
+            closeBtn.addEventListener('click', function() {
+                customPanel.classList.remove('active');
+            });
+
+            // Ferme le panneau si on clique en dehors
+            document.addEventListener('click', function(event) {
+                if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                    customPanel.classList.remove('active');
                 }
+            });
             }
         });
     </script>

@@ -4,6 +4,11 @@ include __DIR__ . '/../entreprise/app/model/offre_emploi.php';
 include __DIR__ . '/../conn/conn.php';
 require_once __DIR__ . '/../model/CandidatProfile.php';
 
+// Inclure le contrôleur des utilisateurs AVANT tout output HTML
+if (!function_exists('getTotalUsers')) {
+    require_once '../controller/controller_users.php';
+}
+
 if (isset($_GET['id'])) {
     $offre_id = $_GET['id'];
     // On récupère les détails de l'offre pour l'affichage de base

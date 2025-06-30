@@ -14,49 +14,101 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log(`Module de personnalisation d'image activé pour le modèle ${modelNumber}`);
 
+    // Scope d'application pour les modifications
+    const cvContainer = document.querySelector('.cv-container, #cv-container, #container,.container,.cv10,.cv11,.cv12,.cv13,.cv14,.cv15');
+    const scope = cvContainer ? cvContainer : document;
+
+    if (!cvContainer) {
+        console.warn("Conteneur CV non trouvé (.cv-container, #cv-container, #container, etc.) pour la personnalisation d'image. Les modifications seront globales.");
+    }
+
     // CSS à injecter pour le panneau de personnalisation d'images
     const customImageCSS = `
         .cv-image-editor-panel {
             position: fixed;
             bottom: 0;
             left: 50%;
-            transform: translateX(-50%);
-            background-color: white;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px 8px 0 0;
-            padding: 15px;
+            transform: translateX(-50%) translateY(100%);
+            background-color: #f8f9fa;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px 12px 0 0;
+            padding: 20px;
             z-index: 1001; /* Au-dessus du panneau de texte */
-            width: 340px;
-            display: none;
+            width: 380px;
+            display: block;
+            font-family: 'Nunito', sans-serif;
+            transition: transform 0.3s ease-out;
+        }
+
+        .cv-image-editor-panel.visible {
+            transform: translateX(-50%) translateY(0);
         }
 
         .cv-image-editor-panel .editor-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
             text-align: center;
-            color: #444;
+            color: #343a40;
         }
 
         .cv-image-editor-panel .option {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .cv-image-editor-panel label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-size: 14px;
-            color: #555;
+            font-weight: 600;
+            color: #495057;
         }
 
         .cv-image-editor-panel input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
             width: 100%;
-            padding: 8px 0;
+            height: 6px;
+            background: #dee2e6;
+            border-radius: 5px;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+
+        .cv-image-editor-panel input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        .cv-image-editor-panel input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #ff9800;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .cv-image-editor-panel input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #ff9800;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .cv-image-editor-panel input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
         }
 
         .cv-image-editor-panel .size-inputs {
             display: flex;
             gap: 10px;
+            align-items: center;
         }
 
         .cv-image-editor-panel .size-inputs div {
@@ -65,27 +117,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
         .cv-image-editor-panel .close-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             background: none;
             border: none;
-            font-size: 18px;
+            font-size: 24px;
             cursor: pointer;
-            color: #777;
+            color: #adb5bd;
+            transition: color 0.2s;
+        }
+        
+        .cv-image-editor-panel .close-btn:hover {
+            color: #495057;
         }
 
         .cv-image-editor-panel .btn-apply {
-            background-color: #0089be;
+            background-image: linear-gradient(to right, #ff9800, #e65100);
             color: #fff;
             border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 12px 15px;
+            border-radius: 6px;
             cursor: pointer;
             width: 100%;
             margin-top: 10px;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
+
+        .cv-image-editor-panel .btn-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
+        }
+
         .cv-image-editor-panel .action-buttons {
             display: flex;
             margin-top: 15px;
@@ -94,26 +158,27 @@ document.addEventListener('DOMContentLoaded', function () {
         
         .cv-image-editor-panel .action-buttons button {
             flex: 1;
-            padding: 8px 5px;
+            padding: 10px 5px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .cv-image-editor-panel .action-buttons button:hover {
+             transform: translateY(-2px);
         }
         
         .cv-image-editor-panel .btn-hide {
-            background-color: #ff9800;
-            color: white;
+            background-color: #ffc107;
+            color: #212529;
         }
         
         .cv-image-editor-panel .btn-reset {
             background-color: #f44336;
             color: white;
-        }
-
-        .cv-image-editor-panel .btn-apply:hover,
-        .cv-image-editor-panel .action-buttons button:hover {
-            opacity: 0.9;
         }
 
         .editable-image {
@@ -255,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(imageEditorPanel);
 
     // Sélectionner toutes les images éditables
-    const editableImages = document.querySelectorAll('img:not([role="presentation"])');
+    const editableImages = scope.querySelectorAll('img:not([role="presentation"])');
 
     let currentImage = null;
     let currentImageId = '';
@@ -326,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
             updateEditorValues();
 
             // Afficher l'éditeur d'images
-            imageEditorPanel.style.display = 'block';
+            imageEditorPanel.classList.add('visible');
         });
     });
 
@@ -610,7 +675,7 @@ document.addEventListener('DOMContentLoaded', function () {
         saveImageStyles();
 
         currentImage.classList.remove('active');
-        imageEditorPanel.style.display = 'none';
+        imageEditorPanel.classList.remove('visible');
         currentImage = null;
 
         // Réactualisation automatique de la page
@@ -623,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentImage.classList.remove('active');
         }
 
-        imageEditorPanel.style.display = 'none';
+        imageEditorPanel.classList.remove('visible');
         currentImage = null;
     });
 
@@ -634,7 +699,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentImage.classList.remove('active');
             }
 
-            imageEditorPanel.style.display = 'none';
+            imageEditorPanel.classList.remove('visible');
             currentImage = null;
         }
     });

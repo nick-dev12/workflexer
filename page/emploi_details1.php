@@ -5,6 +5,11 @@ require_once '../entreprise/app/model/offre_emploi.php';
 require_once '../controller/MatchingController.php';
 require_once '../model/CandidatProfile.php';
 
+// Inclure le contrôleur des utilisateurs AVANT tout output HTML
+if (!function_exists('getTotalUsers')) {
+    require_once '../controller/controller_users.php';
+}
+
 // Activation des logs d'erreur PHP
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -68,25 +73,27 @@ if (isset($_GET['id'])) {
     <title>Détails de l'offre d'emploi</title>
     <style>
         .intro-sentence {
-            background-color: #eaf3ff;
-            border-left: 5px solid #0056b3;
+            background-color: #f0f8ff;
+            border-left: 5px solid #0a74da;
             padding: 15px 20px;
             margin-bottom: 25px;
             border-radius: 5px;
             font-size: 1.1em;
             line-height: 1.6;
+            color: #333;
         }
         .intro-sentence p {
             margin: 0;
         }
         .intro-sentence strong {
-            color: #004085;
+            color: #0056b3;
+            font-weight: 600;
         }
         .insufficient-data-message {
             background-color: #fff3cd;
             color: #856404;
             padding: 15px 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             border: 1px solid #ffeeba;
             margin: 20px 0;
             text-align: center;
@@ -102,28 +109,242 @@ if (isset($_GET['id'])) {
             justify-content: center;
             align-items: center;
             min-height: 300px;
-            background-color: #f9f9f9;
+            background-color: #f9fafb;
             border-radius: 8px;
             padding: 20px;
             text-align: center;
+            border: 1px dashed #e0e0e0;
         }
         .loader {
-            border: 8px solid #f3f3f3;
+            border: 6px solid #e0e0e0;
             border-radius: 50%;
-            border-top: 8px solid #3498db;
-            width: 60px;
-            height: 60px;
+            border-top: 6px solid #0a74da;
+            width: 50px;
+            height: 50px;
             animation: spin 1.5s linear infinite;
         }
         #analysis-placeholder p {
             margin-top: 20px;
             font-size: 1.1em;
             color: #555;
+            font-weight: 500;
         }
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* === NOUVEAU DESIGN DU RAPPORT v3 === */
+        .compatibility-report-v3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .report-header-v3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            gap: 15px;
+        }
+        .report-header-v3.excellent { background: linear-gradient(135deg, #28a745, #218838); }
+        .report-header-v3.good { background: linear-gradient(135deg, #0a74da, #0056b3); }
+        .report-header-v3.moderate { background: linear-gradient(135deg, #ffc107, #e0a800); color: #333; }
+        .report-header-v3.low { background: linear-gradient(135deg, #dc3545, #c82333); }
+        
+        .report-header-v3.moderate .header-summary-v3 p,
+        .report-header-v3.moderate .score-circle-v3 span {
+            color: #555;
+        }
+
+
+        .score-circle-v3 {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid #fff;
+            flex-shrink: 0;
+        }
+        .score-circle-v3 span {
+            font-size: 0.9em;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        .score-circle-v3 .score-value-v3 {
+            font-size: 2.2em;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .score-circle-v3 .score-value-v3 span {
+            font-size: 0.5em;
+            opacity: 1;
+            font-weight: 700;
+        }
+
+        .header-summary-v3 h2 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .header-summary-v3 p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .report-body-v3 {
+            padding: 20px 15px;
+        }
+
+        .report-section-v3 {
+            margin-top: 25px;
+        }
+        .report-section-v3 h2 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+        }
+        .report-section-v3 h2 i {
+            margin-right: 12px;
+            color: #0a74da;
+        }
+        .report-section-v3 .section-description-v3 {
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .card-grid-v3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .custom-card-v3 {
+            padding: 15px;
+            gap: 15px;
+        }
+        .card-icon-v3 {
+            font-size: 1.8em;
+            color: #0a74da;
+        }
+        .card-content-v3 h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 14px;
+        }
+        .card-content-v3 p {
+            margin: 0;
+            color: #555;
+            font-size: 12px;
+        }
+
+        .skills-list-v3 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skills-list-v3 span {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .improvements-list-v3 {
+            gap: 12px;
+        }
+        .improvement-item-v3 {
+            padding: 15px;
+        }
+        .improvement-header-v3 {
+            font-size: 14px;
+        }
+        .improvement-header-v3 i {
+            color: #28a745;
+        }
+        .improvement-item-v3 .suggestion-v3 {
+            margin: 10px 0 15px 28px;
+            color: #555;
+            font-style: italic;
+            font-size: 12px;
+        }
+        .resources-v3 {
+            margin-left: 28px;
+            margin-top: 15px;
+        }
+        .resources-v3 h5 {
+            margin: 0 0 10px 0;
+            font-size: 13px;
+            color: #444;
+        }
+        .resources-v3 ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .resources-v3 li a {
+            color: #0056b3;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 12px;
+        }
+        .resources-v3 li a:hover {
+            color: #0a74da;
+            text-decoration: underline;
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (min-width: 500px) {
+            .report-header-v3 {
+                flex-direction: row;
+                text-align: left;
+                padding: 20px 25px;
+            }
+            .card-grid-v3 {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 15px;
+            }
+             .report-body-v3 {
+                padding: 25px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .score-circle-v3 {
+                width: 100px;
+                height: 100px;
+            }
+            .score-circle-v3 .score-value-v3 {
+                font-size: 2.4em;
+            }
+            .header-summary-v3 h2 {
+                font-size: 22px;
+            }
+            .header-summary-v3 p,
+            .report-section-v3 .section-description-v3,
+            .card-content-v3 p,
+            .improvement-item-v3 .suggestion-v3,
+            .resources-v3 li a,
+            .skills-list-v3 span {
+                font-size: 14px;
+            }
+            .report-section-v3 h2 {
+                font-size: 18px;
+            }
+             .card-content-v3 h4,
+             .improvement-header-v3 {
+                font-size: 15px;
+            }
         }
     </style>
 </head>
@@ -290,69 +511,120 @@ if (isset($_GET['id'])) {
 
     function buildCompatibilityReport(data) {
         const score = Math.round(data.score_global);
-        const score_class = score >= 70 ? 'excellent' : (score >= 50 ? 'good' : (score >= 30 ? 'moderate' : 'low'));
-        const score_text = score >= 70 ? 'Excellente adéquation' : (score >= 50 ? 'Bonne adéquation' : (score >= 30 ? 'Adéquation moyenne' : 'Adéquation insuffisante'));
-        const etude_match = (data.analyse_detaillee.formation.score ?? 0) > 50;
-        const experience_match = (data.analyse_detaillee.experience.score ?? 0) > 50;
+        const score_class = score >= 75 ? 'excellent' : (score >= 60 ? 'good' : (score >= 40 ? 'moderate' : 'low'));
         
-        // Points forts
+        let score_text;
+        if (score >= 75) {
+            score_text = "Excellent profil !";
+        } else if (score >= 60) {
+            score_text = "Ça matche plutôt bien !";
+        } else if (score >= 40) {
+            score_text = "Il y a du potentiel !";
+        } else {
+            score_text = "Pour l'instant, c'est un peu juste...";
+        }
+
+        // 1. Points forts
         const pointsFortsHtml = data.points_forts && data.points_forts.length > 0 ? `
-            <section class="compatibility-strengths">
-                <h3><i class="fas fa-star"></i> Vos Points Forts</h3>
-                <ul>
-                    ${data.points_forts.map(p => `<li><i class="fas fa-check-circle"></i> ${escapeHtml(p.description)}</li>`).join('')}
-                </ul>
+            <section class="report-section-v3 strengths">
+                <h2><i class="fas fa-thumbs-up"></i> Tes points forts pour ce poste</h2>
+                <div class="card-grid-v3">
+                    ${data.points_forts.slice(0, 6).map(p => `
+                        <div class="custom-card-v3">
+                            <div class="card-icon-v3"><i class="fas ${getIconForCategory(p.categorie || 'general')}"></i></div>
+                            <div class="card-content-v3">
+                                <h4>${getCategoryLabel(p.categorie || 'general')}</h4>
+                                <p>${escapeHtml(p.description)}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
             </section>` : '';
 
-        // Compétences manquantes
+        // 2. Compétences recherchées
         const competencesManquantesHtml = data.competences_manquantes && data.competences_manquantes.length > 0 ? `
-            <section class="compatibility-missing-skills">
-                <h3><i class="fas fa-puzzle-piece"></i> Compétences Clés Recherchées</h3>
-                <p>Voici les compétences mentionnées dans l'offre que nous n'avons pas détectées dans votre profil. Pensez à les ajouter si vous les possédez.</p>
-                <ul>
-                    ${data.competences_manquantes.map(s => `<li><i class="fas fa-exclamation-triangle"></i> ${escapeHtml(s)}</li>`).join('')}
-                </ul>
+            <section class="report-section-v3 missing-skills">
+                <h2><i class="fas fa-puzzle-piece"></i> Les compétences de l'offre</h2>
+                <p class="section-description-v3">Voici les compétences clés pour ce job. Si tu les as, n'oublie pas de les ajouter à ton profil Work-Flexer pour booster ton score !</p>
+                <div class="skills-list-v3">
+                    ${data.competences_manquantes.map(skill => `<span>${escapeHtml(skill)}</span>`).join('')}
+                </div>
             </section>` : '';
 
-        // Axes d'amélioration
+        // 3. Plan d'amélioration
         const pointsAmeliorationHtml = data.points_amelioration && data.points_amelioration.length > 0 ? `
-            <section class="compatibility-gaps">
-                <h3><i class="fas fa-exclamation-circle"></i> Axes d'Amélioration</h3>
-                <ul>
-                    ${data.points_amelioration.map(p => `<li><i class="fas fa-wrench"></i> ${escapeHtml(p.description)}</li>`).join('')}
-                </ul>
+            <section class="report-section-v3 improvements">
+                <h2><i class="fas fa-rocket"></i> Ton plan pour devenir le candidat idéal</h2>
+                <div class="improvements-list-v3">
+                    ${data.points_amelioration.map(p => `
+                        <div class="improvement-item-v3">
+                            <div class="improvement-header-v3">
+                                <i class="fas ${getIconForCategory(p.categorie || 'general')}"></i>
+                                <p>${escapeHtml(p.description)}</p>
+                            </div>
+                            ${p.suggestion ? `<p class="suggestion-v3"><strong>Notre conseil :</strong> ${escapeHtml(p.suggestion)}</p>` : ''}
+                            ${p.ressources && p.ressources.length > 0 ? `
+                                <div class="resources-v3">
+                                    <h5><i class="fas fa-book-open"></i> Quelques ressources pour t'aider :</h5>
+                                    <ul>
+                                        ${p.ressources.map(r => `<li><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a></li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `).join('')}
+                </div>
             </section>` : '';
         
         return `
-            <div class="compatibility-analysis">
-                <div class="compatibility-header ${score_class}">
-                    <h2>Analyse de compatibilité</h2>
-                    <div class="score">${score}%</div>
-                    <div class="niveau">${score_text}</div>
-                    <p class="resume">${escapeHtml(data.resume)}</p>
+            <div class="compatibility-report-v3">
+                <div class="report-header-v3 ${score_class}">
+                    <div class="score-circle-v3">
+                        <span>Score</span>
+                        <div class="score-value-v3">${score}<span>%</span></div>
+                    </div>
+                    <div class="header-summary-v3">
+                        <h2>${score_text}</h2>
+                        <p>${escapeHtml(data.resume)}</p>
+                    </div>
                 </div>
-                <div class="compatibility-content">
-                    <section class="compatibility-summary">
-                        <h3>Synthèse de l'analyse</h3>
-                        <div class="criteria-overview">
-                             <div class="criteria-item ${etude_match ? 'criteria-match' : 'criteria-mismatch'}">
-                                <h4><i class="fas fa-graduation-cap"></i> Formation</h4>
-                                <p class="score-details">Score: ${data.analyse_detaillee.formation.score ?? 'N/A'}%</p>
-                                <p class="criteria-status ${etude_match ? 'success' : 'warning'}"><i class="fas ${etude_match ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i> Niveau d'études ${etude_match ? 'adéquat' : 'à améliorer'}</p>
-                            </div>
-                            <div class="criteria-item ${experience_match ? 'criteria-match' : 'criteria-mismatch'}">
-                                <h4><i class="fas fa-briefcase"></i> Expérience</h4>
-                                <p class="score-details">Score: ${data.analyse_detaillee.experience.score ?? 'N/A'}%</p>
-                                <p class="criteria-status ${experience_match ? 'success' : 'warning'}"><i class="fas ${experience_match ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i> Expérience ${experience_match ? 'suffisante' : 'à développer'}</p>
-                            </div>
-                        </div>
-                    </section>
-                    ${competencesManquantesHtml}
+                <div class="report-body-v3">
                     ${pointsFortsHtml}
+                    ${competencesManquantesHtml}
                     ${pointsAmeliorationHtml}
                 </div>
             </div>
         `;
+    }
+
+    function getIconForCategory(category) {
+        const icons = {
+            'competence': 'fa-cogs',
+            'formation': 'fa-graduation-cap',
+            'experience': 'fa-briefcase',
+            'langue': 'fa-language',
+            'general': 'fa-star',
+            'outils': 'fa-tools',
+            'analyse_ia': 'fa-brain',
+            'expertise_technique': 'fa-code-branch',
+            'projets': 'fa-project-diagram'
+        };
+        return icons[category.toLowerCase()] || 'fa-star';
+    }
+
+    function getCategoryLabel(category) {
+        const labels = {
+            'competence': 'Compétences Techniques',
+            'formation': 'Parcours Académique',
+            'experience': 'Expérience Pro',
+            'langue': 'Langues',
+            'general': 'Atout Général',
+            'outils': 'Outils Maîtrisés',
+            'analyse_ia': 'Analyse IA',
+            'expertise_technique': 'Expertise Technique',
+            'projets': 'Projets Pertinents'
+        };
+        return labels[category.toLowerCase()] || 'Atout Général';
     }
     </script>
     <?php endif; ?>

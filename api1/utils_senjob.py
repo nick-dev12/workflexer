@@ -61,30 +61,72 @@ if not senjob_logger.hasHandlers():
 
 def analyze_competences_senjob(candidate_competences: List[str], offer_text: str) -> Tuple[float, List[CorrespondanceItem], List[ElementManquant], List[str], List[str]]:
     """
-    Analyse les compétences du candidat en les recherchant directement dans le texte de l'offre.
+    Analyse avancée des compétences combinant recherche textuelle et extraction de compétences de l'offre.
     """
     if not candidate_competences:
         return 0.0, [], [], [], ["Le profil du candidat ne liste aucune compétence à analyser."]
 
     points_forts = []
     recommandations = []
-    offer_text_lower = offer_text.lower()
-    
-    found_competences_strip = set()
-    all_competences_strip = {c.strip() for c in candidate_competences}
-
-    for comp_strip in all_competences_strip:
-        if len(comp_strip) > 2 and comp_strip.lower() in offer_text_lower:
-            found_competences_strip.add(comp_strip)
-
-    if found_competences_strip:
-        for comp_found in found_competences_strip:
-            points_forts.append(f"Votre compétence '{comp_found}' est mentionnée dans l'offre.")
-    else:
-        recommandations.append("Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.")
-
     manquants = []
-    score = len(found_competences_strip) / len(all_competences_strip) if all_competences_strip else 0.0
+    
+    # Nettoyage du texte de l'offre
+    soup = BeautifulSoup(offer_text, 'html.parser')
+    offer_text_clean = soup.get_text().lower()
+    
+    # Compétences du candidat (nettoyées)
+    candidate_comps_clean = {c.strip().lower() for c in candidate_competences if c.strip()}
+    found_competences = set()
+
+    # 1. Recherche directe des compétences du candidat dans l'offre
+    for comp in candidate_comps_clean:
+        if len(comp) > 2 and comp in offer_text_clean:
+            found_competences.add(comp)
+            points_forts.append(f"Votre compétence '{comp}' est mentionnée dans l'offre.")
+
+    # 2. Extraction de compétences clés de l'offre (mots-clés techniques courants)
+    technical_keywords = [
+        'angular', 'react', 'vue', 'javascript', 'typescript', 'python', 'java', 'php', 'node.js',
+        'html', 'css', 'sql', 'mysql', 'postgresql', 'mongodb', 'api', 'rest', 'graphql',
+        'git', 'docker', 'kubernetes', 'aws', 'azure', 'scrum', 'agile', 'ci/cd',
+        'machine learning', 'ia', 'data science', 'analyse', 'gestion', 'communication',
+        'marketing', 'design', 'photoshop', 'illustrator', 'figma', 'wordpress', 'seo'
+    ]
+    
+    required_skills_found = []
+    for keyword in technical_keywords:
+        if keyword in offer_text_clean:
+            required_skills_found.append(keyword)
+            # Vérifier si le candidat a cette compétence
+            if not any(keyword in comp for comp in candidate_comps_clean):
+                manquants.append(ElementManquant(
+                    description=keyword.title(),
+                    categorie="competences",
+                    importance="moyenne"
+                ))
+
+    # 3. Calcul du score
+    if candidate_comps_clean:
+        # Score basé sur les correspondances trouvées
+        direct_match_score = len(found_competences) / len(candidate_comps_clean)
+        
+        # Bonus si le candidat a des compétences pertinentes même sans correspondance exacte
+        semantic_bonus = 0.0
+        if not found_competences and required_skills_found:
+            # Analyse sémantique des compétences
+            candidate_skills_text = " ".join(candidate_competences)
+            required_skills_text = " ".join(required_skills_found)
+            semantic_bonus = get_semantic_similarity(candidate_skills_text, required_skills_text) * 0.5
+        
+        score = min(1.0, direct_match_score + semantic_bonus)
+    else:
+        score = 0.0
+
+    # 4. Recommandations
+    if not found_competences and not semantic_bonus:
+        recommandations.append("Aucune de vos compétences n'a été explicitement retrouvée dans cette offre. Considérez mettre en avant des compétences plus alignées avec le poste.")
+    elif len(manquants) > 3:
+        recommandations.append(f"Cette offre recherche {len(required_skills_found)} compétences techniques spécifiques. Concentrez-vous sur les plus importantes.")
     
     return score, [], manquants, points_forts, recommandations
 
@@ -203,17 +245,23 @@ def analyze_compatibility_senjob(candidate_data: Dict, job_offer_data: Dict) -> 
         l_details = analyze_langues_senjob(profile.langues, offer.texte_integral)
         o_details = find_keyword_matches(profile.outils, offer.texte_integral, "outil")
         
-        # Calcul du Score Hybride Pondéré
-        DESCRIPTION_WEIGHT = 0.15
+        # Score des langues et outils basé sur les correspondances trouvées
+        langues_score = 0.8 if l_details else 0.3
+        outils_score = 1.0 if o_details else 0.0
+        
+        # Calcul du Score Hybride Pondéré (total = 100%)
+        DESCRIPTION_WEIGHT = 0.10
         FORMATION_WEIGHT = 0.15
         EXPERIENCE_WEIGHT = 0.40
         COMPETENCES_WEIGHT = 0.30
+        OUTILS_WEIGHT = 0.05
         
         granular_composite_score = (
             description_score * DESCRIPTION_WEIGHT +
             formation_score * FORMATION_WEIGHT +
             experience_score * EXPERIENCE_WEIGHT +
-            competences_score * COMPETENCES_WEIGHT
+            competences_score * COMPETENCES_WEIGHT +
+            outils_score * OUTILS_WEIGHT
         )
         
         WEIGHT_GLOBAL = 0.60
@@ -276,7 +324,8 @@ def analyze_compatibility_senjob(candidate_data: Dict, job_offer_data: Dict) -> 
                 points_amelioration=c_reco,
                 resume=generate_section_resume("competences", competences_score)
             ),
-            "langues": AnalyseCategorielle(categorie="Langues", score=50, resume="Le niveau de langue doit être vérifié manuellement."),
+            "outils": AnalyseCategorielle(categorie="Outils", score=round(outils_score * 100), points_forts=o_details, points_amelioration=[], resume=generate_section_resume("outils", outils_score)),
+            "langues": AnalyseCategorielle(categorie="Langues", score=round(langues_score * 100), points_forts=l_details, points_amelioration=[], resume=generate_section_resume("langues", langues_score)),
         }
 
         response_data = MatchingResponseV2(

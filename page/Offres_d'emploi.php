@@ -121,9 +121,10 @@ if (isset($_POST['recherche'])) {
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/emploi.css">
+    <link rel="stylesheet" href="../css/job-card.css">
 </head>
 
-<body>
+<body class="workflexer-theme">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>

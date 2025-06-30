@@ -1,6 +1,6 @@
 /* styles.css pour le nouveau modèle de CV */
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
 
@@ -8,32 +8,31 @@
   Variables
 --------------------------------------------------------------*/
 :root {
-  --texte-color_titre: #ededed;
-  --font-color_titre: #5b4f4f;
-  --font-color_section: #e6e6e6;
-  --texte-color_section: #000000;
-  --secondary-color: #3498db;
-  --skills-checkmark-color: #388e3c; /* Variable pour les coches de compétences */
+  /* Colors */
+  --m8-bg-left: #e3f1e2;          /* Light green background for the left column */
+  --m8-text-left: #333333;         /* Dark text for the left column */
+  --m8-bg-right: #ffffff;         /* White background for the right column */
+  --m8-text-right: #333333;        /* Main text on the right column */
+  --m8-accent: #388e3c;          /* Accent color for titles, checkmarks */
+  --m8-text-light: #6c757d;        /* Lighter text for dates, subtitles */
+  --m8-border: #dddddd;           /* Border color for section titles */
+  --m8-main-font: "Nunito", sans-serif;
+  --m8-icon-filter: none;         /* Filter for icons, adaptable for dark backgrounds */
 }
+
 /*--------------------------------------------------------------
-  Styles globaux
+  Global Styles
 --------------------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  line-height: 1.4;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.5;
 }
 
 body {
-  font-family: "Nunito", sans-serif;
-  background-color: #e1e2e275;
-  line-height: 1.4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  background-color: #f5f5f5;
 }
 
 .section2 .box3 table .tr4 {
@@ -49,7 +48,10 @@ body {
 
 .section3 {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0px !important;
+  margin-top: 50px !important;
 }
 
 @media screen and (max-width: 1050px) {
@@ -74,328 +76,269 @@ body {
 .section3 button:hover {
   background-color: #303030;
 }
-.section3 .personnalisation {
-  width: 500px;
-  padding: 20px;
-  margin: 20px 0;
-  background-color: #ffffff;
-  border-radius: 10px;
-  max-height: 90vh;
-}
 
-.section3 .personnalisation .box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.section3 .personnalisation .box p {
-  font-size: 11px;
-  color: #636262;
-  text-align: center;
-  margin-right: 20px;
-}
-.section3 .personnalisation .box input {
-  width: 40px;
-  height: 30px;
-  max-width: 60px;
-  max-height: 30px;
-  min-height: 30px;
-  min-width: 60px;
-}
-
-@media screen and (max-width: 720px) {
-  .section3 .personnalisation {
-    width: 330px;
-    padding: 10px;
-    margin: 10px 0;
-  }
-
-  .section3 .personnalisation .box {
-    margin-top: 4px;
-  }
-  .section3 .personnalisation .box input {
-    width: 50px;
-    height: 20px;
-  }
-  .section3 .personnalisation .box p {
-    font-size: 10px;
-  }
-}
+/* Les styles de personnalisation ont été déplacés vers css/personnalisation.css */
 
 /* Nouvelle mise en page du CV basée sur l'image */
 .cv-container {
   display: flex;
-  width: 210mm;
-  height: 297mm;
+  width: 750px !important;
+  min-height: 1122px !important;
   margin: auto;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+  background-color: var(--m8-bg-right);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: var(--m8-main-font);
 }
 
+/* Left Column */
 .left-column {
   width: 35%;
-  background-color: #e3f1e2; /* Vert très pâle */
+  background-color: var(--m8-bg-left);
   padding: 30px 20px;
-  color: #333333;
+  color: var(--m8-text-left);
 }
 
+/* Right Column */
 .right-column {
   width: 65%;
   padding: 30px;
-  background-color: white;
+  background-color: var(--m8-bg-right);
+  color: var(--m8-text-right);
 }
 
-/* Styles pour le nom et titre */
+/*--------------------------------------------------------------
+  Left Column Elements
+--------------------------------------------------------------*/
 .name-title {
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 26px;
+  font-weight: 700;
+  font-size: 20px !important;
   margin-bottom: 0;
   letter-spacing: 1px;
-  color: #333333;
+  color: var(--m8-text-left) !important;
 }
 
 .subtitle {
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 16px !important;
   margin-top: 5px;
-  margin-bottom: 0;
-  color: #333333;
-  font-weight: normal;
+  color: var(--m8-text-left) !important;
+  font-weight: 400;
   letter-spacing: 0.5px;
+  opacity: 0.9;
 }
 
-/* Style pour les sections */
-.section-title {
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 25px auto;
+  display: block;
+  border: 4px solid var(--m8-bg-right); /* Border color matching the right column background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.left-column .section-title {
   text-transform: uppercase;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
+  margin-top: 30px;
   margin-bottom: 15px;
-  color: #333333;
+  color: var(--m8-text-left);
+  border-bottom: 2px solid var(--m8-text-left);
+  padding-bottom: 5px;
   letter-spacing: 1px;
 }
-
-/* Contact info */
-.contact {
-  margin-top: 40px;
+.left-column h3{
+  color: var(--m8-text-left) !important;
+  border-bottom: 2px solid var(--m8-text-left) !important;
+  padding-bottom: 5px !important;
+  margin-bottom: 15px !important;
+  margin-top: 10px !important;
 }
-
-.contact h3 {
-  text-transform: uppercase;
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #333333;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.contact p {
-  font-size: 12px;
-  line-height: 1.5;
+.left-column p {
+  font-size: 13px;
   margin: 0 0 8px 0;
   display: flex;
+  color: var(--m8-text-left) !important;
   align-items: center;
 }
 
-.contact p img {
-  width: 16px;
-  height: 16px;
-  margin-right: 10px;
-}
-
-/* Langues */
-.languages {
-  margin-top: 30px;
-}
-
-.languages h3 {
-  text-transform: uppercase;
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #333333;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.languages p {
-  font-size: 12px;
-  line-height: 1.5;
-  margin: 0 0 8px 0;
-}
-
-/* Compétences */
-.skills {
-  margin-top: 30px;
-}
-
-.skills h3 {
-  text-transform: uppercase;
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #333333;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.skills ul {
-  list-style-type: none;
+.left-column ul {
+  list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.skills ul li {
-  font-size: 12px;
+.left-column .skills ul li {
+  font-size: 13px;
   margin-bottom: 8px;
   position: relative;
   padding-left: 20px;
+  color: var(--m8-text-left);
 }
 
-.skills ul li:before {
+.left-column .skills ul li::before {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--skills-checkmark-color);
+  color: var(--m8-accent);
 }
 
-/* Profil */
-.profile {
-  margin-bottom: 30px;
-}
-
-.profile h3 {
+/*--------------------------------------------------------------
+  Right Column Elements
+--------------------------------------------------------------*/
+.right-column .section-title {
   text-transform: uppercase;
   font-size: 18px;
-  margin-bottom: 15px;
-  color: #333333;
-  border-bottom: 1px solid #333333;
-  padding-bottom: 5px;
-  font-weight: bold;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--m8-accent);
+  border-bottom: 2px solid var(--m8-border);
+  padding-bottom: 8px;
   letter-spacing: 1px;
+  padding-bottom: 5px;
 }
 
-.profile p {
+.right-column h3{
+  color: var(--m8-accent) !important;
+  border-bottom: 2px solid var(--m8-border) !important;
+  padding-bottom: 2px !important;
+  margin-bottom:15px !important;
+}
+
+.right-column .profile p {
   font-size: 12px;
-  line-height: 1.5;
-  text-align: justify;
+  line-height: 1.4 !important;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-/* Sections générales */
 .section {
-  margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-.section h3 {
-  text-transform: uppercase;
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #333333;
-  border-bottom: 1px solid #333333;
-  padding-bottom: 5px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-/* Expérience et Éducation */
 .experience-item,
 .education-item {
-  margin-bottom: 15px;
-  position: relative;
-  padding-left: 0;
+  margin-bottom: 10px;
 }
 
 .experience-item h4,
 .education-item h4 {
-  font-size: 16px;
-  margin: 0 0 5px 0;
-  color: #333333;
-  font-weight: bold;
-}
-
-.experience-item p,
-.education-item p {
-  font-size: 12px;
-  margin: 5px 0;
-  line-height: 1.5;
-}
-
-.experience-item ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin: 5px 0;
-}
-
-.experience-item ul li {
-  font-size: 12px;
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin: 0 0 2px 0;
+  color: var(--m8-text-right) !important;
+  font-weight: 700;
 }
 
 .date {
   font-style: italic;
-  font-size: 12px;
-  color: #666666;
+  font-size: 11px !important;
+  color: var(--m8-accent) !important;
+  margin-bottom: 1px;
+  display: inline !important;
+}
+
+.experience-item p,
+.education-item p {
+  font-size: 13px;
+  margin: 2px 0;
+  line-height: 1.4 !important;
+}
+
+/*--------------------------------------------------------------
+  Responsive Scaling
+--------------------------------------------------------------*/
+@media (max-width: 1200px) {
+  #box .cv-container {
+    transform: scale(0.85);
+    transform-origin: top center;
+    margin-bottom: -168px;
+  }
+}
+
+@media (max-width: 992px) {
+  #box .cv-container {
+    transform: scale(0.7);
+    margin-bottom: -337px;
+  }
+}
+
+@media (max-width: 768px) {
+  #box .cv-container {
+    transform: scale(0.6);
+    margin-bottom: -449px;
+  }
+}
+
+@media (max-width: 576px) {
+  #box .cv-container {
+    transform: scale(0.5);
+    margin-bottom: -561px;
+  }
+}
+
+@media (max-width: 480px) {
+  #box .cv-container {
+    transform: scale(0.45);
+    margin-bottom: -617px;
+  }
+}
+
+/* -------------------- BOUTON DE TÉLÉCHARGEMENT FIXE -------------------- */
+.fixed-download-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
+  gap: 10px;
+  letter-spacing: 0.3px;
+  min-width: 180px;
+  justify-content: center;
 }
 
-.date img {
-  width: 14px;
-  height: 14px;
-  margin-right: 5px;
+.fixed-download-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(39, 174, 96, 0.5);
+  background: linear-gradient(135deg, #219a52 0%, #27ae60 100%);
 }
 
-/* Style pour la photo de profil */
-.profile-image {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 15px auto 25px;
-  display: block;
-  border: 3px solid #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.fixed-download-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
 }
 
-/* Icônes */
-.icon-small {
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
-  vertical-align: middle;
+.fixed-download-button i {
+  font-size: 18px;
 }
 
-.company-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-  vertical-align: middle;
+.fixed-download-button span {
+  font-weight: 600;
 }
 
-/* Styles pour les éléments spécifiques du CV de l'image */
-.left-column h3 {
-  border-bottom: 1px solid #333333;
-  font-weight: bold;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-}
-
-.right-column h3 {
-  border-bottom: 1px solid #ddd;
-  font-weight: bold;
-}
-
-.right-column .experience-item,
-.right-column .education-item {
-  border-left: none;
-  margin-bottom: 20px;
-}
-
-/* Styles spécifiques pour les cases à cocher des compétences */
-.skills ul li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #333;
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .fixed-download-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 14px;
+    min-width: 150px;
+  }
+  
+  .fixed-download-button i {
+    font-size: 16px;
+  }
 }

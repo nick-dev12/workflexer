@@ -5,13 +5,42 @@ require_once(__DIR__ . '/../model/OffreEmploi.php');
 class MatchingController
 {
     private $db;
-    private $api_url = "http://localhost:8000/analyze/v2";
+    private $api_url = "http://localhost:8000/analyze/hybrid-v2";
     private $debug = true;
+
+    // Dictionnaires de normalisation avancés
+    private $skill_normalization = [
+        'js' => 'javascript',
+        'py' => 'python',
+        'css3' => 'css',
+        'html5' => 'html',
+        'nodejs' => 'node.js',
+        'reactjs' => 'react',
+        'vuejs' => 'vue.js',
+        'angularjs' => 'angular',
+        'mysql' => 'mysql',
+        'postgresql' => 'postgresql',
+        'dotnet' => '.net',
+        'csharp' => 'c#',
+        'cplusplus' => 'c++',
+        'photoshop' => 'adobe photoshop',
+        'illustrator' => 'adobe illustrator',
+    ];
+
+    private $technology_clusters = [
+        'frontend' => ['html', 'css', 'javascript', 'react', 'vue.js', 'angular', 'typescript', 'sass', 'bootstrap'],
+        'backend' => ['php', 'python', 'java', 'node.js', 'ruby', 'go', 'c#', '.net', 'spring', 'django', 'laravel', 'symfony'],
+        'database' => ['mysql', 'postgresql', 'mongodb', 'redis', 'elasticsearch', 'oracle', 'sql server'],
+        'mobile' => ['android', 'ios', 'react native', 'flutter', 'ionic', 'swift', 'kotlin'],
+        'devops' => ['docker', 'kubernetes', 'jenkins', 'git', 'aws', 'azure', 'google cloud', 'terraform'],
+        'design' => ['photoshop', 'illustrator', 'figma', 'sketch', 'adobe xd', 'indesign'],
+        'cms' => ['wordpress', 'drupal', 'joomla', 'shopify', 'magento']
+    ];
 
     public function __construct($db)
     {
         $this->db = $db;
-        $this->log("MatchingController initialisé");
+        $this->log("MatchingController hybride avancé initialisé");
     }
 
     private function log($message, $data = null)
@@ -21,28 +50,204 @@ class MatchingController
             if ($data !== null) {
                 $log .= "\nData: " . print_r($data, true);
             }
-            error_log($log . "\n", 3, __DIR__ . '/../logs/matching_controller.log');
+            error_log($log . "\n", 3, __DIR__ . '/../logs/matching_debug.log');
         }
     }
 
+    /**
+     * Normalise le nom d'une compétence en utilisant les dictionnaires de correspondance
+     */
+    private function normalizeSkillName($skill)
+    {
+        $skill_lower = strtolower(trim($skill));
+        return $this->skill_normalization[$skill_lower] ?? $skill_lower;
+    }
+
+    /**
+     * Extraction avancée des entités nommées avec patterns regex sophistiqués
+     */
+    private function extractEntitiesAdvanced($text)
+    {
+        if (empty($text)) {
+            return [];
+        }
+
+        $entities = [];
+        $text_lower = strtolower($text);
+
+        // Patterns pour les compétences techniques
+        $tech_patterns = [
+            // Langages de programmation
+            '/\b(?:HTML5?|CSS3?|JavaScript|TypeScript|React|Vue\.?js|Angular|Node\.?js)\b/i',
+            '/\b(?:Python|Java|PHP|Ruby|Go|Rust|Swift|Kotlin|C\+\+|C#|\.NET)\b/i',
+            // Base de données
+            '/\b(?:MySQL|PostgreSQL|MongoDB|Redis|Oracle|SQL Server|SQLite)\b/i',
+            // DevOps et Cloud
+            '/\b(?:Docker|Kubernetes|Jenkins|Git|AWS|Azure|Google Cloud)\b/i',
+            // Design
+            '/\b(?:Photoshop|Illustrator|Figma|Sketch|Adobe XD|InDesign)\b/i',
+            // CMS
+            '/\b(?:WordPress|Drupal|Shopify|Magento|PrestaShop)\b/i',
+        ];
+
+        foreach ($tech_patterns as $pattern) {
+            preg_match_all($pattern, $text, $matches);
+            foreach ($matches[0] as $match) {
+                $entities[] = [
+                    'text' => $match,
+                    'label' => 'TECH_SKILL',
+                    'confidence' => 0.9,
+                    'normalized' => $this->normalizeSkillName($match)
+                ];
+            }
+        }
+
+        // Extraction des entités d'entreprise
+        $company_pattern = '/\b(?:chez|pour|dans l\'entreprise|société)\s+([A-Z][a-zA-Z\s&]{2,30})\b/i';
+        preg_match_all($company_pattern, $text, $matches);
+        foreach ($matches[1] as $match) {
+            $entities[] = [
+                'text' => trim($match),
+                'label' => 'ORG',
+                'confidence' => 0.8
+            ];
+        }
+
+        // Extraction des certifications
+        $cert_pattern = '/\b(?:certification|certifié|diplôme|master|licence)\s+([A-Za-z0-9\s\+]{3,30})\b/i';
+        preg_match_all($cert_pattern, $text, $matches);
+        foreach ($matches[1] as $match) {
+            $entities[] = [
+                'text' => trim($match),
+                'label' => 'CERTIFICATION',
+                'confidence' => 0.7
+            ];
+        }
+
+        return $entities;
+    }
+
+    /**
+     * Classification automatique des compétences par cluster technologique
+     */
+    private function classifySkillsByCluster($skills)
+    {
+        $clustered_skills = [];
+        $uncategorized = [];
+
+        foreach ($skills as $skill) {
+            $normalized = $this->normalizeSkillName($skill);
+            $categorized = false;
+
+            foreach ($this->technology_clusters as $cluster_name => $cluster_skills) {
+                if (in_array($normalized, array_map('strtolower', $cluster_skills))) {
+                    if (!isset($clustered_skills[$cluster_name])) {
+                        $clustered_skills[$cluster_name] = [];
+                    }
+                    $clustered_skills[$cluster_name][] = $skill;
+                    $categorized = true;
+                    break;
+                }
+            }
+
+            if (!$categorized) {
+                $uncategorized[] = $skill;
+            }
+        }
+
+        if (!empty($uncategorized)) {
+            $clustered_skills['autres'] = $uncategorized;
+        }
+
+        return $clustered_skills;
+    }
+
+    /**
+     * Extraction de mots-clés contextuels avancée
+     */
+    private function extractContextualKeywords($text, $max_keywords = 15)
+    {
+        if (empty($text)) {
+            return [];
+        }
+
+        // Mots vides français
+        $stopwords = [
+            'le', 'de', 'et', 'à', 'un', 'il', 'être', 'et', 'en', 'avoir', 'que', 'pour',
+            'dans', 'ce', 'son', 'une', 'sur', 'avec', 'ne', 'se', 'pas', 'tout', 'plus',
+            'par', 'grand', 'en', 'une', 'être', 'et', 'à', 'il', 'avoir', 'ne', 'je'
+        ];
+
+        // Nettoyage du texte
+        $text = strtolower($text);
+        $text = preg_replace('/[^\w\s]/u', ' ', $text);
+        $words = array_filter(explode(' ', $text));
+
+        // Filtrage des mots vides et calcul de fréquence
+        $word_freq = [];
+        foreach ($words as $word) {
+            $word = trim($word);
+            if (strlen($word) > 2 && !in_array($word, $stopwords)) {
+                $word_freq[$word] = ($word_freq[$word] ?? 0) + 1;
+            }
+        }
+
+        // Tri par fréquence et limitation
+        arsort($word_freq);
+        return array_keys(array_slice($word_freq, 0, $max_keywords));
+    }
+
+    /**
+     * Version améliorée de formatCompetence avec normalisation
+     */
     private function formatCompetence($competence)
     {
-        // Si c'est une chaîne simple, la convertir en tableau associatif
         if (is_string($competence)) {
             $competence = ['competence' => $competence, 'mis_en_avant' => 0];
         }
         
-        // Normalisation du nom de la compétence
-        $nom = strtolower(trim($competence['competence']));
-        
-        // Définir un niveau par défaut basé sur mis_en_avant
+        $nom = trim($competence['competence']);
+        $normalized = $this->normalizeSkillName($nom);
         $niveau = isset($competence['mis_en_avant']) && $competence['mis_en_avant'] ? 4 : 3;
         
         return [
             'nom' => $nom,
             'niveau' => $niveau,
-            'annees_experience' => 1 // Valeur par défaut
+            'annees_experience' => $competence['annees_experience'] ?? 1,
+            'normalized_name' => $normalized,
+            'category' => $this->getSkillCategory($normalized),
+            'market_demand' => $this->estimateMarketDemand($normalized)
         ];
+    }
+
+    /**
+     * Estime la demande du marché pour une compétence
+     */
+    private function estimateMarketDemand($skill)
+    {
+        $high_demand = ['python', 'javascript', 'react', 'node.js', 'aws', 'docker', 'kubernetes'];
+        $medium_demand = ['php', 'java', 'mysql', 'html', 'css', 'git'];
+
+        $skill_lower = strtolower($skill);
+        if (in_array($skill_lower, $high_demand)) {
+            return 0.9;
+        } elseif (in_array($skill_lower, $medium_demand)) {
+            return 0.6;
+        }
+        return 0.3;
+    }
+
+    /**
+     * Détermine la catégorie d'une compétence
+     */
+    private function getSkillCategory($skill)
+    {
+        foreach ($this->technology_clusters as $category => $skills) {
+            if (in_array(strtolower($skill), array_map('strtolower', $skills))) {
+                return $category;
+            }
+        }
+        return 'general';
     }
 
     private function extractCompetencesFromText($text)
@@ -607,7 +812,7 @@ class MatchingController
             CURLOPT_POSTFIELDS => $jsonData,
             CURLOPT_VERBOSE => true,
             CURLOPT_STDERR => $verbose,
-            CURLOPT_TIMEOUT => 60
+            CURLOPT_TIMEOUT => 180
         ]);
 
         $this->log("Envoi de la requête à l'API", [

@@ -1,18 +1,18 @@
 <?php
 // Vérification de l'appareil au tout début
-include_once('check_device.php');
+
 // Démarre la session
 session_start();
 
 
 
 // Check if user is on desktop
-$isDesktop = isDesktop();
+/* $isDesktop = isDesktop();
 if (!$isDesktop) {
     // If not on desktop, redirect to mobile message page
     header("Location: mobile_message.php");
     exit;
-}
+} */
 
 if (isset($_GET['id'])) {
     include '../conn/conn.php';
@@ -61,8 +61,9 @@ if (isset($_SESSION['users_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Poppins:wght@400;700&family=Merriweather:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/model8.css">
+    <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
@@ -71,301 +72,427 @@ if (isset($_SESSION['users_id'])) {
 </head>
 
 <body>
+    <button id="toggle-customization-btn" class="button12">
+        <i class="fa-solid fa-palette"></i> Personnaliser
+    </button>
+
+    <!-- Bouton de téléchargement fixe toujours visible -->
+    <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
+        <i class="fa-solid fa-download"></i>
+        <span>Télécharger PDF</span>
+    </button>
     <section class="section3">
-        <div class="personnalisation">
+        <div class="personnalisation" id="customization-panel">
+            <button id="close-panel-btn" class="close-panel-btn">&times;</button>
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
+            <button class="button12 reset-button">Réinitialiser</button>
+
             <script>
                 function generatePDF() {
+                    // Afficher un message de chargement
+                    const loadingMessage = document.createElement('div');
+                    loadingMessage.innerHTML = `
+                        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                                    background: rgba(0,0,0,0.8); display: flex; align-items: center; 
+                                    justify-content: center; z-index: 99999; color: white; font-size: 18px;">
+                            <div style="text-align: center;">
+                                <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; 
+                                           border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; 
+                                           margin: 0 auto 15px;"></div>
+                                Génération du PDF en cours...
+                            </div>
+                        </div>
+                    `;
+                    // Ajouter l'animation CSS pour le spinner
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    document.body.appendChild(loadingMessage);
+
                     const { jsPDF } = window.jspdf;
-                    const element = document.querySelector(".cv-container");
+                    const element = document.querySelector("#container-for-pdf");
+                    
+                    // Optimisations légères pour une meilleure qualité
+                    const options = {
+                        scale: 2.2,
+                        quality: 0.95,
+                        bgcolor: '#ffffff',
+                        useCORS: true
+                    };
 
-                    domtoimage.toJpeg(element, {
-                        quality: 2,
-                        bgcolor: '#fff'
-                    })
-                        .then(function (dataUrl) {
-                            const pdf = new jsPDF('p', 'mm', 'a4');
-                            const imgProps = pdf.getImageProperties(dataUrl);
-                            const pdfWidth = pdf.internal.pageSize.getWidth();
-                            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                    setTimeout(() => {
+                        domtoimage.toJpeg(element, options)
+                            .then(function (dataUrl) {
+                                // Supprimer le message d'attente
+                                if (document.body.contains(loadingMessage)) {
+                                    document.body.removeChild(loadingMessage);
+                                }
 
-                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-                            pdf.save("cv.pdf");
-                        })
-                        .catch(function (error) {
-                            console.error('Une erreur est survenue lors de la génération du PDF:', error);
-                            alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
-                        });
+                                const pdf = new jsPDF('p', 'mm', 'a4');
+                                const imgProps = pdf.getImageProperties(dataUrl);
+                                const pdfWidth = pdf.internal.pageSize.getWidth();
+                                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                                
+                                pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                                
+                                // Nom de fichier avec timestamp pour éviter les conflits
+                                const timestamp = new Date().toISOString().slice(0, 19).replace(/[:.]/g, '-');
+                                pdf.save(`cv-model8-${timestamp}.pdf`);
+                            })
+                            .catch(function (error) {
+                                console.error('Une erreur est survenue lors de la génération du PDF:', error);
+                                // Supprimer le message d'attente en cas d'erreur
+                                if (document.body.contains(loadingMessage)) {
+                                    document.body.removeChild(loadingMessage);
+                                }
+                                alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                            });
+                    }, 600); // Délai léger pour stabilité
                 }
             </script>
 
             <div class="theme-selector">
-                <h3>Thèmes de couleurs</h3>
-                <div class="themes-section">
-                    <h4>Classiques</h4>
+                <h3>Thèmes</h3>
                     <div class="themes-container">
-                        <div class="theme-card" data-theme="classic">
-                            <div class="theme-preview">
-                                <div style="background-color: #4A4A4A; height: 20px;"></div>
-                                <div style="background-color: #7A7A7A; height: 20px;"></div>
-                                <div style="background-color: #F5F5F5; height: 20px;"></div>
-                            </div>
-                            <span>Classique</span>
-                        </div>
-                        <div class="theme-card" data-theme="professional">
-                            <div class="theme-preview">
-                                <div style="background-color: #1D3557; height: 20px;"></div>
-                                <div style="background-color: #457B9D; height: 20px;"></div>
-                                <div style="background-color: #F1FAEE; height: 20px;"></div>
-                            </div>
-                            <span>Marine</span>
-                        </div>
-                        <div class="theme-card" data-theme="corporate">
-                            <div class="theme-preview">
-                                <div style="background-color: #1A237E; height: 20px;"></div>
-                                <div style="background-color: #5C6BC0; height: 20px;"></div>
-                                <div style="background-color: #FFFFFF; height: 20px;"></div>
-                            </div>
-                            <span>Corporate</span>
-                        </div>
-                        <div class="theme-card" data-theme="slate">
-                            <div class="theme-preview">
-                                <div style="background-color: #2F4F4F; height: 20px;"></div>
-                                <div style="background-color: #708090; height: 20px;"></div>
-                                <div style="background-color: #E8ECEE; height: 20px;"></div>
-                            </div>
-                            <span>Ardoise</span>
-                        </div>
+                    <div class="theme-card" data-theme="default">
+                        <div class="theme-preview"><div style="background-color: #e3f1e2; height: 20px;"></div><div style="background-color: #388e3c; height: 20px;"></div></div>
+                        <span>Défaut</span>
                     </div>
-
-                    <h4>Couleurs vives</h4>
-                    <div class="themes-container">
-                        <div class="theme-card" data-theme="green">
-                            <div class="theme-preview">
-                                <div style="background-color: #388e3c; height: 20px;"></div>
-                                <div style="background-color: #c8e6c9; height: 20px;"></div>
-                                <div style="background-color: #FFFFFF; height: 20px;"></div>
-                            </div>
-                            <span>Vert</span>
-                        </div>
-                        <div class="theme-card" data-theme="creative">
-                            <div class="theme-preview">
-                                <div style="background-color: #845EC2; height: 20px;"></div>
-                                <div style="background-color: #B39CD0; height: 20px;"></div>
-                                <div style="background-color: #FBEAFF; height: 20px;"></div>
-                            </div>
-                            <span>Violet</span>
-                        </div>
-                        <div class="theme-card" data-theme="modern">
-                            <div class="theme-preview">
-                                <div style="background-color: #3D5A80; height: 20px;"></div>
-                                <div style="background-color: #98C1D9; height: 20px;"></div>
-                                <div style="background-color: #E0FBFC; height: 20px;"></div>
-                            </div>
-                            <span>Océan</span>
-                        </div>
+                    <div class="theme-card" data-theme="midnight_blue">
+                        <div class="theme-preview"><div style="background-color: #003366; height: 20px;"></div><div style="background-color: #99ccff; height: 20px;"></div></div>
+                        <span>Bleu Nuit</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="manual-color-options"
-                style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                <h3 style="text-align: center; margin-bottom: 15px; color: #333; font-size: 18px;">Personnalisation
-                    manuelle
-                </h3>
-
-                <div class="color-option">
-                    <label for="bgColorLeft">Couleur de fond colonne gauche</label>
-                    <input type="color" id="bgColorLeft" class="color-picker" data-target="left-column"
-                        data-property="background-color" value="#e3f1e2">
-                    <div class="color-preview" style="margin-top: 5px; font-size: 12px; color: #666;">
-                        Valeur: <span id="bgColorValue">#e3f1e2</span>
+                    <div class="theme-card" data-theme="slate_grey">
+                        <div class="theme-preview"><div style="background-color: #464E59; height: 20px;"></div><div style="background-color: #AAB3BE; height: 20px;"></div></div>
+                        <span>Ardoise</span>
+                    </div>
+                    <div class="theme-card" data-theme="burgundy">
+                        <div class="theme-preview"><div style="background-color: #6D214F; height: 20px;"></div><div style="background-color: #B33771; height: 20px;"></div></div>
+                        <span>Bordeaux</span>
+                    </div>
+                    <div class="theme-card" data-theme="forest_green">
+                        <div class="theme-preview"><div style="background-color: #194D33; height: 20px;"></div><div style="background-color: #27AE60; height: 20px;"></div></div>
+                        <span>Forêt</span>
+                    </div>
+                    <div class="theme-card" data-theme="professional_navy">
+                        <div class="theme-preview"><div style="background-color: #2c3e50; height: 20px;"></div><div style="background-color: #3498db; height: 20px;"></div></div>
+                        <span>Navy</span>
+                    </div>
+                    <div class="theme-card" data-theme="teal_grey">
+                        <div class="theme-preview"><div style="background-color: #F4F4F4; height: 20px;"></div><div style="background-color: #008080; height: 20px;"></div></div>
+                        <span>Gris Sarcelle</span>
+                    </div>
+                    <div class="theme-card" data-theme="crimson_gold">
+                        <div class="theme-preview"><div style="background-color: #FFF8DC; height: 20px;"></div><div style="background-color: #DC143C; height: 20px;"></div></div>
+                        <span>Or Cramoisi</span>
+                    </div>
+                    <div class="theme-card" data-theme="oceanic_deep">
+                        <div class="theme-preview"><div style="background-color: #F0F8FF; height: 20px;"></div><div style="background-color: #000080; height: 20px;"></div></div>
+                        <span>Océan Profond</span>
+                    </div>
+                    <div class="theme-card" data-theme="modern_graphite">
+                        <div class="theme-preview"><div style="background-color: #36454F; height: 20px;"></div><div style="background-color: #FF7F50; height: 20px;"></div></div>
+                        <span>Graphite Moderne</span>
+                    </div>
+                    <div class="theme-card" data-theme="earthy_olive">
+                        <div class="theme-preview"><div style="background-color: #F5F5DC; height: 20px;"></div><div style="background-color: #808000; height: 20px;"></div></div>
+                        <span>Olive Terrestre</span>
+                    </div>
                     </div>
                 </div>
 
-                <div class="color-option">
-                    <label for="textColorLeft">Couleur du texte colonne gauche</label>
-                    <input type="color" id="textColorLeft" class="color-picker" data-target="left-column"
-                        data-property="color" value="#333333">
-                    <div class="color-preview" style="margin-top: 5px; font-size: 12px; color: #666;">
-                        Valeur: <span id="textColorValue">#333333</span>
-                    </div>
+            <div class="font-selector">
+                <h3>Police d'écriture</h3>
+                <select id="font-family-select" class="style-select">
+                    <option value="'Nunito', sans-serif">Nunito (Défaut)</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                    <option value="'Lato', sans-serif">Lato</option>
+                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                    <option value="'Raleway', sans-serif">Raleway</option>
+                    <option value="'Poppins', sans-serif">Poppins</option>
+                    <option value="'Merriweather', serif">Merriweather (Serif)</option>
+                </select>
                 </div>
 
-                <div class="color-option">
-                    <label for="borderColor">Couleur des bordures</label>
-                    <input type="color" id="borderColor" class="color-picker" data-target="borders"
-                        data-property="border-color" value="#dddddd">
-                    <div class="color-preview" style="margin-top: 5px; font-size: 12px; color: #666;">
-                        Valeur: <span id="borderColorValue">#dddddd</span>
-                    </div>
-                </div>
-
-                <div class="color-option">
-                    <label for="accentColor">Couleur d'accentuation (titres)</label>
-                    <input type="color" id="accentColor" class="color-picker" data-target="accent" data-property="color"
-                        value="#333333">
-                    <div class="color-preview" style="margin-top: 5px; font-size: 12px; color: #666;">
-                        Valeur: <span id="accentColorValue">#333333</span>
-                    </div>
-                </div>
-
-                <button id="resetColors"
-                    style="width: 100%; margin-top: 15px; padding: 10px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background-color 0.3s ease;">Réinitialiser
-                    les couleurs</button>
+            <div class="color-control-section">
+                <h4>Personnalisation Manuelle</h4>
+                <div class="color-box"><label>Fond (gauche)</label><input type="color" id="bgLeftPicker"></div>
+                <div class="color-box"><label>Texte (gauche)</label><input type="color" id="textLeftPicker"></div>
+                <div class="color-box"><label>Accentuation</label><input type="color" id="accentPicker"></div>
+                <div class="color-box"><label>Bordures</label><input type="color" id="borderPicker"></div>
+                <div class="color-box"><label>Dates</label><input type="color" id="textLightPicker"></div>
             </div>
 
             <style>
-                .theme-selector {
-                    margin-top: 20px;
-                    padding: 15px;
-                    background-color: #f9f9f9;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                }
-
-                .theme-selector h3 {
-                    text-align: center;
-                    margin-bottom: 15px;
-                    color: #333;
-                    font-size: 18px;
-                }
-
-                .theme-selector h4 {
-                    border-bottom: 1px solid #e0e0e0;
-                    padding-bottom: 8px;
-                    margin: 15px 0 10px;
-                    color: #555;
-                    font-size: 16px;
-                }
-
-                .themes-section {
-                    max-height: 400px;
-                    overflow-y: auto;
-                    padding-right: 5px;
-                }
-
-                .themes-container {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: flex-start;
-                    gap: 12px;
-                    margin-bottom: 15px;
-                }
-
-                .theme-card {
-                    width: calc(25% - 12px);
-                    min-width: 85px;
-                    border-radius: 6px;
-                    overflow: hidden;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                    cursor: pointer;
-                    transition: transform 0.2s, box-shadow 0.2s;
-                }
-
-                .theme-card:hover {
-                    transform: translateY(-3px);
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                }
-
-                .theme-card.active {
-                    border: 2px solid #0089be;
-                    transform: translateY(-2px);
-                }
-
-                .theme-preview {
-                    width: 100%;
-                }
-
-                .theme-card span {
-                    display: block;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 12px;
-                    background-color: white;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                /* Ajouter des styles pour la lisibilité des icônes */
-                .left-column img {
-                    filter: brightness(1);
-                    transition: filter 0.3s ease;
-                }
-
-                /* Style pour les sélecteurs de couleur */
-                .color-picker {
-                    border: none;
-                    border-radius: 4px;
-                    height: 35px;
-                    width: 100%;
-                    padding: 5px;
-                    cursor: pointer;
-                    transition: transform 0.2s ease;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                }
-
-                .color-picker:hover {
-                    transform: scale(1.05);
-                }
-
-                .color-option {
-                    margin-bottom: 16px;
-                }
-
-                .color-option label {
-                    display: block;
-                    margin-bottom: 8px;
-                    font-size: 14px;
-                    font-weight: 500;
-                    color: #444;
-                }
-
-                /* Styles pour tablette */
-                @media (max-width: 768px) {
-                    .theme-card {
-                        width: calc(33.33% - 12px);
-                    }
-
-                    .themes-section {
-                        max-height: 350px;
-                    }
-                }
-
-                /* Styles pour mobile */
-                @media (max-width: 480px) {
-                    .theme-card {
-                        width: calc(50% - 8px);
-                        min-width: 60px;
-                    }
-
-                    .themes-container {
-                        gap: 8px;
-                    }
-
-                    .theme-selector {
-                        padding: 10px;
-                    }
-
-                    .theme-selector h3 {
-                        font-size: 16px;
-                    }
-
-                    .theme-selector h4 {
-                        font-size: 14px;
-                    }
-
-                    .theme-card span {
-                        font-size: 11px;
-                        padding: 4px 0;
-                    }
-                }
+                .theme-selector, .color-control-section { margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+                .theme-selector h3, .color-control-section h4 { text-align: center; margin-bottom: 15px; color: #333; font-size: 18px; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px;}
+                .themes-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+                .theme-card { border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 2px solid transparent;}
+                .theme-card:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+                .theme-card.active { border-color: #0089be; }
+                .theme-card span { display: block; text-align: center; padding: 6px 0; font-size: 12px; background-color: white; }
+                .color-box { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; background-color: white; padding: 8px 12px; border-radius: 4px;}
+                .color-box label { font-size: 14px; color: #333; }
+                .color-box input[type="color"] { width: 35px; height: 35px; border: none; border-radius: 4px; cursor: pointer; background: none; }
+                .reset-button { background-color: #e74c3c; }
+                .reset-button:hover { background-color: #c0392b; }
+                .font-selector { margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+                .font-selector h3 { text-align: center; margin-bottom: 15px; color: #333; font-size: 18px; }
+                .style-select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: white; font-size: 14px; }
             </style>
+            
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const modelNumber = '8';
+                const storagePrefix = `model${modelNumber}-`;
+                const themes = {
+                    'default': { bgLeft: '#e3f1e2', textLeft: '#333333', accent: '#388e3c', border: '#dddddd', textLight: '#6c757d' },
+                    'midnight_blue': { bgLeft: '#003366', textLeft: '#FFFFFF', accent: '#4a90e2', border: '#5c7a99', textLight: '#7F8C8D' },
+                    'slate_grey': { bgLeft: '#464E59', textLeft: '#F5F7FA', accent: '#778899', border: '#79818A', textLight: '#95A5A6' },
+                    'burgundy': { bgLeft: '#6D214F', textLeft: '#F5F7FA', accent: '#B33771', border: '#8c4369', textLight: '#95A5A6' },
+                    'forest_green': { bgLeft: '#194D33', textLeft: '#F5F7FA', accent: '#27AE60', border: '#2e694a', textLight: '#95A5A6' },
+                    'professional_navy': { bgLeft: '#2c3e50', textLeft: '#ecf0f1', accent: '#3498db', border: '#5d6d7e', textLight: '#95A5A6' },
+                    'teal_grey': { bgLeft: '#F4F4F4', textLeft: '#333333', accent: '#008080', border: '#D3D3D3', textLight: '#696969' },
+                    'crimson_gold': { bgLeft: '#FFF8DC', textLeft: '#5d4037', accent: '#DC143C', border: '#F0E68C', textLight: '#b8860b' },
+                    'oceanic_deep': { bgLeft: '#F0F8FF', textLeft: '#000080', accent: '#1E90FF', border: '#ADD8E6', textLight: '#4682B4' },
+                    'modern_graphite': { bgLeft: '#36454F', textLeft: '#FFFFFF', accent: '#FF7F50', border: '#708090', textLight: '#A9A9A9' },
+                    'earthy_olive': { bgLeft: '#F5F5DC', textLeft: '#556B2F', accent: '#808000', border: '#BDB76B', textLight: '#6B8E23' }
+                };
+                const defaultColors = themes.default;
+                
+                const themeCards = document.querySelectorAll('.theme-card');
+                const bgLeftPicker = document.getElementById('bgLeftPicker');
+                const textLeftPicker = document.getElementById('textLeftPicker');
+                const accentPicker = document.getElementById('accentPicker');
+                const borderPicker = document.getElementById('borderPicker');
+                const textLightPicker = document.getElementById('textLightPicker');
+                const resetButton = document.querySelector('.reset-button');
+                const root = document.documentElement;
+                const fontSelect = document.getElementById('font-family-select');
+
+                function applyColors(colors) {
+                    root.style.setProperty('--m8-bg-left', colors.bgLeft);
+                    root.style.setProperty('--m8-text-left', colors.textLeft);
+                    root.style.setProperty('--m8-accent', colors.accent);
+                    root.style.setProperty('--m8-border', colors.border);
+                    root.style.setProperty('--m8-text-light', colors.textLight);
+                    
+                    bgLeftPicker.value = colors.bgLeft;
+                    textLeftPicker.value = colors.textLeft;
+                    accentPicker.value = colors.accent;
+                    borderPicker.value = colors.border;
+                    textLightPicker.value = colors.textLight;
+                }
+
+                function saveColors(colors) {
+                    Object.keys(colors).forEach(key => {
+                        localStorage.setItem(`${storagePrefix}${key}`, colors[key]);
+                    });
+                }
+
+                function applyFont(fontFamily) {
+                    root.style.setProperty('--m8-main-font', fontFamily);
+                    localStorage.setItem(`${storagePrefix}fontFamily`, fontFamily);
+                }
+
+                themeCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        const themeName = this.dataset.theme;
+                        if (themes[themeName]) {
+                            applyColors(themes[themeName]);
+                            saveColors(themes[themeName]);
+                            localStorage.setItem(`${storagePrefix}activeTheme`, themeName);
+                            themeCards.forEach(c => c.classList.remove('active'));
+                            this.classList.add('active');
+                        }
+                    });
+                });
+
+                [bgLeftPicker, textLeftPicker, accentPicker, borderPicker, textLightPicker].forEach(picker => {
+                    picker.addEventListener('input', () => {
+                        const currentColors = {
+                            bgLeft: bgLeftPicker.value,
+                            textLeft: textLeftPicker.value,
+                            accent: accentPicker.value,
+                            border: borderPicker.value,
+                            textLight: textLightPicker.value
+                        };
+                        applyColors(currentColors);
+                        saveColors(currentColors);
+                        localStorage.setItem(`${storagePrefix}activeTheme`, 'custom');
+                        themeCards.forEach(c => c.classList.remove('active'));
+                    });
+                });
+
+                resetButton.addEventListener('click', () => {
+                    applyColors(defaultColors);
+                    Object.keys(defaultColors).forEach(key => localStorage.removeItem(`${storagePrefix}${key}`));
+                    localStorage.removeItem(`${storagePrefix}activeTheme`);
+                    themeCards.forEach(c => c.classList.remove('active'));
+                    document.querySelector('.theme-card[data-theme="default"]').classList.add('active');
+                });
+                
+                function loadPreferences() {
+                    const activeTheme = localStorage.getItem(`${storagePrefix}activeTheme`);
+                    if (activeTheme && themes[activeTheme] && activeTheme !== 'custom') {
+                        applyColors(themes[activeTheme]);
+                        document.querySelector(`.theme-card[data-theme="${activeTheme}"]`).classList.add('active');
+                    } else {
+                        const savedColors = {
+                            bgLeft: localStorage.getItem(`${storagePrefix}bgLeft`),
+                            textLeft: localStorage.getItem(`${storagePrefix}textLeft`),
+                            accent: localStorage.getItem(`${storagePrefix}accent`),
+                            border: localStorage.getItem(`${storagePrefix}border`),
+                            textLight: localStorage.getItem(`${storagePrefix}textLight`)
+                        };
+                        if (savedColors.bgLeft) {
+                            applyColors(savedColors);
+                        } else {
+                            applyColors(defaultColors);
+                            document.querySelector('.theme-card[data-theme="default"]').classList.add('active');
+                        }
+                    }
+
+                    const savedFont = localStorage.getItem(`${storagePrefix}fontFamily`);
+                    if (savedFont) {
+                        applyFont(savedFont);
+                        fontSelect.value = savedFont;
+                    }
+                }
+                loadPreferences();
+            });
+            </script>
         </div>
 
+        <div id="box">
         <div class="container-model">
             <div class="cv-container">
+                    <div class="left-column">
+                        <h1 class="name-title"><?= $userss['nom'] ?></h1>
+                        <p class="subtitle" style="margin-top: 5px; font-style: italic; text-transform: none;">
+                            <?= $userss['competences'] ?>
+                        </p>
+                        <img src="../upload/<?= $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
+                            alt="Photo de profil" class="profile-image">
+
+                        <div class="contact">
+                            <h3>CONTACT</h3>
+                            <p><?= $userss['phone'] ?></p>
+                            <p><?= $userss['ville'] ?></p>
+                            <p><?= $userss['mail'] ?></p>
+                        </div>
+
+                        <div class="languages">
+                            <h3>LANGUES</h3>
+                            <?php if (empty($afficheLangue)): ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php else: ?>
+                                <?php foreach ($afficheLangue as $langues): ?>
+                                    <p><?= $langues['langue'] ?> : <?= $langues['niveau'] ?></p>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="skills">
+                            <h3>COMPÉTENCES</h3>
+                            <?php if ($competencesUtilisateurLimit7): ?>
+                                <ul>
+                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                        <li> <?php echo $competence['competence']; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php else: ?>
+                                <h4>Aucune donnée trouvée</h4>
+                            <?php endif ?>
+                        </div>
+
+                        <div class="skills">
+                            <h3>OUTILS</h3>
+                            <?php if ($afficheOutilLimit5): ?>
+                                <ul>
+                                    <?php foreach ($afficheOutilLimit5 as $outils): ?>
+                                        <li> <?= $outils['outil'] ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif ?>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="profile">
+                            <h3>PROFIL</h3>
+                            <?php if (empty($descriptions)): ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php else: ?>
+                                <p><?= $descriptions['description'] ?></p>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="section">
+                            <h3>FORMATION</h3>
+                            <?php if (empty($formationUsers)): ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php else: ?>
+                                <?php
+                                shuffle($formationUsers);
+                                $nombre_formation = 3;
+                                ?>
+                                <?php foreach ($formationUsers as $key => $formations): ?>
+                                    <?php if ($key < $nombre_formation): ?>
+                                        <div class="education-item">
+                                            <h4><?= $formations['etablissement'] ?> <span class="date">
+                                                <?= $formations['moisDebut'] ?>/<?= $formations['anneeDebut'] ?> -
+                                                <?= $formations['moisFin'] ?>/<?= $formations['anneeFin'] ?>
+                                            </span></h4>
+                                            <p><?= $formations['Filiere'] ?> (<?= $formations['niveau'] ?>)</p>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="section">
+                            <h3>EXPÉRIENCES PROFESSIONNELLES</h3>
+                            <?php if (empty($afficheMetier)): ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php else: ?>
+                                <?php
+                                shuffle($afficheMetier);
+                                $nombre_metier = 3;
+                                ?>
+                                <?php foreach ($afficheMetier as $key => $Metiers): ?>
+                                    <?php if ($key < $nombre_metier): ?>
+                                        <div class="experience-item">
+                                            <h4><?= $Metiers['metier'] ?>
+                                                <?php if (!empty($Metiers['entreprise'])): ?> |
+                                                    <?= $Metiers['entreprise'] ?>             <?php endif; ?>
+                                            </h4>
+                                            <p class="date">
+                                                <?= $Metiers['moisDebut'] ?>/<?= $Metiers['anneeDebut'] ?> -
+                                                <?= $Metiers['moisFin'] ?>/<?= $Metiers['anneeFin'] ?>
+                                                <?php if (!empty($Metiers['ville'])): ?> | <?= $Metiers['ville'] ?><?php endif; ?>
+                                            </p>
+                                            <p><?= $Metiers['description'] ?></p>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteneur caché pour le clone PDF -->
+        <div style="position: absolute; left: -9999px; top:0;">
+            <div id="container-for-pdf" class="cv-container">
                 <div class="left-column">
                     <h1 class="name-title"><?= $userss['nom'] ?></h1>
                     <p class="subtitle" style="margin-top: 5px; font-style: italic; text-transform: none;">
@@ -439,12 +566,10 @@ if (isset($_SESSION['users_id'])) {
                             <?php foreach ($formationUsers as $key => $formations): ?>
                                 <?php if ($key < $nombre_formation): ?>
                                     <div class="education-item">
-                                        <h4><?= $formations['etablissement'] ?></h4>
-                                        <p class="date">
+                                        <h4><?= $formations['etablissement'] ?> <span class="date">
                                             <?= $formations['moisDebut'] ?>/<?= $formations['anneeDebut'] ?> -
                                             <?= $formations['moisFin'] ?>/<?= $formations['anneeFin'] ?>
-                                            <?php if (!empty($formations['ville'])): ?> | <?= $formations['ville'] ?><?php endif; ?>
-                                        </p>
+                                        </span></h4>
                                         <p><?= $formations['Filiere'] ?> (<?= $formations['niveau'] ?>)</p>
                                     </div>
                                 <?php endif; ?>
@@ -484,377 +609,31 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
-
-        <!-- Personnalisation manuelle des couleurs -->
-
-
     </section>
     <script>
-        // JavaScript pour changer les thèmes
-        document.addEventListener('DOMContentLoaded', function () {
-            const themeCards = document.querySelectorAll('.theme-card');
-            const leftColumn = document.querySelector('.left-column');
-            const rightColumn = document.querySelector('.right-column');
-            const headings = document.querySelectorAll('.section h3');
-            const contactHeadings = document.querySelectorAll('.contact h3, .languages h3, .skills h3');
-            const experienceHeadings = document.querySelectorAll('.experience-item h4, .education-item h4');
-            const colorPickers = document.querySelectorAll('.color-picker');
-            const resetButton = document.getElementById('resetColors');
-            const allLeftTexts = document.querySelectorAll('.left-column p, .left-column h1, .left-column h3, .left-column li');
-            const experienceItems = document.querySelectorAll('.experience-item, .education-item');
-            const checkMarks = document.querySelectorAll('.skills ul li:before');
-            const leftColumnIcons = document.querySelectorAll('.left-column img');
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-customization-btn');
+            const customPanel = document.getElementById('customization-panel');
+            const closeBtn = document.getElementById('close-panel-btn');
 
-            // Éléments d'affichage de la valeur des couleurs
-            const bgColorValue = document.getElementById('bgColorValue');
-            const textColorValue = document.getElementById('textColorValue');
-            const borderColorValue = document.getElementById('borderColorValue');
-            const accentColorValue = document.getElementById('accentColorValue');
-
-            // Définition des thèmes complets avec couleurs de texte adaptées
-            const themes = {
-                'classic': {
-                    bgColor: '#e6e6e6',
-                    textColor: '#333333',
-                    borderColor: '#e6e6e6',
-                    accentColor: '#555555'
-                },
-                'professional': {
-                    bgColor: '#1D3557',
-                    textColor: '#FFFFFF',
-                    borderColor: '#457B9D',
-                    accentColor: '#E63946'
-                },
-                'corporate': {
-                    bgColor: '#1A237E',
-                    textColor: '#FFFFFF',
-                    borderColor: '#5C6BC0',
-                    accentColor: '#C5CAE9'
-                },
-                'slate': {
-                    bgColor: '#2F4F4F',
-                    textColor: '#FFFFFF',
-                    borderColor: '#708090',
-                    accentColor: '#A9A9A9'
-                },
-                'green': {
-                    bgColor: '#e3f1e2',
-                    textColor: '#333333',
-                    borderColor: '#dddddd',
-                    accentColor: '#333333'
-                },
-                'creative': {
-                    bgColor: '#845EC2',
-                    textColor: '#FFFFFF',
-                    borderColor: '#B39CD0',
-                    accentColor: '#FBEAFF'
-                },
-                'modern': {
-                    bgColor: '#3D5A80',
-                    textColor: '#FFFFFF',
-                    borderColor: '#98C1D9',
-                    accentColor: '#E0FBFC'
-                }
-            };
-
-            // Fonction pour appliquer un thème et sauvegarder en localStorage
-            function applyTheme(theme) {
-                const themeColors = themes[theme];
-
-                if (!themeColors) return;
-
-                // Réinitialiser les styles
-                resetStyles();
-
-                // Appliquer les couleurs du thème
-                leftColumn.style.backgroundColor = themeColors.bgColor;
-                leftColumn.style.color = themeColors.textColor;
-
-                // Appliquer la couleur à tous les textes de la colonne gauche
-                allLeftTexts.forEach(el => {
-                    el.style.color = themeColors.textColor;
+            if (toggleBtn && customPanel && closeBtn) {
+                // Ouvre le panneau
+                toggleBtn.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    customPanel.classList.add('active');
                 });
 
-                // Appliquer la couleur de bordure aux en-têtes de section
-                headings.forEach(h => {
-                    h.style.borderBottomColor = themeColors.borderColor;
+                // Ferme le panneau avec la croix
+                closeBtn.addEventListener('click', function() {
+                    customPanel.classList.remove('active');
                 });
 
-                // Appliquer les couleurs de bordure aux en-têtes de la colonne gauche
-                contactHeadings.forEach(h => {
-                    h.style.color = themeColors.textColor;
-                });
-
-                // Appliquer la couleur d'accentuation
-                experienceHeadings.forEach(h => {
-                    h.style.color = themeColors.accentColor;
-                });
-
-                // Bordures des items d'expérience et éducation
-                experienceItems.forEach(item => {
-                    item.style.borderLeftColor = themeColors.borderColor;
-                });
-
-                // Ajuster les icônes pour les fonds sombres
-                if (isColorDark(themeColors.bgColor)) {
-                    document.documentElement.style.setProperty('--skills-checkmark-color', '#FFFFFF');
-                    leftColumnIcons.forEach(icon => {
-                        icon.style.filter = 'brightness(2) invert(0.2)';
-                    });
-                } else {
-                    document.documentElement.style.setProperty('--skills-checkmark-color', '#333333');
-                    leftColumnIcons.forEach(icon => {
-                        icon.style.filter = 'brightness(1)';
-                    });
-                }
-
-                // Mettre à jour les valeurs des color pickers
-                document.getElementById('bgColorLeft').value = themeColors.bgColor;
-                document.getElementById('textColorLeft').value = themeColors.textColor;
-                document.getElementById('borderColor').value = themeColors.borderColor;
-                document.getElementById('accentColor').value = themeColors.accentColor;
-
-                // Mettre à jour les valeurs affichées
-                updateColorDisplays(themeColors.bgColor, themeColors.textColor, themeColors.borderColor, themeColors.accentColor);
-
-                // Sauvegarder le thème dans localStorage
-                localStorage.setItem('cv8_theme', theme);
-                saveColorSettings(themeColors);
-            }
-
-            // Fonction pour mettre à jour les valeurs affichées des couleurs
-            function updateColorDisplays(bg, text, border, accent) {
-                if (bgColorValue) bgColorValue.textContent = bg;
-                if (textColorValue) textColorValue.textContent = text;
-                if (borderColorValue) borderColorValue.textContent = border;
-                if (accentColorValue) accentColorValue.textContent = accent;
-            }
-
-            // Déterminer si une couleur est sombre (pour adapter le texte)
-            function isColorDark(color) {
-                // Convertir la couleur hex en RGB
-                const r = parseInt(color.substring(1, 3), 16);
-                const g = parseInt(color.substring(3, 5), 16);
-                const b = parseInt(color.substring(5, 7), 16);
-
-                // Calcul de la luminosité (formule standard)
-                const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-
-                // Retourne true si la couleur est sombre
-                return luminance < 0.6;
-            }
-
-            // Sauvegarder les couleurs personnalisées
-            function saveColorSettings(colors) {
-                localStorage.setItem('cv8_bgColor', colors.bgColor);
-                localStorage.setItem('cv8_textColor', colors.textColor);
-                localStorage.setItem('cv8_borderColor', colors.borderColor);
-                localStorage.setItem('cv8_accentColor', colors.accentColor);
-            }
-
-            // Fonction pour appliquer les couleurs personnalisées
-            function applyCustomColors() {
-                const bgColor = localStorage.getItem('cv8_bgColor') || '#e3f1e2';
-                const textColor = localStorage.getItem('cv8_textColor') || '#333333';
-                const borderColor = localStorage.getItem('cv8_borderColor') || '#dddddd';
-                const accentColor = localStorage.getItem('cv8_accentColor') || '#333333';
-
-                // Appliquer les couleurs personnalisées
-                leftColumn.style.backgroundColor = bgColor;
-                leftColumn.style.color = textColor;
-
-                // Appliquer la couleur à tous les textes de la colonne gauche
-                allLeftTexts.forEach(el => {
-                    el.style.color = textColor;
-                });
-
-                headings.forEach(h => {
-                    h.style.borderBottomColor = borderColor;
-                });
-
-                contactHeadings.forEach(h => {
-                    h.style.color = textColor;
-                });
-
-                experienceHeadings.forEach(h => {
-                    h.style.color = accentColor;
-                });
-
-                experienceItems.forEach(item => {
-                    item.style.borderLeftColor = borderColor;
-                });
-
-                // Ajuster les icônes pour les fonds sombres
-                if (isColorDark(bgColor)) {
-                    document.documentElement.style.setProperty('--skills-checkmark-color', '#FFFFFF');
-                    leftColumnIcons.forEach(icon => {
-                        icon.style.filter = 'brightness(2) invert(0.2)';
-                    });
-                } else {
-                    document.documentElement.style.setProperty('--skills-checkmark-color', '#333333');
-                    leftColumnIcons.forEach(icon => {
-                        icon.style.filter = 'brightness(1)';
-                    });
-                }
-
-                // Mettre à jour les couleurs des pickers
-                document.getElementById('bgColorLeft').value = bgColor;
-                document.getElementById('textColorLeft').value = textColor;
-                document.getElementById('borderColor').value = borderColor;
-                document.getElementById('accentColor').value = accentColor;
-
-                // Mettre à jour les valeurs affichées
-                updateColorDisplays(bgColor, textColor, borderColor, accentColor);
-            }
-
-            // Fonction pour réinitialiser tous les styles
-            function resetStyles() {
-                leftColumn.removeAttribute('style');
-                rightColumn.removeAttribute('style');
-                headings.forEach(h => h.removeAttribute('style'));
-                contactHeadings.forEach(h => h.removeAttribute('style'));
-                experienceHeadings.forEach(h => h.removeAttribute('style'));
-                allLeftTexts.forEach(el => el.removeAttribute('style'));
-                leftColumnIcons.forEach(icon => icon.removeAttribute('style'));
-                document.documentElement.style.removeProperty('--skills-checkmark-color');
-
-                experienceItems.forEach(item => {
-                    item.removeAttribute('style');
-                });
-            }
-
-            // Gestionnaires d'événements pour les sélecteurs de thème
-            themeCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    // Supprimer la classe active de toutes les cartes
-                    themeCards.forEach(c => c.classList.remove('active'));
-
-                    // Ajouter la classe active à la carte cliquée
-                    this.classList.add('active');
-
-                    // Appliquer le thème en fonction de l'attribut data-theme
-                    const theme = this.getAttribute('data-theme');
-                    applyTheme(theme);
-                });
-            });
-
-            // Gestionnaires d'événements pour les color pickers
-            colorPickers.forEach(picker => {
-                picker.addEventListener('input', function () {
-                    const target = this.getAttribute('data-target');
-                    const property = this.getAttribute('data-property');
-                    const value = this.value;
-
-                    if (target === 'left-column') {
-                        if (property === 'background-color') {
-                            leftColumn.style.backgroundColor = value;
-                            localStorage.setItem('cv8_bgColor', value);
-
-                            // Adapter automatiquement la couleur du texte si le fond est sombre
-                            if (isColorDark(value)) {
-                                document.documentElement.style.setProperty('--skills-checkmark-color', '#FFFFFF');
-                                leftColumnIcons.forEach(icon => {
-                                    icon.style.filter = 'brightness(2) invert(0.2)';
-                                });
-                            } else {
-                                document.documentElement.style.setProperty('--skills-checkmark-color', '#333333');
-                                leftColumnIcons.forEach(icon => {
-                                    icon.style.filter = 'brightness(1)';
-                                });
-                            }
-
-                            // Mettre à jour la valeur affichée
-                            if (bgColorValue) bgColorValue.textContent = value;
-
-                        } else if (property === 'color') {
-                            leftColumn.style.color = value;
-
-                            // Appliquer à tous les textes de la colonne gauche
-                            allLeftTexts.forEach(el => {
-                                el.style.color = value;
-                            });
-
-                            contactHeadings.forEach(h => {
-                                h.style.color = value;
-                                h.style.borderBottomColor = value;
-                            });
-                            localStorage.setItem('cv8_textColor', value);
-
-                            // Mettre à jour la valeur affichée
-                            if (textColorValue) textColorValue.textContent = value;
-                        }
-                    } else if (target === 'borders') {
-                        headings.forEach(h => {
-                            h.style.borderBottomColor = value;
-                        });
-
-                        experienceItems.forEach(item => {
-                            item.style.borderLeftColor = value;
-                        });
-
-                        localStorage.setItem('cv8_borderColor', value);
-
-                        // Mettre à jour la valeur affichée
-                        if (borderColorValue) borderColorValue.textContent = value;
-
-                    } else if (target === 'accent') {
-                        experienceHeadings.forEach(h => {
-                            h.style.color = value;
-                        });
-
-                        localStorage.setItem('cv8_accentColor', value);
-
-                        // Mettre à jour la valeur affichée
-                        if (accentColorValue) accentColorValue.textContent = value;
+                // Ferme le panneau si on clique en dehors
+                document.addEventListener('click', function(event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        customPanel.classList.remove('active');
                     }
-
-                    // Désactiver la sélection de thème
-                    themeCards.forEach(c => c.classList.remove('active'));
-                    localStorage.removeItem('cv8_theme');
                 });
-            });
-
-            // Gestionnaire d'événement pour réinitialiser les couleurs
-            resetButton.addEventListener('click', function () {
-                localStorage.removeItem('cv8_theme');
-                localStorage.removeItem('cv8_bgColor');
-                localStorage.removeItem('cv8_textColor');
-                localStorage.removeItem('cv8_borderColor');
-                localStorage.removeItem('cv8_accentColor');
-
-                resetStyles();
-
-                // Réinitialiser les couleurs des pickers
-                document.getElementById('bgColorLeft').value = '#e3f1e2';
-                document.getElementById('textColorLeft').value = '#333333';
-                document.getElementById('borderColor').value = '#dddddd';
-                document.getElementById('accentColor').value = '#333333';
-
-                // Mettre à jour les valeurs affichées
-                updateColorDisplays('#e3f1e2', '#333333', '#dddddd', '#333333');
-
-                // Définir le thème par défaut (vert)
-                document.querySelector('[data-theme="green"]').classList.add('active');
-                applyTheme('green');
-            });
-
-            // Au chargement de la page, vérifier s'il y a un thème sauvegardé
-            const savedTheme = localStorage.getItem('cv8_theme');
-
-            if (savedTheme) {
-                // Appliquer le thème sauvegardé
-                const themeCard = document.querySelector(`[data-theme="${savedTheme}"]`);
-                if (themeCard) {
-                    themeCard.classList.add('active');
-                    applyTheme(savedTheme);
-                }
-            } else if (localStorage.getItem('cv8_bgColor')) {
-                // Appliquer les couleurs personnalisées sauvegardées
-                applyCustomColors();
-            } else {
-                // Définir le thème par défaut (vert)
-                document.querySelector('[data-theme="green"]').classList.add('active');
-                applyTheme('green');
             }
         });
     </script>

@@ -4,6 +4,11 @@ require_once '../conn/conn.php';
 require_once '../entreprise/app/model/offre_emploi.php'; // Contient getDetails_emploi_senjob
 require_once '../model/CandidatProfile.php';
 
+// Inclure le contrôleur des utilisateurs AVANT tout output HTML
+if (!function_exists('getTotalUsers')) {
+    require_once '../controller/controller_users.php';
+}
+
 // Activation des logs d'erreur PHP pour le débogage
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

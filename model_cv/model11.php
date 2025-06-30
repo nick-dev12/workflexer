@@ -1,17 +1,16 @@
 <?php
 // Vérification de l'appareil au tout début
-include_once('check_device.php');
 
 // Démarre la session
 session_start();
 
 // Check if user is on desktop
-$isDesktop = isDesktop();
+/* $isDesktop = isDesktop();
 if (!$isDesktop) {
     // If not on desktop, redirect to mobile message page
     header("Location: mobile_message.php");
     exit;
-}
+} */
 
 if (isset($_GET['id'])) {
     include_once('../controller/controller_users.php');
@@ -57,9 +56,9 @@ if (isset($_SESSION['users_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../script/jquery-3.6.0.min.js"></script>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Nunito:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
@@ -67,11 +66,22 @@ if (isset($_SESSION['users_id'])) {
     <script src="image_customizer.js" defer></script>
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/model11.css">
+    <link rel="stylesheet" href="../css/personnalisation.css">
 </head>
 
 <body>
+    <button id="toggle-customization-btn" class="button12">
+        <i class="fa-solid fa-palette"></i> Personnaliser
+    </button>
+
+    <!-- Bouton de téléchargement fixe toujours visible -->
+    <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
+        <i class="fa-solid fa-download"></i>
+        <span>Télécharger PDF</span>
+    </button>
     <section class="section3">
-        <div class="personnalisation">
+        <div class="personnalisation" id="customization-panel">
+            <button id="close-panel-btn" class="close-panel-btn">&times;</button>
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
             <script>
                 // Fonction pour précharger les polices avant la génération du PDF
@@ -168,19 +178,31 @@ if (isset($_SESSION['users_id'])) {
                 }
 
                 function generatePDF() {
-                    // Afficher un message d'attente
+                    // Afficher un message de chargement
                     const loadingMessage = document.createElement('div');
-                    loadingMessage.className = 'loading-message';
-                    loadingMessage.textContent = 'Génération du PDF en cours...';
-                    loadingMessage.style.position = 'fixed';
-                    loadingMessage.style.top = '50%';
-                    loadingMessage.style.left = '50%';
-                    loadingMessage.style.transform = 'translate(-50%, -50%)';
-                    loadingMessage.style.padding = '20px';
-                    loadingMessage.style.backgroundColor = 'rgba(0,0,0,0.7)';
-                    loadingMessage.style.color = 'white';
-                    loadingMessage.style.borderRadius = '10px';
-                    loadingMessage.style.zIndex = '9999';
+                    loadingMessage.id = 'loading-message';
+                    loadingMessage.innerHTML = `
+                        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                                    background: rgba(0,0,0,0.8); display: flex; align-items: center; 
+                                    justify-content: center; z-index: 99999; color: white; font-size: 18px;">
+                            <div style="text-align: center;">
+                                <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; 
+                                           border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; 
+                                           margin: 0 auto 20px;"></div>
+                                <div>Génération du PDF en cours...</div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Ajouter l'animation CSS pour le spinner
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                    `;
+                    document.head.appendChild(style);
                     document.body.appendChild(loadingMessage);
 
                     // Précharger les polices puis générer le PDF
@@ -190,25 +212,15 @@ if (isset($_SESSION['users_id'])) {
                         console.log(`${iconsReplaced} icônes remplacées par des SVG`);
 
                         const { jsPDF } = window.jspdf;
-                        const element = document.querySelector(".container");
+                        const element = document.querySelector("#container-for-pdf");
 
-                        // Définir une échelle plus élevée pour une meilleure qualité
-                        const scale = 2;
+                        // Optimisations légères pour une meilleure qualité
                         const options = {
-                            scale: scale,
-                            quality: 2,
-                            width: element.offsetWidth * scale,
-                            height: element.offsetHeight * scale,
-                            style: {
-                                transform: 'scale(' + scale + ')',
-                                transformOrigin: 'top left',
-                                width: element.offsetWidth + "px",
-                                height: element.offsetHeight + "px"
-                            },
-                            // Assurez-vous que les polices et les icônes sont chargées avant de générer l'image
-                            fontFaces: true,
-                            // Inclure les styles externes
-                            useCORS: true
+                            scale: 2.2,
+                            quality: 0.95,
+                            bgcolor: '#ffffff',
+                            useCORS: true,
+                            fontFaces: true
                         };
 
                         // Ajouter une classe temporaire pour optimiser le rendu PDF
@@ -235,7 +247,9 @@ if (isset($_SESSION['users_id'])) {
                                     // Supprimer le style temporaire
                                     document.head.removeChild(fontAwesomeStyle);
                                     // Supprimer le message d'attente
-                                    document.body.removeChild(loadingMessage);
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
                                     // Restaurer les icônes originales
                                     restoreIcons();
 
@@ -244,28 +258,33 @@ if (isset($_SESSION['users_id'])) {
                                     const pdfWidth = pdf.internal.pageSize.getWidth();
                                     const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                                    pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                                    pdf.save("cv.pdf");
+                                    pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                                    
+                                    // Nom de fichier avec timestamp
+                                    const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+                                    pdf.save(`cv-model11-${timestamp}.pdf`);
                                 })
                                 .catch(function (error) {
                                     // Nettoyer en cas d'erreur
                                     element.classList.remove('pdf-rendering');
                                     document.head.removeChild(fontAwesomeStyle);
-                                    document.body.removeChild(loadingMessage);
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
                                     // Restaurer les icônes originales
                                     restoreIcons();
 
                                     console.error('Une erreur est survenue lors de la génération du PDF:', error);
                                     alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
                                 });
-                        }, 300);
+                        }, 600);
                     });
                 }
             </script>
 
             <div class="theme-selector">
                 <h3>Thèmes de couleurs</h3>
-                <div class="themes-section">
+              
                     <h4>Classiques</h4>
                     <div class="themes-container">
                         <div class="theme-card" data-theme="classic">
@@ -336,7 +355,45 @@ if (isset($_SESSION['users_id'])) {
                             </div>
                             <span>Rubis</span>
                         </div>
+                </div>
+
+                <h4>Nouveaux Thèmes</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="graphite-gold">
+                         <div class="theme-preview">
+                            <div style="background-color: #2c3e50; height: 20px;"></div>
+                            <div style="background-color: #f39c12; height: 20px;"></div>
+                        </div>
+                        <span>Graphite & Or</span>
                     </div>
+                    <div class="theme-card" data-theme="forest-beige">
+                        <div class="theme-preview">
+                            <div style="background-color: #285430; height: 20px;"></div>
+                            <div style="background-color: #F5F5DC; height: 20px;"></div>
+                        </div>
+                        <span>Forêt & Beige</span>
+                    </div>
+                    <div class="theme-card" data-theme="sapphire-silver">
+                        <div class="theme-preview">
+                            <div style="background-color: #0f4c81; height: 20px;"></div>
+                            <div style="background-color: #bdc3c7; height: 20px;"></div>
+                        </div>
+                        <span>Saphir & Argent</span>
+                    </div>
+                     <div class="theme-card" data-theme="ruby-pearl">
+                        <div class="theme-preview">
+                            <div style="background-color: #9B1B30; height: 20px;"></div>
+                            <div style="background-color: #FDEEF4; height: 20px;"></div>
+                        </div>
+                        <span>Rubis & Perle</span>
+                    </div>
+                    <div class="theme-card" data-theme="mocha-latte">
+                        <div class="theme-preview">
+                            <div style="background-color: #6f4e37; height: 20px;"></div>
+                            <div style="background-color: #f3e9e4; height: 20px;"></div>
+                        </div>
+                        <span>Moka & Latte</span>
+                        </div>
                 </div>
 
                 <h3>Couleur des dates</h3>
@@ -365,12 +422,22 @@ if (isset($_SESSION['users_id'])) {
                     <div class="font-card" data-font="Georgia">
                         <span style="font-family: Georgia;">Georgia</span>
                     </div>
+                    <div class="font-card" data-font="Lato">
+                        <span style="font-family: 'Lato', sans-serif;">Lato</span>
+                    </div>
+                    <div class="font-card" data-font="Raleway">
+                        <span style="font-family: 'Raleway', sans-serif;">Raleway</span>
+                    </div>
+                    <div class="font-card" data-font="'Merriweather', serif">
+                        <span style="font-family: 'Merriweather', serif;">Merriweather</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Container du CV -->
-        <div class="container" id="cv-container">
+        <div id="box">
+            <div class="container" id="cv-container">
             <!-- Entête du CV avec photo, nom, et informations de contact -->
             <div class="cv-header">
                 <div class="photo-section">
@@ -415,14 +482,20 @@ if (isset($_SESSION['users_id'])) {
                         <h2><i class="fas fa-briefcase"></i> Expérience professionnelle</h2>
 
                         <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
-                            <?php foreach ($afficheMetier as $metier): ?>
-                                <div class="experience">
-                                    <h3><?= $metier['metier'] ?></h3>
-                                    <p class="period"><?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> à
-                                        <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
-                                    </p>
-                                    <p class="texte"><?= $metier['description'] ?></p>
-                                </div>
+                            <?php
+                            shuffle($afficheMetier);
+                            $nombre_metier = 2;
+                            ?>
+                            <?php foreach ($afficheMetier as $key => $metier): ?>
+                                <?php if ($key < $nombre_metier): ?>
+                                    <div class="experience">
+                                        <h3><?= $metier['metier'] ?></h3>
+                                        <p class="period"><?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> à
+                                            <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
+                                        </p>
+                                        <p class="texte"><?= $metier['description'] ?></p>
+                                    </div>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <p class="texte">Aucune expérience professionnelle trouvée</p>
@@ -516,40 +589,197 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
+        </div>
+
+        <!-- Conteneur caché pour le clone PDF -->
+        <div style="position: absolute; left: -9999px; top:0;">
+            <div id="container-for-pdf" class="container">
+                <!-- Entête du CV avec photo, nom, et informations de contact -->
+                <div class="cv-header">
+                    <div class="photo-section">
+                        <div class="profile-photo">
+                            <?php if (isset($userss['images'])): ?>
+                                <img src="../upload/<?= $userss['images'] ?>" alt="Photo de profil" class="customizable-image"
+                                    id="profile-image">
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="header-info">
+                        <h1><?= $userss['nom'] ?></h1>
+                        <div class="contact-info">
+                            <span><i class="fas fa-briefcase"></i>
+                                <?php if (isset($userss['competences'])): ?>
+                                    <?= $userss['competences'] ?>
+                                <?php else: ?>
+                                    <p class="texte">Aucune compétence trouvée</p>
+                                <?php endif; ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenu du CV avec colonnes gauche et droite -->
+                <div class="cv-content">
+                    <!-- Colonne gauche -->
+                    <div class="left-column">
+                        <!-- Profil -->
+                        <div class="section">
+                            <h2><i class="fas fa-user"></i> Profil</h2>
+                            <?php if (isset($descriptions)): ?>
+                                <p class="texte"><?= $descriptions['description'] ?></p>
+                            <?php else: ?>
+                                <p class="texte">Aucune description trouvée</p>
+                            <?php endif; ?>
+
+                        </div>
+
+                        <!-- Expérience professionnelle -->
+                        <div class="section">
+                            <h2><i class="fas fa-briefcase"></i> Expérience professionnelle</h2>
+
+                            <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
+                                <?php
+                                shuffle($afficheMetier);
+                                $nombre_metier = 2;
+                                ?>
+                                <?php foreach ($afficheMetier as $key => $metier): ?>
+                                    <?php if ($key < $nombre_metier): ?>
+                                        <div class="experience">
+                                            <h3><?= $metier['metier'] ?></h3>
+                                            <p class="period"><?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> à
+                                                <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
+                                            </p>
+                                            <p class="texte"><?= $metier['description'] ?></p>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="texte">Aucune expérience professionnelle trouvée</p>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Formation -->
+                        <div class="section">
+                            <h2><i class="fas fa-graduation-cap"></i> Formation</h2>
+                            <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
+                                <?php foreach ($formationUsers as $formation): ?>
+                                    <div class="education">
+                                        <h3><?= $formation['Filiere'] ?></h3>
+                                        <p class="texte"><?= $formation['etablissement'] ?>,
+                                            <strong><?= $formation['niveau'] ?></strong>
+                                        </p>
+                                        <p class="period"><?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> à
+                                            <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
+                                        </p>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="texte">Aucune formation trouvée</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <!-- Colonne droite -->
+                    <div class="right-column">
+                        <!-- Informations personnelles -->
+                        <div class="section">
+                            <h2><i class="fas fa-info-circle"></i> Informations personnelles</h2>
+                            <div class="info-item">
+                                <?php if (isset($userss['ville'])): ?>
+                                    <span class="info-value"><i class="fas fa-map-marker-alt"></i>
+                                        <?= $userss['ville'] ?></span>
+                                <?php endif; ?>
+
+                                <?php if (isset($userss['phone'])): ?>
+                                    <span class="info-value"><i class="fas fa-phone"></i> <?= $userss['phone'] ?></span>
+                                <?php endif; ?>
+
+                                <?php if (isset($userss['mail'])): ?>
+                                    <span class="info-value"><i class="fas fa-envelope"></i> <?= $userss['mail'] ?></span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <!-- Langues -->
+                        <div class="section">
+                            <h2><i class="fas fa-language"></i> Langues</h2>
+                            <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
+                                <?php foreach ($afficheLangue as $langue): ?>
+                                    <div class="skill-item">
+                                        <span class="skill-name"><?= $langue['langue'] ?>
+                                            <span>(<?= $langue['niveau'] ?>)</span></span>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="texte">Aucune langue trouvée</p>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Compétences -->
+                        <div class="section">
+                            <h2><i class="fas fa-tools"></i> Compétences</h2>
+                            <?php if (isset($competencesUtilisateurLimit7) && !empty($competencesUtilisateurLimit7)): ?>
+                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                    <div class="skill-item">
+                                        <span class="skill-name"><?= $competence['competence'] ?></span>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="texte">Aucune compétence trouvée</p>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Centres d'intérêt -->
+                        <div class="section">
+                            <h2><i class="fas fa-heart"></i> Centres d'intérêt</h2>
+                            <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
+                                <?php foreach ($afficheCentreInteret as $interet): ?>
+                                    <div class="interest-item">
+                                        <i class="fas fa-circle"></i> <?= $interet['interet'] ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="texte">Aucun centre d'intérêt trouvé</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <script>
         // Fonction pour appliquer un thème de couleur
         function applyTheme(themeName) {
-            // Retirer toutes les classes de thème existantes
-            const container = document.getElementById('cv-container');
-            container.className = 'container';
-
-            // Ajouter la classe du nouveau thème
-            if (themeName) {
-                container.classList.add('theme-' + themeName);
-            }
-
+            const containers = document.querySelectorAll('#cv-container, #container-for-pdf');
+            containers.forEach(container => {
+                // Retirer toutes les classes de thème existantes
+                container.className = 'container';
+                // Ajouter la classe du nouveau thème
+                if (themeName) {
+                    container.classList.add('theme-' + themeName);
+                }
+            });
             // Sauvegarder le thème dans le stockage local
             localStorage.setItem('selectedTheme', themeName);
         }
 
         // Fonction pour appliquer une police
         function applyFont(fontName) {
-            const container = document.getElementById('cv-container');
-            container.style.fontFamily = fontName;
-
+            const containers = document.querySelectorAll('#cv-container, #container-for-pdf');
+            containers.forEach(container => {
+                container.style.fontFamily = fontName;
+            });
             // Sauvegarder la police dans le stockage local
             localStorage.setItem('selectedFont', fontName);
         }
 
         // Fonction pour changer la couleur des dates
         function applyDateColor(color) {
-            const periods = document.querySelectorAll('.period');
+            const periods = document.querySelectorAll('#cv-container .period, #container-for-pdf .period');
             periods.forEach(period => {
                 period.style.color = color;
             });
-
             // Sauvegarder la couleur dans le stockage local
             localStorage.setItem('selectedDateColor', color);
         }
@@ -562,7 +792,6 @@ if (isset($_SESSION['users_id'])) {
                 card.addEventListener('click', function () {
                     const theme = this.getAttribute('data-theme');
                     applyTheme(theme);
-
                     // Mettre en évidence la carte sélectionnée
                     themeCards.forEach(c => c.classList.remove('selected'));
                     this.classList.add('selected');
@@ -575,7 +804,6 @@ if (isset($_SESSION['users_id'])) {
                 card.addEventListener('click', function () {
                     const font = this.getAttribute('data-font');
                     applyFont(font);
-
                     // Mettre en évidence la carte sélectionnée
                     fontCards.forEach(c => c.classList.remove('selected'));
                     this.classList.add('selected');
@@ -588,7 +816,6 @@ if (isset($_SESSION['users_id'])) {
                 option.addEventListener('click', function () {
                     const color = this.getAttribute('data-color');
                     applyDateColor(color);
-
                     // Mettre en évidence l'option sélectionnée
                     colorOptions.forEach(c => c.classList.remove('selected'));
                     this.classList.add('selected');
@@ -621,6 +848,33 @@ if (isset($_SESSION['users_id'])) {
                 if (selectedColorOption) {
                     selectedColorOption.classList.add('selected');
                 }
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-customization-btn');
+            const customPanel = document.getElementById('customization-panel');
+            const closeBtn = document.getElementById('close-panel-btn');
+
+            if (toggleBtn && customPanel && closeBtn) {
+                // Ouvre le panneau
+                toggleBtn.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    customPanel.classList.add('active');
+                });
+
+                // Ferme le panneau avec la croix
+                closeBtn.addEventListener('click', function() {
+                    customPanel.classList.remove('active');
+                });
+
+                // Ferme le panneau si on clique en dehors
+                document.addEventListener('click', function(event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        customPanel.classList.remove('active');
+                    }
+                });
             }
         });
     </script>

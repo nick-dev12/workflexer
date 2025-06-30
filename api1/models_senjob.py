@@ -20,6 +20,12 @@ class JobOfferSenjob(BaseModel):
     type_contrat: Optional[str] = None
     description: Optional[str] = ""
     texte_integral: str
+    date_publication: Optional[str] = None
+    secteur: Optional[str] = "Non spécifié"
+    
+    # Champs pour une analyse plus fine
+    competences_requises: List[str] = Field(default_factory=list)
+    langues_requises: List[str] = Field(default_factory=list)
 
     class Config:
         extra = "ignore" 

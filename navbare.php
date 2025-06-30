@@ -2,7 +2,10 @@
 include('conn/conn.php');
 
 include('entreprise/app/controller/controllerEntreprise.php');
-include('controller/controller_users.php');
+// Inclure controller_users.php seulement s'il n'a pas déjà été inclus
+if (!function_exists('getTotalUsers')) {
+    include('controller/controller_users.php');
+}
 
 
 if (isset($_SESSION['users_id'])) {

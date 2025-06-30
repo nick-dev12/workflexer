@@ -1640,3 +1640,2285 @@
 2025-06-26 13:39:15,913 - INFO - ==================================================
 
 2025-06-26 13:40:17,372 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 19:09:20,173 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 19:13:10,689 - INFO - ==================================================
+2025-06-29 19:13:10,689 - INFO - Début de l'analyse pour l'offre ID: 745 et candidat ID: 5
+2025-06-29 19:13:10,689 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-29 19:13:10,689 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 745,
+  "titre": "Responsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nResponsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal.<br>\n<br>\nTetra Tech International Development (International Development Jobs - Tetra Tech) accepte actuellement les manifestations d'intérêt de la part de candidats qualifiés pour un éventuel poste de  responsable de la politique de la pêche et de l'application de la loi dans le cadre d'un programme financé par l'USAID au Sénégal. L'activité océanique et côtière devrait être un programme de cinq ans axés sur la gestion des pêches et la conservation de la biodiversité dans les écosystèmes océaniques et côtiers du Sénégal.<br>\n<br>\n<b>Description du poste </b>: <br>\nLe responsable de la politique de la pêche et de l'application de la réglementation dirigera les interventions visant à promouvoir une gestion transparente et responsable de la pêche, notamment en <br/>\n s'attaquant à la surcapacité dans le secteur de la pêche des petits pélagiques au Sénégal et en réduisant l'effort de pêche, en renforçant les capacités pour un suivi, un contrôle et une surveillance (SCS) plus efficaces et pour la cogestion de la pêche. Le responsable doit avoir une bonne compréhension des politiques et des pratiques de gestion des pêches au Sénégal et de la manière de soutenir la gestion des pêches, la cogestion et les opérations SCS. Il s'agit d'un poste à temps plein basé à Dakar, au Sénégal.<br/>\n<br/>\n<b>Responsabilités :</b><br/>\n- Mener des interventions visant à réviser, mettre à jour et/ou renforcer les politiques et les programmes nationaux et régionaux de gestion des pêcheries de petits pélagiques.<br/>\n- Développer et mettre en œuvre une vision stratégique de l'assistance technique de l’activité aux efforts locaux et nationaux de lutte contre la pêche INN pratiquée par des navires artisanaux et industriels.<br/>\n- Diriger les efforts de l’activité pour ajuster et aligner la capacité de pêche existante avec la capacité de charge écologique des pêcheries de petits pélagiques au Sénégal.<br/>\n- Coordonner avec d'autres équipes techniques afin d'améliorer l'utilisation de la science et de la recherche pertinentes, opportunes et ciblées pour la politique de la pêche et les décisions de gestion.<br/>\n- Soutenir la mise en œuvre et le fonctionnement de la cogestion de la pêche afin de renforcer la gestion de la pêche, de promouvoir une pêche équitable, légale et durable et de réduire les conflits entre les groupes d'utilisateurs concernés par les ressources halieutiques des petits pélagiques.<br/>\n* Assurer la supervision technique des bénéficiaires et des consultants techniques concernés, selon les besoins.<br/>\n* Soutenir le suivi, l'évaluation et l'apprentissage des performances et des progrès du projet, en particulier en ce qui concerne la politique de la pêche, l'application et la durabilité.<br/>\n* Contribuer aux plans de travail annuels, aux rapports de projet et à tous les documents contractuels.<br/>\n<br/>\n<b>Qualifications minimales requises :</b><br/>\n- Maîtrise minimum en gestion des pêches, gestion des ressources marines/côtières, biologie marine, gouvernance environnementale ou tout autre domaine pertinent.<br/>\n- Au moins sept (7) ans d'expérience dans la mise en œuvre réussie d'activités de développement financées par des donateurs, l'expérience de l'USG/USAID étant préférable.<br/>\n- Expérience avérée dans le domaine de la politique de la pêche et de la cogestion.<br/>\n- Une compréhension démontrée des tendances et des menaces de la pêche INN et des stratégies pour y remédier. Une expertise dans le domaine des technologies SCS est souhaitable.<br/>\n- Capacité avérée à établir et à entretenir des relations interpersonnelles et professionnelles avec le gouvernement, les communautés de pêcheurs, le secteur privé, les institutions académiques et la société civile.<br/>\n- Expérience confirmée de la navigation dans des environnements opérationnels complexes et sous haute pression.<br/>\n- La maîtrise professionnelle du français est requise. La maîtrise de l'anglais est un atout.<br/>\n<br/>\nPour être considéré(e)s, veuillez soumettre ce qui suit?: <br/>\n- Lettre de motivation  <br/>\n- Curriculum Vitae <br/>\n <br/>\nVeuillez indiquer où vous avez vu l’annonce de Tetra Tech IDS. <br/>\n <br/>\nVeuillez-vous assurer que seuls les documents demandés indiqués ci-dessus sont soumis. Seuls les candidats sélectionnés pour un entretien seront contactés. Pas d'appels téléphoniques, s'il vous plaît. <br/>\n <br/>\nTetra Tech International Development s’engage à préserver l’excellence technique en matière d’égalité et d’inclusion sociale. Notre équipe de conseillers dédiés au genre, à la jeunesse et à l’inclusion sociale (GYSI) travaille en étroite collaboration avec notre personnel et nos partenaires pour partager les normes internationales et les meilleures pratiques afin d’améliorer les moyens de subsistance des groupes les plus marginalisés du monde. Tetra Tech International Development est particulièrement intéressé par les candidats qui peuvent contribuer à nos initiatives de diversité, d'équité et d'inclusion (DEI) qui visent à accroître l'inclusion et un authentique sentiment d'appartenance à tout notre personnel, quel que soit son parcours. <br/>\n <br/>\n<b>Aménagements raisonnables?: </b><br/>\nNous nous engageons à embaucher une main-d’œuvre inclusive. Si vous souhaitez demander des aménagements raisonnables pendant le processus de candidature, veuillez visiter la page d’assistance aux personnes handicapées de Tetra Tech. Notre équipe de recrutement a hâte de s'engager dans un processus interactif pour fournir des aménagements utiles et raisonnables aux candidats. <br/>\n <br/>\n<b>À propos de Tetra Tech?: </b><br/>\nTetra Tech combine les ressources d'une entreprise mondiale multimilliardaire avec une prestation  locale axée sur le client dans 550 sites à travers le monde. Notre réputation repose sur l'expertise technique et le talent de plus de 28 000 employés qui travaillent ensemble pour fournir des solutions intelligentes et évolutives pour des projets ambitieux. Tetra Tech est fière d'être un employeur garantissant l'égalité des chances.  La diversité, l'inclusion et l'équité font partie de nos valeurs fondamentales. Tout au long de son histoire, l’entreprise a donné la priorité à l’inclusion équitable de tous. Tous les candidats qualifiés seront considérés sans égard à la race, la couleur, la religion, l'origine  nationale, le statut militaire, l'âge, le handicap, l'orientation sexuelle, l'identité de genre ou toute autre caractéristique protégée par la loi. Nous invitons les candidatures de toutes les parties intéressées. <br/>\n <br/>\nARD 188<br/>\nProposal and tender opportunity<br/>\nEnvironment and Natural Resources (International Development)<br/>\n<br/>\n<b>Screening Questions:</b><br/>\nDo you have at minimum a master’s degree in fisheries management, marine/coastal resource management, marine biology, environmental governance, or another relevant field?<br/>\nAvez-vous au moins une maîtrise en gestion des pêches, en gestion des ressources marines/côtières, enbiologie marine, en gouvernance environnementale ou dans un autre domaine pertinent ?<br/>\n<br/>\nDo you bring at least seven (7) years of experience in the successful implementation of donor-funded development activities?<br/>\nApportez-vous au moins sept (7) ans d’expérience dans la mise en œuvre réussie d’activités de développement financées par des donateurs ?<br/>\n<br/>\nDoes your experience include USG/USAID experience?<br/>\nVotre expérience inclut-elle une expérience de l’USG/USAID ?<br/>\n<br/>\nDo you have demonstrated understanding of IUU fishing trends, threats and strategies to address them?<br/>\nAvez-vous démontré votre compréhension des tendances, des menaces et des stratégies de pêche INN ?<br/>\n<br/>\nDo you hold expertise working with MCS technologies?<br/>\nPossédez-vous une expertise dans le domaine des technologies MCS ?<br/>\n<br/>\nDo you hold professional fluency in French?<br/>\nAvez-vous une maîtrise professionnelle du français ?\n\n      \n      </br></br></br></br></br></div>",
+  "texte_integral": "Responsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal \n\nResponsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal.\n\nTetra Tech International Development (International Development Jobs - Tetra Tech) accepte actuellement les manifestations d'intérêt de la part de candidats qualifiés pour un éventuel poste de  responsable de la politique de la pêche et de l'application de la loi dans le cadre d'un programme financé par l'USAID au Sénégal. L'activité océanique et côtière devrait être un programme de cinq ans axés sur la gestion des pêches et la conservation de la biodiversité dans les écosystèmes océaniques et côtiers du Sénégal.\n\nDescription du poste : \nLe responsable de la politique de la pêche et de l'application de la réglementation dirigera les interventions visant à promouvoir une gestion transparente et responsable de la pêche, notamment en \n s'attaquant à la surcapacité dans le secteur de la pêche des petits pélagiques au Sénégal et en réduisant l'effort de pêche, en renforçant les capacités pour un suivi, un contrôle et une surveillance (SCS) plus efficaces et pour la cogestion de la pêche. Le responsable doit avoir une bonne compréhension des politiques et des pratiques de gestion des pêches au Sénégal et de la manière de soutenir la gestion des pêches, la cogestion et les opérations SCS. Il s'agit d'un poste à temps plein basé à Dakar, au Sénégal.\n\nResponsabilités :\n- Mener des interventions visant à réviser, mettre à jour et/ou renforcer les politiques et les programmes nationaux et régionaux de gestion des pêcheries de petits pélagiques.\n- Développer et mettre en œuvre une vision stratégique de l'assistance technique de l’activité aux efforts locaux et nationaux de lutte contre la pêche INN pratiquée par des navires artisanaux et industriels.\n- Diriger les efforts de l’activité pour ajuster et aligner la capacité de pêche existante avec la capacité de charge écologique des pêcheries de petits pélagiques au Sénégal.\n- Coordonner avec d'autres équipes techniques afin d'améliorer l'utilisation de la science et de la recherche pertinentes, opportunes et ciblées pour la politique de la pêche et les décisions de gestion.\n- Soutenir la mise en œuvre et le fonctionnement de la cogestion de la pêche afin de renforcer la gestion de la pêche, de promouvoir une pêche équitable, légale et durable et de réduire les conflits entre les groupes d'utilisateurs concernés par les ressources halieutiques des petits pélagiques.\n* Assurer la supervision technique des bénéficiaires et des consultants techniques concernés, selon les besoins.\n* Soutenir le suivi, l'évaluation et l'apprentissage des performances et des progrès du projet, en particulier en ce qui concerne la politique de la pêche, l'application et la durabilité.\n* Contribuer aux plans de travail annuels, aux rapports de projet et à tous les documents contractuels.\n\nQualifications minimales requises :\n- Maîtrise minimum en gestion des pêches, gestion des ressources marines/côtières, biologie marine, gouvernance environnementale ou tout autre domaine pertinent.\n- Au moins sept (7) ans d'expérience dans la mise en œuvre réussie d'activités de développement financées par des donateurs, l'expérience de l'USG/USAID étant préférable.\n- Expérience avérée dans le domaine de la politique de la pêche et de la cogestion.\n- Une compréhension démontrée des tendances et des menaces de la pêche INN et des stratégies pour y remédier. Une expertise dans le domaine des technologies SCS est souhaitable.\n- Capacité avérée à établir et à entretenir des relations interpersonnelles et professionnelles avec le gouvernement, les communautés de pêcheurs, le secteur privé, les institutions académiques et la société civile.\n- Expérience confirmée de la navigation dans des environnements opérationnels complexes et sous haute pression.\n- La maîtrise professionnelle du français est requise. La maîtrise de l'anglais est un atout.\n\nPour être considéré(e)s, veuillez soumettre ce qui suit?: \n- Lettre de motivation  \n- Curriculum Vitae \n \nVeuillez indiquer où vous avez vu l’annonce de Tetra Tech IDS. \n \nVeuillez-vous assurer que seuls les documents demandés indiqués ci-dessus sont soumis. Seuls les candidats sélectionnés pour un entretien seront contactés. Pas d'appels téléphoniques, s'il vous plaît. \n \nTetra Tech International Development s’engage à préserver l’excellence technique en matière d’égalité et d’inclusion sociale. Notre équipe de conseillers dédiés au genre, à la jeunesse et à l’inclusion sociale (GYSI) travaille en étroite collaboration avec notre personnel et nos partenaires pour partager les normes internationales et les meilleures pratiques afin d’améliorer les moyens de subsistance des groupes les plus marginalisés du monde. Tetra Tech International Development est particulièrement intéressé par les candidats qui peuvent contribuer à nos initiatives de diversité, d'équité et d'inclusion (DEI) qui visent à accroître l'inclusion et un authentique sentiment d'appartenance à tout notre personnel, quel que soit son parcours. \n \nAménagements raisonnables?: \nNous nous engageons à embaucher une main-d’œuvre inclusive. Si vous souhaitez demander des aménagements raisonnables pendant le processus de candidature, veuillez visiter la page d’assistance aux personnes handicapées de Tetra Tech. Notre équipe de recrutement a hâte de s'engager dans un processus interactif pour fournir des aménagements utiles et raisonnables aux candidats. \n \nÀ propos de Tetra Tech?: \nTetra Tech combine les ressources d'une entreprise mondiale multimilliardaire avec une prestation  locale axée sur le client dans 550 sites à travers le monde. Notre réputation repose sur l'expertise technique et le talent de plus de 28 000 employés qui travaillent ensemble pour fournir des solutions intelligentes et évolutives pour des projets ambitieux. Tetra Tech est fière d'être un employeur garantissant l'égalité des chances.  La diversité, l'inclusion et l'équité font partie de nos valeurs fondamentales. Tout au long de son histoire, l’entreprise a donné la priorité à l’inclusion équitable de tous. Tous les candidats qualifiés seront considérés sans égard à la race, la couleur, la religion, l'origine  nationale, le statut militaire, l'âge, le handicap, l'orientation sexuelle, l'identité de genre ou toute autre caractéristique protégée par la loi. Nous invitons les candidatures de toutes les parties intéressées. \n \nARD 188\nProposal and tender opportunity\nEnvironment and Natural Resources (International Development)\n\nScreening Questions:\nDo you have at minimum a master’s degree in fisheries management, marine/coastal resource management, marine biology, environmental governance, or another relevant field?\nAvez-vous au moins une maîtrise en gestion des pêches, en gestion des ressources marines/côtières, enbiologie marine, en gouvernance environnementale ou dans un autre domaine pertinent ?\n\nDo you bring at least seven (7) years of experience in the successful implementation of donor-funded development activities?\nApportez-vous au moins sept (7) ans d’expérience dans la mise en œuvre réussie d’activités de développement financées par des donateurs ?\n\nDoes your experience include USG/USAID experience?\nVotre expérience inclut-elle une expérience de l’USG/USAID ?\n\nDo you have demonstrated understanding of IUU fishing trends, threats and strategies to address them?\nAvez-vous démontré votre compréhension des tendances, des menaces et des stratégies de pêche INN ?\n\nDo you hold expertise working with MCS technologies?\nPossédez-vous une expertise dans le domaine des technologies MCS ?\n\nDo you hold professional fluency in French?\nAvez-vous une maîtrise professionnelle du français ?\n\n      \n       Non spécifié Dakar Non spécifié"
+}
+2025-06-29 19:13:10,689 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-29 19:13:10,689 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 745,
+  "titre": "Responsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nResponsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal.<br>\n<br>\nTetra Tech International Development (International Development Jobs - Tetra Tech) accepte actuellement les manifestations d'intérêt de la part de candidats qualifiés pour un éventuel poste de  responsable de la politique de la pêche et de l'application de la loi dans le cadre d'un programme financé par l'USAID au Sénégal. L'activité océanique et côtière devrait être un programme de cinq ans axés sur la gestion des pêches et la conservation de la biodiversité dans les écosystèmes océaniques et côtiers du Sénégal.<br>\n<br>\n<b>Description du poste </b>: <br>\nLe responsable de la politique de la pêche et de l'application de la réglementation dirigera les interventions visant à promouvoir une gestion transparente et responsable de la pêche, notamment en <br/>\n s'attaquant à la surcapacité dans le secteur de la pêche des petits pélagiques au Sénégal et en réduisant l'effort de pêche, en renforçant les capacités pour un suivi, un contrôle et une surveillance (SCS) plus efficaces et pour la cogestion de la pêche. Le responsable doit avoir une bonne compréhension des politiques et des pratiques de gestion des pêches au Sénégal et de la manière de soutenir la gestion des pêches, la cogestion et les opérations SCS. Il s'agit d'un poste à temps plein basé à Dakar, au Sénégal.<br/>\n<br/>\n<b>Responsabilités :</b><br/>\n- Mener des interventions visant à réviser, mettre à jour et/ou renforcer les politiques et les programmes nationaux et régionaux de gestion des pêcheries de petits pélagiques.<br/>\n- Développer et mettre en œuvre une vision stratégique de l'assistance technique de l’activité aux efforts locaux et nationaux de lutte contre la pêche INN pratiquée par des navires artisanaux et industriels.<br/>\n- Diriger les efforts de l’activité pour ajuster et aligner la capacité de pêche existante avec la capacité de charge écologique des pêcheries de petits pélagiques au Sénégal.<br/>\n- Coordonner avec d'autres équipes techniques afin d'améliorer l'utilisation de la science et de la recherche pertinentes, opportunes et ciblées pour la politique de la pêche et les décisions de gestion.<br/>\n- Soutenir la mise en œuvre et le fonctionnement de la cogestion de la pêche afin de renforcer la gestion de la pêche, de promouvoir une pêche équitable, légale et durable et de réduire les conflits entre les groupes d'utilisateurs concernés par les ressources halieutiques des petits pélagiques.<br/>\n* Assurer la supervision technique des bénéficiaires et des consultants techniques concernés, selon les besoins.<br/>\n* Soutenir le suivi, l'évaluation et l'apprentissage des performances et des progrès du projet, en particulier en ce qui concerne la politique de la pêche, l'application et la durabilité.<br/>\n* Contribuer aux plans de travail annuels, aux rapports de projet et à tous les documents contractuels.<br/>\n<br/>\n<b>Qualifications minimales requises :</b><br/>\n- Maîtrise minimum en gestion des pêches, gestion des ressources marines/côtières, biologie marine, gouvernance environnementale ou tout autre domaine pertinent.<br/>\n- Au moins sept (7) ans d'expérience dans la mise en œuvre réussie d'activités de développement financées par des donateurs, l'expérience de l'USG/USAID étant préférable.<br/>\n- Expérience avérée dans le domaine de la politique de la pêche et de la cogestion.<br/>\n- Une compréhension démontrée des tendances et des menaces de la pêche INN et des stratégies pour y remédier. Une expertise dans le domaine des technologies SCS est souhaitable.<br/>\n- Capacité avérée à établir et à entretenir des relations interpersonnelles et professionnelles avec le gouvernement, les communautés de pêcheurs, le secteur privé, les institutions académiques et la société civile.<br/>\n- Expérience confirmée de la navigation dans des environnements opérationnels complexes et sous haute pression.<br/>\n- La maîtrise professionnelle du français est requise. La maîtrise de l'anglais est un atout.<br/>\n<br/>\nPour être considéré(e)s, veuillez soumettre ce qui suit?: <br/>\n- Lettre de motivation  <br/>\n- Curriculum Vitae <br/>\n <br/>\nVeuillez indiquer où vous avez vu l’annonce de Tetra Tech IDS. <br/>\n <br/>\nVeuillez-vous assurer que seuls les documents demandés indiqués ci-dessus sont soumis. Seuls les candidats sélectionnés pour un entretien seront contactés. Pas d'appels téléphoniques, s'il vous plaît. <br/>\n <br/>\nTetra Tech International Development s’engage à préserver l’excellence technique en matière d’égalité et d’inclusion sociale. Notre équipe de conseillers dédiés au genre, à la jeunesse et à l’inclusion sociale (GYSI) travaille en étroite collaboration avec notre personnel et nos partenaires pour partager les normes internationales et les meilleures pratiques afin d’améliorer les moyens de subsistance des groupes les plus marginalisés du monde. Tetra Tech International Development est particulièrement intéressé par les candidats qui peuvent contribuer à nos initiatives de diversité, d'équité et d'inclusion (DEI) qui visent à accroître l'inclusion et un authentique sentiment d'appartenance à tout notre personnel, quel que soit son parcours. <br/>\n <br/>\n<b>Aménagements raisonnables?: </b><br/>\nNous nous engageons à embaucher une main-d’œuvre inclusive. Si vous souhaitez demander des aménagements raisonnables pendant le processus de candidature, veuillez visiter la page d’assistance aux personnes handicapées de Tetra Tech. Notre équipe de recrutement a hâte de s'engager dans un processus interactif pour fournir des aménagements utiles et raisonnables aux candidats. <br/>\n <br/>\n<b>À propos de Tetra Tech?: </b><br/>\nTetra Tech combine les ressources d'une entreprise mondiale multimilliardaire avec une prestation  locale axée sur le client dans 550 sites à travers le monde. Notre réputation repose sur l'expertise technique et le talent de plus de 28 000 employés qui travaillent ensemble pour fournir des solutions intelligentes et évolutives pour des projets ambitieux. Tetra Tech est fière d'être un employeur garantissant l'égalité des chances.  La diversité, l'inclusion et l'équité font partie de nos valeurs fondamentales. Tout au long de son histoire, l’entreprise a donné la priorité à l’inclusion équitable de tous. Tous les candidats qualifiés seront considérés sans égard à la race, la couleur, la religion, l'origine  nationale, le statut militaire, l'âge, le handicap, l'orientation sexuelle, l'identité de genre ou toute autre caractéristique protégée par la loi. Nous invitons les candidatures de toutes les parties intéressées. <br/>\n <br/>\nARD 188<br/>\nProposal and tender opportunity<br/>\nEnvironment and Natural Resources (International Development)<br/>\n<br/>\n<b>Screening Questions:</b><br/>\nDo you have at minimum a master’s degree in fisheries management, marine/coastal resource management, marine biology, environmental governance, or another relevant field?<br/>\nAvez-vous au moins une maîtrise en gestion des pêches, en gestion des ressources marines/côtières, enbiologie marine, en gouvernance environnementale ou dans un autre domaine pertinent ?<br/>\n<br/>\nDo you bring at least seven (7) years of experience in the successful implementation of donor-funded development activities?<br/>\nApportez-vous au moins sept (7) ans d’expérience dans la mise en œuvre réussie d’activités de développement financées par des donateurs ?<br/>\n<br/>\nDoes your experience include USG/USAID experience?<br/>\nVotre expérience inclut-elle une expérience de l’USG/USAID ?<br/>\n<br/>\nDo you have demonstrated understanding of IUU fishing trends, threats and strategies to address them?<br/>\nAvez-vous démontré votre compréhension des tendances, des menaces et des stratégies de pêche INN ?<br/>\n<br/>\nDo you hold expertise working with MCS technologies?<br/>\nPossédez-vous une expertise dans le domaine des technologies MCS ?<br/>\n<br/>\nDo you hold professional fluency in French?<br/>\nAvez-vous une maîtrise professionnelle du français ?\n\n      \n      </br></br></br></br></br></div>",
+  "texte_integral": "Responsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal \n\nResponsable de la politique de la pêche et de l'application de la réglementation pour l’Activité des écosystèmes océaniques et côtiers de l’USAID Sénégal.\n\nTetra Tech International Development (International Development Jobs - Tetra Tech) accepte actuellement les manifestations d'intérêt de la part de candidats qualifiés pour un éventuel poste de  responsable de la politique de la pêche et de l'application de la loi dans le cadre d'un programme financé par l'USAID au Sénégal. L'activité océanique et côtière devrait être un programme de cinq ans axés sur la gestion des pêches et la conservation de la biodiversité dans les écosystèmes océaniques et côtiers du Sénégal.\n\nDescription du poste : \nLe responsable de la politique de la pêche et de l'application de la réglementation dirigera les interventions visant à promouvoir une gestion transparente et responsable de la pêche, notamment en \n s'attaquant à la surcapacité dans le secteur de la pêche des petits pélagiques au Sénégal et en réduisant l'effort de pêche, en renforçant les capacités pour un suivi, un contrôle et une surveillance (SCS) plus efficaces et pour la cogestion de la pêche. Le responsable doit avoir une bonne compréhension des politiques et des pratiques de gestion des pêches au Sénégal et de la manière de soutenir la gestion des pêches, la cogestion et les opérations SCS. Il s'agit d'un poste à temps plein basé à Dakar, au Sénégal.\n\nResponsabilités :\n- Mener des interventions visant à réviser, mettre à jour et/ou renforcer les politiques et les programmes nationaux et régionaux de gestion des pêcheries de petits pélagiques.\n- Développer et mettre en œuvre une vision stratégique de l'assistance technique de l’activité aux efforts locaux et nationaux de lutte contre la pêche INN pratiquée par des navires artisanaux et industriels.\n- Diriger les efforts de l’activité pour ajuster et aligner la capacité de pêche existante avec la capacité de charge écologique des pêcheries de petits pélagiques au Sénégal.\n- Coordonner avec d'autres équipes techniques afin d'améliorer l'utilisation de la science et de la recherche pertinentes, opportunes et ciblées pour la politique de la pêche et les décisions de gestion.\n- Soutenir la mise en œuvre et le fonctionnement de la cogestion de la pêche afin de renforcer la gestion de la pêche, de promouvoir une pêche équitable, légale et durable et de réduire les conflits entre les groupes d'utilisateurs concernés par les ressources halieutiques des petits pélagiques.\n* Assurer la supervision technique des bénéficiaires et des consultants techniques concernés, selon les besoins.\n* Soutenir le suivi, l'évaluation et l'apprentissage des performances et des progrès du projet, en particulier en ce qui concerne la politique de la pêche, l'application et la durabilité.\n* Contribuer aux plans de travail annuels, aux rapports de projet et à tous les documents contractuels.\n\nQualifications minimales requises :\n- Maîtrise minimum en gestion des pêches, gestion des ressources marines/côtières, biologie marine, gouvernance environnementale ou tout autre domaine pertinent.\n- Au moins sept (7) ans d'expérience dans la mise en œuvre réussie d'activités de développement financées par des donateurs, l'expérience de l'USG/USAID étant préférable.\n- Expérience avérée dans le domaine de la politique de la pêche et de la cogestion.\n- Une compréhension démontrée des tendances et des menaces de la pêche INN et des stratégies pour y remédier. Une expertise dans le domaine des technologies SCS est souhaitable.\n- Capacité avérée à établir et à entretenir des relations interpersonnelles et professionnelles avec le gouvernement, les communautés de pêcheurs, le secteur privé, les institutions académiques et la société civile.\n- Expérience confirmée de la navigation dans des environnements opérationnels complexes et sous haute pression.\n- La maîtrise professionnelle du français est requise. La maîtrise de l'anglais est un atout.\n\nPour être considéré(e)s, veuillez soumettre ce qui suit?: \n- Lettre de motivation  \n- Curriculum Vitae \n \nVeuillez indiquer où vous avez vu l’annonce de Tetra Tech IDS. \n \nVeuillez-vous assurer que seuls les documents demandés indiqués ci-dessus sont soumis. Seuls les candidats sélectionnés pour un entretien seront contactés. Pas d'appels téléphoniques, s'il vous plaît. \n \nTetra Tech International Development s’engage à préserver l’excellence technique en matière d’égalité et d’inclusion sociale. Notre équipe de conseillers dédiés au genre, à la jeunesse et à l’inclusion sociale (GYSI) travaille en étroite collaboration avec notre personnel et nos partenaires pour partager les normes internationales et les meilleures pratiques afin d’améliorer les moyens de subsistance des groupes les plus marginalisés du monde. Tetra Tech International Development est particulièrement intéressé par les candidats qui peuvent contribuer à nos initiatives de diversité, d'équité et d'inclusion (DEI) qui visent à accroître l'inclusion et un authentique sentiment d'appartenance à tout notre personnel, quel que soit son parcours. \n \nAménagements raisonnables?: \nNous nous engageons à embaucher une main-d’œuvre inclusive. Si vous souhaitez demander des aménagements raisonnables pendant le processus de candidature, veuillez visiter la page d’assistance aux personnes handicapées de Tetra Tech. Notre équipe de recrutement a hâte de s'engager dans un processus interactif pour fournir des aménagements utiles et raisonnables aux candidats. \n \nÀ propos de Tetra Tech?: \nTetra Tech combine les ressources d'une entreprise mondiale multimilliardaire avec une prestation  locale axée sur le client dans 550 sites à travers le monde. Notre réputation repose sur l'expertise technique et le talent de plus de 28 000 employés qui travaillent ensemble pour fournir des solutions intelligentes et évolutives pour des projets ambitieux. Tetra Tech est fière d'être un employeur garantissant l'égalité des chances.  La diversité, l'inclusion et l'équité font partie de nos valeurs fondamentales. Tout au long de son histoire, l’entreprise a donné la priorité à l’inclusion équitable de tous. Tous les candidats qualifiés seront considérés sans égard à la race, la couleur, la religion, l'origine  nationale, le statut militaire, l'âge, le handicap, l'orientation sexuelle, l'identité de genre ou toute autre caractéristique protégée par la loi. Nous invitons les candidatures de toutes les parties intéressées. \n \nARD 188\nProposal and tender opportunity\nEnvironment and Natural Resources (International Development)\n\nScreening Questions:\nDo you have at minimum a master’s degree in fisheries management, marine/coastal resource management, marine biology, environmental governance, or another relevant field?\nAvez-vous au moins une maîtrise en gestion des pêches, en gestion des ressources marines/côtières, enbiologie marine, en gouvernance environnementale ou dans un autre domaine pertinent ?\n\nDo you bring at least seven (7) years of experience in the successful implementation of donor-funded development activities?\nApportez-vous au moins sept (7) ans d’expérience dans la mise en œuvre réussie d’activités de développement financées par des donateurs ?\n\nDoes your experience include USG/USAID experience?\nVotre expérience inclut-elle une expérience de l’USG/USAID ?\n\nDo you have demonstrated understanding of IUU fishing trends, threats and strategies to address them?\nAvez-vous démontré votre compréhension des tendances, des menaces et des stratégies de pêche INN ?\n\nDo you hold expertise working with MCS technologies?\nPossédez-vous une expertise dans le domaine des technologies MCS ?\n\nDo you hold professional fluency in French?\nAvez-vous une maîtrise professionnelle du français ?\n\n      \n       Non spécifié Dakar Non spécifié"
+}
+2025-06-29 19:13:16,978 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 17.0,
+  "score_global_semantique": 15.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (17%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre compétence 'git' est mentionnée dans l'offre.",
+      "categorie": "competences",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Anglais' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 20.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (20%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 8.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [
+        "Votre compétence 'git' est mentionnée dans l'offre."
+      ],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (8%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-29T19:13:16.978539",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-29 19:13:16,979 - INFO - Fin de l'analyse.
+2025-06-29 19:13:16,980 - INFO - ==================================================
+
+2025-06-29 19:14:38,672 - INFO - ==================================================
+2025-06-29 19:14:38,672 - INFO - Début de l'analyse pour l'offre ID: 750 et candidat ID: 5
+2025-06-29 19:14:38,673 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-29 19:14:38,674 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 750,
+  "titre": "Agent de prospection commercial",
+  "entreprise": "Non spécifié",
+  "localisation": "KEUR MASSAR ...",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nVous êtes motivé(e) et avez envie de relever de nouveaux défis ? Rejoignez notre équipe en tant qu’Agent de Prospection Commerciale et contribuez à la croissance de notre entreprise, même sans expérience préalable !<br>\r\nResponsabilités :<br>\r\n\t•\tIdentifier et prospecter de nouveaux clients potentiels sur le terrain.<br>\r\n\t•\tPrésenter et promouvoir nos services professionnels auprès des prospects.<br>\r\n\t•\tDévelopper et maintenir des relations solides avec les clients existants et potentiels.<br>\r\n\t•\tAtteindre et dépasser les objectifs de vente fixés par la direction.<br/>\r\nCompétences requises :<br/>\r\n\t•\tExcellentes compétences en communication et en négociation.<br/>\r\n\t•\tCapacité à travailler de manière autonome et à gérer efficacement son temps.<br/>\r\n\t•\tForte orientation client et sens du service.<br/>\r\n\t•\tMotivation et envie d’apprendre.<br/>\r\nCe que nous offrons :<br/>\r\n\t•\tDes opportunités de développement professionnel et de carrière.<br/>\r\n\t•\tUne rémunération attractive basées sur les performances.<br/>\r\n\t•\tDes formations continues pour améliorer vos compétences.<br/>\r\nRejoignez nous et faites partie d’une entreprise en pleine expansion où vos efforts seront reconnus et récompensés !\n\n      \n      </br></br></br></br></br></div>",
+  "texte_integral": "Agent de prospection commercial \n\nVous êtes motivé(e) et avez envie de relever de nouveaux défis ? Rejoignez notre équipe en tant qu’Agent de Prospection Commerciale et contribuez à la croissance de notre entreprise, même sans expérience préalable !\r\nResponsabilités :\r\n\t•\tIdentifier et prospecter de nouveaux clients potentiels sur le terrain.\r\n\t•\tPrésenter et promouvoir nos services professionnels auprès des prospects.\r\n\t•\tDévelopper et maintenir des relations solides avec les clients existants et potentiels.\r\n\t•\tAtteindre et dépasser les objectifs de vente fixés par la direction.\r\nCompétences requises :\r\n\t•\tExcellentes compétences en communication et en négociation.\r\n\t•\tCapacité à travailler de manière autonome et à gérer efficacement son temps.\r\n\t•\tForte orientation client et sens du service.\r\n\t•\tMotivation et envie d’apprendre.\r\nCe que nous offrons :\r\n\t•\tDes opportunités de développement professionnel et de carrière.\r\n\t•\tUne rémunération attractive basées sur les performances.\r\n\t•\tDes formations continues pour améliorer vos compétences.\r\nRejoignez nous et faites partie d’une entreprise en pleine expansion où vos efforts seront reconnus et récompensés !\n\n      \n       Non spécifié KEUR MASSAR ... Non spécifié"
+}
+2025-06-29 19:14:38,675 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-29 19:14:38,675 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 750,
+  "titre": "Agent de prospection commercial",
+  "entreprise": "Non spécifié",
+  "localisation": "KEUR MASSAR ...",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nVous êtes motivé(e) et avez envie de relever de nouveaux défis ? Rejoignez notre équipe en tant qu’Agent de Prospection Commerciale et contribuez à la croissance de notre entreprise, même sans expérience préalable !<br>\r\nResponsabilités :<br>\r\n\t•\tIdentifier et prospecter de nouveaux clients potentiels sur le terrain.<br>\r\n\t•\tPrésenter et promouvoir nos services professionnels auprès des prospects.<br>\r\n\t•\tDévelopper et maintenir des relations solides avec les clients existants et potentiels.<br>\r\n\t•\tAtteindre et dépasser les objectifs de vente fixés par la direction.<br/>\r\nCompétences requises :<br/>\r\n\t•\tExcellentes compétences en communication et en négociation.<br/>\r\n\t•\tCapacité à travailler de manière autonome et à gérer efficacement son temps.<br/>\r\n\t•\tForte orientation client et sens du service.<br/>\r\n\t•\tMotivation et envie d’apprendre.<br/>\r\nCe que nous offrons :<br/>\r\n\t•\tDes opportunités de développement professionnel et de carrière.<br/>\r\n\t•\tUne rémunération attractive basées sur les performances.<br/>\r\n\t•\tDes formations continues pour améliorer vos compétences.<br/>\r\nRejoignez nous et faites partie d’une entreprise en pleine expansion où vos efforts seront reconnus et récompensés !\n\n      \n      </br></br></br></br></br></div>",
+  "texte_integral": "Agent de prospection commercial \n\nVous êtes motivé(e) et avez envie de relever de nouveaux défis ? Rejoignez notre équipe en tant qu’Agent de Prospection Commerciale et contribuez à la croissance de notre entreprise, même sans expérience préalable !\r\nResponsabilités :\r\n\t•\tIdentifier et prospecter de nouveaux clients potentiels sur le terrain.\r\n\t•\tPrésenter et promouvoir nos services professionnels auprès des prospects.\r\n\t•\tDévelopper et maintenir des relations solides avec les clients existants et potentiels.\r\n\t•\tAtteindre et dépasser les objectifs de vente fixés par la direction.\r\nCompétences requises :\r\n\t•\tExcellentes compétences en communication et en négociation.\r\n\t•\tCapacité à travailler de manière autonome et à gérer efficacement son temps.\r\n\t•\tForte orientation client et sens du service.\r\n\t•\tMotivation et envie d’apprendre.\r\nCe que nous offrons :\r\n\t•\tDes opportunités de développement professionnel et de carrière.\r\n\t•\tUne rémunération attractive basées sur les performances.\r\n\t•\tDes formations continues pour améliorer vos compétences.\r\nRejoignez nous et faites partie d’une entreprise en pleine expansion où vos efforts seront reconnus et récompensés !\n\n      \n       Non spécifié KEUR MASSAR ... Non spécifié"
+}
+2025-06-29 19:14:43,636 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 19.0,
+  "score_global_semantique": 18.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (19%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    },
+    {
+      "description": "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "categorie": "competences",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 29.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (29%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 0.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre."
+      ],
+      "resume": "Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "competences",
+      "description": "Pour renforcer votre profil, considérez : Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-29T19:14:43.635672",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-29 19:14:43,637 - INFO - Fin de l'analyse.
+2025-06-29 19:14:43,638 - INFO - ==================================================
+
+2025-06-29 21:26:15,421 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:34:22,021 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:40:12,176 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:43:28,042 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:47:31,201 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:48:29,759 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:49:23,208 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:50:16,903 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:51:27,021 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:54:19,306 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 21:58:47,359 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 22:00:02,875 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 22:45:20,452 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 22:52:24,437 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 22:53:03,460 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 22:53:40,184 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 23:00:52,674 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 23:07:18,436 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-29 23:34:11,080 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 00:19:29,107 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 00:25:02,736 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 00:39:19,061 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:01:10,242 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:04:15,923 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:14:12,945 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:19:54,570 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:29:07,712 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:32:45,726 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:35:43,602 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 01:49:50,643 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 02:00:07,693 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 02:01:10,005 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 02:07:06,051 - INFO - ==================================================
+2025-06-30 02:07:06,052 - INFO - Début de l'analyse pour l'offre ID: 747 et candidat ID: 5
+2025-06-30 02:07:06,053 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-30 02:07:06,054 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 747,
+  "titre": "Finance Assistant - Senegal G2G Ops",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>L’opportunité <br>\n<br>\nLe projet G2G Ops </br></br></b>cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     <br>\n<br>\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant<br>\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions<br/>\n-Elaborer les fiches mensuelles de consommation des véhicules<br/>\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers<br/>\n-Appui pour la réconciliation des avances<br/>\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain<br/>\n-Faire le suivi d’autres types de dossier administratif<br/>\n-Vérifier conformité entre les Po et les livraisons et décharger les BL<br/>\n-Appuyer pour la mise a jour du fichier de l’inventaire<br/>\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.<br/>\n<br/>\n<br/>\n</br></br></br></div>",
+  "texte_integral": "Finance Assistant - Senegal G2G Ops \nL’opportunité \n\nLe projet G2G Ops cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     \n\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions\n-Elaborer les fiches mensuelles de consommation des véhicules\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers\n-Appui pour la réconciliation des avances\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain\n-Faire le suivi d’autres types de dossier administratif\n-Vérifier conformité entre les Po et les livraisons et décharger les BL\n-Appuyer pour la mise a jour du fichier de l’inventaire\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.\n\n\n Non spécifié Dakar Non spécifié"
+}
+2025-06-30 02:07:06,054 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-30 02:07:06,054 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 747,
+  "titre": "Finance Assistant - Senegal G2G Ops",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>L’opportunité <br>\n<br>\nLe projet G2G Ops </br></br></b>cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     <br>\n<br>\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant<br>\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions<br/>\n-Elaborer les fiches mensuelles de consommation des véhicules<br/>\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers<br/>\n-Appui pour la réconciliation des avances<br/>\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain<br/>\n-Faire le suivi d’autres types de dossier administratif<br/>\n-Vérifier conformité entre les Po et les livraisons et décharger les BL<br/>\n-Appuyer pour la mise a jour du fichier de l’inventaire<br/>\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.<br/>\n<br/>\n<br/>\n</br></br></br></div>",
+  "texte_integral": "Finance Assistant - Senegal G2G Ops \nL’opportunité \n\nLe projet G2G Ops cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     \n\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions\n-Elaborer les fiches mensuelles de consommation des véhicules\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers\n-Appui pour la réconciliation des avances\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain\n-Faire le suivi d’autres types de dossier administratif\n-Vérifier conformité entre les Po et les livraisons et décharger les BL\n-Appuyer pour la mise a jour du fichier de l’inventaire\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.\n\n\n Non spécifié Dakar Non spécifié"
+}
+2025-06-30 02:07:09,529 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 22.0,
+  "score_global_semantique": 23.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (22%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    },
+    {
+      "description": "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "categorie": "competences",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 24.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (24%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 0.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre."
+      ],
+      "resume": "Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Le niveau de langue doit être vérifié manuellement."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "competences",
+      "description": "Pour renforcer votre profil, considérez : Aucune de vos compétences n'a été explicitement retrouvée dans le texte de cette offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-30T02:07:09.528473",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-30 02:07:09,530 - INFO - Fin de l'analyse.
+2025-06-30 02:07:09,531 - INFO - ==================================================
+
+2025-06-30 02:12:41,577 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 02:13:33,210 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 02:13:54,328 - INFO - ==================================================
+2025-06-30 02:13:54,328 - INFO - Début de l'analyse pour l'offre ID: 747 et candidat ID: 5
+2025-06-30 02:13:54,330 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-30 02:13:54,330 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 747,
+  "titre": "Finance Assistant - Senegal G2G Ops",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>L’opportunité <br>\n<br>\nLe projet G2G Ops </br></br></b>cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     <br>\n<br>\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant<br>\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions<br/>\n-Elaborer les fiches mensuelles de consommation des véhicules<br/>\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers<br/>\n-Appui pour la réconciliation des avances<br/>\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain<br/>\n-Faire le suivi d’autres types de dossier administratif<br/>\n-Vérifier conformité entre les Po et les livraisons et décharger les BL<br/>\n-Appuyer pour la mise a jour du fichier de l’inventaire<br/>\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.<br/>\n<br/>\n<br/>\n</br></br></br></div>",
+  "texte_integral": "Finance Assistant - Senegal G2G Ops \nL’opportunité \n\nLe projet G2G Ops cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     \n\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions\n-Elaborer les fiches mensuelles de consommation des véhicules\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers\n-Appui pour la réconciliation des avances\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain\n-Faire le suivi d’autres types de dossier administratif\n-Vérifier conformité entre les Po et les livraisons et décharger les BL\n-Appuyer pour la mise a jour du fichier de l’inventaire\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.\n\n\n Non spécifié Dakar Non spécifié",
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:13:54,332 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-30 02:13:54,334 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 747,
+  "titre": "Finance Assistant - Senegal G2G Ops",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>L’opportunité <br>\n<br>\nLe projet G2G Ops </br></br></b>cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     <br>\n<br>\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant<br>\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions<br/>\n-Elaborer les fiches mensuelles de consommation des véhicules<br/>\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers<br/>\n-Appui pour la réconciliation des avances<br/>\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain<br/>\n-Faire le suivi d’autres types de dossier administratif<br/>\n-Vérifier conformité entre les Po et les livraisons et décharger les BL<br/>\n-Appuyer pour la mise a jour du fichier de l’inventaire<br/>\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.<br/>\n<br/>\n<br/>\n</br></br></br></div>",
+  "texte_integral": "Finance Assistant - Senegal G2G Ops \nL’opportunité \n\nLe projet G2G Ops cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     \n\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions\n-Elaborer les fiches mensuelles de consommation des véhicules\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers\n-Appui pour la réconciliation des avances\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain\n-Faire le suivi d’autres types de dossier administratif\n-Vérifier conformité entre les Po et les livraisons et décharger les BL\n-Appuyer pour la mise a jour du fichier de l’inventaire\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.\n\n\n Non spécifié Dakar Non spécifié",
+  "date_publication": null,
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:13:57,916 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 22.0,
+  "score_global_semantique": 23.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (22%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 24.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (24%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 2.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (2%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Ia.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-30T02:13:57.915158",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Ia"
+  ]
+}
+2025-06-30 02:13:57,917 - INFO - Fin de l'analyse.
+2025-06-30 02:13:57,917 - INFO - ==================================================
+
+2025-06-30 02:15:09,753 - INFO - ==================================================
+2025-06-30 02:15:09,754 - INFO - Début de l'analyse pour l'offre ID: 752 et candidat ID: 5
+2025-06-30 02:15:09,755 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-30 02:15:09,756 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 752,
+  "titre": "Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO)",
+  "entreprise": "Non spécifié",
+  "localisation": "Diourbel",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>POSTE A POUVOIR </b>:un(e) (01) Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO)<br>\n<br>\n<b>MANDAT :</b><br>\nSous l’autorité du Directeur de l’Agence Régionale de Développement (ARD), le(la) Chef(fe) de la Division Appui à la Maitrise d’Ouvrage est chargé(e) de :<br>\n- Participer à l’élaboration du Plan de Travail et Budget Annuel (PTBA) de l’Agence ;<br>\n- Participer au suivi technique des activités opérationnelles de l’ARD ;<br/>\n- Assister le Directeur dans l’analyse et le traitement des dossiers techniques des collectivités territoriales, ainsi que des requêtes de projets soumis au financement du PNDL, du PACASEN, PDZP, PIP3, fonds propres des<br/>\nCT et des autres partenaires ;<br/>\n- Appuyer les collectivités territoriales dans l’élaboration des études et des dossiers d’appels d’offres et veiller à la qualité ;<br/>\n- Appuyer les collectivités territoriales dans le recrutement des ingénieurs conseils et des entreprises ;<br/>\n- Apporter son expertise lors de l’examen des rapports d’évaluation des offres et mener l’évaluation des propositions techniques et financières pour les contrats liés à l’exécution des projets ;<br/>\n- Assurer le suivi de la qualité des travaux des collectivités territoriales surtout le processus de réalisation ;<br/>\n- Assurer le contrôle du travail des ingénieurs conseils et des entreprises ;<br/>\n- Assurer la validation technique des attachements et des décomptes établis par les différents partenaires<br/>\n- Produire des rapports d’activités périodiques ;<br/>\n- Apporter une assistance technique et rapprochée d’appui à la maîtrise d’ouvrage des collectivités territoriales de la région de Diourbel ;<br/>\n- Exécuter toute autre tâche que lui confie la Direction.<br/>\n<br/>\n<b>CONDITIONS REQUISES</b><br/>\n- Etre de nationalité sénégalaise ;<br/>\n- Jouir de ses droits civiques ;<br/>\n- Etre de bonne moralité ;<br/>\n- Etre apte physiquement pour l’exercice de ses fonctions ;<br/>\n Etre titulaire d’un diplôme universitaire, ou d’une formation minimale BAC + 4 en Génie Civil, Génie rural ou tout autre diplôme équivalent;<br/>\n- Pour le système LMD c’est le diplôme Master II qui est requis ;<br/>\n- Avoir au moins cinq (05) ans d’expérience professionnelle dans l’appui et le suivi de projets d’infrastructures et de services de base ;<br/>\n- Avoir une bonne connaissance à la problématique du développement territorial, du contexte de la décentralisation au Sénégal et des actions mises en œuvre dans les domaines ;<br/>\n- Avoir une bonne connaissance des systèmes de suivi des entreprises et du système de suivi des chantiers<br/>\n- Avoir une bonne connaissance des procédures de passation des marchés publics ;<br/>\n- Avoir une bonne connaissance du fonctionnement des institutions locales<br/>\n(Collectivités territoriales, ARD, Organisation Communautaires de Base, Chambres consulaires, Services décentralisés de l’Etat…) ;<br/>\n- Avoir une bonne capacité d’organisation, d’initiative et de synthèse ;<br/>\n- Avoir une aptitude à communiquer et à travaille  en équipe ;<br/>\n- Savoir utiliser les logiciels courant (Word, Excel, Power Point etc.) ;\n\n      \n      </br></br></br></br></br></div>",
+  "texte_integral": "Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO) \nPOSTE A POUVOIR :un(e) (01) Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO)\n\nMANDAT :\nSous l’autorité du Directeur de l’Agence Régionale de Développement (ARD), le(la) Chef(fe) de la Division Appui à la Maitrise d’Ouvrage est chargé(e) de :\n- Participer à l’élaboration du Plan de Travail et Budget Annuel (PTBA) de l’Agence ;\n- Participer au suivi technique des activités opérationnelles de l’ARD ;\n- Assister le Directeur dans l’analyse et le traitement des dossiers techniques des collectivités territoriales, ainsi que des requêtes de projets soumis au financement du PNDL, du PACASEN, PDZP, PIP3, fonds propres des\nCT et des autres partenaires ;\n- Appuyer les collectivités territoriales dans l’élaboration des études et des dossiers d’appels d’offres et veiller à la qualité ;\n- Appuyer les collectivités territoriales dans le recrutement des ingénieurs conseils et des entreprises ;\n- Apporter son expertise lors de l’examen des rapports d’évaluation des offres et mener l’évaluation des propositions techniques et financières pour les contrats liés à l’exécution des projets ;\n- Assurer le suivi de la qualité des travaux des collectivités territoriales surtout le processus de réalisation ;\n- Assurer le contrôle du travail des ingénieurs conseils et des entreprises ;\n- Assurer la validation technique des attachements et des décomptes établis par les différents partenaires\n- Produire des rapports d’activités périodiques ;\n- Apporter une assistance technique et rapprochée d’appui à la maîtrise d’ouvrage des collectivités territoriales de la région de Diourbel ;\n- Exécuter toute autre tâche que lui confie la Direction.\n\nCONDITIONS REQUISES\n- Etre de nationalité sénégalaise ;\n- Jouir de ses droits civiques ;\n- Etre de bonne moralité ;\n- Etre apte physiquement pour l’exercice de ses fonctions ;\n Etre titulaire d’un diplôme universitaire, ou d’une formation minimale BAC + 4 en Génie Civil, Génie rural ou tout autre diplôme équivalent;\n- Pour le système LMD c’est le diplôme Master II qui est requis ;\n- Avoir au moins cinq (05) ans d’expérience professionnelle dans l’appui et le suivi de projets d’infrastructures et de services de base ;\n- Avoir une bonne connaissance à la problématique du développement territorial, du contexte de la décentralisation au Sénégal et des actions mises en œuvre dans les domaines ;\n- Avoir une bonne connaissance des systèmes de suivi des entreprises et du système de suivi des chantiers\n- Avoir une bonne connaissance des procédures de passation des marchés publics ;\n- Avoir une bonne connaissance du fonctionnement des institutions locales\n(Collectivités territoriales, ARD, Organisation Communautaires de Base, Chambres consulaires, Services décentralisés de l’Etat…) ;\n- Avoir une bonne capacité d’organisation, d’initiative et de synthèse ;\n- Avoir une aptitude à communiquer et à travaille  en équipe ;\n- Savoir utiliser les logiciels courant (Word, Excel, Power Point etc.) ;\n\n      \n       Non spécifié Diourbel Non spécifié",
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:15:09,757 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-30 02:15:09,764 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 752,
+  "titre": "Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO)",
+  "entreprise": "Non spécifié",
+  "localisation": "Diourbel",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>POSTE A POUVOIR </b>:un(e) (01) Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO)<br>\n<br>\n<b>MANDAT :</b><br>\nSous l’autorité du Directeur de l’Agence Régionale de Développement (ARD), le(la) Chef(fe) de la Division Appui à la Maitrise d’Ouvrage est chargé(e) de :<br>\n- Participer à l’élaboration du Plan de Travail et Budget Annuel (PTBA) de l’Agence ;<br>\n- Participer au suivi technique des activités opérationnelles de l’ARD ;<br/>\n- Assister le Directeur dans l’analyse et le traitement des dossiers techniques des collectivités territoriales, ainsi que des requêtes de projets soumis au financement du PNDL, du PACASEN, PDZP, PIP3, fonds propres des<br/>\nCT et des autres partenaires ;<br/>\n- Appuyer les collectivités territoriales dans l’élaboration des études et des dossiers d’appels d’offres et veiller à la qualité ;<br/>\n- Appuyer les collectivités territoriales dans le recrutement des ingénieurs conseils et des entreprises ;<br/>\n- Apporter son expertise lors de l’examen des rapports d’évaluation des offres et mener l’évaluation des propositions techniques et financières pour les contrats liés à l’exécution des projets ;<br/>\n- Assurer le suivi de la qualité des travaux des collectivités territoriales surtout le processus de réalisation ;<br/>\n- Assurer le contrôle du travail des ingénieurs conseils et des entreprises ;<br/>\n- Assurer la validation technique des attachements et des décomptes établis par les différents partenaires<br/>\n- Produire des rapports d’activités périodiques ;<br/>\n- Apporter une assistance technique et rapprochée d’appui à la maîtrise d’ouvrage des collectivités territoriales de la région de Diourbel ;<br/>\n- Exécuter toute autre tâche que lui confie la Direction.<br/>\n<br/>\n<b>CONDITIONS REQUISES</b><br/>\n- Etre de nationalité sénégalaise ;<br/>\n- Jouir de ses droits civiques ;<br/>\n- Etre de bonne moralité ;<br/>\n- Etre apte physiquement pour l’exercice de ses fonctions ;<br/>\n Etre titulaire d’un diplôme universitaire, ou d’une formation minimale BAC + 4 en Génie Civil, Génie rural ou tout autre diplôme équivalent;<br/>\n- Pour le système LMD c’est le diplôme Master II qui est requis ;<br/>\n- Avoir au moins cinq (05) ans d’expérience professionnelle dans l’appui et le suivi de projets d’infrastructures et de services de base ;<br/>\n- Avoir une bonne connaissance à la problématique du développement territorial, du contexte de la décentralisation au Sénégal et des actions mises en œuvre dans les domaines ;<br/>\n- Avoir une bonne connaissance des systèmes de suivi des entreprises et du système de suivi des chantiers<br/>\n- Avoir une bonne connaissance des procédures de passation des marchés publics ;<br/>\n- Avoir une bonne connaissance du fonctionnement des institutions locales<br/>\n(Collectivités territoriales, ARD, Organisation Communautaires de Base, Chambres consulaires, Services décentralisés de l’Etat…) ;<br/>\n- Avoir une bonne capacité d’organisation, d’initiative et de synthèse ;<br/>\n- Avoir une aptitude à communiquer et à travaille  en équipe ;<br/>\n- Savoir utiliser les logiciels courant (Word, Excel, Power Point etc.) ;\n\n      \n      </br></br></br></br></br></div>",
+  "texte_integral": "Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO) \nPOSTE A POUVOIR :un(e) (01) Chef(fe) de Division Appui à la Maitrise d’Ouvrage (DAMO)\n\nMANDAT :\nSous l’autorité du Directeur de l’Agence Régionale de Développement (ARD), le(la) Chef(fe) de la Division Appui à la Maitrise d’Ouvrage est chargé(e) de :\n- Participer à l’élaboration du Plan de Travail et Budget Annuel (PTBA) de l’Agence ;\n- Participer au suivi technique des activités opérationnelles de l’ARD ;\n- Assister le Directeur dans l’analyse et le traitement des dossiers techniques des collectivités territoriales, ainsi que des requêtes de projets soumis au financement du PNDL, du PACASEN, PDZP, PIP3, fonds propres des\nCT et des autres partenaires ;\n- Appuyer les collectivités territoriales dans l’élaboration des études et des dossiers d’appels d’offres et veiller à la qualité ;\n- Appuyer les collectivités territoriales dans le recrutement des ingénieurs conseils et des entreprises ;\n- Apporter son expertise lors de l’examen des rapports d’évaluation des offres et mener l’évaluation des propositions techniques et financières pour les contrats liés à l’exécution des projets ;\n- Assurer le suivi de la qualité des travaux des collectivités territoriales surtout le processus de réalisation ;\n- Assurer le contrôle du travail des ingénieurs conseils et des entreprises ;\n- Assurer la validation technique des attachements et des décomptes établis par les différents partenaires\n- Produire des rapports d’activités périodiques ;\n- Apporter une assistance technique et rapprochée d’appui à la maîtrise d’ouvrage des collectivités territoriales de la région de Diourbel ;\n- Exécuter toute autre tâche que lui confie la Direction.\n\nCONDITIONS REQUISES\n- Etre de nationalité sénégalaise ;\n- Jouir de ses droits civiques ;\n- Etre de bonne moralité ;\n- Etre apte physiquement pour l’exercice de ses fonctions ;\n Etre titulaire d’un diplôme universitaire, ou d’une formation minimale BAC + 4 en Génie Civil, Génie rural ou tout autre diplôme équivalent;\n- Pour le système LMD c’est le diplôme Master II qui est requis ;\n- Avoir au moins cinq (05) ans d’expérience professionnelle dans l’appui et le suivi de projets d’infrastructures et de services de base ;\n- Avoir une bonne connaissance à la problématique du développement territorial, du contexte de la décentralisation au Sénégal et des actions mises en œuvre dans les domaines ;\n- Avoir une bonne connaissance des systèmes de suivi des entreprises et du système de suivi des chantiers\n- Avoir une bonne connaissance des procédures de passation des marchés publics ;\n- Avoir une bonne connaissance du fonctionnement des institutions locales\n(Collectivités territoriales, ARD, Organisation Communautaires de Base, Chambres consulaires, Services décentralisés de l’Etat…) ;\n- Avoir une bonne capacité d’organisation, d’initiative et de synthèse ;\n- Avoir une aptitude à communiquer et à travaille  en équipe ;\n- Savoir utiliser les logiciels courant (Word, Excel, Power Point etc.) ;\n\n      \n       Non spécifié Diourbel Non spécifié",
+  "date_publication": null,
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:15:12,088 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 19.0,
+  "score_global_semantique": 16.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (19%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre outil 'word' est en lien avec l'offre.",
+      "categorie": "outils",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 23.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (23%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": -3.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        },
+        {
+          "description": "Analyse",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (-3%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Ia, Analyse.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-30T02:15:12.088910",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Ia",
+    "Analyse"
+  ]
+}
+2025-06-30 02:15:12,089 - INFO - Fin de l'analyse.
+2025-06-30 02:15:12,089 - INFO - ==================================================
+
+2025-06-30 02:15:49,643 - INFO - ==================================================
+2025-06-30 02:15:49,644 - INFO - Début de l'analyse pour l'offre ID: 759 et candidat ID: 5
+2025-06-30 02:15:49,646 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-30 02:15:49,647 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 759,
+  "titre": "Directeur administratif et financier adjoint",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nNous recherchons pour le compte d’un de nos clients : un Directeur administratif et financier adjoint.<br>\n<br>\r\n•\tLieu:  Dakar, Sénégal<br>\r\n•\tSecteur: Distribution d’eau<br>\r\n•\tType de contrat: CDI<br>\r\n•\tExpérience requise: Minimum 04 ans en cabinet d’expertise comptable<br/>\r\n•\tFormation: Master en Finance ou équivalent<br/>\n<br/>\n<br/>\r\nVos missions <br/>\r\nPour plus de détails, consultez la fiche de poste ci-dessous.<br/>\n<br/>\n<br/>\n<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Directeur administratif et financier adjoint \n\nNous recherchons pour le compte d’un de nos clients : un Directeur administratif et financier adjoint.\n\r\n•\tLieu:  Dakar, Sénégal\r\n•\tSecteur: Distribution d’eau\r\n•\tType de contrat: CDI\r\n•\tExpérience requise: Minimum 04 ans en cabinet d’expertise comptable\r\n•\tFormation: Master en Finance ou équivalent\n\n\r\nVos missions \r\nPour plus de détails, consultez la fiche de poste ci-dessous.\n\n\n\n Non spécifié Dakar Non spécifié",
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:15:49,648 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-30 02:15:49,649 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 759,
+  "titre": "Directeur administratif et financier adjoint",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nNous recherchons pour le compte d’un de nos clients : un Directeur administratif et financier adjoint.<br>\n<br>\r\n•\tLieu:  Dakar, Sénégal<br>\r\n•\tSecteur: Distribution d’eau<br>\r\n•\tType de contrat: CDI<br>\r\n•\tExpérience requise: Minimum 04 ans en cabinet d’expertise comptable<br/>\r\n•\tFormation: Master en Finance ou équivalent<br/>\n<br/>\n<br/>\r\nVos missions <br/>\r\nPour plus de détails, consultez la fiche de poste ci-dessous.<br/>\n<br/>\n<br/>\n<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Directeur administratif et financier adjoint \n\nNous recherchons pour le compte d’un de nos clients : un Directeur administratif et financier adjoint.\n\r\n•\tLieu:  Dakar, Sénégal\r\n•\tSecteur: Distribution d’eau\r\n•\tType de contrat: CDI\r\n•\tExpérience requise: Minimum 04 ans en cabinet d’expertise comptable\r\n•\tFormation: Master en Finance ou équivalent\n\n\r\nVos missions \r\nPour plus de détails, consultez la fiche de poste ci-dessous.\n\n\n\n Non spécifié Dakar Non spécifié",
+  "date_publication": null,
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:15:52,108 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 15.0,
+  "score_global_semantique": 13.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (15%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    },
+    {
+      "description": "Aucune de vos compétences n'a été explicitement retrouvée dans cette offre. Considérez mettre en avant des compétences plus alignées avec le poste.",
+      "categorie": "competences",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 26.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (26%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 0.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucune de vos compétences n'a été explicitement retrouvée dans cette offre. Considérez mettre en avant des compétences plus alignées avec le poste."
+      ],
+      "resume": "Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "competences",
+      "description": "Pour renforcer votre profil, considérez : Aucune de vos compétences n'a été explicitement retrouvée dans cette offre. Considérez mettre en avant des compétences plus alignées avec le poste.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-30T02:15:52.108863",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": []
+}
+2025-06-30 02:15:52,109 - INFO - Fin de l'analyse.
+2025-06-30 02:15:52,110 - INFO - ==================================================
+
+2025-06-30 02:16:04,230 - INFO - ==================================================
+2025-06-30 02:16:04,230 - INFO - Début de l'analyse pour l'offre ID: 760 et candidat ID: 5
+2025-06-30 02:16:04,231 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-30 02:16:04,232 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 760,
+  "titre": "Finance & Accounting Analyst",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOverall Job Purpose<br>\r\nResponsible for the execution of daily activities; of accounts payable; accounts receivable; the treasury routines; enabling adequate financial planning and monitoring in order to ensure the accuracy and integrity of MOSEN financial information.<br>\n<br>\r\nCore Responsibilities<br>\r\n•\tPerform billing to related and third parties timely; ensuring that all invoices prepared are conform to the terms of the customer contract and have proper approval and support.<br>\r\n•\tMonitor with diligence the customer accounts to determine if certain customers or amounts are at risk of nonpayment by providing analysis regarding revenue and outstanding receivable ageing.<br/>\r\n•\tExecute the routine of intercompany receivables/revenues and control that all intercompany billings will be prepared, delivered and communicated in a timely manner and recorded in the appropriate accounting.<br/>\r\n•\tReceive AP invoices matching with purchase orders, proceed/obtain approval and perform MIGO/MIRO approval process, enter the invoices into the ERP accounting system in a timely manner.<br/>\r\n•\tProcess employee expense reports, including verification of receipts and coding.<br/>\r\n•\tAdminister routine accounting operations tasks to include monthly recurring general entries and if needed reconciling asset and liability accounts.<br/>\r\n•\tExecute the input of the payments in the banking system and make the conciliation with the ERP System so that the payments and/or open items are reflected in the accounting according to the terms and conditions of MOSEN.<br/>\r\n•\tConduct necessary financial analysis for vendor vetting process<br/>\r\n•\tPerform the control of automatic debits, credits cards… ensuring the conformity with Tariffs applied to MOSEN.<br/>\r\n•\tPrepare information support for cash flow analysis and control; in order to allow MOSEN resources to be properly used trough daily monitoring of financial movements<br/>\r\n•\tPrepare daily or weekly cash forecast to ensure follow-up and treasury assessment and allocation is optimal<br/>\r\n•\tContact the banks for any services needed or related to bank statements; closing of the exchange contracts…upon the appropriate approvals and with the Group’s policy and current legislation.<br/>\r\n•\tSupport cost control team on monthly cost tracking and report to Client , administration of intercompany work orders and Service request, reconciliation of reimbursable cost items…<br/>\n<br/>\n<br/>\r\nHSSE Requirements and Code of Conduct<br/>\r\n•\tHSSE: Act in compliance with the corporate HSSEQ Management System Policy, the MODEC Life Saving Rules, and the policies, guides, process standards and work instructions available in the Integrated Management System (IMS).<br/>\r\n•\tAct to promote the preservation of the environment, the health and occupational safety (personnel and their team), the safety of processes, and the preservation of assets in their scale of responsibility.<br/>\r\n•\tEthics and Compliance: In compliance with the Code of Business Conduct and Ethics, as well as with MODEC Group Ethics and Compliance Policies and Local Procedures, their respective forms, online and live mandatory trainings: is committed to comply with all applicable laws, regulations and obligations and act in accordance with the highest ethical standards and with MODEC values.<br/>\r\n•\tEmergency Plan: As per indication on the Training Matrix, Emergency Management Guide and Offshore Emergency Management, available in the Integrated Management System (IMS).<br/>\n<br/>\r\nFinancial and Operational Dimensions / Impact and Decision-making Authority<br/>\r\nComplies with Authorization Matrix Procedure, available in the Integrated Management System (IMS).<br/>\r\nWork Relationships<br/>\r\n5.1 As per indication on the Organizational Chart, available in the Integrated Management System (IMS).<br/>\r\nJob Challenges and Problem Solving<br/>\r\n•\tExecute the schedule of accounts payable according to the conditions agreed with suppliers in order to avoid that Mosen is burdened with fines and interest as well as market exposure<br/>\r\n•\tEven with short deadlines for the work and internal and external pressure to meet deadlines; maintain the accuracy and precision of data<br/>\n<br/>\n<br/>\r\nQualifications &amp; Experience<br/>\r\nEducational Qualification<br/>\r\nUniversity degrees / MBA in finance or Accounting; Economic or Business Admin or equivalent in any area of finance, economy and technical Degree<br/>\n<br/>\n<br/>\r\nCertifications<br/>\r\nN/A ; but any certificate relevant to OIL and Gas business, professional societies and Financial organizations etc. is a strong asset.<br/>\r\nTrainings<br/>\r\nComplies with the Training Matrix and Regulatory and Required by Modec Training Management Procedure, available in the Integrated Management System (IMS).<br/>\r\nRelevant Experience<br/>\r\nMinimum 5 years of career records with outstanding achievements in Finance, and/or cost control, planning. and a deep knowledge of local GAAP.<br/>\n<br/>\n<br/>\r\nKey Behaviors<br/>\r\n•\tStrategic vision – Clarity of the vision and the goals of the company when analyzing contexts and scenarios in a broad and complete manner, considering the impacts for MODEC in short, mid and long terms. It involves ensuring that responsibilities are linked to the previously defined strategies.<br/>\r\n•\tLeadership- Ability to conduct, motivate and develop people to achieve goals established by the organization.<br/>\r\n•\tTeam building- Implementation of a collaborative work culture, where the focus on integration optimizes group performance. It involves work in an integrated manner, allowing employees to consolidate the action planning, to visualize data and to align information. It includes sharing agendas, ideas, information and knowledge to obtain the best results possible and to achieve established goals.<br/>\r\n•\tDecision making – Readiness for solving a problem or managing a situation, presenting the necessary level of flexibility when the situation dictates. It involves evaluating all variables in the decision-making process in order to choose the most efficient action. It includes considering uncertainties, adversities and ambiguities when analyzing consequences and impacts of the business, results, people and environment decisions.<br/>\r\n•\tSafety oriented – Activity execution, focusing on non-conformity prevention and accidents. It involves compliance to norms, laws, regulations, procedures, technical specifications and equipment.<br/>\r\n•\tInnovation – To challenge the status to allow the development of necessary transformations that will put the company in higher levels of competitiveness. To direct actions for the implementation of feasible and creative solutions.<br/>\r\n•\tSense of ownership – Attitude of implementing a mindset of feeling and acting as a “business owner” when seeing the success of the company as something that is interesting for everybody. It involves having the responsibility, trying to achieve the greater good for the organization.<br/>\r\n•\tFocus on customer – Operation focused on ensuring that people and areas act in order to satisfy the customers’ needs (internal and external).<br/>\r\n•\tResults oriented – High degree of commitment with his/her job, as well as delivering defined outcomes, removing possible obstacles with persistence and energy. It involves administering priorities, meeting dealing and being careful about the quality of deliveries.<br/>\r\n•\tCommunication – Way a professional interacts with others, aiming to share knowledge and to align the necessary information for the viability of the corporate business. It involves making trades, both inside and outside the team, creating synergy amongst people involved.<br/>\r\n•\tPlanning and organization – Elaboration of plans that allow for meeting related areas’ needs with quality and within the deadline.<br/>\n<br/>\n<br/>\r\nLanguages<br/>\r\nFluent French and English speaking in mandatory.<br/>\r\nSoftware<br/>\r\nOffice pack – Word, Excel, Power Point; and knowledge of ERP, especially SAP<br/>\n<br/>\n<br/>\r\nWorking Conditions<br/>\r\nComplies with safety and occupational health conditions for the job position, according to the Occupational Health Management Procedure, available in the Integrated Management System (IMS).<br/>\n<br/>\r\nNotice<br/>\r\nThis document is a general description of essential job functions, and it may be expanded or altered as business needs evolve to maintain the operation at a high level of efficiency and to promote a safe, productive, and well-functioning workplace. This document is not intended as an employment contract, nor is it intended to describe all duties someone in this position may perform. All personnel are expected to perform tasks as assigned by supervisory personnel, regardless of job title or routine job duties. Significant future changes will be discussed with the position holder accordingly.<br/>\n<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Finance & Accounting Analyst \n\nOverall Job Purpose\r\nResponsible for the execution of daily activities; of accounts payable; accounts receivable; the treasury routines; enabling adequate financial planning and monitoring in order to ensure the accuracy and integrity of MOSEN financial information.\n\r\nCore Responsibilities\r\n•\tPerform billing to related and third parties timely; ensuring that all invoices prepared are conform to the terms of the customer contract and have proper approval and support.\r\n•\tMonitor with diligence the customer accounts to determine if certain customers or amounts are at risk of nonpayment by providing analysis regarding revenue and outstanding receivable ageing.\r\n•\tExecute the routine of intercompany receivables/revenues and control that all intercompany billings will be prepared, delivered and communicated in a timely manner and recorded in the appropriate accounting.\r\n•\tReceive AP invoices matching with purchase orders, proceed/obtain approval and perform MIGO/MIRO approval process, enter the invoices into the ERP accounting system in a timely manner.\r\n•\tProcess employee expense reports, including verification of receipts and coding.\r\n•\tAdminister routine accounting operations tasks to include monthly recurring general entries and if needed reconciling asset and liability accounts.\r\n•\tExecute the input of the payments in the banking system and make the conciliation with the ERP System so that the payments and/or open items are reflected in the accounting according to the terms and conditions of MOSEN.\r\n•\tConduct necessary financial analysis for vendor vetting process\r\n•\tPerform the control of automatic debits, credits cards… ensuring the conformity with Tariffs applied to MOSEN.\r\n•\tPrepare information support for cash flow analysis and control; in order to allow MOSEN resources to be properly used trough daily monitoring of financial movements\r\n•\tPrepare daily or weekly cash forecast to ensure follow-up and treasury assessment and allocation is optimal\r\n•\tContact the banks for any services needed or related to bank statements; closing of the exchange contracts…upon the appropriate approvals and with the Group’s policy and current legislation.\r\n•\tSupport cost control team on monthly cost tracking and report to Client , administration of intercompany work orders and Service request, reconciliation of reimbursable cost items…\n\n\r\nHSSE Requirements and Code of Conduct\r\n•\tHSSE: Act in compliance with the corporate HSSEQ Management System Policy, the MODEC Life Saving Rules, and the policies, guides, process standards and work instructions available in the Integrated Management System (IMS).\r\n•\tAct to promote the preservation of the environment, the health and occupational safety (personnel and their team), the safety of processes, and the preservation of assets in their scale of responsibility.\r\n•\tEthics and Compliance: In compliance with the Code of Business Conduct and Ethics, as well as with MODEC Group Ethics and Compliance Policies and Local Procedures, their respective forms, online and live mandatory trainings: is committed to comply with all applicable laws, regulations and obligations and act in accordance with the highest ethical standards and with MODEC values.\r\n•\tEmergency Plan: As per indication on the Training Matrix, Emergency Management Guide and Offshore Emergency Management, available in the Integrated Management System (IMS).\n\r\nFinancial and Operational Dimensions / Impact and Decision-making Authority\r\nComplies with Authorization Matrix Procedure, available in the Integrated Management System (IMS).\r\nWork Relationships\r\n5.1 As per indication on the Organizational Chart, available in the Integrated Management System (IMS).\r\nJob Challenges and Problem Solving\r\n•\tExecute the schedule of accounts payable according to the conditions agreed with suppliers in order to avoid that Mosen is burdened with fines and interest as well as market exposure\r\n•\tEven with short deadlines for the work and internal and external pressure to meet deadlines; maintain the accuracy and precision of data\n\n\r\nQualifications &amp; Experience\r\nEducational Qualification\r\nUniversity degrees / MBA in finance or Accounting; Economic or Business Admin or equivalent in any area of finance, economy and technical Degree\n\n\r\nCertifications\r\nN/A ; but any certificate relevant to OIL and Gas business, professional societies and Financial organizations etc. is a strong asset.\r\nTrainings\r\nComplies with the Training Matrix and Regulatory and Required by Modec Training Management Procedure, available in the Integrated Management System (IMS).\r\nRelevant Experience\r\nMinimum 5 years of career records with outstanding achievements in Finance, and/or cost control, planning. and a deep knowledge of local GAAP.\n\n\r\nKey Behaviors\r\n•\tStrategic vision – Clarity of the vision and the goals of the company when analyzing contexts and scenarios in a broad and complete manner, considering the impacts for MODEC in short, mid and long terms. It involves ensuring that responsibilities are linked to the previously defined strategies.\r\n•\tLeadership- Ability to conduct, motivate and develop people to achieve goals established by the organization.\r\n•\tTeam building- Implementation of a collaborative work culture, where the focus on integration optimizes group performance. It involves work in an integrated manner, allowing employees to consolidate the action planning, to visualize data and to align information. It includes sharing agendas, ideas, information and knowledge to obtain the best results possible and to achieve established goals.\r\n•\tDecision making – Readiness for solving a problem or managing a situation, presenting the necessary level of flexibility when the situation dictates. It involves evaluating all variables in the decision-making process in order to choose the most efficient action. It includes considering uncertainties, adversities and ambiguities when analyzing consequences and impacts of the business, results, people and environment decisions.\r\n•\tSafety oriented – Activity execution, focusing on non-conformity prevention and accidents. It involves compliance to norms, laws, regulations, procedures, technical specifications and equipment.\r\n•\tInnovation – To challenge the status to allow the development of necessary transformations that will put the company in higher levels of competitiveness. To direct actions for the implementation of feasible and creative solutions.\r\n•\tSense of ownership – Attitude of implementing a mindset of feeling and acting as a “business owner” when seeing the success of the company as something that is interesting for everybody. It involves having the responsibility, trying to achieve the greater good for the organization.\r\n•\tFocus on customer – Operation focused on ensuring that people and areas act in order to satisfy the customers’ needs (internal and external).\r\n•\tResults oriented – High degree of commitment with his/her job, as well as delivering defined outcomes, removing possible obstacles with persistence and energy. It involves administering priorities, meeting dealing and being careful about the quality of deliveries.\r\n•\tCommunication – Way a professional interacts with others, aiming to share knowledge and to align the necessary information for the viability of the corporate business. It involves making trades, both inside and outside the team, creating synergy amongst people involved.\r\n•\tPlanning and organization – Elaboration of plans that allow for meeting related areas’ needs with quality and within the deadline.\n\n\r\nLanguages\r\nFluent French and English speaking in mandatory.\r\nSoftware\r\nOffice pack – Word, Excel, Power Point; and knowledge of ERP, especially SAP\n\n\r\nWorking Conditions\r\nComplies with safety and occupational health conditions for the job position, according to the Occupational Health Management Procedure, available in the Integrated Management System (IMS).\n\r\nNotice\r\nThis document is a general description of essential job functions, and it may be expanded or altered as business needs evolve to maintain the operation at a high level of efficiency and to promote a safe, productive, and well-functioning workplace. This document is not intended as an employment contract, nor is it intended to describe all duties someone in this position may perform. All personnel are expected to perform tasks as assigned by supervisory personnel, regardless of job title or routine job duties. Significant future changes will be discussed with the position holder accordingly.\n\n Non spécifié Dakar Non spécifié",
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:16:04,233 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-30 02:16:04,234 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 760,
+  "titre": "Finance & Accounting Analyst",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n\nOverall Job Purpose<br>\r\nResponsible for the execution of daily activities; of accounts payable; accounts receivable; the treasury routines; enabling adequate financial planning and monitoring in order to ensure the accuracy and integrity of MOSEN financial information.<br>\n<br>\r\nCore Responsibilities<br>\r\n•\tPerform billing to related and third parties timely; ensuring that all invoices prepared are conform to the terms of the customer contract and have proper approval and support.<br>\r\n•\tMonitor with diligence the customer accounts to determine if certain customers or amounts are at risk of nonpayment by providing analysis regarding revenue and outstanding receivable ageing.<br/>\r\n•\tExecute the routine of intercompany receivables/revenues and control that all intercompany billings will be prepared, delivered and communicated in a timely manner and recorded in the appropriate accounting.<br/>\r\n•\tReceive AP invoices matching with purchase orders, proceed/obtain approval and perform MIGO/MIRO approval process, enter the invoices into the ERP accounting system in a timely manner.<br/>\r\n•\tProcess employee expense reports, including verification of receipts and coding.<br/>\r\n•\tAdminister routine accounting operations tasks to include monthly recurring general entries and if needed reconciling asset and liability accounts.<br/>\r\n•\tExecute the input of the payments in the banking system and make the conciliation with the ERP System so that the payments and/or open items are reflected in the accounting according to the terms and conditions of MOSEN.<br/>\r\n•\tConduct necessary financial analysis for vendor vetting process<br/>\r\n•\tPerform the control of automatic debits, credits cards… ensuring the conformity with Tariffs applied to MOSEN.<br/>\r\n•\tPrepare information support for cash flow analysis and control; in order to allow MOSEN resources to be properly used trough daily monitoring of financial movements<br/>\r\n•\tPrepare daily or weekly cash forecast to ensure follow-up and treasury assessment and allocation is optimal<br/>\r\n•\tContact the banks for any services needed or related to bank statements; closing of the exchange contracts…upon the appropriate approvals and with the Group’s policy and current legislation.<br/>\r\n•\tSupport cost control team on monthly cost tracking and report to Client , administration of intercompany work orders and Service request, reconciliation of reimbursable cost items…<br/>\n<br/>\n<br/>\r\nHSSE Requirements and Code of Conduct<br/>\r\n•\tHSSE: Act in compliance with the corporate HSSEQ Management System Policy, the MODEC Life Saving Rules, and the policies, guides, process standards and work instructions available in the Integrated Management System (IMS).<br/>\r\n•\tAct to promote the preservation of the environment, the health and occupational safety (personnel and their team), the safety of processes, and the preservation of assets in their scale of responsibility.<br/>\r\n•\tEthics and Compliance: In compliance with the Code of Business Conduct and Ethics, as well as with MODEC Group Ethics and Compliance Policies and Local Procedures, their respective forms, online and live mandatory trainings: is committed to comply with all applicable laws, regulations and obligations and act in accordance with the highest ethical standards and with MODEC values.<br/>\r\n•\tEmergency Plan: As per indication on the Training Matrix, Emergency Management Guide and Offshore Emergency Management, available in the Integrated Management System (IMS).<br/>\n<br/>\r\nFinancial and Operational Dimensions / Impact and Decision-making Authority<br/>\r\nComplies with Authorization Matrix Procedure, available in the Integrated Management System (IMS).<br/>\r\nWork Relationships<br/>\r\n5.1 As per indication on the Organizational Chart, available in the Integrated Management System (IMS).<br/>\r\nJob Challenges and Problem Solving<br/>\r\n•\tExecute the schedule of accounts payable according to the conditions agreed with suppliers in order to avoid that Mosen is burdened with fines and interest as well as market exposure<br/>\r\n•\tEven with short deadlines for the work and internal and external pressure to meet deadlines; maintain the accuracy and precision of data<br/>\n<br/>\n<br/>\r\nQualifications &amp; Experience<br/>\r\nEducational Qualification<br/>\r\nUniversity degrees / MBA in finance or Accounting; Economic or Business Admin or equivalent in any area of finance, economy and technical Degree<br/>\n<br/>\n<br/>\r\nCertifications<br/>\r\nN/A ; but any certificate relevant to OIL and Gas business, professional societies and Financial organizations etc. is a strong asset.<br/>\r\nTrainings<br/>\r\nComplies with the Training Matrix and Regulatory and Required by Modec Training Management Procedure, available in the Integrated Management System (IMS).<br/>\r\nRelevant Experience<br/>\r\nMinimum 5 years of career records with outstanding achievements in Finance, and/or cost control, planning. and a deep knowledge of local GAAP.<br/>\n<br/>\n<br/>\r\nKey Behaviors<br/>\r\n•\tStrategic vision – Clarity of the vision and the goals of the company when analyzing contexts and scenarios in a broad and complete manner, considering the impacts for MODEC in short, mid and long terms. It involves ensuring that responsibilities are linked to the previously defined strategies.<br/>\r\n•\tLeadership- Ability to conduct, motivate and develop people to achieve goals established by the organization.<br/>\r\n•\tTeam building- Implementation of a collaborative work culture, where the focus on integration optimizes group performance. It involves work in an integrated manner, allowing employees to consolidate the action planning, to visualize data and to align information. It includes sharing agendas, ideas, information and knowledge to obtain the best results possible and to achieve established goals.<br/>\r\n•\tDecision making – Readiness for solving a problem or managing a situation, presenting the necessary level of flexibility when the situation dictates. It involves evaluating all variables in the decision-making process in order to choose the most efficient action. It includes considering uncertainties, adversities and ambiguities when analyzing consequences and impacts of the business, results, people and environment decisions.<br/>\r\n•\tSafety oriented – Activity execution, focusing on non-conformity prevention and accidents. It involves compliance to norms, laws, regulations, procedures, technical specifications and equipment.<br/>\r\n•\tInnovation – To challenge the status to allow the development of necessary transformations that will put the company in higher levels of competitiveness. To direct actions for the implementation of feasible and creative solutions.<br/>\r\n•\tSense of ownership – Attitude of implementing a mindset of feeling and acting as a “business owner” when seeing the success of the company as something that is interesting for everybody. It involves having the responsibility, trying to achieve the greater good for the organization.<br/>\r\n•\tFocus on customer – Operation focused on ensuring that people and areas act in order to satisfy the customers’ needs (internal and external).<br/>\r\n•\tResults oriented – High degree of commitment with his/her job, as well as delivering defined outcomes, removing possible obstacles with persistence and energy. It involves administering priorities, meeting dealing and being careful about the quality of deliveries.<br/>\r\n•\tCommunication – Way a professional interacts with others, aiming to share knowledge and to align the necessary information for the viability of the corporate business. It involves making trades, both inside and outside the team, creating synergy amongst people involved.<br/>\r\n•\tPlanning and organization – Elaboration of plans that allow for meeting related areas’ needs with quality and within the deadline.<br/>\n<br/>\n<br/>\r\nLanguages<br/>\r\nFluent French and English speaking in mandatory.<br/>\r\nSoftware<br/>\r\nOffice pack – Word, Excel, Power Point; and knowledge of ERP, especially SAP<br/>\n<br/>\n<br/>\r\nWorking Conditions<br/>\r\nComplies with safety and occupational health conditions for the job position, according to the Occupational Health Management Procedure, available in the Integrated Management System (IMS).<br/>\n<br/>\r\nNotice<br/>\r\nThis document is a general description of essential job functions, and it may be expanded or altered as business needs evolve to maintain the operation at a high level of efficiency and to promote a safe, productive, and well-functioning workplace. This document is not intended as an employment contract, nor is it intended to describe all duties someone in this position may perform. All personnel are expected to perform tasks as assigned by supervisory personnel, regardless of job title or routine job duties. Significant future changes will be discussed with the position holder accordingly.<br/>\n<br/>\n</br></br></br></br></br></div>",
+  "texte_integral": "Finance & Accounting Analyst \n\nOverall Job Purpose\r\nResponsible for the execution of daily activities; of accounts payable; accounts receivable; the treasury routines; enabling adequate financial planning and monitoring in order to ensure the accuracy and integrity of MOSEN financial information.\n\r\nCore Responsibilities\r\n•\tPerform billing to related and third parties timely; ensuring that all invoices prepared are conform to the terms of the customer contract and have proper approval and support.\r\n•\tMonitor with diligence the customer accounts to determine if certain customers or amounts are at risk of nonpayment by providing analysis regarding revenue and outstanding receivable ageing.\r\n•\tExecute the routine of intercompany receivables/revenues and control that all intercompany billings will be prepared, delivered and communicated in a timely manner and recorded in the appropriate accounting.\r\n•\tReceive AP invoices matching with purchase orders, proceed/obtain approval and perform MIGO/MIRO approval process, enter the invoices into the ERP accounting system in a timely manner.\r\n•\tProcess employee expense reports, including verification of receipts and coding.\r\n•\tAdminister routine accounting operations tasks to include monthly recurring general entries and if needed reconciling asset and liability accounts.\r\n•\tExecute the input of the payments in the banking system and make the conciliation with the ERP System so that the payments and/or open items are reflected in the accounting according to the terms and conditions of MOSEN.\r\n•\tConduct necessary financial analysis for vendor vetting process\r\n•\tPerform the control of automatic debits, credits cards… ensuring the conformity with Tariffs applied to MOSEN.\r\n•\tPrepare information support for cash flow analysis and control; in order to allow MOSEN resources to be properly used trough daily monitoring of financial movements\r\n•\tPrepare daily or weekly cash forecast to ensure follow-up and treasury assessment and allocation is optimal\r\n•\tContact the banks for any services needed or related to bank statements; closing of the exchange contracts…upon the appropriate approvals and with the Group’s policy and current legislation.\r\n•\tSupport cost control team on monthly cost tracking and report to Client , administration of intercompany work orders and Service request, reconciliation of reimbursable cost items…\n\n\r\nHSSE Requirements and Code of Conduct\r\n•\tHSSE: Act in compliance with the corporate HSSEQ Management System Policy, the MODEC Life Saving Rules, and the policies, guides, process standards and work instructions available in the Integrated Management System (IMS).\r\n•\tAct to promote the preservation of the environment, the health and occupational safety (personnel and their team), the safety of processes, and the preservation of assets in their scale of responsibility.\r\n•\tEthics and Compliance: In compliance with the Code of Business Conduct and Ethics, as well as with MODEC Group Ethics and Compliance Policies and Local Procedures, their respective forms, online and live mandatory trainings: is committed to comply with all applicable laws, regulations and obligations and act in accordance with the highest ethical standards and with MODEC values.\r\n•\tEmergency Plan: As per indication on the Training Matrix, Emergency Management Guide and Offshore Emergency Management, available in the Integrated Management System (IMS).\n\r\nFinancial and Operational Dimensions / Impact and Decision-making Authority\r\nComplies with Authorization Matrix Procedure, available in the Integrated Management System (IMS).\r\nWork Relationships\r\n5.1 As per indication on the Organizational Chart, available in the Integrated Management System (IMS).\r\nJob Challenges and Problem Solving\r\n•\tExecute the schedule of accounts payable according to the conditions agreed with suppliers in order to avoid that Mosen is burdened with fines and interest as well as market exposure\r\n•\tEven with short deadlines for the work and internal and external pressure to meet deadlines; maintain the accuracy and precision of data\n\n\r\nQualifications &amp; Experience\r\nEducational Qualification\r\nUniversity degrees / MBA in finance or Accounting; Economic or Business Admin or equivalent in any area of finance, economy and technical Degree\n\n\r\nCertifications\r\nN/A ; but any certificate relevant to OIL and Gas business, professional societies and Financial organizations etc. is a strong asset.\r\nTrainings\r\nComplies with the Training Matrix and Regulatory and Required by Modec Training Management Procedure, available in the Integrated Management System (IMS).\r\nRelevant Experience\r\nMinimum 5 years of career records with outstanding achievements in Finance, and/or cost control, planning. and a deep knowledge of local GAAP.\n\n\r\nKey Behaviors\r\n•\tStrategic vision – Clarity of the vision and the goals of the company when analyzing contexts and scenarios in a broad and complete manner, considering the impacts for MODEC in short, mid and long terms. It involves ensuring that responsibilities are linked to the previously defined strategies.\r\n•\tLeadership- Ability to conduct, motivate and develop people to achieve goals established by the organization.\r\n•\tTeam building- Implementation of a collaborative work culture, where the focus on integration optimizes group performance. It involves work in an integrated manner, allowing employees to consolidate the action planning, to visualize data and to align information. It includes sharing agendas, ideas, information and knowledge to obtain the best results possible and to achieve established goals.\r\n•\tDecision making – Readiness for solving a problem or managing a situation, presenting the necessary level of flexibility when the situation dictates. It involves evaluating all variables in the decision-making process in order to choose the most efficient action. It includes considering uncertainties, adversities and ambiguities when analyzing consequences and impacts of the business, results, people and environment decisions.\r\n•\tSafety oriented – Activity execution, focusing on non-conformity prevention and accidents. It involves compliance to norms, laws, regulations, procedures, technical specifications and equipment.\r\n•\tInnovation – To challenge the status to allow the development of necessary transformations that will put the company in higher levels of competitiveness. To direct actions for the implementation of feasible and creative solutions.\r\n•\tSense of ownership – Attitude of implementing a mindset of feeling and acting as a “business owner” when seeing the success of the company as something that is interesting for everybody. It involves having the responsibility, trying to achieve the greater good for the organization.\r\n•\tFocus on customer – Operation focused on ensuring that people and areas act in order to satisfy the customers’ needs (internal and external).\r\n•\tResults oriented – High degree of commitment with his/her job, as well as delivering defined outcomes, removing possible obstacles with persistence and energy. It involves administering priorities, meeting dealing and being careful about the quality of deliveries.\r\n•\tCommunication – Way a professional interacts with others, aiming to share knowledge and to align the necessary information for the viability of the corporate business. It involves making trades, both inside and outside the team, creating synergy amongst people involved.\r\n•\tPlanning and organization – Elaboration of plans that allow for meeting related areas’ needs with quality and within the deadline.\n\n\r\nLanguages\r\nFluent French and English speaking in mandatory.\r\nSoftware\r\nOffice pack – Word, Excel, Power Point; and knowledge of ERP, especially SAP\n\n\r\nWorking Conditions\r\nComplies with safety and occupational health conditions for the job position, according to the Occupational Health Management Procedure, available in the Integrated Management System (IMS).\n\r\nNotice\r\nThis document is a general description of essential job functions, and it may be expanded or altered as business needs evolve to maintain the operation at a high level of efficiency and to promote a safe, productive, and well-functioning workplace. This document is not intended as an employment contract, nor is it intended to describe all duties someone in this position may perform. All personnel are expected to perform tasks as assigned by supervisory personnel, regardless of job title or routine job duties. Significant future changes will be discussed with the position holder accordingly.\n\n Non spécifié Dakar Non spécifié",
+  "date_publication": null,
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 02:16:09,164 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 19.0,
+  "score_global_semantique": 16.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (19%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre outil 'word' est en lien avec l'offre.",
+      "categorie": "outils",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    },
+    {
+      "description": "Cette offre recherche 4 compétences techniques spécifiques. Concentrez-vous sur les plus importantes.",
+      "categorie": "competences",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 20.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (20%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 0.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Rest",
+          "categorie": "competences",
+          "importance": "moyenne"
+        },
+        {
+          "description": "Aws",
+          "categorie": "competences",
+          "importance": "moyenne"
+        },
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        },
+        {
+          "description": "Communication",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [
+        "Cette offre recherche 4 compétences techniques spécifiques. Concentrez-vous sur les plus importantes."
+      ],
+      "resume": "Un décalage important est noté sur les compétences clés (0%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "competences",
+      "description": "Pour renforcer votre profil, considérez : Cette offre recherche 4 compétences techniques spécifiques. Concentrez-vous sur les plus importantes.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Rest, Aws, Ia, Communication.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-30T02:16:09.163008",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Rest",
+    "Aws",
+    "Ia",
+    "Communication"
+  ]
+}
+2025-06-30 02:16:09,164 - INFO - Fin de l'analyse.
+2025-06-30 02:16:09,165 - INFO - ==================================================
+
+2025-06-30 02:18:50,800 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 02:23:29,943 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-06-30 08:33:58,482 - INFO - ==================================================
+2025-06-30 08:33:58,482 - INFO - Début de l'analyse pour l'offre ID: 747 et candidat ID: 5
+2025-06-30 08:33:58,485 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ]
+}
+2025-06-30 08:33:58,485 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 747,
+  "titre": "Finance Assistant - Senegal G2G Ops",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>L’opportunité <br>\n<br>\nLe projet G2G Ops </br></br></b>cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     <br>\n<br>\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant<br>\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions<br/>\n-Elaborer les fiches mensuelles de consommation des véhicules<br/>\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers<br/>\n-Appui pour la réconciliation des avances<br/>\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain<br/>\n-Faire le suivi d’autres types de dossier administratif<br/>\n-Vérifier conformité entre les Po et les livraisons et décharger les BL<br/>\n-Appuyer pour la mise a jour du fichier de l’inventaire<br/>\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.<br/>\n<br/>\n<br/>\n</br></br></br></div>",
+  "texte_integral": "Finance Assistant - Senegal G2G Ops \nL’opportunité \n\nLe projet G2G Ops cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     \n\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions\n-Elaborer les fiches mensuelles de consommation des véhicules\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers\n-Appui pour la réconciliation des avances\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain\n-Faire le suivi d’autres types de dossier administratif\n-Vérifier conformité entre les Po et les livraisons et décharger les BL\n-Appuyer pour la mise a jour du fichier de l’inventaire\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.\n\n\n Non spécifié Dakar Non spécifié",
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 08:33:58,488 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.",
+  "competences": [
+    "Esprit d'équipe ",
+    "Python ",
+    "Git GitHub ",
+    "JavaScript ",
+    "Maintenance des serveurs web",
+    "Gestion de base de données ",
+    "Mysql",
+    "cms",
+    "wordpress",
+    "git",
+    "Django ",
+    "sql",
+    "PHP"
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques ",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "Licence1"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    },
+    {
+      "poste": "je ne suis pas daccord",
+      "description": "je <br />\r\nne veux<br />\r\npas qye<br />\r\ntu memdb<br />\r\nmandhd<br />\r\nksjd",
+      "duree": 0.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "Cursor",
+    "Git",
+    "VS code",
+    "Wamp Server",
+    "word"
+  ],
+  "texte_integral": null
+}
+2025-06-30 08:33:58,488 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 747,
+  "titre": "Finance Assistant - Senegal G2G Ops",
+  "entreprise": "Non spécifié",
+  "localisation": "Dakar",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>L’opportunité <br>\n<br>\nLe projet G2G Ops </br></br></b>cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     <br>\n<br>\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant<br>\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions<br/>\n-Elaborer les fiches mensuelles de consommation des véhicules<br/>\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers<br/>\n-Appui pour la réconciliation des avances<br/>\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain<br/>\n-Faire le suivi d’autres types de dossier administratif<br/>\n-Vérifier conformité entre les Po et les livraisons et décharger les BL<br/>\n-Appuyer pour la mise a jour du fichier de l’inventaire<br/>\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.<br/>\n<br/>\n<br/>\n</br></br></br></div>",
+  "texte_integral": "Finance Assistant - Senegal G2G Ops \nL’opportunité \n\nLe projet G2G Ops cherche à s’attacher les services d’un (1) consultant administratif, financier et logistique. Le consultant devra fournir une assistance nécessaire pour la mise en œuvre des activités planifiées par la composante G2G Ops, dans le cadre de l’appui au projet dans le bureau de Dakar et dans les différentes zones d’intervention du projet. Sous la supervision directe de l’Assistante Administrative et financière, le stagiaire aura pour mission de fournir appui logistique, administratif et financier pour une bonne mise en œuvre des activités dans le cadre du projet d’assistance technique au financement direct G2G.     \n\n-Appuyer pour la gestion du carburant (Vérification des carnets de bord / Mettre à jour le fichier Excel de suivi du carburant et informer le superviseur a temps afin d’éviter les ruptures de carburant\n-Appuyer à la gestion des sorties des chauffeurs et informer l’assistante administrative pour les besoins des ordres de missions\n-Elaborer les fiches mensuelles de consommation des véhicules\n-Appuyer la logistique des missions et déplacement professionnels du personnel/réunions /ateliers\n-Appui pour la réconciliation des avances\n-Fournir des services de secrétariat quand la secrétaire est sur le terrain\n-Faire le suivi d’autres types de dossier administratif\n-Vérifier conformité entre les Po et les livraisons et décharger les BL\n-Appuyer pour la mise a jour du fichier de l’inventaire\n-Des taches complémentaires en fonction de la demande du superviseur ou de l’équipe pourrait être confier au consultant conformément à sa mission.\n\n\n Non spécifié Dakar Non spécifié",
+  "date_publication": null,
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-06-30 08:33:59,398 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 22.0,
+  "score_global_semantique": 23.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (22%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 24.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (24%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 2.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (2%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Ia.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-06-30T08:33:59.397352",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Ia"
+  ]
+}
+2025-06-30 08:33:59,399 - INFO - Fin de l'analyse.
+2025-06-30 08:33:59,399 - INFO - ==================================================
+

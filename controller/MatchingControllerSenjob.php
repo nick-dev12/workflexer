@@ -37,7 +37,10 @@ class MatchingControllerSenjob
 
     private function callMatchingAPI($candidat_data, $offre_data)
     {
-        $client = new Client();
+        $client = new Client([
+            'timeout' => 180, // Augmentation du timeout à 3 minutes
+            'connect_timeout' => 30
+        ]);
         $endpoint = '/analyze_senjob/';
 
         try {
@@ -45,13 +48,25 @@ class MatchingControllerSenjob
                 'json' => [
                     'candidate_data' => $candidat_data,
                     'job_offer_data' => $offre_data
+                ],
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json'
                 ]
             ]);
 
-            return json_decode($response->getBody()->getContents(), true);
+            $result = json_decode($response->getBody()->getContents(), true);
+            
+            // Log du succès
+            error_log("API Senjob - Analyse réussie pour candidat {$candidat_data['id']} et offre {$offre_data['id']}");
+            
+            return $result;
         } catch (RequestException $e) {
             error_log("Erreur API Matching (Senjob): " . $e->getMessage());
-            return ['error' => 'api_error', 'message' => $e->getMessage()];
+            return ['error' => 'api_error', 'message' => 'Erreur de communication avec le service d\'analyse. Veuillez réessayer.'];
+        } catch (Exception $e) {
+            error_log("Erreur générale Matching (Senjob): " . $e->getMessage());
+            return ['error' => 'general_error', 'message' => 'Une erreur inattendue s\'est produite.'];
         }
     }
 } 

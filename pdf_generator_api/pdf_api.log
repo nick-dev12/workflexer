@@ -1,0 +1,19 @@
+2025-06-28 03:06:18,444 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<Connection.run() done, defined at C:\wamp64\www\workflexer\pdf_generator_api\venv\Lib\site-packages\playwright\_impl\_connection.py:268> exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "C:\wamp64\www\workflexer\pdf_generator_api\venv\Lib\site-packages\playwright\_impl\_connection.py", line 275, in run
+    await self._transport.connect()
+  File "C:\wamp64\www\workflexer\pdf_generator_api\venv\Lib\site-packages\playwright\_impl\_transport.py", line 135, in connect
+    raise exc
+  File "C:\wamp64\www\workflexer\pdf_generator_api\venv\Lib\site-packages\playwright\_impl\_transport.py", line 123, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\oyono\AppData\Local\Programs\Python\Python311\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\oyono\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\oyono\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError

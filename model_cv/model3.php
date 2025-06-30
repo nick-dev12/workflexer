@@ -6,12 +6,12 @@ include_once('check_device.php');
 session_start();
 
 // Check if user is on desktop
-$isDesktop = isDesktop();
+/* $isDesktop = isDesktop();
 if (!$isDesktop) {
     // If not on desktop, redirect to mobile message page
     header("Location: mobile_message.php");
     exit;
-}
+} */
 
 if (isset($_GET['id'])) {
     include '../conn/conn.php';
@@ -78,20 +78,25 @@ if (isset($_SESSION['users_id'])) {
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
     <link rel="stylesheet" href="../css/model3.css">
     <link rel="stylesheet" href="../css/navbare.css">
+    <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="../script/jquery-3.6.0.min.js"></script>
     <script src="cv_customizer.js"></script>
     <script src="image_customizer.js" defer></script>
 </head>
 
 <body>
+    <button id="toggle-customization-btn" class="button12">
+        <i class="fa-solid fa-palette"></i> Personnaliser
+    </button>
 
-
-
-
+    <!-- Bouton de téléchargement fixe toujours visible -->
+    <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
+        <i class="fa-solid fa-download"></i>
+        <span>Télécharger PDF</span>
+    </button>
     <section class="section3">
-
-
-        <div class="personnalisation">
+        <div class="personnalisation" id="customization-panel">
+            <button id="close-panel-btn" class="close-panel-btn">&times;</button>
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
 
             <script>
@@ -132,29 +137,32 @@ if (isset($_SESSION['users_id'])) {
                     // Précharger les polices puis générer le PDF
                     preloadFonts().then(() => {
                         const { jsPDF } = window.jspdf;
-                        const element = document.querySelector(".containers");
+                        const element = document.querySelector("#container-for-pdf");
 
-                        // Définir une échelle plus élevée pour une meilleure qualité
-                        const scale = 2;
-                        const options = {
-                            scale: scale,
-                            quality: 2,
-                            bgcolor: '#fff',
-                            width: element.offsetWidth * scale,
-                            height: element.offsetHeight * scale,
-                            style: {
-                                transform: 'scale(' + scale + ')',
-                                transformOrigin: 'top left',
-                                width: element.offsetWidth + "px",
-                                height: element.offsetHeight + "px"
-                            },
-                            useCORS: true
-                        };
+                                            // Optimisations légères pour une meilleure qualité
+                    const scale = 2.2;
+                    const options = {
+                        scale: scale,
+                        quality: 0.95,
+                        bgcolor: '#ffffff',
+                        width: element.offsetWidth * scale,
+                        height: element.offsetHeight * scale,
+                        style: {
+                            transform: 'scale(' + scale + ')',
+                            transformOrigin: 'top left',
+                            width: element.offsetWidth + "px",
+                            height: element.offsetHeight + "px"
+                        },
+                        useCORS: true
+                    };
 
+                    setTimeout(() => {
                         domtoimage.toJpeg(element, options)
                             .then(function (dataUrl) {
                                 // Supprimer le message d'attente
-                                document.body.removeChild(loadingMessage);
+                                if (document.body.contains(loadingMessage)) {
+                                    document.body.removeChild(loadingMessage);
+                                }
 
                                 const pdf = new jsPDF('p', 'mm', 'a4');
                                 const imgProps = pdf.getImageProperties(dataUrl);
@@ -162,21 +170,26 @@ if (isset($_SESSION['users_id'])) {
                                 const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
                                 pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-                                pdf.save("cv-model3.pdf");
+                                
+                                // Nom de fichier avec timestamp pour éviter les conflits
+                                const timestamp = new Date().toISOString().slice(0, 19).replace(/[:.]/g, '-');
+                                pdf.save(`cv-model3-${timestamp}.pdf`);
                             })
                             .catch(function (error) {
                                 console.error('Une erreur est survenue lors de la génération du PDF:', error);
                                 // Supprimer le message d'attente en cas d'erreur
-                                document.body.removeChild(loadingMessage);
+                                if (document.body.contains(loadingMessage)) {
+                                    document.body.removeChild(loadingMessage);
+                                }
                                 alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
                             });
-                    });
+                    }, 600); // Délai léger pour stabilité
+                });
                 }
             </script>
 
             <div class="theme-selector">
                 <h3>Thèmes de couleurs</h3>
-                <div class="themes-section">
                     <h4>Classiques</h4>
                     <div class="themes-container">
                         <div class="theme-card" data-theme="classic">
@@ -276,7 +289,6 @@ if (isset($_SESSION['users_id'])) {
                             <span>Ambre</span>
                         </div>
                     </div>
-                </div>
             </div>
 
             <style>
@@ -750,7 +762,189 @@ if (isset($_SESSION['users_id'])) {
             </script>
         </div>
 
-        <div class="containers">
+        <div id="box">
+            <div class="containers">
+                <div class="box1">
+                    <div class="item">
+                        <h1>
+                            <?= $userss['nom'] ?>
+                        </h1>
+                        <img src="../upload/<?= $userss['images'] ?>" alt="">
+                        <h2> <?= $userss['competences'] ?></h2>
+                        <span>******</span>
+
+                        <?php if (empty($descriptions)): ?>
+                            <p>Aucune donnée trouvée</p>
+                        <?php else: ?>
+                            <p class="p">
+                                <?= $descriptions['description'] ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="items">
+                        <h1>Contact</h1>
+                        <div>
+                            <img src="../image/address.png" alt="">
+                            <span>Adresse</span>
+                            <p> <?= $userss['ville'] ?></p>
+                        </div>
+
+                        <div>
+                            <img src="../image/phone.png" alt="">
+                            <span>Téléphone</span>
+                            <p><?= $userss['phone'] ?></p>
+                        </div>
+
+                        <div>
+                            <img src="../image/icons8-gmail-48.png" alt="">
+                            <span>E-mail</span>
+                            <p><?= $userss['mail'] ?></p>
+                        </div>
+                    </div>
+
+                    <div class="itemss">
+
+                        <h1>Langues</h1>
+                        <div>
+                            <?php if ($afficheLangue): ?>
+                                <?php foreach ($afficheLangue as $langues): ?>
+                                    <p> <?= $langues['langue'] ?> <span> (<?= $langues['niveau'] ?>)</span></p>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box2">
+                    <div class="decor1"></div>
+                    <div class="decor2"></div>
+
+                    <div class="item">
+                        <h1><strong><img src="../image/experience.png" alt=""></strong>Expériences</h1>
+                        <?php if (empty($afficheMetier)): ?>
+                            <h4>Aucune donnée trouvée</h4>
+                        <?php else: ?>
+                            <?php
+                            shuffle($afficheMetier);
+                            $nombre_metier = 3
+                                ?>
+                            <?php foreach ($afficheMetier as $key => $Metiers): ?>
+                                <?php if ($key < $nombre_metier): ?>
+                                    <div class="exp">
+                                        <span class="part"></span>
+                                        <div class="exper">
+                                            <h3><?= $Metiers['metier'] ?> <em> <?= $Metiers['moisDebut'] ?> /
+                                                    <?= $Metiers['anneeDebut'] ?> // <?= $Metiers['moisFin'] ?> /
+                                                    <?= $Metiers['anneeFin'] ?></em> </h3>
+                                            <p> <?= $Metiers['description'] ?></p>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
+                    </div>
+
+
+                    <div class="items">
+                        <h1><strong><img src="../image/etude.png" alt=""></strong>Éducation</h1>
+
+                        <div class="containe-exp">
+                            <?php if (empty($formationUsers)): ?>
+                                <strong></strong>
+                                <h4>Aucune donnée trouvée</h4>
+                            <?php else: ?>
+                                <?php
+                                shuffle($formationUsers);
+                                $nombre_formation = 3;
+                                ?>
+                                <?php foreach ($formationUsers as $key => $formations): ?>
+                                    <?php if ($key < $nombre_formation): ?>
+                                        <div class="exp">
+                                            <span class="part"></span>
+                                            <div class="exper">
+                                                <h3><?= $formations['etablissement'] ?> <em><?= $formations['moisDebut'] ?> /
+                                                        <?= $formations['anneeDebut'] ?> // <?= $formations['moisFin'] ?> /
+                                                        <?= $formations['anneeFin'] ?></em> </h3>
+                                                <p><?= $formations['Filiere'] ?> <span class="titre"> <strong>
+                                                            <?= $formations['niveau'] ?></strong></span> </p>
+
+                                            </div>
+                                        </div>
+
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+                        </div>
+                    </div>
+
+                    <div class="itemss">
+                        <h1><strong><img src="../image/compétences.png" alt=""></strong>Compétences</h1>
+
+
+                        <ul>
+                            <?php if ($competencesUtilisateurLimit7): ?>
+                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                    <li> <?php echo $competence['competence']; ?></li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+
+                                <h4>Aucune donnée trouvée</h4>
+                            <?php endif ?>
+                        </ul>
+                    </div>
+
+
+                    <div class="itemsss">
+                        <h1><strong><img src="../image/outil.png" alt=""></strong>Outils informatiques</h1>
+
+                        <ul>
+                            <?php if ($afficheOutilLimit5): ?>
+                                <?php foreach ($afficheOutilLimit5 as $outils): ?>
+                                    <li> <?= $outils['outil'] ?></li>
+                                <?php endforeach; ?>
+                            <?php endif ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-customization-btn');
+            const customPanel = document.getElementById('customization-panel');
+            const closeBtn = document.getElementById('close-panel-btn');
+
+            if (toggleBtn && customPanel && closeBtn) {
+                // Ouvre le panneau
+                toggleBtn.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    customPanel.classList.add('active');
+                });
+
+                // Ferme le panneau avec la croix
+                closeBtn.addEventListener('click', function() {
+                    customPanel.classList.remove('active');
+                });
+
+                // Ferme le panneau si on clique en dehors
+                document.addEventListener('click', function(event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        customPanel.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- Conteneur caché pour le clone PDF -->
+    <div style="position: absolute; left: -9999px; top:0;">
+        <div id="container-for-pdf" class="containers">
             <div class="box1">
                 <div class="item">
                     <h1>
@@ -899,10 +1093,7 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
-
-
-
-    </section>
+    </div>
 </body>
 
 </html>

@@ -14,66 +14,157 @@ document.addEventListener('DOMContentLoaded', function () {
 
     console.log(`Modèle de CV détecté: ${modelNumber}, utilisant la clé de stockage: ${CV_STORAGE_KEY}`);
 
+    // Scope d'application pour les modifications
+    const cvContainer = document.querySelector('.cv-container, #cv-container, #container,.container,.cv10,.cv11,.cv12,.cv13,.cv14,.cv15');
+    const scope = cvContainer ? cvContainer : document;
+
+    if (!cvContainer) {
+        console.warn("Conteneur CV non trouvé (.cv-container, #cv-container, #container,.container,.cv10,.cv11,.cv12,.cv13,.cv14,.cv15). Les modifications seront globales pour assurer la compatibilité ascendante.");
+    }
+
     // CSS à injecter pour le panneau de personnalisation
     const customCSS = `
         .cv-editor-panel {
             position: fixed;
             bottom: 0;
             left: 50%;
-            transform: translateX(-50%);
-            background-color: white;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px 8px 0 0;
-            padding: 15px;
+            transform: translateX(-50%) translateY(100%);
+            background-color: #f8f9fa;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px 12px 0 0;
+            padding: 20px;
             z-index: 1000;
-            width: 340px;
-            display: none;
+            width: 380px;
+            display: block;
+            font-family: 'Nunito', sans-serif;
+            transition: transform 0.3s ease-out;
+        }
+
+        .cv-editor-panel.visible {
+            transform: translateX(-50%) translateY(0);
         }
 
         .cv-editor-panel .editor-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
             text-align: center;
+            color: #343a40;
         }
 
         .cv-editor-panel .option {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .cv-editor-panel label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-size: 14px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .cv-editor-panel #fontSizeValue {
+            font-weight: 600;
+            color: #007bff;
+            margin-left: 10px;
         }
 
-        .cv-editor-panel input,
+        .cv-editor-panel input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #dee2e6;
+            border-radius: 5px;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+
+        .cv-editor-panel input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        .cv-editor-panel input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #007bff;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .cv-editor-panel input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #007bff;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .cv-editor-panel input[type="color"] {
+            -webkit-appearance: none;
+            border: none;
+            width: 100%;
+            height: 35px;
+            cursor: pointer;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+
+        .cv-editor-panel input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        .cv-editor-panel input[type="color"]::-webkit-color-swatch {
+            border: none;
+            border-radius: 4px;
+        }
+        
         .cv-editor-panel select {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
+            padding: 10px;
+            border: 1px solid #ced4da;
             border-radius: 4px;
+            background-color: white;
+            font-size: 14px;
         }
 
         .cv-editor-panel .close-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             background: none;
             border: none;
-            font-size: 18px;
+            font-size: 24px;
             cursor: pointer;
+            color: #adb5bd;
+            transition: color 0.2s;
+        }
+
+        .cv-editor-panel .close-btn:hover {
+            color: #495057;
         }
 
         .cv-editor-panel .btn-apply {
-            background-color: #0089be;
+            background-image: linear-gradient(to right, #007bff, #0056b3);
             color: #fff;
             border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 12px 15px;
+            border-radius: 6px;
             cursor: pointer;
             width: 100%;
             margin-top: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cv-editor-panel .btn-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
         }
         
         .cv-editor-panel .btn-apply-bg {
@@ -85,11 +176,11 @@ document.addEventListener('DOMContentLoaded', function () {
             cursor: pointer;
             margin-left: 10px;
             font-size: 12px;
+            transition: background-color 0.2s;
         }
 
-        .cv-editor-panel .btn-apply:hover,
         .cv-editor-panel .btn-apply-bg:hover {
-            opacity: 0.9;
+            background-color: #fb8c00;
         }
 
         .editable-element {
@@ -106,10 +197,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         
         .cv-editor-panel .checkbox-option {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-            margin-bottom: 15px;
+            display: block;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
         
         .cv-editor-panel .checkbox-option input {
@@ -243,9 +334,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ces sélecteurs peuvent être ajustés selon le modèle de CV
     const editableElements = [
         // Éléments de contenu basiques
-        ...document.querySelectorAll('p, span, h1, h2, h3, h4, h5, h6, li, strong, em'),
+        ...scope.querySelectorAll('p, span, h1, h2, h3, h4, h5, h6, li, strong, em'),
         // Classes spécifiques pour certains modèles
-        ...document.querySelectorAll('.text, .nom, .profession, .item, .skill, .experience-item, .education-item')
+        ...scope.querySelectorAll('.text, .nom, .profession, .item, .skill, .experience-item, .education-item')
     ];
 
     let currentElement = null;
@@ -328,7 +419,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 // Afficher l'éditeur
-                editorPanel.style.display = 'block';
+                editorPanel.classList.add('visible');
             });
         }
     });
@@ -371,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Cas 1: Appliquer à tous les éléments de même classe (si l'option est cochée et l'élément a une classe)
         if (applyToSameCheck.checked && currentElementClass) {
-            document.querySelectorAll('.' + currentElementClass).forEach(el => {
+            scope.querySelectorAll('.' + currentElementClass).forEach(el => {
                 if (el.classList.contains('editable-element')) {
                     targetsToUpdate.push(el);
                 }
@@ -380,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Cas 2: Appliquer à tous les éléments de même type (si l'option est cochée)
         else if (applyToAllTypeCheck.checked) {
-            document.querySelectorAll(currentElementType).forEach(el => {
+            scope.querySelectorAll(currentElementType).forEach(el => {
                 if (el.classList.contains('editable-element')) {
                     targetsToUpdate.push(el);
                 }
@@ -407,7 +498,7 @@ document.addEventListener('DOMContentLoaded', function () {
             saveCurrentElementStyle();
         }
 
-        editorPanel.style.display = 'none';
+        editorPanel.classList.remove('visible');
         currentElement = null;
     });
 
@@ -421,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 saveCurrentElementStyle();
             }
 
-            editorPanel.style.display = 'none';
+            editorPanel.classList.remove('visible');
             currentElement = null;
         }
     });
@@ -431,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentElement) {
             saveCurrentElementStyle();
             currentElement.classList.remove('active');
-            editorPanel.style.display = 'none';
+            editorPanel.classList.remove('visible');
             currentElement = null;
         }
     });
@@ -556,7 +647,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const styles = cvStyles.elementTypes[elementType];
                     console.log(`Application des styles au type d'élément: ${elementType}`, styles);
 
-                    document.querySelectorAll(elementType).forEach(el => {
+                    scope.querySelectorAll(elementType).forEach(el => {
                         if (el.classList.contains('editable-element')) {
                             applyStylesToElement(el, styles);
                         }
@@ -570,7 +661,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const styles = cvStyles.classes[className];
                     console.log(`Application des styles à la classe: ${className}`, styles);
 
-                    document.querySelectorAll('.' + className).forEach(el => {
+                    scope.querySelectorAll('.' + className).forEach(el => {
                         if (el.classList.contains('editable-element')) {
                             applyStylesToElement(el, styles);
                         }
@@ -582,7 +673,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (cvStyles.specificElements) {
                 // Créer un tableau de tous les éléments éditables avec leurs chemins
                 const allEditableElements = [];
-                document.querySelectorAll('.editable-element').forEach(el => {
+                scope.querySelectorAll('.editable-element').forEach(el => {
                     const path = getElementPath(el);
                     allEditableElements.push({
                         element: el,
@@ -661,7 +752,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // Essais avec d'autres méthodes de sélection
                         if (styles.elementClass) {
                             console.log(`Tentative avec la classe: ${styles.elementClass}`);
-                            const classMatches = document.querySelectorAll('.' + styles.elementClass);
+                            const classMatches = scope.querySelectorAll('.' + styles.elementClass);
                             if (classMatches.length > 0) {
                                 console.log(`${classMatches.length} éléments trouvés avec la classe`);
                                 classMatches.forEach(el => {
@@ -672,7 +763,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             }
                         } else if (styles.elementType) {
                             console.log(`Tentative avec le type: ${styles.elementType}`);
-                            const typeMatches = document.querySelectorAll(styles.elementType);
+                            const typeMatches = scope.querySelectorAll(styles.elementType);
                             if (typeMatches.length > 0) {
                                 console.log(`${typeMatches.length} éléments trouvés avec le type`);
                                 // On prend le premier élément qui contient du texte similaire

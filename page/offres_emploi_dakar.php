@@ -20,10 +20,13 @@ if (isset($_POST['recherche'])) {
     // Rediriger vers la page de résultats spécifique à EmploiDakar
     header('Location: resultats_emploi_dakar.php?page=1');
     exit();
-} elseif (isset($_SESSION['criteres_emploi_dakar']) && !isset($_GET['reset'])) {
-    // Récupérer les critères de session si une recherche a été faite précédemment
-    // et qu'on ne demande pas de réinitialiser la recherche
-    $recherche = $_SESSION['criteres_emploi_dakar']['search'];
+}
+
+// Réinitialiser la recherche si on accède directement à la page principale
+// ou si le paramètre reset est présent
+if (isset($_GET['reset']) || (!isset($_POST['recherche']) && !isset($_GET['page']))) {
+    unset($_SESSION['criteres_emploi_dakar']);
+    $recherche = '';
 }
 
 // Construction de la requête
@@ -36,8 +39,9 @@ $sql = "
 $bindParams = [];
 
 if (!empty($recherche)) {
-    $sql .= " AND (titre LIKE ? OR description_poste LIKE ?)";
+    $sql .= " AND (titre LIKE ? OR description_poste LIKE ? OR entreprise LIKE ?)";
     $searchParam = "%$recherche%";
+    $bindParams[] = $searchParam;
     $bindParams[] = $searchParam;
     $bindParams[] = $searchParam;
 }
@@ -71,7 +75,8 @@ $sqlCount = "SELECT COUNT(*) FROM scrap_emploi_emploidakar WHERE 1=1";
 $countParams = [];
 
 if (!empty($recherche)) {
-    $sqlCount .= " AND (titre LIKE ? OR description_poste LIKE ?)";
+    $sqlCount .= " AND (titre LIKE ? OR description_poste LIKE ? OR entreprise LIKE ?)";
+    $countParams[] = "%$recherche%";
     $countParams[] = "%$recherche%";
     $countParams[] = "%$recherche%";
 }
@@ -113,9 +118,10 @@ $totalPages = ceil($totalOffres / $offresParPage);
     <link rel="stylesheet" href="../css/offre_d'emploit.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/emploi.css">
+    <link rel="stylesheet" href="../css/job-card.css">
 </head>
 
-<body>
+<body class="emploidakar-theme">
     <?php include('../navbare.php') ?>
 
     <section class="hero-search-section">
@@ -131,7 +137,7 @@ $totalPages = ceil($totalOffres / $offresParPage);
                     <form action="" method="post" class="search-form">
                         <div class="search">
                             <input type="search" name="search" id="search"
-                                placeholder="Rechercher par titre ou description de poste..."
+                                placeholder="Rechercher par titre, description ou entreprise..."
                                 value="<?php echo htmlspecialchars($recherche); ?>">
                             <label for="recherche"><i class="fa-solid fa-magnifying-glass fa-xs"></i></label>
                             <input type="submit" name="recherche" value="recherche" id="recherche">
@@ -143,35 +149,27 @@ $totalPages = ceil($totalOffres / $offresParPage);
                             <a href="offres_emploi_dakar.php" class="source-btn active">EmploiDakar</a>
                             <a href="offres_senjob.php" class="source-btn">SenJob</a>
                         </div>
+                        
+                        <?php if (!empty($recherche)): ?>
+                        <div class="search-actions">
+                            <a href="offres_emploi_dakar.php?reset=1" class="btn-reset-search">Voir toutes les offres</a>
+                        </div>
+                        <?php endif; ?>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="job-stats-container">
-        <div class="job-stats">
-            <div class="stat-item">
-                <i class="fas fa-briefcase"></i>
-                <span class="count"><?php echo $totalOffres; ?></span>
-                <span class="label">Offres d'emploi</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-building"></i>
-                <span
-                    class="count"><?php echo $db->query("SELECT COUNT(DISTINCT entreprise) FROM scrap_emploi_emploidakar")->fetchColumn(); ?></span>
-                <span class="label">Entreprises</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span
-                    class="count"><?php echo $db->query("SELECT COUNT(DISTINCT localisation) FROM scrap_emploi_emploidakar")->fetchColumn(); ?></span>
-                <span class="label">Localisations</span>
-            </div>
-        </div>
-    </div>
+   
 
-    <h1 class="titre_emploi">Offres d'emploi sur EmploiDakar</h1>
+    <h1 class="titre_emploi">
+        <?php if (!empty($recherche)): ?>
+            Résultats de recherche pour "<?php echo htmlspecialchars($recherche); ?>" sur EmploiDakar
+        <?php else: ?>
+            Offres d'emploi sur EmploiDakar
+        <?php endif; ?>
+    </h1>
 
     <section class="tous_les_offres">
         <div class="job-categories">
@@ -187,33 +185,44 @@ $totalPages = ceil($totalOffres / $offresParPage);
                 <div class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</div>
             <?php else: ?>
                 <?php foreach ($offres as $offre): ?>
-                    <div class="carousel job-card" data-type="<?php echo strtolower($offre['type_contrat']); ?>">
-                        <div class="info-box">
-                            <div class="header">
-                                <span class="contrat"><?php echo $offre['type_contrat']; ?></span>
-                                <span class="date"><i class="far fa-calendar-alt"></i>
-                                    <?php echo $offre['date_publication']; ?></span>
+                    <!-- Nouvelle carte d'offre d'emploi -->
+                    <div class="job-card-new" data-type="<?php echo strtolower($offre['type_contrat']); ?>">
+                        <div class="card-header">
+                            <span class="card-company-logo">
+                                <img src="../image/immeuble.png" alt="Logo de l'entreprise">
+                            </span>
+                            <div class="card-title-group">
+                                <h2 class="card-title"><?php echo htmlspecialchars(substr($offre['titre'], 0, 50) . (strlen($offre['titre']) > 50 ? '...' : '')); ?></h2>
+                                <p class="card-company"><?php echo htmlspecialchars($offre['entreprise']); ?></p>
                             </div>
-                            <h2 class="poste">
-                                <?php echo substr($offre['titre'], 0, 100) . (strlen($offre['titre']) > 100 ? '...' : ''); ?>
-                            </h2>
-                            <div class="entreprise">
-                                <img src="../image/immeuble.png" alt="Entreprise">
-                                <span><?php echo $offre['entreprise']; ?></span>
+                        </div>
+
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span><?php echo htmlspecialchars($offre['localisation']); ?></span>
                             </div>
-                            <div class="localite">
-                                <img src="../image/position.png" alt="Localisation">
-                                <span><?php echo $offre['localisation']; ?></span>
+                            <div class="detail-item">
+                                <i class="fas fa-file-contract"></i>
+                                <span><?php echo htmlspecialchars($offre['type_contrat']); ?></span>
                             </div>
-                            <div class="tags">
-                                <?php
-                                $tags = ['Expérience', 'Télétravail', 'Temps plein'];
+                            <div class="detail-item">
+                                <i class="far fa-calendar-alt"></i>
+                                <span><?php echo htmlspecialchars($offre['date_publication']); ?></span>
+                            </div>
+                        </div>
+
+                        <div class="card-tags">
+                            <?php
+                                $tags = ['Télétravail', 'Hybride', 'Temps plein'];
                                 $randomTag = $tags[array_rand($tags)];
-                                ?>
-                                <span class="tag"><?php echo $randomTag; ?></span>
-                            </div>
-                            <a href="/page/emploi_details2.php?id=<?php echo $offre['offre_id']; ?>" class="details-btn">Voir
-                                les détails</a>
+                            ?>
+                            <span class="tag"><?php echo $randomTag; ?></span>
+                            <span class="tag">Expérience requise</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="/page/emploi_details2.php?id=<?php echo $offre['offre_id']; ?>" class="card-details-btn">Voir les détails</a>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -392,6 +401,29 @@ $totalPages = ceil($totalOffres / $offresParPage);
             background-color: #007BFF;
             color: white;
             border-color: #0056b3;
+        }
+
+        /* Style pour les actions de recherche */
+        .search-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .btn-reset-search {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #1e7e34;
+        }
+
+        .btn-reset-search:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
         }
     </style>
 </body>

@@ -6,12 +6,12 @@ include_once('check_device.php');
 session_start();
 
 // Check if user is on desktop
-$isDesktop = isDesktop();
+/* $isDesktop = isDesktop();
 if (!$isDesktop) {
     // If not on desktop, redirect to mobile message page
     header("Location: mobile_message.php");
     exit;
-}
+} */
 
 if (isset($_GET['id'])) {
     include '../conn/conn.php';
@@ -66,6 +66,8 @@ if (isset($_SESSION['users_id'])) {
     <title>CV - Modèle 14</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/model14.css" />
+    <link rel="stylesheet" href="../css/personnalisation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <script src="../script/jquery-3.6.0.min.js"></script>
@@ -77,46 +79,24 @@ if (isset($_SESSION['users_id'])) {
 </head>
 
 <body>
+    <button id="toggle-customization-btn" class="button12">
+        <i class="fa-solid fa-palette"></i> Personnaliser
+    </button>
+
+    <!-- Bouton de téléchargement fixe toujours visible -->
+    <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
+        <i class="fa-solid fa-download"></i>
+        <span>Télécharger PDF</span>
+    </button>
     <section class="section3">
-        <div class="personnalisation">
+        <div class="personnalisation" id="customization-panel">
+            <button id="close-panel-btn" class="close-panel-btn">&times;</button>
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
 
             <div class="customization-panel">
                 <div class="section">
                     <h3>Thèmes de couleurs</h3>
-                    <div class="subsection">
-                        <h4>Classiques</h4>
-                        <div class="themes-container">
-                            <div class="theme-card" data-theme="classique">
-                                <div class="theme-preview">
-                                    <div style="background-color: #333333; height: 20px;"></div>
-                                    <div style="background-color: #666666; height: 20px;"></div>
-                                </div>
-                                <span>Classique</span>
-                            </div>
-                            <div class="theme-card" data-theme="marine">
-                                <div class="theme-preview">
-                                    <div style="background-color: #1a3c5e; height: 20px;"></div>
-                                    <div style="background-color: #3a6a98; height: 20px;"></div>
-                                </div>
-                                <span>Marine</span>
-                            </div>
-                            <div class="theme-card" data-theme="corporate">
-                                <div class="theme-preview">
-                                    <div style="background-color: #283593; height: 20px;"></div>
-                                    <div style="background-color: #5f5fc4; height: 20px;"></div>
-                                </div>
-                                <span>Corporate</span>
-                            </div>
-                            <div class="theme-card" data-theme="ardoise">
-                                <div class="theme-preview">
-                                    <div style="background-color: #2f4f4f; height: 20px;"></div>
-                                    <div style="background-color: #5f7f7f; height: 20px;"></div>
-                                </div>
-                                <span>Ardoise</span>
-                            </div>
-                        </div>
-                    </div>
+                
 
                     <div class="subsection">
                         <h4>Couleurs vives</h4>
@@ -148,6 +128,59 @@ if (isset($_SESSION['users_id'])) {
                                     <div style="background-color: #e57373; height: 20px;"></div>
                                 </div>
                                 <span>Rubis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>Tons chauds & naturels</h4>
+                        <div class="themes-container">
+                             <div class="theme-card" data-theme="coucher-soleil">
+                                <div class="theme-preview">
+                                    <div style="background-color: #c94b4b; height: 20px;"></div>
+                                    <div style="background-color: #4b134f; height: 20px;"></div>
+                                </div>
+                                <span>Coucher de Soleil</span>
+                            </div>
+                            <div class="theme-card" data-theme="foret-enchantee">
+                                <div class="theme-preview">
+                                    <div style="background-color: #004d40; height: 20px;"></div>
+                                    <div style="background-color: #4caf50; height: 20px;"></div>
+                                </div>
+                                <span>Forêt Enchantée</span>
+                            </div>
+                            <div class="theme-card" data-theme="ambre-miel">
+                                <div class="theme-preview">
+                                    <div style="background-color: #ff8f00; height: 20px;"></div>
+                                    <div style="background-color: #ffecb3; height: 20px;"></div>
+                                </div>
+                                <span>Ambre et Miel</span>
+                            </div>
+                             <div class="theme-card" data-theme="vintage-sepia">
+                                <div class="theme-preview">
+                                    <div style="background-color: #5d4037; height: 20px;"></div>
+                                    <div style="background-color: #f5deb3; height: 20px;"></div>
+                                </div>
+                                <span>Sépia Vintage</span>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="subsection">
+                        <h4>Tons froids & modernes</h4>
+                        <div class="themes-container">
+                            <div class="theme-card" data-theme="bleu-mineral">
+                                <div class="theme-preview">
+                                    <div style="background-color: #37474f; height: 20px;"></div>
+                                    <div style="background-color: #b0bec5; height: 20px;"></div>
+                                </div>
+                                <span>Bleu Minéral</span>
+                            </div>
+                             <div class="theme-card" data-theme="petales-rose">
+                                <div class="theme-preview">
+                                    <div style="background-color: #ad1457; height: 20px;"></div>
+                                    <div style="background-color: #f8bbd0; height: 20px;"></div>
+                                </div>
+                                <span>Pétales de Rose</span>
                             </div>
                         </div>
                     </div>
@@ -191,7 +224,209 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
+        <div id="box">
         <div class="container" id="cv-container">
+                <!-- Background Elements -->
+                <div class="background-element circle-1"></div>
+                <div class="background-element circle-2"></div>
+                <div class="background-element zigzag"></div>
+
+                <!-- Header Section -->
+                <div class="header">
+                    <div class="profile-section">
+                        <div class="profile-frame">
+                            <?php if (isset($userss['images'])): ?>
+                                <img class="profile-img" src="../upload/<?= $userss['images'] ?>" alt="Photo de profil" />
+                            <?php else: ?>
+                                <img class="profile-img" src="../image/image-2.png" alt="Photo de profil" />
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="name-title">
+                        <h1 class="name">
+                            <?php if (isset($userss['nom'])): ?>
+                                <?= $userss['nom'] ?>
+                            <?php else: ?>
+                                Marie Laurent
+                            <?php endif; ?>
+                        </h1>
+                        <h2 class="profession">
+                            <?php if (isset($userss['competences'])): ?>
+                                <?= $userss['competences'] ?>
+                            <?php else: ?>
+                                Designer Graphique
+                            <?php endif; ?>
+                        </h2>
+                        <p class="about-text">
+                            <?php if (isset($descriptions)): ?>
+                                <?= $descriptions['description'] ?>
+                            <?php else: ?>
+                                Designer graphique créative avec plus de 6 ans d'expérience dans la
+                                conception visuelle et la direction artistique. Spécialisée dans
+                                l'identité de marque, la typographie et l'illustration numérique.
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Content Grid -->
+                <div class="content">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-box">
+                            <div class="contact-item">
+                                <img class="contact-icon" src="../image/address.png" alt="Adresse" />
+                                <p>
+                                    <?php if (isset($userss['ville'])): ?>
+                                        <?= $userss['ville'] ?>
+                                    <?php else: ?>
+                                        aucune ville trouvée
+                                    <?php endif; ?>
+                                </p>
+                            </div>
+                            <div class="contact-item">
+                                <img class="contact-icon" src="../image/icons8-gmail-48.png" alt="Email" />
+                                <p>
+                                    <?php if (isset($userss['mail'])): ?>
+                                        <?= $userss['mail'] ?>
+                                    <?php else: ?>
+                                    <p>aucun email trouvé</p>
+                                <?php endif; ?>
+                                </p>
+                            </div>
+                            <div class="contact-item">
+                                <img class="contact-icon" src="../image/phone.png" alt="Téléphone" />
+                                <p>
+                                    <?php if (isset($userss['phone'])): ?>
+                                        <?= $userss['phone'] ?>
+                                    <?php else: ?>
+                                        aucun numéro de téléphone trouvé
+                                    <?php endif; ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="skills">
+                        <h3 class="skills-title">Compétences</h3>
+                        <div class="skills-grid">
+                            <?php if (isset($competencesUtilisateurLimit7) && !empty($competencesUtilisateurLimit7)): ?>
+                                <?php
+                                $percentages = [95, 90, 85, 80, 75, 70, 65];
+                                $index = 0;
+                                ?>
+
+                                <div class="skill-item">
+                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                        <?php $percentage = isset($percentages[$index]) ? $percentages[$index] : 75; ?>
+                                        <span class="skill-name"><?= $competence['competence']; ?></span>
+                                        <?php $index++; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php else: ?>
+                                <p>Aucune compétence trouvée</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div>
+                            <!-- Languages -->
+                            <div class="languages">
+                                <h3 class="section-title">Langues</h3>
+                                <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
+                                    <?php
+                                    $niveaux = [
+                                        'Débutant' => 30,
+                                        'Intermédiaire' => 60,
+                                        'Courant' => 80,
+                                        'Bilingue' => 95,
+                                        'Langue maternelle' => 100
+                                    ];
+                                    ?>
+                                    <?php foreach ($afficheLangue as $langue): ?>
+                                        <?php
+                                        $pourcentage = 80; // Par défaut
+                                        foreach ($niveaux as $niveau => $pct) {
+                                            if (stripos($langue['niveau'], $niveau) !== false) {
+                                                $pourcentage = $pct;
+                                                break;
+                                            }
+                                        }
+                                        ?>
+                                        <div class="language-item">
+                                            <span class="language-name"><?= $langue['langue']; ?></span>
+                                            <div class="language-level-bar">
+                                                <div class="language-level-fill" style="width: <?= $pourcentage ?>%"></div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p>Aucune langue trouvée</p>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="education">
+                                <h3 class="section-title">Formation</h3>
+                                <div class="education-container">
+                                    <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
+                                        <?php foreach ($formationUsers as $formation): ?>
+                                            <div class="education-item">
+                                                <h3 class="education-title"><?= $formation['Filiere']; ?></h3>
+                                                <div class="education-subtitle"><?= $formation['etablissement']; ?> <strong>
+                                                        <?= $formation['niveau']; ?></strong></div>
+                                                <div class="education-date">
+                                                    <?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> à
+                                                    <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <p>Aucune formation trouvée</p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experiences -->
+                        <div class="experiences">
+                            <h3 class="section-title">Expérience professionnelle</h3>
+                            <div class="timeline-container">
+                                <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
+                                    <?php foreach ($afficheMetier as $metier): ?>
+                                        <div class="timeline-item">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">
+                                                <h3 class="timeline-title"><?= $metier['metier']; ?></h3>
+                                                <div class="timeline-subtitle">
+                                                    <?= isset($metier['entreprise']) ? $metier['entreprise'] : ''; ?>
+                                                </div>
+                                                <div class="timeline-date">
+                                                    <?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> à
+                                                    <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
+                                                </div>
+                                                <p class="timeline-description">
+                                                    <?= $metier['description']; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p>Aucune expérience professionnelle trouvée</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Fin de #box -->
+
+    <!-- Conteneur caché pour le clone PDF -->
+    <div style="position: absolute; left: -9999px; top:0;">
+        <div class="container" id="container-for-pdf">
             <!-- Background Elements -->
             <div class="background-element circle-1"></div>
             <div class="background-element circle-2"></div>
@@ -387,7 +622,7 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <script>
         // Fonction pour précharger les polices avant la génération du PDF
@@ -419,14 +654,14 @@ if (isset($_SESSION['users_id'])) {
             // Précharger les polices puis générer le PDF
             preloadFonts().then(() => {
                 const { jsPDF } = window.jspdf;
-                const element = document.getElementById("cv-container");
+                const element = document.querySelector("#container-for-pdf");
 
-                // Définir une échelle plus élevée pour une meilleure qualité
-                const scale = 2;
+                // Optimisations légères pour une meilleure qualité
+                const scale = 2.2;
                 const options = {
                     scale: scale,
-                    quality: 1,
-                    bgcolor: '#fff',
+                    quality: 0.95,
+                    bgcolor: '#ffffff',
                     width: element.offsetWidth * scale,
                     height: element.offsetHeight * scale,
                     style: {
@@ -438,25 +673,32 @@ if (isset($_SESSION['users_id'])) {
                     useCORS: true
                 };
 
-                domtoimage.toJpeg(element, options)
-                    .then(function (dataUrl) {
-                        // Supprimer le message d'attente
-                        document.body.removeChild(loadingMessage);
+                // Attendre un délai pour la stabilité
+                setTimeout(() => {
+                    domtoimage.toJpeg(element, options)
+                        .then(function (dataUrl) {
+                            // Supprimer le message d'attente
+                            if (document.body.contains(loadingMessage)) {
+                                document.body.removeChild(loadingMessage);
+                            }
 
-                        const pdf = new jsPDF('p', 'mm', 'a4');
-                        const imgProps = pdf.getImageProperties(dataUrl);
-                        const pdfWidth = pdf.internal.pageSize.getWidth();
-                        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                            const pdf = new jsPDF('p', 'mm', 'a4');
+                            const imgProps = pdf.getImageProperties(dataUrl);
+                            const pdfWidth = pdf.internal.pageSize.getWidth();
+                            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                        pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-                        pdf.save("cv-model14.pdf");
-                    })
-                    .catch(function (error) {
-                        console.error('Une erreur est survenue lors de la génération du PDF:', error);
-                        // Supprimer le message d'attente en cas d'erreur
-                        document.body.removeChild(loadingMessage);
-                        alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
-                    });
+                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                            pdf.save("cv-model14-" + Date.now() + ".pdf");
+                        })
+                        .catch(function (error) {
+                            console.error('Une erreur est survenue lors de la génération du PDF:', error);
+                            // Supprimer le message d'attente en cas d'erreur
+                            if (document.body.contains(loadingMessage)) {
+                                document.body.removeChild(loadingMessage);
+                            }
+                            alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                        });
+                }, 600);
             });
         }
     </script>
@@ -522,6 +764,48 @@ if (isset($_SESSION['users_id'])) {
                     accentColor: '#ef5350',
                     darkText: '#333333',
                     lightText: '#777777'
+                },
+                'coucher-soleil': {
+                    primaryColor: '#c94b4b',
+                    secondaryColor: '#4b134f',
+                    accentColor: '#ff8a65',
+                    darkText: '#3e2723',
+                    lightText: '#795548'
+                },
+                'foret-enchantee': {
+                    primaryColor: '#004d40',
+                    secondaryColor: '#4caf50',
+                    accentColor: '#81c784',
+                    darkText: '#00382e',
+                    lightText: '#388e3c'
+                },
+                'ambre-miel': {
+                    primaryColor: '#ff8f00',
+                    secondaryColor: '#ffecb3',
+                    accentColor: '#ffca28',
+                    darkText: '#e65100',
+                    lightText: '#f57c00'
+                },
+                'vintage-sepia': {
+                    primaryColor: '#5d4037',
+                    secondaryColor: '#f5deb3',
+                    accentColor: '#a1887f',
+                    darkText: '#4e342e',
+                    lightText: '#795548'
+                },
+                'bleu-mineral': {
+                    primaryColor: '#37474f',
+                    secondaryColor: '#b0bec5',
+                    accentColor: '#607d8b',
+                    darkText: '#263238',
+                    lightText: '#546e7a'
+                },
+                'petales-rose': {
+                    primaryColor: '#ad1457',
+                    secondaryColor: '#f8bbd0',
+                    accentColor: '#f06292',
+                    darkText: '#880e4f',
+                    lightText: '#c2185b'
                 }
             };
 
@@ -697,6 +981,33 @@ if (isset($_SESSION['users_id'])) {
 
             // Charger les paramètres sauvegardés au chargement de la page
             loadSavedSettings();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-customization-btn');
+            const customPanel = document.getElementById('customization-panel');
+            const closeBtn = document.getElementById('close-panel-btn');
+
+            if (toggleBtn && customPanel && closeBtn) {
+                // Ouvre le panneau
+                toggleBtn.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    customPanel.classList.add('active');
+                });
+
+                // Ferme le panneau avec la croix
+                closeBtn.addEventListener('click', function() {
+                    customPanel.classList.remove('active');
+                });
+
+                // Ferme le panneau si on clique en dehors
+                document.addEventListener('click', function(event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        customPanel.classList.remove('active');
+                    }
+                });
+            }
         });
     </script>
 </body>

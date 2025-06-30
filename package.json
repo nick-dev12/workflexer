@@ -1,18 +1,29 @@
 {
   "dependencies": {
+    "@nesk/puphpeteer": "^2.0.0",
     "express": "^4.21.0",
-    "puppeteer": "^23.5.0"
+    "puppeteer": "^19.11.1"
   },
   "name": "projet-n1",
   "version": "1.0.0",
-  "description": "",
+  "description": "![Logo WorkFlexer](https://work-flexer.com/image/logo%202.png)",
   "main": "server.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nick-dev12/workflexer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nick-dev12/workflexer/issues"
+  },
+  "homepage": "https://github.com/nick-dev12/workflexer#readme"
 }

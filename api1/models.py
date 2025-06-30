@@ -1,10 +1,65 @@
 """
-Modèles de données pour l'API de matching
+Modèles de données pour l'API de matching avancée avec approche hybride
 """
-from typing import List, Optional, Dict, Union, Any
+from typing import List, Optional, Dict, Union, Any, Set
 from pydantic import BaseModel, Field, validator
 from datetime import datetime
+import numpy as np
 
+
+# === NOUVEAUX MODÈLES POUR L'APPROCHE HYBRIDE ===
+
+class ExtractedEntity(BaseModel):
+    """Entité extraite par SpaCy"""
+    text: str
+    label: str  # PERSON, ORG, TECH, SKILL, etc.
+    start: int
+    end: int
+    confidence: float = 1.0
+
+
+class SectionEmbedding(BaseModel):
+    """Embedding d'une section spécifique"""
+    section_name: str  # "competences", "experience", "formation", etc.
+    text: str
+    embedding: List[float] = Field(default_factory=list)
+    entities: List[ExtractedEntity] = Field(default_factory=list)
+    keywords: List[str] = Field(default_factory=list)
+    normalized_terms: Dict[str, str] = Field(default_factory=dict)  # "JS" -> "JavaScript"
+
+
+class SemanticSimilarity(BaseModel):
+    """Résultat de comparaison sémantique"""
+    score: float = Field(ge=0.0, le=1.0)
+    matched_terms: List[Dict[str, str]] = Field(default_factory=list)  # [{"candidate": "Python", "offer": "Python"}]
+    missing_terms: List[str] = Field(default_factory=list)
+    extra_terms: List[str] = Field(default_factory=list)
+    semantic_matches: List[Dict[str, Union[str, float]]] = Field(default_factory=list)  # Matches sémantiques avec scores
+
+
+class AdvancedCompetenceAnalysis(BaseModel):
+    """Analyse avancée des compétences avec recherche sémantique"""
+    exact_matches: List[str] = Field(default_factory=list)
+    semantic_matches: List[Dict[str, Any]] = Field(default_factory=list)
+    missing_critical: List[str] = Field(default_factory=list)
+    missing_optional: List[str] = Field(default_factory=list)
+    technology_clusters: Dict[str, List[str]] = Field(default_factory=dict)  # "Frontend": ["React", "Vue"], etc.
+    skill_levels: Dict[str, Dict[str, Union[int, str]]] = Field(default_factory=dict)
+    similarity_matrix: Dict[str, Dict[str, float]] = Field(default_factory=dict)
+
+
+class HybridAnalysisResult(BaseModel):
+    """Résultat de l'analyse hybride niveau 1 (global) + niveau 2 (granulaire)"""
+    global_similarity: float
+    global_embedding_score: float
+    section_similarities: Dict[str, SemanticSimilarity] = Field(default_factory=dict)
+    competence_analysis: AdvancedCompetenceAnalysis = Field(default_factory=AdvancedCompetenceAnalysis)
+    entity_matches: Dict[str, List[ExtractedEntity]] = Field(default_factory=dict)
+    keyword_density: Dict[str, float] = Field(default_factory=dict)
+    contextual_relevance: float = 0.0
+
+
+# === MODÈLES ENRICHIS EXISTANTS ===
 
 class Formation(BaseModel):
     niveau: str
@@ -17,6 +72,12 @@ class Formation(BaseModel):
     en_cours: bool = False
     type_formation: Optional[str] = None
     mentions: List[str] = Field(default_factory=list)
+    
+    # Nouveaux champs pour l'approche hybride
+    extracted_entities: List[ExtractedEntity] = Field(default_factory=list)
+    embedding: List[float] = Field(default_factory=list)
+    normalized_domain: Optional[str] = None
+    relevance_keywords: List[str] = Field(default_factory=list)
     
     @validator('annee_obtention')
     def validate_annee(cls, v):
@@ -40,6 +101,14 @@ class Experience(BaseModel):
     technologies: List[str] = Field(default_factory=list)
     responsabilites: List[str] = Field(default_factory=list)
     
+    # Nouveaux champs pour l'approche hybride
+    extracted_entities: List[ExtractedEntity] = Field(default_factory=list)
+    embedding: List[float] = Field(default_factory=list)
+    normalized_title: Optional[str] = None
+    technical_keywords: List[str] = Field(default_factory=list)
+    soft_skills: List[str] = Field(default_factory=list)
+    industry_relevance: float = 0.0
+    
     @validator('duree_mois')
     def validate_duree(cls, v):
         if v < 0:
@@ -57,6 +126,14 @@ class Competence(BaseModel):
     type_competence: str = "Technique"
     projets_associes: List[str] = Field(default_factory=list)
     
+    # Nouveaux champs pour l'approche hybride
+    normalized_name: Optional[str] = None
+    synonyms: List[str] = Field(default_factory=list)
+    category: Optional[str] = None  # "Programming", "Framework", "Database", etc.
+    embedding: List[float] = Field(default_factory=list)
+    market_demand: float = 0.0  # Score de demande sur le marché
+    learning_resources: List[Dict[str, str]] = Field(default_factory=list)
+    
     @validator('niveau')
     def validate_niveau(cls, v):
         if not 1 <= v <= 5:
@@ -71,6 +148,11 @@ class Langue(BaseModel):
     date_certification: Optional[str] = None
     contexte_utilisation: List[str] = Field(default_factory=list)
     sejours_linguistiques: List[Dict[str, str]] = Field(default_factory=list)
+    
+    # Nouveaux champs pour l'approche hybride
+    normalized_name: Optional[str] = None
+    native_level: bool = False
+    professional_context: bool = False
     
     @validator('niveau')
     def validate_niveau(cls, v):
@@ -94,6 +176,13 @@ class ProjetPersonnel(BaseModel):
     en_cours: bool = False
     url: Optional[str] = None
     competences_developpees: List[str] = Field(default_factory=list)
+    
+    # Nouveaux champs pour l'approche hybride
+    extracted_entities: List[ExtractedEntity] = Field(default_factory=list)
+    embedding: List[float] = Field(default_factory=list)
+    normalized_technologies: List[str] = Field(default_factory=list)
+    complexity_score: float = 0.0
+    relevance_to_offer: float = 0.0
 
 
 class CandidatProfile(BaseModel):
@@ -136,9 +225,17 @@ class CandidatProfile(BaseModel):
     niveau_etude: Optional[str] = None
     niveau_experience: Optional[str] = None
     niveau_etude_valeur: Optional[int] = None
-    niveau_experience_valeur: Optional[int] = None
+    niveau_experience_valeur: Optional[int]= None
     texte_integral: Optional[str] = None
     outils: List[str] = []
+    
+    # === NOUVEAUX CHAMPS POUR L'APPROCHE HYBRIDE ===
+    section_embeddings: Dict[str, SectionEmbedding] = Field(default_factory=dict)
+    global_embedding: List[float] = Field(default_factory=list)
+    extracted_entities: List[ExtractedEntity] = Field(default_factory=list)
+    skill_clusters: Dict[str, List[str]] = Field(default_factory=dict)
+    career_progression: List[Dict[str, Any]] = Field(default_factory=list)
+    profile_completeness: Dict[str, float] = Field(default_factory=dict)
 
 
 class ExigenceFormation(BaseModel):
@@ -149,6 +246,11 @@ class ExigenceFormation(BaseModel):
     formations_alternatives: List[str] = Field(default_factory=list)
     equivalences_acceptees: List[str] = Field(default_factory=list)
     specialisations_preferees: List[str] = Field(default_factory=list)
+    
+    # Nouveaux champs pour l'approche hybride
+    embedding: List[float] = Field(default_factory=list)
+    normalized_domains: List[str] = Field(default_factory=list)
+    flexibility_score: float = 0.0
 
 
 class ExigenceExperience(BaseModel):
@@ -160,6 +262,12 @@ class ExigenceExperience(BaseModel):
     niveaux_responsabilite: List[str] = Field(default_factory=list)
     contextes_valorises: List[str] = Field(default_factory=list)
     type_experience: List[str] = Field(default_factory=list)
+    
+    # Nouveaux champs pour l'approche hybride
+    embedding: List[float] = Field(default_factory=list)
+    extracted_entities: List[ExtractedEntity] = Field(default_factory=list)
+    seniority_indicators: List[str] = Field(default_factory=list)
+    flexibility_score: float = 0.0
 
 
 class JobOffer(BaseModel):
@@ -184,6 +292,57 @@ class JobOffer(BaseModel):
     methodologie: List[str] = Field(default_factory=list)
     taille_equipe: Optional[int] = None
     texte_integral: Optional[str] = None
+    
+    # === NOUVEAUX CHAMPS POUR L'APPROCHE HYBRIDE ===
+    section_embeddings: Dict[str, SectionEmbedding] = Field(default_factory=dict)
+    global_embedding: List[float] = Field(default_factory=list)
+    extracted_entities: List[ExtractedEntity] = Field(default_factory=list)
+    critical_skills: List[str] = Field(default_factory=list)  # Compétences critiques identifiées automatiquement
+    nice_to_have_skills: List[str] = Field(default_factory=list)  # Compétences bonus
+    company_culture_keywords: List[str] = Field(default_factory=list)
+    urgency_indicators: List[str] = Field(default_factory=list)
+    market_competitiveness: float = 0.0
+
+
+# === MODÈLES D'ANALYSE AVANCÉE ===
+
+class EntityMatchResult(BaseModel):
+    """Résultat de correspondance d'entités entre candidat et offre"""
+    entity_type: str  # SKILL, TECH, ORG, etc.
+    candidate_entities: List[ExtractedEntity] = Field(default_factory=list)
+    offer_entities: List[ExtractedEntity] = Field(default_factory=list)
+    matches: List[Dict[str, Any]] = Field(default_factory=list)
+    missing_in_candidate: List[ExtractedEntity] = Field(default_factory=list)
+    similarity_scores: Dict[str, float] = Field(default_factory=dict)
+
+
+class SkillGapAnalysis(BaseModel):
+    """Analyse des lacunes de compétences"""
+    missing_critical_skills: List[Dict[str, Any]] = Field(default_factory=list)
+    missing_nice_to_have: List[Dict[str, Any]] = Field(default_factory=list)
+    transferable_skills: List[Dict[str, Any]] = Field(default_factory=list)
+    learning_path: List[Dict[str, Any]] = Field(default_factory=list)
+    estimated_learning_time: Dict[str, str] = Field(default_factory=dict)
+    market_resources: List[Dict[str, str]] = Field(default_factory=list)
+
+
+class CareerProgressionAnalysis(BaseModel):
+    """Analyse de progression de carrière"""
+    current_level: str
+    target_level: str
+    progression_feasibility: float
+    required_experience_gap: int  # en mois
+    skill_progression_needed: List[Dict[str, Any]] = Field(default_factory=list)
+    typical_career_path: List[str] = Field(default_factory=list)
+
+
+class IndustryRelevanceAnalysis(BaseModel):
+    """Analyse de pertinence sectorielle"""
+    sector_match_score: float
+    industry_keywords_match: Dict[str, float] = Field(default_factory=dict)
+    cross_industry_transferability: float
+    sector_specific_gaps: List[str] = Field(default_factory=list)
+    emerging_trends_alignment: float
 
 
 class CompetenceAnalysis(BaseModel):

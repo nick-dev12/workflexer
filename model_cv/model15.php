@@ -1,17 +1,16 @@
 <?php
 // Vérification de l'appareil au tout début
-include_once('check_device.php');
 
 // Démarre la session
 session_start();
 
 // Check if user is on desktop
-$isDesktop = isDesktop();
+/* $isDesktop = isDesktop();
 if (!$isDesktop) {
     // If not on desktop, redirect to mobile message page
     header("Location: mobile_message.php");
     exit;
-}
+} */
 
 if (isset($_GET['id'])) {
     include '../conn/conn.php';
@@ -58,22 +57,34 @@ if (isset($_SESSION['users_id'])) {
     <title>CV Modèle 15</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Nunito:wght@400;700&family=Georgia&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/model15.css">
+    <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="../script/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
     <script src="image_customizer.js"></script>
+    <script src="cv_customizer.js"></script>
     
 </head>
 
 <body>
+    <button id="toggle-customization-btn" class="button12">
+        <i class="fa-solid fa-palette"></i> Personnaliser
+    </button>
+
+    <!-- Bouton de téléchargement fixe toujours visible -->
+    <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
+        <i class="fa-solid fa-download"></i>
+        <span>Télécharger PDF</span>
+    </button>
     <!-- Section de personnalisation -->
     <section class="section3">
-        <div class="personnalisation">
+        <div class="personnalisation" id="customization-panel">
+            <button id="close-panel-btn" class="close-panel-btn">&times;</button>
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
             <button class="button-reset" onclick="resetStyles()">Réinitialiser les styles</button>
 
@@ -241,14 +252,14 @@ if (isset($_SESSION['users_id'])) {
 
                         const { jsPDF } = window.jspdf;
                         // Utiliser querySelector au lieu de getElementById car la classe est utilisée
-                        const element = document.querySelector(".cv-container");
+                        const element = document.querySelector("#cv-container-for-pdf");
 
-                        // Définir une échelle plus élevée pour une meilleure qualité
-                        const scale = 2;
+                        // Optimisations légères pour une meilleure qualité
+                        const scale = 2.2;
                         const options = {
                             scale: scale,
-                            quality: 2,
-                            bgcolor: '#fff',
+                            quality: 0.95,
+                            bgcolor: '#ffffff',
                             width: element.offsetWidth * scale,
                             height: element.offsetHeight * scale,
                             style: {
@@ -260,30 +271,37 @@ if (isset($_SESSION['users_id'])) {
                             useCORS: true
                         };
 
-                        domtoimage.toJpeg(element, options)
-                            .then(function (dataUrl) {
-                                // Restaurer les icônes originales
-                                restoreIcons();
+                        // Attendre un délai pour la stabilité
+                        setTimeout(() => {
+                            domtoimage.toJpeg(element, options)
+                                .then(function (dataUrl) {
+                                    // Restaurer les icônes originales
+                                    restoreIcons();
 
-                                // Supprimer le message d'attente
-                                document.body.removeChild(loadingMessage);
+                                    // Supprimer le message d'attente
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
 
-                                const pdf = new jsPDF('p', 'mm', 'a4');
-                                const imgProps = pdf.getImageProperties(dataUrl);
-                                const pdfWidth = pdf.internal.pageSize.getWidth();
-                                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                                    const pdf = new jsPDF('p', 'mm', 'a4');
+                                    const imgProps = pdf.getImageProperties(dataUrl);
+                                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                                pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-                                pdf.save("cv-model15.pdf");
-                            })
-                            .catch(function (error) {
-                                console.error('Une erreur est survenue lors de la génération du PDF:', error);
-                                // Restaurer les icônes originales en cas d'erreur
-                                restoreIcons();
-                                // Supprimer le message d'attente en cas d'erreur
-                                document.body.removeChild(loadingMessage);
-                                alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
-                            });
+                                    pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                                    pdf.save("cv-model15-" + Date.now() + ".pdf");
+                                })
+                                .catch(function (error) {
+                                    console.error('Une erreur est survenue lors de la génération du PDF:', error);
+                                    // Restaurer les icônes originales en cas d'erreur
+                                    restoreIcons();
+                                    // Supprimer le message d'attente en cas d'erreur
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
+                                    alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                                });
+                        }, 600);
                     });
                 }
             </script>
@@ -355,6 +373,45 @@ if (isset($_SESSION['users_id'])) {
                     </div>
                 </div>
 
+                <h4>Nouveaux Thèmes</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="graphite-gold" data-primary="#2c3e50" data-secondary="#f39c12">
+                         <div class="theme-preview">
+                            <div style="background-color: #2c3e50; height: 20px;"></div>
+                            <div style="background-color: #f39c12; height: 20px;"></div>
+                        </div>
+                        <span>Graphite & Or</span>
+                    </div>
+                    <div class="theme-card" data-theme="forest-beige" data-primary="#285430" data-secondary="#A3B18A">
+                        <div class="theme-preview">
+                            <div style="background-color: #285430; height: 20px;"></div>
+                            <div style="background-color: #A3B18A; height: 20px;"></div>
+                        </div>
+                        <span>Forêt & Sauge</span>
+                    </div>
+                    <div class="theme-card" data-theme="sapphire-silver" data-primary="#0f4c81" data-secondary="#bdc3c7">
+                        <div class="theme-preview">
+                            <div style="background-color: #0f4c81; height: 20px;"></div>
+                            <div style="background-color: #bdc3c7; height: 20px;"></div>
+                        </div>
+                        <span>Saphir & Argent</span>
+                    </div>
+                     <div class="theme-card" data-theme="ruby-pearl" data-primary="#9B1B30" data-secondary="#e0e0e0">
+                        <div class="theme-preview">
+                            <div style="background-color: #9B1B30; height: 20px;"></div>
+                            <div style="background-color: #e0e0e0; height: 20px;"></div>
+                        </div>
+                        <span>Rubis & Perle</span>
+                    </div>
+                    <div class="theme-card" data-theme="mocha-latte" data-primary="#6f4e37" data-secondary="#c7b8ae">
+                        <div class="theme-preview">
+                            <div style="background-color: #6f4e37; height: 20px;"></div>
+                            <div style="background-color: #c7b8ae; height: 20px;"></div>
+                        </div>
+                        <span>Moka & Latte</span>
+                    </div>
+                </div>
+
                 <h4>Couleur des dates</h4>
                 <div class="color-date-selector">
                     <div class="color-option" data-color="#919191" style="background-color: #919191;"></div>
@@ -381,13 +438,22 @@ if (isset($_SESSION['users_id'])) {
                     <div class="font-card" data-font="Georgia">
                         <span style="font-family: Georgia;">Georgia</span>
                     </div>
+                    <div class="font-card" data-font="Lato">
+                        <span style="font-family: 'Lato', sans-serif;">Lato</span>
+                </div>
+                    <div class="font-card" data-font="Raleway">
+                        <span style="font-family: 'Raleway', sans-serif;">Raleway</span>
+                    </div>
+                    <div class="font-card" data-font="'Merriweather', serif">
+                        <span style="font-family: 'Merriweather', serif;">Merriweather</span>
+                    </div>
                 </div>
             </div>
         </div>
 
 
 
-        <div class="cv-container">
+        <div id="cv-container-visible" class="cv-container">
             <!-- Header with name and contact -->
             <div class="header">
                 <div class="personal-info">
@@ -488,15 +554,14 @@ if (isset($_SESSION['users_id'])) {
                                 <?php foreach ($afficheMetier as $metier): ?>
                                     <div class="timeline-item">
                                         <div class="timeline-dot"></div>
-                                        <div class="timeline-date">
+                                        <span class="timeline-date">
                                             <?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> -
                                             <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
-                                        </div>
-                                        <div class="timeline-title"><?= $metier['metier'] ?></div>
-                                        <div class="timeline-company"><?= $metier['entreprise'] ?? '' ?></div>
-                                        <div class="timeline-description">
+                                        </span>
+                                        <h3 class="timeline-title"><?= $metier['metier'] ?></h3>
+                                        <p class="timeline-description">
                                             <?= $metier['description'] ?>
-                                        </div>
+                                        </p>
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>
@@ -517,25 +582,12 @@ if (isset($_SESSION['users_id'])) {
                             <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
                                 <?php foreach ($afficheLangue as $langue): ?>
                                     <div class="language-item">
-                                        <div class="language-circle">
-                                            <span class="language-percent"><?= $langue['niveau'] ?></span>
-                                        </div>
+                                        
                                         <div class="language-name"><?= $langue['langue'] ?></div>
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <div class="language-item">
-                                    <div class="language-circle">
-                                        <span class="language-percent">débutant</span>
-                                    </div>
-                                    <div class="language-name">English</div>
-                                </div>
-                                <div class="language-item">
-                                    <div class="language-circle">
-                                        <span class="language-percent">moyen</span>
-                                    </div>
-                                    <div class="language-name">German</div>
-                                </div>
+                               <p>Aucune langue pour le moment</p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -556,14 +608,14 @@ if (isset($_SESSION['users_id'])) {
                                 <?php foreach ($formationUsers as $formation): ?>
                                     <div class="timeline-item">
                                         <div class="timeline-dot"></div>
-                                        <div class="timeline-date">
+                                        <span class="timeline-date">
                                             <?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> -
                                             <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
-                                        </div>
-                                        <div class="timeline-title"><?= $formation['Filiere'] ?></div>
-                                        <div class="timeline-company"><?= $formation['etablissement'] ?>
+                                        </span>
+                                        <h3 class="timeline-title"><?= $formation['Filiere'] ?></h3>
+                                        <p class="timeline-company"><?= $formation['etablissement'] ?>
                                             <strong><?= $formation['niveau'] ?></strong>
-                                        </div>
+                                        </p>
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>
@@ -609,6 +661,215 @@ if (isset($_SESSION['users_id'])) {
                     </div>
 
                     <!-- Interests Section -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteneur caché pour le clone PDF -->
+        <div style="position: absolute; left: -9999px; top:0;">
+            <div id="cv-container-for-pdf" class="cv-container">
+                <!-- Header with name and contact -->
+                <div class="header">
+                    <div class="personal-info">
+                        <?php if (isset($userss['nom'])): ?>
+                            <h1 class="name"><?= strtoupper(explode(' ', $userss['nom'])[0] ?? 'PRÉNOM') ?></h1>
+                            <h1 class="surname"><?= strtoupper(explode(' ', $userss['nom'])[1] ?? 'NOM') ?></h1>
+                            <h3 class="profession"><?= $userss['competences'] ?></h3>
+                        <?php else: ?>
+                           <p>Aucun nom pour le moment</p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div>
+                                <div class="contact-value">
+                                    <?php if (isset($userss['phone'])): ?>
+                                        <?= $userss['phone'] ?>
+                                    <?php else: ?>
+                                       <p>Aucune téléphone pour le moment</p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div>
+                                <div class="contact-value">
+                                    <?php if (isset($userss['mail'])): ?>
+                                        <?= $userss['mail'] ?>
+                                    <?php else: ?>
+                                       <p>Aucune email pour le moment</p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div>
+                                <div class="contact-value">
+                                    <?php if (isset($userss['ville'])): ?>
+                                        <?= $userss['ville'] ?>
+                                    <?php else: ?>
+                                       <p>Aucune ville pour le moment</p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile section -->
+                <div class="section-profile">
+                    <div class="profile-content">
+                        <h2 class="section-title">PROFIL</h2>
+                        <p class="profile-text">
+                            <?php if (isset($descriptions) && !empty($descriptions['description'])): ?>
+                                <?= $descriptions['description'] ?>
+                            <?php else: ?>
+                              <p>Aucun description pour le moment</p>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                    <div class="profile-photo">
+                        <?php if (isset($userss['images'])): ?>
+                            <img src="../upload/<?= $userss['images'] ?>" alt="Photo de profil">
+                        <?php else: ?>
+                            <img src="../image/image-2.webp" alt="Profile Photo">
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <!-- Main content -->
+                <div class="main-content">
+                    <!-- Left column - Experience and Education -->
+                    <div class="left-column">
+                        <!-- Work Experience -->
+                        <div class="section">
+                            <div class="section-header">
+                                <h2>EXPERIENCES PROFESSIONNELLES</h2>
+                                <div class="section-icon">
+                                    <i class="fas fa-briefcase" style="color: var(--primary-color);"></i>
+                                </div>
+                            </div>
+                            <div class="timeline">
+                                <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
+                                    <?php foreach ($afficheMetier as $metier): ?>
+                                        <div class="timeline-item">
+                                            <div class="timeline-dot"></div>
+                                            <span class="timeline-date">
+                                                <?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> -
+                                                <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
+                                            </span>
+                                            <h3 class="timeline-title"><?= $metier['metier'] ?></h3>
+                                            <p class="timeline-description">
+                                                <?= $metier['description'] ?>
+                                            </p>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p>Aucune expérience professionnelle trouvée</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <!-- Languages Section -->
+                        <div class="section">
+                            <div class="section-header">
+                                <h2>LANGUES</h2>
+                                <div class="section-icon">
+                                    <i class="fas fa-globe" style="color: var(--primary-color);"></i>
+                                </div>
+                            </div>
+                            <div class="languages">
+                                <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
+                                    <?php foreach ($afficheLangue as $langue): ?>
+                                        <div class="language-item">
+                                            <div class="language-name"><?= $langue['langue'] ?></div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                   <p>Aucune langue pour le moment</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right column - Education, Skills, Languages -->
+                    <div class="right-column">
+                        <!-- Education -->
+                        <div class="section">
+                            <div class="section-header">
+                                <h2>FORMATIONS</h2>
+                                <div class="section-icon">
+                                    <i class="fas fa-graduation-cap" style="color: var(--primary-color);"></i>
+                                </div>
+                            </div>
+                            <div class="timeline">
+                                <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
+                                    <?php foreach ($formationUsers as $formation): ?>
+                                        <div class="timeline-item">
+                                            <div class="timeline-dot"></div>
+                                            <span class="timeline-date">
+                                                <?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> -
+                                                <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
+                                            </span>
+                                            <h3 class="timeline-title"><?= $formation['Filiere'] ?></h3>
+                                            <p class="timeline-company"><?= $formation['etablissement'] ?>
+                                                <strong><?= $formation['niveau'] ?></strong>
+                                            </p>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p>Aucune formation trouvée</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <!-- Skills Section -->
+                        <div class="section">
+                            <div class="section-header">
+                                <h2>COMPETENCES</h2>
+                                <div class="section-icon">
+                                    <i class="fas fa-cogs" style="color: var(--primary-color);"></i>
+                                </div>
+                            </div>
+                            <div class="skills-content">
+                                <?php if (isset($competencesUtilisateurLimit7) && !empty($competencesUtilisateurLimit7)): ?>
+                                    <?php foreach ($competencesUtilisateurLimit7 as $index => $competence): ?>
+                                        <?php
+                                        $niveau = isset($competence['niveau']) ? intval($competence['niveau']) : 4;
+                                        $stars = min(5, max(1, $niveau));
+                                        ?>
+                                        <div class="skills-item">
+                                            <div class="skill-name">
+                                                <span><?= strtoupper($competence['competence']) ?></span>
+                                                <div class="stars">
+                                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                        <?php if ($i <= $stars): ?>
+                                                            <span class="star">★</span>
+                                                        <?php else: ?>
+                                                            <span class="star-empty">★</span>
+                                                        <?php endif; ?>
+                                                    <?php endfor; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p>Aucune compétence trouvée</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <!-- Interests Section -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -770,6 +1031,34 @@ if (isset($_SESSION['users_id'])) {
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-customization-btn');
+            const customPanel = document.getElementById('customization-panel');
+            const closeBtn = document.getElementById('close-panel-btn');
+
+            if (toggleBtn && customPanel && closeBtn) {
+                // Ouvre le panneau
+                toggleBtn.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    customPanel.classList.add('active');
+                });
+
+                // Ferme le panneau avec la croix
+                closeBtn.addEventListener('click', function() {
+                    customPanel.classList.remove('active');
+                });
+
+                // Ferme le panneau si on clique en dehors
+                document.addEventListener('click', function(event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        customPanel.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+
     <style>
         /* Styles pour les options de personnalisation */
         .theme-selector {
@@ -905,6 +1194,8 @@ if (isset($_SESSION['users_id'])) {
             transform: translateY(-2px);
         }
     </style>
+
+  
 </body>
 
 </html>

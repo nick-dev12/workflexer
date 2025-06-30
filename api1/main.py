@@ -21,7 +21,7 @@ from api1.models import (
     ContexteAnalyse,
     CandidatProfile
 )
-from api1.utils import analyze_compatibility, normalize_text
+from api1.utils import analyze_compatibility, normalize_text, analyze_compatibility_hybrid
 import api1.config as config
 
 # Imports pour la nouvelle route Dakar
@@ -80,6 +80,18 @@ app.add_middleware(
     allow_headers=config.CORS_CONFIG["allow_headers"],
 )
 
+# Ajout du logging dans un fichier
+log_directory = os.path.dirname(__file__)
+log_file_path = os.path.join(log_directory, 'api_matching.log')
+
+# S'assurer que le handler n'est pas ajouté plusieurs fois si le module est rechargé
+api_logger = logging.getLogger('api_matching')
+if not api_logger.handlers:
+    handler = logging.FileHandler(log_file_path)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    api_logger.addHandler(handler)
+    api_logger.setLevel(logging.INFO)
 
 # Gestionnaires d'erreurs personnalisés
 @app.exception_handler(RequestValidationError)
@@ -224,6 +236,31 @@ async def analyze_v3(request: MatchingRequestV2):
             status_code=500,
             detail=f"Erreur lors de l'analyse avancée: {str(e)}",
         )
+
+
+@app.post("/analyze/hybrid-v2", response_model=Dict, tags=["Analyse Hybride"])
+async def analyze_hybrid_v2(request: MatchingRequest):
+    """
+    Endpoint pour l'analyse de compatibilité V2 avec une approche hybride avancée.
+    Retourne un dictionnaire JSON avec les résultats détaillés.
+    """
+    try:
+        candidate_data = request.candidate.dict(exclude_none=True)
+        job_offer_data = request.job_offer.dict(exclude_none=True)
+
+        # Logging de la requête
+        api_logger.info(f"Analyse Hybride V2 demandée pour le candidat {candidate_data.get('id')} et l'offre {job_offer_data.get('id')}")
+        api_logger.debug(f"Données candidat reçues: {candidate_data}")
+        api_logger.debug(f"Données offre reçues: {job_offer_data}")
+
+        # Appel à la fonction d'analyse hybride
+        result = analyze_compatibility_hybrid(candidate_data, job_offer_data)
+        
+        return result
+
+    except Exception as e:
+        api_logger.error(f"Erreur lors de l'analyse hybride V2: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/extract-keywords", tags=["Utilitaires"])

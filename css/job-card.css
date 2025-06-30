@@ -1,0 +1,232 @@
+/* === CSS POUR LES CARTES D'OFFRES D'EMPLOI === */
+
+/* --- Importation des polices --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+/* --- Variables de couleurs et de design --- */
+:root {
+    --card-bg: #ffffff;
+    --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    --card-border-radius: 12px;
+    --card-border-color: #e9ecef;
+    --primary-color: #007BFF;
+    --primary-dark: #0056b3;
+    --primary-light: #e6f2ff;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+    --tag-bg: #f8f9fa;
+    --tag-text: #495057;
+    --transition: all 0.3s ease;
+    
+    /* Couleurs pour les types de contrat */
+    --accent-cdi: #28a745;
+    --accent-cdd: #ffc107;
+    --accent-stage: #17a2b8;
+    --accent-freelance: #6f42c1;
+    --accent-autre: #6c757d;
+}
+
+/* === THÈMES DE COULEURS PAR PAGE === */
+
+/* Thème SenJob - Rose/Magenta */
+.senjob-theme {
+    --primary-color: #e91e63;
+    --primary-dark: #c2185b;
+    --primary-light: #fce4ec;
+    --icon-location: #ff4081;
+    --icon-contract: #9c27b0;
+    --icon-date: #673ab7;
+}
+
+/* Thème EmploiSenegal - Orange */
+.emploisenegal-theme {
+    --primary-color: #ff9800;
+    --primary-dark: #f57c00;
+    --primary-light: #fff3e0;
+    --icon-location: #ff5722;
+    --icon-contract: #e65100;
+    --icon-date: #bf360c;
+}
+
+/* Thème EmploiDakar - Violet */
+.emploidakar-theme {
+    --primary-color: #9c27b0;
+    --primary-dark: #7b1fa2;
+    --primary-light: #f3e5f5;
+    --icon-location: #673ab7;
+    --icon-contract: #3f51b5;
+    --icon-date: #2196f3;
+}
+
+/* Thème WorkFlexer - Bleu (par défaut) */
+.workflexer-theme {
+    --primary-color: #007BFF;
+    --primary-dark: #0056b3;
+    --primary-light: #e6f2ff;
+    --icon-location: #17a2b8;
+    --icon-contract: #28a745;
+    --icon-date: #6f42c1;
+}
+
+.job-card-new {
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border-color);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    width: 380px;
+    margin: 15px;
+    border-top: 4px solid var(--primary-color); /* Bordure par défaut */
+}
+
+/* Bordures colorées par type de contrat */
+.job-card-new[data-type*="cdi"] { border-top-color: var(--accent-cdi); }
+.job-card-new[data-type*="cdd"] { border-top-color: var(--accent-cdd); }
+.job-card-new[data-type*="stage"] { border-top-color: var(--accent-stage); }
+.job-card-new[data-type*="freelance"] { border-top-color: var(--accent-freelance); }
+.job-card-new[data-type*="autre"] { border-top-color: var(--accent-autre); }
+
+.job-card-new:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 20px 15px;
+    gap: 15px;
+}
+
+.card-company-logo {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-company-logo img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.card-title-group {
+    flex-grow: 1;
+}
+
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0 0 5px;
+    line-height: 1.3;
+}
+
+.card-company {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.card-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 20px 15px;
+    border-bottom: 1px solid var(--card-border-color);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.detail-item i {
+    width: 16px;
+    text-align: center;
+}
+
+/* Icônes colorées spécifiques */
+.detail-item:nth-child(1) i { /* Localisation */
+    color: var(--icon-location, var(--primary-color));
+}
+
+.detail-item:nth-child(2) i { /* Type de contrat */
+    color: var(--icon-contract, var(--primary-color));
+}
+
+.detail-item:nth-child(3) i { /* Date */
+    color: var(--icon-date, var(--primary-color));
+}
+
+/* Coloration du texte des dates */
+.detail-item:nth-child(3) span { /* Date */
+    color: var(--icon-date, var(--primary-color));
+    font-weight: 500;
+}
+
+.card-tags {
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+.card-footer {
+    margin-top: auto;
+    padding: 15px 20px 20px;
+}
+
+.card-details-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: none;
+    text-decoration: none;
+}
+
+.card-details-btn:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+@media (max-width: 420px) {
+    .job-card-new {
+        width: 100%;
+        margin: 15px 0;
+    }
+} 
