@@ -97,3 +97,48 @@ function getCompetencesMisEnAvant($db, $users_id)
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+/**
+ * Mettre à jour les compétences mises en avant (mise à jour groupée)
+ * @param mixed $db
+ * @param array $competenceIds IDs des compétences à mettre en avant
+ * @param mixed $userId ID de l'utilisateur
+ * @return bool
+ */
+function updateCompetenceHighlights($db, $competenceIds, $userId) {
+    try {
+        // Log pour le débogage
+        error_log("Début de updateCompetenceHighlights");
+        error_log("User ID: " . $userId);
+        error_log("Competence IDs: " . print_r($competenceIds, true));
+        
+        // D'abord, réinitialiser toutes les compétences de l'utilisateur
+        $resetSql = "UPDATE competence_users SET mis_en_avant = 0 WHERE users_id = :users_id";
+        $resetStmt = $db->prepare($resetSql);
+        $resetStmt->bindParam(':users_id', $userId);
+        $resetResult = $resetStmt->execute();
+        
+        error_log("Réinitialisation: " . ($resetResult ? "réussie" : "échouée"));
+
+        // Ensuite, mettre à jour les compétences sélectionnées
+        if (!empty($competenceIds)) {
+            // Utiliser une requête préparée avec des boucles
+            $updateSql = "UPDATE competence_users SET mis_en_avant = 1 
+                         WHERE id = :id AND users_id = :users_id";
+            $updateStmt = $db->prepare($updateSql);
+            
+            foreach ($competenceIds as $id) {
+                $updateStmt->bindParam(':id', $id);
+                $updateStmt->bindParam(':users_id', $userId);
+                $updateResult = $updateStmt->execute();
+                error_log("Mise à jour de la compétence ID " . $id . ": " . ($updateResult ? "réussie" : "échouée"));
+            }
+        }
+        
+        error_log("Fin de updateCompetenceHighlights avec succès");
+        return true;
+    } catch (PDOException $e) {
+        error_log("Erreur lors de la mise à jour des compétences mises en avant: " . $e->getMessage());
+        return false;
+    }
+}

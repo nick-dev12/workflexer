@@ -171,7 +171,6 @@ if (isset($_GET['id'])) {
                         <p class="resume">${escapeHtml(data.resume)}</p>
                     </div>
                     <div class="compatibility-content">
-                        ${competencesManquantesHtml}
                         ${pointsFortsHtml}
                         ${pointsAmeliorationHtml}
                     </div>

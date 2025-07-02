@@ -60,7 +60,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
     <link rel="stylesheet" href="../css/navbare.css">
-    <link rel="stylesheet" href="../css/model10.css">
+    <link rel="stylesheet" href="../css/model10_1.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
     <link rel="stylesheet" href="../style/font-awesome.6.4.0.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,75 +85,164 @@ if (isset($_SESSION['users_id'])) {
             <button id="close-panel-btn" class="close-panel-btn">&times;</button>
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
             <script>
-                            function generatePDF() {
-                // Afficher un message de chargement
-                const loadingMessage = document.createElement('div');
-                loadingMessage.id = 'loading-message';
-                loadingMessage.innerHTML = `
-                    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-                                background: rgba(0,0,0,0.8); display: flex; align-items: center; 
-                                justify-content: center; z-index: 99999; color: white; font-size: 18px;">
-                        <div style="text-align: center;">
-                            <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; 
-                                       border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; 
-                                       margin: 0 auto 20px;"></div>
-                            <div>Génération du PDF en cours...</div>
-                        </div>
-                    </div>
-                `;
-                
-                // Ajouter l'animation CSS pour le spinner
-                const style = document.createElement('style');
-                style.textContent = `
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                `;
-                document.head.appendChild(style);
-                document.body.appendChild(loadingMessage);
-
-                const { jsPDF } = window.jspdf;
-                const element = document.querySelector("#cv10-for-pdf");
-                
-                // Optimisations légères pour une meilleure qualité
-                const options = {
-                    scale: 2.2,
-                    quality: 0.95,
-                    bgcolor: '#ffffff',
-                    useCORS: true
-                };
-
-                // Attendre un court instant pour que le message s'affiche
-                setTimeout(() => {
-                    domtoimage.toJpeg(element, options)
-                        .then(function (dataUrl) {
-                            // Supprimer le message d'attente
-                            if (document.body.contains(loadingMessage)) {
-                                document.body.removeChild(loadingMessage);
-                            }
-
-                            const pdf = new jsPDF('p', 'mm', 'a4');
-                            const imgProps = pdf.getImageProperties(dataUrl);
-                            const pdfWidth = pdf.internal.pageSize.getWidth();
-                            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                // Fonction pour précharger les polices avant la génération PDF
+                function preloadFonts() {
+                    return new Promise((resolve) => {
+                        const fonts = [
+                            'Nunito', 'Roboto', 'Lato', 'Montserrat', 
+                            'Raleway', 'Poppins', 'Merriweather'
+                        ];
+                        
+                        let loadedFonts = 0;
+                        const totalFonts = fonts.length;
+                        
+                        fonts.forEach(font => {
+                            const testElement = document.createElement('div');
+                            testElement.style.fontFamily = font;
+                            testElement.style.position = 'absolute';
+                            testElement.style.left = '-9999px';
+                            testElement.textContent = 'Font test';
+                            document.body.appendChild(testElement);
                             
-                            // Nom de fichier avec timestamp
-                            const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
-                            pdf.save(`cv-model10-${timestamp}.pdf`);
-                        })
-                        .catch(function (error) {
-                            console.error('Une erreur est survenue lors de la génération du PDF:', error);
-                            // Supprimer le message d'attente en cas d'erreur
-                            if (document.body.contains(loadingMessage)) {
-                                document.body.removeChild(loadingMessage);
-                            }
-                            alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                            setTimeout(() => {
+                                document.body.removeChild(testElement);
+                                loadedFonts++;
+                                if (loadedFonts === totalFonts) {
+                                    resolve();
+                                }
+                            }, 100);
                         });
-                }, 600);
-            }
+                        
+                        // Fallback au cas où les polices ne se chargent pas
+                        setTimeout(resolve, 2000);
+                    });
+                }
+
+                function generatePDF() {
+                    // Afficher un message de chargement simple
+                    const loadingMessage = document.createElement('div');
+                    loadingMessage.id = 'loading-message';
+                    loadingMessage.innerHTML = `
+                        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                                    background: rgba(0,0,0,0.8); display: flex; align-items: center; 
+                                    justify-content: center; z-index: 99999; color: white; font-size: 18px;">
+                            <div style="text-align: center;">
+                                <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; 
+                                           border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; 
+                                           margin: 0 auto 20px;"></div>
+                                Génération du PDF en cours...
+                            </div>
+                        </div>
+                        <style>
+                            @keyframes spin {
+                                0% { transform: rotate(0deg); }
+                                100% { transform: rotate(360deg); }
+                            }
+                        </style>
+                    `;
+                    document.body.appendChild(loadingMessage);
+
+                    // Précharger les polices puis générer le PDF
+                    preloadFonts().then(() => {
+                        const { jsPDF } = window.jspdf;
+                        const element = document.querySelector("#cv10-for-pdf");
+
+                        // Synchroniser les styles essentiels
+                        const mainContainer = document.querySelector("#cv10-visible");
+                        if (mainContainer && element) {
+                            const computedStyle = window.getComputedStyle(mainContainer);
+                            element.style.fontFamily = computedStyle.fontFamily;
+                            
+                            // Synchroniser les styles de couleur appliqués
+                            const headerVisible = mainContainer.querySelector('.cv-header');
+                            const sidebarVisible = mainContainer.querySelector('.left-sidebar');
+                            const headerPdf = element.querySelector('.cv-header');
+                            const sidebarPdf = element.querySelector('.left-sidebar');
+                            
+                            if (headerVisible && headerPdf) {
+                                const headerStyle = window.getComputedStyle(headerVisible);
+                                headerPdf.style.backgroundColor = headerStyle.backgroundColor;
+                            }
+                            
+                            if (sidebarVisible && sidebarPdf) {
+                                const sidebarStyle = window.getComputedStyle(sidebarVisible);
+                                sidebarPdf.style.backgroundColor = sidebarStyle.backgroundColor;
+                            }
+                            
+                            // Synchroniser les couleurs des titres
+                            const headingsVisible = mainContainer.querySelectorAll('h2');
+                            const headingsPdf = element.querySelectorAll('h2');
+                            headingsVisible.forEach((heading, index) => {
+                                if (headingsPdf[index]) {
+                                    const headingStyle = window.getComputedStyle(heading);
+                                    headingsPdf[index].style.color = headingStyle.color;
+                                    headingsPdf[index].style.borderBottomColor = headingStyle.borderBottomColor;
+                                }
+                            });
+                        }
+
+                        // Options légèrement améliorées pour un bon compromis qualité/performance
+                        const scale = 2.2; // Légère amélioration de l'échelle
+                        const options = {
+                            scale: scale,
+                            quality: 0.95, // Qualité élevée mais pas maximum
+                            bgcolor: '#ffffff',
+                            width: element.offsetWidth * scale,
+                            height: element.offsetHeight * scale,
+                            style: {
+                                transform: 'scale(' + scale + ')',
+                                transformOrigin: 'top left',
+                                width: element.offsetWidth + "px",
+                                height: element.offsetHeight + "px"
+                            },
+                            useCORS: true,
+                            allowTaint: true
+                        };
+
+                        // Classe légère pour optimiser le rendu
+                        element.classList.add('pdf-rendering');
+
+                        // Délai réduit pour de meilleures performances
+                        setTimeout(() => {
+                            domtoimage.toJpeg(element, options) // JPEG pour un bon compromis qualité/taille
+                                .then(function (dataUrl) {
+                                    element.classList.remove('pdf-rendering');
+                                    document.body.removeChild(loadingMessage);
+
+                                    const pdf = new jsPDF({
+                                        orientation: 'portrait',
+                                        unit: 'mm',
+                                        format: 'a4'
+                                    });
+
+                                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                                    const pdfHeight = pdf.internal.pageSize.getHeight();
+
+                                    // Calculer les dimensions pour maintenir les proportions
+                                    const imgProps = pdf.getImageProperties(dataUrl);
+                                    const imgWidth = imgProps.width;
+                                    const imgHeight = imgProps.height;
+                                    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+
+                                    const finalWidth = imgWidth * ratio;
+                                    const finalHeight = imgHeight * ratio;
+
+                                    // Centrer l'image sur la page
+                                    const x = (pdfWidth - finalWidth) / 2;
+                                    const y = (pdfHeight - finalHeight) / 2;
+
+                                    pdf.addImage(dataUrl, 'JPEG', x, y, finalWidth, finalHeight);
+                                    pdf.save("cv-model10.pdf");
+                                })
+                                .catch(function (error) {
+                                    console.error('Erreur lors de la génération du PDF:', error);
+                                    element.classList.remove('pdf-rendering');
+                                    document.body.removeChild(loadingMessage);
+                                    alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                                });
+                        }, 600); // Délai réduit pour de meilleures performances
+                    });
+                }
             </script>
 
             <div class="theme-selector">
@@ -348,7 +437,10 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
-        <div class="container-model" id="box">
+
+
+
+
             <div id="cv10-visible" class="cv10">
                 <!-- Header with photo and name -->
                 <div class="cv-header">
@@ -357,8 +449,7 @@ if (isset($_SESSION['users_id'])) {
                             alt="Photo de profil" class="profile-photo">
                     </div>
                     <div class="header-text">
-                        <h1 class="prenom"><?= isset($userss['prenom']) ?></h1>
-                        <h1 class="nom"><?= isset($userss['nom']) ? $userss['nom'] : "NOM" ?></h1>
+                        <h1 class="nom"><?= isset($userss['nom']) ? implode(' ', array_slice(explode(' ', $userss['nom']), 0, 3)) : "NOM" ?></h1>
                         <p class="post"><?= $userss['competences'] ?></p>
                     </div>
                 </div>
@@ -513,57 +604,14 @@ if (isset($_SESSION['users_id'])) {
                                     <?php endforeach; ?>
                                 </div>
                             <?php else: ?>
-                                <div class="competences-grid">
-                                    <div class="competence-item">
-                                        <span class="competence-name">Travail d'équipe</span>
-                                        <div class="competence-level">
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot"></span>
-                                        </div>
-                                    </div>
-                                    <div class="competence-item">
-                                        <span class="competence-name">Communication</span>
-                                        <div class="competence-level">
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                        </div>
-                                    </div>
-                                    <div class="competence-item">
-                                        <span class="competence-name">Gestion de projet</span>
-                                        <div class="competence-level">
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot"></span>
-                                            <span class="dot"></span>
-                                        </div>
-                                    </div>
-                                    <div class="competence-item">
-                                        <span class="competence-name">Analyse de données</span>
-                                        <div class="competence-level">
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot filled"></span>
-                                            <span class="dot"></span>
-                                        </div>
-                                    </div>
-                                </div>
+                               <p>Aucune compétence trouvée</p>
                             <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Conteneur caché pour le clone PDF -->
+         <!-- Conteneur caché pour le clone PDF -->
     <div style="position: absolute; left: -9999px; top:0;">
         <div id="cv10-for-pdf" class="cv10">
             <!-- Header with photo and name -->
@@ -573,8 +621,7 @@ if (isset($_SESSION['users_id'])) {
                         alt="Photo de profil" class="profile-photo">
                 </div>
                 <div class="header-text">
-                    <h1 class="prenom"><?= isset($userss['prenom']) ?></h1>
-                    <h1 class="nom"><?= isset($userss['nom']) ? $userss['nom'] : "NOM" ?></h1>
+                    <h1 class="nom"><?= isset($userss['nom']) ? implode(' ', array_slice(explode(' ', $userss['nom']), 0, 3)) : "NOM" ?></h1>
                     <p class="post"><?= $userss['competences'] ?></p>
                 </div>
             </div>
@@ -731,54 +778,14 @@ if (isset($_SESSION['users_id'])) {
                                 <?php endforeach; ?>
                             </div>
                         <?php else: ?>
-                            <div class="competences-grid">
-                                <div class="competence-item">
-                                    <span class="competence-name">Travail d'équipe</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot"></span>
-                                    </div>
-                                </div>
-                                <div class="competence-item">
-                                    <span class="competence-name">Communication</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                    </div>
-                                </div>
-                                <div class="competence-item">
-                                    <span class="competence-name">Gestion de projet</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot"></span>
-                                        <span class="dot"></span>
-                                    </div>
-                                </div>
-                                <div class="competence-item">
-                                    <span class="competence-name">Analyse de données</span>
-                                    <div class="competence-level">
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot filled"></span>
-                                        <span class="dot"></span>
-                                    </div>
-                                </div>
-                            </div>
+                           <p>Aucune compétence trouvée</p>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -845,6 +852,7 @@ if (isset($_SESSION['users_id'])) {
                 applyStylesToBoth('.cv-header', el => el.style.backgroundColor = theme.headerBg);
                 applyStylesToBoth('.left-sidebar', el => el.style.backgroundColor = theme.sidebarBg);
                 applyStylesToBoth('.main-content', el => el.style.backgroundColor = theme.mainBg);
+                applyStylesToBoth('.filled', el => el.style.backgroundColor = theme.accentColor);
 
                 const whiteColor = "#ffffff";
                 applyStylesToBoth('.prenom', el => el.style.color = whiteColor);

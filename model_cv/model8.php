@@ -62,7 +62,7 @@ if (isset($_SESSION['users_id'])) {
     <title>CV</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Poppins:wght@400;700&family=Merriweather:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/model8.css">
+    <link rel="stylesheet" href="../css/model8_1.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -368,10 +368,8 @@ if (isset($_SESSION['users_id'])) {
             });
             </script>
         </div>
-
-        <div id="box">
-        <div class="container-model">
-            <div class="cv-container">
+        
+            <div class="cv-container" id="cv8-visible">
                     <div class="left-column">
                         <h1 class="name-title"><?= $userss['nom'] ?></h1>
                         <p class="subtitle" style="margin-top: 5px; font-style: italic; text-transform: none;">
@@ -487,8 +485,7 @@ if (isset($_SESSION['users_id'])) {
 
                     </div>
                 </div>
-            </div>
-        </div>
+          
 
         <!-- Conteneur caché pour le clone PDF -->
         <div style="position: absolute; left: -9999px; top:0;">

@@ -65,7 +65,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="cv_customizer.js" defer></script>
     <script src="image_customizer.js" defer></script>
     <link rel="stylesheet" href="../css/navbare.css">
-    <link rel="stylesheet" href="../css/model11.css">
+    <link rel="stylesheet" href="../css/model11_1.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
 </head>
 
@@ -436,7 +436,6 @@ if (isset($_SESSION['users_id'])) {
         </div>
 
         <!-- Container du CV -->
-        <div id="box">
             <div class="container" id="cv-container">
             <!-- Entête du CV avec photo, nom, et informations de contact -->
             <div class="cv-header">
@@ -506,16 +505,21 @@ if (isset($_SESSION['users_id'])) {
                     <div class="section">
                         <h2><i class="fas fa-graduation-cap"></i> Formation</h2>
                         <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
-                            <?php foreach ($formationUsers as $formation): ?>
-                                <div class="education">
-                                    <h3><?= $formation['Filiere'] ?></h3>
-                                    <p class="texte"><?= $formation['etablissement'] ?>,
-                                        <strong><?= $formation['niveau'] ?></strong>
-                                    </p>
-                                    <p class="period"><?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> à
-                                        <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
-                                    </p>
-                                </div>
+                            <?php
+                            $nombre_formations = 3;
+                            ?>
+                            <?php foreach ($formationUsers as $key => $formation): ?>
+                                <?php if ($key < $nombre_formations): ?>
+                                    <div class="education">
+                                        <h3><?= $formation['Filiere'] ?></h3>
+                                        <p class="texte"><?= $formation['etablissement'] ?>,
+                                            <strong><?= $formation['niveau'] ?></strong>
+                                        </p>
+                                        <p class="period"><?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> à
+                                            <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
+                                        </p>
+                                    </div>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <p class="texte">Aucune formation trouvée</p>
@@ -589,7 +593,6 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
-        </div>
 
         <!-- Conteneur caché pour le clone PDF -->
         <div style="position: absolute; left: -9999px; top:0;">
@@ -662,7 +665,11 @@ if (isset($_SESSION['users_id'])) {
                         <div class="section">
                             <h2><i class="fas fa-graduation-cap"></i> Formation</h2>
                             <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
-                                <?php foreach ($formationUsers as $formation): ?>
+                            <?php
+                            $nombre_formations = 3;
+                            ?>
+                            <?php foreach ($formationUsers as $key => $formation): ?>
+                                <?php if ($key < $nombre_formations): ?>
                                     <div class="education">
                                         <h3><?= $formation['Filiere'] ?></h3>
                                         <p class="texte"><?= $formation['etablissement'] ?>,
@@ -672,10 +679,11 @@ if (isset($_SESSION['users_id'])) {
                                             <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
                                         </p>
                                     </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p class="texte">Aucune formation trouvée</p>
-                            <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="texte">Aucune formation trouvée</p>
+                        <?php endif; ?>
                         </div>
                     </div>
 

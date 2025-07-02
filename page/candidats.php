@@ -54,27 +54,31 @@ if (isset($_GET['id'])) {
     <meta property="og:url" content="https://www.work-flexer.com/page/candidats.php?id=<?php echo $users_id; ?>">
     <meta property="og:title"
         content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?> - <?php echo htmlspecialchars($userss['competences'], ENT_QUOTES, 'UTF-8'); ?>">
-    <meta property="og:description" content="Découvrez le profil professionnel et les compétences sur Work-Flexer">
+    <meta property="og:description" content="<?php echo htmlspecialchars($userss['competences'], ENT_QUOTES, 'UTF-8'); ?> expérimenté(e) en recherche active. Découvrez le profil complet de <?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?> sur Work-Flexer.">
     <!-- Image optimisée pour LinkedIn (ratio 1.91:1 exactement comme recommandé) -->
-    <meta property="og:image" content="https://www.work-flexer.com/image/logo2_linkedin.jpg?v=2">
-    <meta property="og:image:secure_url" content="https://www.work-flexer.com/image/logo2_linkedin.jpg?v=2">
+    <meta property="og:image" content="https://www.work-flexer.com/image/logo1200x795.png?v=4">
+    <meta property="og:image:secure_url" content="https://www.work-flexer.com/image/logo1200x795.png?v=4">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="627">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:alt" content="Logo Work-Flexer">
+    <meta property="og:image:height" content="795">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?> - Profil Work-Flexer">
     <meta property="og:site_name" content="Work-Flexer">
+    <meta property="og:locale" content="fr_FR">
 
     <!-- LinkedIn spécifique -->
     <meta name="linkedin:owner" content="Work-Flexer">
-    <meta name="author" content="Work-Flexer">
+    <meta name="author" content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="article:published_time" content="<?php echo date('c'); ?>">
+    <meta name="article:author" content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="article:section" content="Profil Professionnel">
+    <meta name="article:tag" content="<?php echo htmlspecialchars($userss['competences'], ENT_QUOTES, 'UTF-8'); ?>, Emploi, Recrutement, Work-Flexer">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title"
         content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?> - <?php echo htmlspecialchars($userss['competences'], ENT_QUOTES, 'UTF-8'); ?>">
-    <meta name="twitter:description" content="Découvrez le profil professionnel et les compétences sur Work-Flexer">
-    <meta name="twitter:image" content="https://www.work-flexer.com/image/logo2_linkedin.jpg?v=2">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($userss['nom'], ENT_QUOTES, 'UTF-8'); ?> - <?php echo htmlspecialchars($userss['competences'], ENT_QUOTES, 'UTF-8'); ?> recherche activement de nouvelles opportunités professionnelles. Découvrez son profil complet sur Work-Flexer.">
+    <meta name="twitter:image" content="https://www.work-flexer.com/image/logo1200x795.png?v=4">
     <meta name="twitter:image:alt" content="Logo Work-Flexer">
 
     <!-- Google Tag Manager -->
@@ -102,6 +106,10 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/section2.css">
     <link rel="stylesheet" href="../css/candidat-profile.css">
+    <link rel="stylesheet" href="../css/experience_highlight.css">
+    <link rel="stylesheet" href="../css/competence_highlight.css">
+    <link rel="stylesheet" href="../css/formation_highlight.css">
+    <link rel="stylesheet" href="../css/outil_highlight.css">
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -114,6 +122,61 @@ if (isset($_GET['id'])) {
 
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Styles pour les indicateurs de mise en avant -->
+    <style>
+        .highlight-indicator {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border-left: 4px solid #4caf50;
+            padding: 12px 16px;
+            margin: 15px 0 20px 0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+            animation: fadeInSlide 0.5s ease-out;
+        }
+
+        .highlight-indicator i {
+            color: #4caf50;
+            font-size: 16px;
+        }
+
+        .highlight-indicator span {
+            color: #2e7d32;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Style responsive pour les petits écrans */
+        @media (max-width: 768px) {
+            .highlight-indicator {
+                padding: 10px 12px;
+                margin: 10px 0 15px 0;
+            }
+
+            .highlight-indicator span {
+                font-size: 13px;
+            }
+
+            .highlight-indicator i {
+                font-size: 14px;
+            }
+        }
+    </style>
 
 </head>
 
@@ -323,12 +386,38 @@ if (isset($_GET['id'])) {
                     </div>
                     <span>Expérience professionnelle</span>
                 </h2>
+                
+                <?php 
+                // Vérifier s'il y a des expériences mises en avant
+                $hasHighlightedExperiences = false;
+                if (!empty($afficheMetier)) {
+                    foreach ($afficheMetier as $metier) {
+                        if (isset($metier['mis_en_avant']) && $metier['mis_en_avant'] == 1) {
+                            $hasHighlightedExperiences = true;
+                            break;
+                        }
+                    }
+                }
+                ?>
+                
+                <?php if ($hasHighlightedExperiences): ?>
+                    <div class="highlight-indicator">
+                        <i class="fas fa-star"></i>
+                        <span>Expériences clés mises en valeur par le candidat</span>
+                    </div>
+                <?php endif; ?>
+                
                 <?php if (empty($afficheMetier)): ?>
                     <p class="p">Aucune expérience professionnelle enregistrée !</p>
                 <?php else: ?>
                     <div class="experiences-list">
                         <?php foreach ($afficheMetier as $metiers): ?>
-                            <div class="experience-card">
+                            <div class="experience-card <?php echo (isset($metiers['mis_en_avant']) && $metiers['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>">
+                                <?php if (isset($metiers['mis_en_avant']) && $metiers['mis_en_avant'] == 1): ?>
+                                    <div class="highlighted-badge">
+                                        <i class="fas fa-star"></i> Mis en avant
+                                    </div>
+                                <?php endif; ?>
                                 <div class="experience-header">
                                     <div class="experience-title">
                                         <h3><?php echo $metiers['metier']; ?></h3>
@@ -375,6 +464,27 @@ if (isset($_GET['id'])) {
                     </div>
                     <span>Compétences</span>
                 </h2>
+                
+                <?php 
+                // Vérifier s'il y a des compétences mises en avant
+                $hasHighlightedCompetences = false;
+                if (!empty($competencesUtilisateur)) {
+                    foreach ($competencesUtilisateur as $competence) {
+                        if (isset($competence['mis_en_avant']) && $competence['mis_en_avant'] == 1) {
+                            $hasHighlightedCompetences = true;
+                            break;
+                        }
+                    }
+                }
+                ?>
+                
+                <?php if ($hasHighlightedCompetences): ?>
+                    <div class="highlight-indicator">
+                        <i class="fas fa-star"></i>
+                        <span>Compétences principales valorisées par le candidat</span>
+                    </div>
+                <?php endif; ?>
+                
                 <div class="container_comp">
                     <?php if (empty($competencesUtilisateur)): ?>
                         <p class="p">
@@ -382,7 +492,8 @@ if (isset($_GET['id'])) {
                         </p>
                     <?php else: ?>
                         <?php foreach ($competencesUtilisateur as $competence): ?>
-                            <p class="comp">
+                            <p class="comp <?php echo (isset($competence['mis_en_avant']) && $competence['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>">
+                                <i class="fas fa-star competence-star-icon"></i>
                                 <?php echo $competence['competence']; ?>
                             </p>
                         <?php endforeach; ?>
@@ -449,12 +560,32 @@ if (isset($_GET['id'])) {
                 </h1>
             </div>
             <div class="box5">
+                <?php 
+                // Vérifier s'il y a des formations mises en avant
+                $hasHighlightedFormations = false;
+                if (!empty($formationUsers)) {
+                    foreach ($formationUsers as $formation) {
+                        if (isset($formation['mis_en_avant']) && $formation['mis_en_avant'] == 1) {
+                            $hasHighlightedFormations = true;
+                            break;
+                        }
+                    }
+                }
+                ?>
+                
+                <?php if ($hasHighlightedFormations): ?>
+                    <div class="highlight-indicator">
+                        <i class="fas fa-star"></i>
+                        <span>Formations stratégiques sélectionnées par le candidat</span>
+                    </div>
+                <?php endif; ?>
+                
                 <?php if (empty($formationUsers)): ?>
                     <p class="p">Aucune formation enregistrée pour votre profil!</p>
                 <?php else: ?>
                     <div class="formations-list">
                         <?php foreach ($formationUsers as $formations): ?>
-                            <div class="formation-card">
+                            <div class="formation-card <?php echo (isset($formations['mis_en_avant']) && $formations['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>">
                                 <div class="formation-content">
                                     <div class="formation-header">
                                         <div class="formation-period">
@@ -476,7 +607,9 @@ if (isset($_GET['id'])) {
 
                                     <div class="formation-details">
                                         <div class="formation-main-info">
-                                            <h3 class="formation-title"><?php echo htmlspecialchars($formations['Filiere']); ?>
+                                            <h3 class="formation-title">
+                                                <i class="fas fa-star formation-star-icon"></i>
+                                                <?php echo htmlspecialchars($formations['Filiere']); ?>
                                             </h3>
                                             <p class="formation-school">
                                                 <?php echo htmlspecialchars($formations['etablissement']); ?>
@@ -547,14 +680,37 @@ if (isset($_GET['id'])) {
             </div>
 
             <div class="box2">
+                <?php 
+                // Vérifier s'il y a des outils mis en avant
+                $hasHighlightedOutils = false;
+                if (!empty($afficheOutil)) {
+                    foreach ($afficheOutil as $outil) {
+                        if (isset($outil['mis_en_avant']) && $outil['mis_en_avant'] == 1) {
+                            $hasHighlightedOutils = true;
+                            break;
+                        }
+                    }
+                }
+                ?>
+                
+                <?php if ($hasHighlightedOutils): ?>
+                    <div class="highlight-indicator">
+                        <i class="fas fa-star"></i>
+                        <span>Outils de prédilection mis en valeur par le candidat</span>
+                    </div>
+                <?php endif; ?>
+                
                 <?php if (empty($afficheOutil)): ?>
                     <p class="p">Aucun outil informatique ajouté à votre profil</p>
                 <?php else: ?>
                     <div class="tools-list">
                         <?php foreach ($afficheOutil as $outils): ?>
-                            <div class="tool-item">
+                            <div class="tool-item <?php echo (isset($outils['mis_en_avant']) && $outils['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>">
                                 <div class="tool-info">
-                                    <span class="tool-name"><?php echo $outils['outil'] ?></span>
+                                    <span class="tool-name">
+                                        <i class="fas fa-star outil-star-icon"></i>
+                                        <?php echo $outils['outil'] ?>
+                                    </span>
                                     <span
                                         class="tool-level <?php echo strtolower($outils['niveau']) ?>"><?php echo $outils['niveau'] ?></span>
                                 </div>

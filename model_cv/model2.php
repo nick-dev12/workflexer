@@ -1,6 +1,5 @@
 <?php
 // Vérification de l'appareil au tout début
-include_once('check_device.php');
 
 
 // Démarre la session
@@ -80,7 +79,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
 
     <link rel="stylesheet" href="../css/navbare.css">
-    <link rel="stylesheet" href="../css/model2.css">
+    <link rel="stylesheet" href="../css/model2_1.css">
     <script src="cv_customizer.js"></script>
     <script src="image_customizer.js" defer></script>
 </head>

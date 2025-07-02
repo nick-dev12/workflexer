@@ -63,7 +63,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/navbare.css">
-    <link rel="stylesheet" href="css/model13.css">
+    <link rel="stylesheet" href="css/model13_1.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="image_customizer.js" defer></script>
     <script src="cv_customizer.js" defer></script>
@@ -467,9 +467,9 @@ if (isset($_SESSION['users_id'])) {
         </div>
 
 
-        <div id="box">
-        <div class="container-model">
-            <div class="cv13 theme-blue">
+       
+      
+            <div class="cv13 theme-blue" id="cv13-visible">
                     <!-- CV Header -->
                     <div class="cv-header">
                         <div class="profile-container">
@@ -542,7 +542,13 @@ if (isset($_SESSION['users_id'])) {
                                 <h2 class="section-title cv-editable">Langues</h2>
 
                                 <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
-                                    <?php foreach ($afficheLangue as $langue): ?>
+                                    <?php 
+                                    // Limiter l'affichage aux 3 premières langues
+                                    $count = 0;
+                                    foreach ($afficheLangue as $langue): 
+                                        if ($count >= 3) break;
+                                        $count++;
+                                    ?>
                                         <div class="language-item">
                                             <span class="language-name cv-editable"><?= $langue['langue'] ?></span>
                                             <div class="language-level">
@@ -560,7 +566,13 @@ if (isset($_SESSION['users_id'])) {
                                 <h2 class="section-title cv-editable">Centres d'intérêt</h2>
                                 <div class="interests-list">
                                     <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
-                                        <?php foreach ($afficheCentreInteret as $interet): ?>
+                                        <?php 
+                                        // Limiter l'affichage aux 3 premiers centres d'intérêt
+                                        $count = 0;
+                                        foreach ($afficheCentreInteret as $interet): 
+                                            if ($count >= 3) break;
+                                            $count++;
+                                        ?>
                                             <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
                                         <?php endforeach; ?>
                                     <?php else: ?>
@@ -641,8 +653,8 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+           
+        
     </section>
 
     <!-- Conteneur caché pour le clone PDF -->
@@ -720,7 +732,13 @@ if (isset($_SESSION['users_id'])) {
                             <h2 class="section-title cv-editable">Langues</h2>
 
                             <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
-                                <?php foreach ($afficheLangue as $langue): ?>
+                                <?php 
+                                // Limiter l'affichage aux 3 premières langues
+                                $count = 0;
+                                foreach ($afficheLangue as $langue): 
+                                    if ($count >= 3) break;
+                                    $count++;
+                                ?>
                                     <div class="language-item">
                                         <span class="language-name cv-editable"><?= $langue['langue'] ?></span>
                                         <div class="language-level">
@@ -735,17 +753,23 @@ if (isset($_SESSION['users_id'])) {
 
                         <!-- Interests Section -->
                         <div class="interests-section">
-                            <h2 class="section-title cv-editable">Centres d'intérêt</h2>
-                            <div class="interests-list">
-                                <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
-                                    <?php foreach ($afficheCentreInteret as $interet): ?>
-                                        <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <p class="texte">Aucun centre d'intérêt trouvé</p>
-                                <?php endif; ?>
+                                <h2 class="section-title cv-editable">Centres d'intérêt</h2>
+                                <div class="interests-list">
+                                    <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
+                                        <?php 
+                                        // Limiter l'affichage aux 3 premiers centres d'intérêt
+                                        $count = 0;
+                                        foreach ($afficheCentreInteret as $interet): 
+                                            if ($count >= 3) break;
+                                            $count++;
+                                        ?>
+                                            <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <p class="texte">Aucun centre d'intérêt trouvé</p>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                        </div>
                     </div>
 
                     <!-- Right Column -->

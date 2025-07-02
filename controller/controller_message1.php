@@ -315,6 +315,14 @@ if (isset($_GET['id'])) {
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
+        $mail->SMTPOptions = [
+          'ssl' => [
+              'verify_peer'       => false,
+              'verify_peer_name'  => false,
+              'allow_self_signed' => true
+          ]
+      ];
+
         $infoEntreprises = getEntreprise($db, $entreprise_id);
         $infoUsers = infoUsers($db, $users_id);
         $utilisateur = $infoUsers['nom'];

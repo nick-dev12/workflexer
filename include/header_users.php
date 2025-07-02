@@ -268,8 +268,23 @@
         // Partage LinkedIn
         document.getElementById('shareLinkedin').addEventListener('click', function (e) {
             e.preventDefault();
-            const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(profileUrl)}`;
-            window.open(linkedinUrl, '_blank');
+            
+            // Afficher un message de chargement
+            const originalText = this.querySelector('span').textContent;
+            this.querySelector('span').textContent = 'Préparation...';
+            this.classList.add('loading');
+            
+            // Description personnalisée pour LinkedIn
+            const linkedinDescription = `${profileName} - ${profileJob} recherche activement de nouvelles opportunités professionnelles.\n\nDécouvrez son profil complet, ses compétences, expériences et réalisations sur Work-Flexer.`;
+            
+            // URL avec paramètres personnalisés
+            const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(profileUrl)}&title=${encodeURIComponent(`${profileName} - ${profileJob}`)}&summary=${encodeURIComponent(linkedinDescription)}`;
+            
+            setTimeout(() => {
+                this.querySelector('span').textContent = originalText;
+                this.classList.remove('loading');
+                window.open(linkedinUrl, '_blank');
+            }, 1500);
         });
 
         // Partage Twitter
@@ -291,19 +306,22 @@
             let body = `
 Bonjour,
 
-Je souhaite partager avec vous mon profil professionnel : ${profileName}, ${profileJob}.
+Je me permets de vous adresser mon profil professionnel dans le cadre de ma recherche d'opportunités d'emploi.
 
-Vous pouvez consulter mon profil complet sur Work-Flexer via ce lien :
-${profileUrl}
+En tant que ${profileJob}, je recherche activement de nouveaux défis professionnels.
 
-Ce profil contient des informations détaillées sur mes compétences, mon expérience professionnelle, ma formation et mes réalisations.
+Mon profil complet est disponible via ce lien : ${profileUrl}
 
-Cordialement,
+Vous y trouverez mes compétences, expériences, formations et réalisations.
+
+Je serais ravi(e) d'échanger avec vous sur les opportunités correspondant à mon profil.
+
+Dans l'attente de votre retour, je vous prie d'agréer mes salutations distinguées.
+
 ${profileName}
 
 --
-Work-Flexer - Votre plateforme de mise en relation professionnelle
-Ce message a été envoyé via la fonction de partage de profil Work-Flexer
+Profil partagé via Work-Flexer
 `;
 
             // Version HTML pour l'envoi via PHPMailer
@@ -324,9 +342,11 @@ Ce message a été envoyé via la fonction de partage de profil Work-Flexer
       <td style="padding: 30px; font-family: Arial, sans-serif;">
         <p style="font-size: 16px; line-height: 1.5; margin-top: 0;">Bonjour,</p>
         
-        <p style="font-size: 16px; line-height: 1.5;">Je souhaite partager avec vous mon profil professionnel : <strong>${profileName}</strong>, ${profileJob}.</p>
+        <p style="font-size: 16px; line-height: 1.5;">Je me permets de vous adresser mon profil professionnel dans le cadre de ma recherche d'opportunités d'emploi.</p>
         
-        <p style="font-size: 16px; line-height: 1.5;">Vous pouvez consulter mon profil complet sur Work-Flexer via ce lien :</p>
+        <p style="font-size: 16px; line-height: 1.5;">En tant que <strong>${profileJob}</strong>, je recherche activement de nouveaux défis professionnels.</p>
+        
+        <p style="font-size: 16px; line-height: 1.5;">Mon profil complet est disponible via ce lien :</p>
         
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
@@ -342,9 +362,11 @@ Ce message a été envoyé via la fonction de partage de profil Work-Flexer
           </tr>
         </table>
         
-        <p style="font-size: 16px; line-height: 1.5;">Ce profil contient des informations détaillées sur mes compétences, mon expérience professionnelle, ma formation et mes réalisations.</p>
+        <p style="font-size: 16px; line-height: 1.5;">Vous y trouverez mes compétences, expériences, formations et réalisations.</p>
         
-        <p style="font-size: 16px; line-height: 1.5; margin-bottom: 0;">Cordialement,</p>
+        <p style="font-size: 16px; line-height: 1.5;">Je serais ravi(e) d'échanger avec vous sur les opportunités correspondant à mon profil.</p>
+        
+        <p style="font-size: 16px; line-height: 1.5; margin-bottom: 0;">Dans l'attente de votre retour, je vous prie d'agréer mes salutations distinguées.</p>
         <p style="font-size: 16px; line-height: 1.5; margin-top: 5px; font-weight: bold;">${profileName}</p>
       </td>
     </tr>
@@ -354,8 +376,8 @@ Ce message a été envoyé via la fonction de partage de profil Work-Flexer
   <table width="100%" bgcolor="#f9fafb" cellpadding="0" cellspacing="0" border="0">
     <tr>
       <td align="center" style="padding: 15px; font-family: Arial, sans-serif;">
-        <p style="font-size: 14px; color: #6b7280; margin: 0;">© ${new Date().getFullYear()} Work-Flexer - Votre plateforme de mise en relation professionnelle</p>
-        <p style="font-size: 12px; color: #9ca3af; margin: 10px 0 0 0;">Ce message a été envoyé via la fonction de partage de profil Work-Flexer</p>
+        <p style="font-size: 14px; color: #6b7280; margin: 0;">© ${new Date().getFullYear()} Work-Flexer - Plateforme professionnelle</p>
+        <p style="font-size: 12px; color: #9ca3af; margin: 10px 0 0 0;">Profil partagé via Work-Flexer</p>
       </td>
     </tr>
   </table>

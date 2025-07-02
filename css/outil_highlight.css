@@ -1,119 +1,256 @@
-.outil-highlight-instructions {
-  display: none;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 20px;
-}
+/* Styles pour la fonctionnalité de mise en avant des outils informatiques */
 
-.outil-highlight-instructions p {
-  margin: 0;
-  color: #495057;
-}
-
-.outil-highlight-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.outil-highlight-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 20px;
-}
-
-.outil-highlight-toggle-btn:hover {
-  background-color: #f8f9fa;
-}
-
-.outil-highlight-toggle-btn i {
-  color: #ffd700;
-}
-
-.tool-item.highlighted {
-  background-color: rgba(0, 253, 8, 0.199) !important;
-  position: relative;
-}
-
-.tool-item.highlighted::before {
-  content: "★";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #ffd700;
-  font-size: 20px;
-}
-
-.outil-highlight-confirmation {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #28a745;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  animation: slideIn 0.3s ease-out;
-}
-
-.outil-highlight-confirmation i {
-  margin-right: 10px;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.outil-star-icon {
-  color: #4caf50;
-  margin-right: 10px;
-  font-size: 0.9rem;
-  display: none;
-}
-
-.tool-item.highlighted .outil-star-icon {
-  display: inline-block;
-}
-
+/* Style pour les outils en mode sélection */
 .tool-item.selectable {
-  cursor: pointer;
-  transition: transform 0.2s ease;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    border: 2px solid transparent;
 }
 
 .tool-item.selectable:hover {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    border-color: #4caf50;
 }
 
-.tool-item.selecting {
-  animation: pulse 1s infinite;
+/* Style pour les outils mis en avant */
+.tool-item.highlighted {
+    background-color: rgba(0, 253, 8, 0.199) !important;
+    position: relative;
+    border: 2px solid #4caf50;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* Style pour l'icône d'étoile */
+.outil-star-icon {
+    color: #4caf50;
+    margin-right: 8px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.tool-item.highlighted .outil-star-icon {
+    display: inline-block;
+}
+
+/* Indicateur de sélection */
+.outil-selection-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4caf50;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.tool-item.highlighted .outil-selection-indicator {
+    display: flex;
+}
+
+/* Instructions de sélection */
+.outil-highlight-instructions {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: none;
+    animation: slideDown 0.4s ease-in-out;
+}
+
+.outil-highlight-instructions p {
+    margin: 0;
+    color: #495057;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.outil-highlight-instructions i {
+    color: #4caf50;
+    font-size: 1.1rem;
+}
+
+.outil-highlight-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    gap: 12px;
+}
+
+.outil-highlight-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.outil-save-btn {
+    background-color: #4caf50;
+    color: white;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.outil-save-btn:hover {
+    background-color: #3e8e41;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.outil-cancel-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    color: #495057;
+}
+
+.outil-cancel-btn:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+}
+
+/* Bouton de mise en avant */
+.outil-highlight-toggle-btn {
+    background-color: #fff;
+    border: 2px solid #4caf50;
+    color: #4caf50;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.outil-highlight-toggle-btn:hover {
+    background-color: #4caf50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.outil-highlight-toggle-btn i {
+    font-size: 1rem;
+}
+
+/* Message de confirmation */
+.outil-highlight-confirmation {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.outil-highlight-confirmation i {
+    margin-right: 10px;
+    color: #fff;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Style pour les appareils tactiles */
+@media (max-width: 768px) {
+    .outil-highlight-instructions {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .outil-highlight-instructions p {
+        font-size: 0.9rem;
+    }
+    
+    .outil-highlight-actions {
+        gap: 8px;
+    }
+    
+    .outil-highlight-actions button {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    
+    .outil-highlight-toggle-btn {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .outil-selection-indicator {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+    }
+    
+    .outil-highlight-confirmation {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Style pour les très petits écrans */
+@media (max-width: 480px) {
+    .outil-highlight-instructions {
+        padding: 12px;
+    }
+    
+    .outil-highlight-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .outil-highlight-actions button {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .outil-highlight-toggle-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+    }
 }

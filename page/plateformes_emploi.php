@@ -66,14 +66,12 @@ include '../conn/conn.php';
 
     <section class="platforms-section">
         <div class="container">
-            <h2 data-aos="fade-up">Offres d'emploi publiées sur toutes les plateformes d'emploi au Sénégal</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Découvrez l'ensemble des offres d'emploi publiées sur toutes les plateformes d'emploi au Sénégal en un seul endroit</p>
-            
+           
             <div class="platforms-grid">
                 <div class="platform-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="card-banner workflexer">
                         <div class="platform-logo">
-                            <img src="../image/logo.png" alt="WorkFlexer">
+                            <img src="../image/logo2.png" alt="WorkFlexer">
                         </div>
                         <div class="offer-count">
                             <span>500+ offres</span>
@@ -82,11 +80,6 @@ include '../conn/conn.php';
                     <div class="card-content">
                         <h3>WorkFlexer</h3>
                         <p>Notre plateforme principale propose des offres d'emploi vérifiées et adaptées à tous les profils professionnels. Accédez à des opportunités uniques publiées par des entreprises de confiance.</p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Offres exclusives</li>
-                            <li><i class="fas fa-check-circle"></i> Entreprises vérifiées</li>
-                            <li><i class="fas fa-check-circle"></i> Candidature simplifiée</li>
-                        </ul>
                         <div class="card-actions">
                             <a href="Offres_d'emploi.php" class="btn-platform primary">
                                 <i class="fas fa-briefcase"></i> Voir les offres
@@ -101,17 +94,13 @@ include '../conn/conn.php';
                             <span>Emploi Sénégal</span>
                         </div>
                         <div class="offer-count">
-                            <span>3000+ offres</span>
+                            <span>300+ offres</span>
                         </div>
                     </div>
                     <div class="card-content">
                         <h3>EmploiSenegal</h3>
                         <p>EmploiSenegal est l'une des plus grandes plateformes d'emploi au Sénégal. Elle propose des milliers d'offres dans divers secteurs et pour tous niveaux d'expérience.</p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Large choix d'offres</li>
-                            <li><i class="fas fa-check-circle"></i> Tous secteurs d'activité</li>
-                            <li><i class="fas fa-check-circle"></i> Offres gouvernementales</li>
-                        </ul>
+                       
                         <div class="card-actions">
                             <a href="offres_emploi_senegal.php" class="btn-platform">
                                 <i class="fas fa-briefcase"></i> Voir les offres
@@ -126,17 +115,13 @@ include '../conn/conn.php';
                             <span>Emploi Dakar</span>
                         </div>
                         <div class="offer-count">
-                            <span>2500+ offres</span>
+                            <span>200+ offres</span>
                         </div>
                     </div>
                     <div class="card-content">
                         <h3>EmploiDakar</h3>
                         <p>EmploiDakar se concentre sur les opportunités professionnelles dans la région de Dakar. Idéal pour ceux qui cherchent un emploi dans la capitale sénégalaise.</p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Offres localisées à Dakar</li>
-                            <li><i class="fas fa-check-circle"></i> Grandes entreprises</li>
-                            <li><i class="fas fa-check-circle"></i> Startups innovantes</li>
-                        </ul>
+                       
                         <div class="card-actions">
                             <a href="offres_emploi_dakar.php" class="btn-platform">
                                 <i class="fas fa-briefcase"></i> Voir les offres
@@ -151,17 +136,13 @@ include '../conn/conn.php';
                             <span>SenJob</span>
                         </div>
                         <div class="offer-count">
-                            <span>2000+ offres</span>
+                            <span>300+ offres</span>
                         </div>
                     </div>
                     <div class="card-content">
                         <h3>SenJob</h3>
                         <p>SenJob est spécialisé dans les offres d'emploi pour jeunes diplômés et les stages. Une excellente ressource pour démarrer sa carrière professionnelle au Sénégal.</p>
-                        <ul class="platform-features">
-                            <li><i class="fas fa-check-circle"></i> Stages et premiers emplois</li>
-                            <li><i class="fas fa-check-circle"></i> Programmes de formation</li>
-                            <li><i class="fas fa-check-circle"></i> Conseils pour jeunes diplômés</li>
-                        </ul>
+                       
                         <div class="card-actions">
                             <a href="offres_senjob.php" class="btn-platform">
                                 <i class="fas fa-briefcase"></i> Voir les offres

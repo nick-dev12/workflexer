@@ -49,6 +49,14 @@ if (isset($_POST['valider'])) {
             $stmtUpdateToken->bindParam(':entreprise', $entreprise['id']);
             $stmtUpdateToken->execute();
 
+            $mail->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer'       => false,
+                    'verify_peer_name'  => false,
+                    'allow_self_signed' => true
+                ]
+            ];
+
             setcookie('compte_entreprise', $token, time() + 60 * 60 * 24 * 30, '/');
             $_SESSION['compte_entreprise'] = $entreprise['id']; // Initialisation de la variable de session
             unset($_SESSION['mail']);

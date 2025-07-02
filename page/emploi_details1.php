@@ -198,6 +198,143 @@ if (isset($_GET['id'])) {
             font-size: 18px;
             font-weight: 700;
         }
+
+        /* === STYLES POUR LE RAPPORT SIMPLIFIÉ === */
+        .competences-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0a74da;
+        }
+        .competences-info i {
+            color: #0a74da;
+            font-size: 1.2em;
+            margin-top: 2px;
+        }
+        .competences-info p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .found-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .skill-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card.high {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #f8fff9, #ffffff);
+        }
+        .skill-card.medium {
+            border-color: #ffc107;
+            background: linear-gradient(135deg, #fffef8, #ffffff);
+        }
+        .skill-card.low {
+            border-color: #6c757d;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .skill-match-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+        }
+
+        .match-type {
+            color: #666;
+            font-style: italic;
+        }
+
+        .confidence {
+            background: #0a74da;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+
+        .skill-card.high .confidence {
+            background: #28a745;
+        }
+        .skill-card.medium .confidence {
+            background: #ffc107;
+            color: #333;
+        }
+        .skill-card.low .confidence {
+            background: #6c757d;
+        }
+
+        /* Styles pour le message "aucune compétence trouvée" */
+        .no-skills-message {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background-color: #fff3cd;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        .no-skills-message i {
+            color: #ffc107;
+            font-size: 1.2em;
+            margin-top: 2px;
+        }
+        .no-skills-message p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.5;
+            color: #856404;
+        }
+
+        .report-section-v3 {
+            padding: 25px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .report-section-v3:last-child {
+            border-bottom: none;
+        }
+
+        .report-section-v3 h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .report-section-v3 h2 i {
+            color: #0a74da;
+        }
         .header-summary-v3 p {
             margin: 0;
             font-size: 12px;
@@ -511,70 +648,66 @@ if (isset($_GET['id'])) {
 
     function buildCompatibilityReport(data) {
         const score = Math.round(data.score_global);
-        const score_class = score >= 75 ? 'excellent' : (score >= 60 ? 'good' : (score >= 40 ? 'moderate' : 'low'));
+        const score_class = score >= 70 ? 'excellent' : (score >= 50 ? 'good' : (score >= 30 ? 'moderate' : 'low'));
         
         let score_text;
-        if (score >= 75) {
-            score_text = "Excellent profil !";
-        } else if (score >= 60) {
-            score_text = "Ça matche plutôt bien !";
-        } else if (score >= 40) {
-            score_text = "Il y a du potentiel !";
+        if (score >= 70) {
+            score_text = "Excellente compatibilité !";
+        } else if (score >= 50) {
+            score_text = "Bonne compatibilité !";
+        } else if (score >= 30) {
+            score_text = "Compatibilité modérée";
         } else {
-            score_text = "Pour l'instant, c'est un peu juste...";
+            score_text = "Compatibilité limitée";
         }
 
-        // 1. Points forts
-        const pointsFortsHtml = data.points_forts && data.points_forts.length > 0 ? `
-            <section class="report-section-v3 strengths">
-                <h2><i class="fas fa-thumbs-up"></i> Tes points forts pour ce poste</h2>
-                <div class="card-grid-v3">
-                    ${data.points_forts.slice(0, 6).map(p => `
-                        <div class="custom-card-v3">
-                            <div class="card-icon-v3"><i class="fas ${getIconForCategory(p.categorie || 'general')}"></i></div>
-                            <div class="card-content-v3">
-                                <h4>${getCategoryLabel(p.categorie || 'general')}</h4>
-                                <p>${escapeHtml(p.description)}</p>
-                            </div>
-                        </div>
-                    `).join('')}
+        // Message sur les compétences
+        const competencesMessageHtml = `
+            <section class="report-section-v3 competences-message">
+                <div class="competences-info">
+                    <i class="fas fa-info-circle"></i>
+                    <p>${escapeHtml(data.competences_message)}</p>
                 </div>
-            </section>` : '';
+            </section>`;
 
-        // 2. Compétences recherchées
-        const competencesManquantesHtml = data.competences_manquantes && data.competences_manquantes.length > 0 ? `
-            <section class="report-section-v3 missing-skills">
-                <h2><i class="fas fa-puzzle-piece"></i> Les compétences de l'offre</h2>
-                <p class="section-description-v3">Voici les compétences clés pour ce job. Si tu les as, n'oublie pas de les ajouter à ton profil Work-Flexer pour booster ton score !</p>
-                <div class="skills-list-v3">
-                    ${data.competences_manquantes.map(skill => `<span>${escapeHtml(skill)}</span>`).join('')}
-                </div>
-            </section>` : '';
-
-        // 3. Plan d'amélioration
-        const pointsAmeliorationHtml = data.points_amelioration && data.points_amelioration.length > 0 ? `
-            <section class="report-section-v3 improvements">
-                <h2><i class="fas fa-rocket"></i> Ton plan pour devenir le candidat idéal</h2>
-                <div class="improvements-list-v3">
-                    ${data.points_amelioration.map(p => `
-                        <div class="improvement-item-v3">
-                            <div class="improvement-header-v3">
-                                <i class="fas ${getIconForCategory(p.categorie || 'general')}"></i>
-                                <p>${escapeHtml(p.description)}</p>
-                            </div>
-                            ${p.suggestion ? `<p class="suggestion-v3"><strong>Notre conseil :</strong> ${escapeHtml(p.suggestion)}</p>` : ''}
-                            ${p.ressources && p.ressources.length > 0 ? `
-                                <div class="resources-v3">
-                                    <h5><i class="fas fa-book-open"></i> Quelques ressources pour t'aider :</h5>
-                                    <ul>
-                                        ${p.ressources.map(r => `<li><a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a></li>`).join('')}
-                                    </ul>
+        // Compétences trouvées
+        let competencesTrouveesHtml = '';
+        
+        console.log('Données reçues:', data); // Debug
+        console.log('Compétences trouvées:', data.competences_trouvees); // Debug
+        
+        if (data.competences_trouvees && data.competences_trouvees.length > 0) {
+            competencesTrouveesHtml = `
+                <section class="report-section-v3 found-skills">
+                    <h2><i class="fas fa-check-circle"></i> Vos compétences qui correspondent à l'offre</h2>
+                    <div class="found-skills-grid">
+                        ${data.competences_trouvees.map(comp => {
+                            const confidenceClass = comp.confiance >= 90 ? 'high' : (comp.confiance >= 70 ? 'medium' : 'low');
+                            const matchTypeLabel = comp.type_correspondance === 'exact' ? 'Correspondance exacte' : 
+                                                 comp.type_correspondance === 'normalized' ? 'Correspondance normalisée' : 
+                                                 'Correspondance sémantique';
+                            return `
+                                <div class="skill-card ${confidenceClass}">
+                                    <div class="skill-name">${escapeHtml(comp.competence)}</div>
+                                    <div class="skill-match-info">
+                                        <span class="match-type">${matchTypeLabel}</span>
+                                        <span class="confidence">${comp.confiance}%</span>
+                                    </div>
                                 </div>
-                            ` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-            </section>` : '';
+                            `;
+                        }).join('')}
+                    </div>
+                </section>`;
+        } else {
+            // Message quand aucune compétence n'est trouvée
+            competencesTrouveesHtml = `
+                <section class="report-section-v3 no-skills-found">
+                    <div class="no-skills-message">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Aucune correspondance directe trouvée entre vos compétences et cette offre. Cela ne signifie pas que vous n'êtes pas qualifié - vos compétences pourraient être exprimées différemment ou être transférables.</p>
+                    </div>
+                </section>`;
+        }
         
         return `
             <div class="compatibility-report-v3">
@@ -589,9 +722,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
                 <div class="report-body-v3">
-                    ${pointsFortsHtml}
-                    ${competencesManquantesHtml}
-                    ${pointsAmeliorationHtml}
+                    ${competencesMessageHtml}
                 </div>
             </div>
         `;

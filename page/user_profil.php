@@ -166,18 +166,23 @@ if (isset($_GET['id'])) {
         content="https://www.work-flexer.com/page/candidats.php?id=<?php echo $_SESSION['users_id']; ?>">
     <meta property="og:title"
         content="<?php echo $users['nom']; ?> - <?php echo $users['competences']; ?> | Work-Flexer">
-    <meta property="og:description" content="Découvrez mon profil professionnel et mes compétences sur Work-Flexer">
-    <meta property="og:image" content="https://www.work-flexer.com/upload/<?php echo $users['images']; ?>">
-    <meta property="og:image:alt" content="Photo de profil de <?php echo $users['nom']; ?>">
+    <meta property="og:description" content="<?php echo $users['competences']; ?> expérimenté(e) en recherche active. Découvrez le profil complet de <?php echo $users['nom']; ?> sur Work-Flexer.">
+    <meta property="og:image" content="https://www.work-flexer.com/image/logo1200x795.png?v=4">
+    <meta property="og:image:secure_url" content="https://www.work-flexer.com/image/logo1200x795.png?v=4">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="795">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="<?php echo $users['nom']; ?> - Profil Work-Flexer">
     <meta property="og:site_name" content="Work-Flexer">
+    <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title"
         content="<?php echo $users['nom']; ?> - <?php echo $users['competences']; ?> | Work-Flexer">
-    <meta name="twitter:description" content="Découvrez mon profil professionnel et mes compétences sur Work-Flexer">
-    <meta name="twitter:image" content="https://www.work-flexer.com/upload/<?php echo $users['images']; ?>">
-    <meta name="twitter:image:alt" content="Photo de profil de <?php echo $users['nom']; ?>">
+    <meta name="twitter:description" content="<?php echo $users['nom']; ?> - <?php echo $users['competences']; ?> recherche activement de nouvelles opportunités professionnelles. Découvrez mon profil complet sur Work-Flexer.">
+    <meta name="twitter:image" content="https://www.work-flexer.com/image/logo1200x795.png?v=4">
+    <meta name="twitter:image:alt" content="<?php echo $users['nom']; ?> - Profil Work-Flexer">
 
     <!-- Google Tag Manager -->
     <script>
@@ -281,7 +286,7 @@ if (isset($_GET['id'])) {
         <?php endif; ?>
 
 
-        <?php include('../include/notifications.php') ?>
+        <?php include('../includes/notifications.php') ?>
         <!-- Carte professionnelle avec QR code -->
         <div class="qr-code">
             <div class="professional-card">
@@ -686,15 +691,15 @@ if (isset($_GET['id'])) {
                         <p class="p">Aucune expérience professionnelle enregistrée !</p>
                 <?php else: ?>
                         <?php if (isset($_SESSION['users_id'])): ?>
+                                <button class="highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
+                                
                                 <div class="highlight-instructions">
-                                    <p>Sélectionnez les expériences professionnelles que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur une expérience pour commencer la sélection.</p>
-                                    <p><em>NB: Une fois le mode sélection activé, cliquez sur une expérience pour la mettre en avant ou la retirer. N'oubliez pas d'enregistrer vos changements.</em></p>
+                                    <p><i class="fas fa-info-circle"></i> Tapez sur une expérience pour la sélectionner/désélectionner. Les expériences sélectionnées apparaîtront en vert.</p>
                                     <div class="highlight-actions">
                                         <button class="cancel-btn">Annuler</button>
                                         <button class="save-btn">Enregistrer</button>
                                     </div>
                                 </div>
-                                <button class="highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
                         <?php endif; ?>
 
                         <div class="experiences-list">
@@ -746,6 +751,11 @@ if (isset($_GET['id'])) {
                                                     <p><?php echo $metiers['description']; ?></p>
                                                 </div>
                                         <?php endif; ?>
+                                        
+                                        <!-- Indicateur de sélection caché -->
+                                        <div class="selection-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
                                     </div>
 
                                     <div class="form-modif" id="form-modif-<?php echo $metiers['id']; ?>">
@@ -1069,14 +1079,15 @@ if (isset($_GET['id'])) {
                 </h2>
                 
                 <?php if (isset($_SESSION['users_id'])): ?>
+                        <button class="competence-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
+                        
                         <div class="competence-highlight-instructions">
-                            <p>Sélectionnez les compétences que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur une compétence pour commencer la sélection.</p>
+                            <p><i class="fas fa-info-circle"></i> Tapez sur une compétence pour la sélectionner/désélectionner. Les compétences sélectionnées apparaîtront en vert.</p>
                             <div class="competence-highlight-actions">
                                 <button class="competence-cancel-btn">Annuler</button>
                                 <button class="competence-save-btn">Enregistrer</button>
                             </div>
                         </div>
-                        <button class="competence-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
                 <?php endif; ?>
                 
                 <div class="container_comp">
@@ -1290,14 +1301,15 @@ if (isset($_GET['id'])) {
                         <p class="p">Aucune formation enregistrée pour votre profil!</p>
                 <?php else: ?>
                         <?php if (isset($_SESSION['users_id'])): ?>
+                                <button class="formation-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
+                                
                                 <div class="formation-highlight-instructions">
-                                    <p>Sélectionnez les formations que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur une formation pour commencer la sélection.</p>
+                                    <p><i class="fas fa-info-circle"></i> Tapez sur une formation pour la sélectionner/désélectionner. Les formations sélectionnées apparaîtront en vert.</p>
                                     <div class="formation-highlight-actions">
                                         <button class="formation-cancel-btn">Annuler</button>
                                         <button class="formation-save-btn">Enregistrer</button>
                                     </div>
                                 </div>
-                                <button class="formation-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
                         <?php endif; ?>
                         
                         <div class="formations-list">
@@ -1451,16 +1463,73 @@ if (isset($_GET['id'])) {
 
                                                 <div class="container_box">
                                                     <div class="box1">
-                                                        <label for="niveau-<?php echo $formations['id']; ?>">Niveau</label>
-                                                        <select name="niveau2" id="niveau-<?php echo $formations['id']; ?>">
-                                                            <?php
-                                                            $niveaux = ["Secondaire", "Licence1", "Licence2", "Licence3", "Master1", "Master2", "Doctorat"];
-                                                            foreach ($niveaux as $niveau) {
-                                                                $selected = ($formations['niveau'] == $niveau) ? 'selected' : '';
-                                                                echo "<option value='$niveau' $selected>$niveau</option>";
-                                                            }
-                                                            ?>
-                                                        </select>
+                                                                                                <label for="niveau-<?php echo $formations['id']; ?>">Niveau</label>
+                                        <select name="niveau2" id="niveau-<?php echo $formations['id']; ?>">
+                                            <?php
+                                            $niveaux = [
+                                                // Enseignement secondaire
+                                                "Secondaire" => "Secondaire",
+                                                "Baccalauréat" => "Baccalauréat",
+                                                
+                                                // Formations courtes post-bac
+                                                "BTS" => "BTS (Brevet de Technicien Supérieur)",
+                                                "DUT" => "DUT (Diplôme Universitaire de Technologie)",
+                                                "DEUG" => "DEUG (Diplôme d'Études Universitaires Générales)",
+                                                "DEUST" => "DEUST (Diplôme d'Études Universitaires Scientifiques et Techniques)",
+                                                "Diplôme d'État" => "Diplôme d'État (Santé, Social)",
+                                                
+                                                // Système LMD - Licence
+                                                "Licence1" => "Licence 1 (L1)",
+                                                "Licence2" => "Licence 2 (L2)", 
+                                                "Licence3" => "Licence 3 (L3)",
+                                                "Licence Professionnelle" => "Licence Professionnelle",
+                                                
+                                                // Système LMD - Master
+                                                "Master1" => "Master 1 (M1)",
+                                                "Master2" => "Master 2 (M2)",
+                                                "Master Professionnel" => "Master Professionnel",
+                                                "Master Recherche" => "Master Recherche",
+                                                "MBA" => "MBA (Master of Business Administration)",
+                                                
+                                                // Système LMD - Doctorat
+                                                "Doctorat" => "Doctorat (Bac+8)",
+                                                "PhD" => "PhD (Doctor of Philosophy)",
+                                                
+                                                // Formations hors système LMD
+                                                "Maîtrise" => "Maîtrise (Ancien système)",
+                                                "DESS" => "DESS (Diplôme d'Études Supérieures Spécialisées)",
+                                                "DEA" => "DEA (Diplôme d'Études Approfondies)",
+                                                "Ingénieur" => "Diplôme d'Ingénieur",
+                                                "École de Commerce" => "École de Commerce/Management",
+                                                "École Normale" => "École Normale Supérieure",
+                                                "IEP" => "IEP (Institut d'Études Politiques)",
+                                                
+                                                // Formations spécialisées
+                                                "CAPES" => "CAPES (Certificat d'Aptitude au Professorat)",
+                                                "Agrégation" => "Agrégation",
+                                                "Médecine" => "Études de Médecine",
+                                                "Pharmacie" => "Études de Pharmacie", 
+                                                "Dentaire" => "Études Dentaires",
+                                                "Vétérinaire" => "Études Vétérinaires",
+                                                "Architecture" => "École d'Architecture",
+                                                "Beaux-Arts" => "École des Beaux-Arts",
+                                                
+                                                // Formations internationales
+                                                "Bachelor" => "Bachelor (Système Anglo-Saxon)",
+                                                "Honours" => "Honours Degree",
+                                                "Graduate" => "Graduate Degree",
+                                                "Postgraduate" => "Postgraduate Degree",
+                                                
+                                                // Autres
+                                                "Certificat" => "Certificat/Attestation",
+                                                "Autre" => "Autre formation"
+                                            ];
+                                            foreach ($niveaux as $key => $value) {
+                                                $selected = ($formations['niveau'] == $key) ? 'selected' : '';
+                                                echo "<option value='$key' $selected>$value</option>";
+                                            }
+                                            ?>
+                                        </select>
                                                     </div>
                                                     <div class="box1">
                                                         <input type="hidden" name="id_formation"
@@ -1630,13 +1699,62 @@ if (isset($_GET['id'])) {
                         <div class="box1">
                             <label for="niveau">Niveau</label>
                             <select name="niveau" id="niveau_etude">
+                                <!-- Enseignement secondaire -->
                                 <option value="Secondaire">Secondaire</option>
-                                <option value="Licence1">Licence 1</option>
-                                <option value="Licence2">Licence 2</option>
-                                <option value="Licence3">Licence 3</option>
-                                <option value="Master1">Master 1</option>
-                                <option value="Master2">Master 2</option>
-                                <option value="Doctorat">Doctorat</option>
+                                <option value="Baccalauréat">Baccalauréat</option>
+                                
+                                <!-- Formations courtes post-bac -->
+                                <option value="BTS">BTS (Brevet de Technicien Supérieur)</option>
+                                <option value="DUT">DUT (Diplôme Universitaire de Technologie)</option>
+                                <option value="DEUG">DEUG (Diplôme d'Études Universitaires Générales)</option>
+                                <option value="DEUST">DEUST (Diplôme d'Études Universitaires Scientifiques et Techniques)</option>
+                                <option value="Diplôme d'État">Diplôme d'État (Santé, Social)</option>
+                                
+                                <!-- Système LMD - Licence -->
+                                <option value="Licence1">Licence 1 (L1)</option>
+                                <option value="Licence2">Licence 2 (L2)</option>
+                                <option value="Licence3">Licence 3 (L3)</option>
+                                <option value="Licence Professionnelle">Licence Professionnelle</option>
+                                
+                                <!-- Système LMD - Master -->
+                                <option value="Master1">Master 1 (M1)</option>
+                                <option value="Master2">Master 2 (M2)</option>
+                                <option value="Master Professionnel">Master Professionnel</option>
+                                <option value="Master Recherche">Master Recherche</option>
+                                <option value="MBA">MBA (Master of Business Administration)</option>
+                                
+                                <!-- Système LMD - Doctorat -->
+                                <option value="Doctorat">Doctorat (Bac+8)</option>
+                                <option value="PhD">PhD (Doctor of Philosophy)</option>
+                                
+                                <!-- Formations hors système LMD -->
+                                <option value="Maîtrise">Maîtrise (Ancien système)</option>
+                                <option value="DESS">DESS (Diplôme d'Études Supérieures Spécialisées)</option>
+                                <option value="DEA">DEA (Diplôme d'Études Approfondies)</option>
+                                <option value="Ingénieur">Diplôme d'Ingénieur</option>
+                                <option value="École de Commerce">École de Commerce/Management</option>
+                                <option value="École Normale">École Normale Supérieure</option>
+                                <option value="IEP">IEP (Institut d'Études Politiques)</option>
+                                
+                                <!-- Formations spécialisées -->
+                                <option value="CAPES">CAPES (Certificat d'Aptitude au Professorat)</option>
+                                <option value="Agrégation">Agrégation</option>
+                                <option value="Médecine">Études de Médecine</option>
+                                <option value="Pharmacie">Études de Pharmacie</option>
+                                <option value="Dentaire">Études Dentaires</option>
+                                <option value="Vétérinaire">Études Vétérinaires</option>
+                                <option value="Architecture">École d'Architecture</option>
+                                <option value="Beaux-Arts">École des Beaux-Arts</option>
+                                
+                                <!-- Formations internationales -->
+                                <option value="Bachelor">Bachelor (Système Anglo-Saxon)</option>
+                                <option value="Honours">Honours Degree</option>
+                                <option value="Graduate">Graduate Degree</option>
+                                <option value="Postgraduate">Postgraduate Degree</option>
+                                
+                                <!-- Autres -->
+                                <option value="Certificat">Certificat/Attestation</option>
+                                <option value="Autre">Autre formation</option>
                             </select>
                         </div>
                         <div class="box1">
@@ -1690,14 +1808,14 @@ if (isset($_GET['id'])) {
                         
                         <div class="tools-list">
                         <?php if (isset($_SESSION['users_id'])): ?>
+                                <button class="outil-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
                                 <div class="outil-highlight-instructions">
-                                    <p>Sélectionnez les outils que vous souhaitez mettre en avant sur votre profil. Maintenez appuyé sur un outil pour commencer la sélection.</p>
+                                    <p>Tapez sur un outil pour le sélectionner/désélectionner</p>
                                     <div class="outil-highlight-actions">
                                         <button class="outil-cancel-btn">Annuler</button>
                                         <button class="outil-save-btn">Enregistrer</button>
                                     </div>
                                 </div>
-                                <button class="outil-highlight-toggle-btn"><i class="fas fa-star"></i> Mettre en avant</button>
                         <?php endif; ?>
                             <?php foreach ($afficheOutil as $outils): ?>
                                     <div class="tool-item <?php echo ($outils['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>" data-id="<?php echo $outils['id'] ?>">

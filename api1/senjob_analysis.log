@@ -3922,3 +3922,312 @@
 2025-06-30 08:33:59,399 - INFO - Fin de l'analyse.
 2025-06-30 08:33:59,399 - INFO - ==================================================
 
+2025-07-01 13:06:25,578 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 13:22:48,936 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 13:36:15,868 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 13:41:20,923 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 13:45:52,653 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 14:09:17,153 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 14:23:28,600 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 14:26:00,009 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 15:17:09,489 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 19:59:23,668 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 20:02:23,299 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 20:16:13,315 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 20:21:13,807 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 20:25:21,213 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 20:26:12,911 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 20:35:27,124 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-01 20:58:45,313 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-02 03:52:15,221 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log
+2025-07-02 03:57:45,002 - INFO - ==================================================
+2025-07-02 03:57:45,002 - INFO - Début de l'analyse pour l'offre ID: 746 et candidat ID: 5
+2025-07-02 03:57:45,006 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ]
+}
+2025-07-02 03:57:45,007 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 746,
+  "titre": "Stagiaire",
+  "entreprise": "Non spécifié",
+  "localisation": "Tambacounda",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>Date: le 13 Janvier 2025<br>\nPosition : Stagiaire<br>\nResponsable Hiérarchique : Charges de projets<br>\nCoordonne avec : Charge de projets et Assistants<br>\nLocation : Sénégal Tambacounda<br>\nType de contrat : 06 mois Février-Juillet 2025<br/>\n<br/>\nA PROPROS TREES FOR THE FUTURE:</br></br></br></br></br></b><br/>\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.<br/>\n<br/>\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.<br/>\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.<br/>\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.<br/>\n<br/>\n<b>DESCRIPTION DU POSTE</b><br/>\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.<br/>\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.<br/>\n<br/>\n<b>PRINCIPLES TACHES :</b><br/>\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :<br/>\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;<br/>\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;<br/>\n• Appuyer les chargés de projets aux différentes formation programmées sur ;<br/>\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.<br/>\n<br/>\n<b>SAVOIR FAIRE :</b><br/>\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :<br/>\n• Être sociable<br/>\n• Être patient et avoir une bonne capacité d’écoute<br/>\n• Être humble, engagé et disponible<br/>\n• Ouvert (e) aux critiques et aux nouvelles idées ;<br/>\n<br/>\n<b>COMPÉTENCES-QUALIFICATIONS :</b><br/>\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :<br/>\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;<br/>\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;<br/>\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;<br/>\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.<br/>\n<br/>\n<b>NB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.</b>\n</div>",
+  "texte_integral": "Stagiaire \nDate: le 13 Janvier 2025\nPosition : Stagiaire\nResponsable Hiérarchique : Charges de projets\nCoordonne avec : Charge de projets et Assistants\nLocation : Sénégal Tambacounda\nType de contrat : 06 mois Février-Juillet 2025\n\nA PROPROS TREES FOR THE FUTURE:\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.\n\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.\n\nDESCRIPTION DU POSTE\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.\n\nPRINCIPLES TACHES :\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;\n• Appuyer les chargés de projets aux différentes formation programmées sur ;\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.\n\nSAVOIR FAIRE :\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :\n• Être sociable\n• Être patient et avoir une bonne capacité d’écoute\n• Être humble, engagé et disponible\n• Ouvert (e) aux critiques et aux nouvelles idées ;\n\nCOMPÉTENCES-QUALIFICATIONS :\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.\n\nNB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.\n Non spécifié Tambacounda Non spécifié",
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-02 03:57:45,008 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ],
+  "texte_integral": null
+}
+2025-07-02 03:57:45,009 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 746,
+  "titre": "Stagiaire",
+  "entreprise": "Non spécifié",
+  "localisation": "Tambacounda",
+  "type_contrat": "Non spécifié",
+  "description": "<div class=\"view\">\n<b>Date: le 13 Janvier 2025<br>\nPosition : Stagiaire<br>\nResponsable Hiérarchique : Charges de projets<br>\nCoordonne avec : Charge de projets et Assistants<br>\nLocation : Sénégal Tambacounda<br>\nType de contrat : 06 mois Février-Juillet 2025<br/>\n<br/>\nA PROPROS TREES FOR THE FUTURE:</br></br></br></br></br></b><br/>\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.<br/>\n<br/>\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.<br/>\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.<br/>\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.<br/>\n<br/>\n<b>DESCRIPTION DU POSTE</b><br/>\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.<br/>\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.<br/>\n<br/>\n<b>PRINCIPLES TACHES :</b><br/>\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :<br/>\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;<br/>\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;<br/>\n• Appuyer les chargés de projets aux différentes formation programmées sur ;<br/>\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.<br/>\n<br/>\n<b>SAVOIR FAIRE :</b><br/>\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :<br/>\n• Être sociable<br/>\n• Être patient et avoir une bonne capacité d’écoute<br/>\n• Être humble, engagé et disponible<br/>\n• Ouvert (e) aux critiques et aux nouvelles idées ;<br/>\n<br/>\n<b>COMPÉTENCES-QUALIFICATIONS :</b><br/>\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :<br/>\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;<br/>\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;<br/>\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;<br/>\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.<br/>\n<br/>\n<b>NB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.</b>\n</div>",
+  "texte_integral": "Stagiaire \nDate: le 13 Janvier 2025\nPosition : Stagiaire\nResponsable Hiérarchique : Charges de projets\nCoordonne avec : Charge de projets et Assistants\nLocation : Sénégal Tambacounda\nType de contrat : 06 mois Février-Juillet 2025\n\nA PROPROS TREES FOR THE FUTURE:\nTrees for the Future (TREES) forme les agriculteurs à l'utilisation durable des terres afin qu'ils puissent créer des économies régionales dynamiques, des systèmes alimentaires prospères et une planète plus saine. Leader mondial de la formation en agroforesterie depuis plus de 30 ans, TREES fournit une éducation et un soutien pratiques, encourageant les agriculteurs des pays en développement à travailler avec la nature, et non contre elle.\n\nNotre méthodologie caractéristique, l'approche des jardins forestiers, aide les agriculteurs à transformer leurs terres en plantant des milliers d'arbres et des dizaines de cultures, créant ainsi de nouvelles opportunités pour eux-mêmes et pour leurs communautés. En adoptant des pratiques foncières durables, les agriculteurs reprennent leur pouvoir, brisent les cycles du changement climatique et de la pauvreté générationnelle, et reconstruisent nos systèmes alimentaires à partir de la base. Pour en savoir plus, visitez le site trees.org.\nEn 2024, TREES a ouvert un nouveau bureau à Tamba pour superviser les projets jardins forêts de la région de Tambacounda et de Kédougou.\nAfin d’accompagner les jeunes dans leurs insertions professionnelles à acquérir une expérience professionnelle solide, Trees for the Future ou Les Arbres Pour l’Avenir lance un processus de recrutement externe de trois (03) Stagiaires dans la région de Tambacounda.\n\nDESCRIPTION DU POSTE\nLes Stagiaires seront sous la responsabilité du superviseur et le chef de bureau de Tamba. Ils seront en relation fonctionnelle les chargés de projets, avec le coordinateur de formation et de suivi-évaluation et les chargés de projets du terrain.\nLes stagiaires vont appuyer les chargés de projets dans l’identification et la mobilisation des compléments d’effectifs des bénéficiaires manquants des nouveaux projets dans les zones.\n\nPRINCIPLES TACHES :\n• Les principaux rôles et responsabilités du stagiaire sont les suivants :\n• Appuyer les chargés de projets dans l’identification et à la mobilisation des nouvelles zones et des nouveaux bénéficiaires pour compléter la liste des bénéficiaires manquants des nouveaux projets ;\n• Appuyer les chargés de projets dans l’enregistrement des nouveaux agriculteurs dans taroworks ;\n• Appuyer les chargés de projets aux différentes formation programmées sur ;\n• Accomplir et/ou réaliser tout autre tâche supplémentaire, responsabilité et activité à la demande du Superviseur et le Chef de bureau.\n\nSAVOIR FAIRE :\n• Le Stagiaire idéal doit également posséder les attributs personnels suivants :\n• Être sociable\n• Être patient et avoir une bonne capacité d’écoute\n• Être humble, engagé et disponible\n• Ouvert (e) aux critiques et aux nouvelles idées ;\n\nCOMPÉTENCES-QUALIFICATIONS :\n• Le stagiaire doit avoir les qualifications minimums suivantes pour le poste susmentionné à savoir :\n• Avoir un diplôme d’ingénieur, technicien supérieur ou équivalent en agronomie, agroforesterie, Eaux et Forêts et horticulture ;\n• Avoir une maîtrise des techniques d’animation en milieu paysan ;\n• Être capable de conduire régulièrement une moto (125cm3) dans les conditions difficiles ;\n• Maîtriser les outils informatiques et une compétence dans l’d'utilisation des smartphones.\n\nNB : La maîtrise du français et / ou les langues locales de la zone d’intervention (Wolof, Socé, Poular...) serait un atout majeur.\n Non spécifié Tambacounda Non spécifié",
+  "date_publication": null,
+  "secteur": "Non spécifié",
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-02 03:57:46,681 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 18.0,
+  "score_global_semantique": 19.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (18%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 21.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (21%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": -3.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Rest",
+          "categorie": "competences",
+          "importance": "moyenne"
+        },
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (-3%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 80.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [
+        "Votre langue 'Français' est en lien avec l'offre."
+      ],
+      "points_amelioration": [],
+      "resume": "Vous maîtrisez les langues requises (80%) pour ce poste."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Rest, Ia.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-07-02T03:57:46.680675",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Rest",
+    "Ia"
+  ]
+}
+2025-07-02 03:57:46,682 - INFO - Fin de l'analyse.
+2025-07-02 03:57:46,682 - INFO - ==================================================
+

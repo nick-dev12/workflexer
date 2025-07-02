@@ -270,7 +270,7 @@ $mail->SMTPOptions = [
                 {$attachmentText}
                 
                 <div class='signature'>
-                    <p class='email-text'>Cordialement,</p>
+                    <p class='email-text'>Dans l'attente de votre retour, je vous prie d'agréer mes salutations distinguées.</p>
                     <p class='signature-name'>{$senderName}</p>
                     <p class='signature-title'>Via Work-Flexer</p>
                 </div>
@@ -281,8 +281,8 @@ $mail->SMTPOptions = [
                     <a href='#'>Twitter</a>
                     <a href='#'>LinkedIn</a>
                 </div>
-                <p class='footer-text'>© " . date('Y') . " Work-Flexer. Tous droits réservés.</p>
-                <p class='footer-text'>Pour toute question, contactez-nous à <a href='mailto:info@advantech-group.space'>info@advantech-group.space</a></p>
+                <p class='footer-text'>© " . date('Y') . " Work-Flexer - Plateforme professionnelle</p>
+                <p class='footer-text'>Profil partagé via Work-Flexer</p>
             </div>
         </div>
     </body>

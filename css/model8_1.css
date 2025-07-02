@@ -1,0 +1,359 @@
+/* styles.css pour le nouveau modèle de CV */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Nunito&display=swap");
+
+/*--------------------------------------------------------------
+  Variables
+--------------------------------------------------------------*/
+:root {
+  /* Colors */
+  --m8-bg-left: #e3f1e2;          /* Light green background for the left column */
+  --m8-text-left: #333333;         /* Dark text for the left column */
+  --m8-bg-right: #ffffff;         /* White background for the right column */
+  --m8-text-right: #333333;        /* Main text on the right column */
+  --m8-accent: #388e3c;          /* Accent color for titles, checkmarks */
+  --m8-text-light: #6c757d;        /* Lighter text for dates, subtitles */
+  --m8-border: #dddddd;           /* Border color for section titles */
+  --m8-main-font: "Nunito", sans-serif;
+  --m8-icon-filter: none;         /* Filter for icons, adaptable for dark backgrounds */
+}
+
+/*--------------------------------------------------------------
+  Global Styles
+--------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.section2 .box3 table .tr4 {
+  background-color: #636262;
+}
+.section2 .box3 table .tr4 td a {
+  color: #ffffff;
+}
+
+#box1 {
+  display: none;
+}
+
+.section3 {
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0px !important;
+  margin-top: 50px !important;
+}
+
+@media screen and (max-width: 1050px) {
+  .section3 {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.section3 .button12 {
+  padding: 10px;
+  background-color: #346dc8;
+  color: #ffffff;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-bottom: 10px;
+}
+
+.section3 button:hover {
+  background-color: #303030;
+}
+
+/* Les styles de personnalisation ont été déplacés vers css/personnalisation.css */
+
+/* Nouvelle mise en page du CV basée sur l'image */
+.cv-container {
+  display: flex;
+  width: 750px !important;
+  min-height: 1122px !important;
+  margin: auto;
+  background-color: var(--m8-bg-right);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: var(--m8-main-font);
+}
+
+/* Left Column */
+.left-column {
+  width: 35%;
+  background-color: var(--m8-bg-left);
+  padding: 30px 20px;
+  color: var(--m8-text-left);
+}
+
+/* Right Column */
+.right-column {
+  width: 65%;
+  padding: 30px;
+  background-color: var(--m8-bg-right);
+  color: var(--m8-text-right);
+}
+
+/*--------------------------------------------------------------
+  Left Column Elements
+--------------------------------------------------------------*/
+.name-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px !important;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  color: var(--m8-text-left) !important;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  font-size: 16px !important;
+  margin-top: 5px;
+  color: var(--m8-text-left) !important;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 25px auto;
+  display: block;
+  border: 4px solid var(--m8-bg-right); /* Border color matching the right column background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.left-column .section-title {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: var(--m8-text-left);
+  border-bottom: 2px solid var(--m8-text-left);
+  padding-bottom: 5px;
+  letter-spacing: 1px;
+}
+.left-column h3{
+  color: var(--m8-text-left) !important;
+  border-bottom: 2px solid var(--m8-text-left) !important;
+  padding-bottom: 5px !important;
+  margin-bottom: 15px !important;
+  margin-top: 10px !important;
+}
+.left-column p {
+  font-size: 13px;
+  margin: 0 0 8px 0;
+  display: flex;
+  color: var(--m8-text-left) !important;
+  align-items: center;
+}
+
+.left-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.left-column .skills ul li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+  color: var(--m8-text-left);
+}
+
+.left-column .skills ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--m8-accent);
+}
+
+/*--------------------------------------------------------------
+  Right Column Elements
+--------------------------------------------------------------*/
+.right-column .section-title {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--m8-accent);
+  border-bottom: 2px solid var(--m8-border);
+  padding-bottom: 8px;
+  letter-spacing: 1px;
+  padding-bottom: 5px;
+}
+
+.right-column h3{
+  color: var(--m8-accent) !important;
+  border-bottom: 2px solid var(--m8-border) !important;
+  padding-bottom: 2px !important;
+  margin-bottom:15px !important;
+}
+
+.right-column .profile p {
+  font-size: 12px;
+  line-height: 1.4 !important;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.experience-item,
+.education-item {
+  margin-bottom: 10px;
+}
+
+.experience-item h4,
+.education-item h4 {
+  font-size: 14px;
+  margin: 0 0 2px 0;
+  color: var(--m8-text-right) !important;
+  font-weight: 700;
+}
+
+.date {
+  font-style: italic;
+  font-size: 11px !important;
+  color: var(--m8-accent) !important;
+  margin-bottom: 1px;
+  display: inline !important;
+}
+
+.experience-item p,
+.education-item p {
+  font-size: 13px;
+  margin: 2px 0;
+  line-height: 1.4 !important;
+}
+
+/*--------------------------------------------------------------
+  Responsive Scaling
+--------------------------------------------------------------*/
+@media (max-width: 1200px) {
+  #cv8-visible {
+    transform: scale(0.85);
+    transform-origin: top center;
+    margin-bottom: -168px;
+    width: 793px !important;
+    min-width: 793px !important;
+    max-width: 793px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  #cv8-visible {
+    transform: scale(0.7);
+    margin-bottom: -337px;
+    width: 793px !important;
+    min-width: 793px !important;
+    max-width: 793px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #cv8-visible {
+    transform: scale(0.6);
+    margin-bottom: -449px;
+    width: 793px !important;
+    min-width: 793px !important;
+    max-width: 793px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #cv8-visible {
+    transform: scale(0.5);
+    margin-bottom: -561px;
+    width: 793px !important;
+    min-width: 793px !important;
+    max-width: 793px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #cv8-visible {
+    transform: scale(0.45);
+    margin-bottom: -617px;
+    width: 793px !important;
+    min-width: 793px !important;
+    max-width: 793px !important;
+  }
+}
+
+/* -------------------- BOUTON DE TÉLÉCHARGEMENT FIXE -------------------- */
+.fixed-download-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.3px;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.fixed-download-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(39, 174, 96, 0.5);
+  background: linear-gradient(135deg, #219a52 0%, #27ae60 100%);
+}
+
+.fixed-download-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.fixed-download-button i {
+  font-size: 18px;
+}
+
+.fixed-download-button span {
+  font-weight: 600;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .fixed-download-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 14px;
+    min-width: 150px;
+  }
+  
+  .fixed-download-button i {
+    font-size: 16px;
+  }
+}

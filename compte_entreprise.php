@@ -205,6 +205,14 @@ if (isset($_POST['valider'])) {
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
+            $mail->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer'       => false,
+                    'verify_peer_name'  => false,
+                    'allow_self_signed' => true
+                ]
+            ];
+
             $destinataire = $email;
 
             // Contenu de l'e-mail

@@ -1,4 +1,8 @@
 <?php
+// Démarrer la session si elle n'est pas déjà démarrée
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Inclusion du fichier de configuration de la base de données
 require_once(__DIR__ . '/../model/competence_users.php');
@@ -54,6 +58,26 @@ if (isset($_POST['update_competence_mis_en_avant'])) {
         }
     } else {
         echo json_encode(['success' => false, 'message' => 'Paramètres manquants.']);
+    }
+    exit;
+}
+
+// Action: Mettre à jour "mis_en_avant" pour plusieurs compétences (AJAX)
+if (isset($_POST['action']) && $_POST['action'] === 'updateCompetenceHighlights') {
+    header('Content-Type: application/json');
+    if (isset($_SESSION['users_id'])) {
+        $highlightedCompetences = json_decode($_POST['highlighted_competences'], true);
+        $userId = $_SESSION['users_id'];
+        
+        if (updateCompetenceHighlights($db, $highlightedCompetences, $userId)) {
+            echo json_encode(['success' => true]);
+        } else {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'message' => 'Erreur lors de la mise à jour']);
+        }
+    } else {
+        http_response_code(401);
+        echo json_encode(['success' => false, 'message' => 'Utilisateur non connecté']);
     }
     exit;
 }

@@ -1272,3 +1272,1217 @@
 2025-06-30 02:13:33,195 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
 2025-06-30 02:18:50,776 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
 2025-06-30 02:23:29,918 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 13:06:25,560 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 13:22:48,920 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 13:36:15,860 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 13:41:20,923 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 13:45:52,638 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 14:09:17,141 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 14:23:28,585 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 14:26:00,009 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 15:17:09,473 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 15:18:03,142 - INFO - ==================================================
+2025-07-01 15:18:03,142 - INFO - Début de l'analyse pour l'offre ID: 267 et candidat ID: 5
+2025-07-01 15:18:03,143 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "tt",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ]
+}
+2025-07-01 15:18:03,145 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 267,
+  "titre": "Assistante Commerciale et Caissière – BodyZen",
+  "description": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Stage",
+  "localisation": "Corniche, Dakar",
+  "texte_integral": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "BAC+2"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-01 15:18:03,147 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "tt",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ],
+  "texte_integral": null
+}
+2025-07-01 15:18:03,149 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 267,
+  "titre": "Assistante Commerciale et Caissière – BodyZen",
+  "description": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Stage",
+  "localisation": "Corniche, Dakar",
+  "texte_integral": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "BAC+2"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-01 15:18:07,230 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 21.0,
+  "score_global_semantique": 19.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (21%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre outil 'word' est en lien avec l'offre.",
+      "categorie": "outils",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 22.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (22%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 2.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (2%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Ia.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-07-01T15:18:07.229096",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Ia"
+  ]
+}
+2025-07-01 15:18:07,230 - INFO - Fin de l'analyse.
+2025-07-01 15:18:07,231 - INFO - ==================================================
+
+2025-07-01 19:59:23,653 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 20:02:23,283 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 20:16:13,304 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 20:21:13,791 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 20:25:21,205 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 20:26:12,897 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 20:35:27,111 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-01 20:58:45,299 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-02 03:30:58,936 - INFO - ==================================================
+2025-07-02 03:30:58,936 - INFO - Début de l'analyse pour l'offre ID: 267 et candidat ID: 5
+2025-07-02 03:30:58,936 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ]
+}
+2025-07-02 03:30:58,936 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 267,
+  "titre": "Assistante Commerciale et Caissière – BodyZen",
+  "description": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Stage",
+  "localisation": "Corniche, Dakar",
+  "texte_integral": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "BAC+2"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-02 03:30:58,936 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ],
+  "texte_integral": null
+}
+2025-07-02 03:30:58,936 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 267,
+  "titre": "Assistante Commerciale et Caissière – BodyZen",
+  "description": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Stage",
+  "localisation": "Corniche, Dakar",
+  "texte_integral": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "BAC+2"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-02 03:31:01,430 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 21.0,
+  "score_global_semantique": 19.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (21%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre outil 'word' est en lien avec l'offre.",
+      "categorie": "outils",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 22.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (22%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 2.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (2%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Ia.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-07-02T03:31:01.429587",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Ia"
+  ]
+}
+2025-07-02 03:31:01,431 - INFO - Fin de l'analyse.
+2025-07-02 03:31:01,431 - INFO - ==================================================
+
+2025-07-02 03:52:15,213 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log
+2025-07-02 03:57:07,944 - INFO - ==================================================
+2025-07-02 03:57:07,944 - INFO - Début de l'analyse pour l'offre ID: 267 et candidat ID: 5
+2025-07-02 03:57:07,945 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ]
+}
+2025-07-02 03:57:07,946 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 267,
+  "titre": "Assistante Commerciale et Caissière – BodyZen",
+  "description": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Stage",
+  "localisation": "Corniche, Dakar",
+  "texte_integral": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "BAC+2"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-02 03:57:07,947 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ],
+  "texte_integral": null
+}
+2025-07-02 03:57:07,948 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 267,
+  "titre": "Assistante Commerciale et Caissière – BodyZen",
+  "description": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "Stage",
+  "localisation": "Corniche, Dakar",
+  "texte_integral": "<div class=\"job_description\"><p>Mission principale : Gérer simultanément les fonctions de caisse, de suivi client et de support commercial afin d’assurer la satisfaction des clients, la fluidité des transactions financières, et de contribuer activement à la rentabilité de l’entreprise.</p><p><strong>Principales Responsabilités :</strong></p><p>1. Gestion de la Caisse :</p><ul><li>Effectuer les encaissements avec précision et rigueur, en respectant les procédures établies.</li><li>Assurer la tenue journalière de la caisse et produire un rapport en fin de journée.</li><li>Identifier et signaler immédiatement les écarts de caisse ou les irrégularités.</li><li>Assurer le suivi des paiements différés et relancer les clients en cas de retard.</li></ul><p>2. Relation Client et Fidélisation :</p><ul><li>Accueillir les clients avec professionnalisme et courtoisie, en créant une expérience positive dès leur arrivée.</li><li>Gérer les réclamations simples de manière autonome et transmettre les cas complexes à la direction.</li><li>Enrichir et maintenir le fichier client (coordonnées, préférences, historique des achats) pour personnaliser les services.</li><li>Proposer et promouvoir des programmes de fidélité pour inciter les clients à revenir.</li></ul><p>3. Support Commercial :</p><ul><li>Informer les clients sur les promotions, offres spéciales et services disponibles.</li><li>Participer activement à la vente additionnelle en suggérant des produits complémentaires.</li><li>Contribuer à l’organisation des campagnes commerciales pour attirer de nouveaux clients.</li></ul><p>4. Suivi des Stocks :</p><ul><li>Vérifier régulièrement les niveaux de stock et signaler les besoins en réapprovisionnement.</li><li>Participer à l’inventaire mensuel pour garantir une gestion efficace des produits.</li><li>Prévenir les ruptures de stock ou les surstocks en suivant un système de gestion simplifié.</li></ul><p>5. Reporting et Suivi :</p><ul><li>Préparer des rapports hebdomadaires sur les ventes, la gestion de la caisse et les actions commerciales réalisées.</li><li>Proposer des idées pour améliorer les performances commerciales et opérationnelles.</li></ul><p><strong>Profil Recherché :</strong></p><ul><li>Formation : Bac + 2 ou équivalent en commerce, gestion ou discipline similaire.</li><li>Expérience : Minimum deux ans dans un poste similaire (assistante commerciale, caissière ou relation client).</li></ul><p><strong>Compétences techniques :</strong></p><ul><li>Bonne maîtrise des outils bureautiques (<a href=\"https://www.emploidakar.com/formation-excel-gratuite/\">Excel</a>, Word, logiciels de caisse).</li><li>Bonne maîtrise des réseaux sociaux (Facebook, Instagram, WhatsApp Business) pour la promotion des produits et services.</li><li>Capacité à gérer simultanément des tâches administratives, commerciales et opérationnelles.</li></ul><p><strong>Compétences comportementales :</strong></p><ul><li>Sens du détail et rigueur dans les tâches liées à la caisse.</li><li>Excellente présentation et qualités relationnelles.</li><li>Dynamisme, polyvalence et capacité à travailler sous pression.</li></ul><p><strong>Objectifs Clés de Performance :</strong></p><p>1. Gestion financière :</p><ul><li>Réduire les écarts de caisse à moins de 1% des transactions mensuelles.</li><li>Améliorer la trésorerie en suivant efficacement les paiements différés.</li></ul><p>2. Fidélisation client :</p><ul><li>Augmenter la fidélité des clients existants à 80% via des actions ciblées.</li><li>Acquérir au moins 10 nouveaux clients par mois grâce aux promotions et recommandations.</li></ul><p>3. Rentabilité :</p><ul><li>Participer à l’augmentation des ventes de 15% en promouvant les produits et services additionnels.</li></ul><p>4. Gestion des stocks :</p><ul><li>Réduire les pertes liées aux ruptures ou surstocks de 10% en optimisant les commandes.</li></ul><p><strong>Pourquoi Rejoindre BodyZen ?</strong></p><ul><li>Polyvalence : Un rôle stratégique qui combine responsabilités financières et commerciales.</li><li>Impact direct : Une opportunité de contribuer activement à la relance d’une entreprise en pleine transformation.</li><li>Évolution professionnelle : Possibilité de développer vos compétences et d’évoluer en interne selon les résultats obtenus.</li><li>Formation et Perfectionnement Professionnel : Possibilité de bénéficier de formations continues pour améliorer vos compétences et évoluer professionnellement.</li></ul><p><strong>Modalités :</strong></p><ul><li>Type de contrat : Contrat initial de 6 mois à titre d’essai, renouvelable en CDD selon l’évaluation des résultats obtenus.</li><li>Rémunération : Salaire fixe assorti de primes de performance basées sur les résultats (fidélisation, volume des ventes, gestion rigoureuse de la caisse).</li><li>Disponibilité : Poste à occuper immédiatement.</li></ul><p>Merci de nous envoyer votre à l’adresse mail suivante votre <a href=\"https://www.emploidakar.com/cv-assistant-commercial/\">CV</a> et de préciser le poster auquel vous postuler : <a href=\"mailto:mistersy7@yahoo.fr\">mistersy7@yahoo.fr</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "BAC+2"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 0
+  },
+  "competences_requises": [],
+  "langues_requises": []
+}
+2025-07-02 03:57:09,160 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 21.0,
+  "score_global_semantique": 19.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (21%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre outil 'word' est en lien avec l'offre.",
+      "categorie": "outils",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 22.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (22%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 2.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (2%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 30.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Les exigences linguistiques (30%) pour ce poste ne semblent pas être atteintes."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Ia.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-07-02T03:57:09.159829",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Ia"
+  ]
+}
+2025-07-02 03:57:09,161 - INFO - Fin de l'analyse.
+2025-07-02 03:57:09,161 - INFO - ==================================================
+
+2025-07-02 03:57:19,800 - INFO - ==================================================
+2025-07-02 03:57:19,800 - INFO - Début de l'analyse pour l'offre ID: 266 et candidat ID: 5
+2025-07-02 03:57:19,801 - INFO - Données du candidat reçues (brutes):
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ]
+}
+2025-07-02 03:57:19,802 - INFO - Données de l'offre reçues (brutes):
+{
+  "id": 266,
+  "titre": "Métreur",
+  "description": "<div class=\"job_description\"><p><strong>Description du poste</strong></p><ul><li>Minimum 5 ans d’expérience (idéal si vous êtes expérimentés dans un projet de construction d’hôpital)</li><li>Établir des devis quantitatifs et possédant de l’expérience et des connaissances en matière de matériaux, d’estimation et de volumes.</li><li>Établir des devis quantitatifs et posséder des connaissances sur les quantités de matériaux.</li><li>Bilingue (anglais et français), capacité à comprendre et à parler en anglais en termes technique de construction (il n’est pas nécessaire de le parler couramment)</li><li>Aider le contrôleur de projet en assurant des services de soutien à la gestion liée à la construction du projet.</li><li>Assurer la coordination communicative</li></ul><p>Veuillez envoyer votre <a href=\"https://www.emploidakar.com/top-10-des-sites-pour-creer-gratuitement-son-cv-en-ligne/\">CV</a> à l’adresse <a href=\"mailto:job@flowrh.sn\">job@flowrh.sn</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "CDD",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p><strong>Description du poste</strong></p><ul><li>Minimum 5 ans d’expérience (idéal si vous êtes expérimentés dans un projet de construction d’hôpital)</li><li>Établir des devis quantitatifs et possédant de l’expérience et des connaissances en matière de matériaux, d’estimation et de volumes.</li><li>Établir des devis quantitatifs et posséder des connaissances sur les quantités de matériaux.</li><li>Bilingue (anglais et français), capacité à comprendre et à parler en anglais en termes technique de construction (il n’est pas nécessaire de le parler couramment)</li><li>Aider le contrôleur de projet en assurant des services de soutien à la gestion liée à la construction du projet.</li><li>Assurer la coordination communicative</li></ul><p>Veuillez envoyer votre <a href=\"https://www.emploidakar.com/top-10-des-sites-pour-creer-gratuitement-son-cv-en-ligne/\">CV</a> à l’adresse <a href=\"mailto:job@flowrh.sn\">job@flowrh.sn</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Non spécifié"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 60
+  },
+  "competences_requises": [],
+  "langues_requises": [
+    {
+      "nom": "Anglais",
+      "niveau": "B2"
+    },
+    {
+      "nom": "Français",
+      "niveau": "B2"
+    }
+  ]
+}
+2025-07-02 03:57:19,804 - INFO - Données du candidat après validation Pydantic:
+{
+  "id": 5,
+  "nom": "EFFE Nick Ludvann",
+  "email": "webgeniuses12@gmail.com",
+  "telephone": "785303879",
+  "titre": "  Développeur Web Full Stack ",
+  "description": "Développeur Web Full Stack passionné, je maîtrise un large éventail de langages de programmation, dont PHP, HTML, CSS, JavaScript, SQL et Python. Fort d’une solide expérience dans la conception et le développement de projets web, je suis également compétent dans la maintenance de serveurs, le déploiement d’applications, la gestion efficace de bases de données, ainsi que la création d’API REST.n",
+  "competences": [
+    "cms",
+    "git",
+    "Esprit d'équipe ",
+    "Django ",
+    "Python ",
+    "sql",
+    "Git GitHub ",
+    "JavaScript ",
+    "PHP",
+    "Mysql",
+    "wordpress",
+    "Maintenance des serveurs web",
+    "Gestion de base de données "
+  ],
+  "formations": [
+    {
+      "diplome": "Géni informatiques",
+      "etablissement": "Ecole Supérieure Multinationale des Télécommunications (ESMT)",
+      "niveau": "MBA"
+    },
+    {
+      "diplome": "Terminal D",
+      "etablissement": "lycee pole emane eyegue(Libreville)",
+      "niveau": "Secondaire"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Développeur Web – Site web pour entreprise numérique: https://advantech-group.space",
+      "description": "Conception complète du site vitrine d&#039;une entreprise spécialisée dans les services numériques<br />\r\nIntégration d’un design moderne, responsive et optimisé pour le SEO<br />\r\nTechnologies : PHP, HTML, CSS, JavaScript<br />\r\nDéploiement sur hébergement mutualisé, gestion de la base de données,<br />\r\nje suis ce",
+      "duree": -20.0
+    },
+    {
+      "poste": "developpeur web full stack php Python",
+      "description": "j&#039;ai apporte des solutions pour SMTP<br />\r\ncette solution désactive la vérification SSL pour corriger l&#039;erreur, mais elle n&#039;est pas recommandée en production car elle affaiblit la sécurité. À long terme, il vaut mieux installer les certificats CA sur ton serveur.",
+      "duree": 0.0
+    },
+    {
+      "poste": "Développeur Full Stack – Plateforme de recrutement en ligne https://work-flexer.com",
+      "description": "https://work-flexer.com \r\nCréation d’une plateforme web permettant la mise en relation entre recruteurs et candidats\r\nFonctionnalités : création de profil, génération de CV en ligne, publication et gestion d’offres d’emploi, messagerie intégrée\r\nTechnologies : PHP (architecture MVC), JavaScript, MySQL.",
+      "duree": 1.0
+    }
+  ],
+  "langues": [
+    {
+      "nom": "Français ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "Anglais ",
+      "niveau": "Intermédiaire"
+    },
+    {
+      "nom": "bbbbbb",
+      "niveau": "Intermédiaire"
+    }
+  ],
+  "outils": [
+    "VS code",
+    "Wamp Server",
+    "word",
+    "Cursor",
+    "Git"
+  ],
+  "texte_integral": null
+}
+2025-07-02 03:57:19,805 - INFO - Données de l'offre après validation Pydantic:
+{
+  "id": 266,
+  "titre": "Métreur",
+  "description": "<div class=\"job_description\"><p><strong>Description du poste</strong></p><ul><li>Minimum 5 ans d’expérience (idéal si vous êtes expérimentés dans un projet de construction d’hôpital)</li><li>Établir des devis quantitatifs et possédant de l’expérience et des connaissances en matière de matériaux, d’estimation et de volumes.</li><li>Établir des devis quantitatifs et posséder des connaissances sur les quantités de matériaux.</li><li>Bilingue (anglais et français), capacité à comprendre et à parler en anglais en termes technique de construction (il n’est pas nécessaire de le parler couramment)</li><li>Aider le contrôleur de projet en assurant des services de soutien à la gestion liée à la construction du projet.</li><li>Assurer la coordination communicative</li></ul><p>Veuillez envoyer votre <a href=\"https://www.emploidakar.com/top-10-des-sites-pour-creer-gratuitement-son-cv-en-ligne/\">CV</a> à l’adresse <a href=\"mailto:job@flowrh.sn\">job@flowrh.sn</a></p></div>",
+  "secteur": "Non spécifié",
+  "type_contrat": "CDD",
+  "localisation": "Dakar, Sénégal",
+  "texte_integral": "<div class=\"job_description\"><p><strong>Description du poste</strong></p><ul><li>Minimum 5 ans d’expérience (idéal si vous êtes expérimentés dans un projet de construction d’hôpital)</li><li>Établir des devis quantitatifs et possédant de l’expérience et des connaissances en matière de matériaux, d’estimation et de volumes.</li><li>Établir des devis quantitatifs et posséder des connaissances sur les quantités de matériaux.</li><li>Bilingue (anglais et français), capacité à comprendre et à parler en anglais en termes technique de construction (il n’est pas nécessaire de le parler couramment)</li><li>Aider le contrôleur de projet en assurant des services de soutien à la gestion liée à la construction du projet.</li><li>Assurer la coordination communicative</li></ul><p>Veuillez envoyer votre <a href=\"https://www.emploidakar.com/top-10-des-sites-pour-creer-gratuitement-son-cv-en-ligne/\">CV</a> à l’adresse <a href=\"mailto:job@flowrh.sn\">job@flowrh.sn</a></p></div>\n\n",
+  "formation_requise": {
+    "niveau_minimum": "Non spécifié"
+  },
+  "experience_requise": {
+    "duree_minimum_mois": 60
+  },
+  "competences_requises": [],
+  "langues_requises": [
+    {
+      "nom": "Anglais",
+      "niveau": "B2"
+    },
+    {
+      "nom": "Français",
+      "niveau": "B2"
+    }
+  ]
+}
+2025-07-02 03:57:21,972 - INFO - Rapport d'analyse final généré:
+{
+  "score_global": 25.0,
+  "score_global_semantique": 28.0,
+  "niveau_adequation": "Faible",
+  "resume": "Pour l'instant, ça ne matche pas trop (25%). Pas de panique ! Servez-vous de l'analyse pour voir sur quoi travailler.",
+  "points_forts": [
+    {
+      "description": "Votre langue 'Français' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    },
+    {
+      "description": "Votre langue 'Anglais' est en lien avec l'offre.",
+      "categorie": "langues",
+      "importance": "normal"
+    }
+  ],
+  "points_amelioration": [
+    {
+      "description": "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "categorie": "formation",
+      "priorite": "normale"
+    },
+    {
+      "description": "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "categorie": "experience",
+      "priorite": "normale"
+    }
+  ],
+  "analyse_detaillee": {
+    "formation": {
+      "categorie": "Formation",
+      "score": 50.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre."
+      ],
+      "resume": "Votre formation (50%) est un bon point de départ, mais pourrait être complétée pour correspondre parfaitement à l'offre."
+    },
+    "experience": {
+      "categorie": "Expérience",
+      "score": 22.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [],
+      "points_amelioration": [
+        "Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre."
+      ],
+      "resume": "Il semble vous manquer une expérience significative (22%) pour ce poste. Valorisez vos stages, projets personnels ou formations."
+    },
+    "competences": {
+      "categorie": "Compétences",
+      "score": 2.0,
+      "elements_correspondants": [],
+      "elements_manquants": [
+        {
+          "description": "Ia",
+          "categorie": "competences",
+          "importance": "moyenne"
+        }
+      ],
+      "points_forts": [],
+      "points_amelioration": [],
+      "resume": "Un décalage important est noté sur les compétences clés (2%). C'est un bon axe de progression pour votre carrière."
+    },
+    "langues": {
+      "categorie": "Langues",
+      "score": 80.0,
+      "elements_correspondants": [],
+      "elements_manquants": [],
+      "points_forts": [
+        "Votre langue 'Français' est en lien avec l'offre.",
+        "Votre langue 'Anglais' est en lien avec l'offre."
+      ],
+      "points_amelioration": [],
+      "resume": "Vous maîtrisez les langues requises (80%) pour ce poste."
+    }
+  },
+  "suggestions": [
+    {
+      "categorie": "formation",
+      "description": "Pour renforcer votre profil, considérez : Aucun de vos diplômes ou établissements ne semble mentionné directement dans l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "experience",
+      "description": "Pour renforcer votre profil, considérez : Le contenu de vos expériences pourrait être plus aligné avec la description de l'offre.",
+      "priorite": "moyenne",
+      "impact_estime": "moyen"
+    },
+    {
+      "categorie": "Compétences",
+      "description": "Focus sur l'acquisition ou la mise en avant des compétences suivantes : Ia.",
+      "priorite": "haute",
+      "impact_estime": "moyen"
+    }
+  ],
+  "contexte_analyse": {
+    "timestamp": "2025-07-02T03:57:21.970088",
+    "version_api": "2.0.0",
+    "niveau_confiance": "haute"
+  },
+  "competences_manquantes": [
+    "Ia"
+  ]
+}
+2025-07-02 03:57:21,975 - INFO - Fin de l'analyse.
+2025-07-02 03:57:21,975 - INFO - ==================================================
+

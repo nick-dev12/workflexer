@@ -88,7 +88,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="image_customizer.js" defer></script>
 
     <link rel="stylesheet" href="../css/navbare.css">
-    <link rel="stylesheet" href="../css/model1.css">
+    <link rel="stylesheet" href="../css/model1_1.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
 
 </head>
@@ -800,7 +800,6 @@ if (isset($_SESSION['users_id'])) {
             </script>
         </div>
 
-        <div id="box">
             <div id="container" class="container">
                 <!-- <div class="haut"></div> -->
 
@@ -1034,7 +1033,6 @@ if (isset($_SESSION['users_id'])) {
 
                 <!-- <div class="bas"></div> -->
             </div>
-        </div>
 
         <!-- Conteneur caché pour le clone PDF -->
         <div style="position: absolute; left: -9999px; top:0;">

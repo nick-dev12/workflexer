@@ -1,85 +1,46 @@
-2025-06-29 22:56:33,595 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 3
-2025-06-29 23:00:57,973 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 3
-2025-06-29 23:07:26,990 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 3
-2025-06-29 23:13:05,842 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-29 23:31:56,794 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-29 23:32:19,482 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 73
-2025-06-29 23:37:02,456 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 73
-2025-06-29 23:41:48,698 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-29 23:42:05,970 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-29 23:42:25,452 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-29 23:45:49,996 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-29 23:54:04,288 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-30 00:19:45,601 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-30 01:16:09,822 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:16:09,822 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 268
-2025-06-30 01:16:15,947 - api_matching - ERROR - ERREUR - Erreur dans l'analyse hybride V2: Erreur lors de l'analyse hybride: 1 validation error for EmbeddingSection
-texte_normalise
-  Input should be a valid string [type=string_type, input_value=['développeur', 'web', '...bbbb', 'intermédiaire'], input_type=list]
-    For further information visit https://errors.pydantic.dev/2.4/v/string_type
-2025-06-30 01:20:21,211 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:20:21,211 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 268
-2025-06-30 01:20:37,092 - api_matching - INFO - SUCCES - Analyse hybride V2 terminée avec succès en 15.88s
-2025-06-30 01:20:37,092 - api_matching - INFO - SCORE - Score final: 36% - Niveau: Faible
-2025-06-30 01:22:05,608 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:22:05,609 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 267
-2025-06-30 01:22:11,211 - api_matching - INFO - SUCCES - Analyse hybride V2 terminée avec succès en 5.60s
-2025-06-30 01:22:11,211 - api_matching - INFO - SCORE - Score final: 38% - Niveau: Faible
-2025-06-30 01:22:40,380 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:22:40,387 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 274
-2025-06-30 01:22:45,856 - api_matching - INFO - SUCCES - Analyse hybride V2 terminée avec succès en 5.47s
-2025-06-30 01:22:45,857 - api_matching - INFO - SCORE - Score final: 37% - Niveau: Faible
-2025-06-30 01:23:29,676 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:23:29,692 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 505
-2025-06-30 01:23:29,692 - api_matching - ERROR - ERREUR - Erreur dans l'analyse hybride V2: La description de l'offre est trop courte pour une analyse pertinente.
-2025-06-30 01:23:40,881 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:23:40,881 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 358
-2025-06-30 01:23:40,898 - api_matching - ERROR - ERREUR - Erreur dans l'analyse hybride V2: Erreur lors de l'analyse hybride: 1 validation error for JobOfferDakarV2
-competences_requises
-  Input should be a valid list [type=list_type, input_value={'0': {'nom': 'En analyse...se, 'alternatives': []}}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.4/v/list_type
-2025-06-30 01:24:14,857 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:24:15,250 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 345
-2025-06-30 01:24:20,703 - api_matching - INFO - SUCCES - Analyse hybride V2 terminée avec succès en 5.23s
-2025-06-30 01:24:20,704 - api_matching - INFO - SCORE - Score final: 47% - Niveau: Passable
-2025-06-30 01:24:38,647 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:24:38,647 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 358
-2025-06-30 01:24:38,659 - api_matching - ERROR - ERREUR - Erreur dans l'analyse hybride V2: Erreur lors de l'analyse hybride: 1 validation error for JobOfferDakarV2
-competences_requises
-  Input should be a valid list [type=list_type, input_value={'0': {'nom': 'En analyse...se, 'alternatives': []}}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.4/v/list_type
-2025-06-30 01:24:52,192 - api_matching - INFO - DEBUT - Nouvelle requête d'analyse hybride V2 Dakar reçue
-2025-06-30 01:24:52,211 - api_matching - INFO - INFO - Analyse hybride V2 - Candidat ID: 5 | Offre ID: 345
-2025-06-30 01:24:54,698 - api_matching - INFO - SUCCES - Analyse hybride V2 terminée avec succès en 2.49s
-2025-06-30 01:24:54,713 - api_matching - INFO - SCORE - Score final: 47% - Niveau: Passable
-2025-06-30 01:29:51,446 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 345
-2025-06-30 01:29:54,462 - api_matching - INFO - Analyse Dakar terminée avec un score global de 0
-2025-06-30 01:37:03,220 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 345
-2025-06-30 01:37:04,198 - api_matching - INFO - Analyse Dakar terminée avec un score global de 30.0
-2025-06-30 01:37:23,590 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 373
-2025-06-30 01:37:27,538 - api_matching - INFO - Analyse Dakar terminée avec un score global de 28.0
-2025-06-30 01:51:26,666 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 373
-2025-06-30 01:51:29,774 - api_matching - INFO - Analyse Dakar terminée avec un score global de 0
-2025-06-30 02:05:03,429 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 373
-2025-06-30 02:05:07,185 - api_matching - INFO - Analyse Dakar terminée avec un score global de 25.0
-2025-06-30 02:05:33,280 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 345
-2025-06-30 02:05:36,240 - api_matching - INFO - Analyse Dakar terminée avec un score global de 31.0
-2025-06-30 02:05:56,428 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 505
-2025-06-30 02:05:56,444 - api_matching - INFO - Analyse Dakar terminée avec un score global de 0
-2025-06-30 02:06:04,543 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 358
-2025-06-30 02:06:08,073 - api_matching - INFO - Analyse Dakar terminée avec un score global de 24.0
-2025-06-30 02:07:06,049 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 747
-2025-06-30 02:07:09,532 - api_matching - INFO - Analyse Senjob terminée avec un score global de 22.0
-2025-06-30 02:13:54,310 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 747
-2025-06-30 02:13:57,919 - api_matching - INFO - Analyse Senjob terminée avec un score global de 22.0
-2025-06-30 02:15:09,746 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 752
-2025-06-30 02:15:12,090 - api_matching - INFO - Analyse Senjob terminée avec un score global de 19.0
-2025-06-30 02:15:49,642 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 759
-2025-06-30 02:15:52,110 - api_matching - INFO - Analyse Senjob terminée avec un score global de 15.0
-2025-06-30 02:16:04,218 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 760
-2025-06-30 02:16:09,165 - api_matching - INFO - Analyse Senjob terminée avec un score global de 19.0
-2025-06-30 02:16:43,100 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
-2025-06-30 08:12:41,468 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 120
-2025-06-30 08:16:00,322 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 171
-2025-06-30 08:33:58,481 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 747
-2025-06-30 08:33:59,400 - api_matching - INFO - Analyse Senjob terminée avec un score global de 22.0
+2025-07-01 13:24:09,145 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
+2025-07-01 15:17:21,370 - api_matching - INFO - Analyse unidirectionnelle demandée pour le candidat 5 et l'offre 40
+2025-07-01 15:17:25,861 - api_matching - INFO - Analyse unidirectionnelle terminée avec un score de 22%
+2025-07-01 15:18:03,141 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 267
+2025-07-01 15:18:07,231 - api_matching - INFO - Analyse Dakar terminée avec un score global de 21.0
+2025-07-01 20:10:51,433 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 2
+2025-07-01 20:11:20,975 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
+2025-07-01 20:32:47,435 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
+2025-07-01 20:33:07,368 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
+2025-07-01 21:05:30,730 - api_matching - INFO - Analyse Hybride V2 demandée pour le candidat 5 et l'offre 40
+2025-07-01 21:23:49,035 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-07-01 21:23:49,485 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 21:24:03,807 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 73
+2025-07-01 21:24:05,901 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 21:24:19,851 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 15
+2025-07-01 21:24:21,667 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 21:24:37,348 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 120
+2025-07-01 21:24:39,212 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 21:24:53,280 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 2
+2025-07-01 21:24:53,898 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 23:02:04,804 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 2
+2025-07-01 23:02:07,308 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 23:11:18,226 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 3
+2025-07-01 23:11:20,555 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 23:11:29,407 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 4
+2025-07-01 23:11:31,327 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-01 23:11:42,765 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 4
+2025-07-01 23:11:43,197 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 03:29:29,914 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 4
+2025-07-02 03:29:30,233 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 03:29:42,573 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 4
+2025-07-02 03:29:42,979 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 03:29:52,128 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 6
+2025-07-02 03:29:54,857 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 03:30:58,936 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 267
+2025-07-02 03:31:01,432 - api_matching - INFO - Analyse Dakar terminée avec un score global de 21.0
+2025-07-02 03:52:27,453 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 2
+2025-07-02 03:52:28,051 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 03:55:35,620 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 2
+2025-07-02 03:55:35,862 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 03:57:07,942 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 267
+2025-07-02 03:57:09,162 - api_matching - INFO - Analyse Dakar terminée avec un score global de 21.0
+2025-07-02 03:57:19,799 - api_matching - INFO - Analyse Dakar demandée pour le candidat 5 et l'offre 266
+2025-07-02 03:57:21,976 - api_matching - INFO - Analyse Dakar terminée avec un score global de 25.0
+2025-07-02 03:57:45,002 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 746
+2025-07-02 03:57:46,682 - api_matching - INFO - Analyse Senjob terminée avec un score global de 18.0

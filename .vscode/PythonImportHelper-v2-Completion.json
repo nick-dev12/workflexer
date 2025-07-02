@@ -123,6 +123,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -284,6 +292,14 @@
         "documentation": {}
     },
     {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Dict",
         "importPath": "typing",
         "description": "typing",
@@ -365,204 +381,50 @@
     },
     {
         "label": "MatchingRequest",
-        "importPath": "api1.models",
-        "description": "api1.models",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "api1.models",
+        "detail": "models",
         "documentation": {}
     },
     {
         "label": "MatchingResponse",
-        "importPath": "api1.models",
-        "description": "api1.models",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "api1.models",
+        "detail": "models",
         "documentation": {}
     },
     {
         "label": "MatchingResponseV2",
-        "importPath": "api1.models",
-        "description": "api1.models",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "api1.models",
+        "detail": "models",
         "documentation": {}
     },
     {
         "label": "MatchingRequestV2",
-        "importPath": "api1.models",
-        "description": "api1.models",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "api1.models",
+        "detail": "models",
         "documentation": {}
     },
     {
         "label": "ContexteAnalyse",
-        "importPath": "api1.models",
-        "description": "api1.models",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "api1.models",
+        "detail": "models",
         "documentation": {}
     },
     {
         "label": "CandidatProfile",
-        "importPath": "api1.models",
-        "description": "api1.models",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "api1.models",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_compatibility",
-        "importPath": "api1.utils",
-        "description": "api1.utils",
-        "isExtraImport": true,
-        "detail": "api1.utils",
-        "documentation": {}
-    },
-    {
-        "label": "normalize_text",
-        "importPath": "api1.utils",
-        "description": "api1.utils",
-        "isExtraImport": true,
-        "detail": "api1.utils",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_compatibility_hybrid",
-        "importPath": "api1.utils",
-        "description": "api1.utils",
-        "isExtraImport": true,
-        "detail": "api1.utils",
-        "documentation": {}
-    },
-    {
-        "label": "api1.config",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "api1.config",
-        "description": "api1.config",
-        "detail": "api1.config",
-        "documentation": {}
-    },
-    {
-        "label": "JobOfferDakar",
-        "importPath": "api1.models_dakar",
-        "description": "api1.models_dakar",
-        "isExtraImport": true,
-        "detail": "api1.models_dakar",
-        "documentation": {}
-    },
-    {
-        "label": "CandidatProfileDakar",
-        "importPath": "api1.models_dakar",
-        "description": "api1.models_dakar",
-        "isExtraImport": true,
-        "detail": "api1.models_dakar",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_compatibility_dakar",
-        "importPath": "api1.utils_dakar",
-        "description": "api1.utils_dakar",
-        "isExtraImport": true,
-        "detail": "api1.utils_dakar",
-        "documentation": {}
-    },
-    {
-        "label": "JobOfferSenjob",
-        "importPath": "api1.models_senjob",
-        "description": "api1.models_senjob",
-        "isExtraImport": true,
-        "detail": "api1.models_senjob",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_compatibility_senjob",
-        "importPath": "api1.utils_senjob",
-        "description": "api1.utils_senjob",
-        "isExtraImport": true,
-        "detail": "api1.utils_senjob",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "Field",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "validator",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "Field",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "validator",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "Field",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
+        "detail": "models",
         "documentation": {}
     },
     {
@@ -950,6 +812,207 @@
         "documentation": {}
     },
     {
+        "label": "analyze_compatibility",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_compatibility_hybrid",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_compatibility",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "nlp",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "sentence_model",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "stop_words",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_semantic_similarity",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "create_focused_candidate_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_global_compatibility",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_main_resume",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_section_resume",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "nlp",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "sentence_model",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "stop_words",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_semantic_similarity",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "create_focused_candidate_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_global_compatibility",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_main_resume",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_section_resume",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "config",
+        "description": "config",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "JobOfferDakar",
+        "importPath": "models_dakar",
+        "description": "models_dakar",
+        "isExtraImport": true,
+        "detail": "models_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "CandidatProfileDakar",
+        "importPath": "models_dakar",
+        "description": "models_dakar",
+        "isExtraImport": true,
+        "detail": "models_dakar",
+        "documentation": {}
+    },
+    {
         "label": "CandidatProfileDakar",
         "importPath": "models_dakar",
         "description": "models_dakar",
@@ -1030,6 +1093,119 @@
         "documentation": {}
     },
     {
+        "label": "analyze_compatibility_dakar",
+        "importPath": "utils_dakar",
+        "description": "utils_dakar",
+        "isExtraImport": true,
+        "detail": "utils_dakar",
+        "documentation": {}
+    },
+    {
+        "label": "JobOfferSenjob",
+        "importPath": "models_senjob",
+        "description": "models_senjob",
+        "isExtraImport": true,
+        "detail": "models_senjob",
+        "documentation": {}
+    },
+    {
+        "label": "JobOfferSenjob",
+        "importPath": "models_senjob",
+        "description": "models_senjob",
+        "isExtraImport": true,
+        "detail": "models_senjob",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_compatibility_senjob",
+        "importPath": "utils_senjob",
+        "description": "utils_senjob",
+        "isExtraImport": true,
+        "detail": "utils_senjob",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "validator",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
         "label": "setup",
         "importPath": "setuptools",
         "description": "setuptools",
@@ -1104,6 +1280,15 @@
         "importPath": "uvicorn",
         "description": "uvicorn",
         "detail": "uvicorn",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -1224,24 +1409,6 @@
         "documentation": {}
     },
     {
-        "label": "config",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "config",
-        "description": "config",
-        "detail": "config",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
         "label": "RotatingFileHandler",
         "importPath": "logging.handlers",
         "description": "logging.handlers",
@@ -1271,158 +1438,6 @@
         "description": "bs4",
         "isExtraImport": true,
         "detail": "bs4",
-        "documentation": {}
-    },
-    {
-        "label": "nlp",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "sentence_model",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "stop_words",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "normalize_text",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "get_semantic_similarity",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "create_focused_candidate_text",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_global_compatibility",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "generate_main_resume",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "generate_section_resume",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "nlp",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "sentence_model",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "stop_words",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "normalize_text",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "get_semantic_similarity",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "create_focused_candidate_text",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "analyze_global_compatibility",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "generate_main_resume",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "generate_section_resume",
-        "importPath": "utils",
-        "description": "utils",
-        "isExtraImport": true,
-        "detail": "utils",
-        "documentation": {}
-    },
-    {
-        "label": "JobOfferSenjob",
-        "importPath": "models_senjob",
-        "description": "models_senjob",
-        "isExtraImport": true,
-        "detail": "models_senjob",
         "documentation": {}
     },
     {
@@ -3381,7 +3396,25 @@
         "kind": 6,
         "importPath": "api1.models",
         "description": "api1.models",
-        "peekOfCode": "class ContexteAnalyse(BaseModel):\n    \"\"\"Contexte de l'analyse effectuée\"\"\"\n    timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())\n    version_api: str = \"2.0.0\"\n    niveau_confiance: str = \"haute\"\n    modeles_utilises: Optional[Dict[str, str]] = None  # Modèles NLP utilisés\n    parametres_analyse: Optional[Dict[str, Any]] = None  # Paramètres utilisés\n    temps_analyse_ms: Optional[int] = None  # Temps d'analyse en millisecondes\n    source_donnees: Optional[str] = None  # Source des données analysées\nclass MatchingResponseV2(BaseModel):",
+        "peekOfCode": "class ContexteAnalyse(BaseModel):\n    \"\"\"Contexte de l'analyse effectuée\"\"\"\n    timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())\n    version_api: str = \"2.0.0\"\n    niveau_confiance: str = \"haute\"\n    modeles_utilises: Optional[Dict[str, str]] = None  # Modèles NLP utilisés\n    parametres_analyse: Optional[Dict[str, Any]] = None  # Paramètres utilisés\n    temps_analyse_ms: Optional[int] = None  # Temps d'analyse en millisecondes\n    source_donnees: Optional[str] = None  # Source des données analysées\nclass CompetenceTrouvee(BaseModel):",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompetenceTrouvee",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class CompetenceTrouvee(BaseModel):\n    \"\"\"Compétence du candidat trouvée dans l'offre\"\"\"\n    competence: str\n    type_correspondance: str  # exact, normalized, semantic\n    confiance: int  # Pourcentage de confiance (0-100)\nclass MatchingResponseSimple(BaseModel):\n    \"\"\"Version simplifiée du modèle de réponse pour l'API\"\"\"\n    score_global: float\n    resume: str\n    competences_message: str",
+        "detail": "api1.models",
+        "documentation": {}
+    },
+    {
+        "label": "MatchingResponseSimple",
+        "kind": 6,
+        "importPath": "api1.models",
+        "description": "api1.models",
+        "peekOfCode": "class MatchingResponseSimple(BaseModel):\n    \"\"\"Version simplifiée du modèle de réponse pour l'API\"\"\"\n    score_global: float\n    resume: str\n    competences_message: str\n    competences_trouvees: List[CompetenceTrouvee] = Field(default_factory=list)\n    nombre_competences_trouvees: int = 0\n    contexte_analyse: Dict[str, Any] = Field(default_factory=dict)\n    class Config:\n        schema_extra = {",
         "detail": "api1.models",
         "documentation": {}
     },
@@ -3539,6 +3572,15 @@
         "documentation": {}
     },
     {
+        "label": "test_simple_analysis",
+        "kind": 2,
+        "importPath": "api1.test_simple",
+        "description": "api1.test_simple",
+        "peekOfCode": "def test_simple_analysis():\n    \"\"\"Test de l'analyse simplifiée\"\"\"\n    # Données de test d'un candidat\n    candidate_data = {\n        \"id\": 1,\n        \"nom\": \"Jean Dupont\",\n        \"email\": \"jean@example.com\",\n        \"competences\": [\n            {\"nom\": \"Communication\", \"niveau\": 4},\n            {\"nom\": \"Gestion\", \"niveau\": 3},",
+        "detail": "api1.test_simple",
+        "documentation": {}
+    },
+    {
         "label": "get_from_cache",
         "kind": 2,
         "importPath": "api1.utils",
@@ -3629,11 +3671,11 @@
         "documentation": {}
     },
     {
-        "label": "cluster_skills_by_technology",
+        "label": "find_matching_skills_in_offer",
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def cluster_skills_by_technology(skills: List[str]) -> Dict[str, List[str]]:\n    \"\"\"\n    Groupe les compétences par clusters technologiques.\n    \"\"\"\n    clustered_skills = defaultdict(list)\n    uncategorized = []\n    # Normaliser les compétences\n    normalized_skills = [normalize_skill_name(skill) for skill in skills]\n    # Classer les compétences dans les clusters\n    for skill in normalized_skills:",
+        "peekOfCode": "def find_matching_skills_in_offer(candidate_skills: List[str], offer_text: str) -> List[Dict[str, Any]]:\n    \"\"\"\n    Trouve les compétences du candidat qui correspondent à l'offre d'emploi.\n    Utilise une approche de recherche sémantique et de mots-clés.\n    \"\"\"\n    logger.info(f\"find_matching_skills_in_offer appelée avec {len(candidate_skills) if candidate_skills else 0} compétences\")\n    logger.info(f\"Premières compétences du candidat: {candidate_skills[:5] if candidate_skills else []}\")\n    logger.info(f\"Texte de l'offre (premiers 200 chars): {offer_text[:200] if offer_text else 'VIDE'}\")\n    if not candidate_skills or not offer_text:\n        logger.warning(\"Compétences du candidat ou texte de l'offre vide\")",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -3741,7 +3783,7 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def classify_skill_category(skill: str) -> str:\n    \"\"\"\n    Classifie une compétence dans une catégorie technologique.\n    \"\"\"\n    skill_lower = skill.lower()\n    for category, skills_in_category in TECHNOLOGY_CLUSTERS.items():\n        if skill_lower in [s.lower() for s in skills_in_category]:\n            return category\n    return 'general'\ndef find_cluster_match(required_skill: str, candidate_skills: List[Dict]) -> Optional[Dict]:",
+        "peekOfCode": "def classify_skill_category(skill: str) -> str:\n    \"\"\"\n    Classifie une compétence dans une catégorie sectorielle.\n    \"\"\"\n    skill_lower = skill.lower()\n    for sector, keywords in SECTOR_KEYWORDS.items():\n        if any(keyword in skill_lower for keyword in keywords):\n            return sector\n    return 'general'\ndef find_cluster_match(required_skill: str, candidate_skills: List[Dict]) -> Optional[Dict]:",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -3849,7 +3891,7 @@
         "kind": 2,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"\n    Analyse hybride avancée V2 utilisant SpaCy et SentenceTransformers.\n    Combine l'analyse structurée (niveau 2) et l'analyse sémantique globale (niveau 1).\n    \"\"\"\n    start_time = time.time()\n    try:\n        logger.info(\"Début de l'analyse hybride avancée V2\")\n        # Validation et initialisation des objets Pydantic\n        profile = CandidatProfile(**candidate_data)",
+        "peekOfCode": "def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:\n    \"\"\"\n    Analyse simplifiée focalisée sur les compétences correspondantes.\n    \"\"\"\n    start_time = time.time()\n    try:\n        logger.info(\"Début de l'analyse de compatibilité simplifiée\")\n        # Validation et initialisation des objets Pydantic\n        profile = CandidatProfile(**candidate_data)\n        offer = JobOffer(**job_offer_data)",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -3921,16 +3963,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "SKILL_NORMALIZATION = {\n    'js': 'javascript',\n    'py': 'python',\n    'css3': 'css',\n    'html5': 'html',\n    'nodejs': 'node.js',\n    'reactjs': 'react',\n    'vuejs': 'vue.js',\n    'angularjs': 'angular',\n    'mysql': 'mysql',",
-        "detail": "api1.utils",
-        "documentation": {}
-    },
-    {
-        "label": "TECHNOLOGY_CLUSTERS",
-        "kind": 5,
-        "importPath": "api1.utils",
-        "description": "api1.utils",
-        "peekOfCode": "TECHNOLOGY_CLUSTERS = {\n    'frontend': ['html', 'css', 'javascript', 'react', 'vue.js', 'angular', 'typescript', 'sass', 'less', 'webpack', 'bootstrap', 'tailwind'],\n    'backend': ['php', 'python', 'java', 'node.js', 'ruby', 'go', 'c#', '.net', 'spring', 'django', 'flask', 'laravel', 'symfony'],\n    'database': ['mysql', 'postgresql', 'mongodb', 'redis', 'elasticsearch', 'oracle', 'sql server', 'sqlite'],\n    'mobile': ['android', 'ios', 'react native', 'flutter', 'ionic', 'cordova', 'swift', 'kotlin', 'xamarin'],\n    'devops': ['docker', 'kubernetes', 'jenkins', 'git', 'aws', 'azure', 'google cloud', 'terraform', 'ansible'],\n    'design': ['photoshop', 'illustrator', 'figma', 'sketch', 'adobe xd', 'indesign', 'after effects'],\n    'cms': ['wordpress', 'drupal', 'joomla', 'shopify', 'magento', 'prestashop'],\n    'analytics': ['google analytics', 'google tag manager', 'mixpanel', 'amplitude', 'tableau', 'power bi']\n}",
+        "peekOfCode": "SKILL_NORMALIZATION = {\n    # Compétences générales\n    'communication': 'communication',\n    'gestion': 'gestion',\n    'management': 'management',\n    'vente': 'vente',\n    'marketing': 'marketing',\n    'finance': 'finance',\n    'comptabilité': 'comptabilité',\n    'rh': 'ressources humaines',",
         "detail": "api1.utils",
         "documentation": {}
     },
@@ -3939,7 +3972,7 @@
         "kind": 5,
         "importPath": "api1.utils",
         "description": "api1.utils",
-        "peekOfCode": "SECTOR_KEYWORDS = {\n    'informatique': ['développement', 'programmation', 'logiciel', 'application', 'système', 'réseau', 'sécurité', 'data', 'ia', 'machine learning'],\n    'marketing': ['marketing', 'communication', 'publicité', 'seo', 'sem', 'réseaux sociaux', 'contenu', 'campagne', 'brand'],\n    'finance': ['finance', 'comptabilité', 'audit', 'contrôle de gestion', 'fiscalité', 'budget', 'investissement', 'banque'],\n    'rh': ['ressources humaines', 'recrutement', 'formation', 'paie', 'gestion du personnel', 'talent management'],\n    'vente': ['vente', 'commercial', 'négociation', 'client', 'prospection', 'relation client', 'business development'],\n    'design': ['design', 'graphique', 'ui', 'ux', 'interface', 'ergonomie', 'expérience utilisateur', 'créatif']\n}\n# Constantes pour l'analyse\nCOMPLETION_THRESHOLD = config.WEIGHTS.get(\"completion_threshold\", 0.7)",
+        "peekOfCode": "SECTOR_KEYWORDS = {\n    'administration': ['administration', 'secrétariat', 'accueil', 'gestion administrative', 'bureau', 'documentation', 'archivage', 'planning', 'organisation'],\n    'commerce': ['vente', 'commercial', 'négociation', 'client', 'prospection', 'relation client', 'business development', 'merchandising', 'caisse'],\n    'finance': ['finance', 'comptabilité', 'audit', 'contrôle de gestion', 'fiscalité', 'budget', 'investissement', 'banque', 'assurance', 'crédit'],\n    'ressources_humaines': ['ressources humaines', 'recrutement', 'formation', 'paie', 'gestion du personnel', 'talent management', 'relations sociales'],\n    'marketing': ['marketing', 'communication', 'publicité', 'événementiel', 'relations publiques', 'contenu', 'campagne', 'brand', 'digital'],\n    'production': ['production', 'fabrication', 'assemblage', 'montage', 'contrôle qualité', 'maintenance', 'logistique', 'supply chain'],\n    'services': ['service client', 'support', 'assistance', 'conseil', 'accompagnement', 'aide', 'social', 'médiation'],\n    'technique': ['maintenance', 'réparation', 'installation', 'dépannage', 'technique', 'mécanique', 'électricité', 'plomberie'],\n    'santé': ['santé', 'médical', 'soins', 'hygiène', 'sécurité', 'prévention', 'urgence', 'assistance médicale'],",
         "detail": "api1.utils",
         "documentation": {}
     },

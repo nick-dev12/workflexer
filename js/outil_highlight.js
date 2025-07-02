@@ -1,13 +1,23 @@
+/**
+ * Script pour la fonctionnalité de mise en avant des outils informatiques
+ */
 document.addEventListener('DOMContentLoaded', function () {
-    const toolItems = document.querySelectorAll('.tool-item');
+    // Éléments DOM
     const highlightToggleBtn = document.querySelector('.outil-highlight-toggle-btn');
     const highlightInstructions = document.querySelector('.outil-highlight-instructions');
-    const cancelBtn = document.querySelector('.outil-cancel-btn');
     const saveBtn = document.querySelector('.outil-save-btn');
+    const cancelBtn = document.querySelector('.outil-cancel-btn');
     const confirmationMessage = document.querySelector('.outil-highlight-confirmation');
+    const toolItems = document.querySelectorAll('.tool-item');
 
-    let isSelectingMode = false;
+    // Variables d'état
+    let selectionMode = false;
     let selectedOutils = new Set();
+
+    // Vérifier que les éléments existent
+    if (!highlightToggleBtn || !highlightInstructions || toolItems.length === 0) {
+        return;
+    }
 
     // Initialiser les outils déjà mis en avant
     toolItems.forEach(item => {
@@ -16,20 +26,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    if (highlightToggleBtn) {
-        highlightToggleBtn.addEventListener('click', function () {
-            isSelectingMode = true;
-            highlightInstructions.style.display = 'block';
-            highlightToggleBtn.style.display = 'none';
-            toolItems.forEach(item => {
-                item.classList.add('selectable');
+    // Gestionnaire pour le bouton "Mettre en avant"
+    highlightToggleBtn.addEventListener('click', function() {
+        selectionMode = true;
+        highlightInstructions.style.display = 'block';
+        highlightToggleBtn.style.display = 'none';
+        
+        // Activer le mode sélection sur tous les outils
+        toolItems.forEach(item => {
+            item.classList.add('selectable');
+            
+            // Masquer tous les boutons d'action pendant la sélection
+            const actionButtons = item.querySelectorAll('a, .img2-btn, .btn-modifier, .btn-supprimer, .btn-edit, .btn-delete, .tool-actions, .delete-tool');
+            actionButtons.forEach(btn => {
+                btn.style.display = 'none';
             });
         });
-    }
+    });
 
+    // Gestionnaire pour le bouton "Annuler"
     if (cancelBtn) {
-        cancelBtn.addEventListener('click', function () {
+        cancelBtn.addEventListener('click', function() {
             exitSelectionMode();
+            
             // Restaurer l'état précédent
             toolItems.forEach(item => {
                 const wasHighlighted = selectedOutils.has(item.dataset.id);
@@ -38,103 +57,99 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Gestionnaire pour le bouton "Enregistrer"
     if (saveBtn) {
-        saveBtn.addEventListener('click', async function () {
-            console.log("Bouton Enregistrer cliqué");
-            console.log("Outils sélectionnés:", Array.from(selectedOutils));
-
+        saveBtn.addEventListener('click', async function() {
             const formData = new FormData();
             formData.append('action', 'updateOutilHighlights');
             formData.append('highlighted_outils', JSON.stringify(Array.from(selectedOutils)));
 
             try {
-                console.log("Envoi de la requête AJAX");
                 const response = await fetch('../controller/controller_outil_users.php', {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    credentials: 'same-origin'
                 });
-
-                console.log("Réponse reçue:", response);
 
                 if (response.ok) {
                     const data = await response.json();
-                    console.log("Données reçues:", data);
-                    showConfirmation();
-                    exitSelectionMode();
+                    if (data.success) {
+                        showConfirmation();
+                        exitSelectionMode();
+                        
+                        // Mettre à jour selectedOutils avec le nouvel état
+                        selectedOutils.clear();
+                        toolItems.forEach(item => {
+                            if (item.classList.contains('highlighted')) {
+                                selectedOutils.add(item.dataset.id);
+                            }
+                        });
+                    } else {
+                        alert('Erreur: ' + (data.message || 'Erreur inconnue'));
+                    }
                 } else {
-                    console.error('Erreur lors de la mise à jour:', response.status, response.statusText);
-                    const errorText = await response.text();
-                    console.error('Détails de l\'erreur:', errorText);
+                    if (response.status === 401) {
+                        alert('Votre session a expiré. Veuillez vous reconnecter.');
+                    } else {
+                        alert(`Erreur ${response.status}: ${response.statusText}`);
+                    }
                 }
             } catch (error) {
                 console.error('Erreur:', error);
+                alert('Erreur de connexion au serveur.');
             }
         });
     }
 
+    // Gestionnaire de clic sur les outils
     toolItems.forEach(item => {
-        let longPressTimer;
-        let isLongPress = false;
-
-        item.addEventListener('mousedown', function () {
-            if (!isSelectingMode) {
-                longPressTimer = setTimeout(() => {
-                    isLongPress = true;
-                    isSelectingMode = true;
-                    highlightInstructions.style.display = 'block';
-                    highlightToggleBtn.style.display = 'none';
-                    toolItems.forEach(i => i.classList.add('selectable'));
-                    toggleOutilSelection(item);
-                }, 500);
+        item.addEventListener('click', function(e) {
+            // Ne pas réagir si on clique sur un lien ou si on n'est pas en mode sélection
+            if (e.target.closest('a') || e.target.closest('.tool-actions') || !selectionMode) {
+                return;
             }
-        });
 
-        item.addEventListener('mouseup', function () {
-            clearTimeout(longPressTimer);
-            if (isSelectingMode && !isLongPress) {
-                toggleOutilSelection(item);
-            }
-            isLongPress = false;
-        });
+            // Empêcher la propagation
+            e.preventDefault();
+            e.stopPropagation();
 
-        item.addEventListener('mouseleave', function () {
-            clearTimeout(longPressTimer);
-        });
-
-        // Empêcher la sélection de texte pendant le long press
-        item.addEventListener('selectstart', function (e) {
-            if (isSelectingMode) {
-                e.preventDefault();
+            const outilId = item.dataset.id;
+            
+            // Basculer la sélection
+            if (selectedOutils.has(outilId)) {
+                selectedOutils.delete(outilId);
+                item.classList.remove('highlighted');
+            } else {
+                selectedOutils.add(outilId);
+                item.classList.add('highlighted');
             }
         });
     });
 
-    function toggleOutilSelection(item) {
-        if (!isSelectingMode) return;
-
-        const outilId = item.dataset.id;
-        item.classList.toggle('highlighted');
-
-        if (item.classList.contains('highlighted')) {
-            selectedOutils.add(outilId);
-        } else {
-            selectedOutils.delete(outilId);
-        }
-    }
-
+    // Fonction pour quitter le mode sélection
     function exitSelectionMode() {
-        isSelectingMode = false;
+        selectionMode = false;
         highlightInstructions.style.display = 'none';
         highlightToggleBtn.style.display = 'inline-flex';
+        
         toolItems.forEach(item => {
             item.classList.remove('selectable');
+            
+            // Réafficher tous les boutons d'action
+            const actionButtons = item.querySelectorAll('a, .img2-btn, .btn-modifier, .btn-supprimer, .btn-edit, .btn-delete, .tool-actions, .delete-tool');
+            actionButtons.forEach(btn => {
+                btn.style.display = '';
+            });
         });
     }
 
+    // Fonction pour afficher le message de confirmation
     function showConfirmation() {
-        confirmationMessage.style.display = 'block';
-        setTimeout(() => {
-            confirmationMessage.style.display = 'none';
-        }, 3000);
+        if (confirmationMessage) {
+            confirmationMessage.style.display = 'block';
+            setTimeout(() => {
+                confirmationMessage.style.display = 'none';
+            }, 3000);
+        }
     }
 }); 

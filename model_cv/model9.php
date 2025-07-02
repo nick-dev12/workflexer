@@ -62,7 +62,7 @@ if (isset($_SESSION['users_id'])) {
     <title>CV</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/model9.css">
+    <link rel="stylesheet" href="../css/model9_1.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -429,9 +429,8 @@ if (isset($_SESSION['users_id'])) {
             </style>
         </div>
 
-        <div id="box">
-            <div class="container-model">
-                <div class="cv-container">
+        
+            <div class="cv-container" id="cv9-visible">
                     <!-- En-tête du CV avec photo et présentation -->
                     <div class="cv-header">
                         <div class="header-content">
@@ -581,17 +580,10 @@ if (isset($_SESSION['users_id'])) {
                                                         alt="Date"><?= $Metiers['moisDebut'] ?>/<?= $Metiers['anneeDebut'] ?> -
                                                     <?= $Metiers['moisFin'] ?>/<?= $Metiers['anneeFin'] ?>
                                                 </p>
-                                                <ul>
-                                                    <?php
-                                                    $description = $Metiers['description'];
-                                                    $points = explode('<br />', $description);
-                                                    foreach ($points as $point) {
-                                                        $point = trim($point);
-                                                        if (!empty($point)) {
-                                                            echo "<li>" . $point . "</li>";
-                                                        }
-                                                    }
-                                                    ?>
+                                                <ul>                                                   
+                                                    <li>
+                                                        <?= $Metiers['description'] ?>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         <?php endif; ?>
@@ -627,8 +619,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+        
 
         <!-- Conteneur caché pour le clone PDF -->
         <div style="position: absolute; left: -9999px; top:0;">
@@ -783,16 +774,9 @@ if (isset($_SESSION['users_id'])) {
                                                 <?= $Metiers['moisFin'] ?>/<?= $Metiers['anneeFin'] ?>
                                             </p>
                                             <ul>
-                                                <?php
-                                                $description = $Metiers['description'];
-                                                $points = explode('<br />', $description);
-                                                foreach ($points as $point) {
-                                                    $point = trim($point);
-                                                    if (!empty($point)) {
-                                                        echo "<li>" . $point . "</li>";
-                                                    }
-                                                }
-                                                ?>
+                                                <li>
+                                                    <?= $Metiers['description'] ?>
+                                                </li>
                                             </ul>
                                         </div>
                                     <?php endif; ?>

@@ -1,6 +1,6 @@
 <?php
 // Vérification de l'appareil au tout début
-include_once('check_device.php');
+
 
 // Démarre la session
 session_start();
@@ -65,7 +65,7 @@ if (isset($_SESSION['users_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CV - Modèle 14</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/model14.css" />
+    <link rel="stylesheet" href="../css/model14_1.css" />
     <link rel="stylesheet" href="../css/personnalisation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
@@ -224,8 +224,7 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
-        <div id="box">
-        <div class="container" id="cv-container">
+        <div class="container" id="cv14-visible">
                 <!-- Background Elements -->
                 <div class="background-element circle-1"></div>
                 <div class="background-element circle-2"></div>

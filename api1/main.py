@@ -13,7 +13,7 @@ import os
 from dotenv import load_dotenv
 from typing import Dict, Optional
 
-from api1.models import (
+from models import (
     MatchingRequest, 
     MatchingResponse, 
     MatchingResponseV2, 
@@ -21,16 +21,16 @@ from api1.models import (
     ContexteAnalyse,
     CandidatProfile
 )
-from api1.utils import analyze_compatibility, normalize_text, analyze_compatibility_hybrid
-import api1.config as config
+from utils import analyze_compatibility, normalize_text, analyze_compatibility_hybrid
+import config
 
 # Imports pour la nouvelle route Dakar
-from api1.models_dakar import JobOfferDakar, CandidatProfileDakar
-from api1.utils_dakar import analyze_compatibility_dakar
+from models_dakar import JobOfferDakar, CandidatProfileDakar
+from utils_dakar import analyze_compatibility_dakar
 
 # Imports pour la nouvelle route Senjob
-from api1.models_senjob import JobOfferSenjob
-from api1.utils_senjob import analyze_compatibility_senjob
+from models_senjob import JobOfferSenjob
+from utils_senjob import analyze_compatibility_senjob
 from pydantic import BaseModel
 
 # --- Modèle de requête pour la route Dakar ---
@@ -308,7 +308,7 @@ async def get_config():
     return {
         "weights": config.WEIGHTS,
         "thresholds": config.COMPATIBILITY_THRESHOLDS,
-        "similarity_threshold": config.SIMILARITY_THRESHOLD,
+        "similarity_thresholds": config.SIMILARITY_THRESHOLDS,
         "version": config.API_CONFIG["version"],
         "database": {
             "host": os.getenv("DB_HOST"),

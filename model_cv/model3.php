@@ -1,6 +1,6 @@
 <?php
 // Vérification de l'appareil au tout début
-include_once('check_device.php');
+
 
 // Démarre la session
 session_start();
@@ -76,7 +76,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
-    <link rel="stylesheet" href="../css/model3.css">
+    <link rel="stylesheet" href="../css/model3_1.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="../script/jquery-3.6.0.min.js"></script>
@@ -762,8 +762,161 @@ if (isset($_SESSION['users_id'])) {
             </script>
         </div>
 
-        <div id="box">
-            <div class="containers">
+       
+            <div class="containers" id="cv3-visible">
+                <div class="box1">
+                    <div class="item">
+                        <h1>
+                            <?= $userss['nom'] ?>
+                        </h1>
+                        <img src="../upload/<?= $userss['images'] ?>" alt="">
+                        <h2> <?= $userss['competences'] ?></h2>
+                        <span>******</span>
+
+                        <?php if (empty($descriptions)): ?>
+                            <p>Aucune donnée trouvée</p>
+                        <?php else: ?>
+                            <p class="p">
+                                <?= $descriptions['description'] ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="items">
+                        <h1>Contact</h1>
+                        <div>
+                            <img src="../image/address.png" alt="">
+                            <span>Adresse</span>
+                            <p> <?= $userss['ville'] ?></p>
+                        </div>
+
+                        <div>
+                            <img src="../image/phone.png" alt="">
+                            <span>Téléphone</span>
+                            <p><?= $userss['phone'] ?></p>
+                        </div>
+
+                        <div>
+                            <img src="../image/icons8-gmail-48.png" alt="">
+                            <span>E-mail</span>
+                            <p><?= $userss['mail'] ?></p>
+                        </div>
+                    </div>
+
+                    <div class="itemss">
+
+                        <h1>Langues</h1>
+                        <div>
+                            <?php if ($afficheLangue): ?>
+                                <?php foreach ($afficheLangue as $langues): ?>
+                                    <p> <?= $langues['langue'] ?> <span> (<?= $langues['niveau'] ?>)</span></p>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p>Aucune donnée trouvée</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box2">
+                    <div class="decor1"></div>
+                    <div class="decor2"></div>
+
+                    <div class="item">
+                        <h1><strong><img src="../image/experience.png" alt=""></strong>Expériences</h1>
+                        <?php if (empty($afficheMetier)): ?>
+                            <h4>Aucune donnée trouvée</h4>
+                        <?php else: ?>
+                            <?php
+                            shuffle($afficheMetier);
+                            $nombre_metier = 3
+                                ?>
+                            <?php foreach ($afficheMetier as $key => $Metiers): ?>
+                                <?php if ($key < $nombre_metier): ?>
+                                    <div class="exp">
+                                        <span class="part"></span>
+                                        <div class="exper">
+                                            <h3><?= $Metiers['metier'] ?> <em> <?= $Metiers['moisDebut'] ?> /
+                                                    <?= $Metiers['anneeDebut'] ?> // <?= $Metiers['moisFin'] ?> /
+                                                    <?= $Metiers['anneeFin'] ?></em> </h3>
+                                            <p> <?= $Metiers['description'] ?></p>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
+                    </div>
+
+
+                    <div class="items">
+                        <h1><strong><img src="../image/etude.png" alt=""></strong>Éducation</h1>
+
+                        <div class="containe-exp">
+                            <?php if (empty($formationUsers)): ?>
+                                <strong></strong>
+                                <h4>Aucune donnée trouvée</h4>
+                            <?php else: ?>
+                                <?php
+                                shuffle($formationUsers);
+                                $nombre_formation = 3;
+                                ?>
+                                <?php foreach ($formationUsers as $key => $formations): ?>
+                                    <?php if ($key < $nombre_formation): ?>
+                                        <div class="exp">
+                                            <span class="part"></span>
+                                            <div class="exper">
+                                                <h3><?= $formations['etablissement'] ?> <em><?= $formations['moisDebut'] ?> /
+                                                        <?= $formations['anneeDebut'] ?> // <?= $formations['moisFin'] ?> /
+                                                        <?= $formations['anneeFin'] ?></em> </h3>
+                                                <p><?= $formations['Filiere'] ?> <span class="titre"> <strong>
+                                                            <?= $formations['niveau'] ?></strong></span> </p>
+
+                                            </div>
+                                        </div>
+
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+                        </div>
+                    </div>
+
+                    <div class="itemss">
+                        <h1><strong><img src="../image/compétences.png" alt=""></strong>Compétences</h1>
+
+
+                        <ul>
+                            <?php if ($competencesUtilisateurLimit7): ?>
+                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                    <li> <?php echo $competence['competence']; ?></li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+
+                                <h4>Aucune donnée trouvée</h4>
+                            <?php endif ?>
+                        </ul>
+                    </div>
+
+
+                    <div class="itemsss">
+                        <h1><strong><img src="../image/outil.png" alt=""></strong>Outils informatiques</h1>
+
+                        <ul>
+                            <?php if ($afficheOutilLimit5): ?>
+                                <?php foreach ($afficheOutilLimit5 as $outils): ?>
+                                    <li> <?= $outils['outil'] ?></li>
+                                <?php endforeach; ?>
+                            <?php endif ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+       
+
+
+        <div style="position: absolute; left: -9999px; top:0;">
+        <div class="containers" id="container-for-pdf">
                 <div class="box1">
                     <div class="item">
                         <h1>
@@ -913,7 +1066,7 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
-    </div>
+        
     </section>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

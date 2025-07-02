@@ -68,7 +68,7 @@ if (isset($_SESSION['users_id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
-    <link rel="stylesheet" href="css/model12.css">
+    <link rel="stylesheet" href="../css/model12_1.css">
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -225,8 +225,8 @@ if (isset($_SESSION['users_id'])) {
             </div>
         </div>
 
-        <div id="box">
-        <div class="cv-container" id="cv-container">
+       
+        <div class="cv-container" id="cv12-visible">
             <div class="artistic-element"></div>
 
             <div class="cv-header">
@@ -403,7 +403,7 @@ if (isset($_SESSION['users_id'])) {
                     </div>
                 </div>
             </div>
-        </div>
+       
 
         <!-- Conteneur caché pour le clone PDF -->
         <div style="position: absolute; left: -9999px; top:0;">

@@ -79,7 +79,7 @@ if (isset($_SESSION['users_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"></script>
-    <link rel="stylesheet" href="../css/model5.css" />
+    <link rel="stylesheet" href="../css/model5_1.css" />
     <link rel="stylesheet" href="../css/navbare.css">
     <link rel="stylesheet" href="../css/personnalisation.css">
     <script src="cv_customizer.js"></script>
@@ -595,8 +595,8 @@ if (isset($_SESSION['users_id'])) {
             </script>
         </div>
 
-        <div class="container-model" id="box">
-            <div class="container">
+        
+            <div class="container" id="cv5-visible">
                 <div class="box1">
                     <div class="item1">
                         <ul>
@@ -705,7 +705,7 @@ if (isset($_SESSION['users_id'])) {
                     </div>
                 </div>
             </div>
-        </div>
+        
 
         <!-- Conteneur caché pour le clone PDF -->
         <div style="position: absolute; left: -9999px; top:0;">

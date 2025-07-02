@@ -1,5 +1,6 @@
 /**
- * Script pour la fonctionnalité de mise en avant des expériences professionnelles
+ * Script simplifié pour la fonctionnalité de mise en avant des expériences professionnelles
+ * Version avec bouton uniquement (sans maintien appuyé)
  */
 document.addEventListener('DOMContentLoaded', function () {
     // Éléments DOM
@@ -14,13 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectionMode = false;
     let experienceCards = [];
     let originalHighlightState = {};
-
-    // Variables pour la gestion du "long press"
-    let pressTimer = null;
-    let touchStartX = 0;
-    let touchStartY = 0;
-    const longPressDuration = 500; // 500ms
-    const moveThreshold = 10; // Seuil de mouvement en pixels pour considérer comme un scroll
+    let selectedExperiences = new Set();
 
     // Initialisation
     function init() {
@@ -29,38 +24,14 @@ document.addEventListener('DOMContentLoaded', function () {
         // Récupérer toutes les cartes d'expérience
         experienceCards = document.querySelectorAll('.experience-card');
 
-        // Ajouter les checkboxes à chaque carte
+        // Initialiser l'état de chaque carte
         experienceCards.forEach(card => {
-            // Sauvegarder l'état initial (mis en avant ou non)
             const isHighlighted = card.classList.contains('highlighted');
             const experienceId = card.dataset.id;
             originalHighlightState[experienceId] = isHighlighted;
 
-            // Créer le conteneur de checkbox
-            const checkboxContainer = document.createElement('div');
-            checkboxContainer.className = 'highlight-checkbox-container';
-
-            // Créer la checkbox
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.className = 'highlight-checkbox';
-            checkbox.checked = isHighlighted;
-            checkbox.dataset.id = experienceId;
-
-            // Ajouter la checkbox au conteneur
-            checkboxContainer.appendChild(checkbox);
-
-            // Ajouter le conteneur à la carte
-            card.appendChild(checkboxContainer);
-
-            // Ajouter les écouteurs d'événements pour le maintien long
-            card.addEventListener('mousedown', handleLongPress);
-            card.addEventListener('touchstart', handleLongPress);
-            card.addEventListener('mouseup', cancelLongPress);
-            card.addEventListener('mouseleave', cancelLongPress);
-            card.addEventListener('touchend', cancelLongPress);
-            card.addEventListener('touchcancel', cancelLongPress);
-            card.addEventListener('touchmove', handleTouchMove); // Gérer le scroll
+            // Ajouter seulement les événements de clic
+            card.addEventListener('click', handleClick);
         });
 
         // Ajouter les écouteurs d'événements aux boutons
@@ -69,44 +40,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (cancelBtn) cancelBtn.addEventListener('click', cancelHighlighting);
     }
 
-    // Gestionnaire pour le maintien long
-    function handleLongPress(e) {
-        if (e.type === 'touchstart') {
-            // Enregistrer les coordonnées de départ pour différencier clic et scroll
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-        }
-        
-        // Démarrer un minuteur
-        pressTimer = window.setTimeout(() => {
-            // Activer le mode sélection si pas déjà actif
-            if (!selectionMode) {
-                toggleSelectionMode();
-            }
-        }, longPressDuration);
-    }
+    // Gestionnaire de clic simplifié
+    function handleClick(e) {
+        if (!selectionMode) return;
 
-    // Gestionnaire de mouvement pour annuler le "long press" en cas de scroll
-    function handleTouchMove(e) {
-        if (!pressTimer) {
+        // Ne pas réagir si on clique sur un bouton ou un lien
+        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('img.img2-btn')) {
             return;
         }
 
-        const touchX = e.touches[0].clientX;
-        const touchY = e.touches[0].clientY;
-
-        // Si le doigt a bougé au-delà du seuil, c'est un scroll, pas un "long press"
-        if (Math.abs(touchX - touchStartX) > moveThreshold || Math.abs(touchY - touchStartY) > moveThreshold) {
-            cancelLongPress();
-        }
-    }
-
-    // Annuler le minuteur si l'utilisateur relâche avant la fin
-    function cancelLongPress() {
-        if (pressTimer) {
-            window.clearTimeout(pressTimer);
-            pressTimer = null;
-        }
+        toggleCardSelection.call(this, e);
     }
 
     // Activer/désactiver le mode sélection
@@ -117,38 +60,147 @@ document.addEventListener('DOMContentLoaded', function () {
             experiencesList.classList.add('selection-mode');
             highlightInstructions.classList.add('active');
             highlightToggleBtn.innerHTML = '<i class="fas fa-times"></i> Annuler la sélection';
+            highlightToggleBtn.classList.add('active');
 
-            // Ajouter des écouteurs d'événements aux cartes pour la sélection
+            // Masquer tous les boutons d'action pendant la sélection
             experienceCards.forEach(card => {
-                card.addEventListener('click', toggleCardSelection);
+                // Masquer les boutons de modification et suppression
+                const actionButtons = card.querySelectorAll('.img2-btn, .btn-modifier, .btn-supprimer, .btn-edit, .btn-delete, .experience-actions');
+                actionButtons.forEach(btn => {
+                    btn.style.display = 'none';
+                });
+            });
+
+            // Initialiser les sélections avec les expériences déjà mises en avant
+            selectedExperiences.clear();
+            experienceCards.forEach(card => {
+                if (card.classList.contains('highlighted')) {
+                    selectedExperiences.add(card.dataset.id);
+                    card.classList.add('selected');
+                }
             });
         } else {
             experiencesList.classList.remove('selection-mode');
             highlightInstructions.classList.remove('active');
             highlightToggleBtn.innerHTML = '<i class="fas fa-star"></i> Mettre en avant';
+            highlightToggleBtn.classList.remove('active');
 
-            // Supprimer les écouteurs d'événements des cartes
+            // Réafficher tous les boutons d'action
             experienceCards.forEach(card => {
-                card.removeEventListener('click', toggleCardSelection);
+                const actionButtons = card.querySelectorAll('.img2-btn, .btn-modifier, .btn-supprimer, .btn-edit, .btn-delete, .experience-actions');
+                actionButtons.forEach(btn => {
+                    btn.style.display = '';
+                });
             });
+
+            // Supprimer les classes de sélection
+            experienceCards.forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            selectedExperiences.clear();
         }
     }
 
     // Sélectionner/désélectionner une carte
     function toggleCardSelection(e) {
-        // Ne pas réagir si on clique sur un bouton ou un lien
-        if (e.target.closest('a') || e.target.closest('button') || e.target.closest('img.img2-btn')) {
-            return;
+        const card = this;
+        const experienceId = card.dataset.id;
+
+        if (selectedExperiences.has(experienceId)) {
+            // Désélectionner
+            selectedExperiences.delete(experienceId);
+            card.classList.remove('selected');
+        } else {
+            // Sélectionner
+            selectedExperiences.add(experienceId);
+            card.classList.add('selected');
         }
 
-        const card = this;
-        const checkbox = card.querySelector('.highlight-checkbox');
+        // Effet de vibration sur mobile (si supporté)
+        if ('vibrate' in navigator) {
+            navigator.vibrate(50);
+        }
 
-        // Inverser l'état de la checkbox
-        checkbox.checked = !checkbox.checked;
+        // Effet sonore léger (optionnel)
+        playSelectSound();
+    }
 
-        // Mettre à jour visuellement la carte
-        updateCardHighlight(card, checkbox.checked);
+    // Jouer un son de sélection léger (optionnel)
+    function playSelectSound() {
+        // Créer un son synthétique très court et discret
+        if ('AudioContext' in window || 'webkitAudioContext' in window) {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.1);
+            } catch (e) {
+                // Ignorer les erreurs audio
+            }
+        }
+    }
+
+    // Enregistrer les expériences mises en avant
+    function saveHighlightedExperiences() {
+        const updates = [];
+
+        // Collecter toutes les mises à jour
+        experienceCards.forEach(card => {
+            const experienceId = card.dataset.id;
+            const isSelected = selectedExperiences.has(experienceId);
+
+            // Mettre à jour l'état visuel
+            updateCardHighlight(card, isSelected);
+
+            // Ajouter à la liste des mises à jour
+            updates.push({
+                id: experienceId,
+                highlighted: isSelected
+            });
+        });
+
+        // Envoyer les mises à jour au serveur
+        Promise.all(updates.map(update => {
+            const formData = new FormData();
+            formData.append('update_mis_en_avant', '1');
+            formData.append('experience_id', update.id);
+            formData.append('mis_en_avant', update.highlighted ? 1 : 0);
+
+            return fetch('user_profil.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Mettre à jour l'état original
+                    originalHighlightState[update.id] = update.highlighted;
+                }
+                return data;
+            });
+        }))
+        .then(() => {
+            // Désactiver le mode sélection
+            toggleSelectionMode();
+
+            // Afficher le message de confirmation
+            showConfirmation();
+        })
+        .catch(error => {
+            console.error('Erreur lors de la sauvegarde:', error);
+            // Afficher un message d'erreur à l'utilisateur
+            showError('Une erreur est survenue lors de la sauvegarde. Veuillez réessayer.');
+        });
     }
 
     // Mettre à jour l'apparence d'une carte selon son état de sélection
@@ -174,63 +226,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Enregistrer les expériences mises en avant
-    function saveHighlightedExperiences() {
-        const updates = [];
-
-        // Collecter toutes les mises à jour
-        experienceCards.forEach(card => {
-            const checkbox = card.querySelector('.highlight-checkbox');
-            const experienceId = checkbox.dataset.id;
-            const isHighlighted = checkbox.checked;
-
-            // Mettre à jour l'état visuel
-            updateCardHighlight(card, isHighlighted);
-
-            // Ajouter à la liste des mises à jour
-            updates.push({
-                id: experienceId,
-                highlighted: isHighlighted
-            });
-        });
-
-        // Envoyer les mises à jour au serveur
-        updates.forEach(update => {
-            const formData = new FormData();
-            formData.append('update_mis_en_avant', '1');
-            formData.append('experience_id', update.id);
-            formData.append('mis_en_avant', update.highlighted ? 1 : 0);
-
-            fetch('user_profil.php', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Mettre à jour l'état original
-                        originalHighlightState[update.id] = update.highlighted;
-                    }
-                })
-                .catch(error => console.error('Erreur:', error));
-        });
-
-        // Désactiver le mode sélection
-        toggleSelectionMode();
-
-        // Afficher le message de confirmation
-        showConfirmation();
-    }
-
     // Annuler les modifications et restaurer l'état original
     function cancelHighlighting() {
+        // Restaurer l'état original de toutes les cartes
         experienceCards.forEach(card => {
-            const checkbox = card.querySelector('.highlight-checkbox');
-            const experienceId = checkbox.dataset.id;
-
-            // Restaurer l'état original
-            checkbox.checked = originalHighlightState[experienceId];
-            updateCardHighlight(card, originalHighlightState[experienceId]);
+            const experienceId = card.dataset.id;
+            const originalState = originalHighlightState[experienceId];
+            
+            updateCardHighlight(card, originalState);
+            
+            // Restaurer l'état de sélection visuel
+            if (originalState) {
+                card.classList.add('selected');
+                selectedExperiences.add(experienceId);
+            } else {
+                card.classList.remove('selected');
+                selectedExperiences.delete(experienceId);
+            }
         });
 
         // Désactiver le mode sélection
@@ -245,6 +257,33 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
             confirmationMessage.classList.remove('show');
         }, 3000);
+    }
+
+    // Afficher un message d'erreur
+    function showError(message) {
+        // Créer un élément de message d'erreur temporaire
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+        errorDiv.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f44336;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        `;
+
+        document.body.appendChild(errorDiv);
+
+        // Supprimer le message après 5 secondes
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 5000);
     }
 
     // Initialiser le script

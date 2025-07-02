@@ -4,11 +4,12 @@ session_start();
 // Si l'entreprise est connectée, supprimer son token de la base de données
 if (isset($_SESSION['compte_entreprise'])) {
     require_once(__DIR__ . '/conn.php');
-    
+    $remember_token = '';
     // Supprimer le token de la base de données
-    $sqlDeleteToken = "UPDATE compte_entreprise SET remember_token = NULL WHERE id = :entrepriseId";
+    $sqlDeleteToken = "UPDATE compte_entreprise SET remember_token = :remember_token WHERE id = :entrepriseId";
     $stmtDeleteToken = $db->prepare($sqlDeleteToken);
     $stmtDeleteToken->bindParam(':entrepriseId', $_SESSION['compte_entreprise']);
+    $stmtDeleteToken->bindParam(':remember_token', $remember_token);
     $stmtDeleteToken->execute();
 }
 

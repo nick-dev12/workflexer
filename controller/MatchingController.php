@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../model/OffreEmploi.php');
 class MatchingController
 {
     private $db;
-    private $api_url = "http://localhost:8000/analyze/hybrid-v2";
+    private $api_url = "http://localhost:8000/analyze";
     private $debug = true;
 
     // Dictionnaires de normalisation avancés
@@ -206,9 +206,17 @@ class MatchingController
             $competence = ['competence' => $competence, 'mis_en_avant' => 0];
         }
         
-        $nom = trim($competence['competence']);
+        // Gérer les deux formats possibles : 'competence' ou 'nom'
+        $nom = '';
+        if (isset($competence['competence'])) {
+            $nom = trim($competence['competence']);
+        } elseif (isset($competence['nom'])) {
+            $nom = trim($competence['nom']);
+        }
+        
         $normalized = $this->normalizeSkillName($nom);
-        $niveau = isset($competence['mis_en_avant']) && $competence['mis_en_avant'] ? 4 : 3;
+        $niveau = isset($competence['mis_en_avant']) && $competence['mis_en_avant'] ? 4 : 
+                 (isset($competence['niveau']) ? intval($competence['niveau']) : 3);
         
         return [
             'nom' => $nom,
@@ -335,7 +343,41 @@ class MatchingController
     {
         $competences = [];
         
-        // Compétences déclarées
+        // 1. Récupération des compétences depuis la table competences_users
+        if (isset($candidatData['id'])) {
+            try {
+                $stmt = $this->db->prepare("
+                    SELECT DISTINCT nom_competence, niveau 
+                    FROM competences_users 
+                    WHERE users_id = :users_id 
+                    AND nom_competence IS NOT NULL 
+                    AND nom_competence != ''
+                ");
+                $stmt->bindParam(':users_id', $candidatData['id'], PDO::PARAM_INT);
+                $stmt->execute();
+                $competences_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                
+                foreach ($competences_db as $comp) {
+                    $competences[] = $this->formatCompetence([
+                        'competence' => trim($comp['nom_competence']),
+                        'niveau' => intval($comp['niveau']) ?: 3,
+                        'source' => 'table_competences'
+                    ]);
+                }
+                
+                $this->log("Compétences récupérées depuis la table", [
+                    'count' => count($competences_db),
+                    'competences' => array_column($competences_db, 'nom_competence')
+                ]);
+                
+            } catch (PDOException $e) {
+                $this->log("Erreur lors de la récupération des compétences", [
+                    'error' => $e->getMessage()
+                ]);
+            }
+        }
+        
+        // 2. Compétences déclarées (complément)
         if (isset($candidatData['competences']) && is_array($candidatData['competences'])) {
             foreach ($candidatData['competences'] as $comp) {
                 // Si c'est déjà un tableau associatif, l'utiliser tel quel
@@ -349,52 +391,20 @@ class MatchingController
             }
         }
         
-        // Extraire les compétences de la description
-        if (!empty($candidatData['description'])) {
-            $description_text = is_array($candidatData['description']) ? 
-                              ($candidatData['description']['description'] ?? '') : 
-                              $candidatData['description'];
-            
-            if (!empty($description_text)) {
-                $competences = array_merge(
-                    $competences,
-                    $this->extractCompetencesFromText($description_text)
-                );
-            }
-        }
-        
-        // Extraire les compétences des expériences
-        if (isset($candidatData['experiences']) && is_array($candidatData['experiences'])) {
-            foreach ($candidatData['experiences'] as $exp) {
-                if (!empty($exp['description'])) {
-                    $competences = array_merge(
-                        $competences,
-                        $this->extractCompetencesFromText($exp['description'])
-                    );
-                }
-            }
-        }
-        
-        // Extraire les compétences des formations
-        if (isset($candidatData['formations']) && is_array($candidatData['formations'])) {
-            foreach ($candidatData['formations'] as $formation) {
-                if (!empty($formation['description'])) {
-                    $competences = array_merge(
-                        $competences,
-                        $this->extractCompetencesFromText($formation['description'])
-                    );
-                }
-            }
-        }
-        
         // Supprimer les doublons en conservant la version avec le niveau le plus élevé
         $uniqueCompetences = [];
         foreach ($competences as $comp) {
-            $nom = $comp['nom'];
+            $nom = strtolower(trim($comp['nom']));
             if (!isset($uniqueCompetences[$nom]) || $uniqueCompetences[$nom]['niveau'] < $comp['niveau']) {
                 $uniqueCompetences[$nom] = $comp;
             }
         }
+        
+        $this->log("Compétences consolidées", [
+            'total_avant_dedoublonnage' => count($competences),
+            'total_apres_dedoublonnage' => count($uniqueCompetences),
+            'competences' => array_column(array_values($uniqueCompetences), 'nom')
+        ]);
         
         return array_values($uniqueCompetences);
     }
@@ -667,6 +677,11 @@ class MatchingController
 
             // Enrichir les compétences avec l'extraction depuis les descriptions
             $candidatData['competences'] = $this->getAllCompetences($candidatData);
+            
+            $this->log("Compétences finales du candidat", [
+                'count' => count($candidatData['competences']),
+                'competences' => array_column($candidatData['competences'], 'nom')
+            ]);
 
             // Formatage des données du candidat
             $formatted_candidat = [

@@ -490,6 +490,45 @@ class ContexteAnalyse(BaseModel):
     source_donnees: Optional[str] = None  # Source des données analysées
 
 
+class CompetenceTrouvee(BaseModel):
+    """Compétence du candidat trouvée dans l'offre"""
+    competence: str
+    type_correspondance: str  # exact, normalized, semantic
+    confiance: int  # Pourcentage de confiance (0-100)
+
+
+class MatchingResponseSimple(BaseModel):
+    """Version simplifiée du modèle de réponse pour l'API"""
+    score_global: float
+    resume: str
+    competences_message: str
+    competences_trouvees: List[CompetenceTrouvee] = Field(default_factory=list)
+    nombre_competences_trouvees: int = 0
+    contexte_analyse: Dict[str, Any] = Field(default_factory=dict)
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "score_global": 65.0,
+                "resume": "Bonne compatibilité (65%) - Votre profil présente de bons atouts pour ce poste.",
+                "competences_message": "5 de vos compétences correspondent à cette offre d'emploi.",
+                "competences_trouvees": [
+                    {
+                        "competence": "Communication",
+                        "type_correspondance": "exact",
+                        "confiance": 100
+                    },
+                    {
+                        "competence": "Gestion",
+                        "type_correspondance": "normalized",
+                        "confiance": 90
+                    }
+                ],
+                "nombre_competences_trouvees": 2
+            }
+        }
+
+
 class MatchingResponseV2(BaseModel):
     """Nouvelle version du modèle de réponse pour l'API"""
     score_global: float

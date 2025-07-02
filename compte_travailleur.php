@@ -22,13 +22,13 @@ if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
 }
 
 // Initialiser toutes les variables
-$nom = $email = $phone = $competences = $statu = $remember_token = $verification_statu = $profession = $ville = $categorie = $passe = $cpasse = '';
+$nom = $email = $phone = $competences = $statut = $remember_token = $verification_statut = $profession = $ville = $categorie = $passe = $cpasse = '';
 $erreurs = '';
 $hasError = false;
 
-$verification_status = '';
+$verification_statut = '';
 $remember_token = '';
-$status = '';
+$statut = '';
 
 // Vérification si le bouton valider est cliqué
 if (isset($_POST['valider'])) {
@@ -195,14 +195,35 @@ if (isset($_POST['valider'])) {
         // Envoi de l'e-mail de vérification
         $mail = new PHPMailer(true);
         try {
-            // Paramètres SMTP
+            // Configuration SMTP améliorée
             $mail->isSMTP();
             $mail->Host = 'mail.work-flexer.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'service@work-flexer.com';
             $mail->Password = 'Ludvanne12@gmail.com';
-            $mail->SMTPSecure = 'tls';
+            
+            // Configuration SSL/TLS améliorée
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
+            
+            // Options SSL robustes pour contourner les problèmes de certificat
+            $mail->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer'       => false,
+                    'verify_peer_name'  => false,
+                    'allow_self_signed' => true
+                ]
+            ];
+            
+            
+            // Configuration supplémentaire pour le débogage
+            $mail->SMTPDebug = 0; // Mettre à 2 pour déboguer en cas de problème
+            $mail->Debugoutput = 'html';
+            
+            // Timeout et configuration de connexion
+            $mail->Timeout = 60;
+            $mail->SMTPKeepAlive = true;
+            $mail->SMTPAutoTLS = false; // Désactiver l'auto-négociation TLS
 
             $destinataire = $email;
 
@@ -392,8 +413,8 @@ if (isset($_POST['valider'])) {
             $mail->send();
 
             // Préparation de la requête SQL
-            $sql = "INSERT INTO users ( nom, mail, phone, competences, profession, statu, remember_token, verification_status, ville, categorie, images , verification, passe) 
-            VALUES ( :nom, :mail, :phone, :competences, :profession, :statu, :remember_token, :verification_status, :ville, :categorie, :images, :verification, :passe)";
+            $sql = "INSERT INTO users ( nom, mail, phone, competences, profession, statut, remember_token, verification_statut, ville, categorie, images , verification, passe) 
+            VALUES ( :nom, :mail, :phone, :competences, :profession, :statut, :remember_token, :verification_statut, :ville, :categorie, :images, :verification, :passe)";
 
             // Préparation de la requête 
             $stmt = $db->prepare($sql);
@@ -404,9 +425,9 @@ if (isset($_POST['valider'])) {
             $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':competences', $competences);
             $stmt->bindParam(':profession', $profession);
-            $stmt->bindParam(':statu', $statu);
+            $stmt->bindParam(':statut', $statut);
             $stmt->bindParam(':remember_token', $remember_token);
-            $stmt->bindParam(':verification_status', $verification_status);
+            $stmt->bindParam(':verification_statut', $verification_statut);
             $stmt->bindParam(':ville', $ville);
             $stmt->bindParam(':categorie', $categorie);
             $stmt->bindParam(':images', $uniqueFileName);

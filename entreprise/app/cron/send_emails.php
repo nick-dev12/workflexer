@@ -43,6 +43,14 @@ $mail->addReplyTo('service@work-flexer.com', 'Service Client Work-Flexer');
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8'; // Important pour l'affichage correct des caractères accentués
 
+$mail->SMTPOptions = [
+    'ssl' => [
+        'verify_peer'       => false,
+        'verify_peer_name'  => false,
+        'allow_self_signed' => true
+    ]
+];
+
 // Compteurs pour les statistiques
 $emailsEnvoyes = 0;
 $emailsEchoues = 0;

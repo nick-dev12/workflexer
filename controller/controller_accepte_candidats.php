@@ -47,6 +47,15 @@ if (isset($_GET['accepter'])) {
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer'       => false,
+                'verify_peer_name'  => false,
+                'allow_self_signed' => true
+            ]
+        ];
+        
+
         //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
         $destinataire = $postulation['mail'];
         //     //   $entreprise = $infoEntreprises['entreprise'];
@@ -305,6 +314,15 @@ if (isset($_GET['recaler'])) {
         $mail->Password = 'Ludvanne12@gmail.com'; // Remplacez par le mot de passe de votre compte e-mail
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
+
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer'       => false,
+                'verify_peer_name'  => false,
+                'allow_self_signed' => true
+            ]
+        ];
+        
 
         //     //   $infoEntreprises = getEntreprise($db,$entreprise_id);
         $destinataire = $postulation['mail'];

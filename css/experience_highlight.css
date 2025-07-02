@@ -1,39 +1,61 @@
-/* Styles pour la fonctionnalité de mise en avant des expériences professionnelles */
+/* Styles simplifiés pour la fonctionnalité de mise en avant des expériences professionnelles */
 
 /* Style pour le mode sélection */
 .experiences-list.selection-mode .experience-card {
   position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .experiences-list.selection-mode .experience-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Checkbox de sélection */
+/* Masquer les checkboxes - on n'en a plus besoin */
 .highlight-checkbox-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: none;
-  z-index: 10;
-}
-
-.experiences-list.selection-mode .highlight-checkbox-container {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
+  display: none !important;
 }
 
 .highlight-checkbox {
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-  accent-color: #4caf50;
+  display: none !important;
 }
 
-/* Style pour les expériences mises en avant */
+/* Style pour les expériences sélectionnées (en mode sélection) */
+.experiences-list.selection-mode .experience-card.selected {
+  background-color: rgba(76, 175, 80, 0.15) !important;
+  border: 2px solid #4caf50 !important;
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+}
+
+/* Indicateur de sélection */
+.selection-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  z-index: 10;
+  animation: bounceIn 0.3s ease;
+}
+
+.experiences-list.selection-mode .experience-card.selected .selection-indicator {
+  display: flex;
+}
+
+/* Style pour les expériences mises en avant (permanent) */
 .experience-card.highlighted {
   border-left: 4px solid #4caf50;
   background-color: rgba(76, 175, 80, 0.05);
@@ -64,12 +86,12 @@
 /* Instructions de sélection */
 .highlight-instructions {
   display: none;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 15px;
+  border-radius: 12px;
+  padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   animation: slideDown 0.4s ease-in-out;
 }
 
@@ -80,32 +102,44 @@
 .highlight-instructions p {
   margin: 0;
   color: #495057;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.highlight-instructions i {
+  color: #4caf50;
+  font-size: 1.1rem;
 }
 
 .highlight-actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
-  gap: 10px;
+  margin-top: 15px;
+  gap: 12px;
 }
 
 .highlight-actions button {
-  padding: 6px 12px;
+  padding: 8px 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .highlight-actions .save-btn {
   background-color: #4caf50;
   color: white;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
 }
 
 .highlight-actions .save-btn:hover {
   background-color: #3e8e41;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
 }
 
 .highlight-actions .cancel-btn {
@@ -116,14 +150,81 @@
 
 .highlight-actions .cancel-btn:hover {
   background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+/* Bouton pour activer le mode sélection */
+.highlight-toggle-btn {
+  background-color: #fff;
+  border: 2px solid #4caf50;
+  color: #4caf50;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.highlight-toggle-btn:hover {
+  background-color: #4caf50;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.highlight-toggle-btn.active {
+  background-color: #f44336;
+  border-color: #f44336;
+  color: white;
+}
+
+.highlight-toggle-btn.active:hover {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.highlight-toggle-btn i {
+  font-size: 1rem;
+}
+
+/* Style pour le message de confirmation */
+.highlight-confirmation {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: none;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.highlight-confirmation.show {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from {
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
     opacity: 0;
   }
-  to {
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
 }
@@ -139,52 +240,6 @@
   }
 }
 
-/* Bouton pour activer le mode sélection */
-.highlight-toggle-btn {
-  background-color: #fff;
-  border: 1px solid #4caf50;
-  color: #4caf50;
-  padding: 8px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 15px;
-  transition: all 0.2s;
-}
-
-.highlight-toggle-btn:hover {
-  background-color: #4caf50;
-  color: white;
-}
-
-.highlight-toggle-btn i {
-  font-size: 0.9rem;
-}
-
-/* Style pour le message de confirmation */
-.highlight-confirmation {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  display: none;
-  z-index: 1000;
-  animation: slideIn 0.3s ease-out;
-}
-
-.highlight-confirmation.show {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 @keyframes slideIn {
   from {
     transform: translateX(100px);
@@ -196,15 +251,84 @@
   }
 }
 
-/* Style pour le mode responsive */
+/* Style pour les appareils tactiles */
 @media (max-width: 768px) {
-  .highlight-checkbox-container {
-    top: 5px;
-    right: 5px;
+  .highlight-instructions {
+    padding: 15px;
+    margin-bottom: 15px;
   }
+  
+  .highlight-instructions p {
+    font-size: 0.9rem;
+  }
+  
+  .highlight-actions {
+    gap: 8px;
+  }
+  
+  .highlight-actions button {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .highlight-toggle-btn {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .selection-indicator {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+  
+  .experiences-list.selection-mode .experience-card {
+    margin-bottom: 15px;
+  }
+  
+  .experiences-list.selection-mode .experience-card.selected {
+    transform: scale(1.01);
+  }
+  
+  .highlight-confirmation {
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
 
-  .highlighted-badge {
-    font-size: 0.7rem;
-    padding: 2px 8px;
+/* Amélioration de l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .experience-card,
+  .highlight-toggle-btn,
+  .highlight-actions button,
+  .selection-indicator {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Style pour les très petits écrans */
+@media (max-width: 480px) {
+  .highlight-instructions {
+    padding: 12px;
+  }
+  
+  .highlight-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .highlight-actions button {
+    width: 100%;
+    padding: 12px;
+  }
+  
+  .highlight-toggle-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
   }
 }

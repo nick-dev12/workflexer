@@ -6,12 +6,13 @@ Utilise SpaCy pour l'extraction d'entités et SentenceTransformers pour l'analys
 import logging
 import re
 import time
-from typing import Dict, List, Tuple, Set, Optional, Union
+from typing import Dict, List, Tuple, Set, Optional, Union, Any
 from collections import defaultdict, Counter
 import pickle
 import os
 import hashlib
 import torch
+from datetime import datetime
 
 # Imports pour NLP avancé
 import spacy
@@ -181,50 +182,100 @@ except Exception as e:
     stop_words = set()
     tfidf_vectorizer = None
 
-# --- Dictionnaires de normalisation et synonymes ---
+# --- Dictionnaires de normalisation et synonymes généralisés ---
 SKILL_NORMALIZATION = {
-    'js': 'javascript',
-    'py': 'python',
-    'css3': 'css',
-    'html5': 'html',
-    'nodejs': 'node.js',
-    'reactjs': 'react',
-    'vuejs': 'vue.js',
-    'angularjs': 'angular',
-    'mysql': 'mysql',
-    'postgresql': 'postgresql',
-    'nosql': 'nosql',
-    'sql server': 'sql server',
-    'dotnet': '.net',
-    'csharp': 'c#',
-    'cplusplus': 'c++',
-    'photoshop': 'adobe photoshop',
-    'illustrator': 'adobe illustrator',
-    'indesign': 'adobe indesign',
-    'wordpress': 'wordpress',
-    'drupal': 'drupal',
-    'shopify': 'shopify',
-    'magento': 'magento',
-}
-
-TECHNOLOGY_CLUSTERS = {
-    'frontend': ['html', 'css', 'javascript', 'react', 'vue.js', 'angular', 'typescript', 'sass', 'less', 'webpack', 'bootstrap', 'tailwind'],
-    'backend': ['php', 'python', 'java', 'node.js', 'ruby', 'go', 'c#', '.net', 'spring', 'django', 'flask', 'laravel', 'symfony'],
-    'database': ['mysql', 'postgresql', 'mongodb', 'redis', 'elasticsearch', 'oracle', 'sql server', 'sqlite'],
-    'mobile': ['android', 'ios', 'react native', 'flutter', 'ionic', 'cordova', 'swift', 'kotlin', 'xamarin'],
-    'devops': ['docker', 'kubernetes', 'jenkins', 'git', 'aws', 'azure', 'google cloud', 'terraform', 'ansible'],
-    'design': ['photoshop', 'illustrator', 'figma', 'sketch', 'adobe xd', 'indesign', 'after effects'],
-    'cms': ['wordpress', 'drupal', 'joomla', 'shopify', 'magento', 'prestashop'],
-    'analytics': ['google analytics', 'google tag manager', 'mixpanel', 'amplitude', 'tableau', 'power bi']
+    # Compétences générales
+    'communication': 'communication',
+    'gestion': 'gestion',
+    'management': 'management',
+    'vente': 'vente',
+    'marketing': 'marketing',
+    'finance': 'finance',
+    'comptabilité': 'comptabilité',
+    'rh': 'ressources humaines',
+    'ressources humaines': 'ressources humaines',
+    'logistique': 'logistique',
+    'qualité': 'qualité',
+    'formation': 'formation',
+    'conseil': 'conseil',
+    'analyse': 'analyse',
+    'planification': 'planification',
+    'organisation': 'organisation',
+    'négociation': 'négociation',
+    'leadership': 'leadership',
+    'supervision': 'supervision',
+    'coordination': 'coordination',
+    'administration': 'administration',
+    'secrétariat': 'secrétariat',
+    'accueil': 'accueil',
+    'relation client': 'relation client',
+    'service client': 'service client',
+    'maintenance': 'maintenance',
+    'production': 'production',
+    'sécurité': 'sécurité',
+    'hygiène': 'hygiène',
+    'environnement': 'environnement',
+    'santé': 'santé',
+    'social': 'social',
+    'juridique': 'juridique',
+    'droit': 'droit',
+    'enseignement': 'enseignement',
+    'éducation': 'éducation',
+    'recherche': 'recherche',
+    'innovation': 'innovation',
+    'créativité': 'créativité',
+    'design': 'design',
+    'art': 'art',
+    'culture': 'culture',
+    'sport': 'sport',
+    'tourisme': 'tourisme',
+    'hôtellerie': 'hôtellerie',
+    'restauration': 'restauration',
+    'cuisine': 'cuisine',
+    'agriculture': 'agriculture',
+    'élevage': 'élevage',
+    'construction': 'construction',
+    'bâtiment': 'bâtiment',
+    'électricité': 'électricité',
+    'plomberie': 'plomberie',
+    'mécanique': 'mécanique',
+    'automobile': 'automobile',
+    'transport': 'transport',
+    'conduite': 'conduite',
+    'livraison': 'livraison',
+    'manutention': 'manutention',
+    'nettoyage': 'nettoyage',
+    'entretien': 'entretien',
+    'réparation': 'réparation',
+    'installation': 'installation',
+    'montage': 'montage',
+    'assemblage': 'assemblage',
+    'contrôle': 'contrôle',
+    'inspection': 'inspection',
+    'surveillance': 'surveillance',
+    'gardiennage': 'gardiennage',
+    'protection': 'protection',
 }
 
 SECTOR_KEYWORDS = {
-    'informatique': ['développement', 'programmation', 'logiciel', 'application', 'système', 'réseau', 'sécurité', 'data', 'ia', 'machine learning'],
-    'marketing': ['marketing', 'communication', 'publicité', 'seo', 'sem', 'réseaux sociaux', 'contenu', 'campagne', 'brand'],
-    'finance': ['finance', 'comptabilité', 'audit', 'contrôle de gestion', 'fiscalité', 'budget', 'investissement', 'banque'],
-    'rh': ['ressources humaines', 'recrutement', 'formation', 'paie', 'gestion du personnel', 'talent management'],
-    'vente': ['vente', 'commercial', 'négociation', 'client', 'prospection', 'relation client', 'business development'],
-    'design': ['design', 'graphique', 'ui', 'ux', 'interface', 'ergonomie', 'expérience utilisateur', 'créatif']
+    'administration': ['administration', 'secrétariat', 'accueil', 'gestion administrative', 'bureau', 'documentation', 'archivage', 'planning', 'organisation'],
+    'commerce': ['vente', 'commercial', 'négociation', 'client', 'prospection', 'relation client', 'business development', 'merchandising', 'caisse'],
+    'finance': ['finance', 'comptabilité', 'audit', 'contrôle de gestion', 'fiscalité', 'budget', 'investissement', 'banque', 'assurance', 'crédit'],
+    'ressources_humaines': ['ressources humaines', 'recrutement', 'formation', 'paie', 'gestion du personnel', 'talent management', 'relations sociales'],
+    'marketing': ['marketing', 'communication', 'publicité', 'événementiel', 'relations publiques', 'contenu', 'campagne', 'brand', 'digital'],
+    'production': ['production', 'fabrication', 'assemblage', 'montage', 'contrôle qualité', 'maintenance', 'logistique', 'supply chain'],
+    'services': ['service client', 'support', 'assistance', 'conseil', 'accompagnement', 'aide', 'social', 'médiation'],
+    'technique': ['maintenance', 'réparation', 'installation', 'dépannage', 'technique', 'mécanique', 'électricité', 'plomberie'],
+    'santé': ['santé', 'médical', 'soins', 'hygiène', 'sécurité', 'prévention', 'urgence', 'assistance médicale'],
+    'éducation': ['enseignement', 'éducation', 'formation', 'pédagogie', 'animation', 'encadrement', 'accompagnement scolaire'],
+    'bâtiment': ['construction', 'bâtiment', 'travaux publics', 'maçonnerie', 'charpente', 'couverture', 'isolation', 'finition'],
+    'transport': ['transport', 'logistique', 'conduite', 'livraison', 'expédition', 'réception', 'manutention', 'stockage'],
+    'hôtellerie': ['hôtellerie', 'restauration', 'cuisine', 'service', 'accueil', 'réception', 'ménage', 'entretien'],
+    'agriculture': ['agriculture', 'élevage', 'jardinage', 'paysage', 'environnement', 'nature', 'espaces verts'],
+    'sécurité': ['sécurité', 'surveillance', 'gardiennage', 'protection', 'prévention', 'contrôle', 'inspection'],
+    'art_culture': ['art', 'culture', 'créativité', 'design', 'spectacle', 'événementiel', 'animation culturelle'],
+    'informatique': ['informatique', 'numérique', 'digital', 'technologie', 'système', 'réseau', 'data', 'analyse'],
+    'juridique': ['juridique', 'droit', 'contentieux', 'conseil juridique', 'réglementation', 'conformité']
 }
 
 
@@ -463,33 +514,62 @@ def find_semantic_matches(
     return sorted(matches, key=lambda x: x["similarity"], reverse=True)
 
 
-def cluster_skills_by_technology(skills: List[str]) -> Dict[str, List[str]]:
+def find_matching_skills_in_offer(candidate_skills: List[str], offer_text: str) -> List[Dict[str, Any]]:
     """
-    Groupe les compétences par clusters technologiques.
+    Trouve les compétences du candidat qui correspondent à l'offre d'emploi.
+    Utilise une approche de recherche sémantique et de mots-clés.
     """
-    clustered_skills = defaultdict(list)
-    uncategorized = []
+    logger.info(f"find_matching_skills_in_offer appelée avec {len(candidate_skills) if candidate_skills else 0} compétences")
+    logger.info(f"Premières compétences du candidat: {candidate_skills[:5] if candidate_skills else []}")
+    logger.info(f"Texte de l'offre (premiers 200 chars): {offer_text[:200] if offer_text else 'VIDE'}")
     
-    # Normaliser les compétences
-    normalized_skills = [normalize_skill_name(skill) for skill in skills]
+    if not candidate_skills or not offer_text:
+        logger.warning("Compétences du candidat ou texte de l'offre vide")
+        return []
     
-    # Classer les compétences dans les clusters
-    for skill in normalized_skills:
-        categorized = False
-        for cluster_name, cluster_skills in TECHNOLOGY_CLUSTERS.items():
-            if skill.lower() in [cs.lower() for cs in cluster_skills]:
-                clustered_skills[cluster_name].append(skill)
-                categorized = True
-                break
+    matching_skills = []
+    offer_text_lower = offer_text.lower()
+    offer_normalized = normalize_text(offer_text)
+    
+    for skill in candidate_skills:
+        skill_lower = skill.lower().strip()
+        skill_normalized = normalize_skill_name(skill_lower)
         
-        if not categorized:
-            uncategorized.append(skill)
+        # Recherche exacte
+        exact_match = False
+        if skill_lower in offer_text_lower:
+            exact_match = True
+        
+        # Recherche sémantique
+        semantic_score = 0.0
+        if sentence_model:
+            try:
+                semantic_score = get_semantic_similarity(skill, offer_text)
+            except:
+                semantic_score = 0.0
+        
+        # Recherche dans les mots normalisés
+        normalized_match = False
+        if skill_normalized in offer_normalized:
+            normalized_match = True
+        
+        # Déterminer si c'est une correspondance
+        is_match = exact_match or normalized_match or semantic_score > 0.7
+        
+        if is_match:
+            match_type = "exact" if exact_match else ("normalized" if normalized_match else "semantic")
+            matching_skills.append({
+                'skill': skill,
+                'match_type': match_type,
+                'confidence': 1.0 if exact_match else (0.9 if normalized_match else semantic_score),
+                'semantic_score': semantic_score
+            })
+            logger.info(f"Correspondance trouvée: {skill} -> {match_type} (confiance: {1.0 if exact_match else (0.9 if normalized_match else semantic_score)})")
     
-    # Ajouter les compétences non catégorisées
-    if uncategorized:
-        clustered_skills['autres'] = uncategorized
-    
-    return dict(clustered_skills)
+    # Trier par confiance décroissante
+    matching_skills.sort(key=lambda x: x['confidence'], reverse=True)
+    logger.info(f"Nombre total de correspondances trouvées: {len(matching_skills)}")
+    return matching_skills
 
 
 def analyze_skill_market_demand(skill: str) -> float:
@@ -955,9 +1035,15 @@ def analyze_competences_compatibility_advanced(
         else:
             missing_optional.append(skill)
     
-    # 5. Clustering technologique
-    all_candidate_skills = [skill['normalized'] for skill in cand_skills_normalized]
-    technology_clusters = cluster_skills_by_technology(all_candidate_skills)
+    # 5. Groupement des compétences par secteur (simplifié)
+    skill_sectors = {}
+    for skill in cand_skills_normalized:
+        for sector, keywords in SECTOR_KEYWORDS.items():
+            if any(keyword in skill['normalized'].lower() for keyword in keywords):
+                if sector not in skill_sectors:
+                    skill_sectors[sector] = []
+                skill_sectors[sector].append(skill['original'])
+                break
     
     # 6. Analyse des niveaux de compétences
     skill_levels = {}
@@ -1004,7 +1090,7 @@ def analyze_competences_compatibility_advanced(
         semantic_matches=semantic_matches,
         missing_critical=missing_critical,
         missing_optional=missing_optional,
-        technology_clusters=technology_clusters,
+        technology_clusters=skill_sectors,
         skill_levels=skill_levels,
         similarity_matrix=similarity_matrix_dict
     )
@@ -1071,13 +1157,13 @@ def analyze_competences_compatibility(
 
 def classify_skill_category(skill: str) -> str:
     """
-    Classifie une compétence dans une catégorie technologique.
+    Classifie une compétence dans une catégorie sectorielle.
     """
     skill_lower = skill.lower()
     
-    for category, skills_in_category in TECHNOLOGY_CLUSTERS.items():
-        if skill_lower in [s.lower() for s in skills_in_category]:
-            return category
+    for sector, keywords in SECTOR_KEYWORDS.items():
+        if any(keyword in skill_lower for keyword in keywords):
+            return sector
     
     return 'general'
 
@@ -1493,290 +1579,121 @@ def analyze_global_compatibility(candidate_text: Optional[str], offer_text: Opti
 
 def analyze_compatibility(candidate_data: Dict, job_offer_data: Dict) -> Dict:
     """
-    Analyse hybride avancée V2 utilisant SpaCy et SentenceTransformers.
-    Combine l'analyse structurée (niveau 2) et l'analyse sémantique globale (niveau 1).
+    Analyse simplifiée focalisée sur les compétences correspondantes.
     """
     start_time = time.time()
     
     try:
-        logger.info("Début de l'analyse hybride avancée V2")
+        logger.info("Début de l'analyse de compatibilité simplifiée")
         
         # Validation et initialisation des objets Pydantic
         profile = CandidatProfile(**candidate_data)
         offer = JobOffer(**job_offer_data)
         
         # Vérification de la qualité des données
-        MIN_OFFER_LENGTH = 100
-        if not offer.texte_integral or len(offer.texte_integral) < MIN_OFFER_LENGTH:
+        if not offer.texte_integral or len(offer.texte_integral) < 50:
             return {
                 "error": "insufficient_data",
-                "message": "La description de l'offre est trop courte pour une analyse de compatibilité détaillée."
+                "message": "La description de l'offre est trop courte pour une analyse de compatibilité."
             }
         
-        # === NIVEAU 1 : ANALYSE GLOBALE SÉMANTIQUE ===
-        logger.info("Démarrage de l'analyse globale (Niveau 1)")
+        # === ANALYSE SÉMANTIQUE GLOBALE ===
+        candidate_text = profile.texte_integral or ""
+        offer_text = offer.texte_integral or ""
         
-        # 1.1 Création des embeddings de sections pour le candidat
-        candidate_sections = {}
-        if profile.description:
-            candidate_sections['description'] = create_section_embedding('description', profile.description)
+        global_similarity = 0.0
+        if candidate_text and offer_text:
+            global_similarity = get_semantic_similarity(candidate_text, offer_text)
         
-        # Compétences
-        competences_text = " ".join([comp.nom for comp in profile.competences])
-        if competences_text.strip():
-            candidate_sections['competences'] = create_section_embedding('competences', competences_text)
+        # Calcul du score global (en pourcentage)
+        final_score = global_similarity * 100
         
-        # Expériences
-        experiences_text = " ".join([
-            f"{exp.titre_poste} {exp.description}" for exp in profile.experiences if exp.description
-        ])
-        if experiences_text.strip():
-            candidate_sections['experiences'] = create_section_embedding('experiences', experiences_text)
+        # === RECHERCHE DES COMPÉTENCES CORRESPONDANTES ===
         
-        # Formations
-        formations_text = " ".join([
-            f"{form.niveau} {form.domaine} {form.etablissement or ''}" for form in profile.formations
-        ])
-        if formations_text.strip():
-            candidate_sections['formations'] = create_section_embedding('formations', formations_text)
+        # Extraire toutes les compétences du candidat
+        candidate_skills = []
         
-        # Projets
-        projets_text = " ".join([
-            f"{proj.titre} {proj.description}" for proj in profile.projets if proj.description
-        ])
-        if projets_text.strip():
-            candidate_sections['projets'] = create_section_embedding('projets', projets_text)
+        # Compétences explicites
+        for comp in profile.competences:
+            if comp.nom and comp.nom.strip():
+                candidate_skills.append(comp.nom.strip())
         
-        # 1.2 Création des embeddings de sections pour l'offre
-        offer_sections = {}
-        if offer.description:
-            offer_sections['description'] = create_section_embedding('offre_description', offer.description)
+        # Compétences depuis les expériences
+        for exp in profile.experiences:
+            if exp.competences:
+                candidate_skills.extend(exp.competences)
         
-        # Compétences requises
-        competences_requises_text = " ".join([comp.nom for comp in offer.competences_requises])
-        if competences_requises_text.strip():
-            offer_sections['competences_requises'] = create_section_embedding('competences_requises', competences_requises_text)
+        # Compétences depuis les projets
+        for proj in profile.projets:
+            if proj.competences_developpees:
+                candidate_skills.extend(proj.competences_developpees)
         
-        # Exigences de formation
-        if offer.formation_requise.domaines_acceptes:
-            formation_text = f"{offer.formation_requise.niveau_minimum} {' '.join(offer.formation_requise.domaines_acceptes)}"
-            offer_sections['formation_requise'] = create_section_embedding('formation_requise', formation_text)
+        # Supprimer les doublons et normaliser
+        candidate_skills = list(set([skill.strip() for skill in candidate_skills if skill and skill.strip()]))
         
-        # 1.3 Analyse sémantique globale
-        global_semantic_analysis = calculate_semantic_similarity_advanced(
-            profile.texte_integral or "",
-            offer.texte_integral or "",
-            candidate_sections,
-            offer_sections
-        )
+        logger.info(f"Compétences du candidat consolidées: {candidate_skills}")
+        logger.info(f"Nombre total de compétences: {len(candidate_skills)}")
         
-        logger.info(f"Analyse sémantique globale terminée - Score: {global_semantic_analysis.score:.2f}")
+        # Rechercher les correspondances dans l'offre
+        matching_skills = find_matching_skills_in_offer(candidate_skills, offer_text)
         
-        # === NIVEAU 2 : ANALYSE GRANULAIRE STRUCTURÉE ===
-        logger.info("Démarrage de l'analyse granulaire (Niveau 2)")
+        # === GÉNÉRATION DU RAPPORT SIMPLIFIÉ ===
         
-        # 2.1 Analyse des compétences avec l'approche avancée
-        advanced_competence_analysis = analyze_competences_compatibility_advanced(
-            profile.competences, 
-            offer.competences_requises,
-            profile.texte_integral or "",
-            offer.texte_integral or ""
-        )
+        # Générer le résumé principal
+        if final_score >= 70:
+            resume = f"Excellente compatibilité ({final_score:.0f}%) - Votre profil correspond très bien à cette offre d'emploi."
+        elif final_score >= 50:
+            resume = f"Bonne compatibilité ({final_score:.0f}%) - Votre profil présente de bons atouts pour ce poste."
+        elif final_score >= 30:
+            resume = f"Compatibilité modérée ({final_score:.0f}%) - Il y a des points de correspondance avec votre profil."
+        else:
+            resume = f"Compatibilité limitée ({final_score:.0f}%) - Votre profil semble moins adapté à cette offre."
         
-        # 2.2 Analyse de formation (utilise la fonction existante)
-        formation_score, f_details, f_reco = analyze_formation_compatibility(
-            profile.formations, 
-            offer.formation_requise, 
-            profile.niveau_etude, 
-            profile.niveau_etude_valeur
-        )
+        # Préparer les compétences trouvées
+        competences_trouvees = []
+        if matching_skills:
+            for match in matching_skills[:10]:  # Limiter à 10 compétences
+                competences_trouvees.append({
+                    "competence": match['skill'],
+                    "type_correspondance": match['match_type'],
+                    "confiance": round(match['confidence'] * 100)
+                })
         
-        # 2.3 Analyse d'expérience (utilise la fonction existante)
-        experience_score, e_details, e_reco = analyze_experience_compatibility(
-            profile.experiences, 
-            offer.experience_requise, 
-            offer.description, 
-            profile.niveau_experience_valeur
-        )
-        
-        # 2.4 Analyse des langues
-        langues_score, l_details, l_reco = analyze_langues_compatibility(
-            profile.langues, offer.langues_requises
-        )
-        
-        # 2.5 Analyse des outils
-        outils_score, o_details, o_reco = analyze_outils_compatibility(
-            profile.outils, offer.texte_integral or ""
-        )
-        
-        # 2.6 Analyse des projets
-        p_details, p_reco = analyze_projets_candidat(profile.projets, offer)
-        
-        # === CALCUL DU SCORE HYBRIDE FINAL ===
-        
-        # Score granulaire pondéré
-        granular_scores = {
-            'formation': formation_score,
-            'experience': experience_score,
-            'competences': calculate_competence_score_from_advanced(advanced_competence_analysis, offer.competences_requises),
-            'langues': langues_score,
-            'outils': outils_score
-        }
-        
-        granular_composite_score = (
-            granular_scores['formation'] * FORMATION_WEIGHT +
-            granular_scores['experience'] * EXPERIENCE_WEIGHT +
-            granular_scores['competences'] * COMPETENCES_WEIGHT +
-            granular_scores['langues'] * LANGUES_WEIGHT +
-            granular_scores['outils'] * OUTILS_WEIGHT
-        )
-        
-        # Score hybride final (60% sémantique global + 40% granulaire)
-        WEIGHT_GLOBAL_SEMANTIC = 0.6
-        WEIGHT_GRANULAR = 0.4
-        
-        final_hybrid_score = (
-            (global_semantic_analysis.score * WEIGHT_GLOBAL_SEMANTIC) +
-            (granular_composite_score * WEIGHT_GRANULAR)
-        ) * 100
-        
-        logger.info(f"Score hybride final calculé : {final_hybrid_score:.0f}%")
-        
-        # === GÉNÉRATION DU RAPPORT AVANCÉ ===
-        
-        # Points forts enrichis
-        points_forts = []
-        
-        # Compétences exactes
-        for skill in advanced_competence_analysis.exact_matches:
-            points_forts.append(PointFort(
-                description=f"Maîtrise confirmée : {skill}",
-                categorie="competence",
-                importance="important"
-            ))
-        
-        # Correspondances sémantiques fortes
-        for match in advanced_competence_analysis.semantic_matches:
-            if match['similarity'] > 0.9:
-                points_forts.append(PointFort(
-                    description=f"Compétence très proche : {match['matched_skill']} pour {match['required_skill']}",
-                    categorie="competence",
-                    importance="normal"
-                ))
-        
-        # Points forts des autres sections
-        for detail in f_details + e_details + l_details + o_details + p_details:
-            points_forts.append(PointFort(description=detail, categorie="general"))
-        
-        # Points d'amélioration enrichis
-        points_amelioration = []
-        
-        # Compétences critiques manquantes
-        for skill in advanced_competence_analysis.missing_critical:
-            resources = generate_learning_resources(skill)
-            points_amelioration.append(PointAmelioration(
-                description=f"Compétence critique manquante : {skill}",
-                categorie="competence",
-                priorite="haute",
-                suggestion=f"Formation recommandée en {skill}",
-                ressources=resources[:3]
-            ))
-        
-        # Autres recommandations
-        for reco in f_reco + e_reco + l_reco + o_reco + p_reco:
-            points_amelioration.append(PointAmelioration(description=reco, categorie="general"))
-        
-        # Suggestions avancées
-        suggestions = []
-        
-        # Suggestions basées sur l'analyse des compétences
-        for skill in advanced_competence_analysis.missing_optional:
-            market_demand = analyze_skill_market_demand(skill)
-            priority = "haute" if market_demand > 0.8 else "moyenne"
-            
-            suggestions.append(Suggestion(
-                categorie="competence",
-                description=f"Développer la compétence : {skill}",
-                priorite=priority,
-                impact_estime="fort" if market_demand > 0.8 else "moyen"
-            ))
-        
-        # Analyse détaillée par catégorie
-        analyse_detaillee = AnalyseDetaillee(
-            formation=AnalyseCategorielle(
-                categorie="Formation",
-                score=round(formation_score * 100),
-                points_forts=f_details,
-                points_amelioration=f_reco,
-                resume=generate_section_resume("formation", formation_score)
-            ),
-            experience=AnalyseCategorielle(
-                categorie="Expérience",
-                score=round(experience_score * 100),
-                points_forts=e_details,
-                points_amelioration=e_reco,
-                resume=generate_section_resume("experience", experience_score)
-            ),
-            competences=AnalyseCategorielle(
-                categorie="Compétences", 
-                score=round(granular_scores['competences'] * 100),
-                points_forts=[f"Maîtrise de {skill}" for skill in advanced_competence_analysis.exact_matches],
-                points_amelioration=[f"Développer : {skill}" for skill in advanced_competence_analysis.missing_critical],
-                resume=generate_section_resume("competences", granular_scores['competences'])
-            ),
-            langues=AnalyseCategorielle(
-                categorie="Langues",
-                score=round(langues_score * 100),
-                points_forts=l_details,
-                points_amelioration=l_reco,
-                resume=generate_section_resume("langues", langues_score)
-            )
-        )
-        
-        # Niveau d'adéquation
-        def get_adequation_level(score):
-            if score > 85: return "Excellent"
-            if score > 70: return "Très bon"
-            if score > 50: return "Bon"
-            if score > 30: return "Passable"
-            return "Faible"
-            
-        niveau_adequation = get_adequation_level(final_hybrid_score)
-        resume = generate_main_resume(final_hybrid_score, niveau_adequation, "competences", points_amelioration)
+        # Message sur les compétences
+        if competences_trouvees:
+            competences_message = f"{len(competences_trouvees)} de vos compétences correspondent à cette offre d'emploi."
+        else:
+            competences_message = "Aucune de vos compétences explicites n'a été directement identifiée dans cette offre. Cela ne signifie pas que vous n'êtes pas qualifié, mais plutôt que vos compétences pourraient être exprimées différemment."
         
         # Temps d'analyse
         analysis_time = int((time.time() - start_time) * 1000)
         
-        # Construction de la réponse finale
-        response = MatchingResponseV2(
-            score_global=round(final_hybrid_score),
-            score_global_semantique=round(global_semantic_analysis.score * 100),
-            niveau_adequation=niveau_adequation,
-            resume=resume,
-            points_forts=points_forts[:10],  # Limiter à 10 points forts
-            points_amelioration=points_amelioration[:10],  # Limiter à 10 points d'amélioration
-            suggestions=suggestions[:5],  # Limiter à 5 suggestions
-            analyse_detaillee=analyse_detaillee,
-            competences_manquantes=advanced_competence_analysis.missing_critical + advanced_competence_analysis.missing_optional,
-            contexte_analyse=ContexteAnalyse(
-                niveau_confiance="haute" if global_semantic_analysis.score > 0.7 else "moyenne",
-                temps_analyse_ms=analysis_time,
-                modeles_utilises={
-                    "spacy": "fr_core_news_sm",
-                    "sentence_transformer": "distiluse-base-multilingual-cased-v1"
-                }
-            )
-        )
+        # Construction de la réponse simplifiée
+        response = {
+            "score_global": round(final_score),
+            "resume": resume,
+            "competences_message": competences_message,
+            "competences_trouvees": competences_trouvees,
+            "nombre_competences_trouvees": len(competences_trouvees),
+            "contexte_analyse": {
+                "timestamp": datetime.now().isoformat(),
+                "version_api": "2.1.0-simplifie",
+                "temps_analyse_ms": analysis_time,
+                "nombre_competences_analysees": len(candidate_skills)
+            }
+        }
         
-        logger.info(f"Analyse hybride V2 terminée en {analysis_time}ms")
-        return response.dict(exclude_none=True)
+        logger.info(f"Analyse simplifiée terminée en {analysis_time}ms - Score: {final_score:.0f}% - Compétences trouvées: {len(competences_trouvees)}")
+        return response
 
     except Exception as e:
-        logger.error(f"Erreur majeure dans analyze_compatibility: {e}", exc_info=True)
+        logger.error(f"Erreur dans analyze_compatibility: {e}", exc_info=True)
         return {
             "score_global": 0,
-            "niveau_adequation": "Erreur",
             "resume": f"Une erreur est survenue lors de l'analyse: {str(e)}",
+            "competences_message": "Analyse impossible en raison d'une erreur technique.",
+            "competences_trouvees": [],
+            "nombre_competences_trouvees": 0
         }
 
 
@@ -2042,7 +1959,16 @@ def analyze_compatibility_hybrid(candidate_data: Dict, job_offer_data: Dict) -> 
         # === CLUSTERING TECHNOLOGIQUE ===
         
         candidate_skills = [comp.nom for comp in candidate_competences] if candidate_competences else []
-        skill_clusters = cluster_skills_by_technology(candidate_skills)
+        # Utiliser la fonction existante classifySkillsByCluster (équivalente)
+        skill_clusters = {}
+        for sector, keywords in SECTOR_KEYWORDS.items():
+            sector_skills = []
+            for skill in candidate_skills:
+                skill_lower = skill.lower()
+                if any(keyword in skill_lower for keyword in keywords):
+                    sector_skills.append(skill)
+            if sector_skills:
+                skill_clusters[sector] = sector_skills
         
         
         # === ANALYSE DES LACUNES ET PROGRESSION ===
