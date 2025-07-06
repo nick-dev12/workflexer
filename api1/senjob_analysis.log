@@ -4231,3 +4231,4 @@
 2025-07-02 03:57:46,682 - INFO - Fin de l'analyse.
 2025-07-02 03:57:46,682 - INFO - ==================================================
 
+2025-07-02 06:09:01,759 - INFO - Logger pour 'senjob_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\senjob_analysis.log

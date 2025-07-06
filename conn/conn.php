@@ -3,8 +3,28 @@
  * Fichier de connexion à la base de données
  * 
  * Ce fichier établit une connexion sécurisée à la base de données MySQL
- * avec support UTF-8 pour les caractères spéciaux.
+ * avec support UTF-8 pour les caractères spéciaux et gère les sessions.
  */
+
+// Configuration des sessions sécurisées
+if (session_status() == PHP_SESSION_NONE) {
+    // Configuration de sécurité pour les sessions
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.use_only_cookies', 1);
+    ini_set('session.cookie_secure', 0); // Mettre à 1 si HTTPS
+    ini_set('session.cookie_lifetime', 0); // Session expire à la fermeture du navigateur
+    ini_set('session.gc_maxlifetime', 3600); // 1 heure de durée de vie
+    
+    session_start();
+    
+    // Régénérer l'ID de session périodiquement pour la sécurité
+    if (!isset($_SESSION['last_regeneration'])) {
+        $_SESSION['last_regeneration'] = time();
+    } elseif (time() - $_SESSION['last_regeneration'] > 300) { // Toutes les 5 minutes
+        session_regenerate_id(true);
+        $_SESSION['last_regeneration'] = time();
+    }
+}
 
 // Paramètres de connexion 
 $db_host = "localhost";

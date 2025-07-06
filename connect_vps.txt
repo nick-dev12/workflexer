@@ -1,0 +1,31 @@
+ssh root@147.78.130.141
+ssh -p 22 root@147.78.130.141
+
+python3 -m venv env
+
+source env/bin/activate
+
+python -m uvicorn main:app --host 0.0.0.0 --port 8000 --log-level info --access-log
+
+
+methode pour faire toune une api en arrire plan :
+
+# Installer screen si pas déjà fait
+apt install screen -y
+
+# Créer la session et lancer l'API
+screen -S workflexer-api
+cd /home/oyono/public_html/api1
+source env/bin/activate
+python -m uvicorn main:app --host 0.0.0.0 --port 8000 --log-level info --access-log
+
+# Détacher avec Ctrl+A puis D
+
+# Voir les sessions screen actives
+screen -ls
+
+# Se reconnecter à la session pour voir les logs
+screen -r
+
+# Ou si vous avez plusieurs sessions
+screen -r workflexer-api

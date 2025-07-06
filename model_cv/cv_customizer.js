@@ -220,8 +220,19 @@ document.addEventListener('DOMContentLoaded', function () {
         /* Responsive design for smaller screens */
         @media screen and (max-width: 768px) {
             .cv-editor-panel {
-                width: 90%;
-                padding: 12px;
+                width: 33.33%; /* Un tiers de l'écran */
+                max-width: 300px;
+                min-width: 250px;
+                padding: 10px;
+                left: 0;
+                transform: translateX(-100%);
+                border-radius: 0 12px 0 0;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            .cv-editor-panel.visible {
+                transform: translateX(0);
             }
             
             .cv-editor-panel .editor-title {
@@ -236,44 +247,86 @@ document.addEventListener('DOMContentLoaded', function () {
             .cv-editor-panel label {
                 font-size: 12px;
             }
-        }
-        
-        @media screen and (max-width: 480px) {
-            .cv-editor-panel {
-                width: 100%;
-                border-radius: 0;
-            }
-            
-            .cv-editor-panel .editor-title {
-                font-size: 13px;
-            }
-            
-            .cv-editor-panel .option {
-                display: inline-block;
-                width: 31%;
-                vertical-align: top;
-                margin-right: 1%;
-            }
-            
-            .cv-editor-panel label {
-                font-size: 11px;
-            }
             
             .cv-editor-panel input,
             .cv-editor-panel select {
                 padding: 6px;
+                font-size: 12px;
+            }
+            
+            .cv-editor-panel .btn-apply {
+                padding: 8px;
+                font-size: 12px;
+            }
+            
+            .cv-editor-panel .btn-apply-bg {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .cv-editor-panel {
+                width: 35%; /* Un peu plus sur très petit écran */
+                max-width: 280px;
+                min-width: 200px;
+                padding: 8px;
+                left: 0;
+                transform: translateX(-100%);
+                border-radius: 0 8px 0 0;
+                max-height: 65vh;
+                overflow-y: auto;
+            }
+            
+            .cv-editor-panel.visible {
+                transform: translateX(0);
+            }
+            
+            .cv-editor-panel .editor-title {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+            
+            .cv-editor-panel .option {
+                margin-bottom: 5px;
+            }
+            
+            .cv-editor-panel label {
+                font-size: 10px;
+                margin-bottom: 3px;
+            }
+            
+            .cv-editor-panel input,
+            .cv-editor-panel select {
+                padding: 4px;
+                font-size: 11px;
             }
             
             .cv-editor-panel .btn-apply {
                 padding: 6px;
-                font-size: 12px;
+                font-size: 11px;
+            }
+            
+            .cv-editor-panel .btn-apply-bg {
+                padding: 3px 6px;
+                font-size: 10px;
+                margin-left: 5px;
             }
             
             .cv-editor-panel .checkbox-option {
                 display: block;
                 width: 100%;
-                margin-top: 5px;
-                margin-bottom: 10px;
+                margin-top: 3px;
+                margin-bottom: 6px;
+            }
+            
+            .cv-editor-panel .checkbox-option label {
+                font-size: 9px;
+            }
+            
+            .cv-editor-panel #fontSizeValue {
+                font-size: 9px;
+                margin-left: 3px;
             }
         }
     `;

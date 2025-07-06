@@ -722,7 +722,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
                 <div class="report-body-v3">
-                    ${competencesMessageHtml}
+                    ${competencesTrouveesHtml}
                 </div>
             </div>
         `;

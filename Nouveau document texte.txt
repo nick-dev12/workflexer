@@ -1,0 +1,7 @@
+Il semble que malgré la présence des données de niveau d'études et d'expérience dans la base de données, celles-ci ne sont pas correctement reflétées dans l'analyse de compatibilité de l'API, affichant "Non spécifié". En tant qu'expert en PHP et Python, je vais m'assurer que le flux de données est correct de la base de données jusqu'à l'API et que l'analyse est effectuée comme prévu.
+
+
+de plus dans la tables SELECT `id`, `nom`, `mail`, `phone`, `ville`, `competences`, `profession`, `categorie`, `images`, `statut`, `remember_token`, `verification`, `verification_statut`, `passe`, `date` FROM `users` WHERE 1 ajoute convenablement ces donnees et de plus la colone competences dans la table users represente le domaine de competence par exemple developpeur web ou marketing digital etc tien compte de cela ajoute aussi les donnees de la table SELECT `id`, `users_id`, `titre`, `liens`, `projetdescription`, `images`, `date` FROM `projet_users` WHERE 1
+
+qui representes les projet du canditat 
+de plus pour les donner du candidat ajoute la description de son profil qui represent la section a propo de moi de son cv SELECT `id`, `users_id`, `description`, `date` FROM `description_users` WHERE 1

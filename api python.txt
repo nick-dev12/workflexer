@@ -1,0 +1,39 @@
+1. Principe général
+Lorsqu’un utilisateur consulte une offre d’emploi, tu envoies à l’API Python :
+Les données complètes du profil du candidat (formation, compétences, expériences…)
+Les données complètes de l’offre (compétences requises, niveau d’études, expérience, etc.)
+L’API analyse la correspondance entre le profil et l’offre.
+Elle retourne :
+Un pourcentage de correspondance global
+Les points forts du candidat
+Les points à améliorer pour mieux correspondre à l’offre
+2. Architecture recommandée
+Backend PHP : continue de gérer l’authentification, la récupération des données, etc.
+API Python (Flask ou FastAPI) : reçoit les données, effectue l’analyse, retourne le résultat.
+Communication : via requête HTTP (POST) entre PHP et Python.
+
+3. Étapes de mise en place
+A. Définir les données à envoyer
+Profil utilisateur : formations, compétences, expériences, langues, certifications, etc.
+Offre d’emploi : compétences requises, niveau d’études, années d’expérience, langues, etc.
+
+C. Appeler l’API depuis PHP
+Utilise curl ou une librairie HTTP pour envoyer les données du profil et de l’offre à l’API Python.
+Récupère la réponse et affiche le résultat à l’utilisateur.
+
+4. Améliorations possibles
+Utiliser des techniques de NLP (traitement du langage naturel) pour matcher les compétences même si les mots sont différents.
+Ajouter une pondération selon l’importance des critères.
+Stocker les résultats pour faire des statistiques.
+
+1. Principe de cohabitation PHP + Python
+PHP continue de gérer le site web, l’authentification, l’interface utilisateur, etc.
+Python (FastAPI ou Flask) tourne en parallèle, uniquement pour l’analyse intelligente (matching, IA, etc.).
+Les deux communiquent via des requêtes HTTP (API REST), même si c’est sur la même machine.
+2. Organisation typique
+Ton projet PHP reste dans son dossier habituel (/www/workflexer).
+Ton API Python est dans un sous-dossier, par exemple /www/workflexer/api_matching/.
+Tu lances l’API Python avec :
+uvicorn main:app --reload --port 8000
+(ou un autre port libre)
+Depuis PHP, tu fais des requêtes HTTP vers http://localhost:8000/analyser.

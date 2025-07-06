@@ -64,6 +64,17 @@ document.addEventListener('DOMContentLoaded', function () {
             color: #495057;
         }
 
+        .cv-image-editor-panel #imageWidthValue,
+        .cv-image-editor-panel #imageHeightValue,
+        .cv-image-editor-panel #imageBorderRadiusValue,
+        .cv-image-editor-panel #imageOpacityValue,
+        .cv-image-editor-panel #imageBrightnessValue,
+        .cv-image-editor-panel #imageContrastValue {
+            font-weight: 600;
+            color: #007bff;
+            margin-left: 10px;
+        }
+
         .cv-image-editor-panel input[type="range"] {
             -webkit-appearance: none;
             appearance: none;
@@ -85,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
             appearance: none;
             width: 18px;
             height: 18px;
-            background: #ff9800;
+            background: #007bff;
             cursor: pointer;
             border-radius: 50%;
         }
@@ -93,16 +104,18 @@ document.addEventListener('DOMContentLoaded', function () {
         .cv-image-editor-panel input[type="range"]::-moz-range-thumb {
             width: 18px;
             height: 18px;
-            background: #ff9800;
+            background: #007bff;
             cursor: pointer;
             border-radius: 50%;
         }
 
         .cv-image-editor-panel input[type="number"] {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ced4da;
             border-radius: 4px;
+            background-color: white;
+            font-size: 14px;
         }
 
         .cv-image-editor-panel .size-inputs {
@@ -132,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         .cv-image-editor-panel .btn-apply {
-            background-image: linear-gradient(to right, #ff9800, #e65100);
+            background-image: linear-gradient(to right, #007bff, #0056b3);
             color: #fff;
             border: none;
             padding: 12px 15px;
@@ -147,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         .cv-image-editor-panel .btn-apply:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
         }
 
         .cv-image-editor-panel .action-buttons {
@@ -164,21 +177,29 @@ document.addEventListener('DOMContentLoaded', function () {
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .cv-image-editor-panel .action-buttons button:hover {
-             transform: translateY(-2px);
+            transform: translateY(-2px);
         }
         
         .cv-image-editor-panel .btn-hide {
-            background-color: #ffc107;
+            background-image: linear-gradient(to right, #ffc107, #e0a800);
             color: #212529;
         }
         
+        .cv-image-editor-panel .btn-hide:hover {
+            box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+        }
+        
         .cv-image-editor-panel .btn-reset {
-            background-color: #f44336;
+            background-image: linear-gradient(to right, #dc3545, #c82333);
             color: white;
+        }
+        
+        .cv-image-editor-panel .btn-reset:hover {
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
         }
 
         .editable-image {
@@ -188,59 +209,202 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         .editable-image:hover {
-            outline: 2px dashed #ff9800;
+            outline: 2px dashed #3498db;
         }
         
         .editable-image.active {
-            outline: 2px solid #ff9800;
+            outline: 2px solid #3498db;
         }
 
         .editable-image.hidden {
             display: none !important;
         }
 
-        .image-position-control {
+        .cv-image-editor-panel .image-position-control {
             display: flex;
             justify-content: center;
             margin-top: 10px;
         }
         
-        .image-position-control button {
+        .cv-image-editor-panel .image-position-control button {
             width: 36px;
             height: 36px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
+            border: 1px solid #ced4da;
+            background-color: #f8f9fa;
             margin: 0 5px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            border-radius: 4px;
+            border-radius: 6px;
+            transition: all 0.2s;
         }
         
-        .image-grayscale-container {
+        .cv-image-editor-panel .image-position-control button:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+        
+        .cv-image-editor-panel .image-grayscale-container {
             display: flex;
             align-items: center;
             margin-top: 5px;
         }
         
-        .image-grayscale-container input[type="checkbox"] {
-            margin-right: 8px;
+        .cv-image-editor-panel .image-grayscale-container input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .cv-image-editor-panel .checkbox-option {
+            display: block;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .cv-image-editor-panel .checkbox-option input {
+            width: auto;
+            margin-right: 10px;
         }
         
         /* Responsive design for smaller screens */
         @media screen and (max-width: 768px) {
             .cv-image-editor-panel {
-                width: 90%;
-                padding: 12px;
+                width: 33.33%; /* Un tiers de l'écran */
+                max-width: 300px;
+                min-width: 250px;
+                padding: 10px;
+                left: 0;
+                transform: translateX(-100%);
+                border-radius: 0 12px 0 0;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+            
+            .cv-image-editor-panel.visible {
+                transform: translateX(0);
+            }
+            
+            .cv-image-editor-panel .editor-title {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            
+            .cv-image-editor-panel .option {
+                margin-bottom: 8px;
+            }
+            
+            .cv-image-editor-panel label {
+                font-size: 12px;
+            }
+            
+            .cv-image-editor-panel .size-inputs {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .cv-image-editor-panel .action-buttons {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .cv-image-editor-panel .image-position-control button {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+                margin: 0 2px;
+            }
+            
+            .cv-image-editor-panel input[type="number"] {
+                padding: 6px;
+                font-size: 12px;
+            }
+            
+            .cv-image-editor-panel .btn-apply {
+                padding: 8px;
+                font-size: 12px;
+            }
+            
+            .cv-image-editor-panel .action-buttons button {
+                padding: 6px 5px;
+                font-size: 11px;
             }
         }
         
         @media screen and (max-width: 480px) {
             .cv-image-editor-panel {
-                width: 100%;
-                border-radius: 0;
+                width: 35%; /* Un peu plus sur très petit écran */
+                max-width: 280px;
+                min-width: 200px;
+                padding: 8px;
+                left: 0;
+                transform: translateX(-100%);
+                border-radius: 0 8px 0 0;
+                max-height: 65vh;
+                overflow-y: auto;
+            }
+            
+            .cv-image-editor-panel.visible {
+                transform: translateX(0);
+            }
+            
+            .cv-image-editor-panel .editor-title {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+            
+            .cv-image-editor-panel .option {
+                margin-bottom: 5px;
+            }
+            
+            .cv-image-editor-panel label {
+                font-size: 10px;
+                margin-bottom: 3px;
+            }
+            
+            .cv-image-editor-panel input[type="number"],
+            .cv-image-editor-panel input[type="range"] {
+                padding: 4px;
+                font-size: 11px;
+            }
+            
+            .cv-image-editor-panel .btn-apply {
+                padding: 6px;
+                font-size: 11px;
+            }
+            
+            .cv-image-editor-panel .action-buttons button {
+                padding: 5px 3px;
+                font-size: 10px;
+            }
+            
+            .cv-image-editor-panel .size-inputs {
+                gap: 3px;
+            }
+            
+            .cv-image-editor-panel .image-position-control {
+                margin-top: 6px;
+            }
+            
+            .cv-image-editor-panel .image-position-control button {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+                margin: 0 1px;
+            }
+            
+            .cv-image-editor-panel #imageWidthValue,
+            .cv-image-editor-panel #imageHeightValue,
+            .cv-image-editor-panel #imageBorderRadiusValue,
+            .cv-image-editor-panel #imageOpacityValue,
+            .cv-image-editor-panel #imageBrightnessValue,
+            .cv-image-editor-panel #imageContrastValue {
+                font-size: 9px;
+                margin-left: 3px;
             }
         }
     `;

@@ -1,4 +1,9 @@
 <?php
+// Démarrer la session si elle n'est pas déjà démarrée
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include('conn/conn.php');
 
 include('entreprise/app/controller/controllerEntreprise.php');

@@ -6,13 +6,11 @@ session_start();
 // Si l'utilisateur est connecté, supprimer son token de la base de données
 if (isset($_SESSION['users_id'])) {
     require_once(__DIR__ . '/conn.php');
-    $remember_token = '';
     
-    // Supprimer le token de la base de données
-    $sqlDeleteToken = "UPDATE users SET remember_token = :remember_token WHERE id = :userId";
+    // Supprimer le token et sa date d'expiration de la base de données
+    $sqlDeleteToken = "UPDATE users SET remember_token = NULL, remember_token_expires = NULL WHERE id = :userId";
     $stmtDeleteToken = $db->prepare($sqlDeleteToken);
-    $stmtDeleteToken->bindParam(':userId', $_SESSION['users_id']);
-    $stmtDeleteToken->bindParam(':remember_token', $remember_token);
+    $stmtDeleteToken->bindParam(':userId', $_SESSION['users_id'], PDO::PARAM_INT);
     $stmtDeleteToken->execute();
 }
 

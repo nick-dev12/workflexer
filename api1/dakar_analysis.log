@@ -2486,3 +2486,4 @@
 2025-07-02 03:57:21,975 - INFO - Fin de l'analyse.
 2025-07-02 03:57:21,975 - INFO - ==================================================
 
+2025-07-02 06:09:01,759 - INFO - Logger pour 'dakar_analysis' configuré. Les logs seront écrits dans : C:\wamp64\www\workflexer\api1\dakar_analysis.log

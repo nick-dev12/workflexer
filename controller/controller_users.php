@@ -1,29 +1,84 @@
 <?php
 require_once(__DIR__ . '/../model/users.php');
 
-// Vérifier si l'utilisateur est déjà connecté
-if (isset($_SESSION['users_id'])) {
-    // L'utilisateur est déjà connecté, pas besoin de vérifier le cookie
-} 
-if (isset($_COOKIE['remember_me'])) {
-    // Le cookie remember_me est présent, essayons de reconnecter l'utilisateur
-    $token = $_COOKIE['remember_me'];
-
-    // Vérifier le jeton dans la base de données avec une requête plus sécurisée
-    $sqlCheckToken = "SELECT id, remember_token FROM users WHERE remember_token = :token AND remember_token IS NOT NULL";
-    $stmtCheckToken = $db->prepare($sqlCheckToken);
-    $stmtCheckToken->bindParam(':token', $token);
-    $stmtCheckToken->execute();
-    $userData = $stmtCheckToken->fetch(PDO::FETCH_ASSOC);
-
-    if ($userData && $userData['remember_token'] === $token) {
-        // Jeton valide, connecter l'utilisateur
-        $_SESSION['users_id'] = $userData['id'];
+// Fonction pour vérifier et maintenir la session persistante
+function checkPersistentSession($db) {
+    // Si l'utilisateur est déjà connecté via session, pas besoin de vérifier le cookie
+    if (isset($_SESSION['users_id']) && !empty($_SESSION['users_id'])) {
+        return true;
+    }
+    
+    // Vérifier le cookie remember_me s'il existe
+    if (isset($_COOKIE['remember_me']) && !empty($_COOKIE['remember_me'])) {
+        $token = $_COOKIE['remember_me'];
         
-        // Renouveler le cookie pour prolonger la session
-        setcookie('remember_me', $token, time() + 60 * 60 * 24 * 365 * 10, '/', '', false, true);
+        try {
+            // Vérifier le token dans la base de données
+            $sqlCheckToken = "SELECT id, remember_token, remember_token_expires FROM users WHERE remember_token = :token AND remember_token IS NOT NULL";
+            $stmtCheckToken = $db->prepare($sqlCheckToken);
+            $stmtCheckToken->bindParam(':token', $token, PDO::PARAM_STR);
+            $stmtCheckToken->execute();
+            $userData = $stmtCheckToken->fetch(PDO::FETCH_ASSOC);
+            
+            if ($userData && $userData['remember_token'] === $token) {
+                // Vérifier si le token n'a pas expiré (si la colonne existe)
+                $tokenValid = true;
+                if (isset($userData['remember_token_expires'])) {
+                    $tokenValid = (strtotime($userData['remember_token_expires']) > time());
+                }
+                
+                if ($tokenValid) {
+                    // Token valide, reconnecter l'utilisateur
+                    $_SESSION['users_id'] = $userData['id'];
+                    
+                    // Renouveler le cookie pour 30 jours
+                    $newExpiry = time() + (30 * 24 * 60 * 60); // 30 jours
+                    setcookie('remember_me', $token, $newExpiry, '/', '', false, true);
+                    
+                    // Optionnel : mettre à jour l'expiration dans la base de données
+                    if (isset($userData['remember_token_expires'])) {
+                        $sqlUpdateExpiry = "UPDATE users SET remember_token_expires = :expires WHERE id = :user_id";
+                        $stmtUpdateExpiry = $db->prepare($sqlUpdateExpiry);
+                        $stmtUpdateExpiry->bindParam(':expires', date('Y-m-d H:i:s', $newExpiry), PDO::PARAM_STR);
+                        $stmtUpdateExpiry->bindParam(':user_id', $userData['id'], PDO::PARAM_INT);
+                        $stmtUpdateExpiry->execute();
+                    }
+                    
+                    return true;
+                } else {
+                    // Token expiré, le supprimer
+                    clearRememberMeToken($db, $userData['id']);
+                }
+            } else {
+                // Token invalide, supprimer le cookie
+                setcookie('remember_me', '', time() - 3600, '/', '', false, true);
+            }
+        } catch (Exception $e) {
+            // En cas d'erreur, supprimer le cookie
+            setcookie('remember_me', '', time() - 3600, '/', '', false, true);
+        }
+    }
+    
+    return false;
+}
+
+// Fonction pour nettoyer un token remember_me
+function clearRememberMeToken($db, $userId) {
+    try {
+        $sqlClear = "UPDATE users SET remember_token = NULL, remember_token_expires = NULL WHERE id = :user_id";
+        $stmtClear = $db->prepare($sqlClear);
+        $stmtClear->bindParam(':user_id', $userId, PDO::PARAM_INT);
+        $stmtClear->execute();
+        
+        // Supprimer le cookie
+        setcookie('remember_me', '', time() - 3600, '/', '', false, true);
+    } catch (Exception $e) {
+        // Log l'erreur si nécessaire
     }
 }
+
+// Vérifier la session persistante au chargement
+checkPersistentSession($db);
 
 if (isset($_SESSION['users_id']) && $_SESSION['users_id']) {
     if ($totalUsers = getTotalUsers($db)) {

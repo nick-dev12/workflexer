@@ -44,3 +44,11 @@
 2025-07-02 03:57:21,976 - api_matching - INFO - Analyse Dakar terminée avec un score global de 25.0
 2025-07-02 03:57:45,002 - api_matching - INFO - Analyse Senjob demandée pour le candidat 5 et l'offre 746
 2025-07-02 03:57:46,682 - api_matching - INFO - Analyse Senjob terminée avec un score global de 18.0
+2025-07-02 06:09:25,238 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 2
+2025-07-02 06:09:25,893 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 06:09:41,298 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-07-02 06:09:41,632 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 06:10:15,382 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 40
+2025-07-02 06:10:15,535 - api_matching - INFO - Analyse terminée avec un score global de 0
+2025-07-02 06:10:32,047 - api_matching - INFO - Analyse demandée pour le candidat 5 et l'offre 2
+2025-07-02 06:10:32,329 - api_matching - INFO - Analyse terminée avec un score global de 0
