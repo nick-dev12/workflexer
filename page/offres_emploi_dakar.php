@@ -144,16 +144,19 @@ $totalPages = ceil($totalOffres / $offresParPage);
                         </div>
 
                         <div class="source-navigation">
+                            <a href="offres_emploi_unifiees.php" class="source-btn unified-btn"><i
+                                    class="fas fa-th-large"></i> Vue unifiée</a>
                             <a href="Offres_d'emploi.php" class="source-btn">WorkFlexer</a>
                             <a href="offres_emploi_senegal.php" class="source-btn">EmploiSenegal</a>
                             <a href="offres_emploi_dakar.php" class="source-btn active">EmploiDakar</a>
                             <a href="offres_senjob.php" class="source-btn">SenJob</a>
                         </div>
-                        
+
                         <?php if (!empty($recherche)): ?>
-                        <div class="search-actions">
-                            <a href="offres_emploi_dakar.php?reset=1" class="btn-reset-search">Voir toutes les offres</a>
-                        </div>
+                            <div class="search-actions">
+                                <a href="offres_emploi_dakar.php?reset=1" class="btn-reset-search">Voir toutes les
+                                    offres</a>
+                            </div>
                         <?php endif; ?>
                     </form>
                 </div>
@@ -161,7 +164,7 @@ $totalPages = ceil($totalOffres / $offresParPage);
         </div>
     </section>
 
-   
+
 
     <h1 class="titre_emploi">
         <?php if (!empty($recherche)): ?>
@@ -192,7 +195,9 @@ $totalPages = ceil($totalOffres / $offresParPage);
                                 <img src="../image/immeuble.png" alt="Logo de l'entreprise">
                             </span>
                             <div class="card-title-group">
-                                <h2 class="card-title"><?php echo htmlspecialchars(substr($offre['titre'], 0, 50) . (strlen($offre['titre']) > 50 ? '...' : '')); ?></h2>
+                                <h2 class="card-title">
+                                    <?php echo htmlspecialchars(substr($offre['titre'], 0, 50) . (strlen($offre['titre']) > 50 ? '...' : '')); ?>
+                                </h2>
                                 <p class="card-company"><?php echo htmlspecialchars($offre['entreprise']); ?></p>
                             </div>
                         </div>
@@ -214,15 +219,16 @@ $totalPages = ceil($totalOffres / $offresParPage);
 
                         <div class="card-tags">
                             <?php
-                                $tags = ['Télétravail', 'Hybride', 'Temps plein'];
-                                $randomTag = $tags[array_rand($tags)];
+                            $tags = ['Télétravail', 'Hybride', 'Temps plein'];
+                            $randomTag = $tags[array_rand($tags)];
                             ?>
                             <span class="tag"><?php echo $randomTag; ?></span>
                             <span class="tag">Expérience requise</span>
                         </div>
 
                         <div class="card-footer">
-                            <a href="/page/emploi_details2.php?id=<?php echo $offre['offre_id']; ?>" class="card-details-btn">Voir les détails</a>
+                            <a href="/page/emploi_details2.php?id=<?php echo $offre['offre_id']; ?>"
+                                class="card-details-btn">Voir les détails</a>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -424,6 +430,17 @@ $totalPages = ceil($totalOffres / $offresParPage);
         .btn-reset-search:hover {
             background-color: #218838;
             transform: translateY(-2px);
+        }
+        
+        .source-btn.unified-btn {
+            background-color: #6f42c1;
+            color: white;
+            border-color: #5a2d91;
+            margin-right: 5px;
+        }
+        
+        .source-btn.unified-btn:hover {
+            background-color: #5a2d91;
         }
     </style>
 </body>

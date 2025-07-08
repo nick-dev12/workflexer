@@ -144,15 +144,18 @@ $totalPages = ceil($totalOffres / $offresParPage);
                         </div>
 
                         <div class="source-navigation">
+                            <a href="offres_emploi_unifiees.php" class="source-btn unified-btn"><i
+                                    class="fas fa-th-large"></i> Vue unifiée</a>
                             <a href="Offres_d'emploi.php" class="source-btn">WorkFlexer</a>
                             <a href="offres_emploi_senegal.php" class="source-btn active">EmploiSenegal</a>
                             <a href="offres_emploi_dakar.php" class="source-btn">EmploiDakar</a>
                             <a href="offres_senjob.php" class="source-btn">SenJob</a>
                         </div>
-                        
+
                         <?php if (!empty($recherche)): ?>
                         <div class="search-actions">
-                            <a href="offres_emploi_senegal.php?reset=1" class="btn-reset-search">Voir toutes les offres</a>
+                            <a href="offres_emploi_senegal.php?reset=1" class="btn-reset-search">Voir toutes les
+                                offres</a>
                         </div>
                         <?php endif; ?>
                     </form>
@@ -161,13 +164,13 @@ $totalPages = ceil($totalOffres / $offresParPage);
         </div>
     </section>
 
-   
+
 
     <h1 class="titre_emploi">
         <?php if (!empty($recherche)): ?>
-            Résultats de recherche pour "<?php echo htmlspecialchars($recherche); ?>" sur EmploiSenegal
+        Résultats de recherche pour "<?php echo htmlspecialchars($recherche); ?>" sur EmploiSenegal
         <?php else: ?>
-            Offres d'emploi sur EmploiSenegal
+        Offres d'emploi sur EmploiSenegal
         <?php endif; ?>
     </h1>
 
@@ -182,50 +185,53 @@ $totalPages = ceil($totalOffres / $offresParPage);
 
         <article class="articles">
             <?php if (empty($offres)): ?>
-                <div class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</div>
+            <div class="message">Aucune offre d'emploi n'est disponible pour cette catégorie.</div>
             <?php else: ?>
-                <?php foreach ($offres as $offre): ?>
-                    <!-- Nouvelle carte d'offre d'emploi -->
-                    <div class="job-card-new" data-type="<?php echo strtolower($offre['type_contrat']); ?>">
-                        <div class="card-header">
-                            <span class="card-company-logo">
-                                <img src="../image/immeuble.png" alt="Logo de l'entreprise">
-                            </span>
-                            <div class="card-title-group">
-                                <h2 class="card-title"><?php echo htmlspecialchars(substr($offre['titre'], 0, 50) . (strlen($offre['titre']) > 50 ? '...' : '')); ?></h2>
-                                <p class="card-company"><?php echo htmlspecialchars($offre['entreprise']); ?></p>
-                            </div>
-                        </div>
-
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span><?php echo htmlspecialchars($offre['localisation']); ?></span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-file-contract"></i>
-                                <span><?php echo htmlspecialchars($offre['type_contrat']); ?></span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="far fa-calendar-alt"></i>
-                                <span><?php echo htmlspecialchars($offre['date_publication']); ?></span>
-                            </div>
-                        </div>
-
-                        <div class="card-tags">
-                            <?php
-                                $tags = ['Télétravail', 'Hybride', 'Temps plein'];
-                                $randomTag = $tags[array_rand($tags)];
-                            ?>
-                            <span class="tag"><?php echo $randomTag; ?></span>
-                            <span class="tag">Expérience requise</span>
-                        </div>
-
-                        <div class="card-footer">
-                            <a href="/page/emploi_details1.php?id=<?php echo $offre['offre_id']; ?>" class="card-details-btn">Voir les détails</a>
-                        </div>
+            <?php foreach ($offres as $offre): ?>
+            <!-- Nouvelle carte d'offre d'emploi -->
+            <div class="job-card-new" data-type="<?php echo strtolower($offre['type_contrat']); ?>">
+                <div class="card-header">
+                    <span class="card-company-logo">
+                        <img src="../image/immeuble.png" alt="Logo de l'entreprise">
+                    </span>
+                    <div class="card-title-group">
+                        <h2 class="card-title">
+                            <?php echo htmlspecialchars(substr($offre['titre'], 0, 50) . (strlen($offre['titre']) > 50 ? '...' : '')); ?>
+                        </h2>
+                        <p class="card-company"><?php echo htmlspecialchars($offre['entreprise']); ?></p>
                     </div>
-                <?php endforeach ?>
+                </div>
+
+                <div class="card-details">
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><?php echo htmlspecialchars($offre['localisation']); ?></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-file-contract"></i>
+                        <span><?php echo htmlspecialchars($offre['type_contrat']); ?></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="far fa-calendar-alt"></i>
+                        <span><?php echo htmlspecialchars($offre['date_publication']); ?></span>
+                    </div>
+                </div>
+
+                <div class="card-tags">
+                    <?php
+                            $tags = ['Télétravail', 'Hybride', 'Temps plein'];
+                            $randomTag = $tags[array_rand($tags)];
+                            ?>
+                    <span class="tag"><?php echo $randomTag; ?></span>
+                    <span class="tag">Expérience requise</span>
+                </div>
+
+                <div class="card-footer">
+                    <a href="/page/emploi_details1.php?id=<?php echo $offre['offre_id']; ?>"
+                        class="card-details-btn">Voir les détails</a>
+                </div>
+            </div>
+            <?php endforeach ?>
             <?php endif; ?>
         </article>
 
@@ -237,8 +243,8 @@ $totalPages = ceil($totalOffres / $offresParPage);
             </p>
             <div class="pagination">
                 <?php if ($pageActuelle > 1): ?>
-                    <a href="?page=<?= $pageActuelle - 1 ?>" class="page-link prev-link"><i class="fas fa-chevron-left"></i>
-                        Précédent</a>
+                <a href="?page=<?= $pageActuelle - 1 ?>" class="page-link prev-link"><i class="fas fa-chevron-left"></i>
+                    Précédent</a>
                 <?php endif; ?>
 
                 <?php
@@ -250,184 +256,196 @@ $totalPages = ceil($totalOffres / $offresParPage);
 
                 for ($i = $start; $i <= $end; $i++):
                     ?>
-                    <a href="?page=<?= $i ?>" class="page-link <?= (int) $i === (int) $pageActuelle ? 'active' : '' ?>">
-                        <?= $i ?>
-                    </a>
+                <a href="?page=<?= $i ?>" class="page-link <?= (int) $i === (int) $pageActuelle ? 'active' : '' ?>">
+                    <?= $i ?>
+                </a>
                 <?php endfor; ?>
 
                 <?php if ($pageActuelle < $totalPages): ?>
-                    <a href="?page=<?= $pageActuelle + 1 ?>" class="page-link next-link">Suivant <i
-                            class="fas fa-chevron-right"></i></a>
+                <a href="?page=<?= $pageActuelle + 1 ?>" class="page-link next-link">Suivant <i
+                        class="fas fa-chevron-right"></i></a>
                 <?php endif; ?>
             </div>
         </div>
     </section>
 
     <script>
-        // Filtrage des offres par type de contrat
-        document.addEventListener('DOMContentLoaded', function () {
-            const filterButtons = document.querySelectorAll('.cat-btn');
-            const jobCards = document.querySelectorAll('.job-card');
+    // Filtrage des offres par type de contrat
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.cat-btn');
+        const jobCards = document.querySelectorAll('.job-card');
 
-            // Système pour marquer les offres déjà visitées
-            function markVisitedOffers() {
-                // Récupérer les offres visitées du localStorage
-                const visitedOffers = JSON.parse(localStorage.getItem('visitedOffers')) || [];
+        // Système pour marquer les offres déjà visitées
+        function markVisitedOffers() {
+            // Récupérer les offres visitées du localStorage
+            const visitedOffers = JSON.parse(localStorage.getItem('visitedOffers')) || [];
 
-                // Marquer chaque carte visitée
-                jobCards.forEach(card => {
-                    const offerLink = card.querySelector('.details-btn');
-                    const offerId = offerLink.href.split('?')[1]; // Récupérer l'ID de l'offre depuis l'URL
+            // Marquer chaque carte visitée
+            jobCards.forEach(card => {
+                const offerLink = card.querySelector('.details-btn');
+                const offerId = offerLink.href.split('?')[1]; // Récupérer l'ID de l'offre depuis l'URL
 
-                    // Si l'offre est dans la liste des offres visitées
-                    if (visitedOffers.includes(offerId)) {
-                        card.classList.add('visited');
+                // Si l'offre est dans la liste des offres visitées
+                if (visitedOffers.includes(offerId)) {
+                    card.classList.add('visited');
+                }
+
+                // Ajouter un écouteur d'événements pour marquer comme visité lors du clic
+                offerLink.addEventListener('click', function() {
+                    const newOfferId = this.href.split('?')[1];
+
+                    // Ajouter l'ID de l'offre aux offres visitées si pas déjà présent
+                    if (!visitedOffers.includes(newOfferId)) {
+                        visitedOffers.push(newOfferId);
+                        localStorage.setItem('visitedOffers', JSON.stringify(visitedOffers));
                     }
 
-                    // Ajouter un écouteur d'événements pour marquer comme visité lors du clic
-                    offerLink.addEventListener('click', function () {
-                        const newOfferId = this.href.split('?')[1];
-
-                        // Ajouter l'ID de l'offre aux offres visitées si pas déjà présent
-                        if (!visitedOffers.includes(newOfferId)) {
-                            visitedOffers.push(newOfferId);
-                            localStorage.setItem('visitedOffers', JSON.stringify(visitedOffers));
-                        }
-
-                        // Marquer la carte comme visitée
-                        card.classList.add('visited');
-                    });
-                });
-            }
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // Supprimer la classe active de tous les boutons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-
-                    // Ajouter la classe active au bouton cliqué
-                    this.classList.add('active');
-
-                    const category = this.getAttribute('data-category');
-
-                    // Filtrer les offres
-                    jobCards.forEach(card => {
-                        if (category === 'all' || card.getAttribute('data-type').includes(category)) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+                    // Marquer la carte comme visitée
+                    card.classList.add('visited');
                 });
             });
+        }
 
-            // Animation d'apparition des offres
-            jobCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                }, 100 * index);
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Supprimer la classe active de tous les boutons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Ajouter la classe active au bouton cliqué
+                this.classList.add('active');
+
+                const category = this.getAttribute('data-category');
+
+                // Filtrer les offres
+                jobCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-type').includes(
+                            category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
-
-            // Marquer les offres déjà visitées
-            markVisitedOffers();
         });
+
+        // Animation d'apparition des offres
+        jobCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.opacity = '1';
+            }, 100 * index);
+        });
+
+        // Marquer les offres déjà visitées
+        markVisitedOffers();
+    });
     </script>
 
     <style>
-        /* Style pour les offres déjà visitées */
-        .job-card.visited {
-            background-color: #f5f5f5 !important;
-            border-top-color: #9e9e9e !important;
-            position: relative;
-        }
+    /* Style pour les offres déjà visitées */
+    .job-card.visited {
+        background-color: #f5f5f5 !important;
+        border-top-color: #9e9e9e !important;
+        position: relative;
+    }
 
-        .job-card.visited::after {
-            content: "Déjà consulté";
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: rgba(120, 120, 120, 0.8);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            z-index: 10;
-        }
+    .job-card.visited::after {
+        content: "Déjà consulté";
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: rgba(120, 120, 120, 0.8);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        z-index: 10;
+    }
 
-        .job-card.visited .info-box {
-            opacity: 0.8;
-        }
+    .job-card.visited .info-box {
+        opacity: 0.8;
+    }
 
-        .job-card.visited .poste {
-            color: #666;
-        }
+    .job-card.visited .poste {
+        color: #666;
+    }
 
-        .job-card.visited .header {
-            opacity: 0.85;
-        }
+    .job-card.visited .header {
+        opacity: 0.85;
+    }
 
-        .job-card.visited .details-btn {
-            background-color: #878787;
-        }
+    .job-card.visited .details-btn {
+        background-color: #878787;
+    }
 
-        .job-card.visited .details-btn:hover {
-            background-color: #6d6d6d;
-        }
+    .job-card.visited .details-btn:hover {
+        background-color: #6d6d6d;
+    }
 
-        /* Style pour la navigation entre sources */
-        .source-navigation {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
+    /* Style pour la navigation entre sources */
+    .source-navigation {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
 
-        .source-btn {
-            padding: 10px 15px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+    .source-btn {
+        padding: 10px 15px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
-        .source-btn:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
+    .source-btn:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
 
-        .source-btn.active {
-            background-color: #007BFF;
-            color: white;
-            border-color: #0056b3;
-        }
+    .source-btn.active {
+        background-color: #007BFF;
+        color: white;
+        border-color: #0056b3;
+    }
 
-        /* Style pour les actions de recherche */
-        .search-actions {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
+    /* Style pour les actions de recherche */
+    .search-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
 
-        .btn-reset-search {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid #1e7e34;
-        }
+    .btn-reset-search {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid #1e7e34;
+    }
 
-        .btn-reset-search:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
-        }
+    .btn-reset-search:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
+
+    .source-btn.unified-btn {
+        background-color: #6f42c1;
+        color: white;
+        border-color: #5a2d91;
+        margin-right: 5px;
+    }
+
+    .source-btn.unified-btn:hover {
+        background-color: #5a2d91;
+    }
     </style>
 </body>
 

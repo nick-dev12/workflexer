@@ -451,6 +451,22 @@ function getDetails_emploi_senjob($db, $offre_id)
 }
 
 /**
+ * Récupère les détails d'une offre d'emploi depuis la table `scrap_emploi_offreemploisn`.
+ *
+ * @param PDO $db L'objet de connexion à la base de données.
+ * @param int $offre_id L'ID de l'offre à récupérer.
+ * @return array|false Les détails de l'offre ou false si non trouvée.
+ */
+function getDetails_emploi_offreemploisn($db, $offre_id)
+{
+    $sql = "SELECT * FROM scrap_emploi_offreemploisn WHERE id = :offre_id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':offre_id', $offre_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+/**
  * Fonction pour restaurer une offre supprimée dans la table des offres actives
  * @param mixed $db
  * @param mixed $entreprise_id

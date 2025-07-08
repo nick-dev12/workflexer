@@ -9,14 +9,18 @@ include '../conn/conn.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez les plateformes d'offres d'emploi partenaires de WorkFlexer. Accédez à des milliers d'opportunités professionnelles sur EmploiSenegal, EmploiDakar, SenJob et WorkFlexer.">
+    <meta name="description"
+        content="Découvrez les plateformes d'offres d'emploi partenaires de WorkFlexer. Accédez à des milliers d'opportunités professionnelles sur EmploiSenegal, EmploiDakar, SenJob et WorkFlexer.">
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5JBWCPV7');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
     <!-- End Google Tag Manager -->
 
     <title>Plateformes d'offres d'emploi | WorkFlexer</title>
@@ -30,7 +34,8 @@ include '../conn/conn.php';
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JBWCPV7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <?php include('../navbare.php') ?>
@@ -38,7 +43,8 @@ include '../conn/conn.php';
     <header class="hero-section">
         <div class="hero-content">
             <h1 data-aos="fade-up" data-aos-delay="100">Plateformes d'offres d'emploi</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Accédez à des milliers d'opportunités professionnelles sur une seule plateforme </p>
+            <p data-aos="fade-up" data-aos-delay="200">Accédez à des milliers d'opportunités professionnelles sur une
+                seule plateforme </p>
             <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
                 <div class="stat">
                     <i class="fas fa-briefcase"></i>
@@ -59,14 +65,16 @@ include '../conn/conn.php';
         </div>
         <div class="wave-separator">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#ffffff" fill-opacity="1" d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,229.3C960,224,1056,192,1152,176C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,229.3C960,224,1056,192,1152,176C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
             </svg>
         </div>
     </header>
 
     <section class="platforms-section">
         <div class="container">
-           
+
             <div class="platforms-grid">
                 <div class="platform-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="card-banner workflexer">
@@ -79,7 +87,9 @@ include '../conn/conn.php';
                     </div>
                     <div class="card-content">
                         <h3>WorkFlexer</h3>
-                        <p>Notre plateforme principale propose des offres d'emploi vérifiées et adaptées à tous les profils professionnels. Accédez à des opportunités uniques publiées par des entreprises de confiance.</p>
+                        <p>Notre plateforme principale propose des offres d'emploi vérifiées et adaptées à tous les
+                            profils professionnels. Accédez à des opportunités uniques publiées par des entreprises de
+                            confiance.</p>
                         <div class="card-actions">
                             <a href="Offres_d'emploi.php" class="btn-platform primary">
                                 <i class="fas fa-briefcase"></i> Voir les offres
@@ -99,8 +109,9 @@ include '../conn/conn.php';
                     </div>
                     <div class="card-content">
                         <h3>EmploiSenegal</h3>
-                        <p>EmploiSenegal est l'une des plus grandes plateformes d'emploi au Sénégal. Elle propose des milliers d'offres dans divers secteurs et pour tous niveaux d'expérience.</p>
-                       
+                        <p>EmploiSenegal est l'une des plus grandes plateformes d'emploi au Sénégal. Elle propose des
+                            milliers d'offres dans divers secteurs et pour tous niveaux d'expérience.</p>
+
                         <div class="card-actions">
                             <a href="offres_emploi_senegal.php" class="btn-platform">
                                 <i class="fas fa-briefcase"></i> Voir les offres
@@ -120,8 +131,9 @@ include '../conn/conn.php';
                     </div>
                     <div class="card-content">
                         <h3>EmploiDakar</h3>
-                        <p>EmploiDakar se concentre sur les opportunités professionnelles dans la région de Dakar. Idéal pour ceux qui cherchent un emploi dans la capitale sénégalaise.</p>
-                       
+                        <p>EmploiDakar se concentre sur les opportunités professionnelles dans la région de Dakar. Idéal
+                            pour ceux qui cherchent un emploi dans la capitale sénégalaise.</p>
+
                         <div class="card-actions">
                             <a href="offres_emploi_dakar.php" class="btn-platform">
                                 <i class="fas fa-briefcase"></i> Voir les offres
@@ -141,8 +153,9 @@ include '../conn/conn.php';
                     </div>
                     <div class="card-content">
                         <h3>SenJob</h3>
-                        <p>SenJob est spécialisé dans les offres d'emploi pour jeunes diplômés et les stages. Une excellente ressource pour démarrer sa carrière professionnelle au Sénégal.</p>
-                       
+                        <p>SenJob est spécialisé dans les offres d'emploi pour jeunes diplômés et les stages. Une
+                            excellente ressource pour démarrer sa carrière professionnelle au Sénégal.</p>
+
                         <div class="card-actions">
                             <a href="offres_senjob.php" class="btn-platform">
                                 <i class="fas fa-briefcase"></i> Voir les offres
@@ -157,8 +170,9 @@ include '../conn/conn.php';
     <section class="comparison-section">
         <div class="container">
             <h2 data-aos="fade-up">Comparez les plateformes</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Caractéristiques des différentes plateformes pour vous aider à choisir celle qui correspond à vos besoins</p>
-            
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Caractéristiques des différentes
+                plateformes pour vous aider à choisir celle qui correspond à vos besoins</p>
+
             <div class="comparison-table-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <table class="comparison-table">
                     <thead>
@@ -215,7 +229,9 @@ include '../conn/conn.php';
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Lorsque vous consultez une offre d'emploi sur WorkFlexer, vous serez redirigé vers la plateforme d'origine pour compléter votre candidature. Chaque plateforme peut avoir son propre processus de candidature.</p>
+                        <p>Lorsque vous consultez une offre d'emploi sur WorkFlexer, vous serez redirigé vers la
+                            plateforme d'origine pour compléter votre candidature. Chaque plateforme peut avoir son
+                            propre processus de candidature.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -224,7 +240,9 @@ include '../conn/conn.php';
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Pour consulter les offres sur WorkFlexer, un seul compte suffit. Cependant, pour postuler sur certaines plateformes partenaires, vous pourriez avoir besoin de créer un compte spécifique à cette plateforme.</p>
+                        <p>Pour consulter les offres sur WorkFlexer, un seul compte suffit. Cependant, pour postuler sur
+                            certaines plateformes partenaires, vous pourriez avoir besoin de créer un compte spécifique
+                            à cette plateforme.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -233,7 +251,8 @@ include '../conn/conn.php';
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Oui, notre système synchronise quotidiennement les offres d'emploi avec nos plateformes partenaires pour vous garantir l'accès aux opportunités les plus récentes.</p>
+                        <p>Oui, notre système synchronise quotidiennement les offres d'emploi avec nos plateformes
+                            partenaires pour vous garantir l'accès aux opportunités les plus récentes.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -242,7 +261,9 @@ include '../conn/conn.php';
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>SenJob est particulièrement adaptée aux jeunes diplômés et propose de nombreux stages et premiers emplois. WorkFlexer offre également des opportunités intéressantes pour démarrer votre carrière.</p>
+                        <p>SenJob est particulièrement adaptée aux jeunes diplômés et propose de nombreux stages et
+                            premiers emplois. WorkFlexer offre également des opportunités intéressantes pour démarrer
+                            votre carrière.</p>
                     </div>
                 </div>
             </div>
@@ -255,7 +276,8 @@ include '../conn/conn.php';
                 <h2>Prêt à trouver votre prochain emploi ?</h2>
                 <p>Commencez à explorer les milliers d'offres disponibles sur nos plateformes partenaires</p>
                 <div class="cta-buttons">
-                    <a href="Offres_d'emploi.php" class="btn-cta primary">Explorer toutes les offres</a>
+                    <a href="offres_emploi_unifiees.php" class="btn-cta primary">Vue unifiée de toutes les offres</a>
+                    <a href="Offres_d'emploi.php" class="btn-cta secondary">Explorer WorkFlexer</a>
                     <a href="../connection_compte.php" class="btn-cta secondary">Créer un compte</a>
                 </div>
             </div>
@@ -264,7 +286,7 @@ include '../conn/conn.php';
 
     <script>
         // Initialisation de AOS (Animation On Scroll)
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
@@ -280,7 +302,7 @@ include '../conn/conn.php';
                 const frameDuration = 1000 / 60; // 60fps
                 const totalFrames = Math.round(duration / frameDuration);
                 const increment = target / totalFrames;
-                
+
                 const startCounting = () => {
                     const counter = setInterval(() => {
                         count += increment;
@@ -292,7 +314,7 @@ include '../conn/conn.php';
                         }
                     }, frameDuration);
                 };
-                
+
                 // Observer pour démarrer l'animation quand l'élément est visible
                 const observer = new IntersectionObserver(entries => {
                     entries.forEach(entry => {
@@ -302,7 +324,7 @@ include '../conn/conn.php';
                         }
                     });
                 });
-                
+
                 observer.observe(element);
             });
 
@@ -317,7 +339,7 @@ include '../conn/conn.php';
                             otherItem.classList.remove('active');
                         }
                     });
-                    
+
                     // Basculer l'état actuel
                     item.classList.toggle('active');
                 });
@@ -360,7 +382,10 @@ include '../conn/conn.php';
             padding: 0 20px;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-weight: 700;
             line-height: 1.3;
             color: var(--dark-color);
@@ -929,4 +954,4 @@ include '../conn/conn.php';
 
 </body>
 
-</html> 
+</html>

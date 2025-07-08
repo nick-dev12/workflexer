@@ -1,0 +1,708 @@
+/* Styles pour la page unifiée des offres d'emploi */
+
+/* Variables CSS pour la cohérence visuelle */
+:root {
+  --unified-primary: #007bff;
+  --unified-secondary: #6c757d;
+  --unified-success: #28a745;
+  --unified-warning: #ffc107;
+  --unified-info: #17a2b8;
+  --unified-danger: #dc3545;
+  --unified-light: #f8f9fa;
+  --unified-dark: #343a40;
+}
+
+/* Couleurs de bordure pour identifier les plateformes */
+.unified-platform-workflexer {
+  border-top-color: #007bff !important; /* Bleu pour WorkFlexer */
+}
+
+.unified-platform-emploisenegal {
+  border-top-color: #ff5722 !important; /* Orange pour EmploiSenegal */
+}
+
+.unified-platform-emploidakar {
+  border-top-color: #4caf50 !important; /* Vert pour EmploiDakar */
+}
+
+.unified-platform-senjob {
+  border-top-color: #9c27b0 !important; /* Violet pour SenJob */
+}
+
+/* Thème unifié pour la page */
+.unified-theme {
+  --primary-color: var(--unified-primary);
+  --secondary-color: var(--unified-secondary);
+}
+
+/* Section héro unifiée */
+.unified-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.unified-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.unified-hero .slider {
+  position: relative;
+  z-index: 2;
+}
+
+/* Formulaire de recherche unifié */
+.unified-search {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Statistiques */
+.stats-section {
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+  padding: 40px 0;
+  margin: 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card i {
+  font-size: 2.5rem;
+  color: var(--unified-primary);
+  margin-bottom: 15px;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--unified-dark);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--unified-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Boutons de filtre par plateforme */
+.platform-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.platform-btn {
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  background: white;
+  color: var(--unified-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.platform-btn.active {
+  background: var(--platform-color, var(--unified-primary));
+  color: white;
+  border-color: var(--platform-color, var(--unified-primary));
+}
+
+/* Recherche et filtres */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-field {
+  position: relative;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-field input {
+  width: 100%;
+  padding: 12px 45px 12px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-field input:focus {
+  outline: none;
+  border-color: var(--unified-primary);
+}
+
+.search-field i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--unified-secondary);
+}
+
+.filter-field select,
+.filter-field input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+.filter-field select:focus,
+.filter-field input:focus {
+  outline: none;
+  border-color: var(--unified-primary);
+}
+
+.search-btn {
+  padding: 12px 25px;
+  background: var(--unified-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.search-btn:hover {
+  background: #0056b3;
+}
+
+.search-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.btn-reset-search {
+  padding: 8px 20px;
+  background: var(--unified-secondary);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reset-search:hover {
+  background: #545b62;
+  color: white;
+}
+
+/* Message d'absence de résultats */
+.no-results {
+  text-align: center;
+  padding: 60px 30px;
+  background: white;
+  border-radius: 15px;
+  margin: 40px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.no-results i {
+  font-size: 4rem;
+  color: var(--unified-primary);
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--unified-dark);
+}
+
+.no-results p {
+  color: var(--unified-secondary);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.btn-view-all {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--unified-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-view-all:hover {
+  background: #0056b3;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .search-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .platform-filters {
+    justify-content: center;
+  }
+
+  .platform-btn {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .unified-search {
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  .platform-filters {
+    gap: 10px;
+  }
+
+  .platform-btn {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .unified-search {
+    padding: 15px;
+  }
+
+  .search-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .platform-btn {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}
+
+/* CSS pour les cartes d'offres d'emploi modernes */
+.modern-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  border: 1px solid #e8ecef;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.modern-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--platform-color, #007bff),
+    rgba(var(--platform-color-rgb, 0, 123, 255), 0.3)
+  );
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.company-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e8ecef;
+}
+
+.company-icon i {
+  font-size: 20px;
+  color: #6c757d;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.contract-type {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.publish-date {
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.card-content {
+  margin-bottom: 20px;
+}
+
+.job-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.company-name,
+.job-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.company-name i,
+.job-location i {
+  font-size: 14px;
+  color: #6c757d;
+  width: 16px;
+}
+
+.company-name span {
+  font-weight: 600;
+  color: #343a40;
+}
+
+.job-location span {
+  color: #6c757d;
+}
+
+.job-tags {
+  margin-top: 12px;
+}
+
+.job-tag {
+  background: #f8f9fa;
+  color: #495057;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #e9ecef;
+  display: inline-block;
+}
+
+.card-footer {
+  border-top: 1px solid #e9ecef;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.view-details-btn {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px !important;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.view-details-btn:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.view-details-btn::after {
+  content: "→";
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.view-details-btn:hover::after {
+  transform: translateX(2px);
+}
+
+/* Grille responsive pour les cartes */
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
+}
+
+/* Couleurs spécifiques par plateforme */
+.modern-card[data-platform="workflexer"] {
+  --platform-color: #007bff;
+  --platform-color-rgb: 0, 123, 255;
+}
+
+.modern-card[data-platform="emploisenegal"] {
+  --platform-color: #ff5722;
+  --platform-color-rgb: 255, 87, 34;
+}
+
+.modern-card[data-platform="emploidakar"] {
+  --platform-color: #4caf50;
+  --platform-color-rgb: 76, 175, 80;
+}
+
+.modern-card[data-platform="senjob"] {
+  --platform-color: #9c27b0;
+  --platform-color-rgb: 156, 39, 176;
+}
+
+/* Styles pour les cartes visitées */
+.modern-card.visited {
+  opacity: 0.8;
+  background: #f8f9fa;
+}
+
+.modern-card.visited .job-title {
+  color: #6c757d;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .articles {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .modern-card {
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .card-meta {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .company-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .company-icon i {
+    font-size: 16px;
+  }
+
+  .job-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .view-details-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+}
+
+/* Animation d'apparition */
+.modern-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles pour les différents types de contrat */
+.modern-card[data-type="cdi"] .contract-type {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.modern-card[data-type="cdd"] .contract-type {
+  background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+}
+
+.modern-card[data-type="stage"] .contract-type {
+  background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+}
+
+.modern-card[data-type="freelance"] .contract-type {
+  background: linear-gradient(135deg, #e83e8c 0%, #fd7e14 100%);
+}
+
+/* Amélioration des statistiques */
+.stats-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 0;
+  margin-bottom: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-card i {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}

@@ -1,0 +1,28 @@
+---
+alwaysApply: true
+---
+
+🔧 Best practices to always follow
+
+Specific rules for Cursor
+Always create styles in a separate file named after the file it's linked to
+Always create files in incremental steps to avoid token limits
+Divide code generation into several separate commands
+Recommended implementation structure:
+First create the skeleton of the file with imports and basic structure
+Add the main classes/functions without their detailed implementation
+Implement methods/functions one by one
+Finalize with comments and documentation
+For PHP files:
+Start with the <?php declaration and imports/requires
+Add class/function definitions
+Implement business logic
+Add HTML code if necessary
+For HTML/CSS/JS files:
+First create the basic HTML structure
+Add essential CSS styles
+Implement JavaScript by functionality
+Always ask for confirmation Before moving on to the next step,
+Validate each section before continuing.
+Next, create a separate CSS file containing the associated styles.
+Then, create a separate JS file with the necessary scripts.

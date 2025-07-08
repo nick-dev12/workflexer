@@ -87,7 +87,7 @@ include(__DIR__ . '/controller/controller_statut_offre.php');
         <div class="box1">
             <img class="cacheMenu" src="/image/croix.png" alt="">
             <a href="/page/orientation.php">Orientation</a>
-            <a href="/page/plateformes_emploi.php">Offres d'emploi</a>
+            <a href="/page/offres_emploi_unifiees.php">Offres d'emploi</a>
             <a href="/page/entreprise.php">Entreprise</a>
             <a href="/page/voir_profil.php">Espace Candidat</a>
         </div>
@@ -392,7 +392,7 @@ include(__DIR__ . '/controller/controller_statut_offre.php');
 
 <div id="navigation">
     <a href="/page/orientation.php">Orientation</a>
-    <a href="/page/plateformes_emploi.php">Offres d'emploi</a>
+    <a href="/page/offres_emploi_unifiees.php">Offres d'emploi</a>
     <a href="/page/entreprise.php">Entreprise</a>
     <a href="/page/voir_profil.php">Espace Candidat</a>
 </div>
