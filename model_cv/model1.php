@@ -75,7 +75,9 @@ if (isset($_SESSION['users_id'])) {
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <script src="../script/jquery-3.6.0.min.js"></script>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
@@ -99,6 +101,201 @@ if (isset($_SESSION['users_id'])) {
         <i class="fa-solid fa-palette"></i> Personnaliser
     </button>
 
+    <!-- Bulle d'information -->
+    <div class="info-bubble">
+        <div class="info-content">
+            <i class="fa-solid fa-circle-info"></i>
+            <h3>Informations importantes sur l'affichage de votre CV</h3>
+            <p>Pour garantir une présentation optimale de votre profil, certaines sections sont limitées :</p>
+            <ul>
+                <li><strong>Expériences professionnelles :</strong> 3 expériences maximum</li>
+                <li><strong>Formations :</strong> 3 formations maximum</li>
+                <li><strong>Compétences :</strong> 7 compétences maximum</li>
+                <li><strong>Outils informatiques :</strong> 4 outils maximum</li>
+            </ul>
+            <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité !
+            </p>
+            <button class="close-info-btn">&times;</button>
+        </div>
+    </div>
+
+    <style>
+        .info-bubble {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            border-left: 5px solid #0089be;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .info-content {
+            position: relative;
+        }
+
+        .info-bubble .fa-circle-info {
+            color: #0089be;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-bubble p {
+            color: #34495e;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .info-bubble li {
+            color: #34495e;
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .info-bubble li:before {
+            content: "•";
+            color: #0089be;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        .info-bubble .highlight {
+            background: #f0f9ff;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #0089be;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .close-info-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #fff;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .close-info-btn:hover {
+            background: #f1f1f1;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .info-bubble {
+                top: auto;
+                bottom: 20px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+            .info-bubble h3 {
+                font-size: 16px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .info-bubble {
+                padding: 15px;
+            }
+
+            .info-bubble h3 {
+                font-size: 15px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+    <script>
+        // Script pour la bulle d'information
+        document.addEventListener('DOMContentLoaded', function () {
+            const closeInfoBtn = document.querySelector('.close-info-btn');
+            const infoBubble = document.querySelector('.info-bubble');
+
+            if (closeInfoBtn && infoBubble) {
+                closeInfoBtn.addEventListener('click', function () {
+                    infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
+                    setTimeout(() => {
+                        infoBubble.style.display = 'none';
+                    }, 500);
+                });
+
+                // Ajouter l'animation de sortie
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+    </script>
+
     <!-- Bouton de téléchargement fixe toujours visible -->
     <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
         <i class="fa-solid fa-download"></i>
@@ -120,13 +317,13 @@ if (isset($_SESSION['users_id'])) {
                 function preloadFonts() {
                     return new Promise((resolve) => {
                         const fonts = [
-                            'Nunito', 'Roboto', 'Lato', 'Montserrat', 
+                            'Nunito', 'Roboto', 'Lato', 'Montserrat',
                             'Raleway', 'Poppins', 'Merriweather'
                         ];
-                        
+
                         let loadedFonts = 0;
                         const totalFonts = fonts.length;
-                        
+
                         fonts.forEach(font => {
                             const testElement = document.createElement('div');
                             testElement.style.fontFamily = font;
@@ -134,7 +331,7 @@ if (isset($_SESSION['users_id'])) {
                             testElement.style.left = '-9999px';
                             testElement.textContent = 'Font test';
                             document.body.appendChild(testElement);
-                            
+
                             setTimeout(() => {
                                 document.body.removeChild(testElement);
                                 loadedFonts++;
@@ -143,7 +340,7 @@ if (isset($_SESSION['users_id'])) {
                                 }
                             }, 100);
                         });
-                        
+
                         // Fallback au cas où les polices ne se chargent pas
                         setTimeout(resolve, 2000);
                     });
@@ -175,7 +372,9 @@ if (isset($_SESSION['users_id'])) {
 
                     // Précharger les polices puis générer le PDF
                     preloadFonts().then(() => {
-                        const { jsPDF } = window.jspdf;
+                        const {
+                            jsPDF
+                        } = window.jspdf;
                         const element = document.querySelector("#container-for-pdf");
 
                         // Synchroniser les styles essentiels
@@ -183,13 +382,17 @@ if (isset($_SESSION['users_id'])) {
                         if (mainContainer && element) {
                             const computedStyle = window.getComputedStyle(mainContainer);
                             element.style.fontFamily = computedStyle.fontFamily;
-                            
+
                             // Synchroniser les variables CSS
                             const rootStyles = getComputedStyle(document.documentElement);
-                            element.style.setProperty('--font-color_titre', rootStyles.getPropertyValue('--font-color_titre'));
-                            element.style.setProperty('--texte-color_titre', rootStyles.getPropertyValue('--texte-color_titre'));
-                            element.style.setProperty('--font-color_section', rootStyles.getPropertyValue('--font-color_section'));
-                            element.style.setProperty('--texte-color_section', rootStyles.getPropertyValue('--texte-color_section'));
+                            element.style.setProperty('--font-color_titre', rootStyles.getPropertyValue(
+                                '--font-color_titre'));
+                            element.style.setProperty('--texte-color_titre', rootStyles.getPropertyValue(
+                                '--texte-color_titre'));
+                            element.style.setProperty('--font-color_section', rootStyles.getPropertyValue(
+                                '--font-color_section'));
+                            element.style.setProperty('--texte-color_section', rootStyles.getPropertyValue(
+                                '--texte-color_section'));
                         }
 
                         // Options légèrement améliorées pour un bon compromis qualité/performance
@@ -258,113 +461,113 @@ if (isset($_SESSION['users_id'])) {
 
             <div class="theme-selector">
                 <h3>Thèmes de couleurs</h3>
-                    <h4>Élégance Professionnelle</h4>
-                    <div class="themes-container">
-                        <div class="theme-card" data-theme="executive">
-                            <div class="theme-preview">
-                                <div style="background-color: #1B2951; height: 20px;"></div>
-                                <div style="background-color: #4A90B8; height: 20px;"></div>
-                                <div style="background-color: #F8FAFC; height: 20px;"></div>
-                            </div>
-                            <span>Exécutif</span>
+                <h4>Élégance Professionnelle</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="executive">
+                        <div class="theme-preview">
+                            <div style="background-color: #1B2951; height: 20px;"></div>
+                            <div style="background-color: #4A90B8; height: 20px;"></div>
+                            <div style="background-color: #F8FAFC; height: 20px;"></div>
                         </div>
-                        <div class="theme-card" data-theme="platinum">
-                            <div class="theme-preview">
-                                <div style="background-color: #2C3E50; height: 20px;"></div>
-                                <div style="background-color: #7F8C8D; height: 20px;"></div>
-                                <div style="background-color: #FAFBFC; height: 20px;"></div>
-                            </div>
-                            <span>Platine</span>
-                        </div>
-                        <div class="theme-card" data-theme="royal">
-                            <div class="theme-preview">
-                                <div style="background-color: #1A365D; height: 20px;"></div>
-                                <div style="background-color: #4299E1; height: 20px;"></div>
-                                <div style="background-color: #F7FAFC; height: 20px;"></div>
-                            </div>
-                            <span>Royal</span>
-                        </div>
-                        <div class="theme-card" data-theme="charcoal">
-                            <div class="theme-preview">
-                                <div style="background-color: #1A202C; height: 20px;"></div>
-                                <div style="background-color: #4A5568; height: 20px;"></div>
-                                <div style="background-color: #F7FAFC; height: 20px;"></div>
-                            </div>
-                            <span>Charbon</span>
-                        </div>
+                        <span>Exécutif</span>
                     </div>
+                    <div class="theme-card" data-theme="platinum">
+                        <div class="theme-preview">
+                            <div style="background-color: #2C3E50; height: 20px;"></div>
+                            <div style="background-color: #7F8C8D; height: 20px;"></div>
+                            <div style="background-color: #FAFBFC; height: 20px;"></div>
+                        </div>
+                        <span>Platine</span>
+                    </div>
+                    <div class="theme-card" data-theme="royal">
+                        <div class="theme-preview">
+                            <div style="background-color: #1A365D; height: 20px;"></div>
+                            <div style="background-color: #4299E1; height: 20px;"></div>
+                            <div style="background-color: #F7FAFC; height: 20px;"></div>
+                        </div>
+                        <span>Royal</span>
+                    </div>
+                    <div class="theme-card" data-theme="charcoal">
+                        <div class="theme-preview">
+                            <div style="background-color: #1A202C; height: 20px;"></div>
+                            <div style="background-color: #4A5568; height: 20px;"></div>
+                            <div style="background-color: #F7FAFC; height: 20px;"></div>
+                        </div>
+                        <span>Charbon</span>
+                    </div>
+                </div>
 
-                    <h4>Sophistication Moderne</h4>
-                    <div class="themes-container">
-                        <div class="theme-card" data-theme="emerald">
-                            <div class="theme-preview">
-                                <div style="background-color: #064E3B; height: 20px;"></div>
-                                <div style="background-color: #10B981; height: 20px;"></div>
-                                <div style="background-color: #F0FDF4; height: 20px;"></div>
-                            </div>
-                            <span>Émeraude</span>
+                <h4>Sophistication Moderne</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="emerald">
+                        <div class="theme-preview">
+                            <div style="background-color: #064E3B; height: 20px;"></div>
+                            <div style="background-color: #10B981; height: 20px;"></div>
+                            <div style="background-color: #F0FDF4; height: 20px;"></div>
                         </div>
-                        <div class="theme-card" data-theme="burgundy">
-                            <div class="theme-preview">
-                                <div style="background-color: #7C2D12; height: 20px;"></div>
-                                <div style="background-color: #DC2626; height: 20px;"></div>
-                                <div style="background-color: #FEF2F2; height: 20px;"></div>
-                            </div>
-                            <span>Bordeaux</span>
-                        </div>
-                        <div class="theme-card" data-theme="sapphire">
-                            <div class="theme-preview">
-                                <div style="background-color: #1E3A8A; height: 20px;"></div>
-                                <div style="background-color: #3B82F6; height: 20px;"></div>
-                                <div style="background-color: #EFF6FF; height: 20px;"></div>
-                            </div>
-                            <span>Saphir</span>
-                        </div>
-                        <div class="theme-card" data-theme="forest">
-                            <div class="theme-preview">
-                                <div style="background-color: #14532D; height: 20px;"></div>
-                                <div style="background-color: #22C55E; height: 20px;"></div>
-                                <div style="background-color: #F0FDF4; height: 20px;"></div>
-                            </div>
-                            <span>Forêt</span>
-                        </div>
+                        <span>Émeraude</span>
                     </div>
+                    <div class="theme-card" data-theme="burgundy">
+                        <div class="theme-preview">
+                            <div style="background-color: #7C2D12; height: 20px;"></div>
+                            <div style="background-color: #DC2626; height: 20px;"></div>
+                            <div style="background-color: #FEF2F2; height: 20px;"></div>
+                        </div>
+                        <span>Bordeaux</span>
+                    </div>
+                    <div class="theme-card" data-theme="sapphire">
+                        <div class="theme-preview">
+                            <div style="background-color: #1E3A8A; height: 20px;"></div>
+                            <div style="background-color: #3B82F6; height: 20px;"></div>
+                            <div style="background-color: #EFF6FF; height: 20px;"></div>
+                        </div>
+                        <span>Saphir</span>
+                    </div>
+                    <div class="theme-card" data-theme="forest">
+                        <div class="theme-preview">
+                            <div style="background-color: #14532D; height: 20px;"></div>
+                            <div style="background-color: #22C55E; height: 20px;"></div>
+                            <div style="background-color: #F0FDF4; height: 20px;"></div>
+                        </div>
+                        <span>Forêt</span>
+                    </div>
+                </div>
 
-                    <h4>Raffinement Contemporain</h4>
-                    <div class="themes-container">
-                        <div class="theme-card" data-theme="amber">
-                            <div class="theme-preview">
-                                <div style="background-color: #92400E; height: 20px;"></div>
-                                <div style="background-color: #F59E0B; height: 20px;"></div>
-                                <div style="background-color: #FFFBEB; height: 20px;"></div>
-                            </div>
-                            <span>Ambre</span>
+                <h4>Raffinement Contemporain</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="amber">
+                        <div class="theme-preview">
+                            <div style="background-color: #92400E; height: 20px;"></div>
+                            <div style="background-color: #F59E0B; height: 20px;"></div>
+                            <div style="background-color: #FFFBEB; height: 20px;"></div>
                         </div>
-                        <div class="theme-card" data-theme="slate">
-                            <div class="theme-preview">
-                                <div style="background-color: #0F172A; height: 20px;"></div>
-                                <div style="background-color: #64748B; height: 20px;"></div>
-                                <div style="background-color: #F8FAFC; height: 20px;"></div>
-                            </div>
-                            <span>Ardoise</span>
-                        </div>
-                        <div class="theme-card" data-theme="bronze">
-                            <div class="theme-preview">
-                                <div style="background-color: #78350F; height: 20px;"></div>
-                                <div style="background-color: #D97706; height: 20px;"></div>
-                                <div style="background-color: #FEF3C7; height: 20px;"></div>
-                            </div>
-                            <span>Bronze</span>
-                        </div>
-                        <div class="theme-card" data-theme="midnight">
-                            <div class="theme-preview">
-                                <div style="background-color: #1E1B4B; height: 20px;"></div>
-                                <div style="background-color: #6366F1; height: 20px;"></div>
-                                <div style="background-color: #F0F9FF; height: 20px;"></div>
+                        <span>Ambre</span>
                     </div>
-                            <span>Minuit</span>
+                    <div class="theme-card" data-theme="slate">
+                        <div class="theme-preview">
+                            <div style="background-color: #0F172A; height: 20px;"></div>
+                            <div style="background-color: #64748B; height: 20px;"></div>
+                            <div style="background-color: #F8FAFC; height: 20px;"></div>
                         </div>
+                        <span>Ardoise</span>
                     </div>
+                    <div class="theme-card" data-theme="bronze">
+                        <div class="theme-preview">
+                            <div style="background-color: #78350F; height: 20px;"></div>
+                            <div style="background-color: #D97706; height: 20px;"></div>
+                            <div style="background-color: #FEF3C7; height: 20px;"></div>
+                        </div>
+                        <span>Bronze</span>
+                    </div>
+                    <div class="theme-card" data-theme="midnight">
+                        <div class="theme-preview">
+                            <div style="background-color: #1E1B4B; height: 20px;"></div>
+                            <div style="background-color: #6366F1; height: 20px;"></div>
+                            <div style="background-color: #F0F9FF; height: 20px;"></div>
+                        </div>
+                        <span>Minuit</span>
+                    </div>
+                </div>
             </div>
 
             <div class="font-selector">
@@ -503,7 +706,7 @@ if (isset($_SESSION['users_id'])) {
                     padding: 15px;
                     background-color: #f9f9f9;
                     border-radius: 8px;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
                 }
 
                 .font-selector h3 {
@@ -533,6 +736,7 @@ if (isset($_SESSION['users_id'])) {
                     .font-selector h3 {
                         font-size: 16px;
                     }
+
                     .style-select {
                         font-size: 12px;
                         padding: 8px;
@@ -662,9 +866,12 @@ if (isset($_SESSION['users_id'])) {
 
                     // Vérifier s'il y a un thème sauvegardé et l'appliquer
                     const savedTheme = {
-                        headerBg: localStorage.getItem(`${storagePrefix}headerBg`) || localStorage.getItem('font_color_titre1'),
-                        headerColor: localStorage.getItem(`${storagePrefix}headerColor`) || localStorage.getItem('texte_color_titre'),
-                        accentColor: localStorage.getItem(`${storagePrefix}accentColor`) || localStorage.getItem('font_color_section')
+                        headerBg: localStorage.getItem(`${storagePrefix}headerBg`) || localStorage.getItem(
+                            'font_color_titre1'),
+                        headerColor: localStorage.getItem(`${storagePrefix}headerColor`) || localStorage
+                            .getItem('texte_color_titre'),
+                        accentColor: localStorage.getItem(`${storagePrefix}accentColor`) || localStorage
+                            .getItem('font_color_section')
                     };
 
                     if (savedTheme.headerBg) {
@@ -685,16 +892,17 @@ if (isset($_SESSION['users_id'])) {
                     // --- Font Customization ---
                     const fontSelect = document.getElementById('font-family-select');
                     const cvContainer = document.getElementById('container');
-                    const pdfCvContainer = document.getElementById('container-for-pdf'); // Also apply to the PDF version
+                    const pdfCvContainer = document.getElementById(
+                        'container-for-pdf'); // Also apply to the PDF version
                     const fontStorageKey = `model${modelNumber}-fontFamily`;
 
                     function applyFont(fontFamily) {
                         // Apply font to both visible and PDF containers
-                        if(cvContainer) cvContainer.style.fontFamily = fontFamily;
-                        if(pdfCvContainer) pdfCvContainer.style.fontFamily = fontFamily;
-                        
+                        if (cvContainer) cvContainer.style.fontFamily = fontFamily;
+                        if (pdfCvContainer) pdfCvContainer.style.fontFamily = fontFamily;
+
                         // Update select value
-                        if(fontSelect) fontSelect.value = fontFamily;
+                        if (fontSelect) fontSelect.value = fontFamily;
 
                         // Save to localStorage
                         localStorage.setItem(fontStorageKey, fontFamily);
@@ -707,8 +915,8 @@ if (isset($_SESSION['users_id'])) {
                     }
 
                     // Event listener for font selection
-                    if(fontSelect) {
-                        fontSelect.addEventListener('change', function() {
+                    if (fontSelect) {
+                        fontSelect.addEventListener('change', function () {
                             applyFont(this.value);
                         });
                     }
@@ -796,247 +1004,338 @@ if (isset($_SESSION['users_id'])) {
                     document.documentElement.style.setProperty('--texte-color_section', selectedColor);
                     localStorage.setItem('texte_color_section', selectedColor);
                 });
-
             </script>
         </div>
 
-            <div id="container" class="container">
-                <!-- <div class="haut"></div> -->
+        <div id="container" class="container">
+            <!-- <div class="haut"></div> -->
 
-                <div class="container-box">
+            <div class="container-box">
 
-                    <div class="box1">
-                        <div class="profil">
-                            <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
-                            <h1 class="nom">
-                                <?= $userss['nom'] ?>
-                            </h1>
-                            <h2 class="profession">
-                                <?= $userss['competences'] ?>
-                            </h2>
+                <div class="box1">
+                    <div class="profil">
+                        <img class="img" src="../upload/<?= $userss['images'] ?>" alt="">
+                        <h1 class="nom">
+                            <?= $userss['nom'] ?>
+                        </h1>
+                        <h2 class="profession">
+                            <?= $userss['competences'] ?>
+                        </h2>
+                    </div>
+
+                    <div>
+                        <h1 class="text">Profil</h1>
+                        <div class="bb">
+                            <img src="/image/address.png" alt="">
+                            <p>
+                                <strong>
+                                    ADRESSE
+                                </strong>
+                                <span>
+                                    <?= $userss['ville'] ?>
+                                </span>
+                            </p>
                         </div>
 
-                        <div>
-                            <h1 class="text">Profil</h1>
-                            <div class="bb">
-                                <img src="/image/address.png" alt="">
-                                <p>
-                                    <strong>
-                                        ADRESSE
-                                    </strong>
-                                    <span>
-                                        <?= $userss['ville'] ?>
-                                    </span>
-                                </p>
-                            </div>
-
-                            <div class="bb">
-                                <img src="/image/icons8-gmail-48.png" alt="">
-                                <p>
-                                    <strong>
-                                        E-mail
-                                    </strong>
-                                    <span>
-                                        <?= $userss['mail'] ?>
-                                    </span>
-                                </p>
-                            </div>
-
-                            <div class="bb">
-                                <img src="/image/phone.png" alt="">
-                                <p>
-                                    <strong>
-                                        TÉLÉPHONE
-                                    </strong>
-                                    <span>
-                                        <?= $userss['phone'] ?>
-                                    </span>
-                                </p>
-                            </div>
-
+                        <div class="bb">
+                            <img src="/image/icons8-gmail-48.png" alt="">
+                            <p>
+                                <strong>
+                                    E-mail
+                                </strong>
+                                <span>
+                                    <?= $userss['mail'] ?>
+                                </span>
+                            </p>
                         </div>
 
-
-
-                        <div>
-                            <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
-                            <?php if (empty($afficheLangue)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée</li>
-                                </ul>
-                            <?php else: ?>
-                                <?php foreach ($afficheLangue as $langues): ?>
-                                    <ul>
-                                        <li>
-                                            <?php echo $langues['langue']; ?> <span>(<?php echo $langues['niveau']; ?>)</span>
-                                        </li>
-                                    </ul>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-
-                        <div>
-                            <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
-                            <div class="div-comp">
-                                <?php if ($competencesUtilisateurLimit7): ?>
-                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
-                                        <span class="comp">
-                                            <?php echo $competence['competence']; ?>
-                                        </span>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php endif ?>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            <h1 class="text"><img src="../image/loisir.png" alt=""> Loisirs</h1>
-                            <?php if (empty($afficheCentreInteret)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée</li>
-                                </ul>
-                            <?php else: ?>
-                                <?php foreach ($afficheCentreInteret as $interet): ?>
-                                    <ul>
-                                        <li>
-                                            <?= $interet['interet'] ?>
-                                        </li>
-                                    </ul>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                        <div class="bb">
+                            <img src="/image/phone.png" alt="">
+                            <p>
+                                <strong>
+                                    TÉLÉPHONE
+                                </strong>
+                                <span>
+                                    <?= $userss['phone'] ?>
+                                </span>
+                            </p>
                         </div>
 
                     </div>
 
 
 
-                    <div class="box2">
+                    <div>
+                        <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
+                        <?php if (empty($afficheLangue)): ?>
+                        <ul>
+                            <li>Aucune donnée trouvée</li>
+                        </ul>
+                        <?php else: ?>
+                        <?php foreach ($afficheLangue as $langues): ?>
+                        <ul>
+                            <li>
+                                <?php echo $langues['langue']; ?> <span>(<?php echo $langues['niveau']; ?>)</span>
+                            </li>
+                        </ul>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
 
-                        <div class="info_users">
-                            <h1 class="text"> <img src="/image/a propos.png" alt=""> À PROPOS </h1>
-                            <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouvée</p>
+                    <div>
+                        <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
+                        <div class="div-comp">
+                            <?php if (!empty($competencesUtilisateur)): ?>
+                            <?php
+                            // Prioritize highlighted skills
+                            $highlightedSkills = array_filter($competencesUtilisateur, function ($c) {
+                                return !empty($c['mis_en_avant']);
+                            });
+                            $otherSkills = array_filter($competencesUtilisateur, function ($c) {
+                                return empty($c['mis_en_avant']);
+                            });
+
+                            $skillsToDisplay = [];
+                            $limit = 7;
+
+                            if (!empty($highlightedSkills)) {
+                                $skillsToDisplay = array_merge($skillsToDisplay, $highlightedSkills);
+                            }
+
+                            if (count($skillsToDisplay) < $limit) {
+                                shuffle($otherSkills);
+                                $remainingCount = $limit - count($skillsToDisplay);
+                                $skillsToDisplay = array_merge($skillsToDisplay, array_slice($otherSkills, 0, $remainingCount));
+                            } else {
+                                $skillsToDisplay = array_slice($skillsToDisplay, 0, $limit);
+                            }
+                            ?>
+                            <?php foreach ($skillsToDisplay as $competence): ?>
+                            <span class="comp">
+                                <?php echo $competence['competence']; ?>
+                            </span>
+                            <?php endforeach; ?>
                             <?php else: ?>
-                                <p class="p">
-                                    <?= $descriptions['description'] ?>
-                                </p>
+                            <h4>Aucune donnée trouvée</h4>
                             <?php endif; ?>
                         </div>
 
-                        <div class="experiences">
-                            <h1 class="text"> <img src="/image/experience.png" alt=""> EXPÉRIENCES PROFESSIONNELLES
-                            </h1>
-
-                            <div class="div">
-                                <?php if (empty($afficheMetier)): ?>
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php else: ?>
-                                    <?php
-                                    shuffle($afficheMetier);
-                                    $nombre_metier = 3;
-                                    ?>
-                                    <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                        <?php if ($key < $nombre_metier): ?>
-                                            <div class="div1">
-                                                <strong id="strong"></strong>
-                                                <div class="info">
-                                                    <h4>
-                                                        <?= $Metiers['metier'] ?>
-                                                    </h4>
-                                                    <span><em>
-                                                            <?= $Metiers['moisDebut'] ?> /
-                                                            <?= $Metiers['anneeDebut'] ?>
-                                                        </em> à <em>
-                                                            <?= $Metiers['moisFin'] ?> /
-                                                            <?= $Metiers['anneeFin'] ?>
-                                                        </em></span>
-                                                    <p>
-                                                        <?= $Metiers['description'] ?>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="experiences">
-                            <h1 class="text"> <img src="/image/etude.png" alt=""> FORMATIONS </h1>
-
-                            <div class="div formation">
-
-
-                                <?php if (empty($formationUsers)): ?>
-                                    <strong></strong>
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php else: ?>
-                                    <?php
-                                    shuffle($formationUsers);
-                                    $nombre_formation = 3;
-                                    ?>
-                                    <?php foreach ($formationUsers as $key => $formations): ?>
-                                        <?php if ($key < $nombre_formation): ?>
-                                            <div class="div1 div2">
-                                                <strong id="strong"></strong>
-
-                                                <div class="info">
-                                                    <h4>
-                                                        <?= $formations['etablissement'] ?>
-                                                    </h4>
-                                                    <span><em>
-                                                            <?= $formations['moisDebut'] ?> /
-                                                            <?= $formations['anneeDebut'] ?>
-                                                        </em> à <em>
-                                                            <?= $formations['moisFin'] ?> /
-                                                            <?= $formations['anneeFin'] ?>
-                                                        </em>
-                                                    </span>
-                                                    <p>
-                                                        <?= $formations['Filiere'] ?> , <strong>
-                                                            <?= $formations['niveau'] ?></strong>
-                                                    </p>
-
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="experiences">
-                            <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>
-                            <?php if ($afficheOutilLimit5): ?>
-                                <div class="outils">
-                                    <?php foreach ($afficheOutilLimit5 as $outils): ?>
-                                        <p><span></span>
-                                            <?= $outils['outil'] ?>
-                                        </p>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif ?>
-                        </div>
                     </div>
+
+                    <div>
+                        <h1 class="text"><img src="../image/loisir.png" alt=""> Loisirs</h1>
+                        <?php if (empty($afficheCentreInteret)): ?>
+                        <ul>
+                            <li>Aucune donnée trouvée</li>
+                        </ul>
+                        <?php else: ?>
+                        <?php foreach ($afficheCentreInteret as $interet): ?>
+                        <ul>
+                            <li>
+                                <?= $interet['interet'] ?>
+                            </li>
+                        </ul>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
                 </div>
 
-                <!-- <div class="bas"></div> -->
+
+
+                <div class="box2">
+
+                    <div class="info_users">
+                        <h1 class="text"> <img src="/image/a propos.png" alt=""> À PROPOS </h1>
+                        <?php if (empty($descriptions)): ?>
+                        <p>Aucune donnée trouvée</p>
+                        <?php else: ?>
+                        <p class="p">
+                            <?= $descriptions['description'] ?>
+                        </p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="experiences">
+                        <h1 class="text"> <img src="/image/experience.png" alt=""> EXPÉRIENCES PROFESSIONNELLES
+                        </h1>
+
+                        <div class="div">
+                            <?php if (empty($afficheMetier)): ?>
+                            <h4>Aucune donnée trouvée</h4>
+                            <?php else: ?>
+                            <?php
+                            // Séparer les expériences mises en avant des autres
+                            $highlightedExperiences = array_filter($afficheMetier, function ($e) {
+                                return !empty($e['mis_en_avant']);
+                            });
+                            $otherExperiences = array_filter($afficheMetier, function ($e) {
+                                return empty($e['mis_en_avant']);
+                            });
+
+                            $nombre_metier = 3;
+                            $experiencesToDisplay = [];
+
+                            // D'abord, ajouter les expériences mises en avant
+                            if (!empty($highlightedExperiences)) {
+                                $experiencesToDisplay = array_merge($experiencesToDisplay, $highlightedExperiences);
+                            }
+
+                            // S'il reste de la place, ajouter des expériences non mises en avant
+                            if (count($experiencesToDisplay) < $nombre_metier) {
+                                shuffle($otherExperiences);
+                                $remainingCount = $nombre_metier - count($experiencesToDisplay);
+                                $experiencesToDisplay = array_merge($experiencesToDisplay, array_slice($otherExperiences, 0, $remainingCount));
+                            } else {
+                                // Limiter au cas où il y a plus de 3 expériences en avant
+                                $experiencesToDisplay = array_slice($experiencesToDisplay, 0, $nombre_metier);
+                            }
+                            ?>
+                            <?php foreach ($experiencesToDisplay as $Metiers): ?>
+                            <div class="div1">
+                                <strong id="strong"></strong>
+                                <div class="info">
+                                    <h4>
+                                        <?= $Metiers['metier'] ?>
+                                    </h4>
+                                    <span><em>
+                                            <?= $Metiers['moisDebut'] ?> /
+                                            <?= $Metiers['anneeDebut'] ?>
+                                        </em> à <em>
+                                            <?= $Metiers['moisFin'] ?> /
+                                            <?= $Metiers['anneeFin'] ?>
+                                        </em></span>
+                                    <p>
+                                        <?= $Metiers['description'] ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="experiences">
+                        <h1 class="text"> <img src="/image/etude.png" alt=""> FORMATIONS </h1>
+
+                        <div class="div formation">
+
+
+                            <?php if (empty($formationUsers)): ?>
+                            <strong></strong>
+                            <h4>Aucune donnée trouvée</h4>
+                            <?php else: ?>
+                            <?php
+                            // Séparer les formations mises en avant des autres
+                            $highlightedFormations = array_filter($formationUsers, function ($f) {
+                                return !empty($f['mis_en_avant']);
+                            });
+                            $otherFormations = array_filter($formationUsers, function ($f) {
+                                return empty($f['mis_en_avant']);
+                            });
+
+                            $nombre_formation = 3;
+                            $formationsToDisplay = [];
+
+                            // D'abord, ajouter les formations mises en avant
+                            if (!empty($highlightedFormations)) {
+                                $formationsToDisplay = array_merge($formationsToDisplay, $highlightedFormations);
+                            }
+
+                            // S'il reste de la place, ajouter des formations non mises en avant
+                            if (count($formationsToDisplay) < $nombre_formation) {
+                                shuffle($otherFormations);
+                                $remainingCount = $nombre_formation - count($formationsToDisplay);
+                                $formationsToDisplay = array_merge($formationsToDisplay, array_slice($otherFormations, 0, $remainingCount));
+                            } else {
+                                // Limiter au cas où il y a plus de 3 formations en avant
+                                $formationsToDisplay = array_slice($formationsToDisplay, 0, $nombre_formation);
+                            }
+                            ?>
+                            <?php foreach ($formationsToDisplay as $formations): ?>
+                            <div class="div1 div2">
+                                <strong id="strong"></strong>
+
+                                <div class="info">
+                                    <h4>
+                                        <?= $formations['etablissement'] ?>
+                                    </h4>
+                                    <span><em>
+                                            <?= $formations['moisDebut'] ?> /
+                                            <?= $formations['anneeDebut'] ?>
+                                        </em> à <em>
+                                            <?= $formations['moisFin'] ?> /
+                                            <?= $formations['anneeFin'] ?>
+                                        </em>
+                                    </span>
+                                    <p>
+                                        <?= $formations['Filiere'] ?> , <strong>
+                                            <?= $formations['niveau'] ?></strong>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="experiences">
+                        <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>
+                        <?php if (!empty($afficheOutil)): ?>
+                        <div class="outils">
+                            <?php
+                            // Prioriser les outils mis en avant
+                            $highlightedOutils = array_filter($afficheOutil, function ($o) {
+                                return !empty($o['mis_en_avant']);
+                            });
+                            $otherOutils = array_filter($afficheOutil, function ($o) {
+                                return empty($o['mis_en_avant']);
+                            });
+
+                            $outilsToDisplay = [];
+                            $limit = 4; // Limite à 4 éléments
+                        
+                            if (!empty($highlightedOutils)) {
+                                $outilsToDisplay = array_merge($outilsToDisplay, $highlightedOutils);
+                            }
+
+                            if (count($outilsToDisplay) < $limit) {
+                                shuffle($otherOutils);
+                                $remainingCount = $limit - count($outilsToDisplay);
+                                $outilsToDisplay = array_merge($outilsToDisplay, array_slice($otherOutils, 0, $remainingCount));
+                            } else {
+                                $outilsToDisplay = array_slice($outilsToDisplay, 0, $limit);
+                            }
+                            ?>
+                            <?php foreach ($outilsToDisplay as $outils): ?>
+                            <p><span></span>
+                                <?= $outils['outil'] ?>
+                            </p>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php else: ?>
+                        <div class="outils">
+                            <p>Aucune donnée trouvée</p>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
+
+            <!-- <div class="bas"></div> -->
+        </div>
 
         <!-- Conteneur caché pour le clone PDF -->
         <div style="position: absolute; left: -9999px; top:0;">
-             <div id="container-for-pdf" class="container">
+            <div id="container-for-pdf" class="container">
                 <!-- <div class="haut"></div> -->
 
                 <div class="container-box">
@@ -1097,34 +1396,56 @@ if (isset($_SESSION['users_id'])) {
                         <div>
                             <h1 class="text"><img src="../image/langue.png" alt=""> Langues</h1>
                             <?php if (empty($afficheLangue)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée</li>
-                                </ul>
+                            <ul>
+                                <li>Aucune donnée trouvée</li>
+                            </ul>
                             <?php else: ?>
-                                <?php foreach ($afficheLangue as $langues): ?>
-                                    <ul>
-                                        <li>
-                                            <?php echo $langues['langue']; ?> <span>(<?php echo $langues['niveau']; ?>)</span>
-                                        </li>
-                                    </ul>
-                                <?php endforeach; ?>
+                            <?php foreach ($afficheLangue as $langues): ?>
+                            <ul>
+                                <li>
+                                    <?php echo $langues['langue']; ?> <span>(<?php echo $langues['niveau']; ?>)</span>
+                                </li>
+                            </ul>
+                            <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
 
                         <div>
                             <h1 class="text"> <img src="/image/compétences.png" alt=""> Compétences </h1>
                             <div class="div-comp">
-                                <?php if ($competencesUtilisateurLimit7): ?>
-                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
-                                        <span class="comp">
-                                            <?php echo $competence['competence']; ?>
-                                        </span>
-                                    <?php endforeach; ?>
+                                <?php if (!empty($competencesUtilisateur)): ?>
+                                <?php
+                                // Prioritize highlighted skills
+                                $highlightedSkills = array_filter($competencesUtilisateur, function ($c) {
+                                    return !empty($c['mis_en_avant']);
+                                });
+                                $otherSkills = array_filter($competencesUtilisateur, function ($c) {
+                                    return empty($c['mis_en_avant']);
+                                });
+
+                                $skillsToDisplay = [];
+                                $limit = 7;
+
+                                if (!empty($highlightedSkills)) {
+                                    $skillsToDisplay = array_merge($skillsToDisplay, $highlightedSkills);
+                                }
+
+                                if (count($skillsToDisplay) < $limit) {
+                                    shuffle($otherSkills);
+                                    $remainingCount = $limit - count($skillsToDisplay);
+                                    $skillsToDisplay = array_merge($skillsToDisplay, array_slice($otherSkills, 0, $remainingCount));
+                                } else {
+                                    $skillsToDisplay = array_slice($skillsToDisplay, 0, $limit);
+                                }
+                                ?>
+                                <?php foreach ($skillsToDisplay as $competence): ?>
+                                <span class="comp">
+                                    <?php echo $competence['competence']; ?>
+                                </span>
+                                <?php endforeach; ?>
                                 <?php else: ?>
-
-                                    <h4>Aucune donnée trouvée</h4>
-                                <?php endif ?>
-
+                                <h4>Aucune donnée trouvée</h4>
+                                <?php endif; ?>
                             </div>
 
                         </div>
@@ -1132,17 +1453,17 @@ if (isset($_SESSION['users_id'])) {
                         <div>
                             <h1 class="text"><img src="../image/loisir.png" alt=""> Loisirs</h1>
                             <?php if (empty($afficheCentreInteret)): ?>
-                                <ul>
-                                    <li>Aucune donnée trouvée</li>
-                                </ul>
+                            <ul>
+                                <li>Aucune donnée trouvée</li>
+                            </ul>
                             <?php else: ?>
-                                <?php foreach ($afficheCentreInteret as $interet): ?>
-                                    <ul>
-                                        <li>
-                                            <?= $interet['interet'] ?>
-                                        </li>
-                                    </ul>
-                                <?php endforeach; ?>
+                            <?php foreach ($afficheCentreInteret as $interet): ?>
+                            <ul>
+                                <li>
+                                    <?= $interet['interet'] ?>
+                                </li>
+                            </ul>
+                            <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
 
@@ -1155,11 +1476,11 @@ if (isset($_SESSION['users_id'])) {
                         <div class="info_users">
                             <h1 class="text"> <img src="/image/a propos.png" alt=""> À PROPOS </h1>
                             <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouvée</p>
+                            <p>Aucune donnée trouvée</p>
                             <?php else: ?>
-                                <p class="p">
-                                    <?= $descriptions['description'] ?>
-                                </p>
+                            <p class="p">
+                                <?= $descriptions['description'] ?>
+                            </p>
                             <?php endif; ?>
                         </div>
 
@@ -1169,34 +1490,55 @@ if (isset($_SESSION['users_id'])) {
 
                             <div class="div">
                                 <?php if (empty($afficheMetier)): ?>
-                                    <h4>Aucune donnée trouvée</h4>
+                                <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
-                                    <?php
-                                    shuffle($afficheMetier);
-                                    $nombre_metier = 3;
-                                    ?>
-                                    <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                        <?php if ($key < $nombre_metier): ?>
-                                            <div class="div1">
-                                                <strong id="strong"></strong>
-                                                <div class="info">
-                                                    <h4>
-                                                        <?= $Metiers['metier'] ?>
-                                                    </h4>
-                                                    <span><em>
-                                                            <?= $Metiers['moisDebut'] ?> /
-                                                            <?= $Metiers['anneeDebut'] ?>
-                                                        </em> à <em>
-                                                            <?= $Metiers['moisFin'] ?> /
-                                                            <?= $Metiers['anneeFin'] ?>
-                                                        </em></span>
-                                                    <p>
-                                                        <?= $Metiers['description'] ?>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
+                                <?php
+                                // Séparer les expériences mises en avant des autres
+                                $highlightedExperiences = array_filter($afficheMetier, function ($e) {
+                                    return !empty($e['mis_en_avant']);
+                                });
+                                $otherExperiences = array_filter($afficheMetier, function ($e) {
+                                    return empty($e['mis_en_avant']);
+                                });
+
+                                $nombre_metier = 3;
+                                $experiencesToDisplay = [];
+
+                                // D'abord, ajouter les expériences mises en avant
+                                if (!empty($highlightedExperiences)) {
+                                    $experiencesToDisplay = array_merge($experiencesToDisplay, $highlightedExperiences);
+                                }
+
+                                // S'il reste de la place, ajouter des expériences non mises en avant
+                                if (count($experiencesToDisplay) < $nombre_metier) {
+                                    shuffle($otherExperiences);
+                                    $remainingCount = $nombre_metier - count($experiencesToDisplay);
+                                    $experiencesToDisplay = array_merge($experiencesToDisplay, array_slice($otherExperiences, 0, $remainingCount));
+                                } else {
+                                    // Limiter au cas où il y a plus de 3 expériences en avant
+                                    $experiencesToDisplay = array_slice($experiencesToDisplay, 0, $nombre_metier);
+                                }
+                                ?>
+                                <?php foreach ($experiencesToDisplay as $Metiers): ?>
+                                <div class="div1">
+                                    <strong id="strong"></strong>
+                                    <div class="info">
+                                        <h4>
+                                            <?= $Metiers['metier'] ?>
+                                        </h4>
+                                        <span><em>
+                                                <?= $Metiers['moisDebut'] ?> /
+                                                <?= $Metiers['anneeDebut'] ?>
+                                            </em> à <em>
+                                                <?= $Metiers['moisFin'] ?> /
+                                                <?= $Metiers['anneeFin'] ?>
+                                            </em></span>
+                                        <p>
+                                            <?= $Metiers['description'] ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
 
 
@@ -1212,39 +1554,60 @@ if (isset($_SESSION['users_id'])) {
 
 
                                 <?php if (empty($formationUsers)): ?>
-                                    <strong></strong>
-                                    <h4>Aucune donnée trouvée</h4>
+                                <strong></strong>
+                                <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
-                                    <?php
-                                    shuffle($formationUsers);
-                                    $nombre_formation = 3;
-                                    ?>
-                                    <?php foreach ($formationUsers as $key => $formations): ?>
-                                        <?php if ($key < $nombre_formation): ?>
-                                            <div class="div1 div2">
-                                                <strong id="strong"></strong>
+                                <?php
+                                // Séparer les formations mises en avant des autres
+                                $highlightedFormations = array_filter($formationUsers, function ($f) {
+                                    return !empty($f['mis_en_avant']);
+                                });
+                                $otherFormations = array_filter($formationUsers, function ($f) {
+                                    return empty($f['mis_en_avant']);
+                                });
 
-                                                <div class="info">
-                                                    <h4>
-                                                        <?= $formations['etablissement'] ?>
-                                                    </h4>
-                                                    <span><em>
-                                                            <?= $formations['moisDebut'] ?> /
-                                                            <?= $formations['anneeDebut'] ?>
-                                                        </em> à <em>
-                                                            <?= $formations['moisFin'] ?> /
-                                                            <?= $formations['anneeFin'] ?>
-                                                        </em>
-                                                    </span>
-                                                    <p>
-                                                        <?= $formations['Filiere'] ?> , <strong>
-                                                            <?= $formations['niveau'] ?></strong>
-                                                    </p>
+                                $nombre_formation = 3;
+                                $formationsToDisplay = [];
 
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
+                                // D'abord, ajouter les formations mises en avant
+                                if (!empty($highlightedFormations)) {
+                                    $formationsToDisplay = array_merge($formationsToDisplay, $highlightedFormations);
+                                }
+
+                                // S'il reste de la place, ajouter des formations non mises en avant
+                                if (count($formationsToDisplay) < $nombre_formation) {
+                                    shuffle($otherFormations);
+                                    $remainingCount = $nombre_formation - count($formationsToDisplay);
+                                    $formationsToDisplay = array_merge($formationsToDisplay, array_slice($otherFormations, 0, $remainingCount));
+                                } else {
+                                    // Limiter au cas où il y a plus de 3 formations en avant
+                                    $formationsToDisplay = array_slice($formationsToDisplay, 0, $nombre_formation);
+                                }
+                                ?>
+                                <?php foreach ($formationsToDisplay as $formations): ?>
+                                <div class="div1 div2">
+                                    <strong id="strong"></strong>
+
+                                    <div class="info">
+                                        <h4>
+                                            <?= $formations['etablissement'] ?>
+                                        </h4>
+                                        <span><em>
+                                                <?= $formations['moisDebut'] ?> /
+                                                <?= $formations['anneeDebut'] ?>
+                                            </em> à <em>
+                                                <?= $formations['moisFin'] ?> /
+                                                <?= $formations['anneeFin'] ?>
+                                            </em>
+                                        </span>
+                                        <p>
+                                            <?= $formations['Filiere'] ?> , <strong>
+                                                <?= $formations['niveau'] ?></strong>
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
 
                             </div>
@@ -1254,15 +1617,43 @@ if (isset($_SESSION['users_id'])) {
 
                         <div class="experiences">
                             <h1 class="text"> <img src="/image/outil.png" alt=""> Outils informatiques </h1>
-                            <?php if ($afficheOutilLimit5): ?>
-                                <div class="outils">
-                                    <?php foreach ($afficheOutilLimit5 as $outils): ?>
-                                        <p><span></span>
-                                            <?= $outils['outil'] ?>
-                                        </p>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif ?>
+                            <?php if (!empty($afficheOutil)): ?>
+                            <div class="outils">
+                                <?php
+                                // Prioriser les outils mis en avant
+                                $highlightedOutils = array_filter($afficheOutil, function ($o) {
+                                    return !empty($o['mis_en_avant']);
+                                });
+                                $otherOutils = array_filter($afficheOutil, function ($o) {
+                                    return empty($o['mis_en_avant']);
+                                });
+
+                                $outilsToDisplay = [];
+                                $limit = 4; // Limite à 4 éléments
+                            
+                                if (!empty($highlightedOutils)) {
+                                    $outilsToDisplay = array_merge($outilsToDisplay, $highlightedOutils);
+                                }
+
+                                if (count($outilsToDisplay) < $limit) {
+                                    shuffle($otherOutils);
+                                    $remainingCount = $limit - count($outilsToDisplay);
+                                    $outilsToDisplay = array_merge($outilsToDisplay, array_slice($otherOutils, 0, $remainingCount));
+                                } else {
+                                    $outilsToDisplay = array_slice($outilsToDisplay, 0, $limit);
+                                }
+                                ?>
+                                <?php foreach ($outilsToDisplay as $outils): ?>
+                                <p><span></span>
+                                    <?= $outils['outil'] ?>
+                                </p>
+                                <?php endforeach; ?>
+                            </div>
+                            <?php else: ?>
+                            <div class="outils">
+                                <p>Aucune donnée trouvée</p>
+                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -1281,7 +1672,8 @@ if (isset($_SESSION['users_id'])) {
             // Make CV elements editable
             const editableElements = [
                 // Content text elements
-                ...document.querySelectorAll('.box1 p, .box1 span, .box1 h2, .box1 li, .box2 p, .box2 h4, .box2 span'),
+                ...document.querySelectorAll(
+                    '.box1 p, .box1 span, .box1 h2, .box1 li, .box2 p, .box2 h4, .box2 span'),
                 // Headers
                 ...document.querySelectorAll('.text, .nom, .profession')
             ];
@@ -1327,16 +1719,19 @@ if (isset($_SESSION['users_id'])) {
                     // Convert RGB to HEX
                     const rgb = currentColor.match(/\d+/g);
                     if (rgb && rgb.length === 3) {
-                        const hex = '#' + ((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2])).toString(16).slice(1);
+                        const hex = '#' + ((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[
+                            1]) << 8) + parseInt(rgb[2])).toString(16).slice(1);
                         textColorInput.value = hex;
                     }
 
                     // Set background color
                     const currentBgColor = computedStyle.backgroundColor;
-                    if (currentBgColor && currentBgColor !== 'rgba(0, 0, 0, 0)' && currentBgColor !== 'transparent') {
+                    if (currentBgColor && currentBgColor !== 'rgba(0, 0, 0, 0)' &&
+                        currentBgColor !== 'transparent') {
                         const bgRgb = currentBgColor.match(/\d+/g);
                         if (bgRgb && bgRgb.length >= 3) {
-                            const bgHex = '#' + ((1 << 24) + (parseInt(bgRgb[0]) << 16) + (parseInt(bgRgb[1]) << 8) + parseInt(bgRgb[2])).toString(16).slice(1);
+                            const bgHex = '#' + ((1 << 24) + (parseInt(bgRgb[0]) << 16) + (parseInt(
+                                bgRgb[1]) << 8) + parseInt(bgRgb[2])).toString(16).slice(1);
                             bgColorInput.value = bgHex;
                         }
                     } else {
@@ -1347,7 +1742,8 @@ if (isset($_SESSION['users_id'])) {
                     const currentFont = computedStyle.fontFamily;
                     // Try to match with available options
                     const fontOptions = Array.from(fontFamilySelect.options);
-                    const matchingOption = fontOptions.find(option => currentFont.includes(option.value.split(',')[0]));
+                    const matchingOption = fontOptions.find(option => currentFont.includes(option
+                        .value.split(',')[0]));
                     if (matchingOption) {
                         fontFamilySelect.value = matchingOption.value;
                     }
@@ -1557,7 +1953,8 @@ if (isset($_SESSION['users_id'])) {
                                 if (el.classList.contains('editable-element')) {
                                     if (styles.fontSize) el.style.fontSize = styles.fontSize;
                                     if (styles.color) el.style.color = styles.color;
-                                    if (styles.backgroundColor) el.style.backgroundColor = styles.backgroundColor;
+                                    if (styles.backgroundColor) el.style.backgroundColor = styles
+                                        .backgroundColor;
                                     if (styles.fontFamily) el.style.fontFamily = styles.fontFamily;
                                 }
                             });
@@ -1581,7 +1978,8 @@ if (isset($_SESSION['users_id'])) {
                                 if (element.classList.contains('editable-element')) {
                                     if (styles.fontSize) element.style.fontSize = styles.fontSize;
                                     if (styles.color) element.style.color = styles.color;
-                                    if (styles.backgroundColor) element.style.backgroundColor = styles.backgroundColor;
+                                    if (styles.backgroundColor) element.style.backgroundColor = styles
+                                        .backgroundColor;
                                     if (styles.fontFamily) element.style.fontFamily = styles.fontFamily;
                                 }
                             }
@@ -1614,26 +2012,27 @@ if (isset($_SESSION['users_id'])) {
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const toggleBtn = document.getElementById('toggle-customization-btn');
             const customPanel = document.getElementById('customization-panel');
             const closeBtn = document.getElementById('close-panel-btn');
 
             if (toggleBtn && customPanel && closeBtn) {
                 // Ouvre le panneau
-                toggleBtn.addEventListener('click', function(event) {
+                toggleBtn.addEventListener('click', function (event) {
                     event.stopPropagation();
                     customPanel.classList.add('active');
                 });
 
                 // Ferme le panneau avec la croix
-                closeBtn.addEventListener('click', function() {
+                closeBtn.addEventListener('click', function () {
                     customPanel.classList.remove('active');
                 });
 
                 // Ferme le panneau si on clique en dehors
-                document.addEventListener('click', function(event) {
-                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                document.addEventListener('click', function (event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !
+                        toggleBtn.contains(event.target)) {
                         customPanel.classList.remove('active');
                     }
                 });

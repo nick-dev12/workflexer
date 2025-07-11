@@ -1,4 +1,6 @@
 ssh root@147.78.130.141
+sk-41ba320c21874be7b6dd398220f9cce9
+
 ssh -p 22 root@147.78.130.141
 
 python3 -m venv env

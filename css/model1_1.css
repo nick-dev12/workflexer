@@ -26,9 +26,6 @@
   line-height: 1.4 !important;
 }
 
-
-
-
 .section3 {
   background-color: #f2f2f275;
   display: flex;
@@ -76,7 +73,6 @@
   background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%);
 }
 
-
 .container {
   width: 793px !important;
   height: 1122px !important;
@@ -98,7 +94,7 @@
 
 .container .box1 h2 {
   color: var(--texte-color_section);
-  font-size: 18px;
+  font-size: 15px;
 }
 .container .haut {
   background-color: var(--font-color_section);
@@ -116,7 +112,7 @@
   bottom: 0%;
 }
 .container .img {
-  width: 170px;
+  width: 150px;
   height: 150px;
   object-fit: cover;
   border: 1.5px solid #ddd;
@@ -124,12 +120,12 @@
 }
 .container .box1 .profil {
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .container .container-box {
@@ -148,11 +144,11 @@
 .container .box1 h1 {
   width: 80%;
   text-align: center;
-  padding: 5px 20px;
-  background-color: var(--font-color_titre);
+  padding: 5px 10px;
+  border-bottom: 2px solid var(--font-color_titre);
   color: var(--texte-color_titre);
-  margin: 10px auto;
-  font-size: 12px;
+  margin: 20px auto;
+  font-size: 15px;
   display: flex;
   align-items: center;
   border-radius: 4px;
@@ -264,14 +260,14 @@
   align-items: center;
 }
 .container .box2 .info_users {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 .container .box2 h1 {
   font-size: 14px;
   width: 80%;
   margin: 7px auto;
-  background-color: var(--font-color_titre);
-  color: var(--texte-color_titre);
+  border-bottom: 2px solid var(--font-color_titre);
+  color: var(--font-color_titre);
   padding: 4px 10px;
   border-radius: 4px;
   text-transform: uppercase;
@@ -318,7 +314,7 @@
 }
 
 .container .box2 .experiences .div1::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -6px;
   top: 20px;
@@ -373,6 +369,7 @@
 
 .container .box2 .experiences .outils {
   width: 90%;
+  min-width: 480px;
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -396,7 +393,11 @@
   border-radius: 5px;
 }
 .container .box2 .outils p span {
-  background: linear-gradient(135deg, var(--font-color_section) 0%, var(--font-color_titre) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--font-color_section) 0%,
+    var(--font-color_titre) 100%
+  );
   color: white;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -1655,61 +1656,59 @@ h4 {
   }
 }
 
-
 /* Bouton pour afficher/cacher la personnalisation sur mobile */
 #toggle-customization-btn {
-    position: fixed;
-    top: 20px; /* Positionné en haut */
-    right: 20px;
-    z-index: 1001;
-    background: linear-gradient(45deg, #4b6cb7, #182848);
-    color: white;
-    padding: 10px 18px;
-    border-radius: 50px;
-    border: none;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  position: fixed;
+  top: 20px; /* Positionné en haut */
+  right: 20px;
+  z-index: 1001;
+  background: linear-gradient(45deg, #4b6cb7, #182848);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 50px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 #toggle-customization-btn i {
-    font-size: 16px;
-    transition: transform 0.3s ease;
+  font-size: 16px;
+  transition: transform 0.3s ease;
 }
 
 #toggle-customization-btn:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 #toggle-customization-btn:hover i {
-    transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 
-
 .close-panel-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    font-size: 32px;
-    font-weight: 300;
-    color: #aaa;
-    cursor: pointer;
-    line-height: 1;
-    padding: 0;
-    transition: color 0.2s ease, transform 0.2s ease;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  font-weight: 300;
+  color: #aaa;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .close-panel-btn:hover {
-    color: #333;
-    transform: scale(1.1);
+  color: #333;
+  transform: scale(1.1);
 }
 
 /* -------------------- BOUTON DE TÉLÉCHARGEMENT FIXE -------------------- */
@@ -1771,11 +1770,11 @@ h4 {
     padding: 12px 20px;
     font-size: 14px;
   }
-  
+
   .fixed-download-button span {
     display: none;
   }
-  
+
   .fixed-download-button {
     width: 60px;
     height: 60px;
@@ -1792,7 +1791,7 @@ h4 {
     height: 55px;
     padding: 0;
   }
-  
+
   .fixed-download-button i {
     font-size: 20px;
   }
@@ -1804,11 +1803,11 @@ h4 {
   -webkit-print-color-adjust: exact !important;
   color-adjust: exact !important;
   print-color-adjust: exact !important;
-  
+
   /* Améliorer légèrement la netteté des polices */
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
-  
+
   /* Assurer que les couleurs de fond sont préservées */
   background-color: #ffffff !important;
 }
@@ -1818,7 +1817,7 @@ h4 {
   -webkit-print-color-adjust: exact !important;
   color-adjust: exact !important;
   print-color-adjust: exact !important;
-  
+
   /* Assurer la visibilité de tous les éléments */
   opacity: 1 !important;
   visibility: visible !important;
@@ -1862,7 +1861,7 @@ h4 {
 }
 
 .container .box2 .experiences .div2::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -6px;
   top: 20px;
@@ -1876,27 +1875,27 @@ h4 {
 
 /* Styles pour les thèmes harmonieux */
 .theme-professional {
-  --primary-color: #1B2951;
-  --secondary-color: #4A90B8;
-  --accent-color: #F8FAFC;
-  --text-primary: #1B2951;
-  --text-secondary: #4A90B8;
+  --primary-color: #1b2951;
+  --secondary-color: #4a90b8;
+  --accent-color: #f8fafc;
+  --text-primary: #1b2951;
+  --text-secondary: #4a90b8;
 }
 
 .theme-elegant {
-  --primary-color: #2C3E50;
-  --secondary-color: #7F8C8D;
-  --accent-color: #FAFBFC;
-  --text-primary: #2C3E50;
-  --text-secondary: #7F8C8D;
+  --primary-color: #2c3e50;
+  --secondary-color: #7f8c8d;
+  --accent-color: #fafbfc;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
 }
 
 .theme-modern {
-  --primary-color: #064E3B;
-  --secondary-color: #10B981;
-  --accent-color: #F0FDF4;
-  --text-primary: #064E3B;
-  --text-secondary: #10B981;
+  --primary-color: #064e3b;
+  --secondary-color: #10b981;
+  --accent-color: #f0fdf4;
+  --text-primary: #064e3b;
+  --text-secondary: #10b981;
 }
 
 /* Responsive improvements pour les thèmes */
@@ -1917,13 +1916,13 @@ h4 {
     box-shadow: none !important;
     border: none !important;
   }
-  
+
   .container * {
     -webkit-print-color-adjust: exact !important;
     color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  
+
   .personnalisation,
   #toggle-customization-btn,
   .customizer-panel {

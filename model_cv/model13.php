@@ -56,7 +56,9 @@ if (isset($_SESSION['users_id'])) {
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -95,6 +97,145 @@ if (isset($_SESSION['users_id'])) {
     <button id="toggle-customization-btn" class="button12">
         <i class="fa-solid fa-palette"></i> Personnaliser
     </button>
+
+    <!-- Bulle d'information -->
+    <div class="info-bubble">
+        <div class="info-content">
+            <i class="fa-solid fa-circle-info"></i>
+            <h3>Informations importantes sur l'affichage de votre CV</h3>
+            <p>Pour garantir une présentation optimale de votre profil, certaines sections sont limitées :</p>
+            <ul>
+                <li><strong>Expériences professionnelles :</strong> 3 expériences maximum</li>
+                <li><strong>Formations :</strong> 3 formations maximum</li>
+                <li><strong>Compétences :</strong> 7 compétences maximum</li>
+                <li><strong>Outils informatiques :</strong> 5 outils maximum</li>
+            </ul>
+            <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité.
+            </p>
+            <button class="close-info"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <style>
+        .info-bubble {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            max-width: 400px;
+            opacity: 1;
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease;
+        }
+
+        .info-bubble.hidden {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        .info-content {
+            padding: 20px;
+            position: relative;
+        }
+
+        .info-content i.fa-circle-info {
+            color: #2196F3;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-content h3 {
+            color: #333;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .info-content p {
+            color: #666;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .info-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .info-content li {
+            color: #666;
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+
+        .info-content .highlight {
+            color: #2196F3;
+            font-weight: 500;
+        }
+
+        .close-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2196F3;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            font-size: 18px;
+            transition: all 0.3s;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-info:hover {
+            background: #1976D2;
+            transform: scale(1.1);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .info-bubble {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const infoBubble = document.querySelector('.info-bubble');
+            const closeButton = document.querySelector('.close-info');
+
+            if (closeButton && infoBubble) {
+                closeButton.addEventListener('click', function () {
+                    infoBubble.classList.add('hidden');
+                    setTimeout(() => {
+                        infoBubble.style.display = 'none';
+                    }, 300);
+                });
+            }
+        });
+    </script>
 
     <!-- Bouton de téléchargement fixe toujours visible -->
     <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
@@ -365,7 +506,7 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                     </div>
                     <h4>Nouveaux Thèmes Originaux</h4>
-                     <div class="themes-container">
+                    <div class="themes-container">
                         <div class="theme-card" data-theme="graphite-gold">
                             <div class="theme-preview">
                                 <div style="background-color: #343a40; height: 20px;"></div>
@@ -398,7 +539,7 @@ if (isset($_SESSION['users_id'])) {
                             </div>
                             <span>Forêt & Rouille</span>
                         </div>
-                         <div class="theme-card" data-theme="plum-sage">
+                        <div class="theme-card" data-theme="plum-sage">
                             <div class="theme-preview">
                                 <div style="background-color: #5D3A55; height: 20px;"></div>
                                 <div style="background-color: #8A9A5B; height: 20px;"></div>
@@ -455,7 +596,7 @@ if (isset($_SESSION['users_id'])) {
                     </div>
                     <div class="font-card" data-font="Lato">
                         <span style="font-family: Lato;">Lato</span>
-                </div>
+                    </div>
                     <div class="font-card" data-font="Raleway">
                         <span style="font-family: Raleway;">Raleway</span>
                     </div>
@@ -467,383 +608,469 @@ if (isset($_SESSION['users_id'])) {
         </div>
 
 
-       
-      
-            <div class="cv13 theme-blue" id="cv13-visible">
-                    <!-- CV Header -->
-                    <div class="cv-header">
-                        <div class="profile-container">
-                            <img src="../upload/<?= isset($userss['images']) && $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
-                                alt="Photo de profil" class="profile-photo cv-editable-image">
+
+
+        <div class="cv13 theme-blue" id="cv13-visible">
+            <!-- CV Header -->
+            <div class="cv-header">
+                <div class="profile-container">
+                    <img src="../upload/<?= isset($userss['images']) && $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
+                        alt="Photo de profil" class="profile-photo cv-editable-image">
+                </div>
+                <div class="identity-container">
+                    <h1 class="name cv-editable">
+                        <?= $userss['nom'] ?>
+                    </h1>
+                    <p class="job-title cv-editable">
+                        <?= isset($userss['competences']) ? $userss['competences'] : "Développeur Full Stack" ?>
+                    </p>
+                    <p class="summary cv-editable">
+                        <?= $descriptions['description'] ?>
+                    </p>
+                </div>
+            </div>
+
+            <!-- CV Body -->
+            <div class="cv-body">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2 class="section-title cv-editable">Contact</h2>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span
+                                class="contact-text cv-editable"><?= isset($userss['mail']) ? $userss['mail'] : "thomas.dupont@gmail.com" ?></span>
                         </div>
-                        <div class="identity-container">
-                            <h1 class="name cv-editable">
-                                <?= $userss['nom'] ?>
-                            </h1>
-                            <p class="job-title cv-editable">
-                                <?= isset($userss['competences']) ? $userss['competences'] : "Développeur Full Stack" ?>
-                            </p>
-                            <p class="summary cv-editable">
-                                <?= $descriptions['description'] ?>
-                            </p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span
+                                class="contact-text cv-editable"><?= isset($userss['phone']) ? $userss['phone'] : "06 12 34 56 78" ?></span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span
+                                class="contact-text cv-editable"><?= isset($userss['ville']) ? $userss['ville'] : "Paris, France" ?></span>
                         </div>
                     </div>
 
-                    <!-- CV Body -->
-                    <div class="cv-body">
-                        <!-- Left Column -->
-                        <div class="left-column">
-                            <!-- Contact Information -->
-                            <div class="contact-info">
-                                <h2 class="section-title cv-editable">Contact</h2>
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-envelope"></i>
+                    <!-- Skills Section -->
+                    <div class="skills-section">
+                        <h2 class="section-title cv-editable">Compétences</h2>
+
+                        <?php if (empty($competencesUtilisateurLimit7)): ?>
+                            <p class="texte">Aucune compétence trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            // Séparer les compétences en deux groupes
+                            $competences_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
+                                return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
+                            });
+                            $competences_non_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
+                                return !isset($comp['mis_en_avant']) || $comp['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les compétences non mises en avant
+                            shuffle($competences_non_mises_en_avant);
+
+                            // Nombre maximum de compétences à afficher
+                            $nombre_competences = 7;
+
+                            // Combiner les compétences en donnant priorité aux mises en avant
+                            $competences_a_afficher = array_slice($competences_mises_en_avant, 0, $nombre_competences);
+                            if (count($competences_a_afficher) < $nombre_competences) {
+                                $competences_a_afficher = array_merge(
+                                    $competences_a_afficher,
+                                    array_slice($competences_non_mises_en_avant, 0, $nombre_competences - count($competences_a_afficher))
+                                );
+                            }
+
+                            foreach ($competences_a_afficher as $competence): ?>
+                                <div class="skill-item">
+                                    <span class="skill-name cv-editable"><?= $competence['competence'] ?></span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress p-<?= rand(60, 95) ?>"></div>
                                     </div>
-                                    <span
-                                        class="contact-text cv-editable"><?= isset($userss['mail']) ? $userss['mail'] : "thomas.dupont@gmail.com" ?></span>
                                 </div>
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-phone"></i>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- Languages Section -->
+                    <div class="languages-section">
+                        <h2 class="section-title cv-editable">Langues</h2>
+
+                        <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
+                            <?php
+                            // Limiter l'affichage aux 3 premières langues
+                            $count = 0;
+                            foreach ($afficheLangue as $langue):
+                                if ($count >= 3)
+                                    break;
+                                $count++;
+                                ?>
+                                <div class="language-item">
+                                    <span class="language-name cv-editable"><?= $langue['langue'] ?></span>
+                                    <div class="language-level">
+                                        <div class="language-progress p-<?= rand(60, 95) ?>"></div>
                                     </div>
-                                    <span
-                                        class="contact-text cv-editable"><?= isset($userss['phone']) ? $userss['phone'] : "06 12 34 56 78" ?></span>
                                 </div>
-                                <div class="contact-item">
-                                    <div class="contact-icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <span
-                                        class="contact-text cv-editable"><?= isset($userss['ville']) ? $userss['ville'] : "Paris, France" ?></span>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="texte">Aucune langue trouvée</p>
+                        <?php endif; ?>
+                    </div>
 
-                            <!-- Skills Section -->
-                            <div class="skills-section">
-                                <h2 class="section-title cv-editable">Compétences</h2>
-
-                                <?php if (isset($competencesUtilisateurLimit7) && !empty($competencesUtilisateurLimit7)): ?>
-                                    <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
-                                        <div class="skill-item">
-                                            <span class="skill-name cv-editable"><?= $competence['competence'] ?></span>
-                                            <div class="skill-level">
-                                                <div class="skill-progress p-<?= rand(60, 95) ?>"></div>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <p class="texte">Aucune compétence trouvée</p>
-                                <?php endif; ?>
-                            </div>
-
-                            <!-- Languages Section -->
-                            <div class="languages-section">
-                                <h2 class="section-title cv-editable">Langues</h2>
-
-                                <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
-                                    <?php 
-                                    // Limiter l'affichage aux 3 premières langues
-                                    $count = 0;
-                                    foreach ($afficheLangue as $langue): 
-                                        if ($count >= 3) break;
-                                        $count++;
+                    <!-- Interests Section -->
+                    <div class="interests-section">
+                        <h2 class="section-title cv-editable">Centres d'intérêt</h2>
+                        <div class="interests-list">
+                            <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
+                                <?php
+                                // Limiter l'affichage aux 3 premiers centres d'intérêt
+                                $count = 0;
+                                foreach ($afficheCentreInteret as $interet):
+                                    if ($count >= 3)
+                                        break;
+                                    $count++;
                                     ?>
-                                        <div class="language-item">
-                                            <span class="language-name cv-editable"><?= $langue['langue'] ?></span>
-                                            <div class="language-level">
-                                                <div class="language-progress p-<?= rand(60, 95) ?>"></div>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <p class="texte">Aucune langue trouvée</p>
-                                <?php endif; ?>
-                            </div>
-
-                            <!-- Interests Section -->
-                            <div class="interests-section">
-                                <h2 class="section-title cv-editable">Centres d'intérêt</h2>
-                                <div class="interests-list">
-                                    <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
-                                        <?php 
-                                        // Limiter l'affichage aux 3 premiers centres d'intérêt
-                                        $count = 0;
-                                        foreach ($afficheCentreInteret as $interet): 
-                                            if ($count >= 3) break;
-                                            $count++;
-                                        ?>
-                                            <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
-                                        <?php endforeach; ?>
-                                    <?php else: ?>
-                                        <p class="texte">Aucun centre d'intérêt trouvé</p>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right Column -->
-                        <div class="right-column">
-                            <!-- Experience Section -->
-                            <div class="experience-section">
-                                <h2 class="section-title cv-editable">Expérience professionnelle</h2>
-
-                                <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
-                                    <?php 
-                                    // Limiter l'affichage aux 3 premiers métiers
-                                    $count = 0;
-                                    foreach ($afficheMetier as $metier): 
-                                        if ($count >= 3) break;
-                                        $count++;
-                                    ?>
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot"></div>
-                                            <div class="timeline-header">
-                                                <h3 class="timeline-title cv-editable"><?= $metier['metier'] ?></h3>
-                                                <span
-                                                    class="timeline-date cv-editable"><?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?>
-                                                    -
-                                                    <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?></span>
-                                            </div>
-                                            <div class="timeline-content cv-editable">
-                                                <?= $metier['description'] ?>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <!-- Placeholder experiences -->
-                                    <p class="texte">Aucune expérience professionnelle trouvée</p>
-                                <?php endif; ?>
-                            </div>
-
-                            <!-- Education Section -->
-                            <div class="education-section">
-                                <h2 class="section-title cv-editable">Formation</h2>
-
-                                <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
-                                    <?php
-                                    // Limiter l'affichage aux 3 premières formations
-                                    $count = 0;
-                                    foreach ($formationUsers as $formation):
-                                        if ($count >= 3) break;
-                                        $count++;
-                                    ?>
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot"></div>
-                                            <div class="timeline-header">
-                                                <h3 class="timeline-title cv-editable"><?= $formation['Filiere'] ?></h3>
-                                                <span class="timeline-date cv-editable">
-                                                    <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
-                                                    <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
-                                                </span>
-                                                <p class="timeline-subtitle cv-editable">
-                                                    <?= $formation['etablissement'] ?>
-                                                    <strong><?= $formation['niveau'] ?></strong>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <!-- Placeholder education -->
-                                    <p class="texte">Aucune formation trouvée</p>
-                                <?php endif; ?>
-                            </div>
-
-                            <!-- Projects Section -->
+                                    <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="texte">Aucun centre d'intérêt trouvé</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
-           
-        
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Experience Section -->
+                    <div class="experience-section">
+                        <h2 class="section-title cv-editable">Expérience professionnelle</h2>
+
+                        <?php if (empty($afficheMetier)): ?>
+                            <p class="texte">Aucune expérience professionnelle trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            // Séparer les expériences en deux groupes : mis en avant et non mis en avant
+                            $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                                return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
+                            });
+                            $experiences_non_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                                return !isset($exp['mis_en_avant']) || $exp['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les expériences non mises en avant
+                            shuffle($experiences_non_mises_en_avant);
+
+                            // Nombre maximum d'expériences à afficher
+                            $nombre_metier = 3;
+
+                            // Combiner les expériences en donnant priorité aux mises en avant
+                            $experiences_a_afficher = array_slice($experiences_mises_en_avant, 0, $nombre_metier);
+                            if (count($experiences_a_afficher) < $nombre_metier) {
+                                $experiences_a_afficher = array_merge(
+                                    $experiences_a_afficher,
+                                    array_slice($experiences_non_mises_en_avant, 0, $nombre_metier - count($experiences_a_afficher))
+                                );
+                            }
+
+                            foreach ($experiences_a_afficher as $metier): ?>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-header">
+                                        <h3 class="timeline-title cv-editable"><?= $metier['metier'] ?></h3>
+                                        <span
+                                            class="timeline-date cv-editable"><?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?>
+                                            -
+                                            <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?></span>
+                                    </div>
+                                    <div class="timeline-content cv-editable">
+                                        <?= $metier['description'] ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="education-section">
+                        <h2 class="section-title cv-editable">Formation</h2>
+
+                        <?php if (empty($formationUsers)): ?>
+                            <p class="texte">Aucune formation trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            // Séparer les formations en deux groupes : mises en avant et non mises en avant
+                            $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
+                            });
+                            $formations_non_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                return !isset($form['mis_en_avant']) || $form['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les formations non mises en avant
+                            shuffle($formations_non_mises_en_avant);
+
+                            // Nombre maximum de formations à afficher
+                            $nombre_formation = 3;
+
+                            // Combiner les formations en donnant priorité aux mises en avant
+                            $formations_a_afficher = array_slice($formations_mises_en_avant, 0, $nombre_formation);
+                            if (count($formations_a_afficher) < $nombre_formation) {
+                                $formations_a_afficher = array_merge(
+                                    $formations_a_afficher,
+                                    array_slice($formations_non_mises_en_avant, 0, $nombre_formation - count($formations_a_afficher))
+                                );
+                            }
+
+                            foreach ($formations_a_afficher as $formation): ?>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-header">
+                                        <h3 class="timeline-title cv-editable"><?= $formation['Filiere'] ?></h3>
+                                        <span class="timeline-date cv-editable">
+                                            <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
+                                            <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
+                                        </span>
+                                        <p class="timeline-subtitle cv-editable">
+                                            <?= $formation['etablissement'] ?>
+                                            <strong><?= $formation['niveau'] ?></strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- Projects Section -->
+                </div>
+            </div>
+        </div>
+
+
     </section>
 
     <!-- Conteneur caché pour le clone PDF -->
     <div style="position: absolute; left: -9999px; top:0;">
         <div id="container-for-pdf" class="cv13 theme-blue">
-                <!-- CV Header -->
-                <div class="cv-header">
-                    <div class="profile-container">
-                        <img src="../upload/<?= isset($userss['images']) && $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
-                            alt="Photo de profil" class="profile-photo cv-editable-image">
+            <!-- CV Header -->
+            <div class="cv-header">
+                <div class="profile-container">
+                    <img src="../upload/<?= isset($userss['images']) && $userss['images'] ? $userss['images'] : 'default-profile.jpg' ?>"
+                        alt="Photo de profil" class="profile-photo cv-editable-image">
+                </div>
+                <div class="identity-container">
+                    <h1 class="name cv-editable">
+                        <?= $userss['nom'] ?>
+                    </h1>
+                    <p class="job-title cv-editable">
+                        <?= isset($userss['competences']) ? $userss['competences'] : "Développeur Full Stack" ?>
+                    </p>
+                    <p class="summary cv-editable">
+                        <?= $descriptions['description'] ?>
+                    </p>
+                </div>
+            </div>
+
+            <!-- CV Body -->
+            <div class="cv-body">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2 class="section-title cv-editable">Contact</h2>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span
+                                class="contact-text cv-editable"><?= isset($userss['mail']) ? $userss['mail'] : "thomas.dupont@gmail.com" ?></span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span
+                                class="contact-text cv-editable"><?= isset($userss['phone']) ? $userss['phone'] : "06 12 34 56 78" ?></span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span
+                                class="contact-text cv-editable"><?= isset($userss['ville']) ? $userss['ville'] : "Paris, France" ?></span>
+                        </div>
                     </div>
-                    <div class="identity-container">
-                        <h1 class="name cv-editable">
-                            <?= $userss['nom'] ?>
-                        </h1>
-                        <p class="job-title cv-editable">
-                            <?= isset($userss['competences']) ? $userss['competences'] : "Développeur Full Stack" ?>
-                        </p>
-                        <p class="summary cv-editable">
-                            <?= $descriptions['description'] ?>
-                        </p>
+
+                    <!-- Skills Section -->
+                    <div class="skills-section">
+                        <h2 class="section-title cv-editable">Compétences</h2>
+
+                        <?php if (empty($competencesUtilisateurLimit7)): ?>
+                            <p class="texte">Aucune compétence trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            // Séparer les compétences en deux groupes
+                            $competences_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
+                                return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
+                            });
+                            $competences_non_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
+                                return !isset($comp['mis_en_avant']) || $comp['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les compétences non mises en avant
+                            shuffle($competences_non_mises_en_avant);
+
+                            // Nombre maximum de compétences à afficher
+                            $nombre_competences = 7;
+
+                            // Combiner les compétences en donnant priorité aux mises en avant
+                            $competences_a_afficher = array_slice($competences_mises_en_avant, 0, $nombre_competences);
+                            if (count($competences_a_afficher) < $nombre_competences) {
+                                $competences_a_afficher = array_merge(
+                                    $competences_a_afficher,
+                                    array_slice($competences_non_mises_en_avant, 0, $nombre_competences - count($competences_a_afficher))
+                                );
+                            }
+
+                            foreach ($competences_a_afficher as $competence): ?>
+                                <div class="skill-item">
+                                    <span class="skill-name cv-editable"><?= $competence['competence'] ?></span>
+                                    <div class="skill-level">
+                                        <div class="skill-progress p-<?= rand(60, 95) ?>"></div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- Languages Section -->
+                    <div class="languages-section">
+                        <h2 class="section-title cv-editable">Langues</h2>
+
+                        <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
+                            <?php
+                            // Limiter l'affichage aux 3 premières langues
+                            $count = 0;
+                            foreach ($afficheLangue as $langue):
+                                if ($count >= 3)
+                                    break;
+                                $count++;
+                                ?>
+                                <div class="language-item">
+                                    <span class="language-name cv-editable"><?= $langue['langue'] ?></span>
+                                    <div class="language-level">
+                                        <div class="language-progress p-<?= rand(60, 95) ?>"></div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="texte">Aucune langue trouvée</p>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- Interests Section -->
+                    <div class="interests-section">
+                        <h2 class="section-title cv-editable">Centres d'intérêt</h2>
+                        <div class="interests-list">
+                            <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
+                                <?php
+                                // Limiter l'affichage aux 3 premiers centres d'intérêt
+                                $count = 0;
+                                foreach ($afficheCentreInteret as $interet):
+                                    if ($count >= 3)
+                                        break;
+                                    $count++;
+                                    ?>
+                                    <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="texte">Aucun centre d'intérêt trouvé</p>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
 
-                <!-- CV Body -->
-                <div class="cv-body">
-                    <!-- Left Column -->
-                    <div class="left-column">
-                        <!-- Contact Information -->
-                        <div class="contact-info">
-                            <h2 class="section-title cv-editable">Contact</h2>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <span
-                                    class="contact-text cv-editable"><?= isset($userss['mail']) ? $userss['mail'] : "thomas.dupont@gmail.com" ?></span>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <span
-                                    class="contact-text cv-editable"><?= isset($userss['phone']) ? $userss['phone'] : "06 12 34 56 78" ?></span>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <span
-                                    class="contact-text cv-editable"><?= isset($userss['ville']) ? $userss['ville'] : "Paris, France" ?></span>
-                            </div>
-                        </div>
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Experience Section -->
+                    <div class="experience-section">
+                        <h2 class="section-title cv-editable">Expérience professionnelle</h2>
 
-                        <!-- Skills Section -->
-                        <div class="skills-section">
-                            <h2 class="section-title cv-editable">Compétences</h2>
-
-                            <?php if (isset($competencesUtilisateurLimit7) && !empty($competencesUtilisateurLimit7)): ?>
-                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
-                                    <div class="skill-item">
-                                        <span class="skill-name cv-editable"><?= $competence['competence'] ?></span>
-                                        <div class="skill-level">
-                                            <div class="skill-progress p-<?= rand(60, 95) ?>"></div>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p class="texte">Aucune compétence trouvée</p>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- Languages Section -->
-                        <div class="languages-section">
-                            <h2 class="section-title cv-editable">Langues</h2>
-
-                            <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
-                                <?php 
-                                // Limiter l'affichage aux 3 premières langues
-                                $count = 0;
-                                foreach ($afficheLangue as $langue): 
-                                    if ($count >= 3) break;
-                                    $count++;
+                        <?php if (empty($afficheMetier)): ?>
+                            <p class="texte">Aucune expérience professionnelle trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            // Limiter l'affichage aux 3 premiers métiers
+                            $count = 0;
+                            foreach ($afficheMetier as $metier):
+                                if ($count >= 3)
+                                    break;
+                                $count++;
                                 ?>
-                                    <div class="language-item">
-                                        <span class="language-name cv-editable"><?= $langue['langue'] ?></span>
-                                        <div class="language-level">
-                                            <div class="language-progress p-<?= rand(60, 95) ?>"></div>
-                                        </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-header">
+                                        <h3 class="timeline-title cv-editable"><?= $metier['metier'] ?></h3>
+                                        <span
+                                            class="timeline-date cv-editable"><?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?>
+                                            -
+                                            <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?></span>
                                     </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p class="texte">Aucune langue trouvée</p>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- Interests Section -->
-                        <div class="interests-section">
-                                <h2 class="section-title cv-editable">Centres d'intérêt</h2>
-                                <div class="interests-list">
-                                    <?php if (isset($afficheCentreInteret) && !empty($afficheCentreInteret)): ?>
-                                        <?php 
-                                        // Limiter l'affichage aux 3 premiers centres d'intérêt
-                                        $count = 0;
-                                        foreach ($afficheCentreInteret as $interet): 
-                                            if ($count >= 3) break;
-                                            $count++;
-                                        ?>
-                                            <span class="interest-item cv-editable"><?= $interet['interet'] ?></span>
-                                        <?php endforeach; ?>
-                                    <?php else: ?>
-                                        <p class="texte">Aucun centre d'intérêt trouvé</p>
-                                    <?php endif; ?>
+                                    <div class="timeline-content cv-editable">
+                                        <?= $metier['description'] ?>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
 
-                    <!-- Right Column -->
-                    <div class="right-column">
-                        <!-- Experience Section -->
-                        <div class="experience-section">
-                            <h2 class="section-title cv-editable">Expérience professionnelle</h2>
+                    <!-- Education Section -->
+                    <div class="education-section">
+                        <h2 class="section-title cv-editable">Formation</h2>
 
-                            <?php if (isset($afficheMetier) && !empty($afficheMetier)): ?>
-                                <?php 
-                                // Limiter l'affichage aux 3 premiers métiers
-                                $count = 0;
-                                foreach ($afficheMetier as $metier): 
-                                    if ($count >= 3) break;
-                                    $count++;
+                        <?php if (empty($formationUsers)): ?>
+                            <p class="texte">Aucune formation trouvée</p>
+                        <?php else: ?>
+                            <?php
+                            // Limiter l'affichage aux 3 premières formations
+                            $count = 0;
+                            foreach ($formationUsers as $formation):
+                                if ($count >= 3)
+                                    break;
+                                $count++;
                                 ?>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-header">
-                                            <h3 class="timeline-title cv-editable"><?= $metier['metier'] ?></h3>
-                                            <span
-                                                class="timeline-date cv-editable"><?= $metier['moisDebut'] ?>/<?= $metier['anneeDebut'] ?>
-                                                -
-                                                <?= $metier['moisFin'] ?>/<?= $metier['anneeFin'] ?></span>
-                                        </div>
-                                        <div class="timeline-content cv-editable">
-                                            <?= $metier['description'] ?>
-                                        </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-header">
+                                        <h3 class="timeline-title cv-editable"><?= $formation['Filiere'] ?></h3>
+                                        <span class="timeline-date cv-editable">
+                                            <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
+                                            <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
+                                        </span>
+                                        <p class="timeline-subtitle cv-editable">
+                                            <?= $formation['etablissement'] ?>
+                                            <strong><?= $formation['niveau'] ?></strong>
+                                        </p>
                                     </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <!-- Placeholder experiences -->
-                                <p class="texte">Aucune expérience professionnelle trouvée</p>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- Education Section -->
-                        <div class="education-section">
-                            <h2 class="section-title cv-editable">Formation</h2>
-
-                            <?php if (isset($formationUsers) && !empty($formationUsers)): ?>
-                                <?php
-                                // Limiter l'affichage aux 3 premières formations
-                                $count = 0;
-                                foreach ($formationUsers as $formation):
-                                    if ($count >= 3) break;
-                                    $count++;
-                                ?>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-header">
-                                            <h3 class="timeline-title cv-editable"><?= $formation['Filiere'] ?></h3>
-                                            <span class="timeline-date cv-editable">
-                                                <?= $formation['moisDebut'] ?>/<?= $formation['anneeDebut'] ?> -
-                                                <?= $formation['moisFin'] ?>/<?= $formation['anneeFin'] ?>
-                                            </span>
-                                            <p class="timeline-subtitle cv-editable">
-                                                <?= $formation['etablissement'] ?>
-                                                <strong><?= $formation['niveau'] ?></strong>
-                                            </p>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <!-- Placeholder education -->
-                                <p class="texte">Aucune formation trouvée</p>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- Projects Section -->
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
+
+                    <!-- Projects Section -->
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
     <script>
@@ -858,7 +1085,7 @@ if (isset($_SESSION['users_id'])) {
             }
 
             const themeCards = document.querySelectorAll('.theme-card');
-        const cvContainers = document.querySelectorAll('.cv13');
+            const cvContainers = document.querySelectorAll('.cv13');
 
             const primaryColorPicker = document.getElementById('primary-color');
             const accentColorPicker = document.getElementById('accent-color');
@@ -866,39 +1093,39 @@ if (isset($_SESSION['users_id'])) {
             const dateColorPicker = document.getElementById('date-color');
 
             const themeColors = {
-            'classic': { primary: '#4A4A4A', accent: '#7A7A7A', secondary: '#F5F5F5', date: '#7A7A7A' },
-            'marine': { primary: '#1D3557', accent: '#457B9D', secondary: '#F1FAEE', date: '#457B9D' },
-            'corporate': { primary: '#1A237E', accent: '#5C6BC0', secondary: '#FFFFFF', date: '#5C6BC0' },
-            'slate': { primary: '#2F4F4F', accent: '#708090', secondary: '#E8ECEE', date: '#708090' },
-            'emerald': { primary: '#0E3B43', accent: '#328590', secondary: '#F0F0F0', date: '#328590' },
-            'violet': { primary: '#845EC2', accent: '#B39CD0', secondary: '#FBEAFF', date: '#B39CD0' },
-            'ocean': { primary: '#3D5A80', accent: '#98C1D9', secondary: '#E0FBFC', date: '#98C1D9' },
-            'ruby': { primary: '#A31621', accent: '#DB5461', secondary: '#F0EFF4', date: '#DB5461' },
-            'graphite-gold': { primary: '#343a40', accent: '#c9a445', secondary: '#f8f9fa', date: '#c9a445' },
-            'teal-coral': { primary: '#008080', accent: '#FF6F61', secondary: '#F0F8FF', date: '#FF6F61' },
-            'indigo-cream': { primary: '#3949AB', accent: '#9E9D24', secondary: '#FFF8E1', date: '#9E9D24' },
-            'forest-rust': { primary: '#2F4F4F', accent: '#B7410E', secondary: '#F5F5F5', date: '#B7410E' },
-            'plum-sage': { primary: '#5D3A55', accent: '#8A9A5B', secondary: '#FDFCFB', date: '#8A9A5B' }
-        };
+                'classic': { primary: '#4A4A4A', accent: '#7A7A7A', secondary: '#F5F5F5', date: '#7A7A7A' },
+                'marine': { primary: '#1D3557', accent: '#457B9D', secondary: '#F1FAEE', date: '#457B9D' },
+                'corporate': { primary: '#1A237E', accent: '#5C6BC0', secondary: '#FFFFFF', date: '#5C6BC0' },
+                'slate': { primary: '#2F4F4F', accent: '#708090', secondary: '#E8ECEE', date: '#708090' },
+                'emerald': { primary: '#0E3B43', accent: '#328590', secondary: '#F0F0F0', date: '#328590' },
+                'violet': { primary: '#845EC2', accent: '#B39CD0', secondary: '#FBEAFF', date: '#B39CD0' },
+                'ocean': { primary: '#3D5A80', accent: '#98C1D9', secondary: '#E0FBFC', date: '#98C1D9' },
+                'ruby': { primary: '#A31621', accent: '#DB5461', secondary: '#F0EFF4', date: '#DB5461' },
+                'graphite-gold': { primary: '#343a40', accent: '#c9a445', secondary: '#f8f9fa', date: '#c9a445' },
+                'teal-coral': { primary: '#008080', accent: '#FF6F61', secondary: '#F0F8FF', date: '#FF6F61' },
+                'indigo-cream': { primary: '#3949AB', accent: '#9E9D24', secondary: '#FFF8E1', date: '#9E9D24' },
+                'forest-rust': { primary: '#2F4F4F', accent: '#B7410E', secondary: '#F5F5F5', date: '#B7410E' },
+                'plum-sage': { primary: '#5D3A55', accent: '#8A9A5B', secondary: '#FDFCFB', date: '#8A9A5B' }
+            };
 
             function applyColors(primary, accent, secondary, dateColor) {
                 document.documentElement.style.setProperty('--primary-color', primary);
                 document.documentElement.style.setProperty('--accent-color', accent);
                 document.documentElement.style.setProperty('--secondary-color', secondary);
 
-            cvContainers.forEach(cv => {
-                const headerBg = cv.querySelector('.cv-header');
-                const leftColumnBg = cv.querySelector('.left-column');
-                if (headerBg) headerBg.style.backgroundColor = primary;
-                if (leftColumnBg) leftColumnBg.style.backgroundColor = secondary;
+                cvContainers.forEach(cv => {
+                    const headerBg = cv.querySelector('.cv-header');
+                    const leftColumnBg = cv.querySelector('.left-column');
+                    if (headerBg) headerBg.style.backgroundColor = primary;
+                    if (leftColumnBg) leftColumnBg.style.backgroundColor = secondary;
 
-                const accentElements = cv.querySelectorAll('.timeline-dot, .skill-progress, .language-progress, .contact-icon');
-                accentElements.forEach(el => el.style.backgroundColor = accent);
-                
-                const dateElements = cv.querySelectorAll('.timeline-date');
-                dateElements.forEach(el => el.style.color = dateColor);
-            });
-            
+                    const accentElements = cv.querySelectorAll('.timeline-dot, .skill-progress, .language-progress, .contact-icon');
+                    accentElements.forEach(el => el.style.backgroundColor = accent);
+
+                    const dateElements = cv.querySelectorAll('.timeline-date');
+                    dateElements.forEach(el => el.style.color = dateColor);
+                });
+
                 if (primaryColorPicker) primaryColorPicker.value = primary;
                 if (accentColorPicker) accentColorPicker.value = accent;
                 if (secondaryColorPicker) secondaryColorPicker.value = secondary;
@@ -916,10 +1143,10 @@ if (isset($_SESSION['users_id'])) {
                     themeCards.forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
 
-                cvContainers.forEach(cv => {
-                    Object.keys(themeColors).forEach(t => cv.classList.remove(`theme-${t}`));
-                    cv.classList.add('theme-' + theme);
-                });
+                    cvContainers.forEach(cv => {
+                        Object.keys(themeColors).forEach(t => cv.classList.remove(`theme-${t}`));
+                        cv.classList.add('theme-' + theme);
+                    });
 
                     savePreference('theme', theme);
 
@@ -930,46 +1157,46 @@ if (isset($_SESSION['users_id'])) {
                 });
             });
 
-        function setupManualColorPickers() {
-            const pickers = [
-                { picker: primaryColorPicker, key: 'primary-color' },
-                { picker: accentColorPicker, key: 'accent-color' },
-                { picker: secondaryColorPicker, key: 'secondary-color' },
-                { picker: dateColorPicker, key: 'date-color' }
-            ];
-            
-            pickers.forEach(({ picker, key }) => {
-                if(picker) {
-                    picker.addEventListener('input', () => {
-                        const newColors = {
-                            'primary-color': primaryColorPicker.value,
-                            'accent-color': accentColorPicker.value,
-                            'secondary-color': secondaryColorPicker.value,
-                            'date-color': dateColorPicker.value,
-                        };
-                        
-                        applyColors(
-                            newColors['primary-color'],
-                            newColors['accent-color'],
-                            newColors['secondary-color'],
-                            newColors['date-color']
-                        );
-                        
-                    themeCards.forEach(c => c.classList.remove('active'));
-                    savePreference('theme', 'custom');
+            function setupManualColorPickers() {
+                const pickers = [
+                    { picker: primaryColorPicker, key: 'primary-color' },
+                    { picker: accentColorPicker, key: 'accent-color' },
+                    { picker: secondaryColorPicker, key: 'secondary-color' },
+                    { picker: dateColorPicker, key: 'date-color' }
+                ];
+
+                pickers.forEach(({ picker, key }) => {
+                    if (picker) {
+                        picker.addEventListener('input', () => {
+                            const newColors = {
+                                'primary-color': primaryColorPicker.value,
+                                'accent-color': accentColorPicker.value,
+                                'secondary-color': secondaryColorPicker.value,
+                                'date-color': dateColorPicker.value,
+                            };
+
+                            applyColors(
+                                newColors['primary-color'],
+                                newColors['accent-color'],
+                                newColors['secondary-color'],
+                                newColors['date-color']
+                            );
+
+                            themeCards.forEach(c => c.classList.remove('active'));
+                            savePreference('theme', 'custom');
+                        });
+                    }
                 });
             }
-            });
-        }
-        setupManualColorPickers();
+            setupManualColorPickers();
 
             const resetColorsButton = document.getElementById('resetColors');
             if (resetColorsButton) {
-            resetColorsButton.addEventListener('click', () => {
+                resetColorsButton.addEventListener('click', () => {
                     const classicThemeCard = document.querySelector('.theme-card[data-theme="classic"]');
-                if (classicThemeCard) classicThemeCard.click();
-            });
-        }
+                    if (classicThemeCard) classicThemeCard.click();
+                });
+            }
 
             const colorOptions = document.querySelectorAll('.date-color-selector .color-option');
             colorOptions.forEach(option => {
@@ -978,17 +1205,17 @@ if (isset($_SESSION['users_id'])) {
                     colorOptions.forEach(o => o.classList.remove('active'));
                     this.classList.add('active');
 
-                if (dateColorPicker) dateColorPicker.value = color;
-                
-                applyColors(
-                    getPreference('primary-color'),
-                    getPreference('accent-color'),
-                    getPreference('secondary-color'),
-                    color
-                );
-                
-                themeCards.forEach(c => c.classList.remove('active'));
-                savePreference('theme', 'custom');
+                    if (dateColorPicker) dateColorPicker.value = color;
+
+                    applyColors(
+                        getPreference('primary-color'),
+                        getPreference('accent-color'),
+                        getPreference('secondary-color'),
+                        color
+                    );
+
+                    themeCards.forEach(c => c.classList.remove('active'));
+                    savePreference('theme', 'custom');
                 });
             });
 
@@ -1000,72 +1227,72 @@ if (isset($_SESSION['users_id'])) {
                     this.classList.add('active');
                     savePreference('font', font);
 
-                const fontValue = `'${font}', sans-serif`;
-                if(font === 'Merriweather') {
-                    fontValue = `'${font}', serif`;
-                }
+                    const fontValue = `'${font}', sans-serif`;
+                    if (font === 'Merriweather') {
+                        fontValue = `'${font}', serif`;
+                    }
 
-                cvContainers.forEach(cv => {
-                    cv.style.fontFamily = fontValue;
-                    cv.querySelectorAll('.name, .job-title, .section-title, .timeline-title').forEach(el => {
-                        el.style.fontFamily = fontValue;
-                    });
+                    cvContainers.forEach(cv => {
+                        cv.style.fontFamily = fontValue;
+                        cv.querySelectorAll('.name, .job-title, .section-title, .timeline-title').forEach(el => {
+                            el.style.fontFamily = fontValue;
+                        });
                     });
                 });
             });
 
-        function loadPreferences() {
-            const savedTheme = getPreference('theme', 'classic');
-            const savedFont = getPreference('font', 'Montserrat');
+            function loadPreferences() {
+                const savedTheme = getPreference('theme', 'classic');
+                const savedFont = getPreference('font', 'Montserrat');
 
-            if (savedTheme === 'custom') {
-                const savedPrimary = getPreference('primary-color', '#4A4A4A');
-                const savedAccent = getPreference('accent-color', '#7A7A7A');
-                const savedSecondary = getPreference('secondary-color', '#F5F5F5');
-                const savedDate = getPreference('date-color', '#7A7A7A');
-                applyColors(savedPrimary, savedAccent, savedSecondary, savedDate);
-            } else {
-                const themeCard = document.querySelector(`.theme-card[data-theme="${savedTheme}"]`);
-                if (themeCard) themeCard.click();
-            }
-
-            const fontCard = document.querySelector(`.font-card[data-font="${savedFont}"]`);
-            if (fontCard) fontCard.click();
-            
-            const savedDateColor = getPreference('date-color');
-            const colorOption = document.querySelector(`.date-color-selector .color-option[data-color="${savedDateColor}"]`);
-            if(colorOption) {
-                 colorOptions.forEach(o => o.classList.remove('active'));
-                 colorOption.classList.add('active');
-            }
-        }
-        
-        loadPreferences();
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleBtn = document.getElementById('toggle-customization-btn');
-        const customPanel = document.getElementById('customization-panel');
-        const closeBtn = document.getElementById('close-panel-btn');
-
-        if (toggleBtn && customPanel && closeBtn) {
-            // Ouvre le panneau
-            toggleBtn.addEventListener('click', function(event) {
-                event.stopPropagation();
-                customPanel.classList.add('active');
-            });
-
-            // Ferme le panneau avec la croix
-            closeBtn.addEventListener('click', function() {
-                customPanel.classList.remove('active');
-            });
-
-            // Ferme le panneau si on clique en dehors
-            document.addEventListener('click', function(event) {
-                if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
-                    customPanel.classList.remove('active');
+                if (savedTheme === 'custom') {
+                    const savedPrimary = getPreference('primary-color', '#4A4A4A');
+                    const savedAccent = getPreference('accent-color', '#7A7A7A');
+                    const savedSecondary = getPreference('secondary-color', '#F5F5F5');
+                    const savedDate = getPreference('date-color', '#7A7A7A');
+                    applyColors(savedPrimary, savedAccent, savedSecondary, savedDate);
+                } else {
+                    const themeCard = document.querySelector(`.theme-card[data-theme="${savedTheme}"]`);
+                    if (themeCard) themeCard.click();
                 }
-            });
+
+                const fontCard = document.querySelector(`.font-card[data-font="${savedFont}"]`);
+                if (fontCard) fontCard.click();
+
+                const savedDateColor = getPreference('date-color');
+                const colorOption = document.querySelector(`.date-color-selector .color-option[data-color="${savedDateColor}"]`);
+                if (colorOption) {
+                    colorOptions.forEach(o => o.classList.remove('active'));
+                    colorOption.classList.add('active');
+                }
+            }
+
+            loadPreferences();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('toggle-customization-btn');
+            const customPanel = document.getElementById('customization-panel');
+            const closeBtn = document.getElementById('close-panel-btn');
+
+            if (toggleBtn && customPanel && closeBtn) {
+                // Ouvre le panneau
+                toggleBtn.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    customPanel.classList.add('active');
+                });
+
+                // Ferme le panneau avec la croix
+                closeBtn.addEventListener('click', function () {
+                    customPanel.classList.remove('active');
+                });
+
+                // Ferme le panneau si on clique en dehors
+                document.addEventListener('click', function (event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        customPanel.classList.remove('active');
+                    }
+                });
             }
         });
     </script>

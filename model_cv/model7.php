@@ -5,13 +5,6 @@
 session_start();
 
 
-// Check if user is on desktop
-$isDesktop = isDesktop();
-if (!$isDesktop) {
-    // If not on desktop, redirect to mobile message page
-    header("Location: mobile_message.php");
-    exit;
-}
 
 if (isset($_GET['id'])) {
     include '../conn/conn.php';
@@ -86,9 +79,30 @@ if (isset($_SESSION['users_id'])) {
 
         <div class="personnalisation">
             <button class="button12" onclick="generatePDF()">Télécharger mon CV</button>
+
+            <!-- Bulle d'information -->
+            <div class="info-bubble">
+                <div class="info-content">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <h3>Informations importantes sur l'affichage de votre CV</h3>
+                    <p>Pour garantir une présentation optimale de votre profil, certaines sections sont limitées :</p>
+                    <ul>
+                        <li><strong>Expériences professionnelles :</strong> 3 expériences maximum</li>
+                        <li><strong>Formations :</strong> 3 formations maximum</li>
+                        <li><strong>Compétences :</strong> 7 compétences maximum</li>
+                        <li><strong>Outils informatiques :</strong> 5 outils maximum</li>
+                    </ul>
+                    <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en
+                        priorité.</p>
+                    <button class="close-info">&times;</button>
+                </div>
+            </div>
+
             <script>
                 function generatePDF() {
-                    const { jsPDF } = window.jspdf;
+                    const {
+                        jsPDF
+                    } = window.jspdf;
                     const element = document.querySelector(".container");
 
                     domtoimage.toJpeg(element, {
@@ -433,7 +447,8 @@ if (isset($_SESSION['users_id'])) {
                         document.documentElement.style.setProperty('--font-color_titre', theme.fontColorTitre);
                         document.documentElement.style.setProperty('--texte-color_titre', theme.texteColorTitre);
                         document.documentElement.style.setProperty('--font-color_section', theme.fontColorSection);
-                        document.documentElement.style.setProperty('--texte-color_section', theme.texteColorSection);
+                        document.documentElement.style.setProperty('--texte-color_section', theme
+                            .texteColorSection);
 
                         // Appliquer aussi aux variables du modèle 7
                         document.documentElement.style.setProperty('--font-color7', theme.fontColorSection);
@@ -450,7 +465,8 @@ if (isset($_SESSION['users_id'])) {
                             document.getElementById('fontColor2').value = theme.fontColorSection;
                             // Mettre à jour la prévisualisation
                             if (document.getElementById('color-preview2')) {
-                                document.getElementById('color-preview2').style.backgroundColor = theme.fontColorSection;
+                                document.getElementById('color-preview2').style.backgroundColor = theme
+                                    .fontColorSection;
                             }
                         }
                         if (document.getElementById('fontColor3')) {
@@ -482,9 +498,12 @@ if (isset($_SESSION['users_id'])) {
                     if (savedTheme.fontColorTitre) {
                         // Appliquer le thème sauvegardé
                         document.documentElement.style.setProperty('--font-color_titre', savedTheme.fontColorTitre);
-                        document.documentElement.style.setProperty('--texte-color_titre', savedTheme.texteColorTitre);
-                        document.documentElement.style.setProperty('--font-color_section', savedTheme.fontColorSection);
-                        document.documentElement.style.setProperty('--texte-color_section', savedTheme.texteColorSection);
+                        document.documentElement.style.setProperty('--texte-color_titre', savedTheme
+                            .texteColorTitre);
+                        document.documentElement.style.setProperty('--font-color_section', savedTheme
+                            .fontColorSection);
+                        document.documentElement.style.setProperty('--texte-color_section', savedTheme
+                            .texteColorSection);
 
                         // Appliquer aussi aux variables du modèle 7
                         document.documentElement.style.setProperty('--font-color7', savedTheme.fontColorSection);
@@ -501,7 +520,8 @@ if (isset($_SESSION['users_id'])) {
                             document.getElementById('fontColor2').value = savedTheme.fontColorSection;
                             // Mettre à jour la prévisualisation
                             if (document.getElementById('color-preview2')) {
-                                document.getElementById('color-preview2').style.backgroundColor = savedTheme.fontColorSection;
+                                document.getElementById('color-preview2').style.backgroundColor = savedTheme
+                                    .fontColorSection;
                             }
                         }
                         if (document.getElementById('fontColor3')) {
@@ -585,20 +605,35 @@ if (isset($_SESSION['users_id'])) {
                                     <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
                                     <?php
-                                    shuffle($formationUsers);
+                                    // Séparer les formations en deux groupes : mises en avant et non mises en avant
+                                    $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                        return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
+                                    });
+                                    $formations_non_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                        return !isset($form['mis_en_avant']) || $form['mis_en_avant'] != 1;
+                                    });
+
+                                    // Mélanger les formations non mises en avant
+                                    shuffle($formations_non_mises_en_avant);
+
+                                    // Nombre maximum de formations à afficher
                                     $nombre_formation = 3;
+
+                                    // Combiner les formations en donnant priorité aux mises en avant
+                                    $formations_a_afficher = array_merge(
+                                        array_slice($formations_mises_en_avant, 0, $nombre_formation),
+                                        array_slice($formations_non_mises_en_avant, 0, max(0, $nombre_formation - count($formations_mises_en_avant)))
+                                    );
                                     ?>
-                                    <?php foreach ($formationUsers as $key => $formation): ?>
-                                        <?php if ($key < $nombre_formation): ?>
-                                            <li>
-                                                <span class="date"><?= $formation['moisDebut'] ?> /
-                                                    <?= $formation['anneeDebut'] ?> , <?= $formation['moisFin'] ?> /
-                                                    <?= $formation['anneeFin'] ?></span>
-                                                <span><?= $formation['Filiere'] ?></span>
-                                                <span><?= $formation['etablissement'] ?></span>
-                                                <strong><?= $formation['niveau'] ?></strong>
-                                            </li>
-                                        <?php endif; ?>
+                                    <?php foreach ($formations_a_afficher as $formation): ?>
+                                        <li>
+                                            <span class="date"><?= $formation['moisDebut'] ?> /
+                                                <?= $formation['anneeDebut'] ?> , <?= $formation['moisFin'] ?> /
+                                                <?= $formation['anneeFin'] ?></span>
+                                            <span><?= $formation['Filiere'] ?></span>
+                                            <span><?= $formation['etablissement'] ?></span>
+                                            <strong><?= $formation['niveau'] ?></strong>
+                                        </li>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </ul>
@@ -608,13 +643,34 @@ if (isset($_SESSION['users_id'])) {
                             <div class="skills-columns">
                                 <div>
                                     <ul>
-                                        <?php if ($competencesUtilisateurLimit7): ?>
-                                            <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
-                                                <li> <?php echo $competence['competence']; ?></li>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
+                                        <?php if (empty($competencesUtilisateur)): ?>
                                             <h4>Aucune donnée trouvée</h4>
-                                        <?php endif ?>
+                                        <?php else: ?>
+                                            <?php
+                                            // Séparer les compétences en deux groupes
+                                            $competences_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
+                                                return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
+                                            });
+                                            $competences_non_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
+                                                return !isset($comp['mis_en_avant']) || $comp['mis_en_avant'] != 1;
+                                            });
+
+                                            // Mélanger les compétences non mises en avant
+                                            shuffle($competences_non_mises_en_avant);
+
+                                            // Nombre maximum de compétences à afficher
+                                            $nombre_competences = 7;
+
+                                            // Combiner les compétences
+                                            $competences_a_afficher = array_merge(
+                                                array_slice($competences_mises_en_avant, 0, $nombre_competences),
+                                                array_slice($competences_non_mises_en_avant, 0, max(0, $nombre_competences - count($competences_mises_en_avant)))
+                                            );
+
+                                            foreach ($competences_a_afficher as $competence): ?>
+                                                <li><?php echo $competence['competence']; ?></li>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             </div>
@@ -628,19 +684,34 @@ if (isset($_SESSION['users_id'])) {
                                     <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
                                     <?php
-                                    shuffle($afficheMetier);
-                                    $nombre_metier = 3
-                                        ?>
-                                    <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                        <?php if ($key < $nombre_metier): ?>
-                                            <li>
-                                                <span class="date1"><?= $Metiers['moisDebut'] ?> /
-                                                    <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
-                                                    <?= $Metiers['anneeFin'] ?></span>
-                                                <span><?= $Metiers['metier'] ?></span>
-                                                <p><?= $Metiers['description'] ?></p>
-                                            </li>
-                                        <?php endif; ?>
+                                    // Séparer les expériences en deux groupes
+                                    $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                                        return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
+                                    });
+                                    $experiences_non_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                                        return !isset($exp['mis_en_avant']) || $exp['mis_en_avant'] != 1;
+                                    });
+
+                                    // Mélanger les expériences non mises en avant
+                                    shuffle($experiences_non_mises_en_avant);
+
+                                    // Nombre maximum d'expériences à afficher
+                                    $nombre_metier = 3;
+
+                                    // Combiner les expériences
+                                    $experiences_a_afficher = array_merge(
+                                        array_slice($experiences_mises_en_avant, 0, $nombre_metier),
+                                        array_slice($experiences_non_mises_en_avant, 0, max(0, $nombre_metier - count($experiences_mises_en_avant)))
+                                    );
+                                    ?>
+                                    <?php foreach ($experiences_a_afficher as $Metiers): ?>
+                                        <li>
+                                            <span class="date1"><?= $Metiers['moisDebut'] ?> /
+                                                <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
+                                                <?= $Metiers['anneeFin'] ?></span>
+                                            <span><?= $Metiers['metier'] ?></span>
+                                            <p><?= $Metiers['description'] ?></p>
+                                        </li>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </ul>
@@ -651,11 +722,34 @@ if (isset($_SESSION['users_id'])) {
                             <div class="outils-columns">
                                 <div>
                                     <ul>
-                                        <?php if ($afficheOutilLimit5): ?>
-                                            <?php foreach ($afficheOutilLimit5 as $outils): ?>
-                                                <li> <?= $outils['outil'] ?></li>
+                                        <?php if (empty($afficheOutil)): ?>
+                                            <h4>Aucune donnée trouvée</h4>
+                                        <?php else: ?>
+                                            <?php
+                                            // Séparer les outils en deux groupes
+                                            $outils_mis_en_avant = array_filter($afficheOutil, function ($outil) {
+                                                return isset($outil['mis_en_avant']) && $outil['mis_en_avant'] == 1;
+                                            });
+                                            $outils_non_mis_en_avant = array_filter($afficheOutil, function ($outil) {
+                                                return !isset($outil['mis_en_avant']) || $outil['mis_en_avant'] != 1;
+                                            });
+
+                                            // Mélanger les outils non mis en avant
+                                            shuffle($outils_non_mis_en_avant);
+
+                                            // Nombre maximum d'outils à afficher
+                                            $nombre_outils = 5;
+
+                                            // Combiner les outils
+                                            $outils_a_afficher = array_merge(
+                                                array_slice($outils_mis_en_avant, 0, $nombre_outils),
+                                                array_slice($outils_non_mis_en_avant, 0, max(0, $nombre_outils - count($outils_mis_en_avant)))
+                                            );
+
+                                            foreach ($outils_a_afficher as $outils): ?>
+                                                <li><?= $outils['outil'] ?></li>
                                             <?php endforeach; ?>
-                                        <?php endif ?>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             </div>

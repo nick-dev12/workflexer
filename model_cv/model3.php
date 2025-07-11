@@ -89,6 +89,156 @@ if (isset($_SESSION['users_id'])) {
         <i class="fa-solid fa-palette"></i> Personnaliser
     </button>
 
+    <!-- Bulle d'information -->
+    <div class="info-bubble">
+        <div class="info-content">
+            <i class="fa-solid fa-circle-info"></i>
+            <h3>Informations importantes sur l'affichage de votre CV</h3>
+            <p>Pour garantir une présentation optimale de votre profil, certaines sections sont limitées :</p>
+            <ul>
+                <li><strong>Expériences professionnelles :</strong> 3 expériences maximum</li>
+                <li><strong>Formations :</strong> 3 formations maximum</li>
+                <li><strong>Compétences :</strong> 7 compétences maximum</li>
+                <li><strong>Outils informatiques :</strong> 5 outils maximum</li>
+            </ul>
+            <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité !
+            </p>
+            <button class="close-info"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <style>
+        .info-bubble {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #2196F3;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .info-content {
+            padding: 20px;
+            position: relative;
+        }
+
+        .info-bubble i.fa-circle-info {
+            color: #2196F3;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .info-bubble h3 {
+            color: #333;
+            margin: 0 0 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-bubble ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .info-bubble li {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .info-bubble .highlight {
+            background: #E3F2FD;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            color: #1976D2;
+            font-weight: 500;
+        }
+
+        .close-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2196F3;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            font-size: 18px;
+            transition: all 0.3s;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-info:hover {
+            background: #1976D2;
+            transform: scale(1.1);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .info-bubble {
+                top: 60px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .info-bubble {
+                top: 50px;
+            }
+
+            .info-content {
+                padding: 15px;
+            }
+
+            .info-bubble h3 {
+                font-size: 16px;
+            }
+
+            .info-bubble li {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const closeBtn = document.querySelector('.close-info');
+            const infoBubble = document.querySelector('.info-bubble');
+
+            if (closeBtn && infoBubble) {
+                closeBtn.addEventListener('click', function () {
+                    infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
+                    setTimeout(() => {
+                        infoBubble.style.display = 'none';
+                    }, 500);
+                });
+            }
+        });
+    </script>
+
     <!-- Bouton de téléchargement fixe toujours visible -->
     <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
         <i class="fa-solid fa-download"></i>
@@ -136,159 +286,164 @@ if (isset($_SESSION['users_id'])) {
 
                     // Précharger les polices puis générer le PDF
                     preloadFonts().then(() => {
-                        const { jsPDF } = window.jspdf;
+                        const {
+                            jsPDF
+                        } = window.jspdf;
                         const element = document.querySelector("#container-for-pdf");
 
-                                            // Optimisations légères pour une meilleure qualité
-                    const scale = 2.2;
-                    const options = {
-                        scale: scale,
-                        quality: 0.95,
-                        bgcolor: '#ffffff',
-                        width: element.offsetWidth * scale,
-                        height: element.offsetHeight * scale,
-                        style: {
-                            transform: 'scale(' + scale + ')',
-                            transformOrigin: 'top left',
-                            width: element.offsetWidth + "px",
-                            height: element.offsetHeight + "px"
-                        },
-                        useCORS: true
-                    };
+                        // Optimisations légères pour une meilleure qualité
+                        const scale = 2.2;
+                        const options = {
+                            scale: scale,
+                            quality: 0.95,
+                            bgcolor: '#ffffff',
+                            width: element.offsetWidth * scale,
+                            height: element.offsetHeight * scale,
+                            style: {
+                                transform: 'scale(' + scale + ')',
+                                transformOrigin: 'top left',
+                                width: element.offsetWidth + "px",
+                                height: element.offsetHeight + "px"
+                            },
+                            useCORS: true
+                        };
 
-                    setTimeout(() => {
-                        domtoimage.toJpeg(element, options)
-                            .then(function (dataUrl) {
-                                // Supprimer le message d'attente
-                                if (document.body.contains(loadingMessage)) {
-                                    document.body.removeChild(loadingMessage);
-                                }
+                        setTimeout(() => {
+                            domtoimage.toJpeg(element, options)
+                                .then(function (dataUrl) {
+                                    // Supprimer le message d'attente
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
 
-                                const pdf = new jsPDF('p', 'mm', 'a4');
-                                const imgProps = pdf.getImageProperties(dataUrl);
-                                const pdfWidth = pdf.internal.pageSize.getWidth();
-                                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                                    const pdf = new jsPDF('p', 'mm', 'a4');
+                                    const imgProps = pdf.getImageProperties(dataUrl);
+                                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                                pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-                                
-                                // Nom de fichier avec timestamp pour éviter les conflits
-                                const timestamp = new Date().toISOString().slice(0, 19).replace(/[:.]/g, '-');
-                                pdf.save(`cv-model3-${timestamp}.pdf`);
-                            })
-                            .catch(function (error) {
-                                console.error('Une erreur est survenue lors de la génération du PDF:', error);
-                                // Supprimer le message d'attente en cas d'erreur
-                                if (document.body.contains(loadingMessage)) {
-                                    document.body.removeChild(loadingMessage);
-                                }
-                                alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
-                            });
-                    }, 600); // Délai léger pour stabilité
-                });
+                                    pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+
+                                    // Nom de fichier avec timestamp pour éviter les conflits
+                                    const timestamp = new Date().toISOString().slice(0, 19).replace(
+                                        /[:.]/g, '-');
+                                    pdf.save(`cv-model3-${timestamp}.pdf`);
+                                })
+                                .catch(function (error) {
+                                    console.error(
+                                        'Une erreur est survenue lors de la génération du PDF:',
+                                        error);
+                                    // Supprimer le message d'attente en cas d'erreur
+                                    if (document.body.contains(loadingMessage)) {
+                                        document.body.removeChild(loadingMessage);
+                                    }
+                                    alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                                });
+                        }, 600); // Délai léger pour stabilité
+                    });
                 }
             </script>
 
             <div class="theme-selector">
                 <h3>Thèmes de couleurs</h3>
-                    <h4>Classiques</h4>
-                    <div class="themes-container">
-                        <div class="theme-card" data-theme="classic">
-                            <div class="theme-preview">
-                                <div style="background-color: #4A4A4A; height: 20px;"></div>
-                                <div style="background-color: #7A7A7A; height: 20px;"></div>
-                                <div style="background-color: #F5F5F5; height: 20px;"></div>
-                            </div>
-                            <span>Classique</span>
+                <h4>Classiques</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="classic">
+                        <div class="theme-preview">
+                            <div style="background-color: #4A4A4A; height: 20px;"></div>
+                            <div style="background-color: #7A7A7A; height: 20px;"></div>
+                            <div style="background-color: #F5F5F5; height: 20px;"></div>
                         </div>
-                        <div class="theme-card" data-theme="professional">
-                            <div class="theme-preview">
-                                <div style="background-color: #1D3557; height: 20px;"></div>
-                                <div style="background-color: #457B9D; height: 20px;"></div>
-                                <div style="background-color: #F1FAEE; height: 20px;"></div>
-                            </div>
-                            <span>Marine</span>
-                        </div>
-                        <div class="theme-card" data-theme="corporate">
-                            <div class="theme-preview">
-                                <div style="background-color: #1A237E; height: 20px;"></div>
-                                <div style="background-color: #5C6BC0; height: 20px;"></div>
-                                <div style="background-color: #FFFFFF; height: 20px;"></div>
-                            </div>
-                            <span>Corporate</span>
-                        </div>
-                        <div class="theme-card" data-theme="slate">
-                            <div class="theme-preview">
-                                <div style="background-color: #2F4F4F; height: 20px;"></div>
-                                <div style="background-color: #708090; height: 20px;"></div>
-                                <div style="background-color: #E8ECEE; height: 20px;"></div>
-                            </div>
-                            <span>Ardoise</span>
-                        </div>
+                        <span>Classique</span>
                     </div>
+                    <div class="theme-card" data-theme="professional">
+                        <div class="theme-preview">
+                            <div style="background-color: #1D3557; height: 20px;"></div>
+                            <div style="background-color: #457B9D; height: 20px;"></div>
+                            <div style="background-color: #F1FAEE; height: 20px;"></div>
+                        </div>
+                        <span>Marine</span>
+                    </div>
+                    <div class="theme-card" data-theme="corporate">
+                        <div class="theme-preview">
+                            <div style="background-color: #1A237E; height: 20px;"></div>
+                            <div style="background-color: #5C6BC0; height: 20px;"></div>
+                            <div style="background-color: #FFFFFF; height: 20px;"></div>
+                        </div>
+                        <span>Corporate</span>
+                    </div>
+                    <div class="theme-card" data-theme="slate">
+                        <div class="theme-preview">
+                            <div style="background-color: #2F4F4F; height: 20px;"></div>
+                            <div style="background-color: #708090; height: 20px;"></div>
+                            <div style="background-color: #E8ECEE; height: 20px;"></div>
+                        </div>
+                        <span>Ardoise</span>
+                    </div>
+                </div>
 
-                    <h4>Couleurs vives</h4>
-                    <div class="themes-container">
-                        <div class="theme-card" data-theme="elegant">
-                            <div class="theme-preview">
-                                <div style="background-color: #0E3B43; height: 20px;"></div>
-                                <div style="background-color: #328590; height: 20px;"></div>
-                                <div style="background-color: #F0F0F0; height: 20px;"></div>
-                            </div>
-                            <span>Émeraude</span>
+                <h4>Couleurs vives</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="elegant">
+                        <div class="theme-preview">
+                            <div style="background-color: #0E3B43; height: 20px;"></div>
+                            <div style="background-color: #328590; height: 20px;"></div>
+                            <div style="background-color: #F0F0F0; height: 20px;"></div>
                         </div>
-                        <div class="theme-card" data-theme="creative">
-                            <div class="theme-preview">
-                                <div style="background-color: #845EC2; height: 20px;"></div>
-                                <div style="background-color: #B39CD0; height: 20px;"></div>
-                                <div style="background-color: #FBEAFF; height: 20px;"></div>
-                            </div>
-                            <span>Violet</span>
-                        </div>
-                        <div class="theme-card" data-theme="modern">
-                            <div class="theme-preview">
-                                <div style="background-color: #3D5A80; height: 20px;"></div>
-                                <div style="background-color: #98C1D9; height: 20px;"></div>
-                                <div style="background-color: #E0FBFC; height: 20px;"></div>
-                            </div>
-                            <span>Océan</span>
-                        </div>
-                        <div class="theme-card" data-theme="mint">
-                            <div class="theme-preview">
-                                <div style="background-color: #21897E; height: 20px;"></div>
-                                <div style="background-color: #69B7A8; height: 20px;"></div>
-                                <div style="background-color: #F4FFF8; height: 20px;"></div>
-                            </div>
-                            <span>Menthe</span>
-                        </div>
+                        <span>Émeraude</span>
                     </div>
+                    <div class="theme-card" data-theme="creative">
+                        <div class="theme-preview">
+                            <div style="background-color: #845EC2; height: 20px;"></div>
+                            <div style="background-color: #B39CD0; height: 20px;"></div>
+                            <div style="background-color: #FBEAFF; height: 20px;"></div>
+                        </div>
+                        <span>Violet</span>
+                    </div>
+                    <div class="theme-card" data-theme="modern">
+                        <div class="theme-preview">
+                            <div style="background-color: #3D5A80; height: 20px;"></div>
+                            <div style="background-color: #98C1D9; height: 20px;"></div>
+                            <div style="background-color: #E0FBFC; height: 20px;"></div>
+                        </div>
+                        <span>Océan</span>
+                    </div>
+                    <div class="theme-card" data-theme="mint">
+                        <div class="theme-preview">
+                            <div style="background-color: #21897E; height: 20px;"></div>
+                            <div style="background-color: #69B7A8; height: 20px;"></div>
+                            <div style="background-color: #F4FFF8; height: 20px;"></div>
+                        </div>
+                        <span>Menthe</span>
+                    </div>
+                </div>
 
-                    <h4>Tons chauds</h4>
-                    <div class="themes-container">
-                        <div class="theme-card" data-theme="earthy">
-                            <div class="theme-preview">
-                                <div style="background-color: #5F4B32; height: 20px;"></div>
-                                <div style="background-color: #A1887F; height: 20px;"></div>
-                                <div style="background-color: #F0EAE2; height: 20px;"></div>
-                            </div>
-                            <span>Terracotta</span>
+                <h4>Tons chauds</h4>
+                <div class="themes-container">
+                    <div class="theme-card" data-theme="earthy">
+                        <div class="theme-preview">
+                            <div style="background-color: #5F4B32; height: 20px;"></div>
+                            <div style="background-color: #A1887F; height: 20px;"></div>
+                            <div style="background-color: #F0EAE2; height: 20px;"></div>
                         </div>
-                        <div class="theme-card" data-theme="burgundy">
-                            <div class="theme-preview">
-                                <div style="background-color: #800020; height: 20px;"></div>
-                                <div style="background-color: #AD8A8E; height: 20px;"></div>
-                                <div style="background-color: #F2F2F2; height: 20px;"></div>
-                            </div>
-                            <span>Bordeaux</span>
-                        </div>
-                        <div class="theme-card" data-theme="amber">
-                            <div class="theme-preview">
-                                <div style="background-color: #B86E00; height: 20px;"></div>
-                                <div style="background-color: #F0A858; height: 20px;"></div>
-                                <div style="background-color: #FFFBF0; height: 20px;"></div>
-                            </div>
-                            <span>Ambre</span>
-                        </div>
+                        <span>Terracotta</span>
                     </div>
+                    <div class="theme-card" data-theme="burgundy">
+                        <div class="theme-preview">
+                            <div style="background-color: #800020; height: 20px;"></div>
+                            <div style="background-color: #AD8A8E; height: 20px;"></div>
+                            <div style="background-color: #F2F2F2; height: 20px;"></div>
+                        </div>
+                        <span>Bordeaux</span>
+                    </div>
+                    <div class="theme-card" data-theme="amber">
+                        <div class="theme-preview">
+                            <div style="background-color: #B86E00; height: 20px;"></div>
+                            <div style="background-color: #F0A858; height: 20px;"></div>
+                            <div style="background-color: #FFFBF0; height: 20px;"></div>
+                        </div>
+                        <span>Ambre</span>
+                    </div>
+                </div>
             </div>
 
             <style>
@@ -558,7 +713,8 @@ if (isset($_SESSION['users_id'])) {
 
                         // Mettre à jour les prévisualisations
                         if (document.getElementById('color-preview2')) {
-                            document.getElementById('color-preview2').style.backgroundColor = theme.fontColorSection;
+                            document.getElementById('color-preview2').style.backgroundColor = theme
+                                .fontColorSection;
                         }
                         if (document.getElementById('color-preview3')) {
                             document.getElementById('color-preview3').querySelector('span').style.color = textColor;
@@ -587,9 +743,12 @@ if (isset($_SESSION['users_id'])) {
 
                     if (savedTheme.fontColorSection) {
                         // Appliquer le thème sauvegardé
-                        document.documentElement.style.setProperty('--font-color_section', savedTheme.fontColorSection);
-                        document.documentElement.style.setProperty('--texte-color_section', savedTheme.texteColorSection);
-                        document.documentElement.style.setProperty('--text-color-m3', savedTheme.textColorM3 || '#343434');
+                        document.documentElement.style.setProperty('--font-color_section', savedTheme
+                            .fontColorSection);
+                        document.documentElement.style.setProperty('--texte-color_section', savedTheme
+                            .texteColorSection);
+                        document.documentElement.style.setProperty('--text-color-m3', savedTheme.textColorM3 ||
+                            '#343434');
 
                         // Mettre à jour les valeurs des inputs
                         document.getElementById('fontColor2').value = savedTheme.fontColorSection;
@@ -597,10 +756,12 @@ if (isset($_SESSION['users_id'])) {
 
                         // Mettre à jour les prévisualisations
                         if (document.getElementById('color-preview2')) {
-                            document.getElementById('color-preview2').style.backgroundColor = savedTheme.fontColorSection;
+                            document.getElementById('color-preview2').style.backgroundColor = savedTheme
+                                .fontColorSection;
                         }
                         if (document.getElementById('color-preview3')) {
-                            document.getElementById('color-preview3').querySelector('span').style.color = savedTheme.texteColorSection;
+                            document.getElementById('color-preview3').querySelector('span').style.color = savedTheme
+                                .texteColorSection;
                         }
 
                         // Retrouver quel thème correspond aux couleurs sauvegardées
@@ -762,161 +923,231 @@ if (isset($_SESSION['users_id'])) {
             </script>
         </div>
 
-       
-            <div class="containers" id="cv3-visible">
-                <div class="box1">
-                    <div class="item">
-                        <h1>
-                            <?= $userss['nom'] ?>
-                        </h1>
-                        <img src="../upload/<?= $userss['images'] ?>" alt="">
-                        <h2> <?= $userss['competences'] ?></h2>
-                        <span>******</span>
 
-                        <?php if (empty($descriptions)): ?>
-                            <p>Aucune donnée trouvée</p>
-                        <?php else: ?>
-                            <p class="p">
-                                <?= $descriptions['description'] ?>
-                            </p>
-                        <?php endif; ?>
+        <div class="containers" id="cv3-visible">
+            <div class="box1">
+                <div class="item">
+                    <h1>
+                        <?= $userss['nom'] ?>
+                    </h1>
+                    <img src="../upload/<?= $userss['images'] ?>" alt="">
+                    <h2> <?= $userss['competences'] ?></h2>
+                    <span>******</span>
+
+                    <?php if (empty($descriptions)): ?>
+                        <p>Aucune donnée trouvée</p>
+                    <?php else: ?>
+                        <p class="p">
+                            <?= $descriptions['description'] ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
+
+                <div class="items">
+                    <h1>Contact</h1>
+                    <div>
+                        <img src="../image/address.png" alt="">
+                        <span>Adresse</span>
+                        <p> <?= $userss['ville'] ?></p>
                     </div>
 
-                    <div class="items">
-                        <h1>Contact</h1>
-                        <div>
-                            <img src="../image/address.png" alt="">
-                            <span>Adresse</span>
-                            <p> <?= $userss['ville'] ?></p>
-                        </div>
-
-                        <div>
-                            <img src="../image/phone.png" alt="">
-                            <span>Téléphone</span>
-                            <p><?= $userss['phone'] ?></p>
-                        </div>
-
-                        <div>
-                            <img src="../image/icons8-gmail-48.png" alt="">
-                            <span>E-mail</span>
-                            <p><?= $userss['mail'] ?></p>
-                        </div>
+                    <div>
+                        <img src="../image/phone.png" alt="">
+                        <span>Téléphone</span>
+                        <p><?= $userss['phone'] ?></p>
                     </div>
 
-                    <div class="itemss">
-
-                        <h1>Langues</h1>
-                        <div>
-                            <?php if ($afficheLangue): ?>
-                                <?php foreach ($afficheLangue as $langues): ?>
-                                    <p> <?= $langues['langue'] ?> <span> (<?= $langues['niveau'] ?>)</span></p>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <p>Aucune donnée trouvée</p>
-                            <?php endif; ?>
-                        </div>
+                    <div>
+                        <img src="../image/icons8-gmail-48.png" alt="">
+                        <span>E-mail</span>
+                        <p><?= $userss['mail'] ?></p>
                     </div>
                 </div>
 
-                <div class="box2">
-                    <div class="decor1"></div>
-                    <div class="decor2"></div>
+                <div class="itemss">
 
-                    <div class="item">
-                        <h1><strong><img src="../image/experience.png" alt=""></strong>Expériences</h1>
-                        <?php if (empty($afficheMetier)): ?>
-                            <h4>Aucune donnée trouvée</h4>
-                        <?php else: ?>
-                            <?php
-                            shuffle($afficheMetier);
-                            $nombre_metier = 3
-                                ?>
-                            <?php foreach ($afficheMetier as $key => $Metiers): ?>
-                                <?php if ($key < $nombre_metier): ?>
-                                    <div class="exp">
-                                        <span class="part"></span>
-                                        <div class="exper">
-                                            <h3><?= $Metiers['metier'] ?> <em> <?= $Metiers['moisDebut'] ?> /
-                                                    <?= $Metiers['anneeDebut'] ?> // <?= $Metiers['moisFin'] ?> /
-                                                    <?= $Metiers['anneeFin'] ?></em> </h3>
-                                            <p> <?= $Metiers['description'] ?></p>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
+                    <h1>Langues</h1>
+                    <div>
+                        <?php if ($afficheLangue): ?>
+                            <?php foreach ($afficheLangue as $langues): ?>
+                                <p> <?= $langues['langue'] ?> <span> (<?= $langues['niveau'] ?>)</span></p>
                             <?php endforeach; ?>
+                        <?php else: ?>
+                            <p>Aucune donnée trouvée</p>
                         <?php endif; ?>
-
-                    </div>
-
-
-                    <div class="items">
-                        <h1><strong><img src="../image/etude.png" alt=""></strong>Éducation</h1>
-
-                        <div class="containe-exp">
-                            <?php if (empty($formationUsers)): ?>
-                                <strong></strong>
-                                <h4>Aucune donnée trouvée</h4>
-                            <?php else: ?>
-                                <?php
-                                shuffle($formationUsers);
-                                $nombre_formation = 3;
-                                ?>
-                                <?php foreach ($formationUsers as $key => $formations): ?>
-                                    <?php if ($key < $nombre_formation): ?>
-                                        <div class="exp">
-                                            <span class="part"></span>
-                                            <div class="exper">
-                                                <h3><?= $formations['etablissement'] ?> <em><?= $formations['moisDebut'] ?> /
-                                                        <?= $formations['anneeDebut'] ?> // <?= $formations['moisFin'] ?> /
-                                                        <?= $formations['anneeFin'] ?></em> </h3>
-                                                <p><?= $formations['Filiere'] ?> <span class="titre"> <strong>
-                                                            <?= $formations['niveau'] ?></strong></span> </p>
-
-                                            </div>
-                                        </div>
-
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-
-                        </div>
-                    </div>
-
-                    <div class="itemss">
-                        <h1><strong><img src="../image/compétences.png" alt=""></strong>Compétences</h1>
-
-
-                        <ul>
-                            <?php if ($competencesUtilisateurLimit7): ?>
-                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
-                                    <li> <?php echo $competence['competence']; ?></li>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-
-                                <h4>Aucune donnée trouvée</h4>
-                            <?php endif ?>
-                        </ul>
-                    </div>
-
-
-                    <div class="itemsss">
-                        <h1><strong><img src="../image/outil.png" alt=""></strong>Outils informatiques</h1>
-
-                        <ul>
-                            <?php if ($afficheOutilLimit5): ?>
-                                <?php foreach ($afficheOutilLimit5 as $outils): ?>
-                                    <li> <?= $outils['outil'] ?></li>
-                                <?php endforeach; ?>
-                            <?php endif ?>
-                        </ul>
                     </div>
                 </div>
             </div>
-       
+
+            <div class="box2">
+                <div class="decor1"></div>
+                <div class="decor2"></div>
+
+                <div class="item">
+                    <h1><strong><img src="../image/experience.png" alt=""></strong>Expériences</h1>
+                    <?php if (empty($afficheMetier)): ?>
+                        <h4>Aucune donnée trouvée</h4>
+                    <?php else: ?>
+                        <?php
+                        // Séparer les expériences en deux groupes : mis en avant et non mis en avant
+                        $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                            return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
+                        });
+                        $experiences_non_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                            return !isset($exp['mis_en_avant']) || $exp['mis_en_avant'] != 1;
+                        });
+
+                        // Mélanger les expériences non mises en avant
+                        shuffle($experiences_non_mises_en_avant);
+
+                        // Nombre maximum d'expériences à afficher
+                        $nombre_metier = 3;
+
+                        // Combiner les expériences en donnant priorité aux mises en avant
+                        $experiences_a_afficher = array_merge(
+                            array_slice($experiences_mises_en_avant, 0, $nombre_metier),
+                            array_slice($experiences_non_mises_en_avant, 0, max(0, $nombre_metier - count($experiences_mises_en_avant)))
+                        );
+                        ?>
+                        <?php foreach ($experiences_a_afficher as $Metiers): ?>
+                            <div class="exp">
+                                <span class="part"></span>
+                                <div class="exper">
+                                    <h3><?= $Metiers['metier'] ?> <em> <?= $Metiers['moisDebut'] ?> /
+                                            <?= $Metiers['anneeDebut'] ?> // <?= $Metiers['moisFin'] ?> /
+                                            <?= $Metiers['anneeFin'] ?></em> </h3>
+                                    <p> <?= $Metiers['description'] ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
+                </div>
+
+
+                <div class="items">
+                    <h1><strong><img src="../image/etude.png" alt=""></strong>Éducation</h1>
+
+                    <div class="containe-exp">
+                        <?php if (empty($formationUsers)): ?>
+                            <strong></strong>
+                            <h4>Aucune donnée trouvée</h4>
+                        <?php else: ?>
+                            <?php
+                            // Séparer les formations en deux groupes : mises en avant et non mises en avant
+                            $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
+                            });
+                            $formations_non_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                return !isset($form['mis_en_avant']) || $form['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les formations non mises en avant
+                            shuffle($formations_non_mises_en_avant);
+
+                            // Nombre maximum de formations à afficher
+                            $nombre_formation = 3;
+
+                            // Combiner les formations en donnant priorité aux mises en avant
+                            $formations_a_afficher = array_merge(
+                                array_slice($formations_mises_en_avant, 0, $nombre_formation),
+                                array_slice($formations_non_mises_en_avant, 0, max(0, $nombre_formation - count($formations_mises_en_avant)))
+                            );
+                            ?>
+                            <?php foreach ($formations_a_afficher as $formations): ?>
+                                <div class="exp">
+                                    <span class="part"></span>
+                                    <div class="exper">
+                                        <h3><?= $formations['etablissement'] ?> <em><?= $formations['moisDebut'] ?> /
+                                                <?= $formations['anneeDebut'] ?> // <?= $formations['moisFin'] ?> /
+                                                <?= $formations['anneeFin'] ?></em> </h3>
+                                        <p><?= $formations['Filiere'] ?> <span class="titre"> <strong>
+                                                    <?= $formations['niveau'] ?></strong></span> </p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
+                    </div>
+                </div>
+
+                <div class="itemss">
+                    <h1><strong><img src="../image/compétences.png" alt=""></strong>Compétences</h1>
+
+
+                    <ul>
+                        <?php if ($competencesUtilisateurLimit7): ?>
+                            <?php
+                            // Séparer les compétences en deux groupes
+                            $competences_mises_en_avant = array_filter($competencesUtilisateurLimit7, function ($comp) {
+                                return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
+                            });
+                            $competences_non_mises_en_avant = array_filter($competencesUtilisateurLimit7, function ($comp) {
+                                return !isset($comp['mis_en_avant']) || $comp['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les compétences non mises en avant
+                            shuffle($competences_non_mises_en_avant);
+
+                            // Nombre maximum de compétences à afficher
+                            $nombre_competences = 7;
+
+                            // Combiner les compétences
+                            $competences_a_afficher = array_merge(
+                                array_slice($competences_mises_en_avant, 0, $nombre_competences),
+                                array_slice($competences_non_mises_en_avant, 0, max(0, $nombre_competences - count($competences_mises_en_avant)))
+                            );
+
+                            foreach ($competences_a_afficher as $competence): ?>
+                                <li> <?php echo $competence['competence']; ?></li>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+
+                            <h4>Aucune donnée trouvée</h4>
+                        <?php endif ?>
+                    </ul>
+                </div>
+
+
+                <div class="itemsss">
+                    <h1><strong><img src="../image/outil.png" alt=""></strong>Outils informatiques</h1>
+
+                    <ul>
+                        <?php if ($afficheOutilLimit5): ?>
+                            <?php
+                            // Séparer les outils en deux groupes
+                            $outils_mis_en_avant = array_filter($afficheOutilLimit5, function ($outil) {
+                                return isset($outil['mis_en_avant']) && $outil['mis_en_avant'] == 1;
+                            });
+                            $outils_non_mis_en_avant = array_filter($afficheOutilLimit5, function ($outil) {
+                                return !isset($outil['mis_en_avant']) || $outil['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les outils non mis en avant
+                            shuffle($outils_non_mis_en_avant);
+
+                            // Nombre maximum d'outils à afficher
+                            $nombre_outils = 5;
+
+                            // Combiner les outils
+                            $outils_a_afficher = array_merge(
+                                array_slice($outils_mis_en_avant, 0, $nombre_outils),
+                                array_slice($outils_non_mis_en_avant, 0, max(0, $nombre_outils - count($outils_mis_en_avant)))
+                            );
+
+                            foreach ($outils_a_afficher as $outils): ?>
+                                <li> <?= $outils['outil'] ?></li>
+                            <?php endforeach; ?>
+                        <?php endif ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
 
 
         <div style="position: absolute; left: -9999px; top:0;">
-        <div class="containers" id="container-for-pdf">
+            <div class="containers" id="container-for-pdf">
                 <div class="box1">
                     <div class="item">
                         <h1>
@@ -981,10 +1212,21 @@ if (isset($_SESSION['users_id'])) {
                             <h4>Aucune donnée trouvée</h4>
                         <?php else: ?>
                             <?php
-                            shuffle($afficheMetier);
+                            // Séparer les expériences en deux groupes : mis en avant et non mis en avant
+                            $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                                return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
+                            });
+                            $experiences_non_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                                return !isset($exp['mis_en_avant']) || $exp['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les expériences non mises en avant
+                            shuffle($experiences_non_mises_en_avant);
+
+                            // Nombre maximum d'expériences à afficher
                             $nombre_metier = 3
                                 ?>
-                            <?php foreach ($afficheMetier as $key => $Metiers): ?>
+                            <?php foreach ($experiences_a_afficher as $key => $Metiers): ?>
                                 <?php if ($key < $nombre_metier): ?>
                                     <div class="exp">
                                         <span class="part"></span>
@@ -1011,10 +1253,27 @@ if (isset($_SESSION['users_id'])) {
                                 <h4>Aucune donnée trouvée</h4>
                             <?php else: ?>
                                 <?php
-                                shuffle($formationUsers);
+                                // Séparer les formations en deux groupes : mises en avant et non mises en avant
+                                $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                    return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
+                                });
+                                $formations_non_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                    return !isset($form['mis_en_avant']) || $form['mis_en_avant'] != 1;
+                                });
+
+                                // Mélanger les formations non mises en avant
+                                shuffle($formations_non_mises_en_avant);
+
+                                // Nombre maximum de formations à afficher
                                 $nombre_formation = 3;
+
+                                // Combiner les formations en donnant priorité aux mises en avant
+                                $formations_a_afficher = array_merge(
+                                    array_slice($formations_mises_en_avant, 0, $nombre_formation),
+                                    array_slice($formations_non_mises_en_avant, 0, max(0, $nombre_formation - count($formations_mises_en_avant)))
+                                );
                                 ?>
-                                <?php foreach ($formationUsers as $key => $formations): ?>
+                                <?php foreach ($formations_a_afficher as $key => $formations): ?>
                                     <?php if ($key < $nombre_formation): ?>
                                         <div class="exp">
                                             <span class="part"></span>
@@ -1041,7 +1300,28 @@ if (isset($_SESSION['users_id'])) {
 
                         <ul>
                             <?php if ($competencesUtilisateurLimit7): ?>
-                                <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                                <?php
+                                // Séparer les compétences en deux groupes
+                                $competences_mises_en_avant = array_filter($competencesUtilisateurLimit7, function ($comp) {
+                                    return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
+                                });
+                                $competences_non_mises_en_avant = array_filter($competencesUtilisateurLimit7, function ($comp) {
+                                    return !isset($comp['mis_en_avant']) || $comp['mis_en_avant'] != 1;
+                                });
+
+                                // Mélanger les compétences non mises en avant
+                                shuffle($competences_non_mises_en_avant);
+
+                                // Nombre maximum de compétences à afficher
+                                $nombre_competences = 7;
+
+                                // Combiner les compétences
+                                $competences_a_afficher = array_merge(
+                                    array_slice($competences_mises_en_avant, 0, $nombre_competences),
+                                    array_slice($competences_non_mises_en_avant, 0, max(0, $nombre_competences - count($competences_mises_en_avant)))
+                                );
+
+                                foreach ($competences_a_afficher as $competence): ?>
                                     <li> <?php echo $competence['competence']; ?></li>
                                 <?php endforeach; ?>
                             <?php else: ?>
@@ -1057,7 +1337,28 @@ if (isset($_SESSION['users_id'])) {
 
                         <ul>
                             <?php if ($afficheOutilLimit5): ?>
-                                <?php foreach ($afficheOutilLimit5 as $outils): ?>
+                                <?php
+                                // Séparer les outils en deux groupes
+                                $outils_mis_en_avant = array_filter($afficheOutilLimit5, function ($outil) {
+                                    return isset($outil['mis_en_avant']) && $outil['mis_en_avant'] == 1;
+                                });
+                                $outils_non_mis_en_avant = array_filter($afficheOutilLimit5, function ($outil) {
+                                    return !isset($outil['mis_en_avant']) || $outil['mis_en_avant'] != 1;
+                                });
+
+                                // Mélanger les outils non mis en avant
+                                shuffle($outils_non_mis_en_avant);
+
+                                // Nombre maximum d'outils à afficher
+                                $nombre_outils = 5;
+
+                                // Combiner les outils
+                                $outils_a_afficher = array_merge(
+                                    array_slice($outils_mis_en_avant, 0, $nombre_outils),
+                                    array_slice($outils_non_mis_en_avant, 0, max(0, $nombre_outils - count($outils_mis_en_avant)))
+                                );
+
+                                foreach ($outils_a_afficher as $outils): ?>
                                     <li> <?= $outils['outil'] ?></li>
                                 <?php endforeach; ?>
                             <?php endif ?>
@@ -1066,29 +1367,29 @@ if (isset($_SESSION['users_id'])) {
                 </div>
             </div>
         </div>
-        
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const toggleBtn = document.getElementById('toggle-customization-btn');
             const customPanel = document.getElementById('customization-panel');
             const closeBtn = document.getElementById('close-panel-btn');
 
             if (toggleBtn && customPanel && closeBtn) {
                 // Ouvre le panneau
-                toggleBtn.addEventListener('click', function(event) {
+                toggleBtn.addEventListener('click', function (event) {
                     event.stopPropagation();
                     customPanel.classList.add('active');
                 });
 
                 // Ferme le panneau avec la croix
-                closeBtn.addEventListener('click', function() {
+                closeBtn.addEventListener('click', function () {
                     customPanel.classList.remove('active');
                 });
 
                 // Ferme le panneau si on clique en dehors
-                document.addEventListener('click', function(event) {
-                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                document.addEventListener('click', function (event) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !
+                        toggleBtn.contains(event.target)) {
                         customPanel.classList.remove('active');
                     }
                 });
@@ -1162,10 +1463,21 @@ if (isset($_SESSION['users_id'])) {
                         <h4>Aucune donnée trouvée</h4>
                     <?php else: ?>
                         <?php
-                        shuffle($afficheMetier);
+                        // Séparer les expériences en deux groupes : mis en avant et non mis en avant
+                        $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                            return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
+                        });
+                        $experiences_non_mises_en_avant = array_filter($afficheMetier, function ($exp) {
+                            return !isset($exp['mis_en_avant']) || $exp['mis_en_avant'] != 1;
+                        });
+
+                        // Mélanger les expériences non mises en avant
+                        shuffle($experiences_non_mises_en_avant);
+
+                        // Nombre maximum d'expériences à afficher
                         $nombre_metier = 3
                             ?>
-                        <?php foreach ($afficheMetier as $key => $Metiers): ?>
+                        <?php foreach ($experiences_a_afficher as $key => $Metiers): ?>
                             <?php if ($key < $nombre_metier): ?>
                                 <div class="exp">
                                     <span class="part"></span>
@@ -1192,10 +1504,27 @@ if (isset($_SESSION['users_id'])) {
                             <h4>Aucune donnée trouvée</h4>
                         <?php else: ?>
                             <?php
-                            shuffle($formationUsers);
+                            // Séparer les formations en deux groupes : mises en avant et non mises en avant
+                            $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
+                            });
+                            $formations_non_mises_en_avant = array_filter($formationUsers, function ($form) {
+                                return !isset($form['mis_en_avant']) || $form['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les formations non mises en avant
+                            shuffle($formations_non_mises_en_avant);
+
+                            // Nombre maximum de formations à afficher
                             $nombre_formation = 3;
+
+                            // Combiner les formations en donnant priorité aux mises en avant
+                            $formations_a_afficher = array_merge(
+                                array_slice($formations_mises_en_avant, 0, $nombre_formation),
+                                array_slice($formations_non_mises_en_avant, 0, max(0, $nombre_formation - count($formations_mises_en_avant)))
+                            );
                             ?>
-                            <?php foreach ($formationUsers as $key => $formations): ?>
+                            <?php foreach ($formations_a_afficher as $key => $formations): ?>
                                 <?php if ($key < $nombre_formation): ?>
                                     <div class="exp">
                                         <span class="part"></span>
@@ -1222,7 +1551,28 @@ if (isset($_SESSION['users_id'])) {
 
                     <ul>
                         <?php if ($competencesUtilisateurLimit7): ?>
-                            <?php foreach ($competencesUtilisateurLimit7 as $competence): ?>
+                            <?php
+                            // Séparer les compétences en deux groupes
+                            $competences_mises_en_avant = array_filter($competencesUtilisateurLimit7, function ($comp) {
+                                return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
+                            });
+                            $competences_non_mises_en_avant = array_filter($competencesUtilisateurLimit7, function ($comp) {
+                                return !isset($comp['mis_en_avant']) || $comp['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les compétences non mises en avant
+                            shuffle($competences_non_mises_en_avant);
+
+                            // Nombre maximum de compétences à afficher
+                            $nombre_competences = 7;
+
+                            // Combiner les compétences
+                            $competences_a_afficher = array_merge(
+                                array_slice($competences_mises_en_avant, 0, $nombre_competences),
+                                array_slice($competences_non_mises_en_avant, 0, max(0, $nombre_competences - count($competences_mises_en_avant)))
+                            );
+
+                            foreach ($competences_a_afficher as $competence): ?>
                                 <li> <?php echo $competence['competence']; ?></li>
                             <?php endforeach; ?>
                         <?php else: ?>
@@ -1238,7 +1588,28 @@ if (isset($_SESSION['users_id'])) {
 
                     <ul>
                         <?php if ($afficheOutilLimit5): ?>
-                            <?php foreach ($afficheOutilLimit5 as $outils): ?>
+                            <?php
+                            // Séparer les outils en deux groupes
+                            $outils_mis_en_avant = array_filter($afficheOutilLimit5, function ($outil) {
+                                return isset($outil['mis_en_avant']) && $outil['mis_en_avant'] == 1;
+                            });
+                            $outils_non_mis_en_avant = array_filter($afficheOutilLimit5, function ($outil) {
+                                return !isset($outil['mis_en_avant']) || $outil['mis_en_avant'] != 1;
+                            });
+
+                            // Mélanger les outils non mis en avant
+                            shuffle($outils_non_mis_en_avant);
+
+                            // Nombre maximum d'outils à afficher
+                            $nombre_outils = 5;
+
+                            // Combiner les outils
+                            $outils_a_afficher = array_merge(
+                                array_slice($outils_mis_en_avant, 0, $nombre_outils),
+                                array_slice($outils_non_mis_en_avant, 0, max(0, $nombre_outils - count($outils_mis_en_avant)))
+                            );
+
+                            foreach ($outils_a_afficher as $outils): ?>
                                 <li> <?= $outils['outil'] ?></li>
                             <?php endforeach; ?>
                         <?php endif ?>
