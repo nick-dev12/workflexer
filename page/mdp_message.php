@@ -63,12 +63,15 @@ if (isset($_GET['id'])) {
 
       $mail->SMTPOptions = [
         'ssl' => [
-            'verify_peer'       => false,
-            'verify_peer_name'  => false,
-            'allow_self_signed' => true
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+          'allow_self_signed' => true
         ]
-    ];
-    
+      ];
+
+      $mail->MessageID = "<" . md5(uniqid()) . "@work-flexer.com>";
+      $mail->Host = gethostbyname('mail.work-flexer.com');
+
 
       $destinataire = $users['mail'];
       $nom = $users['nom'];

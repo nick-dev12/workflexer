@@ -313,14 +313,22 @@ if (isset($_POST['renvoyer'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+  </script>
   <!-- End Google Tag Manager -->
 
   <title>Vérification de compte - Work-Flexer</title>
@@ -342,7 +350,7 @@ if (isset($_POST['renvoyer'])) {
 
   <?php include('navbare.php') ?>
 
-  <?php include('include/notifications.php') ?>
+  <?php include('includes/notifications.php') ?>
 
   <section class="login-section">
     <div class="login-container">
@@ -353,7 +361,8 @@ if (isset($_POST['renvoyer'])) {
       <div class="login-form-container">
         <div class="login-header">
           <h2>Vérification de compte</h2>
-          <p>Veuillez saisir le code de vérification envoyé à votre adresse e-mail pour activer votre compte</p>
+          <p>Veuillez saisir le code de vérification envoyé à votre adresse e-mail pour activer votre compte
+          </p>
         </div>
 
         <?php if (!empty($erreurs)): ?>
@@ -411,7 +420,9 @@ if (isset($_POST['renvoyer'])) {
     // Ajustement pour les appareils mobiles
     window.addEventListener('resize', function () {
       if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-        document.activeElement.scrollIntoView({ behavior: 'smooth' });
+        document.activeElement.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     });
   </script>

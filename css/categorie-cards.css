@@ -1,22 +1,19 @@
 /* ==========================================================================
-   CARDS DE PROFESSIONNELS - CATEGORIE
-   Styles élégants et professionnels pour les cartes de profils
+   CARDS DE PROFESSIONNELS - CATEGORIE V2 (Glasmorphisme Clair)
+   Styles élégants, épurés et professionnels pour les cartes de profils
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 /* Variables de couleurs et styles principaux */
 :root {
-  --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  --secondary-gradient: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
-  --text-primary: #333;
-  --text-secondary: #666;
-  --text-light: #fff;
-  --card-bg: #fff;
+  --text-primary: #2c3e50;
+  --text-secondary: #576574;
+  --card-bg: rgba(255, 255, 255, 0.65);
   --accent-color: #2575fc;
-  --border-radius: 16px;
-  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --box-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.12);
+  --border-radius: 20px;
+  --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
   --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -24,8 +21,9 @@
 .professionals-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
+  padding: 20px;
 }
 
 /* Message quand aucun profil n'est disponible */
@@ -33,7 +31,7 @@
   font-size: 18px;
   width: 100%;
   text-align: center;
-  padding: 30px;
+  padding: 40px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   border-radius: var(--border-radius);
@@ -47,29 +45,31 @@
 /* Carte de profil professionnelle */
 .profile-card {
   position: relative;
-  background-color: var(--card-bg);
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius);
-  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: var(--box-shadow);
   transition: var(--transition);
-  height: 420px;
-  min-width: 250px;
-  max-width: 300px;
+  width: 290px;
+  min-height: 410px;
   display: flex;
   flex-direction: column;
   font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
 .profile-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
   box-shadow: var(--box-shadow-hover);
 }
 
 /* Indicateur de statut */
 .status-indicator {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  left: 15px;
   z-index: 10;
   padding: 6px 12px;
   border-radius: 30px;
@@ -78,112 +78,96 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-}
-
-.status-indicator.available {
-  background-color: rgba(39, 174, 96, 0.9);
-  color: white;
-}
-
-.status-indicator.busy {
-  background-color: rgba(231, 76, 60, 0.9);
-  color: white;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .status-indicator span {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   margin-right: 8px;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
 }
 
 .status-indicator.available span {
-  background-color: #fff;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  background-color: #2ecc71;
 }
 
 .status-indicator.busy span {
-  background-color: #fff;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  background-color: #e74c3c;
 }
 
 /* En-tête de la carte avec image */
 .profile-header {
   position: relative;
-  height: 180px;
+  height: 140px;
   overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .profile-header img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1s ease;
+  transition: transform 0.8s ease;
 }
 
 .profile-card:hover .profile-header img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-/* Overlay pour le nom */
+/* Overlay pour le nom & Localisation */
 .profile-name-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   padding: 30px 20px 15px;
   transition: var(--transition);
+  color: white;
 }
 
 .profile-name {
-  color: white;
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin: 0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0 0 4px 0;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Info sur la localisation */
 .profile-location {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: var(--text-primary);
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 400;
   display: flex;
   align-items: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
 }
 
 .profile-location i {
-  margin-right: 5px;
-  color: var(--accent-color);
-  font-size: 12px;
+  margin-right: 6px;
+  font-size: 13px;
 }
 
 /* Contenu de la carte */
 .profile-content {
-  flex: 1;
+  flex-grow: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
 }
 
-/* Titre de compétence principal */
+/* Titre de compétence principal (fonction) */
 .profile-title {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   line-height: 1.4;
+  height: 45px; /* S'assure que le titre prend 2 lignes max */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -200,9 +184,10 @@
 }
 
 .skill-badge {
-  background-color: #f5f7fa;
-  border-radius: 6px;
-  padding: 6px 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 6px 12px;
   font-size: 12px;
   color: var(--text-secondary);
   font-weight: 500;
@@ -210,32 +195,52 @@
 }
 
 .skill-badge:hover {
-  background-color: #e9f0ff;
-  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
+}
+
+.skill-badge.highlighted {
+  background-color: rgba(37, 117, 252, 0.15);
+  color: #1a5cbf;
+  font-weight: 600;
+  border-color: rgba(37, 117, 252, 0.3);
+}
+
+.skill-badge.highlighted i {
+  margin-right: 5px;
+  font-size: 10px;
 }
 
 /* Détails sur l'éducation et l'expérience */
 .profile-details {
   margin-top: auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 5px;
 }
 
 .detail-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
   font-size: 13px;
 }
+.detail-item:last-child {
+  margin-bottom: 0;
+}
 
 .detail-item strong {
-  font-weight: 600;
-  color: var(--text-primary);
-  min-width: 90px;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .detail-item span {
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 6px;
 }
 
 /* Bouton de visualisation du profil */
@@ -243,15 +248,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 0;
-  background: var(--primary-gradient);
-  color: white;
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #41b2f9;
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  transition: all 0.3s ease;
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  margin-top: 15px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -263,7 +270,8 @@
 }
 
 .view-profile-btn:hover {
-  background: var(--secondary-gradient);
+  color: white;
+  border-color: transparent;
 }
 
 .view-profile-btn:hover i {
@@ -271,42 +279,24 @@
 }
 
 /* Variantes de couleurs basées sur les catégories */
-.profile-card.cat-color-1 .view-profile-btn {
+.profile-card.cat-color-1:hover .view-profile-btn {
   background: linear-gradient(135deg, #ff9966, #ff5e62);
 }
-.profile-card.cat-color-1:hover .view-profile-btn {
-  background: linear-gradient(135deg, #ff5e62, #ff9966);
-}
-
-.profile-card.cat-color-2 .view-profile-btn {
+.profile-card.cat-color-2:hover .view-profile-btn {
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
 }
-.profile-card.cat-color-2:hover .view-profile-btn {
-  background: linear-gradient(135deg, #5b86e5, #36d1dc);
-}
-
-.profile-card.cat-color-3 .view-profile-btn {
-  background: linear-gradient(135deg, #42275a, #734b6d);
-}
 .profile-card.cat-color-3:hover .view-profile-btn {
-  background: linear-gradient(135deg, #734b6d, #42275a);
-}
-
-.profile-card.cat-color-4 .view-profile-btn {
-  background: linear-gradient(135deg, #02aabb, #00cdac);
+  background: linear-gradient(135deg, #33b1fa, #272627);
 }
 .profile-card.cat-color-4:hover .view-profile-btn {
-  background: linear-gradient(135deg, #00cdac, #02aabb);
-}
-
-.profile-card.cat-color-5 .view-profile-btn {
-  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  background: linear-gradient(135deg, #02aabb, #00cdac);
 }
 .profile-card.cat-color-5:hover .view-profile-btn {
-  background: linear-gradient(135deg, #ffc371, #ff5f6d);
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
 }
+/* Ajoutez d'autres couleurs si nécessaire */
 
-/* Compteur de résultats */
+/* Compteur de résultats et Pagination (styles existants, légèrement ajustés) */
 .results-counter {
   text-align: center;
   margin: 30px 0;
@@ -314,12 +304,7 @@
 
 .results-counter p {
   display: inline-block;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 255, 255, 0.7)
-  );
-  backdrop-filter: blur(8px);
+  background: white;
   padding: 12px 25px;
   border-radius: 30px;
   font-size: 16px;
@@ -333,7 +318,6 @@
   font-weight: 700;
 }
 
-/* Pagination stylisée */
 .pagination-container {
   display: flex;
   justify-content: center;
@@ -347,7 +331,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
   padding: 12px 20px;
   border-radius: 50px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -372,7 +356,6 @@
 
 .pagination a {
   color: var(--text-primary);
-  background-color: transparent;
 }
 
 .pagination a:hover {
@@ -381,7 +364,7 @@
 }
 
 .pagination .current {
-  background: var(--primary-gradient);
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
   font-weight: 600;
 }
@@ -389,59 +372,31 @@
 .pagination .page-nav {
   background-color: rgba(0, 0, 0, 0.03);
 }
-
 .pagination .page-nav:hover {
   background-color: rgba(0, 0, 0, 0.08);
 }
-
 .pagination .text-label {
   display: none;
 }
 
 /* Responsive Design */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 992px) {
   .professionals-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 25px;
   }
-}
-
-@media screen and (max-width: 900px) {
-  .professionals-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-  }
-
   .profile-card {
-    height: 400px;
-  }
-
-  .profile-header {
-    height: 160px;
+    width: 270px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .professionals-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
   }
-
-  .profile-title {
-    font-size: 15px;
-    margin-bottom: 12px;
+  .profile-card {
+    width: 100%;
   }
-
-  .skill-badge {
-    padding: 5px 8px;
-    font-size: 11px;
-  }
-
-  .view-profile-btn {
-    padding: 10px 0;
-    font-size: 13px;
-  }
-
   .pagination a,
   .pagination span {
     width: 35px;
@@ -449,53 +404,29 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  .professionals-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  .profile-card {
-    height: 380px;
-  }
-
-  .profile-header {
-    height: 140px;
-  }
-
-  .profile-content {
-    padding: 15px;
-  }
-
-  .detail-item {
-    font-size: 12px;
-  }
-
-  .detail-item strong {
-    min-width: 80px;
-  }
-}
-
 @media screen and (max-width: 480px) {
   .professionals-grid {
     grid-template-columns: 1fr;
-    max-width: 300px;
+    max-width: 320px;
     margin: 0 auto;
+    gap: 25px;
   }
-
   .profile-card {
-    height: auto;
-    min-height: 420px;
+    min-height: 400px;
   }
-
-  .profile-header {
-    height: 180px;
+  .profile-name {
+    font-size: 1.1rem;
   }
-
+  .profile-title {
+    font-size: 0.95rem;
+  }
+  .skill-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
   .pagination {
     padding: 8px 15px;
   }
-
   .pagination a,
   .pagination span {
     width: 32px;

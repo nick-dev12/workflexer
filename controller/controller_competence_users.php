@@ -50,7 +50,7 @@ if (isset($_POST['update_competence_mis_en_avant'])) {
     if (isset($_SESSION['users_id'], $_POST['competence_id'], $_POST['mis_en_avant'])) {
         $id = intval($_POST['competence_id']);
         $mis_en_avant = intval($_POST['mis_en_avant']);
-        
+
         if (updateCompetenceMisEnAvant($db, $id, $mis_en_avant)) {
             echo json_encode(['success' => true]);
         } else {
@@ -68,7 +68,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'updateCompetenceHighlights'
     if (isset($_SESSION['users_id'])) {
         $highlightedCompetences = json_decode($_POST['highlighted_competences'], true);
         $userId = $_SESSION['users_id'];
-        
+
         if (updateCompetenceHighlights($db, $highlightedCompetences, $userId)) {
             echo json_encode(['success' => true]);
         } else {

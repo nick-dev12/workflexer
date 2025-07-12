@@ -207,11 +207,14 @@ if (isset($_POST['valider'])) {
 
             $mail->SMTPOptions = [
                 'ssl' => [
-                    'verify_peer'       => false,
-                    'verify_peer_name'  => false,
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
                     'allow_self_signed' => true
                 ]
             ];
+
+            $mail->MessageID = "<" . md5(uniqid()) . "@work-flexer.com>";
+            $mail->Host = gethostbyname('mail.work-flexer.com');
 
             $destinataire = $email;
 
@@ -445,14 +448,22 @@ if (isset($_POST['valider'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+    </script>
     <!-- End Google Tag Manager -->
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
     <title>Inscription - Compte Entreprise</title>
@@ -546,9 +557,11 @@ if (isset($_POST['valider'])) {
                                 personnes</option>
                             <option value="11_49" <?php echo ($taille === '11_49') ? 'selected' : ''; ?>>Entre 11 et 49
                                 personnes</option>
-                            <option value="50_249" <?php echo ($taille === '50_249') ? 'selected' : ''; ?>>Entre 50 et 249
+                            <option value="50_249" <?php echo ($taille === '50_249') ? 'selected' : ''; ?>>Entre 50 et
+                                249
                                 personnes</option>
-                            <option value="250_999" <?php echo ($taille === '250_999') ? 'selected' : ''; ?>>Entre 250 et
+                            <option value="250_999" <?php echo ($taille === '250_999') ? 'selected' : ''; ?>>Entre 250
+                                et
                                 999 personnes</option>
                             <option value="1000_4999" <?php echo ($taille === '1000_4999') ? 'selected' : ''; ?>>Entre
                                 1000 et 4999 personnes</option>
@@ -562,22 +575,36 @@ if (isset($_POST['valider'])) {
                         <select id="categorie" name="categorie" class="form-input form-select">
                             <option value="" <?php echo ($categorie === '') ? 'selected' : ''; ?>>Sélectionnez une
                                 catégorie</option>
-                            <option value="Informatique et tech" <?php echo ($categorie === 'Informatique et tech') ? 'selected' : ''; ?>>Informatique et tech</option>
-                            <option value="Design et création" <?php echo ($categorie === 'Design et création') ? 'selected' : ''; ?>>Design et création</option>
-                            <option value="Rédaction et traduction" <?php echo ($categorie === 'Rédaction et traduction') ? 'selected' : ''; ?>>Rédaction et traduction</option>
-                            <option value="Marketing et communication" <?php echo ($categorie === 'Marketing et communication') ? 'selected' : ''; ?>>Marketing et communication</option>
-                            <option value="Conseil et gestion d'entreprise" <?php echo ($categorie === 'Conseil et gestion d\'entreprise') ? 'selected' : ''; ?>>Conseil et gestion d'entreprise</option>
+                            <option value="Informatique et tech" <?php echo ($categorie === 'Informatique et tech') ? 'selected' : ''; ?>>Informatique et
+                                tech</option>
+                            <option value="Design et création" <?php echo ($categorie === 'Design et création') ? 'selected' : ''; ?>>Design et
+                                création</option>
+                            <option value="Rédaction et traduction" <?php echo ($categorie === 'Rédaction et traduction') ? 'selected' : ''; ?>>Rédaction et
+                                traduction</option>
+                            <option value="Marketing et communication" <?php echo ($categorie === 'Marketing et communication') ? 'selected' : ''; ?>>Marketing
+                                et communication</option>
+                            <option value="Conseil et gestion d'entreprise" <?php echo ($categorie === 'Conseil et gestion d\'entreprise') ? 'selected' : ''; ?>>
+                                Conseil et gestion d'entreprise</option>
                             <option value="Juridique" <?php echo ($categorie === 'Juridique') ? 'selected' : ''; ?>>
                                 Juridique</option>
-                            <option value="Ingénierie et architecture" <?php echo ($categorie === 'Ingénierie et architecture') ? 'selected' : ''; ?>>Ingénierie et architecture</option>
-                            <option value="Finance et comptabilité" <?php echo ($categorie === 'Finance et comptabilité') ? 'selected' : ''; ?>>Finance et comptabilité</option>
-                            <option value="Santé et bien-être" <?php echo ($categorie === 'Santé et bien-être') ? 'selected' : ''; ?>>Santé et bien-être</option>
-                            <option value="Éducation et formation" <?php echo ($categorie === 'Éducation et formation') ? 'selected' : ''; ?>>Éducation et formation</option>
-                            <option value="Tourisme et hôtellerie" <?php echo ($categorie === 'Tourisme et hôtellerie') ? 'selected' : ''; ?>>Tourisme et hôtellerie</option>
-                            <option value="Commerce et vente" <?php echo ($categorie === 'Commerce et vente') ? 'selected' : ''; ?>>Commerce et vente</option>
-                            <option value="Transport et logistique" <?php echo ($categorie === 'Transport et logistique') ? 'selected' : ''; ?>>Transport et logistique</option>
-                            <option value="Agriculture et agroalimentaire" <?php echo ($categorie === 'Agriculture et agroalimentaire') ? 'selected' : ''; ?>>Agriculture et agroalimentaire</option>
-                            <option value="Autre" <?php echo ($categorie === 'Autre') ? 'selected' : ''; ?>>Autre</option>
+                            <option value="Ingénierie et architecture" <?php echo ($categorie === 'Ingénierie et architecture') ? 'selected' : ''; ?>>
+                                Ingénierie et architecture</option>
+                            <option value="Finance et comptabilité" <?php echo ($categorie === 'Finance et comptabilité') ? 'selected' : ''; ?>>Finance et
+                                comptabilité</option>
+                            <option value="Santé et bien-être" <?php echo ($categorie === 'Santé et bien-être') ? 'selected' : ''; ?>>Santé et
+                                bien-être</option>
+                            <option value="Éducation et formation" <?php echo ($categorie === 'Éducation et formation') ? 'selected' : ''; ?>>Éducation et
+                                formation</option>
+                            <option value="Tourisme et hôtellerie" <?php echo ($categorie === 'Tourisme et hôtellerie') ? 'selected' : ''; ?>>Tourisme et
+                                hôtellerie</option>
+                            <option value="Commerce et vente" <?php echo ($categorie === 'Commerce et vente') ? 'selected' : ''; ?>>Commerce et vente
+                            </option>
+                            <option value="Transport et logistique" <?php echo ($categorie === 'Transport et logistique') ? 'selected' : ''; ?>>Transport et
+                                logistique</option>
+                            <option value="Agriculture et agroalimentaire" <?php echo ($categorie === 'Agriculture et agroalimentaire') ? 'selected' : ''; ?>>
+                                Agriculture et agroalimentaire</option>
+                            <option value="Autre" <?php echo ($categorie === 'Autre') ? 'selected' : ''; ?>>Autre
+                            </option>
                         </select>
                     </div>
 
@@ -718,19 +745,23 @@ if (isset($_POST['valider'])) {
 
             // Vérification de la longueur
             if (password.length >= 8) {
-                lengthRequirement.querySelector('.requirement-icon').className = 'fas fa-check-circle requirement-icon valid';
+                lengthRequirement.querySelector('.requirement-icon').className =
+                    'fas fa-check-circle requirement-icon valid';
                 lengthRequirement.classList.add('met');
             } else {
-                lengthRequirement.querySelector('.requirement-icon').className = 'fas fa-times-circle requirement-icon';
+                lengthRequirement.querySelector('.requirement-icon').className =
+                    'fas fa-times-circle requirement-icon';
                 lengthRequirement.classList.remove('met');
             }
 
             // Vérification de la présence d'une majuscule
             if (/[A-Z]/.test(password)) {
-                uppercaseRequirement.querySelector('.requirement-icon').className = 'fas fa-check-circle requirement-icon valid';
+                uppercaseRequirement.querySelector('.requirement-icon').className =
+                    'fas fa-check-circle requirement-icon valid';
                 uppercaseRequirement.classList.add('met');
             } else {
-                uppercaseRequirement.querySelector('.requirement-icon').className = 'fas fa-times-circle requirement-icon';
+                uppercaseRequirement.querySelector('.requirement-icon').className =
+                    'fas fa-times-circle requirement-icon';
                 uppercaseRequirement.classList.remove('met');
             }
         });

@@ -20,20 +20,20 @@ include_once('controller/controller_users.php');
 
     <!-- Google Tag Manager -->
     <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
     </script>
     <!-- End Google Tag Manager -->
 
@@ -235,16 +235,14 @@ include_once('controller/controller_users.php');
     <div class="div_section div_section-blue">
         <div class="box scroll-fade-left">
             <div class="img-container">
-                <img src="/image/image-2.webp" alt="">
+                <img src="/image/image-2.webp" alt="Freelances experts Work-Flexer">
             </div>
             <div class="item">
-                <h1>Adoptez un ton affirmatif et confiant</h1>
+                <h1>Trouvez les meilleurs talents</h1>
                 <p>
-                    Découvrez les meilleurs freelances avec Work-Flexer !
-                    Trouvez rapidement le talent idéal pour vos projets,
-                    que ce soit un développeur, un designer ou un expert en
-                    marketing. Utilisez notre moteur de recherche intelligent pour des résultats précis.
-                    Boostez vos projets en recrutant simplement le freelance parfait.
+                    Découvrez une communauté de freelances experts prêts à donner vie à vos projets.
+                    Développeurs, designers, marketeurs : notre moteur de recherche intelligent vous
+                    connecte aux talents parfaits en quelques clics.
                 </p>
             </div>
         </div>
@@ -253,34 +251,29 @@ include_once('controller/controller_users.php');
     <div class="div_section div_section-gray">
         <div class="box scroll-fade-right">
             <div class="item">
-                <h1>Recrutez en Toute Confiance avec Notre Plateforme de Recrutement</h1>
+                <h1>Recrutement simplifié et efficace</h1>
                 <p>
-                    Simplifiez votre recrutement avec Work-Flexer ! Publiez vos offres
-                    d'emploi en quelques clics, découvrez des candidats qualifiés qui
-                    correspondent à votre entreprise et aux exigences du marché. Trouvez
-                    les meilleurs talents rapidement et efficacement.
-                    La recherche de candidats exceptionnels n'a jamais été aussi simple.
+                    Publiez vos offres d'emploi instantanément et accédez à un vivier de candidats
+                    qualifiés. Notre plateforme facilite chaque étape du processus de recrutement
+                    pour vous faire gagner du temps et de l'efficacité.
                 </p>
             </div>
             <div class="img-container">
-                <img src="/image/image3.webp" alt="">
+                <img src="/image/image3.webp" alt="Plateforme de recrutement Work-Flexer">
             </div>
         </div>
     </div>
     <div class="div_section div_section-dark">
         <div class="box scroll-fade-right">
             <div class="img-container">
-                <img src="/image/yan.webp" alt="">
+                <img src="/image/yan.webp" alt="Avantages Work-Flexer">
             </div>
             <div class="item">
-                <h1>Pourquoi nous choisir ?</h1>
+                <h1>Pourquoi choisir Work-Flexer ?</h1>
                 <p>
-                    Nous offrons une plateforme intuitive et efficace qui connecte les professionnels et les recruteurs.
-                    Avec Work-Flexer, bénéficiez d'une visibilité accrue, d'outils de gestion avancés, et d'un support
-                    client dédié.
-                    Notre engagement est de vous fournir des solutions sur mesure qui répondent à vos besoins
-                    spécifiques,
-                    tout en garantissant une expérience utilisateur optimale.
+                    Une plateforme intuitive qui connecte professionnels et recruteurs avec succès.
+                    Bénéficiez d'une visibilité maximale, d'outils de gestion avancés et d'un
+                    accompagnement personnalisé pour atteindre vos objectifs professionnels.
                 </p>
             </div>
         </div>
@@ -289,66 +282,59 @@ include_once('controller/controller_users.php');
 
 
     <section class="n_section2">
-        <div class="div">
-            <h1>Application Android disponible</h1>
-            <a href="/apk/work-flexer_2_2.0.apk">Telecharger</a>
-        </div>
-        <div class="box">
-            <img class="img1" src="/image/android.png" alt="">
-            <img class="img2" src="/image/resp1.png" alt="">
+        <div class="container">
+            <div class="div">
+                <h1>Application mobile disponible</h1>
+                <p>Téléchargez notre application Android et accédez à Work-Flexer partout,
+                    à tout moment. Recherchez des emplois, gérez vos candidatures et restez
+                    connecté avec les recruteurs directement depuis votre smartphone.</p>
+                <a href="/apk/work-flexer_2_2.0.apk">Télécharger maintenant</a>
+            </div>
+            <div class="box">
+                <img class="img1" src="/image/android.png" alt="Logo Android">
+                <img class="img2" src="/image/resp1.png" alt="Aperçu application Work-Flexer">
+            </div>
         </div>
     </section>
 
 
     <section class="service">
         <div class="container">
-            <h1>Entreprise</h1>
-            <h3>Services</h3>
+            <h1>Pour les Entreprises</h1>
+            <h3>Solutions de recrutement complètes</h3>
             <div class="box scroll-fade-left">
                 <ul>
-                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                    <li><img src="/image/valider.png" alt=""> Publication d'offres illimitées</li>
-                    <li><img src="/image/valider.png" alt=""> Mise à jour des publications
-                        illimitées</li>
-                    <li><img src="/image/valider.png" alt=""> Appel d'offres intégré et illimité
-                    </li>
-                    <li><img src="/image/valider.png" alt=""> Système de messagerie intégré</li>
-                    <li><img src="/image/valider.png" alt=""> Système de suivi de candidature
-                        intégré</li>
-                    <li><img src="/image/valider.png" alt=""> Système de gestion d'offres complet
-                    </li>
-                    <li><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
-                    <li><img src="/image/valider.png" alt=""> Outils d'analyse des candidatures
-                    </li>
-                    <li><img src="/image/valider.png" alt=""> Notifications automatiques des
-                        nouvelles candidatures.</li>
+                    <li><img src="/image/valider.png" alt=""> Inscription gratuite</li>
+                    <li><img src="/image/valider.png" alt=""> Offres d'emploi illimitées</li>
+                    <li><img src="/image/valider.png" alt=""> Gestion simplifiée des candidatures</li>
+                    <li><img src="/image/valider.png" alt=""> Appels d'offres intégrés</li>
+                    <li><img src="/image/valider.png" alt=""> Messagerie directe avec les candidats</li>
+                    <li><img src="/image/valider.png" alt=""> Suivi des candidatures en temps réel</li>
+                    <li><img src="/image/valider.png" alt=""> Tableau de bord complet</li>
+                    <li><img src="/image/valider.png" alt=""> Profil personnalisable</li>
+                    <li><img src="/image/valider.png" alt=""> Outils d'analyse avancés</li>
+                    <li><img src="/image/valider.png" alt=""> Notifications automatiques</li>
                 </ul>
-                <a class="a" href="/compte_entreprise.php">Inscription gratuite</a>
+                <a class="a" href="/compte_entreprise.php">Commencer maintenant</a>
             </div>
         </div>
 
         <div class="container container1">
-            <h1>Professionnel</h1>
-            <h3>Services</h3>
+            <h1>Pour les Professionnels</h1>
+            <h3>Votre carrière, notre priorité</h3>
             <div class="box scroll-fade-right">
                 <ul>
-                    <li><img src="/image/valider.png" alt=""> Compte gratuit</li>
-                    <li><img src="/image/valider.png" alt=""> CV virtuel intégré 100%
-                        personnalisable</li>
-                    <li><img src="/image/valider.png" alt=""> Profils connectés 24/24, 7/7 aux
-                        recruteurs</li>
-                    <li><img src="/image/valider.png" alt=""> Postulations simples et illimitées
-                    </li>
-                    <li><img src="/image/valider.png" alt=""> Création automatique de CV physiques
-                        avec téléchargement gratuit</li>
-                    <li><img src="/image/valider.png" alt=""> Système de suivi de postulation
-                        intégré</li>
-                    <li><img src="/image/valider.png" alt=""> Profil 100% modifiable</li>
-                    <li><img src="/image/valider.png" alt=""> Portfolios en ligne</li>
-                    <li><img src="/image/valider.png" alt=""> Recommandations et avis d'anciens
-                        employeurs</li>
+                    <li><img src="/image/valider.png" alt=""> Compte gratuit à vie</li>
+                    <li><img src="/image/valider.png" alt=""> CV virtuel personnalisable</li>
+                    <li><img src="/image/valider.png" alt=""> Visibilité 24h/24 auprès des recruteurs</li>
+                    <li><img src="/image/valider.png" alt=""> Candidatures simplifiées</li>
+                    <li><img src="/image/valider.png" alt=""> Génération automatique de CV</li>
+                    <li><img src="/image/valider.png" alt=""> Suivi de vos candidatures</li>
+                    <li><img src="/image/valider.png" alt=""> Profil évolutif</li>
+                    <li><img src="/image/valider.png" alt=""> Portfolio en ligne</li>
+                    <li><img src="/image/valider.png" alt=""> Système de recommandations</li>
                 </ul>
-                <a href="/compte_travailleur.php">Inscription gratuite</a>
+                <a href="/compte_travailleur.php">Rejoindre la communauté</a>
             </div>
         </div>
     </section>
@@ -403,29 +389,23 @@ include_once('controller/controller_users.php');
         <div class=" slider1  owl-carousel">
 
             <div class="item">
-                <img src="/image/bouste.webp" alt="">
-                <div class="effect">
-
-                </div>
+                <img src="/image/bouste.webp" alt="Boostez votre carrière">
+                <div class="effect"></div>
                 <span class="formes1"></span>
                 <span class="formes2"></span>
-                <h2>Boostez votre carrière en créant votre profil en ligne</h2>
-                <p>Augmentez votre visibilité auprès des recruteurs et mettez toutes les chances de votre côté pour
-                    décrocher votre emploi idéal. En créant votre profil sur notre plateforme, vous pouvez mettre en
-                    avant vos compétences et votre parcours.</p>
-
+                <h2>Votre carrière décolle ici</h2>
+                <p>Créez un profil qui vous ressemble et laissez les meilleures opportunités venir à vous. Votre
+                    prochain grand projet vous attend.</p>
             </div>
 
             <div class="item">
-                <img src="/image/recruter.png" alt="">
-                <div class="effect">
-                </div>
+                <img src="/image/recruter.png" alt="Recrutez les meilleurs talents">
+                <div class="effect"></div>
                 <span class="formes1"></span>
                 <span class="formes2"></span>
-                <h2>Recrutez les meilleurs talents en quelques clics.</h2>
-                <p>Grâce à notre plateforme, publiez vos offres d'emploi et accédez à un vivier de candidats qualifiés
-                    et motivés. Trouvez rapidement le profil idéal pour vos postes à pourvoir.
-                </p>
+                <h2>Le talent idéal, à portée de main</h2>
+                <p>Accédez à un réseau de professionnels passionnés et trouvez la perle rare pour concrétiser vos
+                    projets les plus ambitieux.</p>
             </div>
 
         </div>
@@ -433,245 +413,216 @@ include_once('controller/controller_users.php');
     </section>
 
     <script>
-    $(document).ready(function() {
-        // Configuration du slider principal
-        $('.slider-area').owlCarousel({
-            items: 1,
-            loop: true,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 8000,
-            smartSpeed: 800, // Vitesse optimisée
-            animateOut: 'fadeOut',
-            animateIn: 'fadeIn',
-            margin: 0,
-            nav: true,
-            navText: ['<span></span>', '<span></span>'],
-            mouseDrag: true,
-            touchDrag: true,
-            onInitialized: initSlider,
-            onTranslate: resetProgress,
-            onTranslated: startProgress
-        });
-
-        // Initialisation du slider
-        function initSlider() {
-            // Créer la barre de progression si elle n'existe pas
-            if ($('.slide-progress').length === 0) {
-                $('.slider-area').append('<div class="slide-progress"></div>');
-            }
-
-            // Initialiser le premier slide avec le numéro actif
-            updateSlideNumbers(0);
-
-            // Démarrer la progression
-            startProgress();
-        }
-
-        // Démarrer la progression de la barre
-        function startProgress() {
-            var currentSlide = $('.slider-area .owl-item.active').index();
-            updateSlideNumbers(currentSlide);
-
-            $('.slide-progress').css({
-                width: '0%',
-                transition: 'none'
-            }).animate({
-                width: '100%'
-            }, 8000, 'linear');
-        }
-
-        // Réinitialiser la progression lors du changement de slide
-        function resetProgress() {
-            $('.slide-progress').stop().css({
-                width: '0%'
+        $(document).ready(function () {
+            // Configuration du slider principal
+            $('.slider-area').owlCarousel({
+                items: 1,
+                loop: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 8000,
+                smartSpeed: 800, // Vitesse optimisée
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                margin: 0,
+                nav: true,
+                navText: ['<span></span>', '<span></span>'],
+                mouseDrag: true,
+                touchDrag: true,
+                onInitialized: initSlider,
+                onTranslate: resetProgress,
+                onTranslated: startProgress
             });
-        }
 
-        // Mettre à jour les numéros de slide
-        function updateSlideNumbers(currentIndex) {
-            // Obtenir l'index réel (en tenant compte des clones)
-            var realIndex = $('.slider-area .owl-item.active').find('.slider-item').attr('data-slide-index');
-            if (!realIndex) realIndex = currentIndex + 1;
+            // Initialisation du slider
+            function initSlider() {
+                // Créer la barre de progression si elle n'existe pas
+                if ($('.slide-progress').length === 0) {
+                    $('.slider-area').append('<div class="slide-progress"></div>');
+                }
 
-            // Formater le numéro avec un zéro devant si nécessaire
-            var formattedNumber = (realIndex < 10) ? '0' + realIndex : realIndex;
-            $('.slide-indicator').text(formattedNumber);
-        }
+                // Initialiser le premier slide avec le numéro actif
+                updateSlideNumbers(0);
 
-        // Optimisation de l'animation parallaxe au scroll
-        let ticking = false;
-        $(window).scroll(function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    var scrollPosition = $(window).scrollTop();
-                    if (scrollPosition < 800) {
-                        $('.slider-image-container img').css({
-                            'transform': 'scale(1.05) translateY(' + (scrollPosition *
-                                0.05) + 'px)'
-                        });
-                    }
-                    ticking = false;
-                });
-                ticking = true;
+                // Démarrer la progression
+                startProgress();
             }
-        });
 
-        // Autres sliders
-        $('.slider1').owlCarousel({
-            items: 1,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            smartSpeed: 800,
-            nav: true,
-        });
+            // Démarrer la progression de la barre
+            function startProgress() {
+                var currentSlide = $('.slider-area .owl-item.active').index();
+                updateSlideNumbers(currentSlide);
 
-        // Code existant pour les autres carrousels
-        $('.carousel1').owlCarousel({
-            items: 5,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 6000,
-            animateOut: 'slideOutDown',
-            animateIn: 'flipInX',
-            stagePadding: 10,
-            smartSpeed: 450,
-            margin: 10,
-            nav: true,
-            navText: ['<i class="fa-solid fa-chevron-left"></i>',
-                '<i class="fa-solid fa-chevron-right"></i>'
-            ]
-        });
+                $('.slide-progress').css({
+                    width: '0%',
+                    transition: 'none'
+                }).animate({
+                    width: '100%'
+                }, 8000, 'linear');
+            }
 
-        var carousel1 = $('.carousel1').owlCarousel();
+            // Réinitialiser la progression lors du changement de slide
+            function resetProgress() {
+                $('.slide-progress').stop().css({
+                    width: '0%'
+                });
+            }
 
-        $('.owl-next').click(function() {
-            carousel1.trigger('next.owl.carousel');
-        });
+            // Mettre à jour les numéros de slide
+            function updateSlideNumbers(currentIndex) {
+                // Obtenir l'index réel (en tenant compte des clones)
+                var realIndex = $('.slider-area .owl-item.active').find('.slider-item').attr('data-slide-index');
+                if (!realIndex) realIndex = currentIndex + 1;
 
-        $('.owl-prev').click(function() {
-            carousel1.trigger('prev.owl.carousel');
-        });
+                // Formater le numéro avec un zéro devant si nécessaire
+                var formattedNumber = (realIndex < 10) ? '0' + realIndex : realIndex;
+                $('.slide-indicator').text(formattedNumber);
+            }
 
-        // Configuration de la section "temoin"
-        var sectionTemoin = document.querySelector('.temoin');
-        if (sectionTemoin) {
-            var enfantsSection = sectionTemoin.children;
-            if (enfantsSection.length > 3) {
-                $('.temoin').addClass('owl-carousel').owlCarousel({
-                    items: 4,
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 10,
-                    smartSpeed: 650,
-                    margin: 100,
-                    nav: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            margin: 20
-                        },
-                        550: {
-                            items: 2
-                        },
-                        690: {
-                            items: 3
-                        },
-                        890: {
-                            items: 3
-                        },
-                        1200: {
-                            items: 4
-                        },
-                        1400: {
-                            items: 4
+            // Optimisation de l'animation parallaxe au scroll
+            let ticking = false;
+            $(window).scroll(function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        var scrollPosition = $(window).scrollTop();
+                        if (scrollPosition < 800) {
+                            $('.slider-image-container img').css({
+                                'transform': 'scale(1.05) translateY(' + (scrollPosition *
+                                    0.05) + 'px)'
+                            });
                         }
-                    }
-                });
-            }
-        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
 
-        // Configuration pour owl-slider
-        var owlSlider = document.querySelector('.owl-slider');
-        if (owlSlider) {
-            var enfantSection = owlSlider.children;
-            if (enfantSection.length > 2) {
-                $('.owl-slider').addClass('owl-carousel').owlCarousel({
-                    items: 3,
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    animateOut: 'slideOutDown',
-                    animateIn: 'flipInX',
-                    stagePadding: 10,
-                    smartSpeed: 450,
-                    margin: 100,
-                    nav: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            margin: 0
-                        },
-                        460: {
-                            items: 2
-                        },
-                        550: {
-                            items: 2
-                        },
-                        890: {
-                            items: 2
-                        },
-                        1200: {
-                            items: 3
-                        },
-                        1400: {
-                            items: 3
+            // Autres sliders
+            $('.slider1').owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                smartSpeed: 800,
+                nav: true,
+            });
+
+            // Code existant pour les autres carrousels
+            $('.carousel1').owlCarousel({
+                items: 5,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                animateOut: 'slideOutDown',
+                animateIn: 'flipInX',
+                stagePadding: 10,
+                smartSpeed: 450,
+                margin: 10,
+                nav: true,
+                navText: ['<i class="fa-solid fa-chevron-left"></i>',
+                    '<i class="fa-solid fa-chevron-right"></i>'
+                ]
+            });
+
+            var carousel1 = $('.carousel1').owlCarousel();
+
+            $('.owl-next').click(function () {
+                carousel1.trigger('next.owl.carousel');
+            });
+
+            $('.owl-prev').click(function () {
+                carousel1.trigger('prev.owl.carousel');
+            });
+
+            // Configuration de la section "temoin"
+            var sectionTemoin = document.querySelector('.temoin');
+            if (sectionTemoin) {
+                var enfantsSection = sectionTemoin.children;
+                if (enfantsSection.length > 3) {
+                    $('.temoin').addClass('owl-carousel').owlCarousel({
+                        items: 4,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        animateOut: 'slideOutDown',
+                        animateIn: 'flipInX',
+                        stagePadding: 10,
+                        smartSpeed: 650,
+                        margin: 100,
+                        nav: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 20
+                            },
+                            550: {
+                                items: 2
+                            },
+                            690: {
+                                items: 3
+                            },
+                            890: {
+                                items: 3
+                            },
+                            1200: {
+                                items: 4
+                            },
+                            1400: {
+                                items: 4
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
-        }
 
-        // Ajouter des attributs data-slide-index aux sliders
-        $('.slider-area .slider-item').each(function(index) {
-            $(this).attr('data-slide-index', index + 1);
+            // Configuration pour owl-slider
+            var owlSlider = document.querySelector('.owl-slider');
+            if (owlSlider) {
+                var enfantSection = owlSlider.children;
+                if (enfantSection.length > 2) {
+                    $('.owl-slider').addClass('owl-carousel').owlCarousel({
+                        items: 3,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        animateOut: 'slideOutDown',
+                        animateIn: 'flipInX',
+                        stagePadding: 10,
+                        smartSpeed: 450,
+                        margin: 100,
+                        nav: true,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 0
+                            },
+                            460: {
+                                items: 2
+                            },
+                            550: {
+                                items: 2
+                            },
+                            890: {
+                                items: 2
+                            },
+                            1200: {
+                                items: 3
+                            },
+                            1400: {
+                                items: 3
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Ajouter des attributs data-slide-index aux sliders
+            $('.slider-area .slider-item').each(function (index) {
+                $(this).attr('data-slide-index', index + 1);
+            });
         });
-    });
     </script>
 
-    <section class="explore">
-        <div class="t1">
-            <h1>Explorer les profils qui vous conviennent</h1>
-        </div>
-
-        <div class="profil">
-            <div class="owl-slider owl-carousel ">
-                <?php foreach ($afficheUsersLimit20 as $user): ?>
-
-                <?php $name_users = $user['nom'];
-                    $explode_name_users = explode(' ', $name_users);
-                    $name = $explode_name_users[0] . " " . $explode_name_users[1];
-                    ?>
-                <div class="item">
-                    <a href="/page/candidats.php?id=<?= $user['id'] ?>">
-                        <img src="/upload/<?= $user['images']; ?>" alt="">
-                        <h3>
-                            <?= $name; ?>
-                        </h3>
-                        <p>
-                            <?= $user['competences']; ?>
-                        </p>
-                    </a>
-                </div>
-                <?php endforeach; ?>
-
-            </div>
-        </div>
-    </section>
 
     <?php include('footer.php') ?>
 
@@ -698,156 +649,156 @@ Sign up at https://greensock.com/club or try them for free on CodePen or CodeSan
     <div></div>
 
     <script>
-    $(document).ready(function() {
-        // Initialisation du carousel principal
-        $('.slider-area').owlCarousel({
-            items: 1,
-            loop: true,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 7000,
-            smartSpeed: 1200,
-            animateOut: 'fadeOut',
-            animateIn: 'fadeIn',
-            margin: 0,
-            nav: true,
-            navText: ['<i class="fa-solid fa-chevron-left"></i>',
-                '<i class="fa-solid fa-chevron-right"></i>'
-            ],
-            mouseDrag: true,
-            touchDrag: true,
-            pullDrag: true,
-            freeDrag: false,
-            onInitialized: startProgressBar,
-            onTranslate: resetProgressBar,
-            onTranslated: startProgressBar
-        });
+        $(document).ready(function () {
+            // Initialisation du carousel principal
+            $('.slider-area').owlCarousel({
+                items: 1,
+                loop: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 7000,
+                smartSpeed: 1200,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                margin: 0,
+                nav: true,
+                navText: ['<i class="fa-solid fa-chevron-left"></i>',
+                    '<i class="fa-solid fa-chevron-right"></i>'
+                ],
+                mouseDrag: true,
+                touchDrag: true,
+                pullDrag: true,
+                freeDrag: false,
+                onInitialized: startProgressBar,
+                onTranslate: resetProgressBar,
+                onTranslated: startProgressBar
+            });
 
-        // Animation de la barre de progression
-        function startProgressBar() {
-            // On crée la barre de progression si elle n'existe pas
-            if ($('.slide-progress').length === 0) {
-                $('.slider-area').append('<div class="slide-progress"></div>');
+            // Animation de la barre de progression
+            function startProgressBar() {
+                // On crée la barre de progression si elle n'existe pas
+                if ($('.slide-progress').length === 0) {
+                    $('.slider-area').append('<div class="slide-progress"></div>');
+                }
+
+                // On anime la barre de progression
+                $('.slide-progress').css({
+                    width: '0%',
+                    transition: 'none'
+                }).animate({
+                    width: '100%'
+                }, 7000, 'linear');
             }
 
-            // On anime la barre de progression
-            $('.slide-progress').css({
-                width: '0%',
-                transition: 'none'
-            }).animate({
-                width: '100%'
-            }, 7000, 'linear');
-        }
+            // Réinitialisation de la barre de progression
+            function resetProgressBar() {
+                $('.slide-progress').css({
+                    width: '0%',
+                    transition: 'width 0s'
+                });
+            }
 
-        // Réinitialisation de la barre de progression
-        function resetProgressBar() {
-            $('.slide-progress').css({
-                width: '0%',
-                transition: 'width 0s'
+            // Effets de parallaxe au défilement
+            $(window).scroll(function () {
+                var scrollPosition = $(this).scrollTop();
+
+                // Parallaxe sur les images du slider
+                $('.slider-item img').css({
+                    'transform': 'translateY(' + (scrollPosition * 0.15) + 'px)'
+                });
             });
-        }
 
-        // Effets de parallaxe au défilement
-        $(window).scroll(function() {
-            var scrollPosition = $(this).scrollTop();
-
-            // Parallaxe sur les images du slider
-            $('.slider-item img').css({
-                'transform': 'translateY(' + (scrollPosition * 0.15) + 'px)'
-            });
+            // Animation des textes au chargement
+            setTimeout(function () {
+                $('.slider-area .slider-item:first-child h1').addClass('animated');
+                $('.slider-area .slider-item:first-child p').addClass('animated');
+                $('.slider-area .slider-item:first-child a').addClass('animated');
+            }, 500);
         });
-
-        // Animation des textes au chargement
-        setTimeout(function() {
-            $('.slider-area .slider-item:first-child h1').addClass('animated');
-            $('.slider-area .slider-item:first-child p').addClass('animated');
-            $('.slider-area .slider-item:first-child a').addClass('animated');
-        }, 500);
-    });
     </script>
 
     <script>
-    AOS.init();
+        AOS.init();
 
 
-    // Animation au scroll
-    document.addEventListener('DOMContentLoaded', function() {
-        const elements = document.querySelectorAll(
-            '.scroll-fade-left, .scroll-fade-right, .scroll-fade-top, .scroll-fade-bottom, .scroll-fade-center'
-        );
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                } else {
-                    entry.target.classList.remove('animate');
-                }
-            });
-        });
-
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-    });
-
-    // Animation au survol
-    document.querySelectorAll('.hover-animation').forEach(item => {
-        item.addEventListener('mouseover', () => {
-            item.classList.add('hovered');
-        });
-        item.addEventListener('mouseout', () => {
-            item.classList.remove('hovered');
-        });
-    });
-    </script>
-
-    <script>
-    // Fonction pour gérer les animations au défilement
-    function handleScrollAnimations() {
-        const scrollElements = document.querySelectorAll('.scroll-fade-left, .scroll-fade-right');
-
-        const elementInView = (el, percentageScroll = 100) => {
-            const elementTop = el.getBoundingClientRect().top;
-            return (
-                elementTop <=
-                ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100))
+        // Animation au scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll(
+                '.scroll-fade-left, .scroll-fade-right, .scroll-fade-top, .scroll-fade-bottom, .scroll-fade-center'
             );
-        };
-
-        const displayScrollElement = (element) => {
-            element.classList.add('animate');
-        };
-
-        const handleScrollAnimation = () => {
-            scrollElements.forEach((el) => {
-                if (elementInView(el, 70)) {
-                    displayScrollElement(el);
-                }
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    } else {
+                        entry.target.classList.remove('animate');
+                    }
+                });
             });
-        };
 
-        // Throttle pour optimiser les performances
-        let throttleTimer;
-        const throttle = (callback, time) => {
-            if (throttleTimer) return;
-            throttleTimer = true;
-            setTimeout(() => {
-                callback();
-                throttleTimer = false;
-            }, time);
-        };
-
-        // Event listener pour le scroll
-        window.addEventListener('scroll', () => {
-            throttle(handleScrollAnimation, 250);
+            elements.forEach(element => {
+                observer.observe(element);
+            });
         });
 
-        // Vérification initiale des éléments
-        handleScrollAnimation();
-    }
+        // Animation au survol
+        document.querySelectorAll('.hover-animation').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.classList.add('hovered');
+            });
+            item.addEventListener('mouseout', () => {
+                item.classList.remove('hovered');
+            });
+        });
+    </script>
 
-    // Initialisation une fois que le DOM est chargé
-    document.addEventListener('DOMContentLoaded', handleScrollAnimations);
+    <script>
+        // Fonction pour gérer les animations au défilement
+        function handleScrollAnimations() {
+            const scrollElements = document.querySelectorAll('.scroll-fade-left, .scroll-fade-right');
+
+            const elementInView = (el, percentageScroll = 100) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <=
+                    ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100))
+                );
+            };
+
+            const displayScrollElement = (element) => {
+                element.classList.add('animate');
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 70)) {
+                        displayScrollElement(el);
+                    }
+                });
+            };
+
+            // Throttle pour optimiser les performances
+            let throttleTimer;
+            const throttle = (callback, time) => {
+                if (throttleTimer) return;
+                throttleTimer = true;
+                setTimeout(() => {
+                    callback();
+                    throttleTimer = false;
+                }, time);
+            };
+
+            // Event listener pour le scroll
+            window.addEventListener('scroll', () => {
+                throttle(handleScrollAnimation, 250);
+            });
+
+            // Vérification initiale des éléments
+            handleScrollAnimation();
+        }
+
+        // Initialisation une fois que le DOM est chargé
+        document.addEventListener('DOMContentLoaded', handleScrollAnimations);
     </script>
 
 </body>

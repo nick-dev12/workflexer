@@ -42,14 +42,22 @@ $categories = getAllCategories($db);
         content="Découvrez les profils de professionnels qualifiés dans la catégorie <?= $categorie ?> sur Work-Flexer. Des experts en <?= $categorie ?> prêts à collaborer sur vos projets.">
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+    </script>
     <!-- End Google Tag Manager -->
     <title>Profils <?= $categorie ?> | Work-Flexer</title>
     <link rel="icon" href="../image/logo 2.png" type="image/x-icon">
@@ -91,7 +99,8 @@ $categories = getAllCategories($db);
                     <form action="voir_profil.php" method="post" id="search-form">
                         <div class="search-container">
                             <div class="search">
-                                <input type="search" name="search" id="search" placeholder="Rechercher un profil, une compétence..." autocomplete="off">
+                                <input type="search" name="search" id="search"
+                                    placeholder="Rechercher un profil, une compétence..." autocomplete="off">
                                 <label for="recherche"><i class="fa-solid fa-magnifying-glass"></i></label>
                                 <input type="submit" name="recherche" value="recherche" id="recherche">
                             </div>
@@ -113,11 +122,11 @@ $categories = getAllCategories($db);
                                     $colorClass = "cat-color-" . $colorIndex;
                                     $colorIndex = ($colorIndex % $totalColors) + 1;
                                 ?>
-                                    <option value="<?= $cat['categorie'] ?>" 
-                                        <?= ($cat['categorie'] == $categorie) ? 'selected' : '' ?>
-                                        data-color-class="<?= $colorClass ?>">
-                                        <?= $cat['categorie'] ?>
-                                    </option>
+                                <option value="<?= $cat['categorie'] ?>"
+                                    <?= ($cat['categorie'] == $categorie) ? 'selected' : '' ?>
+                                    data-color-class="<?= $colorClass ?>">
+                                    <?= $cat['categorie'] ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
 
@@ -171,175 +180,185 @@ $categories = getAllCategories($db);
                 $colorIndex = ($categoryIndex % 5) + 1;
                 $categoryColorClass = "cat-color-" . $colorIndex;
                 ?>
-                
+
                 <?php if (empty($usersInCategory)): ?>
-                    <h1 class="no-profile-message">Aucun profil disponible pour cette catégorie</h1>
+                <h1 class="no-profile-message">Aucun profil disponible pour cette catégorie</h1>
                 <?php else: ?>
-                    <div class="professionals-grid" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" data-aos-easing="ease-in-out">
-                        <?php foreach ($usersInCategory as $user): ?>
-                            <?php
+                <div class="professionals-grid" data-aos="fade-up" data-aos-delay="0" data-aos-duration="400"
+                    data-aos-easing="ease-in-out">
+                    <?php foreach ($usersInCategory as $user): ?>
+                    <?php
                             $nombreCompetences = countCompetences($db, $user['id']);
                             $niveauEtude = gettNiveau($db, $user['id']);
                             
                             // On n'affiche que les profils avec au moins 4 compétences et qui ne sont pas occupés
                             if ($nombreCompetences >= 4 ):
                             ?>
-                                <div class="profile-card <?= $categoryColorClass ?>">
-                                    <!-- Indicateur de statut -->
-                                    <?php if ($user['statut'] == 'Disponible' || $user['statut'] == 'Occuper'): ?>
-                                        <div class="status-indicator available">
-                                            <span></span><?= $user['statut'] ?>
-                                        </div>
-                                    <?php endif; ?>
-                                    
-                                    <!-- En-tête avec image -->
-                                    <div class="profile-header">
-                                        <img src="../upload/<?= $user['images'] ?>" alt="Photo de <?= $user['nom'] ?>">
-                                        
-                                        <!-- Overlay avec nom -->
-                                        <div class="profile-name-overlay">
-                                            <?php
+                    <div class="profile-card <?= $categoryColorClass ?>">
+                        <!-- Indicateur de statut -->
+                        <?php if ($user['statut'] == 'Disponible' || $user['statut'] == 'Occuper'): ?>
+                        <div
+                            class="status-indicator <?php echo ($user['statut'] == 'Disponible') ? 'available' : 'busy'; ?>">
+                            <span></span><?= $user['statut'] ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <!-- En-tête avec image -->
+                        <div class="profile-header">
+                            <img src="../upload/<?= $user['images'] ?>" alt="Photo de <?= $user['nom'] ?>">
+
+                            <!-- Overlay avec nom et localisation -->
+                            <div class="profile-name-overlay">
+                                <?php
                                             $fullName = $user['nom'];
                                             $words = explode(' ', $fullName);
                                             $nameUsers = isset($words[1]) ? $words[0] . ' ' . $words[1] : $words[0];
                                             ?>
-                                            <p class="profile-name"><?= $nameUsers ?></p>
-                                        </div>
-                                        
-                                        <!-- Localisation -->
-                                        <div class="profile-location">
-                                            <i class="fas fa-map-marker-alt"></i> <?= $user['ville'] ?>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Contenu principal -->
-                                    <div class="profile-content">
-                                        <!-- Titre principal -->
-                                        <h3 class="profile-title">
-                                            <?= substr($user['competences'], 0, 60) . (strlen($user['competences']) > 60 ? '...' : '') ?>
-                                        </h3>
-                                        
-                                        <!-- Badges de compétences -->
-                                        <div class="skills-container">
-                                            <?php
+                                <h2 class="profile-name"><?= $nameUsers ?></h2>
+                                <div class="profile-location">
+                                    <i class="fas fa-map-marker-alt"></i> <?= $user['ville'] ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contenu principal -->
+                        <div class="profile-content">
+                            <!-- Titre principal (fonction) -->
+                            <h3 class="profile-title">
+                                <?= substr($user['competences'], 0, 60) . (strlen($user['competences']) > 60 ? '...' : '') ?>
+                            </h3>
+
+                            <!-- Badges de compétences -->
+                            <div class="skills-container">
+                                <?php
                                             $afficheCompetences = getCompetences($db, $user['id']);
                                             $afficheCompetences = array_slice($afficheCompetences, 0, 4);
                                             
                                             if (!empty($afficheCompetences)):
                                                 foreach ($afficheCompetences as $compe):
                                             ?>
-                                                <span class="skill-badge">
-                                                    <?= substr($compe['competence'], 0, 20) . (strlen($compe['competence']) > 20 ? '...' : '') ?>
-                                                </span>
-                                            <?php
+                                <span
+                                    class="skill-badge <?php echo ($compe['mis_en_avant'] == 1) ? 'highlighted' : ''; ?>">
+                                    <?php if ($compe['mis_en_avant'] == 1): ?>
+                                    <i class="fas fa-star"></i>
+                                    <?php endif; ?>
+                                    <?= substr($compe['competence'], 0, 20) . (strlen($compe['competence']) > 20 ? '...' : '') ?>
+                                </span>
+                                <?php
                                                 endforeach;
                                             else:
                                             ?>
-                                                <span class="skill-badge">Compétences indisponibles</span>
-                                            <?php endif; ?>
-                                        </div>
-                                        
-                                        <!-- Détails d'éducation et expérience -->
-                                        <div class="profile-details">
-                                            <div class="detail-item">
-                                                <strong>Niveau :</strong>
-                                                <span><?= !empty($niveauEtude['etude']) ? $niveauEtude['etude'] : 'Indisponible' ?></span>
-                                            </div>
-                                            <div class="detail-item">
-                                                <strong>Expérience :</strong>
-                                                <span><?= !empty($niveauEtude['experience']) ? $niveauEtude['experience'] : 'Indisponible' ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Bouton de visualisation du profil -->
-                                    <a href="/page/candidats.php?id=<?= $user['id'] ?>" class="view-profile-btn">
-                                        <i class="fa-solid fa-eye"></i> Voir le profil
-                                    </a>
+                                <span class="skill-badge">Compétences non spécifiées</span>
+                                <?php endif; ?>
+                            </div>
+
+                            <!-- Détails d'éducation et expérience -->
+                            <div class="profile-details">
+                                <div class="detail-item">
+                                    <strong>Niveau d'étude:</strong>
+                                    <span><?= !empty($niveauEtude['etude']) ? $niveauEtude['etude'] : 'N/A' ?></span>
                                 </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                                <div class="detail-item">
+                                    <strong>Expérience:</strong>
+                                    <span><?= !empty($niveauEtude['experience']) ? $niveauEtude['experience'] : 'N/A' ?></span>
+                                </div>
+                            </div>
+
+                            <!-- Bouton de visualisation du profil -->
+                            <a href="/page/candidats.php?id=<?= $user['id'] ?>" class="view-profile-btn">
+                                <i class="fa-solid fa-eye"></i> Voir le profil
+                            </a>
+                        </div>
                     </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
                 <?php endif; ?>
 
                 <!-- Afficher le nombre total de candidats dans la catégorie -->
                 <div class="results-counter">
                     <p>
-                        <?= $total_profils ?> candidat<?= ($total_profils > 1) ? 's' : '' ?> trouvé<?= ($total_profils > 1) ? 's' : '' ?> dans la catégorie <strong><?= $categorie ?></strong>
+                        <?= $total_profils ?> candidat<?= ($total_profils > 1) ? 's' : '' ?>
+                        trouvé<?= ($total_profils > 1) ? 's' : '' ?> dans la catégorie
+                        <strong><?= $categorie ?></strong>
                     </p>
                 </div>
 
                 <!-- Pagination élégante -->
-                <div class="pagination-container" >
+                <div class="pagination-container">
                     <ul class="pagination <?= $categoryColorClass ?>">
                         <?php if ($total_pages > 1): ?>
-                            <!-- Lien vers la première page -->
-                            <?php if ($page_courante > 3): ?>
-                                <li>
-                                    <a href="?categorie=<?= urlencode($categorie) ?>&page=1" class="page-nav first" title="Première page">
-                                        <span class="icon-only">«</span>
-                                        <span class="text-label">Premier</span>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
+                        <!-- Lien vers la première page -->
+                        <?php if ($page_courante > 3): ?>
+                        <li>
+                            <a href="?categorie=<?= urlencode($categorie) ?>&page=1" class="page-nav first"
+                                title="Première page">
+                                <span class="icon-only">«</span>
+                                <span class="text-label">Premier</span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
 
-                            <!-- Lien vers la page précédente -->
-                            <?php if ($page_courante > 1): ?>
-                                <li>
-                                    <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $page_courante - 1 ?>" class="page-nav prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
+                        <!-- Lien vers la page précédente -->
+                        <?php if ($page_courante > 1): ?>
+                        <li>
+                            <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $page_courante - 1 ?>"
+                                class="page-nav prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+                        <?php endif; ?>
 
-                            <!-- Pages précédant la page courante -->
-                            <?php
+                        <!-- Pages précédant la page courante -->
+                        <?php
                             // Afficher les deux pages précédentes
                             for ($i = max(1, $page_courante - 2); $i < $page_courante; $i++):
                             ?>
-                                <li>
-                                    <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $i ?>"><?= $i ?></a>
-                                </li>
-                            <?php endfor; ?>
+                        <li>
+                            <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $i ?>"><?= $i ?></a>
+                        </li>
+                        <?php endfor; ?>
 
-                            <!-- Page courante -->
-                            <li>
-                                <span class="current"><?= $page_courante ?></span>
-                            </li>
+                        <!-- Page courante -->
+                        <li>
+                            <span class="current"><?= $page_courante ?></span>
+                        </li>
 
-                            <!-- Pages suivant la page courante -->
-                            <?php
+                        <!-- Pages suivant la page courante -->
+                        <?php
                             // Afficher les deux pages suivantes
                             for ($i = $page_courante + 1; $i <= min($total_pages, $page_courante + 2); $i++):
                             ?>
-                                <li>
-                                    <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $i ?>"><?= $i ?></a>
-                                </li>
-                            <?php endfor; ?>
+                        <li>
+                            <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $i ?>"><?= $i ?></a>
+                        </li>
+                        <?php endfor; ?>
 
-                            <!-- Lien vers la page suivante -->
-                            <?php if ($page_courante < $total_pages): ?>
-                                <li>
-                                    <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $page_courante + 1 ?>" class="page-nav next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
+                        <!-- Lien vers la page suivante -->
+                        <?php if ($page_courante < $total_pages): ?>
+                        <li>
+                            <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $page_courante + 1 ?>"
+                                class="page-nav next">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <?php endif; ?>
 
-                            <!-- Lien vers la dernière page -->
-                            <?php if ($page_courante < $total_pages - 2): ?>
-                                <li>
-                                    <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $total_pages ?>" class="page-nav last" title="Dernière page">
-                                        <span class="icon-only">»</span>
-                                        <span class="text-label">Dernier</span>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
+                        <!-- Lien vers la dernière page -->
+                        <?php if ($page_courante < $total_pages - 2): ?>
+                        <li>
+                            <a href="?categorie=<?= urlencode($categorie) ?>&page=<?= $total_pages ?>"
+                                class="page-nav last" title="Dernière page">
+                                <span class="icon-only">»</span>
+                                <span class="text-label">Dernier</span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
                         <?php else: ?>
-                            <!-- Cas où il n'y a qu'une seule page -->
-                            <li>
-                                <span class="current">1</span>
-                            </li>
+                        <!-- Cas où il n'y a qu'une seule page -->
+                        <li>
+                            <span class="current">1</span>
+                        </li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -353,34 +372,34 @@ $categories = getAllCategories($db);
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
-    
+
     <!-- Script pour ajouter une animation de scroll fluide aux liens de pagination -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animation de scroll fluide pour les liens de pagination
-            document.querySelectorAll('.pagination a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // On laisse le comportement normal du lien mais on ajoute une animation
-                    setTimeout(() => {
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    }, 5);
-                });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animation de scroll fluide pour les liens de pagination
+        document.querySelectorAll('.pagination a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // On laisse le comportement normal du lien mais on ajoute une animation
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }, 5);
             });
-            
-            // Masquer la pagination s'il n'y a pas de profils
-            const totalProfiles = <?= $total_profils ?>;
-            const paginationSection = document.getElementById('pagination-section');
-            const messageElement = document.querySelector('.no-profile-message');
-            
-            if (totalProfiles === 0 && messageElement && paginationSection) {
-                paginationSection.style.display = 'none';
-            }
         });
+
+        // Masquer la pagination s'il n'y a pas de profils
+        const totalProfiles = <?= $total_profils ?>;
+        const paginationSection = document.getElementById('pagination-section');
+        const messageElement = document.querySelector('.no-profile-message');
+
+        if (totalProfiles === 0 && messageElement && paginationSection) {
+            paginationSection.style.display = 'none';
+        }
+    });
     </script>
     <!-- Intégration de Font Awesome pour les icônes -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

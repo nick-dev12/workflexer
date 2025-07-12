@@ -19,14 +19,22 @@ include_once('../controller/controller_users.php');
         content="Personnalisez votre profil Work-Flexer. Mettez à jour vos informations professionnelles, compétences et expériences. Interface intuitive pour une modification simple et rapide de votre CV en ligne.">
 
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');</script>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5JBWCPV7');
+    </script>
     <!-- End Google Tag Manager -->
 
     <title>
@@ -38,8 +46,8 @@ include_once('../controller/controller_users.php');
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
@@ -59,7 +67,7 @@ include_once('../controller/controller_users.php');
 
 
     <?php include('../include/header_users.php') ?>
-    <?php include('../include/notifications.php') ?>
+    <?php include('../includes/notifications.php') ?>
 
     <section class="section3">
 
@@ -271,8 +279,11 @@ include_once('../controller/controller_users.php');
 
                         // Ajout d'un écouteur d'événement pour détecter l'apparition du clavier
                         window.addEventListener('resize', function () {
-                            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-                                document.activeElement.scrollIntoView({ behavior: 'smooth' });
+                            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName ===
+                                'TEXTAREA') {
+                                document.activeElement.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
                             }
                         });
                     </script>
@@ -288,7 +299,9 @@ include_once('../controller/controller_users.php');
     <script>
         window.addEventListener('resize', function () {
             if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-                document.activeElement.scrollIntoView({ behavior: 'smooth' });
+                document.activeElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
     </script>
