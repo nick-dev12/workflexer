@@ -50,8 +50,8 @@ if (isset($_POST['Modifier'])) {
 
 if (isset($_GET['id'])) {
     $descriptions = afficheDescription($db, $_GET['id']);
-} else {
-    $descriptions = afficheDescription($db, $_SESSION['users_id']);
 }
 
-?>
+if (isset($_SESSION['users_id'])) {
+    $descriptions = afficheDescription($db, $_SESSION['users_id']);
+}

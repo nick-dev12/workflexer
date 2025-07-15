@@ -87,7 +87,9 @@ if (isset($_SESSION['users_id'])) {
 
             if (!model13CssLoaded) {
                 console.error('Model13 CSS non chargé. Vérifiez le chemin du fichier.');
-                alert('Attention: Le style du CV n\'a pas été correctement chargé. Veuillez contacter l\'administrateur.');
+                alert(
+                    'Attention: Le style du CV n\'a pas été correctement chargé. Veuillez contacter l\'administrateur.'
+                );
             }
         });
     </script>
@@ -112,127 +114,183 @@ if (isset($_SESSION['users_id'])) {
             </ul>
             <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité.
             </p>
-            <button class="close-info"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close-info-btn">&times;</button>
         </div>
     </div>
 
     <style>
         .info-bubble {
             position: fixed;
-            top: 20px;
+            top: 80px;
             right: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             z-index: 1000;
             max-width: 400px;
-            opacity: 1;
-            transition: all 0.3s ease;
-            animation: slideIn 0.5s ease;
-        }
-
-        .info-bubble.hidden {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-
-        .info-content {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             padding: 20px;
-            position: relative;
-        }
-
-        .info-content i.fa-circle-info {
-            color: #2196F3;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .info-content h3 {
-            color: #333;
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .info-content p {
-            color: #666;
-            margin: 10px 0;
-            line-height: 1.5;
-        }
-
-        .info-content ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-
-        .info-content li {
-            color: #666;
-            margin: 8px 0;
-            line-height: 1.4;
-        }
-
-        .info-content .highlight {
-            color: #2196F3;
-            font-weight: 500;
-        }
-
-        .close-info {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #2196F3;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 8px;
-            font-size: 18px;
-            transition: all 0.3s;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-info:hover {
-            background: #1976D2;
-            transform: scale(1.1);
+            font-family: 'Poppins', sans-serif;
+            border-left: 5px solid #0089be;
+            animation: slideIn 0.5s ease-out;
         }
 
         @keyframes slideIn {
             from {
-                opacity: 0;
                 transform: translateX(100%);
+                opacity: 0;
             }
 
             to {
-                opacity: 1;
                 transform: translateX(0);
+                opacity: 1;
             }
         }
 
-        @media (max-width: 480px) {
+        .info-content {
+            position: relative;
+        }
+
+        .info-bubble .fa-circle-info {
+            color: #0089be;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-bubble p {
+            color: #34495e;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .info-bubble li {
+            color: #34495e;
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .info-bubble li:before {
+            content: "•";
+            color: #0089be;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        .info-bubble .highlight {
+            background: #f0f9ff;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #0089be;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .close-info-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #fff;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .close-info-btn:hover {
+            background: #f1f1f1;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
             .info-bubble {
-                top: 10px;
+                top: auto;
+                bottom: 20px;
                 right: 10px;
                 left: 10px;
                 max-width: none;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+            .info-bubble h3 {
+                font-size: 16px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .info-bubble {
+                padding: 15px;
+            }
+
+            .info-bubble h3 {
+                font-size: 15px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 12px;
             }
         }
     </style>
 
     <script>
+        // Script pour la bulle d'information
         document.addEventListener('DOMContentLoaded', function () {
+            const closeInfoBtn = document.querySelector('.close-info-btn');
             const infoBubble = document.querySelector('.info-bubble');
-            const closeButton = document.querySelector('.close-info');
 
-            if (closeButton && infoBubble) {
-                closeButton.addEventListener('click', function () {
-                    infoBubble.classList.add('hidden');
+            if (closeInfoBtn && infoBubble) {
+                closeInfoBtn.addEventListener('click', function () {
+                    infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
                     setTimeout(() => {
                         infoBubble.style.display = 'none';
-                    }, 300);
+                    }, 500);
                 });
+
+                // Ajouter l'animation de sortie
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
             }
         });
     </script>
@@ -318,7 +376,8 @@ if (isset($_SESSION['users_id'])) {
                     const svgs = document.querySelectorAll('svg[viewBox]');
                     svgs.forEach(svg => {
                         const parent = svg.parentNode;
-                        if (parent && svg.previousElementSibling && svg.previousElementSibling.dataset.originalHtml) {
+                        if (parent && svg.previousElementSibling && svg.previousElementSibling.dataset
+                            .originalHtml) {
                             const temp = document.createElement('div');
                             temp.innerHTML = svg.previousElementSibling.dataset.originalHtml;
                             parent.replaceChild(temp.firstChild, svg);
@@ -348,7 +407,9 @@ if (isset($_SESSION['users_id'])) {
                         const iconsReplaced = replaceIconsWithSVG();
                         console.log(`${iconsReplaced} icônes remplacées par des SVG`);
 
-                        const { jsPDF } = window.jspdf;
+                        const {
+                            jsPDF
+                        } = window.jspdf;
                         const element = document.querySelector("#container-for-pdf");
 
                         // Optimisations légères pour une meilleure qualité
@@ -423,7 +484,9 @@ if (isset($_SESSION['users_id'])) {
                                     // Restaurer les icônes originales
                                     restoreIcons();
 
-                                    console.error('Une erreur est survenue lors de la génération du PDF:', error);
+                                    console.error(
+                                        'Une erreur est survenue lors de la génération du PDF:',
+                                        error);
                                     alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
                                 });
                         }, 600);
@@ -625,7 +688,7 @@ if (isset($_SESSION['users_id'])) {
                         <?= isset($userss['competences']) ? $userss['competences'] : "Développeur Full Stack" ?>
                     </p>
                     <p class="summary cv-editable">
-                        <?= $descriptions['description'] ?>
+                        <?= empty($descriptions) ? "Aucune description trouvée" : $descriptions['description'] ?>
                     </p>
                 </div>
             </div>
@@ -875,7 +938,7 @@ if (isset($_SESSION['users_id'])) {
                         <?= isset($userss['competences']) ? $userss['competences'] : "Développeur Full Stack" ?>
                     </p>
                     <p class="summary cv-editable">
-                        <?= $descriptions['description'] ?>
+                        <?= empty($descriptions) ? "Aucune description trouvée" : $descriptions['description'] ?>
                     </p>
                 </div>
             </div>
@@ -1093,19 +1156,84 @@ if (isset($_SESSION['users_id'])) {
             const dateColorPicker = document.getElementById('date-color');
 
             const themeColors = {
-                'classic': { primary: '#4A4A4A', accent: '#7A7A7A', secondary: '#F5F5F5', date: '#7A7A7A' },
-                'marine': { primary: '#1D3557', accent: '#457B9D', secondary: '#F1FAEE', date: '#457B9D' },
-                'corporate': { primary: '#1A237E', accent: '#5C6BC0', secondary: '#FFFFFF', date: '#5C6BC0' },
-                'slate': { primary: '#2F4F4F', accent: '#708090', secondary: '#E8ECEE', date: '#708090' },
-                'emerald': { primary: '#0E3B43', accent: '#328590', secondary: '#F0F0F0', date: '#328590' },
-                'violet': { primary: '#845EC2', accent: '#B39CD0', secondary: '#FBEAFF', date: '#B39CD0' },
-                'ocean': { primary: '#3D5A80', accent: '#98C1D9', secondary: '#E0FBFC', date: '#98C1D9' },
-                'ruby': { primary: '#A31621', accent: '#DB5461', secondary: '#F0EFF4', date: '#DB5461' },
-                'graphite-gold': { primary: '#343a40', accent: '#c9a445', secondary: '#f8f9fa', date: '#c9a445' },
-                'teal-coral': { primary: '#008080', accent: '#FF6F61', secondary: '#F0F8FF', date: '#FF6F61' },
-                'indigo-cream': { primary: '#3949AB', accent: '#9E9D24', secondary: '#FFF8E1', date: '#9E9D24' },
-                'forest-rust': { primary: '#2F4F4F', accent: '#B7410E', secondary: '#F5F5F5', date: '#B7410E' },
-                'plum-sage': { primary: '#5D3A55', accent: '#8A9A5B', secondary: '#FDFCFB', date: '#8A9A5B' }
+                'classic': {
+                    primary: '#4A4A4A',
+                    accent: '#7A7A7A',
+                    secondary: '#F5F5F5',
+                    date: '#7A7A7A'
+                },
+                'marine': {
+                    primary: '#1D3557',
+                    accent: '#457B9D',
+                    secondary: '#F1FAEE',
+                    date: '#457B9D'
+                },
+                'corporate': {
+                    primary: '#1A237E',
+                    accent: '#5C6BC0',
+                    secondary: '#FFFFFF',
+                    date: '#5C6BC0'
+                },
+                'slate': {
+                    primary: '#2F4F4F',
+                    accent: '#708090',
+                    secondary: '#E8ECEE',
+                    date: '#708090'
+                },
+                'emerald': {
+                    primary: '#0E3B43',
+                    accent: '#328590',
+                    secondary: '#F0F0F0',
+                    date: '#328590'
+                },
+                'violet': {
+                    primary: '#845EC2',
+                    accent: '#B39CD0',
+                    secondary: '#FBEAFF',
+                    date: '#B39CD0'
+                },
+                'ocean': {
+                    primary: '#3D5A80',
+                    accent: '#98C1D9',
+                    secondary: '#E0FBFC',
+                    date: '#98C1D9'
+                },
+                'ruby': {
+                    primary: '#A31621',
+                    accent: '#DB5461',
+                    secondary: '#F0EFF4',
+                    date: '#DB5461'
+                },
+                'graphite-gold': {
+                    primary: '#343a40',
+                    accent: '#c9a445',
+                    secondary: '#f8f9fa',
+                    date: '#c9a445'
+                },
+                'teal-coral': {
+                    primary: '#008080',
+                    accent: '#FF6F61',
+                    secondary: '#F0F8FF',
+                    date: '#FF6F61'
+                },
+                'indigo-cream': {
+                    primary: '#3949AB',
+                    accent: '#9E9D24',
+                    secondary: '#FFF8E1',
+                    date: '#9E9D24'
+                },
+                'forest-rust': {
+                    primary: '#2F4F4F',
+                    accent: '#B7410E',
+                    secondary: '#F5F5F5',
+                    date: '#B7410E'
+                },
+                'plum-sage': {
+                    primary: '#5D3A55',
+                    accent: '#8A9A5B',
+                    secondary: '#FDFCFB',
+                    date: '#8A9A5B'
+                }
             };
 
             function applyColors(primary, accent, secondary, dateColor) {
@@ -1119,7 +1247,8 @@ if (isset($_SESSION['users_id'])) {
                     if (headerBg) headerBg.style.backgroundColor = primary;
                     if (leftColumnBg) leftColumnBg.style.backgroundColor = secondary;
 
-                    const accentElements = cv.querySelectorAll('.timeline-dot, .skill-progress, .language-progress, .contact-icon');
+                    const accentElements = cv.querySelectorAll(
+                        '.timeline-dot, .skill-progress, .language-progress, .contact-icon');
                     accentElements.forEach(el => el.style.backgroundColor = accent);
 
                     const dateElements = cv.querySelectorAll('.timeline-date');
@@ -1144,7 +1273,8 @@ if (isset($_SESSION['users_id'])) {
                     this.classList.add('active');
 
                     cvContainers.forEach(cv => {
-                        Object.keys(themeColors).forEach(t => cv.classList.remove(`theme-${t}`));
+                        Object.keys(themeColors).forEach(t => cv.classList.remove(
+                            `theme-${t}`));
                         cv.classList.add('theme-' + theme);
                     });
 
@@ -1158,14 +1288,28 @@ if (isset($_SESSION['users_id'])) {
             });
 
             function setupManualColorPickers() {
-                const pickers = [
-                    { picker: primaryColorPicker, key: 'primary-color' },
-                    { picker: accentColorPicker, key: 'accent-color' },
-                    { picker: secondaryColorPicker, key: 'secondary-color' },
-                    { picker: dateColorPicker, key: 'date-color' }
+                const pickers = [{
+                    picker: primaryColorPicker,
+                    key: 'primary-color'
+                },
+                {
+                    picker: accentColorPicker,
+                    key: 'accent-color'
+                },
+                {
+                    picker: secondaryColorPicker,
+                    key: 'secondary-color'
+                },
+                {
+                    picker: dateColorPicker,
+                    key: 'date-color'
+                }
                 ];
 
-                pickers.forEach(({ picker, key }) => {
+                pickers.forEach(({
+                    picker,
+                    key
+                }) => {
                     if (picker) {
                         picker.addEventListener('input', () => {
                             const newColors = {
@@ -1234,9 +1378,11 @@ if (isset($_SESSION['users_id'])) {
 
                     cvContainers.forEach(cv => {
                         cv.style.fontFamily = fontValue;
-                        cv.querySelectorAll('.name, .job-title, .section-title, .timeline-title').forEach(el => {
-                            el.style.fontFamily = fontValue;
-                        });
+                        cv.querySelectorAll(
+                            '.name, .job-title, .section-title, .timeline-title')
+                            .forEach(el => {
+                                el.style.fontFamily = fontValue;
+                            });
                     });
                 });
             });
@@ -1260,7 +1406,8 @@ if (isset($_SESSION['users_id'])) {
                 if (fontCard) fontCard.click();
 
                 const savedDateColor = getPreference('date-color');
-                const colorOption = document.querySelector(`.date-color-selector .color-option[data-color="${savedDateColor}"]`);
+                const colorOption = document.querySelector(
+                    `.date-color-selector .color-option[data-color="${savedDateColor}"]`);
                 if (colorOption) {
                     colorOptions.forEach(o => o.classList.remove('active'));
                     colorOption.classList.add('active');
@@ -1289,7 +1436,8 @@ if (isset($_SESSION['users_id'])) {
 
                 // Ferme le panneau si on clique en dehors
                 document.addEventListener('click', function (event) {
-                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !
+                        toggleBtn.contains(event.target)) {
                         customPanel.classList.remove('active');
                     }
                 });

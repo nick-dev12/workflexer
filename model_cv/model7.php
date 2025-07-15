@@ -94,35 +94,185 @@ if (isset($_SESSION['users_id'])) {
                     </ul>
                     <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en
                         priorité.</p>
-                    <button class="close-info">&times;</button>
+                    <button class="close-info-btn">&times;</button>
                 </div>
             </div>
 
-            <script>
-                function generatePDF() {
-                    const {
-                        jsPDF
-                    } = window.jspdf;
-                    const element = document.querySelector(".container");
+            <style>
+            .info-bubble {
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                z-index: 1000;
+                max-width: 400px;
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 15px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                padding: 20px;
+                font-family: 'Poppins', sans-serif;
+                border-left: 5px solid #0089be;
+                animation: slideIn 0.5s ease-out;
+            }
 
-                    domtoimage.toJpeg(element, {
-                        quality: 1.5,
-                        bgcolor: '#fff'
-                    })
-                        .then(function (dataUrl) {
-                            const pdf = new jsPDF('p', 'mm', 'a4');
-                            const imgProps = pdf.getImageProperties(dataUrl);
-                            const pdfWidth = pdf.internal.pageSize.getWidth();
-                            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-                            pdf.save("cv.pdf");
-                        })
-                        .catch(function (error) {
-                            console.error('Une erreur est survenue lors de la génération du PDF:', error);
-                            alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
-                        });
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
                 }
+
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            .info-content {
+                position: relative;
+            }
+
+            .info-bubble .fa-circle-info {
+                color: #0089be;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .info-bubble h3 {
+                color: #2c3e50;
+                font-size: 18px;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+
+            .info-bubble p {
+                color: #34495e;
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 10px;
+            }
+
+            .info-bubble ul {
+                padding-left: 20px;
+                margin: 10px 0;
+            }
+
+            .info-bubble li {
+                color: #34495e;
+                font-size: 14px;
+                margin-bottom: 8px;
+                list-style-type: none;
+                position: relative;
+            }
+
+            .info-bubble li:before {
+                content: "•";
+                color: #0089be;
+                font-weight: bold;
+                position: absolute;
+                left: -15px;
+            }
+
+            .info-bubble .highlight {
+                background: #f0f9ff;
+                padding: 10px;
+                border-radius: 8px;
+                border-left: 3px solid #0089be;
+                margin-top: 15px;
+                font-weight: 500;
+            }
+
+            .close-info-btn {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background: #fff;
+                border: none;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                color: #666;
+                transition: all 0.3s ease;
+            }
+
+            .close-info-btn:hover {
+                background: #f1f1f1;
+                transform: scale(1.1);
+            }
+
+            /* Responsive Design */
+            @media screen and (max-width: 768px) {
+                .info-bubble {
+                    top: auto;
+                    bottom: 20px;
+                    right: 10px;
+                    left: 10px;
+                    max-width: none;
+                    margin: 0 auto;
+                    font-size: 14px;
+                }
+
+                .info-bubble h3 {
+                    font-size: 16px;
+                }
+
+                .info-bubble p,
+                .info-bubble li {
+                    font-size: 13px;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .info-bubble {
+                    padding: 15px;
+                }
+
+                .info-bubble h3 {
+                    font-size: 15px;
+                }
+
+                .info-bubble p,
+                .info-bubble li {
+                    font-size: 12px;
+                }
+            }
+            </style>
+
+            <script>
+            // Script pour la bulle d'information
+            document.addEventListener('DOMContentLoaded', function() {
+                const closeInfoBtn = document.querySelector('.close-info-btn');
+                const infoBubble = document.querySelector('.info-bubble');
+
+                if (closeInfoBtn && infoBubble) {
+                    closeInfoBtn.addEventListener('click', function() {
+                        infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
+                        setTimeout(() => {
+                            infoBubble.style.display = 'none';
+                        }, 500);
+                    });
+
+                    // Ajouter l'animation de sortie
+                    const style = document.createElement('style');
+                    style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                    document.head.appendChild(style);
+                }
+            });
             </script>
 
             <div class="theme-selector">
@@ -231,322 +381,322 @@ if (isset($_SESSION['users_id'])) {
             </div>
 
             <style>
-                .theme-selector {
-                    margin-top: 20px;
-                    padding: 15px;
-                    background-color: #f9f9f9;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                }
+            .theme-selector {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
 
-                .theme-selector h3 {
-                    text-align: center;
-                    margin-bottom: 15px;
-                    color: #333;
-                    font-size: 18px;
-                }
+            .theme-selector h3 {
+                text-align: center;
+                margin-bottom: 15px;
+                color: #333;
+                font-size: 18px;
+            }
 
-                .theme-selector h4 {
-                    border-bottom: 1px solid #e0e0e0;
-                    padding-bottom: 8px;
-                    margin: 15px 0 10px;
-                    color: #555;
-                    font-size: 16px;
+            .theme-selector h4 {
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 8px;
+                margin: 15px 0 10px;
+                color: #555;
+                font-size: 16px;
+            }
+
+            .themes-section {
+                max-height: 400px;
+                overflow-y: auto;
+                padding-right: 5px;
+            }
+
+            .themes-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+
+            .theme-card {
+                width: calc(25% - 12px);
+                min-width: 85px;
+                border-radius: 6px;
+                overflow: hidden;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+
+            .theme-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .theme-card.active {
+                border: 2px solid #0089be;
+                transform: translateY(-2px);
+            }
+
+            .theme-preview {
+                width: 100%;
+            }
+
+            .theme-card span {
+                display: block;
+                text-align: center;
+                padding: 6px 0;
+                font-size: 12px;
+                background-color: white;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* Styles pour tablette */
+            @media (max-width: 768px) {
+                .theme-card {
+                    width: calc(33.33% - 12px);
                 }
 
                 .themes-section {
-                    max-height: 400px;
-                    overflow-y: auto;
-                    padding-right: 5px;
+                    max-height: 350px;
+                }
+            }
+
+            /* Styles pour mobile */
+            @media (max-width: 480px) {
+                .theme-card {
+                    width: calc(50% - 8px);
+                    min-width: 60px;
                 }
 
                 .themes-container {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: flex-start;
-                    gap: 12px;
-                    margin-bottom: 15px;
+                    gap: 8px;
                 }
 
-                .theme-card {
-                    width: calc(25% - 12px);
-                    min-width: 85px;
-                    border-radius: 6px;
-                    overflow: hidden;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                    cursor: pointer;
-                    transition: transform 0.2s, box-shadow 0.2s;
+                .theme-selector {
+                    padding: 10px;
                 }
 
-                .theme-card:hover {
-                    transform: translateY(-3px);
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                .theme-selector h3 {
+                    font-size: 16px;
                 }
 
-                .theme-card.active {
-                    border: 2px solid #0089be;
-                    transform: translateY(-2px);
-                }
-
-                .theme-preview {
-                    width: 100%;
+                .theme-selector h4 {
+                    font-size: 14px;
                 }
 
                 .theme-card span {
-                    display: block;
-                    text-align: center;
-                    padding: 6px 0;
-                    font-size: 12px;
-                    background-color: white;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    font-size: 11px;
+                    padding: 4px 0;
                 }
 
-                /* Styles pour tablette */
-                @media (max-width: 768px) {
-                    .theme-card {
-                        width: calc(33.33% - 12px);
-                    }
-
-                    .themes-section {
-                        max-height: 350px;
-                    }
+                .themes-section {
+                    max-height: 250px;
                 }
-
-                /* Styles pour mobile */
-                @media (max-width: 480px) {
-                    .theme-card {
-                        width: calc(50% - 8px);
-                        min-width: 60px;
-                    }
-
-                    .themes-container {
-                        gap: 8px;
-                    }
-
-                    .theme-selector {
-                        padding: 10px;
-                    }
-
-                    .theme-selector h3 {
-                        font-size: 16px;
-                    }
-
-                    .theme-selector h4 {
-                        font-size: 14px;
-                    }
-
-                    .theme-card span {
-                        font-size: 11px;
-                        padding: 4px 0;
-                    }
-
-                    .themes-section {
-                        max-height: 250px;
-                    }
-                }
+            }
             </style>
 
             <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Définition des thèmes
-                    const themes = {
-                        elegant: {
-                            fontColorTitre: '#0E3B43',
-                            texteColorTitre: '#ffffff',
-                            fontColorSection: '#328590',
-                            texteColorSection: '#ffffff'
-                        },
-                        professional: {
-                            fontColorTitre: '#1D3557',
-                            texteColorTitre: '#F1FAEE',
-                            fontColorSection: '#457B9D',
-                            texteColorSection: '#F1FAEE'
-                        },
-                        creative: {
-                            fontColorTitre: '#845EC2',
-                            texteColorTitre: '#FBEAFF',
-                            fontColorSection: '#B39CD0',
-                            texteColorSection: '#FBEAFF'
-                        },
-                        classic: {
-                            fontColorTitre: '#4A4A4A',
-                            texteColorTitre: '#F5F5F5',
-                            fontColorSection: '#7A7A7A',
-                            texteColorSection: '#F5F5F5'
-                        },
-                        modern: {
-                            fontColorTitre: '#3D5A80',
-                            texteColorTitre: '#E0FBFC',
-                            fontColorSection: '#98C1D9',
-                            texteColorSection: '#E0FBFC'
-                        },
-                        earthy: {
-                            fontColorTitre: '#5F4B32',
-                            texteColorTitre: '#F0EAE2',
-                            fontColorSection: '#A1887F',
-                            texteColorSection: '#F0EAE2'
-                        },
-                        // Nouveaux thèmes
-                        corporate: {
-                            fontColorTitre: '#1A237E',
-                            texteColorTitre: '#FFFFFF',
-                            fontColorSection: '#5C6BC0',
-                            texteColorSection: '#FFFFFF'
-                        },
-                        burgundy: {
-                            fontColorTitre: '#800020',
-                            texteColorTitre: '#F2F2F2',
-                            fontColorSection: '#AD8A8E',
-                            texteColorSection: '#F2F2F2'
-                        },
-                        mint: {
-                            fontColorTitre: '#21897E',
-                            texteColorTitre: '#F4FFF8',
-                            fontColorSection: '#69B7A8',
-                            texteColorSection: '#F4FFF8'
-                        },
-                        slate: {
-                            fontColorTitre: '#2F4F4F',
-                            texteColorTitre: '#E8ECEE',
-                            fontColorSection: '#708090',
-                            texteColorSection: '#E8ECEE'
-                        },
-                        amber: {
-                            fontColorTitre: '#B86E00',
-                            texteColorTitre: '#FFFBF0',
-                            fontColorSection: '#F0A858',
-                            texteColorSection: '#FFFBF0'
-                        }
-                    };
+            document.addEventListener('DOMContentLoaded', function() {
+                // Définition des thèmes
+                const themes = {
+                    elegant: {
+                        fontColorTitre: '#0E3B43',
+                        texteColorTitre: '#ffffff',
+                        fontColorSection: '#328590',
+                        texteColorSection: '#ffffff'
+                    },
+                    professional: {
+                        fontColorTitre: '#1D3557',
+                        texteColorTitre: '#F1FAEE',
+                        fontColorSection: '#457B9D',
+                        texteColorSection: '#F1FAEE'
+                    },
+                    creative: {
+                        fontColorTitre: '#845EC2',
+                        texteColorTitre: '#FBEAFF',
+                        fontColorSection: '#B39CD0',
+                        texteColorSection: '#FBEAFF'
+                    },
+                    classic: {
+                        fontColorTitre: '#4A4A4A',
+                        texteColorTitre: '#F5F5F5',
+                        fontColorSection: '#7A7A7A',
+                        texteColorSection: '#F5F5F5'
+                    },
+                    modern: {
+                        fontColorTitre: '#3D5A80',
+                        texteColorTitre: '#E0FBFC',
+                        fontColorSection: '#98C1D9',
+                        texteColorSection: '#E0FBFC'
+                    },
+                    earthy: {
+                        fontColorTitre: '#5F4B32',
+                        texteColorTitre: '#F0EAE2',
+                        fontColorSection: '#A1887F',
+                        texteColorSection: '#F0EAE2'
+                    },
+                    // Nouveaux thèmes
+                    corporate: {
+                        fontColorTitre: '#1A237E',
+                        texteColorTitre: '#FFFFFF',
+                        fontColorSection: '#5C6BC0',
+                        texteColorSection: '#FFFFFF'
+                    },
+                    burgundy: {
+                        fontColorTitre: '#800020',
+                        texteColorTitre: '#F2F2F2',
+                        fontColorSection: '#AD8A8E',
+                        texteColorSection: '#F2F2F2'
+                    },
+                    mint: {
+                        fontColorTitre: '#21897E',
+                        texteColorTitre: '#F4FFF8',
+                        fontColorSection: '#69B7A8',
+                        texteColorSection: '#F4FFF8'
+                    },
+                    slate: {
+                        fontColorTitre: '#2F4F4F',
+                        texteColorTitre: '#E8ECEE',
+                        fontColorSection: '#708090',
+                        texteColorSection: '#E8ECEE'
+                    },
+                    amber: {
+                        fontColorTitre: '#B86E00',
+                        texteColorTitre: '#FFFBF0',
+                        fontColorSection: '#F0A858',
+                        texteColorSection: '#FFFBF0'
+                    }
+                };
 
-                    // Récupérer le numéro du modèle à partir de l'URL
-                    const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?.[1] || '7';
-                    const storagePrefix = `model${modelNumber}-`;
+                // Récupérer le numéro du modèle à partir de l'URL
+                const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?. [1] || '7';
+                const storagePrefix = `model${modelNumber}-`;
 
-                    // Ajouter les écouteurs d'événements aux cartes de thème
-                    const themeCards = document.querySelectorAll('.theme-card');
-                    themeCards.forEach(card => {
-                        card.addEventListener('click', function () {
-                            // Retirer la classe active de toutes les cartes
-                            themeCards.forEach(c => c.classList.remove('active'));
+                // Ajouter les écouteurs d'événements aux cartes de thème
+                const themeCards = document.querySelectorAll('.theme-card');
+                themeCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        // Retirer la classe active de toutes les cartes
+                        themeCards.forEach(c => c.classList.remove('active'));
 
-                            // Ajouter la classe active à la carte cliquée
-                            this.classList.add('active');
+                        // Ajouter la classe active à la carte cliquée
+                        this.classList.add('active');
 
-                            // Appliquer le thème
-                            const themeName = this.getAttribute('data-theme');
-                            applyTheme(themes[themeName]);
-                        });
+                        // Appliquer le thème
+                        const themeName = this.getAttribute('data-theme');
+                        applyTheme(themes[themeName]);
                     });
-
-                    // Fonction pour appliquer un thème
-                    function applyTheme(theme) {
-                        // Appliquer les couleurs CSS
-                        document.documentElement.style.setProperty('--font-color_titre', theme.fontColorTitre);
-                        document.documentElement.style.setProperty('--texte-color_titre', theme.texteColorTitre);
-                        document.documentElement.style.setProperty('--font-color_section', theme.fontColorSection);
-                        document.documentElement.style.setProperty('--texte-color_section', theme
-                            .texteColorSection);
-
-                        // Appliquer aussi aux variables du modèle 7
-                        document.documentElement.style.setProperty('--font-color7', theme.fontColorSection);
-                        document.documentElement.style.setProperty('--text-color7', theme.texteColorSection);
-
-                        // Mettre à jour les valeurs des inputs de couleur (si existants)
-                        if (document.getElementById('fontColor')) {
-                            document.getElementById('fontColor').value = theme.fontColorTitre;
-                        }
-                        if (document.getElementById('fontColor1')) {
-                            document.getElementById('fontColor1').value = theme.texteColorTitre;
-                        }
-                        if (document.getElementById('fontColor2')) {
-                            document.getElementById('fontColor2').value = theme.fontColorSection;
-                            // Mettre à jour la prévisualisation
-                            if (document.getElementById('color-preview2')) {
-                                document.getElementById('color-preview2').style.backgroundColor = theme
-                                    .fontColorSection;
-                            }
-                        }
-                        if (document.getElementById('fontColor3')) {
-                            document.getElementById('fontColor3').value = theme.texteColorSection;
-                            // Mettre à jour la prévisualisation
-                            if (document.getElementById('color-preview3')) {
-                                const preview = document.getElementById('color-preview3').querySelector('span');
-                                if (preview) {
-                                    preview.style.color = theme.texteColorSection;
-                                }
-                            }
-                        }
-
-                        // Sauvegarder dans localStorage avec préfixe spécifique au modèle
-                        localStorage.setItem(`${storagePrefix}font_color_titre`, theme.fontColorTitre);
-                        localStorage.setItem(`${storagePrefix}texte_color_titre`, theme.texteColorTitre);
-                        localStorage.setItem(`${storagePrefix}font_color_section`, theme.fontColorSection);
-                        localStorage.setItem(`${storagePrefix}texte_color_section`, theme.texteColorSection);
-                    }
-
-                    // Vérifier s'il y a un thème sauvegardé et l'appliquer
-                    const savedTheme = {
-                        fontColorTitre: localStorage.getItem(`${storagePrefix}font_color_titre`),
-                        texteColorTitre: localStorage.getItem(`${storagePrefix}texte_color_titre`),
-                        fontColorSection: localStorage.getItem(`${storagePrefix}font_color_section`),
-                        texteColorSection: localStorage.getItem(`${storagePrefix}texte_color_section`)
-                    };
-
-                    if (savedTheme.fontColorTitre) {
-                        // Appliquer le thème sauvegardé
-                        document.documentElement.style.setProperty('--font-color_titre', savedTheme.fontColorTitre);
-                        document.documentElement.style.setProperty('--texte-color_titre', savedTheme
-                            .texteColorTitre);
-                        document.documentElement.style.setProperty('--font-color_section', savedTheme
-                            .fontColorSection);
-                        document.documentElement.style.setProperty('--texte-color_section', savedTheme
-                            .texteColorSection);
-
-                        // Appliquer aussi aux variables du modèle 7
-                        document.documentElement.style.setProperty('--font-color7', savedTheme.fontColorSection);
-                        document.documentElement.style.setProperty('--text-color7', savedTheme.texteColorSection);
-
-                        // Mettre à jour les valeurs des inputs (si existants)
-                        if (document.getElementById('fontColor')) {
-                            document.getElementById('fontColor').value = savedTheme.fontColorTitre;
-                        }
-                        if (document.getElementById('fontColor1')) {
-                            document.getElementById('fontColor1').value = savedTheme.texteColorTitre;
-                        }
-                        if (document.getElementById('fontColor2')) {
-                            document.getElementById('fontColor2').value = savedTheme.fontColorSection;
-                            // Mettre à jour la prévisualisation
-                            if (document.getElementById('color-preview2')) {
-                                document.getElementById('color-preview2').style.backgroundColor = savedTheme
-                                    .fontColorSection;
-                            }
-                        }
-                        if (document.getElementById('fontColor3')) {
-                            document.getElementById('fontColor3').value = savedTheme.texteColorSection;
-                            // Mettre à jour la prévisualisation
-                            if (document.getElementById('color-preview3')) {
-                                const preview = document.getElementById('color-preview3').querySelector('span');
-                                if (preview) {
-                                    preview.style.color = savedTheme.texteColorSection;
-                                }
-                            }
-                        }
-
-                        // Retrouver quel thème correspond aux couleurs sauvegardées
-                        for (const [themeName, theme] of Object.entries(themes)) {
-                            if (theme.fontColorTitre === savedTheme.fontColorTitre &&
-                                theme.texteColorTitre === savedTheme.texteColorTitre) {
-                                // Marquer le thème comme actif
-                                const themeCard = document.querySelector(`.theme-card[data-theme="${themeName}"]`);
-                                if (themeCard) themeCard.classList.add('active');
-                                break;
-                            }
-                        }
-                    }
                 });
+
+                // Fonction pour appliquer un thème
+                function applyTheme(theme) {
+                    // Appliquer les couleurs CSS
+                    document.documentElement.style.setProperty('--font-color_titre', theme.fontColorTitre);
+                    document.documentElement.style.setProperty('--texte-color_titre', theme.texteColorTitre);
+                    document.documentElement.style.setProperty('--font-color_section', theme.fontColorSection);
+                    document.documentElement.style.setProperty('--texte-color_section', theme
+                        .texteColorSection);
+
+                    // Appliquer aussi aux variables du modèle 7
+                    document.documentElement.style.setProperty('--font-color7', theme.fontColorSection);
+                    document.documentElement.style.setProperty('--text-color7', theme.texteColorSection);
+
+                    // Mettre à jour les valeurs des inputs de couleur (si existants)
+                    if (document.getElementById('fontColor')) {
+                        document.getElementById('fontColor').value = theme.fontColorTitre;
+                    }
+                    if (document.getElementById('fontColor1')) {
+                        document.getElementById('fontColor1').value = theme.texteColorTitre;
+                    }
+                    if (document.getElementById('fontColor2')) {
+                        document.getElementById('fontColor2').value = theme.fontColorSection;
+                        // Mettre à jour la prévisualisation
+                        if (document.getElementById('color-preview2')) {
+                            document.getElementById('color-preview2').style.backgroundColor = theme
+                                .fontColorSection;
+                        }
+                    }
+                    if (document.getElementById('fontColor3')) {
+                        document.getElementById('fontColor3').value = theme.texteColorSection;
+                        // Mettre à jour la prévisualisation
+                        if (document.getElementById('color-preview3')) {
+                            const preview = document.getElementById('color-preview3').querySelector('span');
+                            if (preview) {
+                                preview.style.color = theme.texteColorSection;
+                            }
+                        }
+                    }
+
+                    // Sauvegarder dans localStorage avec préfixe spécifique au modèle
+                    localStorage.setItem(`${storagePrefix}font_color_titre`, theme.fontColorTitre);
+                    localStorage.setItem(`${storagePrefix}texte_color_titre`, theme.texteColorTitre);
+                    localStorage.setItem(`${storagePrefix}font_color_section`, theme.fontColorSection);
+                    localStorage.setItem(`${storagePrefix}texte_color_section`, theme.texteColorSection);
+                }
+
+                // Vérifier s'il y a un thème sauvegardé et l'appliquer
+                const savedTheme = {
+                    fontColorTitre: localStorage.getItem(`${storagePrefix}font_color_titre`),
+                    texteColorTitre: localStorage.getItem(`${storagePrefix}texte_color_titre`),
+                    fontColorSection: localStorage.getItem(`${storagePrefix}font_color_section`),
+                    texteColorSection: localStorage.getItem(`${storagePrefix}texte_color_section`)
+                };
+
+                if (savedTheme.fontColorTitre) {
+                    // Appliquer le thème sauvegardé
+                    document.documentElement.style.setProperty('--font-color_titre', savedTheme.fontColorTitre);
+                    document.documentElement.style.setProperty('--texte-color_titre', savedTheme
+                        .texteColorTitre);
+                    document.documentElement.style.setProperty('--font-color_section', savedTheme
+                        .fontColorSection);
+                    document.documentElement.style.setProperty('--texte-color_section', savedTheme
+                        .texteColorSection);
+
+                    // Appliquer aussi aux variables du modèle 7
+                    document.documentElement.style.setProperty('--font-color7', savedTheme.fontColorSection);
+                    document.documentElement.style.setProperty('--text-color7', savedTheme.texteColorSection);
+
+                    // Mettre à jour les valeurs des inputs (si existants)
+                    if (document.getElementById('fontColor')) {
+                        document.getElementById('fontColor').value = savedTheme.fontColorTitre;
+                    }
+                    if (document.getElementById('fontColor1')) {
+                        document.getElementById('fontColor1').value = savedTheme.texteColorTitre;
+                    }
+                    if (document.getElementById('fontColor2')) {
+                        document.getElementById('fontColor2').value = savedTheme.fontColorSection;
+                        // Mettre à jour la prévisualisation
+                        if (document.getElementById('color-preview2')) {
+                            document.getElementById('color-preview2').style.backgroundColor = savedTheme
+                                .fontColorSection;
+                        }
+                    }
+                    if (document.getElementById('fontColor3')) {
+                        document.getElementById('fontColor3').value = savedTheme.texteColorSection;
+                        // Mettre à jour la prévisualisation
+                        if (document.getElementById('color-preview3')) {
+                            const preview = document.getElementById('color-preview3').querySelector('span');
+                            if (preview) {
+                                preview.style.color = savedTheme.texteColorSection;
+                            }
+                        }
+                    }
+
+                    // Retrouver quel thème correspond aux couleurs sauvegardées
+                    for (const [themeName, theme] of Object.entries(themes)) {
+                        if (theme.fontColorTitre === savedTheme.fontColorTitre &&
+                            theme.texteColorTitre === savedTheme.texteColorTitre) {
+                            // Marquer le thème comme actif
+                            const themeCard = document.querySelector(`.theme-card[data-theme="${themeName}"]`);
+                            if (themeCard) themeCard.classList.add('active');
+                            break;
+                        }
+                    }
+                }
+            });
             </script>
 
             <div class="box">
@@ -585,11 +735,11 @@ if (isset($_SESSION['users_id'])) {
                         <section class="about">
                             <h3><img src="../image/a propos.png" alt=""> À PROPOS DE MOI</h3>
                             <?php if (empty($descriptions)): ?>
-                                <p>Aucune donnée trouvée</p>
+                            <p>Aucune donnée trouvée</p>
                             <?php else: ?>
-                                <p class="p">
-                                    <?= $descriptions['description'] ?>
-                                </p>
+                            <p class="p">
+                                <?= $descriptions['description'] ?>
+                            </p>
                             <?php endif; ?>
                             <ul class="contact-info">
                                 <li><img src="../image/phone.png" alt="phone"> <?= $userss['phone'] ?></li>
@@ -602,9 +752,9 @@ if (isset($_SESSION['users_id'])) {
                             <h3><img src="../image/etude.png" alt=""> FORMATION</h3>
                             <ul>
                                 <?php if (empty($formationUsers)): ?>
-                                    <h4>Aucune donnée trouvée</h4>
+                                <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
-                                    <?php
+                                <?php
                                     // Séparer les formations en deux groupes : mises en avant et non mises en avant
                                     $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
                                         return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
@@ -625,16 +775,16 @@ if (isset($_SESSION['users_id'])) {
                                         array_slice($formations_non_mises_en_avant, 0, max(0, $nombre_formation - count($formations_mises_en_avant)))
                                     );
                                     ?>
-                                    <?php foreach ($formations_a_afficher as $formation): ?>
-                                        <li>
-                                            <span class="date"><?= $formation['moisDebut'] ?> /
-                                                <?= $formation['anneeDebut'] ?> , <?= $formation['moisFin'] ?> /
-                                                <?= $formation['anneeFin'] ?></span>
-                                            <span><?= $formation['Filiere'] ?></span>
-                                            <span><?= $formation['etablissement'] ?></span>
-                                            <strong><?= $formation['niveau'] ?></strong>
-                                        </li>
-                                    <?php endforeach; ?>
+                                <?php foreach ($formations_a_afficher as $formation): ?>
+                                <li>
+                                    <span class="date"><?= $formation['moisDebut'] ?> /
+                                        <?= $formation['anneeDebut'] ?> , <?= $formation['moisFin'] ?> /
+                                        <?= $formation['anneeFin'] ?></span>
+                                    <span><?= $formation['Filiere'] ?></span>
+                                    <span><?= $formation['etablissement'] ?></span>
+                                    <strong><?= $formation['niveau'] ?></strong>
+                                </li>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
                             </ul>
                         </section>
@@ -644,9 +794,9 @@ if (isset($_SESSION['users_id'])) {
                                 <div>
                                     <ul>
                                         <?php if (empty($competencesUtilisateur)): ?>
-                                            <h4>Aucune donnée trouvée</h4>
+                                        <h4>Aucune donnée trouvée</h4>
                                         <?php else: ?>
-                                            <?php
+                                        <?php
                                             // Séparer les compétences en deux groupes
                                             $competences_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
                                                 return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
@@ -668,8 +818,8 @@ if (isset($_SESSION['users_id'])) {
                                             );
 
                                             foreach ($competences_a_afficher as $competence): ?>
-                                                <li><?php echo $competence['competence']; ?></li>
-                                            <?php endforeach; ?>
+                                        <li><?php echo $competence['competence']; ?></li>
+                                        <?php endforeach; ?>
                                         <?php endif; ?>
                                     </ul>
                                 </div>
@@ -681,9 +831,9 @@ if (isset($_SESSION['users_id'])) {
                             <h3><img src="../image/experience.png" alt=""> EXPÉRIENCE</h3>
                             <ul>
                                 <?php if (empty($afficheMetier)): ?>
-                                    <h4>Aucune donnée trouvée</h4>
+                                <h4>Aucune donnée trouvée</h4>
                                 <?php else: ?>
-                                    <?php
+                                <?php
                                     // Séparer les expériences en deux groupes
                                     $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
                                         return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
@@ -704,15 +854,15 @@ if (isset($_SESSION['users_id'])) {
                                         array_slice($experiences_non_mises_en_avant, 0, max(0, $nombre_metier - count($experiences_mises_en_avant)))
                                     );
                                     ?>
-                                    <?php foreach ($experiences_a_afficher as $Metiers): ?>
-                                        <li>
-                                            <span class="date1"><?= $Metiers['moisDebut'] ?> /
-                                                <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
-                                                <?= $Metiers['anneeFin'] ?></span>
-                                            <span><?= $Metiers['metier'] ?></span>
-                                            <p><?= $Metiers['description'] ?></p>
-                                        </li>
-                                    <?php endforeach; ?>
+                                <?php foreach ($experiences_a_afficher as $Metiers): ?>
+                                <li>
+                                    <span class="date1"><?= $Metiers['moisDebut'] ?> /
+                                        <?= $Metiers['anneeDebut'] ?> , <?= $Metiers['moisFin'] ?> /
+                                        <?= $Metiers['anneeFin'] ?></span>
+                                    <span><?= $Metiers['metier'] ?></span>
+                                    <p><?= $Metiers['description'] ?></p>
+                                </li>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
                             </ul>
                         </section>
@@ -723,9 +873,9 @@ if (isset($_SESSION['users_id'])) {
                                 <div>
                                     <ul>
                                         <?php if (empty($afficheOutil)): ?>
-                                            <h4>Aucune donnée trouvée</h4>
+                                        <h4>Aucune donnée trouvée</h4>
                                         <?php else: ?>
-                                            <?php
+                                        <?php
                                             // Séparer les outils en deux groupes
                                             $outils_mis_en_avant = array_filter($afficheOutil, function ($outil) {
                                                 return isset($outil['mis_en_avant']) && $outil['mis_en_avant'] == 1;
@@ -747,8 +897,8 @@ if (isset($_SESSION['users_id'])) {
                                             );
 
                                             foreach ($outils_a_afficher as $outils): ?>
-                                                <li><?= $outils['outil'] ?></li>
-                                            <?php endforeach; ?>
+                                        <li><?= $outils['outil'] ?></li>
+                                        <?php endforeach; ?>
                                         <?php endif; ?>
                                     </ul>
                                 </div>
@@ -763,49 +913,49 @@ if (isset($_SESSION['users_id'])) {
     </section>
 
     <script>
-        // Récupérer le numéro du modèle à partir de l'URL
-        const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?.[1] || '7';
-        const storagePrefix = `model${modelNumber}-`;
+    // Récupérer le numéro du modèle à partir de l'URL
+    const modelNumber = window.location.pathname.match(/model(\d+)\.php/i)?. [1] || '7';
+    const storagePrefix = `model${modelNumber}-`;
 
-        // Sélecteurs d'éléments
-        const colorInput2 = document.getElementById('fontColor2');
-        const colorPreview2 = document.getElementById('color-preview2');
-        const colorInput3 = document.getElementById('fontColor3');
-        const colorPreview3 = document.getElementById('color-preview3');
+    // Sélecteurs d'éléments
+    const colorInput2 = document.getElementById('fontColor2');
+    const colorPreview2 = document.getElementById('color-preview2');
+    const colorInput3 = document.getElementById('fontColor3');
+    const colorPreview3 = document.getElementById('color-preview3');
 
-        // Récupération des couleurs sauvegardées
-        const fontColor = localStorage.getItem(`${storagePrefix}font_color_section`) || '#c0faf9';
-        const textColor = localStorage.getItem(`${storagePrefix}texte_color_section`) || '#000000';
+    // Récupération des couleurs sauvegardées
+    const fontColor = localStorage.getItem(`${storagePrefix}font_color_section`) || '#c0faf9';
+    const textColor = localStorage.getItem(`${storagePrefix}texte_color_section`) || '#000000';
 
-        // Appliquer les couleurs
-        document.documentElement.style.setProperty('--font-color7', fontColor);
-        document.documentElement.style.setProperty('--text-color7', textColor);
+    // Appliquer les couleurs
+    document.documentElement.style.setProperty('--font-color7', fontColor);
+    document.documentElement.style.setProperty('--text-color7', textColor);
 
-        // Initialiser les valeurs des inputs et prévisualisations
-        colorInput2.value = fontColor;
-        colorPreview2.style.backgroundColor = fontColor;
-        colorInput3.value = textColor;
+    // Initialiser les valeurs des inputs et prévisualisations
+    colorInput2.value = fontColor;
+    colorPreview2.style.backgroundColor = fontColor;
+    colorInput3.value = textColor;
+    if (colorPreview3.querySelector('span')) {
+        colorPreview3.querySelector('span').style.color = textColor;
+    }
+
+    // Événement pour la couleur de fond
+    colorInput2.addEventListener('input', function() {
+        const selectedColor = this.value;
+        document.documentElement.style.setProperty('--font-color7', selectedColor);
+        colorPreview2.style.backgroundColor = selectedColor;
+        localStorage.setItem(`${storagePrefix}font_color_section`, selectedColor);
+    });
+
+    // Événement pour la couleur de texte
+    colorInput3.addEventListener('input', function() {
+        const selectedColor = this.value;
+        document.documentElement.style.setProperty('--text-color7', selectedColor);
         if (colorPreview3.querySelector('span')) {
-            colorPreview3.querySelector('span').style.color = textColor;
+            colorPreview3.querySelector('span').style.color = selectedColor;
         }
-
-        // Événement pour la couleur de fond
-        colorInput2.addEventListener('input', function () {
-            const selectedColor = this.value;
-            document.documentElement.style.setProperty('--font-color7', selectedColor);
-            colorPreview2.style.backgroundColor = selectedColor;
-            localStorage.setItem(`${storagePrefix}font_color_section`, selectedColor);
-        });
-
-        // Événement pour la couleur de texte
-        colorInput3.addEventListener('input', function () {
-            const selectedColor = this.value;
-            document.documentElement.style.setProperty('--text-color7', selectedColor);
-            if (colorPreview3.querySelector('span')) {
-                colorPreview3.querySelector('span').style.color = selectedColor;
-            }
-            localStorage.setItem(`${storagePrefix}texte_color_section`, selectedColor);
-        });
+        localStorage.setItem(`${storagePrefix}texte_color_section`, selectedColor);
+    });
     </script>
 
 </body>

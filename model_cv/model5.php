@@ -103,7 +103,7 @@ if (isset($_SESSION['users_id'])) {
             </ul>
             <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité !
             </p>
-            <button class="close-info"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close-info-btn">&times;</button>
         </div>
     </div>
 
@@ -115,72 +115,12 @@ if (isset($_SESSION['users_id'])) {
             z-index: 1000;
             max-width: 400px;
             background: rgba(255, 255, 255, 0.98);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #2196F3;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        .info-content {
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             padding: 20px;
-            position: relative;
-        }
-
-        .info-bubble i.fa-circle-info {
-            color: #2196F3;
-            font-size: 24px;
-            margin-right: 10px;
-        }
-
-        .info-bubble h3 {
-            color: #333;
-            margin: 0 0 15px;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-        }
-
-        .info-bubble ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        .info-bubble li {
-            margin: 8px 0;
-            color: #555;
-        }
-
-        .info-bubble .highlight {
-            background: #E3F2FD;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 15px;
-            color: #1976D2;
-            font-weight: 500;
-        }
-
-        .close-info {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #2196F3;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 8px;
-            font-size: 18px;
-            transition: all 0.3s;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-info:hover {
-            background: #1976D2;
-            transform: scale(1.1);
+            font-family: 'Poppins', sans-serif;
+            border-left: 5px solid #0089be;
+            animation: slideIn 0.5s ease-out;
         }
 
         @keyframes slideIn {
@@ -195,46 +135,151 @@ if (isset($_SESSION['users_id'])) {
             }
         }
 
-        @media (max-width: 768px) {
+        .info-content {
+            position: relative;
+        }
+
+        .info-bubble .fa-circle-info {
+            color: #0089be;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-bubble p {
+            color: #34495e;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .info-bubble li {
+            color: #34495e;
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .info-bubble li:before {
+            content: "•";
+            color: #0089be;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        .info-bubble .highlight {
+            background: #f0f9ff;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #0089be;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .close-info-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #fff;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .close-info-btn:hover {
+            background: #f1f1f1;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
             .info-bubble {
-                top: 60px;
+                top: auto;
+                bottom: 20px;
                 right: 10px;
                 left: 10px;
                 max-width: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .info-bubble {
-                top: 50px;
-            }
-
-            .info-content {
-                padding: 15px;
+                margin: 0 auto;
+                font-size: 14px;
             }
 
             .info-bubble h3 {
                 font-size: 16px;
             }
 
+            .info-bubble p,
             .info-bubble li {
-                font-size: 14px;
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .info-bubble {
+                padding: 15px;
+            }
+
+            .info-bubble h3 {
+                font-size: 15px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 12px;
             }
         }
     </style>
 
     <script>
+        // Script pour la bulle d'information
         document.addEventListener('DOMContentLoaded', function () {
-            const closeBtn = document.querySelector('.close-info');
+            const closeInfoBtn = document.querySelector('.close-info-btn');
             const infoBubble = document.querySelector('.info-bubble');
 
-            if (closeBtn && infoBubble) {
-                closeBtn.addEventListener('click', function () {
+            if (closeInfoBtn && infoBubble) {
+                closeInfoBtn.addEventListener('click', function () {
                     infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
                     setTimeout(() => {
                         infoBubble.style.display = 'none';
                     }, 500);
                 });
+
+                // Ajouter l'animation de sortie
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
             }
         });
     </script>

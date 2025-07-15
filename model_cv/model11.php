@@ -86,112 +86,183 @@ if (isset($_SESSION['users_id'])) {
             </ul>
             <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité.
             </p>
-            <button class="close-info"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close-info-btn">&times;</button>
         </div>
     </div>
 
     <style>
         .info-bubble {
             position: fixed;
-            top: 20px;
+            top: 80px;
             right: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             max-width: 400px;
-            opacity: 1;
-            transition: all 0.3s ease;
-            border: 2px solid #e0e0e0;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            border-left: 5px solid #0089be;
+            animation: slideIn 0.5s ease-out;
         }
 
-        .info-bubble.hidden {
-            opacity: 0;
-            transform: translateY(-20px);
-            pointer-events: none;
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .info-content {
-            padding: 20px;
             position: relative;
         }
 
-        .info-content i.fa-circle-info {
-            color: #2196F3;
+        .info-bubble .fa-circle-info {
+            color: #0089be;
             font-size: 24px;
             margin-bottom: 10px;
         }
 
-        .info-content h3 {
-            margin: 10px 0;
-            color: #333;
+        .info-bubble h3 {
+            color: #2c3e50;
             font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .info-content p {
-            margin: 10px 0;
-            color: #666;
+        .info-bubble p {
+            color: #34495e;
+            font-size: 14px;
             line-height: 1.5;
+            margin-bottom: 10px;
         }
 
-        .info-content ul {
-            margin: 15px 0;
+        .info-bubble ul {
             padding-left: 20px;
+            margin: 10px 0;
         }
 
-        .info-content li {
-            margin: 8px 0;
-            color: #666;
+        .info-bubble li {
+            color: #34495e;
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
         }
 
-        .info-content .highlight {
-            color: #2196F3;
+        .info-bubble li:before {
+            content: "•";
+            color: #0089be;
             font-weight: bold;
+            position: absolute;
+            left: -15px;
         }
 
-        .close-info {
+        .info-bubble .highlight {
+            background: #f0f9ff;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #0089be;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .close-info-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #2196F3;
+            top: -10px;
+            right: -10px;
+            background: #fff;
             border: none;
-            color: white;
-            cursor: pointer;
-            padding: 8px;
-            font-size: 18px;
-            transition: all 0.3s;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 18px;
+            color: #666;
+            transition: all 0.3s ease;
         }
 
-        .close-info:hover {
-            background: #1976D2;
+        .close-info-btn:hover {
+            background: #f1f1f1;
             transform: scale(1.1);
         }
 
-        @media (max-width: 768px) {
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
             .info-bubble {
-                top: 10px;
+                top: auto;
+                bottom: 20px;
                 right: 10px;
                 left: 10px;
                 max-width: none;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+            .info-bubble h3 {
+                font-size: 16px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .info-bubble {
+                padding: 15px;
+            }
+
+            .info-bubble h3 {
+                font-size: 15px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 12px;
             }
         }
     </style>
 
     <script>
+        // Script pour la bulle d'information
         document.addEventListener('DOMContentLoaded', function () {
-            const closeBtn = document.querySelector('.close-info');
+            const closeInfoBtn = document.querySelector('.close-info-btn');
             const infoBubble = document.querySelector('.info-bubble');
 
-            if (closeBtn && infoBubble) {
-                closeBtn.addEventListener('click', function () {
-                    infoBubble.classList.add('hidden');
+            if (closeInfoBtn && infoBubble) {
+                closeInfoBtn.addEventListener('click', function () {
+                    infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
+                    setTimeout(() => {
+                        infoBubble.style.display = 'none';
+                    }, 500);
                 });
+
+                // Ajouter l'animation de sortie
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
             }
         });
     </script>
@@ -600,10 +671,10 @@ if (isset($_SESSION['users_id'])) {
                     <!-- Profil -->
                     <div class="section">
                         <h2><i class="fas fa-user"></i> Profil</h2>
-                        <?php if (isset($descriptions)): ?>
-                            <p class="texte"><?= $descriptions['description'] ?></p>
-                        <?php else: ?>
+                        <?php if (empty($descriptions)): ?>
                             <p class="texte">Aucune description trouvée</p>
+                        <?php else: ?>
+                            <p class="texte"><?= $descriptions['description'] ?></p>
                         <?php endif; ?>
 
                     </div>
@@ -815,10 +886,10 @@ if (isset($_SESSION['users_id'])) {
                         <!-- Profil -->
                         <div class="section">
                             <h2><i class="fas fa-user"></i> Profil</h2>
-                            <?php if (isset($descriptions)): ?>
-                                <p class="texte"><?= $descriptions['description'] ?></p>
-                            <?php else: ?>
+                            <?php if (empty($descriptions)): ?>
                                 <p class="texte">Aucune description trouvée</p>
+                            <?php else: ?>
+                                <p class="texte"><?= $descriptions['description'] ?></p>
                             <?php endif; ?>
 
                         </div>

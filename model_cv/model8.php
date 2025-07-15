@@ -92,81 +92,24 @@ if (isset($_SESSION['users_id'])) {
             </ul>
             <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité.
             </p>
-            <button class="close-info">&times;</button>
+            <button class="close-info-btn">&times;</button>
         </div>
     </div>
 
     <style>
         .info-bubble {
             position: fixed;
-            top: 20px;
+            top: 80px;
             right: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             max-width: 400px;
-            animation: slideIn 0.5s ease-out forwards;
-        }
-
-        .info-content {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             padding: 20px;
-            position: relative;
-        }
-
-        .info-content i {
-            color: #2196F3;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .info-content h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        .info-content ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-
-        .info-content li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        .highlight {
-            background: #e3f2fd;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 15px;
-            color: #1976D2;
-            font-weight: 500;
-        }
-
-        .close-info {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #2196F3;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 8px;
-            font-size: 18px;
-            transition: all 0.3s;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-info:hover {
-            background: #1976D2;
-            transform: scale(1.1);
+            font-family: 'Poppins', sans-serif;
+            border-left: 5px solid #0089be;
+            animation: slideIn 0.5s ease-out;
         }
 
         @keyframes slideIn {
@@ -181,43 +124,154 @@ if (isset($_SESSION['users_id'])) {
             }
         }
 
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
+        .info-content {
+            position: relative;
         }
 
-        @media (max-width: 480px) {
+        .info-bubble .fa-circle-info {
+            color: #0089be;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-bubble p {
+            color: #34495e;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .info-bubble ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .info-bubble li {
+            color: #34495e;
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .info-bubble li:before {
+            content: "•";
+            color: #0089be;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        .info-bubble .highlight {
+            background: #f0f9ff;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #0089be;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .close-info-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #fff;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .close-info-btn:hover {
+            background: #f1f1f1;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
             .info-bubble {
-                top: 10px;
+                top: auto;
+                bottom: 20px;
                 right: 10px;
                 left: 10px;
                 max-width: none;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+            .info-bubble h3 {
+                font-size: 16px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .info-bubble {
+                padding: 15px;
+            }
+
+            .info-bubble h3 {
+                font-size: 15px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 12px;
             }
         }
     </style>
 
     <script>
+        // Script pour la bulle d'information
         document.addEventListener('DOMContentLoaded', function () {
-            const closeBtn = document.querySelector('.close-info');
+            const closeInfoBtn = document.querySelector('.close-info-btn');
             const infoBubble = document.querySelector('.info-bubble');
 
-            if (closeBtn && infoBubble) {
-                closeBtn.addEventListener('click', function () {
+            if (closeInfoBtn && infoBubble) {
+                closeInfoBtn.addEventListener('click', function () {
                     infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
                     setTimeout(() => {
                         infoBubble.style.display = 'none';
                     }, 500);
                 });
+
+                // Ajouter l'animation de sortie
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
             }
         });
-    </script>
+    </script>s
 
     <!-- Bouton de téléchargement fixe toujours visible -->
     <button id="fixed-download-btn" class="fixed-download-button" onclick="generatePDF()">
@@ -257,7 +311,9 @@ if (isset($_SESSION['users_id'])) {
                     document.head.appendChild(style);
                     document.body.appendChild(loadingMessage);
 
-                    const { jsPDF } = window.jspdf;
+                    const {
+                        jsPDF
+                    } = window.jspdf;
                     const element = document.querySelector("#container-for-pdf");
 
                     // Optimisations légères pour une meilleure qualité
@@ -518,17 +574,83 @@ if (isset($_SESSION['users_id'])) {
                     const modelNumber = '8';
                     const storagePrefix = `model${modelNumber}-`;
                     const themes = {
-                        'default': { bgLeft: '#e3f1e2', textLeft: '#333333', accent: '#388e3c', border: '#dddddd', textLight: '#6c757d' },
-                        'midnight_blue': { bgLeft: '#003366', textLeft: '#FFFFFF', accent: '#4a90e2', border: '#5c7a99', textLight: '#7F8C8D' },
-                        'slate_grey': { bgLeft: '#464E59', textLeft: '#F5F7FA', accent: '#778899', border: '#79818A', textLight: '#95A5A6' },
-                        'burgundy': { bgLeft: '#6D214F', textLeft: '#F5F7FA', accent: '#B33771', border: '#8c4369', textLight: '#95A5A6' },
-                        'forest_green': { bgLeft: '#194D33', textLeft: '#F5F7FA', accent: '#27AE60', border: '#2e694a', textLight: '#95A5A6' },
-                        'professional_navy': { bgLeft: '#2c3e50', textLeft: '#ecf0f1', accent: '#3498db', border: '#5d6d7e', textLight: '#95A5A6' },
-                        'teal_grey': { bgLeft: '#F4F4F4', textLeft: '#333333', accent: '#008080', border: '#D3D3D3', textLight: '#696969' },
-                        'crimson_gold': { bgLeft: '#FFF8DC', textLeft: '#5d4037', accent: '#DC143C', border: '#F0E68C', textLight: '#b8860b' },
-                        'oceanic_deep': { bgLeft: '#F0F8FF', textLeft: '#000080', accent: '#1E90FF', border: '#ADD8E6', textLight: '#4682B4' },
-                        'modern_graphite': { bgLeft: '#36454F', textLeft: '#FFFFFF', accent: '#FF7F50', border: '#708090', textLight: '#A9A9A9' },
-                        'earthy_olive': { bgLeft: '#F5F5DC', textLeft: '#556B2F', accent: '#808000', border: '#BDB76B', textLight: '#6B8E23' }
+                        'default': {
+                            bgLeft: '#e3f1e2',
+                            textLeft: '#333333',
+                            accent: '#388e3c',
+                            border: '#dddddd',
+                            textLight: '#6c757d'
+                        },
+                        'midnight_blue': {
+                            bgLeft: '#003366',
+                            textLeft: '#FFFFFF',
+                            accent: '#4a90e2',
+                            border: '#5c7a99',
+                            textLight: '#7F8C8D'
+                        },
+                        'slate_grey': {
+                            bgLeft: '#464E59',
+                            textLeft: '#F5F7FA',
+                            accent: '#778899',
+                            border: '#79818A',
+                            textLight: '#95A5A6'
+                        },
+                        'burgundy': {
+                            bgLeft: '#6D214F',
+                            textLeft: '#F5F7FA',
+                            accent: '#B33771',
+                            border: '#8c4369',
+                            textLight: '#95A5A6'
+                        },
+                        'forest_green': {
+                            bgLeft: '#194D33',
+                            textLeft: '#F5F7FA',
+                            accent: '#27AE60',
+                            border: '#2e694a',
+                            textLight: '#95A5A6'
+                        },
+                        'professional_navy': {
+                            bgLeft: '#2c3e50',
+                            textLeft: '#ecf0f1',
+                            accent: '#3498db',
+                            border: '#5d6d7e',
+                            textLight: '#95A5A6'
+                        },
+                        'teal_grey': {
+                            bgLeft: '#F4F4F4',
+                            textLeft: '#333333',
+                            accent: '#008080',
+                            border: '#D3D3D3',
+                            textLight: '#696969'
+                        },
+                        'crimson_gold': {
+                            bgLeft: '#FFF8DC',
+                            textLeft: '#5d4037',
+                            accent: '#DC143C',
+                            border: '#F0E68C',
+                            textLight: '#b8860b'
+                        },
+                        'oceanic_deep': {
+                            bgLeft: '#F0F8FF',
+                            textLeft: '#000080',
+                            accent: '#1E90FF',
+                            border: '#ADD8E6',
+                            textLight: '#4682B4'
+                        },
+                        'modern_graphite': {
+                            bgLeft: '#36454F',
+                            textLeft: '#FFFFFF',
+                            accent: '#FF7F50',
+                            border: '#708090',
+                            textLight: '#A9A9A9'
+                        },
+                        'earthy_olive': {
+                            bgLeft: '#F5F5DC',
+                            textLeft: '#556B2F',
+                            accent: '#808000',
+                            border: '#BDB76B',
+                            textLight: '#6B8E23'
+                        }
                     };
                     const defaultColors = themes.default;
 
@@ -598,7 +720,8 @@ if (isset($_SESSION['users_id'])) {
 
                     resetButton.addEventListener('click', () => {
                         applyColors(defaultColors);
-                        Object.keys(defaultColors).forEach(key => localStorage.removeItem(`${storagePrefix}${key}`));
+                        Object.keys(defaultColors).forEach(key => localStorage.removeItem(
+                            `${storagePrefix}${key}`));
                         localStorage.removeItem(`${storagePrefix}activeTheme`);
                         themeCards.forEach(c => c.classList.remove('active'));
                         document.querySelector('.theme-card[data-theme="default"]').classList.add('active');
@@ -608,7 +731,8 @@ if (isset($_SESSION['users_id'])) {
                         const activeTheme = localStorage.getItem(`${storagePrefix}activeTheme`);
                         if (activeTheme && themes[activeTheme] && activeTheme !== 'custom') {
                             applyColors(themes[activeTheme]);
-                            document.querySelector(`.theme-card[data-theme="${activeTheme}"]`).classList.add('active');
+                            document.querySelector(`.theme-card[data-theme="${activeTheme}"]`).classList.add(
+                                'active');
                         } else {
                             const savedColors = {
                                 bgLeft: localStorage.getItem(`${storagePrefix}bgLeft`),
@@ -1042,7 +1166,8 @@ if (isset($_SESSION['users_id'])) {
 
                 // Ferme le panneau si on clique en dehors
                 document.addEventListener('click', function (event) {
-                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !
+                        toggleBtn.contains(event.target)) {
                         customPanel.classList.remove('active');
                     }
                 });

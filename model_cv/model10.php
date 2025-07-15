@@ -91,112 +91,183 @@ if (isset($_SESSION['users_id'])) {
             </ul>
             <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité.
             </p>
-            <button class="close-info"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close-info-btn">&times;</button>
         </div>
     </div>
 
     <style>
         .info-bubble {
             position: fixed;
-            top: 20px;
+            top: 80px;
             right: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             max-width: 400px;
-            opacity: 1;
-            transition: all 0.3s ease;
-            border: 2px solid #e0e0e0;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            border-left: 5px solid #0089be;
+            animation: slideIn 0.5s ease-out;
         }
 
-        .info-bubble.hidden {
-            opacity: 0;
-            transform: translateY(-20px);
-            pointer-events: none;
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .info-content {
-            padding: 20px;
             position: relative;
         }
 
-        .info-content i.fa-circle-info {
-            color: #2196F3;
+        .info-bubble .fa-circle-info {
+            color: #0089be;
             font-size: 24px;
             margin-bottom: 10px;
         }
 
-        .info-content h3 {
-            margin: 10px 0;
-            color: #333;
+        .info-bubble h3 {
+            color: #2c3e50;
             font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .info-content p {
-            margin: 10px 0;
-            color: #666;
+        .info-bubble p {
+            color: #34495e;
+            font-size: 14px;
             line-height: 1.5;
+            margin-bottom: 10px;
         }
 
-        .info-content ul {
-            margin: 15px 0;
+        .info-bubble ul {
             padding-left: 20px;
+            margin: 10px 0;
         }
 
-        .info-content li {
-            margin: 8px 0;
-            color: #666;
+        .info-bubble li {
+            color: #34495e;
+            font-size: 14px;
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
         }
 
-        .info-content .highlight {
-            color: #2196F3;
+        .info-bubble li:before {
+            content: "•";
+            color: #0089be;
             font-weight: bold;
+            position: absolute;
+            left: -15px;
         }
 
-        .close-info {
+        .info-bubble .highlight {
+            background: #f0f9ff;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #0089be;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .close-info-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #2196F3;
+            top: -10px;
+            right: -10px;
+            background: #fff;
             border: none;
-            color: white;
-            cursor: pointer;
-            padding: 8px;
-            font-size: 18px;
-            transition: all 0.3s;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 18px;
+            color: #666;
+            transition: all 0.3s ease;
         }
 
-        .close-info:hover {
-            background: #1976D2;
+        .close-info-btn:hover {
+            background: #f1f1f1;
             transform: scale(1.1);
         }
 
-        @media (max-width: 768px) {
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
             .info-bubble {
-                top: 10px;
+                top: auto;
+                bottom: 20px;
                 right: 10px;
                 left: 10px;
                 max-width: none;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+            .info-bubble h3 {
+                font-size: 16px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .info-bubble {
+                padding: 15px;
+            }
+
+            .info-bubble h3 {
+                font-size: 15px;
+            }
+
+            .info-bubble p,
+            .info-bubble li {
+                font-size: 12px;
             }
         }
     </style>
 
     <script>
+        // Script pour la bulle d'information
         document.addEventListener('DOMContentLoaded', function () {
-            const closeBtn = document.querySelector('.close-info');
+            const closeInfoBtn = document.querySelector('.close-info-btn');
             const infoBubble = document.querySelector('.info-bubble');
 
-            if (closeBtn && infoBubble) {
-                closeBtn.addEventListener('click', function () {
-                    infoBubble.classList.add('hidden');
+            if (closeInfoBtn && infoBubble) {
+                closeInfoBtn.addEventListener('click', function () {
+                    infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
+                    setTimeout(() => {
+                        infoBubble.style.display = 'none';
+                    }, 500);
                 });
+
+                // Ajouter l'animation de sortie
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
             }
         });
     </script>
@@ -270,7 +341,9 @@ if (isset($_SESSION['users_id'])) {
 
                     // Précharger les polices puis générer le PDF
                     preloadFonts().then(() => {
-                        const { jsPDF } = window.jspdf;
+                        const {
+                            jsPDF
+                        } = window.jspdf;
                         const element = document.querySelector("#cv10-for-pdf");
 
                         // Synchroniser les styles essentiels
@@ -302,7 +375,8 @@ if (isset($_SESSION['users_id'])) {
                                 if (headingsPdf[index]) {
                                     const headingStyle = window.getComputedStyle(heading);
                                     headingsPdf[index].style.color = headingStyle.color;
-                                    headingsPdf[index].style.borderBottomColor = headingStyle.borderBottomColor;
+                                    headingsPdf[index].style.borderBottomColor = headingStyle
+                                        .borderBottomColor;
                                 }
                             });
                         }
@@ -1110,22 +1184,118 @@ if (isset($_SESSION['users_id'])) {
 
             // Définition des thèmes
             const themes = {
-                'classic': { headerBg: '#008080', sidebarBg: '#ebf5f7', mainBg: '#ffffff', textColor: '#333333', accentColor: '#333333' },
-                'professional': { headerBg: '#1D3557', sidebarBg: '#e3f0f7', mainBg: '#ffffff', textColor: '#1D3557', accentColor: '#1D3557' },
-                'corporate': { headerBg: '#1A237E', sidebarBg: '#e8eaf6', mainBg: '#ffffff', textColor: '#1A237E', accentColor: '#1A237E' },
-                'slate': { headerBg: '#2F4F4F', sidebarBg: '#e0e5e8', mainBg: '#ffffff', textColor: '#2F4F4F', accentColor: '#2F4F4F' },
-                'elegant': { headerBg: '#0E3B43', sidebarBg: '#e0f2f1', mainBg: '#ffffff', textColor: '#0E3B43', accentColor: '#0E3B43' },
-                'creative': { headerBg: '#845EC2', sidebarBg: '#f3e5f5', mainBg: '#ffffff', textColor: '#845EC2', accentColor: '#845EC2' },
-                'modern': { headerBg: '#3D5A80', sidebarBg: '#e0f7fa', mainBg: '#ffffff', textColor: '#3D5A80', accentColor: '#3D5A80' },
-                'mint': { headerBg: '#21897E', sidebarBg: '#e0f2f1', mainBg: '#ffffff', textColor: '#21897E', accentColor: '#21897E' },
-                'earthy': { headerBg: '#5F4B32', sidebarBg: '#efebe9', mainBg: '#ffffff', textColor: '#5F4B32', accentColor: '#5F4B32' },
-                'burgundy': { headerBg: '#800020', sidebarBg: '#f8eaed', mainBg: '#ffffff', textColor: '#800020', accentColor: '#800020' },
-                'amber': { headerBg: '#B86E00', sidebarBg: '#fff8e1', mainBg: '#ffffff', textColor: '#B86E00', accentColor: '#B86E00' },
-                'graphite-gold': { headerBg: '#2c3e50', sidebarBg: '#34495e', mainBg: '#ffffff', textColor: '#2c3e50', accentColor: '#f39c12' },
-                'forest-beige': { headerBg: '#285430', sidebarBg: '#F5F5DC', mainBg: '#ffffff', textColor: '#285430', accentColor: '#285430' },
-                'sapphire-silver': { headerBg: '#0f4c81', sidebarBg: '#ecf0f1', mainBg: '#ffffff', textColor: '#0f4c81', accentColor: '#0f4c81' },
-                'ruby-pearl': { headerBg: '#9B1B30', sidebarBg: '#FDEEF4', mainBg: '#ffffff', textColor: '#9B1B30', accentColor: '#9B1B30' },
-                'mocha-latte': { headerBg: '#6f4e37', sidebarBg: '#f3e9e4', mainBg: '#ffffff', textColor: '#6f4e37', accentColor: '#6f4e37' }
+                'classic': {
+                    headerBg: '#008080',
+                    sidebarBg: '#ebf5f7',
+                    mainBg: '#ffffff',
+                    textColor: '#333333',
+                    accentColor: '#333333'
+                },
+                'professional': {
+                    headerBg: '#1D3557',
+                    sidebarBg: '#e3f0f7',
+                    mainBg: '#ffffff',
+                    textColor: '#1D3557',
+                    accentColor: '#1D3557'
+                },
+                'corporate': {
+                    headerBg: '#1A237E',
+                    sidebarBg: '#e8eaf6',
+                    mainBg: '#ffffff',
+                    textColor: '#1A237E',
+                    accentColor: '#1A237E'
+                },
+                'slate': {
+                    headerBg: '#2F4F4F',
+                    sidebarBg: '#e0e5e8',
+                    mainBg: '#ffffff',
+                    textColor: '#2F4F4F',
+                    accentColor: '#2F4F4F'
+                },
+                'elegant': {
+                    headerBg: '#0E3B43',
+                    sidebarBg: '#e0f2f1',
+                    mainBg: '#ffffff',
+                    textColor: '#0E3B43',
+                    accentColor: '#0E3B43'
+                },
+                'creative': {
+                    headerBg: '#845EC2',
+                    sidebarBg: '#f3e5f5',
+                    mainBg: '#ffffff',
+                    textColor: '#845EC2',
+                    accentColor: '#845EC2'
+                },
+                'modern': {
+                    headerBg: '#3D5A80',
+                    sidebarBg: '#e0f7fa',
+                    mainBg: '#ffffff',
+                    textColor: '#3D5A80',
+                    accentColor: '#3D5A80'
+                },
+                'mint': {
+                    headerBg: '#21897E',
+                    sidebarBg: '#e0f2f1',
+                    mainBg: '#ffffff',
+                    textColor: '#21897E',
+                    accentColor: '#21897E'
+                },
+                'earthy': {
+                    headerBg: '#5F4B32',
+                    sidebarBg: '#efebe9',
+                    mainBg: '#ffffff',
+                    textColor: '#5F4B32',
+                    accentColor: '#5F4B32'
+                },
+                'burgundy': {
+                    headerBg: '#800020',
+                    sidebarBg: '#f8eaed',
+                    mainBg: '#ffffff',
+                    textColor: '#800020',
+                    accentColor: '#800020'
+                },
+                'amber': {
+                    headerBg: '#B86E00',
+                    sidebarBg: '#fff8e1',
+                    mainBg: '#ffffff',
+                    textColor: '#B86E00',
+                    accentColor: '#B86E00'
+                },
+                'graphite-gold': {
+                    headerBg: '#2c3e50',
+                    sidebarBg: '#34495e',
+                    mainBg: '#ffffff',
+                    textColor: '#2c3e50',
+                    accentColor: '#f39c12'
+                },
+                'forest-beige': {
+                    headerBg: '#285430',
+                    sidebarBg: '#F5F5DC',
+                    mainBg: '#ffffff',
+                    textColor: '#285430',
+                    accentColor: '#285430'
+                },
+                'sapphire-silver': {
+                    headerBg: '#0f4c81',
+                    sidebarBg: '#ecf0f1',
+                    mainBg: '#ffffff',
+                    textColor: '#0f4c81',
+                    accentColor: '#0f4c81'
+                },
+                'ruby-pearl': {
+                    headerBg: '#9B1B30',
+                    sidebarBg: '#FDEEF4',
+                    mainBg: '#ffffff',
+                    textColor: '#9B1B30',
+                    accentColor: '#9B1B30'
+                },
+                'mocha-latte': {
+                    headerBg: '#6f4e37',
+                    sidebarBg: '#f3e9e4',
+                    mainBg: '#ffffff',
+                    textColor: '#6f4e37',
+                    accentColor: '#6f4e37'
+                }
             };
 
             // Helper to apply styles to both visible and PDF-clone CVs
@@ -1316,7 +1486,8 @@ if (isset($_SESSION['users_id'])) {
 
                 // Ferme le panneau si on clique en dehors
                 document.addEventListener('click', function (event) {
-                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !
+                        toggleBtn.contains(event.target)) {
                         customPanel.classList.remove('active');
                     }
                 });

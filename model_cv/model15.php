@@ -88,129 +88,185 @@ if (isset($_SESSION['users_id'])) {
             </ul>
             <p class="highlight">Les éléments que vous avez mis en avant dans votre profil seront affichés en priorité.
             </p>
-            <button class="close-info"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close-info-btn">&times;</button>
         </div>
     </div>
 
     <style>
-        .info-bubble {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            max-width: 400px;
-            opacity: 1;
-            transition: all 0.3s ease;
-            animation: slideIn 0.5s ease;
-        }
+    .info-bubble {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 1000;
+        max-width: 400px;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        font-family: 'Poppins', sans-serif;
+        border-left: 5px solid #0089be;
+        animation: slideIn 0.5s ease-out;
+    }
 
-        .info-bubble.hidden {
-            opacity: 0;
+    @keyframes slideIn {
+        from {
             transform: translateX(100%);
+            opacity: 0;
         }
 
-        .info-content {
-            padding: 20px;
-            position: relative;
+        to {
+            transform: translateX(0);
+            opacity: 1;
         }
+    }
 
-        .info-content i.fa-circle-info {
-            color: #2196F3;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+    .info-content {
+        position: relative;
+    }
 
-        .info-content h3 {
-            color: #333;
-            margin: 10px 0;
-            font-size: 18px;
-        }
+    .info-bubble .fa-circle-info {
+        color: #0089be;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
 
-        .info-content p {
-            color: #666;
-            margin: 10px 0;
-            line-height: 1.5;
-        }
+    .info-bubble h3 {
+        color: #2c3e50;
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
 
-        .info-content ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
+    .info-bubble p {
+        color: #34495e;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
 
-        .info-content li {
-            color: #666;
-            margin: 8px 0;
-            line-height: 1.4;
-        }
+    .info-bubble ul {
+        padding-left: 20px;
+        margin: 10px 0;
+    }
 
-        .info-content .highlight {
-            color: #2196F3;
-            font-weight: 500;
-        }
+    .info-bubble li {
+        color: #34495e;
+        font-size: 14px;
+        margin-bottom: 8px;
+        list-style-type: none;
+        position: relative;
+    }
 
-        .close-info {
-            position: absolute;
-            top: 10px;
+    .info-bubble li:before {
+        content: "•";
+        color: #0089be;
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+    }
+
+    .info-bubble .highlight {
+        background: #f0f9ff;
+        padding: 10px;
+        border-radius: 8px;
+        border-left: 3px solid #0089be;
+        margin-top: 15px;
+        font-weight: 500;
+    }
+
+    .close-info-btn {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: #fff;
+        border: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #666;
+        transition: all 0.3s ease;
+    }
+
+    .close-info-btn:hover {
+        background: #f1f1f1;
+        transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+        .info-bubble {
+            top: auto;
+            bottom: 20px;
             right: 10px;
-            background: #2196F3;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 8px;
-            font-size: 18px;
-            transition: all 0.3s;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            left: 10px;
+            max-width: none;
+            margin: 0 auto;
+            font-size: 14px;
         }
 
-        .close-info:hover {
-            background: #1976D2;
-            transform: scale(1.1);
+        .info-bubble h3 {
+            font-size: 16px;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(100%);
-            }
+        .info-bubble p,
+        .info-bubble li {
+            font-size: 13px;
+        }
+    }
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+    @media screen and (max-width: 480px) {
+        .info-bubble {
+            padding: 15px;
         }
 
-        @media (max-width: 480px) {
-            .info-bubble {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-                max-width: none;
-            }
+        .info-bubble h3 {
+            font-size: 15px;
         }
+
+        .info-bubble p,
+        .info-bubble li {
+            font-size: 12px;
+        }
+    }
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const infoBubble = document.querySelector('.info-bubble');
-            const closeButton = document.querySelector('.close-info');
+    // Script pour la bulle d'information
+    document.addEventListener('DOMContentLoaded', function() {
+        const closeInfoBtn = document.querySelector('.close-info-btn');
+        const infoBubble = document.querySelector('.info-bubble');
 
-            if (closeButton && infoBubble) {
-                closeButton.addEventListener('click', function () {
-                    infoBubble.classList.add('hidden');
-                    setTimeout(() => {
-                        infoBubble.style.display = 'none';
-                    }, 300);
-                });
-            }
-        });
+        if (closeInfoBtn && infoBubble) {
+            closeInfoBtn.addEventListener('click', function() {
+                infoBubble.style.animation = 'slideOut 0.5s ease-out forwards';
+                setTimeout(() => {
+                    infoBubble.style.display = 'none';
+                }, 500);
+            });
+
+            // Ajouter l'animation de sortie
+            const style = document.createElement('style');
+            style.textContent = `
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+            document.head.appendChild(style);
+        }
+    });
     </script>
 
     <button id="toggle-customization-btn" class="button12">
@@ -230,73 +286,73 @@ if (isset($_SESSION['users_id'])) {
             <button class="button-reset" onclick="resetStyles()">Réinitialiser les styles</button>
 
             <script>
-                // Fonction pour remplacer temporairement les icônes Font Awesome par des SVG pour le PDF
-                function replaceIconsWithSVG() {
-                    const iconMap = {
-                        'fa-phone': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>',
-                        'fa-envelope': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>',
-                        'fa-map-marker-alt': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="16" height="16"><path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>',
-                        'fa-briefcase': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path></svg>',
-                        'fa-graduation-cap': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="16" height="16"><path fill="currentColor" d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path></svg>',
-                        'fa-globe': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="16" height="16"><path fill="currentColor" d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg>',
-                        'fa-cogs': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="16" height="16"><path fill="currentColor" d="M512.1 191l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0L552 6.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zm-10.5-58.8c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.7-82.4 14.3-52.8 52.8zM386.3 286.1l33.7 16.8c10.1 5.8 14.5 18.1 10.5 29.1-8.9 24.2-26.4 46.4-42.6 65.8-7.4 8.9-20.2 11.1-30.3 5.3l-29.1-16.8c-16 13.7-34.6 24.6-54.9 31.7v33.6c0 11.6-8.3 21.6-19.7 23.6-24.6 4.2-50.4 4.4-75.9 0-11.5-2-20-11.9-20-23.6V418c-20.3-7.2-38.9-18-54.9-31.7L74 403c-10 5.8-22.9 3.6-30.3-5.3-16.2-19.4-33.3-41.6-42.2-65.7-4-10.9.4-23.2 10.5-29.1l33.3-16.8c-3.9-20.9-3.9-42.4 0-63.4L12 205.8c-10.1-5.8-14.6-18.1-10.5-29 8.9-24.2 26-46.4 42.2-65.8 7.4-8.9 20.2-11.1 30.3-5.3l29.1 16.8c16-13.7 34.6-24.6 54.9-31.7V57.1c0-11.5 8.2-21.5 19.6-23.5 24.6-4.2 50.5-4.4 76-.1 11.5 2 20 11.9 20 23.6v33.6c20.3 7.2 38.9 18 54.9 31.7l29.1-16.8c10-5.8 22.9-3.6 30.3 5.3 16.2 19.4 33.2 41.6 42.1 65.8 4 10.9-.5 23.2-10.5 29.1l-33.2 16.8c3.9 20.9 3.9 42.4 0 63.4zm-175.3-92.1c-31.4-31.4-84.5-20.7-103.8 21.9-19.3 42.5 10.9 92.5 58.2 89.2 37.8-2.7 71.7-40.2 59.7-77.4-1.2-3.9-2.9-7.4-5.1-10.8-8.4-13-20.8-22.9-35.4-25.2-5.9-1-4.4-10.7 2.1-9.5 24.7 4.2 42.6 26.4 45.4 51.1 3.2 28.2-14.5 54.8-38.9 67-39.3 19.7-87.4-14.4-87.2-59.6-.1-28.9 20.1-53.5 46.7-62.6 35.9-12.2 73.6 11 81.3 51.5 1 5.7-7.3 8.5-9.1 3.2-15.5-37.3-63.4-49.4-93.9-21.8-20.7 18.9-20.7 49.4-4.9 70.6 19.9 26.7 59.2 28.5 81.4 4.8 20.3-21.6 16.8-59.6-8.9-76.6-5.9-3.8-.8-13.1 6.1-9.8 25.3 11.8 36.9 43.7 25 71.8-13.3 31.7-53.7 45.6-86.2 31.9-43.4-18.4-50.8-77.4-13.7-106.8 37.1-29.4 93.1-18.7 111.9 25.1 3 7-7.3 12.7-11.1 6.4-17.7-29.7-62-31.6-86.9-4.7-12.5 13.5-15.4 32.8-9.8 49.2z"></path></svg>',
-                        'fa-heart': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>'
-                    };
+            // Fonction pour remplacer temporairement les icônes Font Awesome par des SVG pour le PDF
+            function replaceIconsWithSVG() {
+                const iconMap = {
+                    'fa-phone': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>',
+                    'fa-envelope': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>',
+                    'fa-map-marker-alt': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="16" height="16"><path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>',
+                    'fa-briefcase': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path></svg>',
+                    'fa-graduation-cap': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="16" height="16"><path fill="currentColor" d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path></svg>',
+                    'fa-globe': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="16" height="16"><path fill="currentColor" d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg>',
+                    'fa-cogs': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="16" height="16"><path fill="currentColor" d="M512.1 191l-8.2 14.3c-3 5.3-9.4 7.5-15.1 5.4-11.8-4.4-22.6-10.7-32.1-18.6-4.6-3.8-5.8-10.5-2.8-15.7l8.2-14.3c-6.9-8-12.3-17.3-15.9-27.4h-16.5c-6 0-11.2-4.3-12.2-10.3-2-12-2.1-24.6 0-37.1 1-6 6.2-10.4 12.2-10.4h16.5c3.6-10.1 9-19.4 15.9-27.4l-8.2-14.3c-3-5.2-1.9-11.9 2.8-15.7 9.5-7.9 20.4-14.2 32.1-18.6 5.7-2.1 12.1.1 15.1 5.4l8.2 14.3c10.5-1.9 21.2-1.9 31.7 0L552 6.3c3-5.3 9.4-7.5 15.1-5.4 11.8 4.4 22.6 10.7 32.1 18.6 4.6 3.8 5.8 10.5 2.8 15.7l-8.2 14.3c6.9 8 12.3 17.3 15.9 27.4h16.5c6 0 11.2 4.3 12.2 10.3 2 12 2.1 24.6 0 37.1-1 6-6.2 10.4-12.2 10.4h-16.5c-3.6 10.1-9 19.4-15.9 27.4l8.2 14.3c3 5.2 1.9 11.9-2.8 15.7-9.5 7.9-20.4 14.2-32.1 18.6-5.7 2.1-12.1-.1-15.1-5.4l-8.2-14.3c-10.4 1.9-21.2 1.9-31.7 0zm-10.5-58.8c38.5 29.6 82.4-14.3 52.8-52.8-38.5-29.7-82.4 14.3-52.8 52.8zM386.3 286.1l33.7 16.8c10.1 5.8 14.5 18.1 10.5 29.1-8.9 24.2-26.4 46.4-42.6 65.8-7.4 8.9-20.2 11.1-30.3 5.3l-29.1-16.8c-16 13.7-34.6 24.6-54.9 31.7v33.6c0 11.6-8.3 21.6-19.7 23.6-24.6 4.2-50.4 4.4-75.9 0-11.5-2-20-11.9-20-23.6V418c-20.3-7.2-38.9-18-54.9-31.7L74 403c-10 5.8-22.9 3.6-30.3-5.3-16.2-19.4-33.3-41.6-42.2-65.7-4-10.9.4-23.2 10.5-29.1l33.3-16.8c-3.9-20.9-3.9-42.4 0-63.4L12 205.8c-10.1-5.8-14.6-18.1-10.5-29 8.9-24.2 26-46.4 42.2-65.8 7.4-8.9 20.2-11.1 30.3-5.3l29.1 16.8c16-13.7 34.6-24.6 54.9-31.7V57.1c0-11.5 8.2-21.5 19.6-23.5 24.6-4.2 50.5-4.4 76-.1 11.5 2 20 11.9 20 23.6v33.6c20.3 7.2 38.9 18 54.9 31.7l29.1-16.8c10-5.8 22.9-3.6 30.3 5.3 16.2 19.4 33.2 41.6 42.1 65.8 4 10.9-.5 23.2-10.5 29.1l-33.2 16.8c3.9 20.9 3.9 42.4 0 63.4zm-175.3-92.1c-31.4-31.4-84.5-20.7-103.8 21.9-19.3 42.5 10.9 92.5 58.2 89.2 37.8-2.7 71.7-40.2 59.7-77.4-1.2-3.9-2.9-7.4-5.1-10.8-8.4-13-20.8-22.9-35.4-25.2-5.9-1-4.4-10.7 2.1-9.5 24.7 4.2 42.6 26.4 45.4 51.1 3.2 28.2-14.5 54.8-38.9 67-39.3 19.7-87.4-14.4-87.2-59.6-.1-28.9 20.1-53.5 46.7-62.6 35.9-12.2 73.6 11 81.3 51.5 1 5.7-7.3 8.5-9.1 3.2-15.5-37.3-63.4-49.4-93.9-21.8-20.7 18.9-20.7 49.4-4.9 70.6 19.9 26.7 59.2 28.5 81.4 4.8 20.3-21.6 16.8-59.6-8.9-76.6-5.9-3.8-.8-13.1 6.1-9.8 25.3 11.8 36.9 43.7 25 71.8-13.3 31.7-53.7 45.6-86.2 31.9-43.4-18.4-50.8-77.4-13.7-106.8 37.1-29.4 93.1-18.7 111.9 25.1 3 7-7.3 12.7-11.1 6.4-17.7-29.7-62-31.6-86.9-4.7-12.5 13.5-15.4 32.8-9.8 49.2z"></path></svg>',
+                    'fa-heart': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>'
+                };
 
-                    // Fonction pour remplacer une icône par son SVG
-                    function replaceIcon(element) {
-                        const classNames = Array.from(element.classList);
-                        for (const className of classNames) {
-                            if (iconMap[className]) {
-                                const temp = document.createElement('div');
-                                temp.innerHTML = iconMap[className];
+                // Fonction pour remplacer une icône par son SVG
+                function replaceIcon(element) {
+                    const classNames = Array.from(element.classList);
+                    for (const className of classNames) {
+                        if (iconMap[className]) {
+                            const temp = document.createElement('div');
+                            temp.innerHTML = iconMap[className];
 
-                                // Récupérer la couleur courante de l'icône
-                                const currentColor = window.getComputedStyle(element).color;
+                            // Récupérer la couleur courante de l'icône
+                            const currentColor = window.getComputedStyle(element).color;
 
-                                // Appliquer la couleur au SVG
-                                const svg = temp.firstChild;
-                                svg.style.color = currentColor;
+                            // Appliquer la couleur au SVG
+                            const svg = temp.firstChild;
+                            svg.style.color = currentColor;
 
-                                // Stocker l'élément original
-                                element.dataset.originalHtml = element.outerHTML;
+                            // Stocker l'élément original
+                            element.dataset.originalHtml = element.outerHTML;
 
-                                // Remplacer l'élément par le SVG
-                                element.parentNode.replaceChild(svg, element);
-                                return;
-                            }
+                            // Remplacer l'élément par le SVG
+                            element.parentNode.replaceChild(svg, element);
+                            return;
                         }
                     }
-
-                    // Rechercher et remplacer toutes les icônes
-                    const icons = document.querySelectorAll('.fas, .far, .fab');
-                    icons.forEach(replaceIcon);
-
-                    return icons.length;
                 }
 
-                // Fonction pour restaurer les icônes originales
-                function restoreIcons() {
-                    const svgs = document.querySelectorAll('svg[viewBox]');
-                    svgs.forEach(svg => {
-                        const previousElement = svg.previousElementSibling;
-                        if (previousElement && previousElement.dataset && previousElement.dataset.originalHtml) {
-                            const temp = document.createElement('div');
-                            temp.innerHTML = previousElement.dataset.originalHtml;
-                            svg.parentNode.replaceChild(temp.firstChild, svg);
-                        }
-                    });
-                }
+                // Rechercher et remplacer toutes les icônes
+                const icons = document.querySelectorAll('.fas, .far, .fab');
+                icons.forEach(replaceIcon);
 
-                // Fonction pour précharger les polices avant la génération du PDF
-                function preloadFonts() {
-                    return new Promise((resolve) => {
-                        // Créer un élément temporaire avec toutes les icônes utilisées
-                        const tempDiv = document.createElement('div');
-                        tempDiv.style.opacity = '0';
-                        tempDiv.style.position = 'absolute';
-                        tempDiv.style.top = '-9999px';
-                        tempDiv.innerHTML = `
+                return icons.length;
+            }
+
+            // Fonction pour restaurer les icônes originales
+            function restoreIcons() {
+                const svgs = document.querySelectorAll('svg[viewBox]');
+                svgs.forEach(svg => {
+                    const previousElement = svg.previousElementSibling;
+                    if (previousElement && previousElement.dataset && previousElement.dataset.originalHtml) {
+                        const temp = document.createElement('div');
+                        temp.innerHTML = previousElement.dataset.originalHtml;
+                        svg.parentNode.replaceChild(temp.firstChild, svg);
+                    }
+                });
+            }
+
+            // Fonction pour précharger les polices avant la génération du PDF
+            function preloadFonts() {
+                return new Promise((resolve) => {
+                    // Créer un élément temporaire avec toutes les icônes utilisées
+                    const tempDiv = document.createElement('div');
+                    tempDiv.style.opacity = '0';
+                    tempDiv.style.position = 'absolute';
+                    tempDiv.style.top = '-9999px';
+                    tempDiv.innerHTML = `
                             <i class="fas fa-phone"></i>
                             <i class="fas fa-envelope"></i>
                             <i class="fas fa-map-marker-alt"></i>
@@ -306,149 +362,149 @@ if (isset($_SESSION['users_id'])) {
                             <i class="fas fa-cogs"></i>
                             <i class="fas fa-heart"></i>
                         `;
-                        document.body.appendChild(tempDiv);
+                    document.body.appendChild(tempDiv);
 
-                        // Donner un peu de temps pour charger les polices
-                        setTimeout(() => {
-                            document.body.removeChild(tempDiv);
-                            resolve();
-                        }, 500);
+                    // Donner un peu de temps pour charger les polices
+                    setTimeout(() => {
+                        document.body.removeChild(tempDiv);
+                        resolve();
+                    }, 500);
+                });
+            }
+
+            // Fonction pour réinitialiser tous les styles
+            function resetStyles() {
+                if (confirm("Êtes-vous sûr de vouloir réinitialiser tous les styles ?")) {
+                    // Supprimer toutes les données du localStorage concernant le CV
+                    localStorage.removeItem('cv15_theme');
+                    localStorage.removeItem('cv15_primary_color');
+                    localStorage.removeItem('cv15_secondary_color');
+                    localStorage.removeItem('cv15_date_color');
+                    localStorage.removeItem('cv15_font');
+
+                    // Réinitialiser les variables CSS aux valeurs par défaut
+                    document.documentElement.style.setProperty('--primary-color', '#e2bd5a');
+                    document.documentElement.style.setProperty('--secondary-color', '#464a57');
+                    document.documentElement.style.setProperty('--accent-color', '#e2bd5a');
+
+                    // Réinitialiser la police
+                    document.body.style.fontFamily = 'Montserrat, sans-serif';
+
+                    // Réinitialiser la couleur des dates
+                    const timelineDates = document.querySelectorAll('.timeline-date');
+                    timelineDates.forEach(date => {
+                        date.style.color = '#666';
                     });
-                }
 
-                // Fonction pour réinitialiser tous les styles
-                function resetStyles() {
-                    if (confirm("Êtes-vous sûr de vouloir réinitialiser tous les styles ?")) {
-                        // Supprimer toutes les données du localStorage concernant le CV
-                        localStorage.removeItem('cv15_theme');
-                        localStorage.removeItem('cv15_primary_color');
-                        localStorage.removeItem('cv15_secondary_color');
-                        localStorage.removeItem('cv15_date_color');
-                        localStorage.removeItem('cv15_font');
-
-                        // Réinitialiser les variables CSS aux valeurs par défaut
-                        document.documentElement.style.setProperty('--primary-color', '#e2bd5a');
-                        document.documentElement.style.setProperty('--secondary-color', '#464a57');
-                        document.documentElement.style.setProperty('--accent-color', '#e2bd5a');
-
-                        // Réinitialiser la police
-                        document.body.style.fontFamily = 'Montserrat, sans-serif';
-
-                        // Réinitialiser la couleur des dates
-                        const timelineDates = document.querySelectorAll('.timeline-date');
-                        timelineDates.forEach(date => {
-                            date.style.color = '#666';
-                        });
-
-                        // Réinitialiser l'état actif des cartes de thème
-                        const themeCards = document.querySelectorAll('.theme-card');
-                        themeCards.forEach(card => card.classList.remove('active'));
-                        const defaultTheme = document.querySelector('.theme-card[data-theme="classique"]');
-                        if (defaultTheme) {
-                            defaultTheme.classList.add('active');
-                        }
-
-                        // Réinitialiser l'état actif des options de couleur
-                        const colorOptions = document.querySelectorAll('.color-option');
-                        colorOptions.forEach(option => option.classList.remove('active'));
-                        const defaultColor = document.querySelector('.color-option[data-color="#464a57"]');
-                        if (defaultColor) {
-                            defaultColor.classList.add('active');
-                        }
-
-                        // Réinitialiser l'état actif des cartes de police
-                        const fontCards = document.querySelectorAll('.font-card');
-                        fontCards.forEach(card => card.classList.remove('active'));
-                        const defaultFont = document.querySelector('.font-card[data-font="Montserrat"]');
-                        if (defaultFont) {
-                            defaultFont.classList.add('active');
-                        }
-
-                        alert("Les styles ont été réinitialisés avec succès.");
+                    // Réinitialiser l'état actif des cartes de thème
+                    const themeCards = document.querySelectorAll('.theme-card');
+                    themeCards.forEach(card => card.classList.remove('active'));
+                    const defaultTheme = document.querySelector('.theme-card[data-theme="classique"]');
+                    if (defaultTheme) {
+                        defaultTheme.classList.add('active');
                     }
+
+                    // Réinitialiser l'état actif des options de couleur
+                    const colorOptions = document.querySelectorAll('.color-option');
+                    colorOptions.forEach(option => option.classList.remove('active'));
+                    const defaultColor = document.querySelector('.color-option[data-color="#464a57"]');
+                    if (defaultColor) {
+                        defaultColor.classList.add('active');
+                    }
+
+                    // Réinitialiser l'état actif des cartes de police
+                    const fontCards = document.querySelectorAll('.font-card');
+                    fontCards.forEach(card => card.classList.remove('active'));
+                    const defaultFont = document.querySelector('.font-card[data-font="Montserrat"]');
+                    if (defaultFont) {
+                        defaultFont.classList.add('active');
+                    }
+
+                    alert("Les styles ont été réinitialisés avec succès.");
                 }
+            }
 
-                // PDF generation function
-                function generatePDF() {
-                    // Afficher un message d'attente
-                    const loadingMessage = document.createElement('div');
-                    loadingMessage.className = 'loading-message';
-                    loadingMessage.textContent = 'Génération du PDF en cours...';
-                    loadingMessage.style.position = 'fixed';
-                    loadingMessage.style.top = '50%';
-                    loadingMessage.style.left = '50%';
-                    loadingMessage.style.transform = 'translate(-50%, -50%)';
-                    loadingMessage.style.padding = '20px';
-                    loadingMessage.style.backgroundColor = 'rgba(0,0,0,0.7)';
-                    loadingMessage.style.color = 'white';
-                    loadingMessage.style.borderRadius = '10px';
-                    loadingMessage.style.zIndex = '9999';
-                    document.body.appendChild(loadingMessage);
+            // PDF generation function
+            function generatePDF() {
+                // Afficher un message d'attente
+                const loadingMessage = document.createElement('div');
+                loadingMessage.className = 'loading-message';
+                loadingMessage.textContent = 'Génération du PDF en cours...';
+                loadingMessage.style.position = 'fixed';
+                loadingMessage.style.top = '50%';
+                loadingMessage.style.left = '50%';
+                loadingMessage.style.transform = 'translate(-50%, -50%)';
+                loadingMessage.style.padding = '20px';
+                loadingMessage.style.backgroundColor = 'rgba(0,0,0,0.7)';
+                loadingMessage.style.color = 'white';
+                loadingMessage.style.borderRadius = '10px';
+                loadingMessage.style.zIndex = '9999';
+                document.body.appendChild(loadingMessage);
 
-                    // Précharger les polices puis générer le PDF
-                    preloadFonts().then(() => {
-                        // Remplacer les icônes Font Awesome par des SVG avant la génération
-                        const iconsReplaced = replaceIconsWithSVG();
-                        console.log(`${iconsReplaced} icônes remplacées par des SVG`);
+                // Précharger les polices puis générer le PDF
+                preloadFonts().then(() => {
+                    // Remplacer les icônes Font Awesome par des SVG avant la génération
+                    const iconsReplaced = replaceIconsWithSVG();
+                    console.log(`${iconsReplaced} icônes remplacées par des SVG`);
 
-                        const {
-                            jsPDF
-                        } = window.jspdf;
-                        // Utiliser querySelector au lieu de getElementById car la classe est utilisée
-                        const element = document.querySelector("#cv-container-for-pdf");
+                    const {
+                        jsPDF
+                    } = window.jspdf;
+                    // Utiliser querySelector au lieu de getElementById car la classe est utilisée
+                    const element = document.querySelector("#cv-container-for-pdf");
 
-                        // Optimisations légères pour une meilleure qualité
-                        const scale = 2.2;
-                        const options = {
-                            scale: scale,
-                            quality: 0.95,
-                            bgcolor: '#ffffff',
-                            width: element.offsetWidth * scale,
-                            height: element.offsetHeight * scale,
-                            style: {
-                                transform: 'scale(' + scale + ')',
-                                transformOrigin: 'top left',
-                                width: element.offsetWidth + "px",
-                                height: element.offsetHeight + "px"
-                            },
-                            useCORS: true
-                        };
+                    // Optimisations légères pour une meilleure qualité
+                    const scale = 2.2;
+                    const options = {
+                        scale: scale,
+                        quality: 0.95,
+                        bgcolor: '#ffffff',
+                        width: element.offsetWidth * scale,
+                        height: element.offsetHeight * scale,
+                        style: {
+                            transform: 'scale(' + scale + ')',
+                            transformOrigin: 'top left',
+                            width: element.offsetWidth + "px",
+                            height: element.offsetHeight + "px"
+                        },
+                        useCORS: true
+                    };
 
-                        // Attendre un délai pour la stabilité
-                        setTimeout(() => {
-                            domtoimage.toJpeg(element, options)
-                                .then(function (dataUrl) {
-                                    // Restaurer les icônes originales
-                                    restoreIcons();
+                    // Attendre un délai pour la stabilité
+                    setTimeout(() => {
+                        domtoimage.toJpeg(element, options)
+                            .then(function(dataUrl) {
+                                // Restaurer les icônes originales
+                                restoreIcons();
 
-                                    // Supprimer le message d'attente
-                                    if (document.body.contains(loadingMessage)) {
-                                        document.body.removeChild(loadingMessage);
-                                    }
+                                // Supprimer le message d'attente
+                                if (document.body.contains(loadingMessage)) {
+                                    document.body.removeChild(loadingMessage);
+                                }
 
-                                    const pdf = new jsPDF('p', 'mm', 'a4');
-                                    const imgProps = pdf.getImageProperties(dataUrl);
-                                    const pdfWidth = pdf.internal.pageSize.getWidth();
-                                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                                const pdf = new jsPDF('p', 'mm', 'a4');
+                                const imgProps = pdf.getImageProperties(dataUrl);
+                                const pdfWidth = pdf.internal.pageSize.getWidth();
+                                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                                    pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-                                    pdf.save("cv-model15-" + Date.now() + ".pdf");
-                                })
-                                .catch(function (error) {
-                                    console.error(
-                                        'Une erreur est survenue lors de la génération du PDF:',
-                                        error);
-                                    // Restaurer les icônes originales en cas d'erreur
-                                    restoreIcons();
-                                    // Supprimer le message d'attente en cas d'erreur
-                                    if (document.body.contains(loadingMessage)) {
-                                        document.body.removeChild(loadingMessage);
-                                    }
-                                    alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
-                                });
-                        }, 600);
-                    });
-                }
+                                pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                                pdf.save("cv-model15-" + Date.now() + ".pdf");
+                            })
+                            .catch(function(error) {
+                                console.error(
+                                    'Une erreur est survenue lors de la génération du PDF:',
+                                    error);
+                                // Restaurer les icônes originales en cas d'erreur
+                                restoreIcons();
+                                // Supprimer le message d'attente en cas d'erreur
+                                if (document.body.contains(loadingMessage)) {
+                                    document.body.removeChild(loadingMessage);
+                                }
+                                alert('Erreur lors de la génération du PDF. Veuillez réessayer.');
+                            });
+                    }, 600);
+                });
+            }
             </script>
 
             <div class="theme-selector">
@@ -604,12 +660,12 @@ if (isset($_SESSION['users_id'])) {
             <div class="header">
                 <div class="personal-info">
                     <?php if (isset($userss['nom'])): ?>
-                        <h1 class="name"><?= strtoupper(explode(' ', $userss['nom'])[0] ?? 'PRÉNOM') ?></h1>
-                        <h1 class="surname"><?= strtoupper(explode(' ', $userss['nom'])[1] ?? 'NOM') ?></h1>
-                        <h3 class="profession"><?= $userss['competences'] ?></h3>
+                    <h1 class="name"><?= strtoupper(explode(' ', $userss['nom'])[0] ?? 'PRÉNOM') ?></h1>
+                    <h1 class="surname"><?= strtoupper(explode(' ', $userss['nom'])[1] ?? 'NOM') ?></h1>
+                    <h3 class="profession"><?= $userss['competences'] ?></h3>
                     <?php else: ?>
-                        <h1 class="name">PRÉNOM</h1>
-                        <h1 class="surname">NOM</h1>
+                    <h1 class="name">PRÉNOM</h1>
+                    <h1 class="surname">NOM</h1>
                     <?php endif; ?>
                 </div>
                 <div class="contact-info">
@@ -617,9 +673,9 @@ if (isset($_SESSION['users_id'])) {
                         <div>
                             <div class="contact-value">
                                 <?php if (isset($userss['phone'])): ?>
-                                    <?= $userss['phone'] ?>
+                                <?= $userss['phone'] ?>
                                 <?php else: ?>
-                                    + 00 1234 56789
+                                + 00 1234 56789
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -631,9 +687,9 @@ if (isset($_SESSION['users_id'])) {
                         <div>
                             <div class="contact-value">
                                 <?php if (isset($userss['mail'])): ?>
-                                    <?= $userss['mail'] ?>
+                                <?= $userss['mail'] ?>
                                 <?php else: ?>
-                                    info@example.com
+                                info@example.com
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -645,9 +701,9 @@ if (isset($_SESSION['users_id'])) {
                         <div>
                             <div class="contact-value">
                                 <?php if (isset($userss['ville'])): ?>
-                                    <?= $userss['ville'] ?>
+                                <?= $userss['ville'] ?>
                                 <?php else: ?>
-                                    Address here, City, 1234
+                                Address here, City, 1234
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -664,21 +720,21 @@ if (isset($_SESSION['users_id'])) {
                     <h2 class="section-title">PROFIL</h2>
                     <p class="profile-text">
                         <?php if (isset($descriptions) && !empty($descriptions['description'])): ?>
-                            <?= $descriptions['description'] ?>
+                        <?= $descriptions['description'] ?>
                         <?php else: ?>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the
-                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                            type
-                            and scrambled it to make a type specimen book.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the
+                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                        type
+                        and scrambled it to make a type specimen book.
                         <?php endif; ?>
                     </p>
                 </div>
                 <div class="profile-photo">
                     <?php if (isset($userss['images'])): ?>
-                        <img src="../upload/<?= $userss['images'] ?>" alt="Photo de profil">
+                    <img src="../upload/<?= $userss['images'] ?>" alt="Photo de profil">
                     <?php else: ?>
-                        <img src="../image/image-2.webp" alt="Profile Photo">
+                    <img src="../image/image-2.webp" alt="Profile Photo">
                     <?php endif; ?>
                 </div>
             </div>
@@ -697,9 +753,9 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                         <div class="timeline">
                             <?php if (empty($afficheMetier)): ?>
-                                <p>Aucune expérience professionnelle trouvée</p>
+                            <p>Aucune expérience professionnelle trouvée</p>
                             <?php else: ?>
-                                <?php
+                            <?php
                                 // Séparer les expériences en deux groupes
                                 $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
                                     return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
@@ -722,18 +778,18 @@ if (isset($_SESSION['users_id'])) {
 
                                 foreach ($experiences_a_afficher as $metier):
                                     ?>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <span class="timeline-date">
-                                            <?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> -
-                                            <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
-                                        </span>
-                                        <h3 class="timeline-title"><?= $metier['metier'] ?></h3>
-                                        <p class="timeline-description">
-                                            <?= $metier['description'] ?>
-                                        </p>
-                                    </div>
-                                <?php endforeach; ?>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <span class="timeline-date">
+                                    <?= $metier['moisDebut'] ?> <?= $metier['anneeDebut'] ?> -
+                                    <?= $metier['moisFin'] ?> <?= $metier['anneeFin'] ?>
+                                </span>
+                                <h3 class="timeline-title"><?= $metier['metier'] ?></h3>
+                                <p class="timeline-description">
+                                    <?= $metier['description'] ?>
+                                </p>
+                            </div>
+                            <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -748,14 +804,14 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                         <div class="languages">
                             <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
-                                <?php foreach ($afficheLangue as $langue): ?>
-                                    <div class="language-item">
+                            <?php foreach ($afficheLangue as $langue): ?>
+                            <div class="language-item">
 
-                                        <div class="language-name"><?= $langue['langue'] ?></div>
-                                    </div>
-                                <?php endforeach; ?>
+                                <div class="language-name"><?= $langue['langue'] ?></div>
+                            </div>
+                            <?php endforeach; ?>
                             <?php else: ?>
-                                <p>Aucune langue pour le moment</p>
+                            <p>Aucune langue pour le moment</p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -773,9 +829,9 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                         <div class="timeline">
                             <?php if (empty($formationUsers)): ?>
-                                <p>Aucune formation trouvée</p>
+                            <p>Aucune formation trouvée</p>
                             <?php else: ?>
-                                <?php
+                            <?php
                                 // Séparer les formations en deux groupes
                                 $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
                                     return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
@@ -798,18 +854,18 @@ if (isset($_SESSION['users_id'])) {
 
                                 foreach ($formations_a_afficher as $formation):
                                     ?>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <span class="timeline-date">
-                                            <?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> -
-                                            <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
-                                        </span>
-                                        <h3 class="timeline-title"><?= $formation['Filiere'] ?></h3>
-                                        <p class="timeline-company"><?= $formation['etablissement'] ?>
-                                            <strong><?= $formation['niveau'] ?></strong>
-                                        </p>
-                                    </div>
-                                <?php endforeach; ?>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <span class="timeline-date">
+                                    <?= $formation['moisDebut'] ?> <?= $formation['anneeDebut'] ?> -
+                                    <?= $formation['moisFin'] ?> <?= $formation['anneeFin'] ?>
+                                </span>
+                                <h3 class="timeline-title"><?= $formation['Filiere'] ?></h3>
+                                <p class="timeline-company"><?= $formation['etablissement'] ?>
+                                    <strong><?= $formation['niveau'] ?></strong>
+                                </p>
+                            </div>
+                            <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -824,9 +880,9 @@ if (isset($_SESSION['users_id'])) {
                         </div>
                         <div class="skills-content">
                             <?php if (empty($competencesUtilisateur)): ?>
-                                <p>Aucune compétence trouvée</p>
+                            <p>Aucune compétence trouvée</p>
                             <?php else: ?>
-                                <?php
+                            <?php
                                 // Séparer les compétences en deux groupes
                                 $competences_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
                                     return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
@@ -851,21 +907,21 @@ if (isset($_SESSION['users_id'])) {
                                     $niveau = isset($competence['niveau']) ? intval($competence['niveau']) : 4;
                                     $stars = min(5, max(1, $niveau));
                                     ?>
-                                    <div class="skills-item">
-                                        <div class="skill-name">
-                                            <span><?= strtoupper($competence['competence']) ?></span>
-                                            <div class="stars">
-                                                <?php for ($i = 1; $i <= 5; $i++): ?>
-                                                    <?php if ($i <= $stars): ?>
-                                                        <span class="star">★</span>
-                                                    <?php else: ?>
-                                                        <span class="star-empty">★</span>
-                                                    <?php endif; ?>
-                                                <?php endfor; ?>
-                                            </div>
-                                        </div>
+                            <div class="skills-item">
+                                <div class="skill-name">
+                                    <span><?= strtoupper($competence['competence']) ?></span>
+                                    <div class="stars">
+                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                        <?php if ($i <= $stars): ?>
+                                        <span class="star">★</span>
+                                        <?php else: ?>
+                                        <span class="star-empty">★</span>
+                                        <?php endif; ?>
+                                        <?php endfor; ?>
                                     </div>
-                                <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -882,12 +938,12 @@ if (isset($_SESSION['users_id'])) {
                 <div class="header">
                     <div class="personal-info">
                         <?php if (isset($userss['nom'])): ?>
-                            <h1 class="name"><?= strtoupper(explode(' ', $userss['nom'])[0] ?? 'PRÉNOM') ?></h1>
-                            <h1 class="surname"><?= strtoupper(explode(' ', $userss['nom'])[1] ?? 'NOM') ?></h1>
-                            <h3 class="profession"><?= $userss['competences'] ?></h3>
+                        <h1 class="name"><?= strtoupper(explode(' ', $userss['nom'])[0] ?? 'PRÉNOM') ?></h1>
+                        <h1 class="surname"><?= strtoupper(explode(' ', $userss['nom'])[1] ?? 'NOM') ?></h1>
+                        <h3 class="profession"><?= $userss['competences'] ?></h3>
                         <?php else: ?>
-                            <h1 class="name">PRÉNOM</h1>
-                            <h1 class="surname">NOM</h1>
+                        <h1 class="name">PRÉNOM</h1>
+                        <h1 class="surname">NOM</h1>
                         <?php endif; ?>
                     </div>
                     <div class="contact-info">
@@ -895,9 +951,9 @@ if (isset($_SESSION['users_id'])) {
                             <div>
                                 <div class="contact-value">
                                     <?php if (isset($userss['phone'])): ?>
-                                        <?= $userss['phone'] ?>
+                                    <?= $userss['phone'] ?>
                                     <?php else: ?>
-                                        + 00 1234 56789
+                                    + 00 1234 56789
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -909,9 +965,9 @@ if (isset($_SESSION['users_id'])) {
                             <div>
                                 <div class="contact-value">
                                     <?php if (isset($userss['mail'])): ?>
-                                        <?= $userss['mail'] ?>
+                                    <?= $userss['mail'] ?>
                                     <?php else: ?>
-                                        info@example.com
+                                    info@example.com
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -923,9 +979,9 @@ if (isset($_SESSION['users_id'])) {
                             <div>
                                 <div class="contact-value">
                                     <?php if (isset($userss['ville'])): ?>
-                                        <?= $userss['ville'] ?>
+                                    <?= $userss['ville'] ?>
                                     <?php else: ?>
-                                        Address here, City, 1234
+                                    Address here, City, 1234
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -942,23 +998,23 @@ if (isset($_SESSION['users_id'])) {
                         <h2 class="section-title">PROFIL</h2>
                         <p class="profile-text">
                             <?php if (isset($descriptions) && !empty($descriptions['description'])): ?>
-                                <?= $descriptions['description'] ?>
+                            <?= $descriptions['description'] ?>
                             <?php else: ?>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                been
-                                the
-                                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                                of
-                                type
-                                and scrambled it to make a type specimen book.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
+                            the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of
+                            type
+                            and scrambled it to make a type specimen book.
                             <?php endif; ?>
                         </p>
                     </div>
                     <div class="profile-photo">
                         <?php if (isset($userss['images'])): ?>
-                            <img src="../upload/<?= $userss['images'] ?>" alt="Photo de profil">
+                        <img src="../upload/<?= $userss['images'] ?>" alt="Photo de profil">
                         <?php else: ?>
-                            <img src="../image/image-2.webp" alt="Profile Photo">
+                        <img src="../image/image-2.webp" alt="Profile Photo">
                         <?php endif; ?>
                     </div>
                 </div>
@@ -977,9 +1033,9 @@ if (isset($_SESSION['users_id'])) {
                             </div>
                             <div class="timeline">
                                 <?php if (empty($afficheMetier)): ?>
-                                    <p>Aucune expérience professionnelle trouvée</p>
+                                <p>Aucune expérience professionnelle trouvée</p>
                                 <?php else: ?>
-                                    <?php
+                                <?php
                                     // Séparer les expériences en deux groupes
                                     $experiences_mises_en_avant = array_filter($afficheMetier, function ($exp) {
                                         return isset($exp['mis_en_avant']) && $exp['mis_en_avant'] == 1;
@@ -1002,18 +1058,18 @@ if (isset($_SESSION['users_id'])) {
 
                                     foreach ($experiences_a_afficher as $metier):
                                         ?>
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot"></div>
-                                            <span class="timeline-date">
-                                                <?= $metier['moisDebut'] ?>         <?= $metier['anneeDebut'] ?> -
-                                                <?= $metier['moisFin'] ?>         <?= $metier['anneeFin'] ?>
-                                            </span>
-                                            <h3 class="timeline-title"><?= $metier['metier'] ?></h3>
-                                            <p class="timeline-description">
-                                                <?= $metier['description'] ?>
-                                            </p>
-                                        </div>
-                                    <?php endforeach; ?>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <span class="timeline-date">
+                                        <?= $metier['moisDebut'] ?> <?= $metier['anneeDebut'] ?> -
+                                        <?= $metier['moisFin'] ?> <?= $metier['anneeFin'] ?>
+                                    </span>
+                                    <h3 class="timeline-title"><?= $metier['metier'] ?></h3>
+                                    <p class="timeline-description">
+                                        <?= $metier['description'] ?>
+                                    </p>
+                                </div>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -1028,14 +1084,14 @@ if (isset($_SESSION['users_id'])) {
                             </div>
                             <div class="languages">
                                 <?php if (isset($afficheLangue) && !empty($afficheLangue)): ?>
-                                    <?php foreach ($afficheLangue as $langue): ?>
-                                        <div class="language-item">
+                                <?php foreach ($afficheLangue as $langue): ?>
+                                <div class="language-item">
 
-                                            <div class="language-name"><?= $langue['langue'] ?></div>
-                                        </div>
-                                    <?php endforeach; ?>
+                                    <div class="language-name"><?= $langue['langue'] ?></div>
+                                </div>
+                                <?php endforeach; ?>
                                 <?php else: ?>
-                                    <p>Aucune langue pour le moment</p>
+                                <p>Aucune langue pour le moment</p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -1053,9 +1109,9 @@ if (isset($_SESSION['users_id'])) {
                             </div>
                             <div class="timeline">
                                 <?php if (empty($formationUsers)): ?>
-                                    <p>Aucune formation trouvée</p>
+                                <p>Aucune formation trouvée</p>
                                 <?php else: ?>
-                                    <?php
+                                <?php
                                     // Séparer les formations en deux groupes
                                     $formations_mises_en_avant = array_filter($formationUsers, function ($form) {
                                         return isset($form['mis_en_avant']) && $form['mis_en_avant'] == 1;
@@ -1078,18 +1134,18 @@ if (isset($_SESSION['users_id'])) {
 
                                     foreach ($formations_a_afficher as $formation):
                                         ?>
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot"></div>
-                                            <span class="timeline-date">
-                                                <?= $formation['moisDebut'] ?>         <?= $formation['anneeDebut'] ?> -
-                                                <?= $formation['moisFin'] ?>         <?= $formation['anneeFin'] ?>
-                                            </span>
-                                            <h3 class="timeline-title"><?= $formation['Filiere'] ?></h3>
-                                            <p class="timeline-company"><?= $formation['etablissement'] ?>
-                                                <strong><?= $formation['niveau'] ?></strong>
-                                            </p>
-                                        </div>
-                                    <?php endforeach; ?>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <span class="timeline-date">
+                                        <?= $formation['moisDebut'] ?> <?= $formation['anneeDebut'] ?> -
+                                        <?= $formation['moisFin'] ?> <?= $formation['anneeFin'] ?>
+                                    </span>
+                                    <h3 class="timeline-title"><?= $formation['Filiere'] ?></h3>
+                                    <p class="timeline-company"><?= $formation['etablissement'] ?>
+                                        <strong><?= $formation['niveau'] ?></strong>
+                                    </p>
+                                </div>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -1104,9 +1160,9 @@ if (isset($_SESSION['users_id'])) {
                             </div>
                             <div class="skills-content">
                                 <?php if (empty($competencesUtilisateur)): ?>
-                                    <p>Aucune compétence trouvée</p>
+                                <p>Aucune compétence trouvée</p>
                                 <?php else: ?>
-                                    <?php
+                                <?php
                                     // Séparer les compétences en deux groupes
                                     $competences_mises_en_avant = array_filter($competencesUtilisateur, function ($comp) {
                                         return isset($comp['mis_en_avant']) && $comp['mis_en_avant'] == 1;
@@ -1131,21 +1187,21 @@ if (isset($_SESSION['users_id'])) {
                                         $niveau = isset($competence['niveau']) ? intval($competence['niveau']) : 4;
                                         $stars = min(5, max(1, $niveau));
                                         ?>
-                                        <div class="skills-item">
-                                            <div class="skill-name">
-                                                <span><?= strtoupper($competence['competence']) ?></span>
-                                                <div class="stars">
-                                                    <?php for ($i = 1; $i <= 5; $i++): ?>
-                                                        <?php if ($i <= $stars): ?>
-                                                            <span class="star">★</span>
-                                                        <?php else: ?>
-                                                            <span class="star-empty">★</span>
-                                                        <?php endif; ?>
-                                                    <?php endfor; ?>
-                                                </div>
-                                            </div>
+                                <div class="skills-item">
+                                    <div class="skill-name">
+                                        <span><?= strtoupper($competence['competence']) ?></span>
+                                        <div class="stars">
+                                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                            <?php if ($i <= $stars): ?>
+                                            <span class="star">★</span>
+                                            <?php else: ?>
+                                            <span class="star-empty">★</span>
+                                            <?php endif; ?>
+                                            <?php endfor; ?>
                                         </div>
-                                    <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -1161,321 +1217,321 @@ if (isset($_SESSION['users_id'])) {
 
     <!-- Required scripts for PDF generation and themes -->
     <script>
-        // Script pour changer les thèmes et sauvegarder dans localStorage
-        document.addEventListener('DOMContentLoaded', function () {
-            // Sélection des éléments DOM
-            const themeCards = document.querySelectorAll('.theme-card');
-            const colorOptions = document.querySelectorAll('.color-option');
-            const fontCards = document.querySelectorAll('.font-card');
-            const root = document.documentElement;
+    // Script pour changer les thèmes et sauvegarder dans localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélection des éléments DOM
+        const themeCards = document.querySelectorAll('.theme-card');
+        const colorOptions = document.querySelectorAll('.color-option');
+        const fontCards = document.querySelectorAll('.font-card');
+        const root = document.documentElement;
 
-            // Fonction pour appliquer le thème depuis localStorage
-            function applyStoredTheme() {
-                const storedPrimaryColor = localStorage.getItem('cv15_primary_color');
-                const storedSecondaryColor = localStorage.getItem('cv15_secondary_color');
-                const storedDateColor = localStorage.getItem('cv15_date_color');
-                const storedFont = localStorage.getItem('cv15_font');
-                const storedTheme = localStorage.getItem('cv15_theme');
+        // Fonction pour appliquer le thème depuis localStorage
+        function applyStoredTheme() {
+            const storedPrimaryColor = localStorage.getItem('cv15_primary_color');
+            const storedSecondaryColor = localStorage.getItem('cv15_secondary_color');
+            const storedDateColor = localStorage.getItem('cv15_date_color');
+            const storedFont = localStorage.getItem('cv15_font');
+            const storedTheme = localStorage.getItem('cv15_theme');
 
-                // Appliquer les couleurs si elles sont stockées
-                if (storedPrimaryColor) {
-                    root.style.setProperty('--primary-color', storedPrimaryColor);
-                    root.style.setProperty('--accent-color', storedPrimaryColor);
-                }
-
-                if (storedSecondaryColor) {
-                    root.style.setProperty('--secondary-color', storedSecondaryColor);
-                }
-
-                // Appliquer la couleur des dates
-                if (storedDateColor) {
-                    const timelineDates = document.querySelectorAll('.timeline-date');
-                    timelineDates.forEach(date => {
-                        date.style.color = storedDateColor;
-                    });
-
-                    // Mettre à jour l'état actif
-                    colorOptions.forEach(option => {
-                        if (option.getAttribute('data-color') === storedDateColor) {
-                            option.classList.add('active');
-                        } else {
-                            option.classList.remove('active');
-                        }
-                    });
-                }
-
-                // Appliquer la police
-                if (storedFont) {
-                    document.body.style.fontFamily = storedFont;
-
-                    // Mettre à jour l'état actif
-                    fontCards.forEach(card => {
-                        if (card.getAttribute('data-font') === storedFont) {
-                            card.classList.add('active');
-                        } else {
-                            card.classList.remove('active');
-                        }
-                    });
-                }
-
-                // Mettre à jour l'état actif du thème
-                if (storedTheme) {
-                    themeCards.forEach(card => {
-                        if (card.getAttribute('data-theme') === storedTheme) {
-                            card.classList.add('active');
-                        } else {
-                            card.classList.remove('active');
-                        }
-                    });
-                }
+            // Appliquer les couleurs si elles sont stockées
+            if (storedPrimaryColor) {
+                root.style.setProperty('--primary-color', storedPrimaryColor);
+                root.style.setProperty('--accent-color', storedPrimaryColor);
             }
 
-            // Changer le thème lors du clic sur une carte de thème
-            themeCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    // Supprimer la classe active de toutes les cartes
-                    themeCards.forEach(c => c.classList.remove('active'));
-
-                    // Ajouter la classe active à la carte cliquée
-                    this.classList.add('active');
-
-                    // Récupérer les données du thème
-                    const theme = this.getAttribute('data-theme');
-                    const primaryColor = this.getAttribute('data-primary');
-                    const secondaryColor = this.getAttribute('data-secondary');
-
-                    // Appliquer les couleurs du thème
-                    root.style.setProperty('--primary-color', primaryColor);
-                    root.style.setProperty('--accent-color', primaryColor);
-                    root.style.setProperty('--secondary-color', secondaryColor);
-
-                    // Enregistrer dans localStorage
-                    localStorage.setItem('cv15_theme', theme);
-                    localStorage.setItem('cv15_primary_color', primaryColor);
-                    localStorage.setItem('cv15_secondary_color', secondaryColor);
-                });
-            });
-
-            // Changer la couleur des dates
-            colorOptions.forEach(option => {
-                option.addEventListener('click', function () {
-                    // Supprimer la classe active de toutes les options
-                    colorOptions.forEach(o => o.classList.remove('active'));
-
-                    // Ajouter la classe active à l'option cliquée
-                    this.classList.add('active');
-
-                    // Récupérer la couleur
-                    const color = this.getAttribute('data-color');
-
-                    // Appliquer la couleur à toutes les dates
-                    const timelineDates = document.querySelectorAll('.timeline-date');
-                    timelineDates.forEach(date => {
-                        date.style.color = color;
-                    });
-
-                    // Enregistrer dans localStorage
-                    localStorage.setItem('cv15_date_color', color);
-                });
-            });
-
-            // Changer la police
-            fontCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    // Supprimer la classe active de toutes les cartes
-                    fontCards.forEach(c => c.classList.remove('active'));
-
-                    // Ajouter la classe active à la carte cliquée
-                    this.classList.add('active');
-
-                    // Récupérer la police
-                    const font = this.getAttribute('data-font');
-
-                    // Appliquer la police
-                    document.body.style.fontFamily = font;
-
-                    // Enregistrer dans localStorage
-                    localStorage.setItem('cv15_font', font);
-                });
-            });
-
-            // Appliquer les styles stockés au chargement
-            applyStoredTheme();
-
-            // Définir le thème par défaut si aucun n'est stocké
-            if (!localStorage.getItem('cv15_theme')) {
-                // Simuler un clic sur le thème classique
-                const defaultTheme = document.querySelector('.theme-card[data-theme="classique"]');
-                if (defaultTheme) {
-                    defaultTheme.click();
-                }
+            if (storedSecondaryColor) {
+                root.style.setProperty('--secondary-color', storedSecondaryColor);
             }
-        });
-    </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const toggleBtn = document.getElementById('toggle-customization-btn');
-            const customPanel = document.getElementById('customization-panel');
-            const closeBtn = document.getElementById('close-panel-btn');
-
-            if (toggleBtn && customPanel && closeBtn) {
-                // Ouvre le panneau
-                toggleBtn.addEventListener('click', function (event) {
-                    event.stopPropagation();
-                    customPanel.classList.add('active');
+            // Appliquer la couleur des dates
+            if (storedDateColor) {
+                const timelineDates = document.querySelectorAll('.timeline-date');
+                timelineDates.forEach(date => {
+                    date.style.color = storedDateColor;
                 });
 
-                // Ferme le panneau avec la croix
-                closeBtn.addEventListener('click', function () {
-                    customPanel.classList.remove('active');
-                });
-
-                // Ferme le panneau si on clique en dehors
-                document.addEventListener('click', function (event) {
-                    if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !
-                        toggleBtn.contains(event.target)) {
-                        customPanel.classList.remove('active');
+                // Mettre à jour l'état actif
+                colorOptions.forEach(option => {
+                    if (option.getAttribute('data-color') === storedDateColor) {
+                        option.classList.add('active');
+                    } else {
+                        option.classList.remove('active');
                     }
                 });
             }
+
+            // Appliquer la police
+            if (storedFont) {
+                document.body.style.fontFamily = storedFont;
+
+                // Mettre à jour l'état actif
+                fontCards.forEach(card => {
+                    if (card.getAttribute('data-font') === storedFont) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+            }
+
+            // Mettre à jour l'état actif du thème
+            if (storedTheme) {
+                themeCards.forEach(card => {
+                    if (card.getAttribute('data-theme') === storedTheme) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Changer le thème lors du clic sur une carte de thème
+        themeCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Supprimer la classe active de toutes les cartes
+                themeCards.forEach(c => c.classList.remove('active'));
+
+                // Ajouter la classe active à la carte cliquée
+                this.classList.add('active');
+
+                // Récupérer les données du thème
+                const theme = this.getAttribute('data-theme');
+                const primaryColor = this.getAttribute('data-primary');
+                const secondaryColor = this.getAttribute('data-secondary');
+
+                // Appliquer les couleurs du thème
+                root.style.setProperty('--primary-color', primaryColor);
+                root.style.setProperty('--accent-color', primaryColor);
+                root.style.setProperty('--secondary-color', secondaryColor);
+
+                // Enregistrer dans localStorage
+                localStorage.setItem('cv15_theme', theme);
+                localStorage.setItem('cv15_primary_color', primaryColor);
+                localStorage.setItem('cv15_secondary_color', secondaryColor);
+            });
         });
+
+        // Changer la couleur des dates
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Supprimer la classe active de toutes les options
+                colorOptions.forEach(o => o.classList.remove('active'));
+
+                // Ajouter la classe active à l'option cliquée
+                this.classList.add('active');
+
+                // Récupérer la couleur
+                const color = this.getAttribute('data-color');
+
+                // Appliquer la couleur à toutes les dates
+                const timelineDates = document.querySelectorAll('.timeline-date');
+                timelineDates.forEach(date => {
+                    date.style.color = color;
+                });
+
+                // Enregistrer dans localStorage
+                localStorage.setItem('cv15_date_color', color);
+            });
+        });
+
+        // Changer la police
+        fontCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Supprimer la classe active de toutes les cartes
+                fontCards.forEach(c => c.classList.remove('active'));
+
+                // Ajouter la classe active à la carte cliquée
+                this.classList.add('active');
+
+                // Récupérer la police
+                const font = this.getAttribute('data-font');
+
+                // Appliquer la police
+                document.body.style.fontFamily = font;
+
+                // Enregistrer dans localStorage
+                localStorage.setItem('cv15_font', font);
+            });
+        });
+
+        // Appliquer les styles stockés au chargement
+        applyStoredTheme();
+
+        // Définir le thème par défaut si aucun n'est stocké
+        if (!localStorage.getItem('cv15_theme')) {
+            // Simuler un clic sur le thème classique
+            const defaultTheme = document.querySelector('.theme-card[data-theme="classique"]');
+            if (defaultTheme) {
+                defaultTheme.click();
+            }
+        }
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('toggle-customization-btn');
+        const customPanel = document.getElementById('customization-panel');
+        const closeBtn = document.getElementById('close-panel-btn');
+
+        if (toggleBtn && customPanel && closeBtn) {
+            // Ouvre le panneau
+            toggleBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                customPanel.classList.add('active');
+            });
+
+            // Ferme le panneau avec la croix
+            closeBtn.addEventListener('click', function() {
+                customPanel.classList.remove('active');
+            });
+
+            // Ferme le panneau si on clique en dehors
+            document.addEventListener('click', function(event) {
+                if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !
+                    toggleBtn.contains(event.target)) {
+                    customPanel.classList.remove('active');
+                }
+            });
+        }
+    });
     </script>
 
     <style>
-        /* Styles pour les options de personnalisation */
-        .theme-selector {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 30px;
-            max-width: 800px;
-        }
+    /* Styles pour les options de personnalisation */
+    .theme-selector {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+        max-width: 800px;
+    }
 
-        .theme-selector h3 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+    .theme-selector h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
 
-        .theme-selector h4 {
-            font-size: 16px;
-            color: #555;
-            margin: 20px 0 10px;
-            font-weight: 500;
-        }
+    .theme-selector h4 {
+        font-size: 16px;
+        color: #555;
+        margin: 20px 0 10px;
+        font-weight: 500;
+    }
 
-        .themes-container {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
+    .themes-container {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+    }
 
-        .theme-card {
-            width: 80px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
+    .theme-card {
+        width: 80px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
 
-        .theme-card.active {
-            box-shadow: 0 0 0 2px #3498db;
-        }
+    .theme-card.active {
+        box-shadow: 0 0 0 2px #3498db;
+    }
 
-        .theme-preview {
-            height: 40px;
-            overflow: hidden;
-        }
+    .theme-preview {
+        height: 40px;
+        overflow: hidden;
+    }
 
-        .theme-card span {
-            display: block;
-            text-align: center;
-            padding: 5px 0;
-            font-size: 12px;
-            background-color: #f9f9f9;
-        }
+    .theme-card span {
+        display: block;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 12px;
+        background-color: #f9f9f9;
+    }
 
-        .color-date-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+    .color-date-selector {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
 
-        .color-option {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.2s ease;
-        }
+    .color-option {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+    }
 
-        .color-option.active {
-            border-color: #3498db;
-        }
+    .color-option.active {
+        border-color: #3498db;
+    }
 
-        .font-selector {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+    .font-selector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 
-        .font-card {
-            padding: 8px 15px;
-            border-radius: 4px;
-            background-color: #f5f5f5;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+    .font-card {
+        padding: 8px 15px;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
-        .font-card.active {
-            background-color: #3498db;
-            color: white;
-        }
+    .font-card.active {
+        background-color: #3498db;
+        color: white;
+    }
 
-        /* Style pour le bouton de téléchargement */
-        .button12 {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
+    /* Style pour le bouton de téléchargement */
+    .button12 {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
 
-        .button12:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
+    .button12:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
 
-        /* Style pour le bouton de réinitialisation */
-        .button-reset {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 20px;
-            margin-left: 10px;
-            font-size: 14px;
-        }
+    /* Style pour le bouton de réinitialisation */
+    .button-reset {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        font-size: 14px;
+    }
 
-        .button-reset:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
+    .button-reset:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
     </style>
 
 

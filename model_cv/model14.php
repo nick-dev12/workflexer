@@ -396,13 +396,11 @@ if (isset($_SESSION['users_id'])) {
                         <?php endif; ?>
                     </h2>
                     <p class="about-text">
-                        <?php if (isset($descriptions)): ?>
-                            <?= $descriptions['description'] ?>
-                        <?php else: ?>
-                            Designer graphique créative avec plus de 6 ans d'expérience dans la
-                            conception visuelle et la direction artistique. Spécialisée dans
-                            l'identité de marque, la typographie et l'illustration numérique.
-                        <?php endif; ?>
+                        <?php if (empty($descriptions)): ?>
+                        <p>Aucune description trouvée</p>
+                    <?php else: ?>
+                        <p><?= $descriptions['description'] ?></p>
+                    <?php endif; ?>
                     </p>
                 </div>
             </div>
@@ -660,13 +658,12 @@ if (isset($_SESSION['users_id'])) {
                             <?php endif; ?>
                         </h2>
                         <p class="about-text">
-                            <?php if (isset($descriptions)): ?>
-                                <?= $descriptions['description'] ?>
-                            <?php else: ?>
-                                Designer graphique créative avec plus de 6 ans d'expérience dans la
-                                conception visuelle et la direction artistique. Spécialisée dans
-                                l'identité de marque, la typographie et l'illustration numérique.
-                            <?php endif; ?>
+                            <?php if (empty($descriptions)): ?>
+                            <p>Aucune description trouvée</p>
+                        <?php else: ?>
+                            <p><?= $descriptions['description'] ?></p>
+
+                        <?php endif; ?>
                         </p>
                     </div>
                 </div>
@@ -917,7 +914,9 @@ if (isset($_SESSION['users_id'])) {
 
                 // Précharger les polices puis générer le PDF
                 preloadFonts().then(() => {
-                    const { jsPDF } = window.jspdf;
+                    const {
+                        jsPDF
+                    } = window.jspdf;
                     const element = document.querySelector("#container-for-pdf");
 
                     // Optimisations légères pour une meilleure qualité
@@ -955,7 +954,8 @@ if (isset($_SESSION['users_id'])) {
                                 pdf.save("cv-model14-" + Date.now() + ".pdf");
                             })
                             .catch(function (error) {
-                                console.error('Une erreur est survenue lors de la génération du PDF:', error);
+                                console.error('Une erreur est survenue lors de la génération du PDF:',
+                                    error);
                                 // Supprimer le message d'attente en cas d'erreur
                                 if (document.body.contains(loadingMessage)) {
                                     document.body.removeChild(loadingMessage);
@@ -1093,8 +1093,10 @@ if (isset($_SESSION['users_id'])) {
                     document.documentElement.style.setProperty('--accent-color', theme.accentColor);
                     document.documentElement.style.setProperty('--dark-text', theme.darkText);
                     document.documentElement.style.setProperty('--light-text', theme.lightText);
-                    document.documentElement.style.setProperty('--gradient-1', `linear-gradient(135deg, ${theme.primaryColor} 0%, ${theme.accentColor} 100%)`);
-                    document.documentElement.style.setProperty('--gradient-2', `linear-gradient(135deg, ${theme.secondaryColor} 0%, ${theme.accentColor} 100%)`);
+                    document.documentElement.style.setProperty('--gradient-1',
+                        `linear-gradient(135deg, ${theme.primaryColor} 0%, ${theme.accentColor} 100%)`);
+                    document.documentElement.style.setProperty('--gradient-2',
+                        `linear-gradient(135deg, ${theme.secondaryColor} 0%, ${theme.accentColor} 100%)`);
 
                     // Sauvegarder dans localStorage
                     localStorage.setItem(`${storagePrefix}theme`, themeName);
@@ -1267,7 +1269,8 @@ if (isset($_SESSION['users_id'])) {
 
                     // Ferme le panneau si on clique en dehors
                     document.addEventListener('click', function (event) {
-                        if (customPanel.classList.contains('active') && !customPanel.contains(event.target) && !toggleBtn.contains(event.target)) {
+                        if (customPanel.classList.contains('active') && !customPanel.contains(event
+                            .target) && !toggleBtn.contains(event.target)) {
                             customPanel.classList.remove('active');
                         }
                     });
